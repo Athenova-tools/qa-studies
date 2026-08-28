@@ -389,10 +389,10 @@ const ExamStats = (function () {
       var delBtn = createEl('button', ['btn', 'btn--danger', 'btn--sm'], { text: 'Delete' });
       delBtn.addEventListener('click', (function (id) {
         return function () {
-          window.showConfirmModal('Delete this attempt? This cannot be undone.', function () {
+          if (confirm('Delete this attempt? This cannot be undone.')) {
             deleteAttempt(id);
             renderStatsDashboard();
-          });
+          }
         };
       })(a.id));
       actionTd.appendChild(delBtn);
@@ -454,10 +454,10 @@ const ExamStats = (function () {
     var clearGroup = createEl('div', null, { style: 'text-align:center;padding:var(--space-md) 0;' });
     var clearBtn = createEl('button', ['btn', 'btn--danger', 'btn--sm'], { text: 'Clear All History' });
     clearBtn.addEventListener('click', function () {
-      window.showConfirmModal('Are you sure you want to clear all exam history? This cannot be undone.', function () {
+      if (confirm('Are you sure you want to clear all exam history? This cannot be undone.')) {
         clearHistory();
         renderStatsDashboard();
-      });
+      }
     });
     clearGroup.appendChild(clearBtn);
     container.appendChild(clearGroup);
