@@ -666,7 +666,7 @@ input, textarea, select {
   padding: var(--space-xl);
   max-width: 100%;
   overflow-x: hidden;
-  margin-right: var(--sidebar-width);
+  margin-right: 0;
 }
 
 @media (max-width: 768px) {
@@ -723,7 +723,19 @@ input, textarea, select {
 
 .exam-sidebar__close:hover {
   background-color: var(--color-bg-alt);
-  color: var(--color-text);
+}
+
+/* ----- Top navigator (replaces sidebar) ----- */
+.exam-nav-top {
+  margin-bottom: var(--space-sm);
+}
+.exam-nav-top .question-nav {
+  max-width: 560px;
+  margin: 0 auto var(--space-xs);
+}
+.exam-nav-top .sidebar-legend {
+  justify-content: center;
+  margin-bottom: var(--space-md);
 }
 
 /* ----- Question Navigator Grid ----- */

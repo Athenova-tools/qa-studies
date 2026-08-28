@@ -121,25 +121,15 @@ const ExamEngine = (function () {
     var layout = createEl('div', 'exam-layout');
     var main = createEl('main', 'exam-main');
     var inner = createEl('div', 'exam-main__inner');
-    var sidebar = createEl('aside', ['exam-sidebar', 'animate-slide-in-right']);
-
-    /* --- Sidebar --- */
-    var sbHeader = createEl('div', 'exam-sidebar__header');
-    var sbTitle = createEl('span', 'exam-sidebar__title', { text: tr('qNav') });
-    var sbClose = createEl('button', ['exam-sidebar__close', 'btn'], { text: '\u2715' });
-    sbClose.setAttribute('aria-label', tr('closeAria'));
-    sbClose.addEventListener('click', toggleSidebar);
-    sbHeader.appendChild(sbTitle);
-    sbHeader.appendChild(sbClose);
-
+    /* --- Top navigator (Question Navigator grid) --- */
     var navGrid = createEl('div', 'question-nav');
     navGrid.id = 'question-nav';
 
     var legend = buildLegend();
 
-    sidebar.appendChild(sbHeader);
-    sidebar.appendChild(navGrid);
-    sidebar.appendChild(legend);
+    var navWrap = createEl('div', 'exam-nav-top');
+    navWrap.appendChild(navGrid);
+    navWrap.appendChild(legend);
 
     /* --- Timer display (stable, outside question container) --- */
     var timerRow = createEl('div', 'question__timer-row');
@@ -201,34 +191,12 @@ const ExamEngine = (function () {
     notesArea.appendChild(notesInput);
     inner.appendChild(notesArea);
 
+    inner.appendChild(navWrap);
     main.appendChild(inner);
     layout.appendChild(main);
-    layout.appendChild(sidebar);
     appEl.appendChild(layout);
 
-    /* --- Overlay for mobile sidebar --- */
-    var overlay = createEl('div', 'overlay');
-    overlay.id = 'sidebar-overlay';
-    overlay.addEventListener('click', toggleSidebar);
-    appEl.appendChild(overlay);
-
-    /* --- Sidebar toggle button (mobile) --- */
-    var toggleBtn = createEl('button', ['btn', 'sidebar-toggle'], { text: '☰' });
-    toggleBtn.setAttribute('aria-label', tr('sidebarAria'));
-    toggleBtn.addEventListener('click', toggleSidebar);
-    toggleBtn.style.position = 'fixed';
-    toggleBtn.style.bottom = 'var(--space-lg)';
-    toggleBtn.style.right = 'var(--space-lg)';
-    toggleBtn.style.zIndex = '50';
-    toggleBtn.style.boxShadow = 'var(--shadow-lg)';
-    toggleBtn.style.backgroundColor = 'var(--color-primary)';
-    toggleBtn.style.color = 'var(--color-text-inverse)';
-    toggleBtn.style.borderRadius = 'var(--radius-full)';
-    toggleBtn.style.width = '48px';
-    toggleBtn.style.height = '48px';
-    toggleBtn.style.fontSize = '1.25rem';
-    toggleBtn.id = 'sidebar-toggle-btn';
-    appEl.appendChild(toggleBtn);
+    /* Sidebar overlay/toggle removed: navigator is an inline top grid */
 
     /* Store refs */
     window.currentExam = state.questions;
