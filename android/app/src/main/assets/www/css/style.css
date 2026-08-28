@@ -2193,7 +2193,7 @@ input, textarea, select {
   }
 
   .question-nav {
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(10, 1fr);
   }
 }
 
@@ -2277,7 +2277,7 @@ input, textarea, select {
   }
 
   .question-nav {
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(10, 1fr);
   }
 
   .question {
@@ -2367,7 +2367,7 @@ input, textarea, select {
   }
 
   .question-nav {
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(10, 1fr);
   }
 
   .results__card {
