@@ -576,31 +576,30 @@ const ExamEngine = (function () {
     var prevTime = state.timePerQuestion[state.index] || 0;
     var currentSession = state.questionStart > 0 ? Math.max(0, state.questionStart - state.remaining) : 0;
     var totalSpent = prevTime + currentSession;
-    var onPace = false;
-    var behindTime = '';
+    var paceText = '';
+    var paceClass = '';
     if (!state.submitted && totalSpent > 0) {
       var answered = getAnsweredCount();
       if (answered > 0) {
         var actualTimeUsed = state.examTime - state.remaining;
         var expectedTimeUsed = answered * suggestedPerQ;
         if (actualTimeUsed <= expectedTimeUsed * 1.15) {
-          onPace = true;
+          paceText = '\u2713 On pace';
+          paceClass = 'timer-pace--ok';
         } else {
           var remainingPerQ = answered < TOTAL_Q ? state.remaining / (TOTAL_Q - answered) : 0;
-          behindTime = formatTime(Math.round(remainingPerQ));
+          paceText = '\u26A0 Behind - ' + formatTime(Math.round(remainingPerQ)) + '/q left';
+          paceClass = 'timer-pace--behind';
         }
       }
     }
     timeInfoEl.textContent = '';
     var row = createEl('div', 'question__time-info--row');
     row.appendChild(createEl('span', 'question__time-info--main', { text: 'Suggested: ' + formatTime(suggestedPerQ) + ' | Spent: ' + formatTime(totalSpent) }));
-    if (onPace) {
-      row.appendChild(createEl('span', ['timer-pace', 'timer-pace--ok'], { text: '\u2713 On pace' }));
+    if (paceText) {
+      row.appendChild(createEl('span', ['timer-pace', paceClass], { text: paceText }));
     }
     timeInfoEl.appendChild(row);
-    if (behindTime) {
-      timeInfoEl.appendChild(createEl('div', ['timer-pace', 'timer-pace--behind'], { text: '\u26A0 Behind - ' + behindTime + '/q left' }));
-    }
     timeInfoEl.style.color = '';
     if (totalSpent > suggestedPerQ) {
       timeInfoEl.style.color = 'var(--color-danger)';
