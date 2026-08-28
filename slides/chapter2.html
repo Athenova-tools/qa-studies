@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 2 — Study Slides | ISTQB CTFL v4.0.1</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .flashcard__klevel { display: inline-block; padding: 0.2rem 0.6rem; background: var(--color-accent); color: var(--color-text-inverse); font-size: 0.75rem; font-weight: 600; border-radius: var(--radius-sm); letter-spacing: 0.03em; }
+        .flashcard__subtitle { font-size: 0.9375rem; color: var(--color-text-secondary); margin-bottom: var(--space-lg); }
+        .flashcard__section { margin-bottom: var(--space-lg); }
+        .flashcard__section-title { font-size: 1rem; font-weight: 700; color: var(--color-text); margin-bottom: var(--space-sm); padding-bottom: var(--space-xs); border-bottom: 2px solid var(--color-primary-light); }
+        .flashcard__section ul { padding-left: var(--space-lg); list-style: disc; }
+        .flashcard__section li { margin-bottom: var(--space-xs); font-size: 0.9rem; line-height: 1.6; }
+        .flashcard__keyterms { display: flex; flex-wrap: wrap; gap: var(--space-xs); }
+        .flashcard__keyterm { display: inline-block; padding: 0.25rem 0.625rem; background: var(--color-bg-alt); border: 1px solid var(--color-border); border-radius: var(--radius-full); font-size: 0.8rem; color: var(--color-text-secondary); cursor: pointer; position: relative; transition: all var(--transition-fast); }
+        .flashcard__keyterm:hover { background: var(--color-primary-light); border-color: var(--color-primary); color: var(--color-primary); }
+        .flashcard__keyterm.is-active { background: var(--color-primary); border-color: var(--color-primary); color: var(--color-text-inverse); }
+        .flashcard__keyterm-def { display: none; margin-top: 2px; padding: 0.5rem 0.75rem; background: var(--color-bg-alt); border-left: 3px solid var(--color-primary); border-radius: var(--radius-sm); font-size: 0.85rem; line-height: 1.5; color: var(--color-text); width: 100%; box-sizing: border-box; }
+        .flashcard__keyterm-def.is-visible { display: block; }
+        .flashcard__linked { display: flex; flex-wrap: wrap; gap: var(--space-sm); margin-top: var(--space-md); padding-top: var(--space-md); border-top: 1px solid var(--color-border-light); }
+        .flashcard__linked-item { font-size: 0.8rem; background: var(--color-bg-alt); padding: 0.2rem 0.5rem; border-radius: var(--radius-sm); color: var(--color-text-secondary); }
+        .flashcard__linked-item strong { color: var(--color-primary); }
+        
+        .chapter-nav { display: flex; justify-content: center; gap: var(--space-md); padding: var(--space-lg) 0; flex-wrap: wrap; }
+        .chapter-nav a { padding: 0.5rem 1rem; border-radius: var(--radius-md); font-size: 0.875rem; font-weight: 600; transition: all var(--transition-fast); }
+        .chapter-nav a.active { background: var(--color-primary); color: var(--color-text-inverse); }
+        .chapter-nav a:not(.active) { background: var(--color-bg-alt); color: var(--color-text-secondary); }
+        .chapter-nav a:not(.active):hover { background: var(--color-primary-light); color: var(--color-primary); }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header__inner">
+            <a href="../index.html" class="header__logo">
+                <div class="header__logo-icon">i</div>
+                <span class="header__logo-text">
+                    ISTQB CTFL v4.0.1
+                    <span class="header__logo-sub">Exam Simulator</span>
+                </span>
+            </a>
+            <div class="header__actions">
+                <button id="themeToggle" class="theme-toggle" aria-label="Toggle dark mode" title="Toggle theme">&#9790;</button>
+            </div>
+        </div>
+    </header>
+
+    <div style="padding-top: var(--header-height);">
+        <div class="container container--narrow slides-container" id="app">
+            <div class="chapter-nav">
+                <a href="chapter1.html" class="">Ch 1</a>
+                <a href="chapter2.html" class=" active">Ch 2</a>
+                <a href="chapter3.html" class="">Ch 3</a>
+                <a href="chapter4.html" class="">Ch 4</a>
+                <a href="chapter5.html" class="">Ch 5</a>
+                <a href="chapter6.html" class="">Ch 6</a>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="footer__inner">
+            <div class="footer__links">
+                <a href="../index.html">Home</a>
+                <a href="chapter1.html">Ch 1</a>
+                <a href="chapter2.html">Ch 2</a>
+                <a href="chapter3.html">Ch 3</a>
+                <a href="chapter4.html">Ch 4</a>
+                <a href="chapter5.html">Ch 5</a>
+                <a href="chapter6.html">Ch 6</a>
+            </div>
+            <p>ISTQB&reg; CTFL v4.0.1 &mdash; Exam Simulator &mdash; Study Slides</p>
+        </div>
+    </footer>
+
+<script>
+(function() {
+var slidesData = { chapter2: {
+        title: "Testing Throughout the SDLC",
+        weight: "12.5%",
+        questions: 5,
+        sections: [
+            {
+                id: "2.1",
+                title: "Testing in the Context of a Development Lifecycle",
+                kLevel: "K1, K2",
+                concepts: [
+                    "Testing activities must be integrated into every development lifecycle model, from waterfall to agile.",
+                    "In sequential models (waterfall, V-model), testing phases follow development phases sequentially.",
+                    "In iterative models (agile, Scrum), testing is continuous and integrated throughout each iteration/sprint.",
+                    "The V-model shows the relationship between development phases and corresponding test levels (verification on left, validation on right).",
+                    "In any lifecycle, early test planning and analysis reduce the cost of defects found later.",
+                    "Test levels correspond to development activities at different levels of abstraction (component, integration, system, acceptance).",
+                    "Shift-left testing: Performing testing activities earlier in the lifecycle to find defects sooner.",
+                    "Shift-right testing: Performing testing activities in production-like environments post-deployment.",
+                    "Good testing requires adaptation to the chosen development lifecycle, not a one-size-fits-all approach."
+                ],
+                keyTerms: [
+                    "V-Model: A development model where each development phase has a corresponding test phase",
+                    "Sequential Lifecycle: A development approach where phases are completed one after another",
+                    "Iterative Lifecycle: A development approach where development and testing occur in repeated cycles",
+                    "Shift-Left: Testing earlier in the lifecycle to reduce cost and time of defect removal",
+                    "Shift-Right: Testing in production or production-like environments after deployment",
+                    "Verification: Are we building the product right?",
+                    "Validation: Are we building the right product?"
+                ],
+                examTips: [
+                    "The V-model is a common exam topic: understand the pairing of development and test phases.",
+                    "Common trap: 'Testing only starts after coding' — FALSE. Testing activities (planning, analysis) start from day one.",
+                    "Shift-left is about early testing; shift-right is about production monitoring.",
+                    "K1: Recognize different lifecycle models. K2: Explain how testing differs across models."
+                ],
+                memoryAid: "V-Model: Left side = verification (reviews, static), Right side = validation (dynamic testing). V = 'Validation on Right'.",
+                linkedTo: [
+                    { id: "1.4", reason: "Test activities apply across all lifecycles" },
+                    { id: "2.2", reason: "Test levels are defined within the lifecycle context" },
+                    { id: "1.3", reason: "Principle of early testing relates to shift-left" }
+                ]
+            },
+            {
+                id: "2.2",
+                title: "Test Levels and Test Types",
+                kLevel: "K1, K2",
+                concepts: [
+                    "Test levels are groups of testing activities organized according to the level of the development process: component, integration, system, and acceptance.",
+                    "Component testing (unit testing) tests individual components in isolation, often by developers, using stubs and drivers.",
+                    "Integration testing tests interactions between components or systems, focusing on interfaces and communication.",
+                    "System testing tests the complete integrated system against its specified requirements (functional and non-functional).",
+                    "Acceptance testing validates that the system meets business needs and user requirements; types include user acceptance, operational acceptance, contractual, and regulatory acceptance.",
+                    "Test types are groups of testing activities aimed at testing specific quality characteristics: functional, non-functional (performance, usability, reliability, security), structural (code coverage), and change-related (confirmation, regression).",
+                    "Functional testing evaluates what the system does (functions, features, data processing).",
+                    "Non-functional testing evaluates how the system performs (performance, usability, reliability, security, compatibility).",
+                    "White-box (structural) testing evaluates the internal structure of components (statement coverage, branch coverage).",
+                    "Change-related testing: Confirmation testing (re-testing a fixed defect) and regression testing (testing for unintended side effects).",
+                    "Test levels and test types can be combined: e.g., functional system testing, non-functional component testing."
+                ],
+                keyTerms: [
+                    "Component Testing: Testing individual hardware or software components (unit testing)",
+                    "Integration Testing: Testing the interfaces and interactions between integrated components",
+                    "System Testing: Testing the complete integrated system against its requirements",
+                    "Acceptance Testing: Testing to determine whether the system satisfies acceptance criteria",
+                    "Functional Testing: Testing functions performed by the system",
+                    "Non-Functional Testing: Testing quality characteristics like performance, usability, security",
+                    "White-Box Testing: Testing based on analysis of internal structure and code",
+                    "Confirmation Testing: Re-testing to confirm a defect fix works (formerly regression testing of a specific fix)",
+                    "Regression Testing: Testing to detect unintended side effects in unchanged parts of the system",
+                    "Stub: A skeletal implementation of a called component used during integration testing",
+                    "Driver: A test harness that simulates a calling component"
+                ],
+                examTips: [
+                    "Distinguish test levels (component, integration, system, acceptance) from test types (functional, non-functional, structural, change-related).",
+                    "Common trap: 'Unit testing is only for developers' — TRUE. But testers may be involved in higher integration levels.",
+                    "Acceptance testing types include User Acceptance Test (UAT), Operational Acceptance Test (OAT), and Regulatory Acceptance.",
+                    "Confirmation testing = re-testing a specific fix; Regression testing = checking unchanged parts still work.",
+                    "K1: List all test levels and types. K2: Explain differences between levels and types."
+                ],
+                memoryAid: "4 Levels: C-I-S-A (Component, Integration, System, Acceptance) -> 'Cats In Secret Attics'. 4 Types: F-N-S-C (Functional, Non-functional, Structural, Change-related) -> 'Fun New Stuff Counts'.",
+                linkedTo: [
+                    { id: "2.1", reason: "Test levels map to development phases in lifecycle" },
+                    { id: "3.1", reason: "Static testing complements dynamic testing at all levels" },
+                    { id: "4.2", reason: "Test techniques are applied across different levels" }
+                ]
+            },
+            {
+                id: "2.3",
+                title: "Maintenance Testing",
+                kLevel: "K1, K2",
+                concepts: [
+                    "Maintenance testing is performed on a deployed system after changes (modifications, enhancements, patches, or migration).",
+                    "Reasons for maintenance: corrective (fixing defects), adaptive (environment changes), perfective (new features), and preventive (proactive improvement).",
+                    "Maintenance testing includes testing changes and testing the impact of changes on unchanged parts (regression testing).",
+                    "Impact analysis determines the scope of maintenance testing by identifying which parts of the system may be affected.",
+                    "Maintenance testing should consider: size/type of change, existing testware reuse, and the risk of changes to existing functionality.",
+                    "Specific challenges in maintenance testing: incomplete regression test suites, outdated documentation, and tight schedules.",
+                    "Data migration testing validates that data is correctly migrated between systems or versions.",
+                    "Retirement testing (decommissioning) ensures data is properly archived or destroyed when a system is retired."
+                ],
+                keyTerms: [
+                    "Maintenance Testing: Testing after changes to an operational system",
+                    "Impact Analysis: Evaluation of the potential consequences of a change to identify affected areas",
+                    "Corrective Maintenance: Fixing defects found after deployment",
+                    "Adaptive Maintenance: Adapting the system to changes in the environment",
+                    "Perfective Maintenance: Adding new features or improving performance",
+                    "Preventive Maintenance: Proactive changes to prevent future defects",
+                    "Regression Testing: Testing to verify that unchanged parts still work after changes",
+                    "Data Migration: Moving data from one system or format to another",
+                    "Retirement Testing: Testing related to decommissioning a system"
+                ],
+                examTips: [
+                    "Maintenance testing is NOT just regression testing — it also includes testing the changes themselves.",
+                    "Common trap: 'Maintenance testing only happens after major releases' — FALSE. Maintenance happens for any post-deployment change.",
+                    "Impact analysis is key to determining the scope of maintenance testing.",
+                    "K1: Define maintenance testing. K2: Explain the factors that influence maintenance testing scope."
+                ],
+                memoryAid: "4 Maintenance Types: C-A-P-P (Corrective, Adaptive, Perfective, Preventive) -> 'Cats Always Purr Perfectly'.",
+                linkedTo: [
+                    { id: "2.2", reason: "Regression testing is a change-related test type" },
+                    { id: "5.5", reason: "Risk analysis drives impact analysis for maintenance" },
+                    { id: "1.4", reason: "Test completion archives testware for future maintenance" }
+                ]
+            }
+        ]
+    } };
+var data = slidesData.chapter2;
+var app = document.getElementById('app');
+
+var h = '<div class="slides-header">';
+h += '<div class="slides-header__title">' + data.title + '</div>';
+h += '<div class="slides-header__counter">Exam Weight: ' + data.weight + ' | ' + data.questions + ' questions</div>';
+h += '</div>';
+
+data.sections.forEach(function(sec, idx) {
+    h += '<div class="flashcard animate-fade-in" style="animation-delay:' + (idx * 100) + 'ms">';
+    h += '<div class="flashcard__header">';
+    h += '<span class="flashcard__chapter">Section ' + sec.id + '</span>';
+    h += '<span class="flashcard__slide-num">' + (idx + 1) + ' of ' + data.sections.length + '</span>';
+    h += '</div>';
+    h += '<div class="flashcard__body">';
+    h += '<div class="flashcard__title">' + sec.title + ' <span class="flashcard__klevel">' + sec.kLevel + '</span></div>';
+    h += '<div class="flashcard__subtitle">K-Level: ' + sec.kLevel + '</div>';
+
+    h += '<div class="flashcard__section"><div class="flashcard__section-title">Core Concepts</div><ul>';
+    sec.concepts.forEach(function(c) { h += '<li>' + c + '</li>'; });
+    h += '</ul></div>';
+
+    h += '<div class="flashcard__section"><div class="flashcard__section-title">Key Terms</div><div class="flashcard__keyterms">';
+    sec.keyTerms.forEach(function(kt) {
+        var parts = kt.split(':');
+        var def = parts.slice(1).join(':').trim();
+        h += '<span class="flashcard__keyterm" data-definition="' + def.replace(/"/g, '&quot;') + '">' + (parts[0] || kt) + '</span>';
+    });
+    h += '</div></div>';
+
+    h += '<div class="flashcard__section"><div class="flashcard__section-title">Exam Tips</div><ul>';
+    sec.examTips.forEach(function(t) { h += '<li>' + t + '</li>'; });
+    h += '</ul></div>';
+
+    h += '<div class="flashcard__section"><div class="flashcard__section-title">Memory Aid</div><div class="info-box">' + sec.memoryAid + '</div></div>';
+
+    if (sec.linkedTo && sec.linkedTo.length) {
+        h += '<div class="flashcard__section"><div class="flashcard__section-title">Related Sections</div><div class="flashcard__linked">';
+        sec.linkedTo.forEach(function(link) {
+            h += '<span class="flashcard__linked-item"><strong>' + link.id + '</strong>: ' + link.reason + '</span>';
+        });
+        h += '</div></div>';
+    }
+
+    h += '</div></div>';
+});
+
+app.innerHTML = h;
+
+document.addEventListener('click', function(e) {
+    var el = e.target.closest('.flashcard__keyterm');
+    if (!el) return;
+    var next = el.nextElementSibling;
+    if (next && next.classList.contains('flashcard__keyterm-def')) {
+        next.classList.toggle('is-visible');
+        el.classList.toggle('is-active');
+    } else {
+        var div = document.createElement('div');
+        div.className = 'flashcard__keyterm-def is-visible';
+        var def = el.getAttribute('data-definition') || '';
+        div.textContent = def;
+        el.parentNode.insertBefore(div, el.nextSibling);
+        el.classList.add('is-active');
+    }
+});
+})();
+
+document.getElementById('themeToggle').addEventListener('click', function () {
+    var html = document.documentElement;
+    var current = html.getAttribute('data-theme') || 'light';
+    var next = current === 'light' ? 'dark' : 'light';
+    html.setAttribute('data-theme', next);
+    this.innerHTML = next === 'light' ? '&#9790;' : '&#9728;';
+    try { localStorage.setItem('istqb-theme', next); } catch (e) {}
+});
+(function () {
+    try {
+        var saved = localStorage.getItem('istqb-theme');
+        if (saved) {
+            document.documentElement.setAttribute('data-theme', saved);
+            document.getElementById('themeToggle').innerHTML = saved === 'light' ? '&#9790;' : '&#9728;';
+        }
+    } catch (e) {}
+})();
+</script>
+</body>
+</html>

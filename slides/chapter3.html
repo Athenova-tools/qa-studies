@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 3 — Study Slides | ISTQB CTFL v4.0.1</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .flashcard__klevel { display: inline-block; padding: 0.2rem 0.6rem; background: var(--color-accent); color: var(--color-text-inverse); font-size: 0.75rem; font-weight: 600; border-radius: var(--radius-sm); letter-spacing: 0.03em; }
+        .flashcard__subtitle { font-size: 0.9375rem; color: var(--color-text-secondary); margin-bottom: var(--space-lg); }
+        .flashcard__section { margin-bottom: var(--space-lg); }
+        .flashcard__section-title { font-size: 1rem; font-weight: 700; color: var(--color-text); margin-bottom: var(--space-sm); padding-bottom: var(--space-xs); border-bottom: 2px solid var(--color-primary-light); }
+        .flashcard__section ul { padding-left: var(--space-lg); list-style: disc; }
+        .flashcard__section li { margin-bottom: var(--space-xs); font-size: 0.9rem; line-height: 1.6; }
+        .flashcard__keyterms { display: flex; flex-wrap: wrap; gap: var(--space-xs); }
+        .flashcard__keyterm { display: inline-block; padding: 0.25rem 0.625rem; background: var(--color-bg-alt); border: 1px solid var(--color-border); border-radius: var(--radius-full); font-size: 0.8rem; color: var(--color-text-secondary); cursor: pointer; position: relative; transition: all var(--transition-fast); }
+        .flashcard__keyterm:hover { background: var(--color-primary-light); border-color: var(--color-primary); color: var(--color-primary); }
+        .flashcard__keyterm.is-active { background: var(--color-primary); border-color: var(--color-primary); color: var(--color-text-inverse); }
+        .flashcard__keyterm-def { display: none; margin-top: 2px; padding: 0.5rem 0.75rem; background: var(--color-bg-alt); border-left: 3px solid var(--color-primary); border-radius: var(--radius-sm); font-size: 0.85rem; line-height: 1.5; color: var(--color-text); width: 100%; box-sizing: border-box; }
+        .flashcard__keyterm-def.is-visible { display: block; }
+        .flashcard__linked { display: flex; flex-wrap: wrap; gap: var(--space-sm); margin-top: var(--space-md); padding-top: var(--space-md); border-top: 1px solid var(--color-border-light); }
+        .flashcard__linked-item { font-size: 0.8rem; background: var(--color-bg-alt); padding: 0.2rem 0.5rem; border-radius: var(--radius-sm); color: var(--color-text-secondary); }
+        .flashcard__linked-item strong { color: var(--color-primary); }
+        
+        .chapter-nav { display: flex; justify-content: center; gap: var(--space-md); padding: var(--space-lg) 0; flex-wrap: wrap; }
+        .chapter-nav a { padding: 0.5rem 1rem; border-radius: var(--radius-md); font-size: 0.875rem; font-weight: 600; transition: all var(--transition-fast); }
+        .chapter-nav a.active { background: var(--color-primary); color: var(--color-text-inverse); }
+        .chapter-nav a:not(.active) { background: var(--color-bg-alt); color: var(--color-text-secondary); }
+        .chapter-nav a:not(.active):hover { background: var(--color-primary-light); color: var(--color-primary); }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header__inner">
+            <a href="../index.html" class="header__logo">
+                <div class="header__logo-icon">i</div>
+                <span class="header__logo-text">
+                    ISTQB CTFL v4.0.1
+                    <span class="header__logo-sub">Exam Simulator</span>
+                </span>
+            </a>
+            <div class="header__actions">
+                <button id="themeToggle" class="theme-toggle" aria-label="Toggle dark mode" title="Toggle theme">&#9790;</button>
+            </div>
+        </div>
+    </header>
+
+    <div style="padding-top: var(--header-height);">
+        <div class="container container--narrow slides-container" id="app">
+            <div class="chapter-nav">
+                <a href="chapter1.html" class="">Ch 1</a>
+                <a href="chapter2.html" class="">Ch 2</a>
+                <a href="chapter3.html" class=" active">Ch 3</a>
+                <a href="chapter4.html" class="">Ch 4</a>
+                <a href="chapter5.html" class="">Ch 5</a>
+                <a href="chapter6.html" class="">Ch 6</a>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="footer__inner">
+            <div class="footer__links">
+                <a href="../index.html">Home</a>
+                <a href="chapter1.html">Ch 1</a>
+                <a href="chapter2.html">Ch 2</a>
+                <a href="chapter3.html">Ch 3</a>
+                <a href="chapter4.html">Ch 4</a>
+                <a href="chapter5.html">Ch 5</a>
+                <a href="chapter6.html">Ch 6</a>
+            </div>
+            <p>ISTQB&reg; CTFL v4.0.1 &mdash; Exam Simulator &mdash; Study Slides</p>
+        </div>
+    </footer>
+
+<script>
+(function() {
+var slidesData = { chapter3: {
+        title: "Static Testing",
+        weight: "10%",
+        questions: 4,
+        sections: [
+            {
+                id: "3.1",
+                title: "Static Testing Basics",
+                kLevel: "K1, K2",
+                concepts: [
+                    "Static testing involves examining work products without executing code (reviews, static analysis, tool-based checking).",
+                    "Static testing finds defects in work products such as requirements, design specifications, user stories, code, test cases, and user manuals.",
+                    "Static testing can detect defects earlier and more cost-effectively than dynamic testing.",
+                    "Benefits of static testing: early defect detection, reduced development costs, improved communication, and identification of ambiguities in requirements.",
+                    "Static analysis tools automatically examine code or documentation for potential defects without executing the program.",
+                    "Static analysis can find: coding standard violations, syntax errors, security vulnerabilities, interface inconsistencies, and dead code.",
+                    "Data flow analysis and control flow analysis are common static analysis techniques for code.",
+                    "Static testing complements dynamic testing — both are necessary for comprehensive quality assurance.",
+                    "Defects found by static testing: requirements contradictions, gaps, ambiguities, design flaws, coding errors, and test case deficiencies."
+                ],
+                keyTerms: [
+                    "Static Testing: Testing without executing the code (reviews and static analysis)",
+                    "Dynamic Testing: Testing that involves execution of the test object",
+                    "Static Analysis: Tool-based analysis of code or documentation without execution",
+                    "Review: A static test technique where work products are examined by people",
+                    "Data Flow Analysis: Static analysis that tracks variable definitions and usage",
+                    "Control Flow Analysis: Static analysis that examines program structure for unreachable code or infinite loops",
+                    "Dead Code: Code that is never executed during any operation of the system"
+                ],
+                examTips: [
+                    "Distinguish static testing (no execution) from dynamic testing (execution required).",
+                    "Common trap: 'Static testing is only for code' — FALSE. It applies to any work product (requirements, docs, test cases).",
+                    "Static analysis is TOOL-BASED; reviews are PEOPLE-BASED. Both are forms of static testing.",
+                    "K1: Define static testing and list its benefits. K2: Compare static vs dynamic testing."
+                ],
+                memoryAid: "Static = 'Stop and Think' (no execution). Dynamic = 'Do and Move' (execution). Static finds defects EARLY, dynamic finds failures LATE.",
+                linkedTo: [
+                    { id: "3.2", reason: "Reviews are the primary manual static technique" },
+                    { id: "1.3", reason: "Early testing principle supports static testing benefits" },
+                    { id: "4.3", reason: "Static analysis complements white-box testing" }
+                ]
+            },
+            {
+                id: "3.2",
+                title: "Feedback and Review Process",
+                kLevel: "K1, K2",
+                concepts: [
+                    "A review is a structured evaluation of a work product by qualified personnel to identify defects, suggest improvements, and assess quality.",
+                    "Types of reviews range from informal to formal: Informal review, Walkthrough, Technical review, and Inspection.",
+                    "Informal review: No formal process, paired review or desk-check, minimal documentation, useful for early feedback.",
+                    "Walkthrough: Author leads participants through the work product, gathering feedback and building consensus.",
+                    "Technical review: Peer group of technical experts examines the work product for defects and conformance to specifications.",
+                    "Inspection: The most formal review type, with defined roles (moderator, author, reviewers, scribe), entry/exit criteria, and metrics collection.",
+                    "Six essential phases of a formal review: Planning, Kick-off, Preparation, Review meeting, Rework, and Follow-up.",
+                    "Review roles: Moderator (leads the review), Author (creates the work product), Reviewer (identifies defects), Scribe (records defects), and Manager (decision-making).",
+                    "Reviews provide feedback to improve both the work product and the development process (root cause analysis).",
+                    "Effective reviews require a culture of constructive feedback, trust, and focus on the work product, not the author.",
+                    "Success factors for reviews: clear objectives, appropriate participant selection, adequate preparation time, and trained reviewers."
+                ],
+                keyTerms: [
+                    "Review: A static test technique evaluating work products manually",
+                    "Informal Review: An unstructured review with no formal process",
+                    "Walkthrough: A review led by the author presenting the work product",
+                    "Technical Review: A peer group review focusing on technical correctness",
+                    "Inspection: The most formal review type with defined roles and metrics",
+                    "Moderator: The person who leads the review process and ensures effective discussion",
+                    "Author: The creator of the work product under review",
+                    "Reviewer: A person who examines the work product and identifies defects",
+                    "Scribe: The person who records defects and decisions during the review meeting",
+                    "Entry Criteria: Conditions that must be met before starting a review phase",
+                    "Exit Criteria: Conditions that must be met to complete a review phase"
+                ],
+                examTips: [
+                    "Memorize the four review types in order of formality: Informal -> Walkthrough -> Technical Review -> Inspection.",
+                    "Common trap: 'The author should also be the moderator' — FALSE. The moderator should be independent.",
+                    "Inspection has the highest formality and the best defect detection rate.",
+                    "The 6 phases of formal review are frequently tested: Planning, Kick-off, Preparation, Review meeting, Rework, Follow-up.",
+                    "K1: Name review types and phases. K2: Explain the differences between review types."
+                ],
+                memoryAid: "4 Review Formality Levels: I-W-T-I (Informal, Walkthrough, Technical review, Inspection). 6 Phases: P-K-P-R-R-F (Plan, Kickoff, Prepare, Review meeting, Rework, Follow-up).",
+                linkedTo: [
+                    { id: "3.1", reason: "Reviews are a key static testing technique" },
+                    { id: "1.4", reason: "Reviews are part of test analysis and design activities" },
+                    { id: "1.5", reason: "Review skills require critical thinking and communication" }
+                ]
+            }
+        ]
+    } };
+var data = slidesData.chapter3;
+var app = document.getElementById('app');
+
+var h = '<div class="slides-header">';
+h += '<div class="slides-header__title">' + data.title + '</div>';
+h += '<div class="slides-header__counter">Exam Weight: ' + data.weight + ' | ' + data.questions + ' questions</div>';
+h += '</div>';
+
+data.sections.forEach(function(sec, idx) {
+    h += '<div class="flashcard animate-fade-in" style="animation-delay:' + (idx * 100) + 'ms">';
+    h += '<div class="flashcard__header">';
+    h += '<span class="flashcard__chapter">Section ' + sec.id + '</span>';
+    h += '<span class="flashcard__slide-num">' + (idx + 1) + ' of ' + data.sections.length + '</span>';
+    h += '</div>';
+    h += '<div class="flashcard__body">';
+    h += '<div class="flashcard__title">' + sec.title + ' <span class="flashcard__klevel">' + sec.kLevel + '</span></div>';
+    h += '<div class="flashcard__subtitle">K-Level: ' + sec.kLevel + '</div>';
+
+    h += '<div class="flashcard__section"><div class="flashcard__section-title">Core Concepts</div><ul>';
+    sec.concepts.forEach(function(c) { h += '<li>' + c + '</li>'; });
+    h += '</ul></div>';
+
+    h += '<div class="flashcard__section"><div class="flashcard__section-title">Key Terms</div><div class="flashcard__keyterms">';
+    sec.keyTerms.forEach(function(kt) {
+        var parts = kt.split(':');
+        var def = parts.slice(1).join(':').trim();
+        h += '<span class="flashcard__keyterm" data-definition="' + def.replace(/"/g, '&quot;') + '">' + (parts[0] || kt) + '</span>';
+    });
+    h += '</div></div>';
+
+    h += '<div class="flashcard__section"><div class="flashcard__section-title">Exam Tips</div><ul>';
+    sec.examTips.forEach(function(t) { h += '<li>' + t + '</li>'; });
+    h += '</ul></div>';
+
+    h += '<div class="flashcard__section"><div class="flashcard__section-title">Memory Aid</div><div class="info-box">' + sec.memoryAid + '</div></div>';
+
+    if (sec.linkedTo && sec.linkedTo.length) {
+        h += '<div class="flashcard__section"><div class="flashcard__section-title">Related Sections</div><div class="flashcard__linked">';
+        sec.linkedTo.forEach(function(link) {
+            h += '<span class="flashcard__linked-item"><strong>' + link.id + '</strong>: ' + link.reason + '</span>';
+        });
+        h += '</div></div>';
+    }
+
+    h += '</div></div>';
+});
+
+app.innerHTML = h;
+
+document.addEventListener('click', function(e) {
+    var el = e.target.closest('.flashcard__keyterm');
+    if (!el) return;
+    var next = el.nextElementSibling;
+    if (next && next.classList.contains('flashcard__keyterm-def')) {
+        next.classList.toggle('is-visible');
+        el.classList.toggle('is-active');
+    } else {
+        var div = document.createElement('div');
+        div.className = 'flashcard__keyterm-def is-visible';
+        var def = el.getAttribute('data-definition') || '';
+        div.textContent = def;
+        el.parentNode.insertBefore(div, el.nextSibling);
+        el.classList.add('is-active');
+    }
+});
+})();
+
+document.getElementById('themeToggle').addEventListener('click', function () {
+    var html = document.documentElement;
+    var current = html.getAttribute('data-theme') || 'light';
+    var next = current === 'light' ? 'dark' : 'light';
+    html.setAttribute('data-theme', next);
+    this.innerHTML = next === 'light' ? '&#9790;' : '&#9728;';
+    try { localStorage.setItem('istqb-theme', next); } catch (e) {}
+});
+(function () {
+    try {
+        var saved = localStorage.getItem('istqb-theme');
+        if (saved) {
+            document.documentElement.setAttribute('data-theme', saved);
+            document.getElementById('themeToggle').innerHTML = saved === 'light' ? '&#9790;' : '&#9728;';
+        }
+    } catch (e) {}
+})();
+</script>
+</body>
+</html>

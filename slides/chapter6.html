@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 6 — Study Slides | ISTQB CTFL v4.0.1</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .flashcard__klevel { display: inline-block; padding: 0.2rem 0.6rem; background: var(--color-accent); color: var(--color-text-inverse); font-size: 0.75rem; font-weight: 600; border-radius: var(--radius-sm); letter-spacing: 0.03em; }
+        .flashcard__subtitle { font-size: 0.9375rem; color: var(--color-text-secondary); margin-bottom: var(--space-lg); }
+        .flashcard__section { margin-bottom: var(--space-lg); }
+        .flashcard__section-title { font-size: 1rem; font-weight: 700; color: var(--color-text); margin-bottom: var(--space-sm); padding-bottom: var(--space-xs); border-bottom: 2px solid var(--color-primary-light); }
+        .flashcard__section ul { padding-left: var(--space-lg); list-style: disc; }
+        .flashcard__section li { margin-bottom: var(--space-xs); font-size: 0.9rem; line-height: 1.6; }
+        .flashcard__keyterms { display: flex; flex-wrap: wrap; gap: var(--space-xs); }
+        .flashcard__keyterm { display: inline-block; padding: 0.25rem 0.625rem; background: var(--color-bg-alt); border: 1px solid var(--color-border); border-radius: var(--radius-full); font-size: 0.8rem; color: var(--color-text-secondary); cursor: pointer; position: relative; transition: all var(--transition-fast); }
+        .flashcard__keyterm:hover { background: var(--color-primary-light); border-color: var(--color-primary); color: var(--color-primary); }
+        .flashcard__keyterm.is-active { background: var(--color-primary); border-color: var(--color-primary); color: var(--color-text-inverse); }
+        .flashcard__keyterm-def { display: none; margin-top: 2px; padding: 0.5rem 0.75rem; background: var(--color-bg-alt); border-left: 3px solid var(--color-primary); border-radius: var(--radius-sm); font-size: 0.85rem; line-height: 1.5; color: var(--color-text); width: 100%; box-sizing: border-box; }
+        .flashcard__keyterm-def.is-visible { display: block; }
+        .flashcard__linked { display: flex; flex-wrap: wrap; gap: var(--space-sm); margin-top: var(--space-md); padding-top: var(--space-md); border-top: 1px solid var(--color-border-light); }
+        .flashcard__linked-item { font-size: 0.8rem; background: var(--color-bg-alt); padding: 0.2rem 0.5rem; border-radius: var(--radius-sm); color: var(--color-text-secondary); }
+        .flashcard__linked-item strong { color: var(--color-primary); }
+        
+        .chapter-nav { display: flex; justify-content: center; gap: var(--space-md); padding: var(--space-lg) 0; flex-wrap: wrap; }
+        .chapter-nav a { padding: 0.5rem 1rem; border-radius: var(--radius-md); font-size: 0.875rem; font-weight: 600; transition: all var(--transition-fast); }
+        .chapter-nav a.active { background: var(--color-primary); color: var(--color-text-inverse); }
+        .chapter-nav a:not(.active) { background: var(--color-bg-alt); color: var(--color-text-secondary); }
+        .chapter-nav a:not(.active):hover { background: var(--color-primary-light); color: var(--color-primary); }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header__inner">
+            <a href="../index.html" class="header__logo">
+                <div class="header__logo-icon">i</div>
+                <span class="header__logo-text">
+                    ISTQB CTFL v4.0.1
+                    <span class="header__logo-sub">Exam Simulator</span>
+                </span>
+            </a>
+            <div class="header__actions">
+                <button id="themeToggle" class="theme-toggle" aria-label="Toggle dark mode" title="Toggle theme">&#9790;</button>
+            </div>
+        </div>
+    </header>
+
+    <div style="padding-top: var(--header-height);">
+        <div class="container container--narrow slides-container" id="app">
+            <div class="chapter-nav">
+                <a href="chapter1.html" class="">Ch 1</a>
+                <a href="chapter2.html" class="">Ch 2</a>
+                <a href="chapter3.html" class="">Ch 3</a>
+                <a href="chapter4.html" class="">Ch 4</a>
+                <a href="chapter5.html" class="">Ch 5</a>
+                <a href="chapter6.html" class=" active">Ch 6</a>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="footer__inner">
+            <div class="footer__links">
+                <a href="../index.html">Home</a>
+                <a href="chapter1.html">Ch 1</a>
+                <a href="chapter2.html">Ch 2</a>
+                <a href="chapter3.html">Ch 3</a>
+                <a href="chapter4.html">Ch 4</a>
+                <a href="chapter5.html">Ch 5</a>
+                <a href="chapter6.html">Ch 6</a>
+            </div>
+            <p>ISTQB&reg; CTFL v4.0.1 &mdash; Exam Simulator &mdash; Study Slides</p>
+        </div>
+    </footer>
+
+<script>
+(function() {
+var slidesData = { chapter6: {
+        title: "Test Tools",
+        weight: "7.5%",
+        questions: 3,
+        sections: [
+            {
+                id: "6.1",
+                title: "Tool Support for Testing",
+                kLevel: "K1, K2",
+                concepts: [
+                    "Test tools support various test activities: test management, test design, test execution, test data, and defect tracking.",
+                    "Tool classification by test activity: Test management tools (planning, monitoring, reporting), Test design tools (creating test cases), Test execution tools (automated test scripts), and Defect tracking tools.",
+                    "Test management tools: Manage test plans, test cases, test execution schedules, and generate test reports.",
+                    "Test design tools: Generate test cases from specifications or models (e.g., model-based testing tools).",
+                    "Test data preparation tools: Generate, anonymize, or load test data for testing.",
+                    "Test execution tools: Execute test scripts automatically and compare actual vs expected results.",
+                    "Automated test execution tools (test automation frameworks) support regression testing at scale.",
+                    "Performance testing tools: Generate load, measure response times, and identify performance bottlenecks.",
+                    "Static analysis tools: Analyze code without execution to find defects, security vulnerabilities, and coding standard violations.",
+                    "Dynamic analysis tools: Analyze code during execution to detect memory leaks, pointer errors, and runtime issues.",
+                    "Test tools need to be evaluated before selection: consider organizational needs, technical compatibility, cost, and support.",
+                    "Proof-of-concept (POC) or pilot projects help evaluate whether a tool fits the organization's context."
+                ],
+                keyTerms: [
+                    "Test Management Tool: A tool supporting test planning, execution tracking, and reporting",
+                    "Test Execution Tool: A tool that automates test script execution and result comparison",
+                    "Performance Testing Tool: A tool for generating load and measuring system performance",
+                    "Static Analysis Tool: A tool that examines code without execution to find potential defects",
+                    "Dynamic Analysis Tool: A tool that examines code during execution to find runtime defects",
+                    "Model-Based Testing Tool: A tool that generates test cases from system models",
+                    "Proof-of-Concept (POC): A preliminary evaluation to determine tool feasibility",
+                    "Pilot Project: A small-scale implementation to gain experience before full deployment"
+                ],
+                examTips: [
+                    "Know which tool type supports which test activity (e.g., performance tools for load testing, management tools for planning).",
+                    "Common trap: 'Tools replace testers' — FALSE. Tools support and enhance testing but do not replace human judgment.",
+                    "Static analysis tools find defects WITHOUT executing code; dynamic analysis tools find defects DURING execution.",
+                    "K1: Recognize tool categories. K2: Explain tool benefits and selection considerations."
+                ],
+                memoryAid: "Tool Categories by Activity: 'M-D-E-P' (Management, Design, Execution, Performance). Or think 'My Dog Eats Pizza'.",
+                linkedTo: [
+                    { id: "6.2", reason: "Benefits and risks of test automation are critical considerations" },
+                    { id: "3.1", reason: "Static analysis tools support static testing" },
+                    { id: "5.6", reason: "Defect tracking tools support defect management" }
+                ]
+            },
+            {
+                id: "6.2",
+                title: "Benefits and Risks of Test Automation",
+                kLevel: "K1, K2",
+                concepts: [
+                    "Test automation benefits: reduces repetitive manual effort, enables more frequent regression testing, accelerates test execution, and increases test coverage.",
+                    "Automation provides consistent and repeatable test execution, eliminating human error in test execution.",
+                    "Automation supports CI/CD pipelines by enabling rapid feedback on code changes.",
+                    "Risks of test automation: high initial investment (tools, training, framework), ongoing maintenance costs, and false expectations.",
+                    "Automated tests can give a false sense of security — they only test what is programmed, not all scenarios.",
+                    "Not all tests should be automated: tests that are run once, tests requiring human judgment, and tests with unstable objects are poor automation candidates.",
+                    "Test automation requires skilled resources to develop, maintain, and evolve the automation framework.",
+                    "Automation of regression tests provides the highest return on investment (ROI) over time.",
+                    "Data-driven automation separates test data from test scripts, allowing more test cases with less code.",
+                    "Keyword-driven automation uses action words to define test steps, making tests more readable for non-technical stakeholders.",
+                    "Maintenance of automated tests is a significant ongoing cost — changing applications require test script updates."
+                ],
+                keyTerms: [
+                    "Test Automation: The use of software tools to control test execution and compare results",
+                    "Test Automation Framework: A set of guidelines, tools, and practices for automated testing",
+                    "Data-Driven Testing: An automation approach where test data is stored separately from test scripts",
+                    "Keyword-Driven Testing: An automation approach using action keywords to define test steps",
+                    "Return on Investment (ROI): The benefit gained from automation relative to its cost",
+                    "Continuous Integration (CI): A practice where code changes are automatically tested and integrated frequently",
+                    "Automation Mantra: The principle that automation should be applied to tests with the best ROI (often regression)"
+                ],
+                examTips: [
+                    "Memorize benefits AND risks of automation — questions often ask for both.",
+                    "Common trap: 'Automation eliminates the need for manual testing' — FALSE. Many tests (exploratory, usability) require human judgment.",
+                    "Automation ROI is highest for REGRESSION tests run repeatedly on stable systems.",
+                    "K1: List benefits and risks. K2: Explain when automation is appropriate."
+                ],
+                memoryAid: "Automation = 'R-C-R' (Repeatable, Consistent, Rapid). Risks = 'C-M-F' (Cost, Maintenance, False expectations). Remember: Automation is a tool, not a replacement.",
+                linkedTo: [
+                    { id: "6.1", reason: "Tool support includes automation tools" },
+                    { id: "2.2", reason: "Regression testing benefits most from automation" },
+                    { id: "5.2", reason: "Test planning should consider automation strategy" }
+                ]
+            }
+        ]
+    } };
+var data = slidesData.chapter6;
+var app = document.getElementById('app');
+
+var h = '<div class="slides-header">';
+h += '<div class="slides-header__title">' + data.title + '</div>';
+h += '<div class="slides-header__counter">Exam Weight: ' + data.weight + ' | ' + data.questions + ' questions</div>';
+h += '</div>';
+
+data.sections.forEach(function(sec, idx) {
+    h += '<div class="flashcard animate-fade-in" style="animation-delay:' + (idx * 100) + 'ms">';
+    h += '<div class="flashcard__header">';
+    h += '<span class="flashcard__chapter">Section ' + sec.id + '</span>';
+    h += '<span class="flashcard__slide-num">' + (idx + 1) + ' of ' + data.sections.length + '</span>';
+    h += '</div>';
+    h += '<div class="flashcard__body">';
+    h += '<div class="flashcard__title">' + sec.title + ' <span class="flashcard__klevel">' + sec.kLevel + '</span></div>';
+    h += '<div class="flashcard__subtitle">K-Level: ' + sec.kLevel + '</div>';
+
+    h += '<div class="flashcard__section"><div class="flashcard__section-title">Core Concepts</div><ul>';
+    sec.concepts.forEach(function(c) { h += '<li>' + c + '</li>'; });
+    h += '</ul></div>';
+
+    h += '<div class="flashcard__section"><div class="flashcard__section-title">Key Terms</div><div class="flashcard__keyterms">';
+    sec.keyTerms.forEach(function(kt) {
+        var parts = kt.split(':');
+        var def = parts.slice(1).join(':').trim();
+        h += '<span class="flashcard__keyterm" data-definition="' + def.replace(/"/g, '&quot;') + '">' + (parts[0] || kt) + '</span>';
+    });
+    h += '</div></div>';
+
+    h += '<div class="flashcard__section"><div class="flashcard__section-title">Exam Tips</div><ul>';
+    sec.examTips.forEach(function(t) { h += '<li>' + t + '</li>'; });
+    h += '</ul></div>';
+
+    h += '<div class="flashcard__section"><div class="flashcard__section-title">Memory Aid</div><div class="info-box">' + sec.memoryAid + '</div></div>';
+
+    if (sec.linkedTo && sec.linkedTo.length) {
+        h += '<div class="flashcard__section"><div class="flashcard__section-title">Related Sections</div><div class="flashcard__linked">';
+        sec.linkedTo.forEach(function(link) {
+            h += '<span class="flashcard__linked-item"><strong>' + link.id + '</strong>: ' + link.reason + '</span>';
+        });
+        h += '</div></div>';
+    }
+
+    h += '</div></div>';
+});
+
+app.innerHTML = h;
+
+document.addEventListener('click', function(e) {
+    var el = e.target.closest('.flashcard__keyterm');
+    if (!el) return;
+    var next = el.nextElementSibling;
+    if (next && next.classList.contains('flashcard__keyterm-def')) {
+        next.classList.toggle('is-visible');
+        el.classList.toggle('is-active');
+    } else {
+        var div = document.createElement('div');
+        div.className = 'flashcard__keyterm-def is-visible';
+        var def = el.getAttribute('data-definition') || '';
+        div.textContent = def;
+        el.parentNode.insertBefore(div, el.nextSibling);
+        el.classList.add('is-active');
+    }
+});
+})();
+
+document.getElementById('themeToggle').addEventListener('click', function () {
+    var html = document.documentElement;
+    var current = html.getAttribute('data-theme') || 'light';
+    var next = current === 'light' ? 'dark' : 'light';
+    html.setAttribute('data-theme', next);
+    this.innerHTML = next === 'light' ? '&#9790;' : '&#9728;';
+    try { localStorage.setItem('istqb-theme', next); } catch (e) {}
+});
+(function () {
+    try {
+        var saved = localStorage.getItem('istqb-theme');
+        if (saved) {
+            document.documentElement.setAttribute('data-theme', saved);
+            document.getElementById('themeToggle').innerHTML = saved === 'light' ? '&#9790;' : '&#9728;';
+        }
+    } catch (e) {}
+})();
+</script>
+</body>
+</html>

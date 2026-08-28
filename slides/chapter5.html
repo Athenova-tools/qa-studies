@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 5 — Study Slides | ISTQB CTFL v4.0.1</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .flashcard__klevel { display: inline-block; padding: 0.2rem 0.6rem; background: var(--color-accent); color: var(--color-text-inverse); font-size: 0.75rem; font-weight: 600; border-radius: var(--radius-sm); letter-spacing: 0.03em; }
+        .flashcard__subtitle { font-size: 0.9375rem; color: var(--color-text-secondary); margin-bottom: var(--space-lg); }
+        .flashcard__section { margin-bottom: var(--space-lg); }
+        .flashcard__section-title { font-size: 1rem; font-weight: 700; color: var(--color-text); margin-bottom: var(--space-sm); padding-bottom: var(--space-xs); border-bottom: 2px solid var(--color-primary-light); }
+        .flashcard__section ul { padding-left: var(--space-lg); list-style: disc; }
+        .flashcard__section li { margin-bottom: var(--space-xs); font-size: 0.9rem; line-height: 1.6; }
+        .flashcard__keyterms { display: flex; flex-wrap: wrap; gap: var(--space-xs); }
+        .flashcard__keyterm { display: inline-block; padding: 0.25rem 0.625rem; background: var(--color-bg-alt); border: 1px solid var(--color-border); border-radius: var(--radius-full); font-size: 0.8rem; color: var(--color-text-secondary); cursor: pointer; position: relative; transition: all var(--transition-fast); }
+        .flashcard__keyterm:hover { background: var(--color-primary-light); border-color: var(--color-primary); color: var(--color-primary); }
+        .flashcard__keyterm.is-active { background: var(--color-primary); border-color: var(--color-primary); color: var(--color-text-inverse); }
+        .flashcard__keyterm-def { display: none; margin-top: 2px; padding: 0.5rem 0.75rem; background: var(--color-bg-alt); border-left: 3px solid var(--color-primary); border-radius: var(--radius-sm); font-size: 0.85rem; line-height: 1.5; color: var(--color-text); width: 100%; box-sizing: border-box; }
+        .flashcard__keyterm-def.is-visible { display: block; }
+        .flashcard__linked { display: flex; flex-wrap: wrap; gap: var(--space-sm); margin-top: var(--space-md); padding-top: var(--space-md); border-top: 1px solid var(--color-border-light); }
+        .flashcard__linked-item { font-size: 0.8rem; background: var(--color-bg-alt); padding: 0.2rem 0.5rem; border-radius: var(--radius-sm); color: var(--color-text-secondary); }
+        .flashcard__linked-item strong { color: var(--color-primary); }
+        
+        .chapter-nav { display: flex; justify-content: center; gap: var(--space-md); padding: var(--space-lg) 0; flex-wrap: wrap; }
+        .chapter-nav a { padding: 0.5rem 1rem; border-radius: var(--radius-md); font-size: 0.875rem; font-weight: 600; transition: all var(--transition-fast); }
+        .chapter-nav a.active { background: var(--color-primary); color: var(--color-text-inverse); }
+        .chapter-nav a:not(.active) { background: var(--color-bg-alt); color: var(--color-text-secondary); }
+        .chapter-nav a:not(.active):hover { background: var(--color-primary-light); color: var(--color-primary); }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header__inner">
+            <a href="../index.html" class="header__logo">
+                <div class="header__logo-icon">i</div>
+                <span class="header__logo-text">
+                    ISTQB CTFL v4.0.1
+                    <span class="header__logo-sub">Exam Simulator</span>
+                </span>
+            </a>
+            <div class="header__actions">
+                <button id="themeToggle" class="theme-toggle" aria-label="Toggle dark mode" title="Toggle theme">&#9790;</button>
+            </div>
+        </div>
+    </header>
+
+    <div style="padding-top: var(--header-height);">
+        <div class="container container--narrow slides-container" id="app">
+            <div class="chapter-nav">
+                <a href="chapter1.html" class="">Ch 1</a>
+                <a href="chapter2.html" class="">Ch 2</a>
+                <a href="chapter3.html" class="">Ch 3</a>
+                <a href="chapter4.html" class="">Ch 4</a>
+                <a href="chapter5.html" class=" active">Ch 5</a>
+                <a href="chapter6.html" class="">Ch 6</a>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="footer__inner">
+            <div class="footer__links">
+                <a href="../index.html">Home</a>
+                <a href="chapter1.html">Ch 1</a>
+                <a href="chapter2.html">Ch 2</a>
+                <a href="chapter3.html">Ch 3</a>
+                <a href="chapter4.html">Ch 4</a>
+                <a href="chapter5.html">Ch 5</a>
+                <a href="chapter6.html">Ch 6</a>
+            </div>
+            <p>ISTQB&reg; CTFL v4.0.1 &mdash; Exam Simulator &mdash; Study Slides</p>
+        </div>
+    </footer>
+
+<script>
+(function() {
+var slidesData = { chapter5: {
+        title: "Managing the Test Activities",
+        weight: "22.5%",
+        questions: 9,
+        sections: [
+            {
+                id: "5.1",
+                title: "Test Organization",
+                kLevel: "K1, K2",
+                concepts: [
+                    "Test organization defines the structure, roles, and responsibilities for testing within an organization or project.",
+                    "Test independence levels range from no independence (developer tests own code) to external independent test team.",
+                    "Levels of independence: 0 (author tests own work) -> 1 (peer testing within team) -> 2 (independent test team within organization) -> 3 (external test organization).",
+                    "Higher independence typically finds more defects but requires more coordination and may reduce communication efficiency.",
+                    "Testing tasks should be assigned to appropriately skilled and trained individuals.",
+                    "Testers should be involved early in the project (requirements review, design review) to prevent defects.",
+                    "The test manager is responsible for test planning, test monitoring, test strategy, and reporting to stakeholders.",
+                    "The tester is responsible for test analysis, test design, test execution, and defect reporting.",
+                    "In agile teams, testing is a shared responsibility among all team members, often with a dedicated tester role.",
+                    "A test strategy defines the test approach, test levels, and the overall testing objectives for the organization."
+                ],
+                keyTerms: [
+                    "Test Organization: The structure and roles for managing and performing testing",
+                    "Test Independence: The degree of separation between the test team and development team",
+                    "Test Manager: The person responsible for overall test planning, monitoring, and control",
+                    "Tester: The person who performs test analysis, design, execution, and reporting",
+                    "Test Strategy: A high-level document defining the test approach, levels, and objectives",
+                    "Test Policy: An organization-level document describing the principles and approach to testing"
+                ],
+                examTips: [
+                    "Understand the 4 levels of test independence and the advantages/disadvantages of each.",
+                    "Common trap: 'Maximum independence always produces the best results' — FALSE. There is a trade-off with communication and cost.",
+                    "K1: Define roles. K2: Explain the benefits of different independence levels."
+                ],
+                memoryAid: "4 Independence Levels: 0-Self, 1-Peer, 2-Internal team, 3-External. 'SPIE' (Self, Peer, Internal, External).",
+                linkedTo: [
+                    { id: "1.5", reason: "Independence in testing is a key good practice" },
+                    { id: "5.2", reason: "Test organization feeds into test planning" },
+                    { id: "2.1", reason: "Independence varies by lifecycle model" }
+                ]
+            },
+            {
+                id: "5.2",
+                title: "Test Planning and Estimation",
+                kLevel: "K1, K2, K3",
+                concepts: [
+                    "Test planning is the activity of defining the test objectives, approach, resources, and schedule.",
+                    "A test plan documents the test scope, test strategy, resource requirements, schedule, and risk mitigation.",
+                    "Test planning is an ongoing activity, not a one-time event — plans are updated as more information becomes available.",
+                    "Key elements of a test plan: test objectives, scope (in/out), test items, features to be tested, approach, pass/fail criteria, deliverables, resources, schedule, and risks.",
+                    "Test estimation predicts the effort, duration, and resources needed for testing activities.",
+                    "Estimation techniques: Estimation based on work breakdown structure, experience-based estimation, and metrics-based estimation.",
+                    "Estimation based on work breakdown structure: Decompose testing into activities and estimate each activity's effort.",
+                    "Experience-based estimation: Using historical data and expert judgment (Delphi technique, Wideband Delphi).",
+                    "Metrics-based estimation: Using productivity metrics (tests per person-day, defects per test hour) from past projects.",
+                    "Factors affecting test estimation: product complexity, quality requirements, tester skills, test environment availability, and tools used.",
+                    "Test plans should be reviewed and approved by relevant stakeholders."
+                ],
+                keyTerms: [
+                    "Test Plan: A document covering test scope, approach, resources, and schedule",
+                    "Test Estimation: The process of predicting the effort, duration, and resources for testing",
+                    "Work Breakdown Structure (WBS): A hierarchical decomposition of testing work into manageable activities",
+                    "Wideband Delphi: A consensus-based estimation technique using expert panels",
+                    "Test Scope: The features and quality characteristics to be tested (and not tested)",
+                    "Pass/Fail Criteria: Decision rules for determining whether a test item has passed or failed testing"
+                ],
+                examTips: [
+                    "A test plan is NOT just a schedule — it includes scope, approach, resources, risks, and deliverables.",
+                    "Common trap: 'Test planning is a one-time activity at the start' — FALSE. Test plans are living documents updated throughout the project.",
+                    "K1: Define test planning and estimation. K2: Explain estimation techniques. K3: Apply estimation to given scenarios."
+                ],
+                memoryAid: "Test Plan Essentials: S-A-R-R-P (Scope, Approach, Resources, Risks, Pass criteria). Estimation techniques: W-E-M (WBS-based, Experience-based, Metrics-based).",
+                linkedTo: [
+                    { id: "5.1", reason: "Test organization structure affects resource planning" },
+                    { id: "5.3", reason: "Test monitoring tracks progress against the plan" },
+                    { id: "5.5", reason: "Risk analysis informs test planning priorities" }
+                ]
+            },
+            {
+                id: "5.3",
+                title: "Test Monitoring and Control",
+                kLevel: "K1, K2",
+                concepts: [
+                    "Test monitoring involves tracking testing progress against the test plan, collecting metrics, and checking if test activities are on schedule.",
+                    "Test control involves taking corrective actions based on monitoring data to meet testing objectives.",
+                    "Key metrics for test monitoring: percentage of test cases executed, passed, failed, blocked; defect density; requirement coverage; and test completion percentage.",
+                    "Test reporting communicates testing progress, results, and quality assessments to stakeholders.",
+                    "Test reports include: test progress reports (periodic updates during testing) and test completion reports (end of testing).",
+                    "The test completion report summarizes the test results, provides quality assessments, and documents lessons learned.",
+                    "Deviation from the test plan may require control actions: re-prioritizing tests, allocating more resources, adjusting schedules, or changing test approach.",
+                    "Monitoring and control are continuous activities throughout the test process.",
+                    "Effective test monitoring enables early detection of issues and data-driven decision-making."
+                ],
+                keyTerms: [
+                    "Test Monitoring: The ongoing checking of test progress against the plan",
+                    "Test Control: Corrective actions taken based on monitoring to achieve test objectives",
+                    "Test Metrics: Quantitative measures used to track testing progress and quality",
+                    "Test Progress Report: A periodic report on testing status, metrics, and issues",
+                    "Test Completion Report: A final report summarizing test results and lessons learned",
+                    "Test Reporting: The communication of test results and quality information to stakeholders",
+                    "Corrective Action: Actions taken to realign actual progress with the test plan"
+                ],
+                examTips: [
+                    "Distinguish monitoring (measuring/tracking) from control (taking corrective action).",
+                    "Common trap: 'Test reports are only created at the end of testing' — FALSE. Progress reports are periodic; completion reports are final.",
+                    "K1: Define monitoring and control. K2: Identify appropriate metrics and control actions."
+                ],
+                memoryAid: "Monitor = Measure (what's happening), Control = Correct (what to do about it). 'Mo-Co' = Measure then Correct.",
+                linkedTo: [
+                    { id: "5.2", reason: "Monitoring tracks execution against the test plan" },
+                    { id: "5.6", reason: "Defect metrics are key monitoring inputs" },
+                    { id: "1.4", reason: "Test monitoring and control is one of the 7 test activities" }
+                ]
+            },
+            {
+                id: "5.4",
+                title: "Configuration Management",
+                kLevel: "K1",
+                concepts: [
+                    "Configuration Management (CM) is the process of identifying, controlling, and tracking versions of all work products (testware, code, documents).",
+                    "CM ensures that all test items and testware items are uniquely identified, traceable, and available in the correct version.",
+                    "CM activities include: configuration identification, change control, status accounting, and configuration auditing.",
+                    "Configuration identification assigns unique identifiers to each version of each work product.",
+                    "Change control manages changes to configuration items through a formal approval process.",
+                    "Status accounting tracks the status of configuration items (draft, reviewed, approved, retired).",
+                    "Configuration auditing verifies that the configuration management process is being followed correctly.",
+                    "For testing, CM ensures that the correct version of the test object is being tested and that testware is properly versioned.",
+                    "CM is essential for traceability between test items and testware, supporting reproducibility of test results.",
+                    "Baselines represent a formally reviewed and agreed-upon version of a configuration item."
+                ],
+                keyTerms: [
+                    "Configuration Management: A process for establishing and maintaining consistency of a product's attributes",
+                    "Configuration Item: A work product that is managed under configuration control",
+                    "Baseline: A formally reviewed and agreed-upon version of a configuration item",
+                    "Change Control: A formal process for managing changes to configuration items",
+                    "Configuration Audit: A verification that the configuration management process is followed",
+                    "Traceability: The ability to trace relationships between test items and testware"
+                ],
+                examTips: [
+                    "K1 only: recognize the key concepts of CM as they relate to testing.",
+                    "Common trap: 'CM is only for source code' — FALSE. CM applies to ALL work products (requirements, test cases, test data, etc.).",
+                    "CM is important for reproducibility: knowing what was tested with which version of what.",
+                    "Traceability is a key CM concept for the exam."
+                ],
+                memoryAid: "CM Activities: I-C-S-A (Identify, Change control, Status accounting, Audit). 'I See Sea Animals'.",
+                linkedTo: [
+                    { id: "5.2", reason: "Test planning must include CM activities" },
+                    { id: "2.3", reason: "CM is critical for maintenance testing and version management" },
+                    { id: "1.4", reason: "Testware management requires CM practices" }
+                ]
+            },
+            {
+                id: "5.5",
+                title: "Risks and Testing",
+                kLevel: "K1, K2",
+                concepts: [
+                    "Risk is the potential for a negative outcome, characterized by its probability and impact.",
+                    "Two categories of risk relevant to testing: Product risks and Project risks.",
+                    "Product risks relate to the quality of the product itself: potential defects, performance issues, security vulnerabilities, and usability problems.",
+                    "Project risks relate to the management of the project: resource shortages, schedule pressure, budget constraints, and technical challenges.",
+                    "Risk-based testing prioritizes testing activities based on the likelihood and impact of potential failures.",
+                    "Risk level = Probability of failure x Impact of failure. Higher risk items receive more testing attention.",
+                    "Testing can mitigate product risks by identifying and reporting defects.",
+                    "Testing can identify and help mitigate project risks (e.g., uncovering requirement ambiguities, identifying skill gaps).",
+                    "The risk management process includes: risk identification, risk analysis (assessment), risk control (mitigation), and risk monitoring.",
+                    "Risk analysis involves assessing the probability and impact of identified risks.",
+                    "Risk control includes both mitigation (reducing risk) and contingency planning (responding if risk occurs)."
+                ],
+                keyTerms: [
+                    "Risk: A potential negative outcome, characterized by probability and impact",
+                    "Product Risk: A risk that affects the quality of the product (e.g., defects, performance failures)",
+                    "Project Risk: A risk that affects the project's ability to deliver (e.g., schedule, resources, budget)",
+                    "Risk-Based Testing: An approach that prioritizes testing based on risk analysis",
+                    "Risk Analysis: The process of assessing the probability and impact of identified risks",
+                    "Risk Mitigation: Actions taken to reduce the probability or impact of a risk",
+                    "Risk Monitoring: Ongoing tracking of identified risks and identification of new risks"
+                ],
+                examTips: [
+                    "Distinguish product risks (quality-related) from project risks (management-related).",
+                    "Common trap: 'Testing eliminates all risks' — FALSE. Testing reduces risk but cannot eliminate it entirely.",
+                    "Risk-based testing is about PRIORITIZATION, not about testing everything.",
+                    "K1: Define risks and categories. K2: Explain risk-based testing approach."
+                ],
+                memoryAid: "Risk = Probability x Impact. Product risks = 'What could go wrong with the software'. Project risks = 'What could go wrong with the project'. Think 'P-P' (Product-Project).",
+                linkedTo: [
+                    { id: "1.2", reason: "Testing reduces risk of failures" },
+                    { id: "5.2", reason: "Risk analysis drives test planning priorities" },
+                    { id: "5.3", reason: "Risk monitoring is part of test monitoring" },
+                    { id: "1.3", reason: "Context dependency principle relates to risk-based approach" }
+                ]
+            },
+            {
+                id: "5.6",
+                title: "Defect Management",
+                kLevel: "K1, K2",
+                concepts: [
+                    "Defect management covers the process of recording, tracking, and managing defects from discovery to closure.",
+                    "A defect report documents the details of a defect: ID, summary, description, steps to reproduce, expected/actual results, severity, priority, status, and environment.",
+                    "Defect lifecycle typically includes: Discovered -> Reported -> Triaged -> Assigned -> Fixed -> Verified -> Closed.",
+                    "Severity measures the technical impact of a defect (how severe is the failure).",
+                    "Priority measures the business urgency of fixing a defect (how quickly it should be fixed).",
+                    "High severity does not always mean high priority, and vice versa.",
+                    "Defect management benefits include: tracking defects to closure, analyzing defect patterns, improving processes, and providing metrics.",
+                    "A defect management system (bug tracking tool) is used to record and track defects throughout the lifecycle.",
+                    "Defect meetings (triage) review defects to determine priority, assignment, and resolution approach.",
+                    "Defect process improvement: Root cause analysis of defects helps prevent similar defects in future projects.",
+                    "Defect reports should be clear, concise, and reproducible for developers to fix."
+                ],
+                keyTerms: [
+                    "Defect Report: A document reporting the details of a defect (ID, description, severity, priority, status)",
+                    "Severity: The degree of technical impact of a defect on the system",
+                    "Priority: The business urgency assigned to fixing a defect",
+                    "Defect Triage: A meeting to review and prioritize defects for resolution",
+                    "Defect Lifecycle: The stages a defect goes through from discovery to closure",
+                    "Root Cause Analysis: An analysis to identify the underlying cause of a defect to prevent recurrence"
+                ],
+                examTips: [
+                    "Distinguish severity (technical impact) from priority (business urgency).",
+                    "Common trap: 'High severity defects must always be fixed first' — FALSE. A high-severity defect with low priority may be deprioritized.",
+                    "A good defect report must include clear steps to reproduce. Without reproduction steps, developers cannot fix the defect.",
+                    "K1: Define defect management terms. K2: Explain defect lifecycle and report elements."
+                ],
+                memoryAid: "Severity = How BAD is it? Priority = How FAST must it be fixed? S-P: 'Bad vs Fast'. Defect lifecycle: D-R-T-A-F-V-C (Discovered, Reported, Triaged, Assigned, Fixed, Verified, Closed).",
+                linkedTo: [
+                    { id: "5.3", reason: "Defect metrics inform test monitoring" },
+                    { id: "1.2", reason: "Defect management is part of the error-defect-failure chain" },
+                    { id: "5.5", reason: "Defect analysis identifies product risks" }
+                ]
+            }
+        ]
+    } };
+var data = slidesData.chapter5;
+var app = document.getElementById('app');
+
+var h = '<div class="slides-header">';
+h += '<div class="slides-header__title">' + data.title + '</div>';
+h += '<div class="slides-header__counter">Exam Weight: ' + data.weight + ' | ' + data.questions + ' questions</div>';
+h += '</div>';
+
+data.sections.forEach(function(sec, idx) {
+    h += '<div class="flashcard animate-fade-in" style="animation-delay:' + (idx * 100) + 'ms">';
+    h += '<div class="flashcard__header">';
+    h += '<span class="flashcard__chapter">Section ' + sec.id + '</span>';
+    h += '<span class="flashcard__slide-num">' + (idx + 1) + ' of ' + data.sections.length + '</span>';
+    h += '</div>';
+    h += '<div class="flashcard__body">';
+    h += '<div class="flashcard__title">' + sec.title + ' <span class="flashcard__klevel">' + sec.kLevel + '</span></div>';
+    h += '<div class="flashcard__subtitle">K-Level: ' + sec.kLevel + '</div>';
+
+    h += '<div class="flashcard__section"><div class="flashcard__section-title">Core Concepts</div><ul>';
+    sec.concepts.forEach(function(c) { h += '<li>' + c + '</li>'; });
+    h += '</ul></div>';
+
+    h += '<div class="flashcard__section"><div class="flashcard__section-title">Key Terms</div><div class="flashcard__keyterms">';
+    sec.keyTerms.forEach(function(kt) {
+        var parts = kt.split(':');
+        var def = parts.slice(1).join(':').trim();
+        h += '<span class="flashcard__keyterm" data-definition="' + def.replace(/"/g, '&quot;') + '">' + (parts[0] || kt) + '</span>';
+    });
+    h += '</div></div>';
+
+    h += '<div class="flashcard__section"><div class="flashcard__section-title">Exam Tips</div><ul>';
+    sec.examTips.forEach(function(t) { h += '<li>' + t + '</li>'; });
+    h += '</ul></div>';
+
+    h += '<div class="flashcard__section"><div class="flashcard__section-title">Memory Aid</div><div class="info-box">' + sec.memoryAid + '</div></div>';
+
+    if (sec.linkedTo && sec.linkedTo.length) {
+        h += '<div class="flashcard__section"><div class="flashcard__section-title">Related Sections</div><div class="flashcard__linked">';
+        sec.linkedTo.forEach(function(link) {
+            h += '<span class="flashcard__linked-item"><strong>' + link.id + '</strong>: ' + link.reason + '</span>';
+        });
+        h += '</div></div>';
+    }
+
+    h += '</div></div>';
+});
+
+app.innerHTML = h;
+
+document.addEventListener('click', function(e) {
+    var el = e.target.closest('.flashcard__keyterm');
+    if (!el) return;
+    var next = el.nextElementSibling;
+    if (next && next.classList.contains('flashcard__keyterm-def')) {
+        next.classList.toggle('is-visible');
+        el.classList.toggle('is-active');
+    } else {
+        var div = document.createElement('div');
+        div.className = 'flashcard__keyterm-def is-visible';
+        var def = el.getAttribute('data-definition') || '';
+        div.textContent = def;
+        el.parentNode.insertBefore(div, el.nextSibling);
+        el.classList.add('is-active');
+    }
+});
+})();
+
+document.getElementById('themeToggle').addEventListener('click', function () {
+    var html = document.documentElement;
+    var current = html.getAttribute('data-theme') || 'light';
+    var next = current === 'light' ? 'dark' : 'light';
+    html.setAttribute('data-theme', next);
+    this.innerHTML = next === 'light' ? '&#9790;' : '&#9728;';
+    try { localStorage.setItem('istqb-theme', next); } catch (e) {}
+});
+(function () {
+    try {
+        var saved = localStorage.getItem('istqb-theme');
+        if (saved) {
+            document.documentElement.setAttribute('data-theme', saved);
+            document.getElementById('themeToggle').innerHTML = saved === 'light' ? '&#9790;' : '&#9728;';
+        }
+    } catch (e) {}
+})();
+</script>
+</body>
+</html>

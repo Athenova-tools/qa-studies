@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 4 — Study Slides | ISTQB CTFL v4.0.1</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .flashcard__klevel { display: inline-block; padding: 0.2rem 0.6rem; background: var(--color-accent); color: var(--color-text-inverse); font-size: 0.75rem; font-weight: 600; border-radius: var(--radius-sm); letter-spacing: 0.03em; }
+        .flashcard__subtitle { font-size: 0.9375rem; color: var(--color-text-secondary); margin-bottom: var(--space-lg); }
+        .flashcard__section { margin-bottom: var(--space-lg); }
+        .flashcard__section-title { font-size: 1rem; font-weight: 700; color: var(--color-text); margin-bottom: var(--space-sm); padding-bottom: var(--space-xs); border-bottom: 2px solid var(--color-primary-light); }
+        .flashcard__section ul { padding-left: var(--space-lg); list-style: disc; }
+        .flashcard__section li { margin-bottom: var(--space-xs); font-size: 0.9rem; line-height: 1.6; }
+        .flashcard__keyterms { display: flex; flex-wrap: wrap; gap: var(--space-xs); }
+        .flashcard__keyterm { display: inline-block; padding: 0.25rem 0.625rem; background: var(--color-bg-alt); border: 1px solid var(--color-border); border-radius: var(--radius-full); font-size: 0.8rem; color: var(--color-text-secondary); cursor: pointer; position: relative; transition: all var(--transition-fast); }
+        .flashcard__keyterm:hover { background: var(--color-primary-light); border-color: var(--color-primary); color: var(--color-primary); }
+        .flashcard__keyterm.is-active { background: var(--color-primary); border-color: var(--color-primary); color: var(--color-text-inverse); }
+        .flashcard__keyterm-def { display: none; margin-top: 2px; padding: 0.5rem 0.75rem; background: var(--color-bg-alt); border-left: 3px solid var(--color-primary); border-radius: var(--radius-sm); font-size: 0.85rem; line-height: 1.5; color: var(--color-text); width: 100%; box-sizing: border-box; }
+        .flashcard__keyterm-def.is-visible { display: block; }
+        .flashcard__linked { display: flex; flex-wrap: wrap; gap: var(--space-sm); margin-top: var(--space-md); padding-top: var(--space-md); border-top: 1px solid var(--color-border-light); }
+        .flashcard__linked-item { font-size: 0.8rem; background: var(--color-bg-alt); padding: 0.2rem 0.5rem; border-radius: var(--radius-sm); color: var(--color-text-secondary); }
+        .flashcard__linked-item strong { color: var(--color-primary); }
+        
+        .chapter-nav { display: flex; justify-content: center; gap: var(--space-md); padding: var(--space-lg) 0; flex-wrap: wrap; }
+        .chapter-nav a { padding: 0.5rem 1rem; border-radius: var(--radius-md); font-size: 0.875rem; font-weight: 600; transition: all var(--transition-fast); }
+        .chapter-nav a.active { background: var(--color-primary); color: var(--color-text-inverse); }
+        .chapter-nav a:not(.active) { background: var(--color-bg-alt); color: var(--color-text-secondary); }
+        .chapter-nav a:not(.active):hover { background: var(--color-primary-light); color: var(--color-primary); }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header__inner">
+            <a href="../index.html" class="header__logo">
+                <div class="header__logo-icon">i</div>
+                <span class="header__logo-text">
+                    ISTQB CTFL v4.0.1
+                    <span class="header__logo-sub">Exam Simulator</span>
+                </span>
+            </a>
+            <div class="header__actions">
+                <button id="themeToggle" class="theme-toggle" aria-label="Toggle dark mode" title="Toggle theme">&#9790;</button>
+            </div>
+        </div>
+    </header>
+
+    <div style="padding-top: var(--header-height);">
+        <div class="container container--narrow slides-container" id="app">
+            <div class="chapter-nav">
+                <a href="chapter1.html" class="">Ch 1</a>
+                <a href="chapter2.html" class="">Ch 2</a>
+                <a href="chapter3.html" class="">Ch 3</a>
+                <a href="chapter4.html" class=" active">Ch 4</a>
+                <a href="chapter5.html" class="">Ch 5</a>
+                <a href="chapter6.html" class="">Ch 6</a>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="footer__inner">
+            <div class="footer__links">
+                <a href="../index.html">Home</a>
+                <a href="chapter1.html">Ch 1</a>
+                <a href="chapter2.html">Ch 2</a>
+                <a href="chapter3.html">Ch 3</a>
+                <a href="chapter4.html">Ch 4</a>
+                <a href="chapter5.html">Ch 5</a>
+                <a href="chapter6.html">Ch 6</a>
+            </div>
+            <p>ISTQB&reg; CTFL v4.0.1 &mdash; Exam Simulator &mdash; Study Slides</p>
+        </div>
+    </footer>
+
+<script>
+(function() {
+var slidesData = { chapter4: {
+        title: "Test Analysis and Design",
+        weight: "27.5%",
+        questions: 11,
+        sections: [
+            {
+                id: "4.1",
+                title: "Test Techniques Overview",
+                kLevel: "K1",
+                concepts: [
+                    "Test techniques are systematic methods for deriving test cases from various sources (requirements, code, experience).",
+                    "Three main categories of test techniques: Black-box (specification-based), White-box (structure-based), and Experience-based.",
+                    "Black-box techniques derive test cases from external specifications without considering internal code structure.",
+                    "White-box techniques derive test cases from the internal structure (code, architecture) of the test object.",
+                    "Experience-based techniques rely on the knowledge, intuition, and expertise of the tester.",
+                    "Choosing the right technique depends on factors: context, risk, complexity, regulations, time, and tester skills.",
+                    "Combining techniques from different categories provides more comprehensive coverage and higher defect detection.",
+                    "Each technique has specific coverage criteria to measure the thoroughness of testing."
+                ],
+                keyTerms: [
+                    "Black-Box Testing: Test case design based on specifications, requirements, and functionality",
+                    "White-Box Testing: Test case design based on internal structure and implementation",
+                    "Experience-Based Testing: Test case design based on tester knowledge, intuition, and experience",
+                    "Coverage: The degree to which a test technique's criteria are satisfied by test cases",
+                    "Test Oracle: The source used to determine expected results (requirements, specifications, domain knowledge)"
+                ],
+                examTips: [
+                    "K1 only: recognize the three categories of test techniques and their general characteristics.",
+                    "Common trap: 'Black-box testing is only for system level' — FALSE. It applies at all levels.",
+                    "You don't need to memorize all factors for choosing a technique, just understand that multiple factors apply."
+                ],
+                memoryAid: "3 Technique Categories: B-W-E (Black-box, White-box, Experience) -> 'Big White Elephant'.",
+                linkedTo: [
+                    { id: "4.2", reason: "Black-box techniques are detailed in this section" },
+                    { id: "4.3", reason: "White-box techniques are detailed in this section" },
+                    { id: "4.4", reason: "Experience-based techniques are detailed in this section" },
+                    { id: "1.4", reason: "Test design is a key test activity" }
+                ]
+            },
+            {
+                id: "4.2",
+                title: "Black-Box Test Techniques",
+                kLevel: "K2, K3, K4",
+                concepts: [
+                    "Equivalence Partitioning (EP): Divides input data into partitions (equivalence classes) where values in each partition are expected to be treated the same way by the system.",
+                    "EP procedure: Identify partitions, select one representative value from each partition, and design test cases for valid and invalid partitions.",
+                    "Boundary Value Analysis (BVA): Tests values at the boundaries between equivalence partitions, where defects most commonly occur.",
+                    "BVA procedure: For each boundary, test the minimum and maximum values (2-value BVA) or min-1, min, max, max+1 (3-value BVA).",
+                    "Decision Table Testing: Tests combinations of inputs (conditions) to determine their effects on outputs (actions).",
+                    "Decision table structure: Conditions (inputs) in the top rows, Actions (outputs) in the bottom rows, Columns represent rules.",
+                    "Decision tables are ideal for testing complex business rules with multiple logical conditions.",
+                    "State Transition Testing: Tests the behavior of a system as it moves through different states in response to events.",
+                    "State transition elements: States (conditions at a given time), Transitions (movement between states), Events (triggers), and Actions (results).",
+                    "State transition coverage: All-states coverage, all-transitions coverage, and 0-switch (single transition) coverage.",
+                    "Pairwise Testing (All-Pairs Testing): A combinatorial technique that tests all possible pairs of parameter values to reduce the number of test cases while maintaining good defect detection.",
+                    "Pairwise testing is based on the observation that most defects are caused by interactions of at most two factors."
+                ],
+                keyTerms: [
+                    "Equivalence Partitioning: Dividing input data into partitions from which test cases can be derived",
+                    "Equivalence Class: A set of values expected to be processed the same way by the system",
+                    "Boundary Value Analysis: Testing at the boundaries between equivalence partitions",
+                    "Decision Table: A table showing combinations of inputs and their corresponding outputs",
+                    "State Transition: A model showing how a system moves between states based on events",
+                    "Pairwise Testing: Testing all combinations of pairs of input parameters",
+                    "Coverage Criteria: The percentage of elements (partitions, boundaries, rules, transitions, pairs) exercised by test cases"
+                ],
+                examTips: [
+                    "EP and BVA are the most frequently tested techniques — practice deriving test cases from requirements.",
+                    "Common trap: BVA requires testing BOTH sides of a boundary, not just the boundary value itself.",
+                    "Decision tables: number of rules = 2^(number of conditions) for full coverage. Minimize by considering impossible combinations.",
+                    "For state transition diagrams, identify valid and invalid transitions; tests should cover both valid and invalid transitions.",
+                    "K2: Explain each technique. K3: Apply techniques to derive test cases. K4: Evaluate techniques for given scenarios."
+                ],
+                memoryAid: "5 Black-Box Techniques: E-B-D-S-P (Equivalence, Boundary, Decision table, State transition, Pairwise). BVA = 'Bug Valley Approach' (bugs live at boundaries). Decision Table = 'If-Then Matrix'.",
+                linkedTo: [
+                    { id: "4.1", reason: "Black-box is one category of test techniques" },
+                    { id: "4.3", reason: "Black-box and white-box techniques complement each other" },
+                    { id: "1.3", reason: "EP addresses exhaustive testing impossibility" }
+                ]
+            },
+            {
+                id: "4.3",
+                title: "White-Box Test Techniques",
+                kLevel: "K2, K3",
+                concepts: [
+                    "White-box test techniques derive test cases from the internal structure (source code, control flow, architecture) of the test object.",
+                    "Statement Testing: Exercises executable statements in the code so that each statement is executed at least once.",
+                    "Statement Coverage: The percentage of executable statements exercised by the test cases (100% = every statement executed).",
+                    "Branch Testing: Exercises the branches (decision outcomes) in the control flow, e.g., both true and false outcomes of an IF statement.",
+                    "Branch Coverage: The percentage of branches (decision outcomes) exercised by the test cases (100% = every branch outcome executed).",
+                    "100% branch coverage implies 100% statement coverage, but the reverse is not necessarily true.",
+                    "Branch coverage is a stronger criterion than statement coverage (detects more defects like incorrect logical conditions).",
+                    "Decision testing is synonymous with branch testing in most contexts.",
+                    "Control flow diagrams are used to visualize the structure of code and identify statements, branches, and paths.",
+                    "Benefits of white-box testing: detects logic errors, ensures coverage of all code paths, and finds defects in edge-case logic."
+                ],
+                keyTerms: [
+                    "Statement Testing: Testing designed to execute all executable statements in the code",
+                    "Statement Coverage: The proportion of executable statements executed by the test suite",
+                    "Branch Testing: Testing designed to exercise both true and false outcomes of decisions",
+                    "Branch Coverage: The proportion of decision outcomes exercised by the test suite",
+                    "Decision: A condition in a control flow statement (if, while, for) that has two or more outcomes",
+                    "Control Flow: The sequence in which individual statements, instructions, or function calls are executed",
+                    "Control Flow Diagram: A graphical representation of the control flow through a program"
+                ],
+                examTips: [
+                    "100% branch coverage gives 100% statement coverage, but 100% statement coverage does NOT give 100% branch coverage.",
+                    "Common trap: 'Statement coverage is stronger than branch coverage' — FALSE. Branch coverage is stronger (subsumes statement coverage).",
+                    "K2: Explain the difference between statement and branch coverage. K3: Calculate coverage and design test cases to achieve specified coverage levels.",
+                    "For the exam, be able to trace through simple code and determine which statements/branches are covered."
+                ],
+                memoryAid: "Branch > Statement. 'BS' backwards: Statement is the basis, Branch is the upgrade. Branch subsumes Statement = 'Big Sister' takes care of 'Little Sister'.",
+                linkedTo: [
+                    { id: "4.1", reason: "White-box is one category of test techniques" },
+                    { id: "4.2", reason: "White-box complements black-box for thorough testing" },
+                    { id: "3.1", reason: "Static analysis shares structural analysis goals" }
+                ]
+            },
+            {
+                id: "4.4",
+                title: "Experience-Based Test Techniques",
+                kLevel: "K2",
+                concepts: [
+                    "Experience-based techniques use the tester's knowledge, experience, and intuition to design and execute test cases.",
+                    "Error Guessing: The tester anticipates defects based on past experience with similar systems, common mistakes, and known error patterns.",
+                    "Error guessing is often used to complement systematic techniques, targeting areas where defects are likely to occur.",
+                    "Exploratory Testing: The tester simultaneously designs and executes tests, learning about the system while testing.",
+                    "In exploratory testing, tests are not pre-defined; test design and execution happen concurrently, guided by a charter.",
+                    "A test charter defines the mission, scope, and timebox for an exploratory testing session.",
+                    "Checklist-Based Testing: The tester uses a list of items, criteria, or questions to guide testing.",
+                    "Checklists can be derived from experience, standards, requirements, or common failure modes.",
+                    "Experience-based techniques can find defects not easily found by systematic techniques, especially usability and real-world scenario issues.",
+                    "These techniques rely heavily on the tester's domain knowledge, analytical skills, and creativity.",
+                    "Combining systematic and experience-based techniques provides the best overall defect detection."
+                ],
+                keyTerms: [
+                    "Error Guessing: Test design based on anticipating defects from experience",
+                    "Exploratory Testing: Concurrent test design and execution based on learning and exploration",
+                    "Test Charter: A statement of the mission, scope, and objectives of an exploratory testing session",
+                    "Checklist-Based Testing: Testing guided by a list of items or criteria",
+                    "Session-Based Testing: A structured approach to exploratory testing using time-boxed sessions"
+                ],
+                examTips: [
+                    "K2 only: understand the strengths and weaknesses of each experience-based technique.",
+                    "Common trap: 'Exploratory testing is unstructured and random' — FALSE. It is structured with charters and timeboxes.",
+                    "Error guessing is NOT random — it is based on systematic reasoning about what could go wrong.",
+                    "Experience-based techniques are complementary, not replacements, for systematic techniques."
+                ],
+                memoryAid: "3 Experience Techniques: E-E-C (Error guessing, Exploratory, Checklist-based). Exploratory = 'Learn as you test'. Error Guessing = 'Where there's smoke, there's fire'.",
+                linkedTo: [
+                    { id: "4.1", reason: "Experience-based is one category of test techniques" },
+                    { id: "4.2", reason: "Experience-based complements black-box techniques" },
+                    { id: "4.3", reason: "Experience-based complements white-box techniques" },
+                    { id: "1.5", reason: "Tester skills directly impact experience-based testing effectiveness" }
+                ]
+            }
+        ]
+    } };
+var data = slidesData.chapter4;
+var app = document.getElementById('app');
+
+var h = '<div class="slides-header">';
+h += '<div class="slides-header__title">' + data.title + '</div>';
+h += '<div class="slides-header__counter">Exam Weight: ' + data.weight + ' | ' + data.questions + ' questions</div>';
+h += '</div>';
+
+data.sections.forEach(function(sec, idx) {
+    h += '<div class="flashcard animate-fade-in" style="animation-delay:' + (idx * 100) + 'ms">';
+    h += '<div class="flashcard__header">';
+    h += '<span class="flashcard__chapter">Section ' + sec.id + '</span>';
+    h += '<span class="flashcard__slide-num">' + (idx + 1) + ' of ' + data.sections.length + '</span>';
+    h += '</div>';
+    h += '<div class="flashcard__body">';
+    h += '<div class="flashcard__title">' + sec.title + ' <span class="flashcard__klevel">' + sec.kLevel + '</span></div>';
+    h += '<div class="flashcard__subtitle">K-Level: ' + sec.kLevel + '</div>';
+
+    h += '<div class="flashcard__section"><div class="flashcard__section-title">Core Concepts</div><ul>';
+    sec.concepts.forEach(function(c) { h += '<li>' + c + '</li>'; });
+    h += '</ul></div>';
+
+    h += '<div class="flashcard__section"><div class="flashcard__section-title">Key Terms</div><div class="flashcard__keyterms">';
+    sec.keyTerms.forEach(function(kt) {
+        var parts = kt.split(':');
+        var def = parts.slice(1).join(':').trim();
+        h += '<span class="flashcard__keyterm" data-definition="' + def.replace(/"/g, '&quot;') + '">' + (parts[0] || kt) + '</span>';
+    });
+    h += '</div></div>';
+
+    h += '<div class="flashcard__section"><div class="flashcard__section-title">Exam Tips</div><ul>';
+    sec.examTips.forEach(function(t) { h += '<li>' + t + '</li>'; });
+    h += '</ul></div>';
+
+    h += '<div class="flashcard__section"><div class="flashcard__section-title">Memory Aid</div><div class="info-box">' + sec.memoryAid + '</div></div>';
+
+    if (sec.linkedTo && sec.linkedTo.length) {
+        h += '<div class="flashcard__section"><div class="flashcard__section-title">Related Sections</div><div class="flashcard__linked">';
+        sec.linkedTo.forEach(function(link) {
+            h += '<span class="flashcard__linked-item"><strong>' + link.id + '</strong>: ' + link.reason + '</span>';
+        });
+        h += '</div></div>';
+    }
+
+    h += '</div></div>';
+});
+
+app.innerHTML = h;
+
+document.addEventListener('click', function(e) {
+    var el = e.target.closest('.flashcard__keyterm');
+    if (!el) return;
+    var next = el.nextElementSibling;
+    if (next && next.classList.contains('flashcard__keyterm-def')) {
+        next.classList.toggle('is-visible');
+        el.classList.toggle('is-active');
+    } else {
+        var div = document.createElement('div');
+        div.className = 'flashcard__keyterm-def is-visible';
+        var def = el.getAttribute('data-definition') || '';
+        div.textContent = def;
+        el.parentNode.insertBefore(div, el.nextSibling);
+        el.classList.add('is-active');
+    }
+});
+})();
+
+document.getElementById('themeToggle').addEventListener('click', function () {
+    var html = document.documentElement;
+    var current = html.getAttribute('data-theme') || 'light';
+    var next = current === 'light' ? 'dark' : 'light';
+    html.setAttribute('data-theme', next);
+    this.innerHTML = next === 'light' ? '&#9790;' : '&#9728;';
+    try { localStorage.setItem('istqb-theme', next); } catch (e) {}
+});
+(function () {
+    try {
+        var saved = localStorage.getItem('istqb-theme');
+        if (saved) {
+            document.documentElement.setAttribute('data-theme', saved);
+            document.getElementById('themeToggle').innerHTML = saved === 'light' ? '&#9790;' : '&#9728;';
+        }
+    } catch (e) {}
+})();
+</script>
+</body>
+</html>
