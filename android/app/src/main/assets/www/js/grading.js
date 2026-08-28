@@ -36,6 +36,22 @@ const ExamGrading = (function () {
     return el;
   }
 
+  function fallbackCopy(text, cb) {
+    try {
+      var ta = document.createElement('textarea');
+      ta.value = text;
+      ta.style.position = 'fixed';
+      ta.style.top = '-9999px';
+      ta.style.opacity = '0';
+      document.body.appendChild(ta);
+      ta.focus();
+      ta.select();
+      var ok = document.execCommand && document.execCommand('copy');
+      document.body.removeChild(ta);
+      if (ok && cb) cb();
+    } catch (e) { /* clipboard unavailable */ }
+  }
+
   function escHtml(s) {
     return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
   }
@@ -161,8 +177,12 @@ const ExamGrading = (function () {
     var listTitle = createEl('div', 'results-list__title', { text: 'Question Review' });
     list.appendChild(listTitle);
 
-    /* Filter buttons */
+    /* ---- Results toolbar (two rows) ---- */
     var filterBar = createEl('div', 'results-filter');
+
+    /* Line 1: filter selection list */
+    var selectRow = createEl('div', 'results-filter__line1');
+    var filterSelect = createEl('select', 'results-filter__select');
     var filters = [
       { label: 'All', value: 'all' },
       { label: 'Correct', value: 'correct' },
@@ -170,26 +190,29 @@ const ExamGrading = (function () {
       { label: 'Flagged', value: 'flagged' },
     ];
     filters.forEach(function (f) {
-      var btn = createEl('button', ['btn', 'btn--sm', 'results-filter__btn', f.value === 'all' ? 'results-filter__btn--active' : ''], { text: f.label });
-      btn.dataset.filter = f.value;
-      btn.addEventListener('click', function () {
-        filterBar.querySelectorAll('.results-filter__btn').forEach(function (b) {
-          b.classList.remove('results-filter__btn--active');
-        });
-        btn.classList.add('results-filter__btn--active');
-        var active = btn.dataset.filter;
-        list.querySelectorAll('.results-item').forEach(function (item) {
-          if (active === 'all') {
-            item.style.display = '';
-          } else if (active === 'flagged') {
-            item.style.display = item.dataset.flagged === 'true' ? '' : 'none';
-          } else {
-            item.style.display = item.dataset.result === active ? '' : 'none';
-          }
-        });
-      });
-      filterBar.appendChild(btn);
+      var opt = createEl('option', null, { text: f.label });
+      opt.value = f.value;
+      filterSelect.appendChild(opt);
     });
+    filterSelect.addEventListener('change', function () {
+      var active = filterSelect.value;
+      list.querySelectorAll('.results-item').forEach(function (item) {
+        if (active === 'all') {
+          item.style.display = '';
+        } else if (active === 'flagged') {
+          item.style.display = item.dataset.flagged === 'true' ? '' : 'none';
+        } else {
+          item.style.display = item.dataset.result === active ? '' : 'none';
+        }
+      });
+    });
+    selectRow.appendChild(filterSelect);
+    filterBar.appendChild(selectRow);
+
+    /* Line 2: actions (left) + navigation (right) */
+    var actionRow = createEl('div', 'results-filter__line2');
+    var leftGroup = createEl('div', 'results-filter__group');
+    var rightGroup = createEl('div', 'results-filter__group');
 
     /* Expand/Collapse All toggle */
     var expandBtn = createEl('button', ['btn', 'btn--sm', 'results-filter__btn'], { text: '\u25B2 Collapse All' });
@@ -209,18 +232,14 @@ const ExamGrading = (function () {
       expandBtn.dataset.expanded = expanded ? 'false' : 'true';
       expandBtn.textContent = expanded ? '\u25BC Expand All' : '\u25B2 Collapse All';
     });
-    filterBar.appendChild(expandBtn);
-
-    /* Separator */
-    var sep = createEl('span', null, { style: 'flex:1;' });
-    filterBar.appendChild(sep);
+    leftGroup.appendChild(expandBtn);
 
     /* Export to PDF button */
     var pdfBtn = createEl('button', ['btn', 'btn--sm', 'results-filter__btn'], { text: '\u2913 Export to PDF' });
     pdfBtn.addEventListener('click', function () {
       window.print();
     });
-    filterBar.appendChild(pdfBtn);
+    leftGroup.appendChild(pdfBtn);
 
     /* Copy to clipboard button */
     var copyBtn = createEl('button', ['btn', 'btn--sm', 'results-filter__btn'], { text: '\u2398 Copy' });
@@ -233,20 +252,41 @@ const ExamGrading = (function () {
         copyText.push(lines.join('\n'));
       });
       if (copyText.length === 0) return;
-      navigator.clipboard.writeText(copyText.join('\n\n')).then(function () {
+      var text = copyText.join('\n\n');
+      var markCopied = function () {
         var orig = copyBtn.textContent;
         copyBtn.textContent = '\u2713 Copied!';
         setTimeout(function () { copyBtn.textContent = orig; }, 2000);
-      }).catch(function () {});
+      };
+      try {
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(text).then(markCopied, function () { fallbackCopy(text, markCopied); });
+        } else {
+          fallbackCopy(text, markCopied);
+        }
+      } catch (e) {
+        fallbackCopy(text, markCopied);
+      }
     });
-    filterBar.appendChild(copyBtn);
+    leftGroup.appendChild(copyBtn);
 
     /* Scroll to bottom button */
     var bottomBtn = createEl('button', ['btn', 'btn--sm', 'results-filter__btn'], { text: '\u2193 Bottom' });
     bottomBtn.addEventListener('click', function () {
       window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
     });
-    filterBar.appendChild(bottomBtn);
+    rightGroup.appendChild(bottomBtn);
+
+    /* Back to Home button */
+    var backBtn = createEl('button', ['btn', 'btn--sm', 'results-filter__btn'], { text: '\u2190 Back to Home' });
+    backBtn.addEventListener('click', function () {
+      window.location.reload();
+    });
+    rightGroup.appendChild(backBtn);
+
+    actionRow.appendChild(leftGroup);
+    actionRow.appendChild(rightGroup);
+    filterBar.appendChild(actionRow);
 
     list.appendChild(filterBar);
 

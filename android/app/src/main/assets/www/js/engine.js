@@ -20,8 +20,8 @@ const ExamEngine = (function () {
 
   const UI = {
     prev: '\u2190 Previous', next: 'Next \u2192', submit: 'Submit Exam',
-    flag: 'Flag for Review', unflag: 'Unflag', flagged: 'Flagged',
-    flagReview: 'Flag for Review', qNav: 'Question Navigator',
+    flag: 'Flag for Review', unflag: 'Unflag', flagged: '\u2605 Flagged',
+    flagReview: '\u2606 Flag for Review', qNav: 'Question Navigator',
     current: 'Current', answered: 'Answered', flaggedLabel: 'Flagged',
     unanswered: 'Unanswered', qOf: 'Question {n} of {t}',
     notesLabel: 'My Notes:', notesPlaceholder: 'Add your observations about this question...',
@@ -121,15 +121,32 @@ const ExamEngine = (function () {
     var layout = createEl('div', 'exam-layout');
     var main = createEl('main', 'exam-main');
     var inner = createEl('div', 'exam-main__inner');
+    var sidebar = createEl('aside', ['exam-sidebar', 'animate-slide-in-right']);
+
+    /* --- Sidebar --- */
+    var sbHeader = createEl('div', 'exam-sidebar__header');
+    var sbTitle = createEl('span', 'exam-sidebar__title', { text: tr('qNav') });
+    var sbClose = createEl('button', ['exam-sidebar__close', 'btn'], { text: '\u2715' });
+    sbClose.setAttribute('aria-label', tr('closeAria'));
+    sbClose.addEventListener('click', toggleSidebar);
+    sbHeader.appendChild(sbTitle);
+    sbHeader.appendChild(sbClose);
+
     var navGrid = createEl('div', 'question-nav');
     navGrid.id = 'question-nav';
 
     var legend = buildLegend();
 
-    var navWrap = createEl('div', 'exam-nav-top');
-    navWrap.appendChild(navGrid);
-    navWrap.appendChild(legend);
-    inner.appendChild(navWrap);
+    sidebar.appendChild(sbHeader);
+    sidebar.appendChild(navGrid);
+    sidebar.appendChild(legend);
+
+    /* --- Timer display (stable, outside question container) --- */
+    var timerRow = createEl('div', 'question__timer-row');
+    var timerEl = createEl('div', 'timer', { text: formatTime(state.remaining) });
+    timerEl.id = 'timer-display';
+    timerRow.appendChild(timerEl);
+    inner.appendChild(timerRow);
 
     /* --- Question container --- */
     var qContainer = createEl('div', 'question', { id: 'question-container' });
@@ -186,7 +203,32 @@ const ExamEngine = (function () {
 
     main.appendChild(inner);
     layout.appendChild(main);
+    layout.appendChild(sidebar);
     appEl.appendChild(layout);
+
+    /* --- Overlay for mobile sidebar --- */
+    var overlay = createEl('div', 'overlay');
+    overlay.id = 'sidebar-overlay';
+    overlay.addEventListener('click', toggleSidebar);
+    appEl.appendChild(overlay);
+
+    /* --- Sidebar toggle button (mobile) --- */
+    var toggleBtn = createEl('button', ['btn', 'sidebar-toggle'], { text: '☰' });
+    toggleBtn.setAttribute('aria-label', tr('sidebarAria'));
+    toggleBtn.addEventListener('click', toggleSidebar);
+    toggleBtn.style.position = 'fixed';
+    toggleBtn.style.bottom = 'var(--space-lg)';
+    toggleBtn.style.right = 'var(--space-lg)';
+    toggleBtn.style.zIndex = '50';
+    toggleBtn.style.boxShadow = 'var(--shadow-lg)';
+    toggleBtn.style.backgroundColor = 'var(--color-primary)';
+    toggleBtn.style.color = 'var(--color-text-inverse)';
+    toggleBtn.style.borderRadius = 'var(--radius-full)';
+    toggleBtn.style.width = '48px';
+    toggleBtn.style.height = '48px';
+    toggleBtn.style.fontSize = '1.25rem';
+    toggleBtn.id = 'sidebar-toggle-btn';
+    appEl.appendChild(toggleBtn);
 
     /* Store refs */
     window.currentExam = state.questions;
@@ -227,22 +269,24 @@ const ExamEngine = (function () {
      Question Rendering
      ================================================================= */
 
-  function commitQuestionTime() {
-    if (state.index >= 0 && state.questionStart > 0) {
-      var spent = state.questionStart - state.remaining;
-      if (spent > 0) {
-        state.timePerQuestion[state.index] = (state.timePerQuestion[state.index] || 0) + spent;
-      }
-    }
-  }
-
   function renderQuestion(index) {
     if (!state.questions.length || index < 0 || index >= TOTAL_Q) return;
 
-    /* Track time spent on previous question (accumulate across visits) */
+    /* Track time spent on previous question */
     var prevIndex = state.index;
-    if (prevIndex !== index && prevIndex >= 0) {
-      commitQuestionTime();
+    if (prevIndex !== index && prevIndex >= 0 && state.questionStart > 0) {
+      var shouldCount = true;
+      var prevEntry = state.entryAnswer;
+      var prevHasTime = state.timePerQuestion[prevIndex] !== undefined;
+      if (prevHasTime && state.answers[prevIndex] === prevEntry) {
+        shouldCount = false;
+      }
+      if (shouldCount) {
+        var spent = state.questionStart - state.remaining;
+        if (spent > 0) {
+          state.timePerQuestion[prevIndex] = (state.timePerQuestion[prevIndex] || 0) + spent;
+        }
+      }
     }
 
     state.index = index;
@@ -259,14 +303,14 @@ const ExamEngine = (function () {
     /* Header */
     var header = createEl('div', 'question__header');
 
-    /* Row 1: number + answered + progress bar (single line) */
-    var row1 = createEl('div', 'question__header-row');
-
     var headerLeft = createEl('div', 'question__header-left');
     var numEl = createEl('span', 'question__number', { text: tr('qOf').replace('{n}', index + 1).replace('{t}', TOTAL_Q) });
     headerLeft.appendChild(numEl);
 
+    header.appendChild(headerLeft);
+
     var headerCenter = createEl('div', 'question__header-center');
+
     var answeredEl = createEl('span', 'question__header-answered');
     answeredEl.id = 'question-header-answered';
     headerCenter.appendChild(answeredEl);
@@ -277,26 +321,13 @@ const ExamEngine = (function () {
     qPBar.appendChild(qPFill);
     headerCenter.appendChild(qPBar);
 
-    row1.appendChild(headerLeft);
-    row1.appendChild(headerCenter);
-    header.appendChild(row1);
-
-    /* Row 2: global timer + star + Flag for Review */
-    var row2 = createEl('div', 'question__timer-row');
-    var timerEl = createEl('div', 'timer', { text: formatTime(state.remaining) });
-    timerEl.id = 'timer-display';
-    row2.appendChild(timerEl);
+    header.appendChild(headerCenter);
 
     var flagActive = state.flagged.has(index);
-    var flagBtn = createEl('button', ['question__flag-btn'].concat(flagActive ? ['question__flag-btn--active'] : []));
+    var flagBtn = createEl('button', ['question__flag-btn'].concat(flagActive ? ['question__flag-btn--active'] : []), { text: flagActive ? tr('flagged') : tr('flagReview') });
     flagBtn.id = 'q-flag-btn';
     flagBtn.addEventListener('click', flagQuestion);
-    var flagStar = createEl('span', 'question__flag-star', { text: '\u2605' });
-    flagBtn.appendChild(flagStar);
-    flagBtn.appendChild(document.createTextNode(flagActive ? tr('flagged') : tr('flagReview')));
-    row2.appendChild(flagBtn);
-    header.appendChild(row2);
-
+    header.appendChild(flagBtn);
     container.appendChild(header);
 
     /* Per-question recommended time */
@@ -452,10 +483,6 @@ const ExamEngine = (function () {
     if (qFlagBtn) {
       var flagged = state.flagged.has(idx);
       qFlagBtn.innerHTML = '';
-      var star2 = document.createElement('span');
-      star2.className = 'question__flag-star';
-      star2.textContent = '\u2605';
-      qFlagBtn.appendChild(star2);
       qFlagBtn.appendChild(document.createTextNode(flagged ? tr('flagged') : tr('flagReview')));
       qFlagBtn.classList.toggle('question__flag-btn--active', flagged);
     }
@@ -475,33 +502,6 @@ const ExamEngine = (function () {
       flagBtn.textContent = isFlagged ? tr('unflag') : tr('flag');
     }
   }
-
-  function showConfirmModal(message, onConfirm, onCancel) {
-    var overlay = document.createElement('div');
-    overlay.className = 'app-modal';
-    var box = document.createElement('div');
-    box.className = 'app-modal__box';
-    var msg = document.createElement('div');
-    msg.className = 'app-modal__msg';
-    msg.textContent = message;
-    var actions = document.createElement('div');
-    actions.className = 'app-modal__actions';
-    var cancelBtn = createEl('button', ['btn', 'btn--secondary', 'btn--sm'], { text: 'Cancel' });
-    var okBtn = createEl('button', ['btn', 'btn--primary', 'btn--sm'], { text: 'Confirm' });
-    actions.appendChild(cancelBtn);
-    actions.appendChild(okBtn);
-    box.appendChild(msg);
-    box.appendChild(actions);
-    overlay.appendChild(box);
-    document.body.appendChild(overlay);
-    function close() { if (overlay.parentNode) overlay.parentNode.removeChild(overlay); }
-    function accept() { close(); if (typeof onConfirm === 'function') onConfirm(); }
-    function dismiss() { close(); if (typeof onCancel === 'function') onCancel(); }
-    okBtn.addEventListener('click', accept);
-    cancelBtn.addEventListener('click', dismiss);
-    overlay.addEventListener('click', function (e) { if (e.target === overlay) dismiss(); });
-  }
-  window.showConfirmModal = showConfirmModal;
 
   /* =================================================================
      Navigator Grid
@@ -620,26 +620,21 @@ const ExamEngine = (function () {
         }
       }
     }
-    timeInfoEl.classList.remove('question__time-info--row');
-    timeInfoEl.innerHTML = '';
-    var infoMain = document.createElement('span');
-    infoMain.textContent = 'Suggested: ' + formatTime(suggestedPerQ) + ' | Spent: ' + formatTime(totalSpent);
-    timeInfoEl.appendChild(infoMain);
+    timeInfoEl.innerHTML = 'Suggested: ' + formatTime(suggestedPerQ) + ' | Spent: ' + formatTime(totalSpent);
 
-    /* Pace indicator: On pace -> inline right of Spent; Behind -> own line below */
+    /* Pace indicator as a styled span */
+    var paceSpan = document.createElement('span');
+    paceSpan.id = 'question-pace-span';
     if (paceStatus) {
-      var paceSpan = document.createElement('span');
-      paceSpan.id = 'question-pace-span';
-      paceSpan.textContent = paceStatus.trim();
+      paceSpan.textContent = ' ' + paceStatus.trim();
       paceSpan.className = 'timer-pace';
       if (paceStatus.indexOf('On pace') !== -1) {
         paceSpan.classList.add('timer-pace--ok');
-        timeInfoEl.classList.add('question__time-info--row');
       } else {
-        paceSpan.classList.add('timer-pace--behind', 'timer-pace--block');
+        paceSpan.classList.add('timer-pace--behind');
       }
-      timeInfoEl.appendChild(paceSpan);
     }
+    timeInfoEl.appendChild(paceSpan);
 
     timeInfoEl.style.color = '';
     if (totalSpent > suggestedPerQ) {
@@ -662,9 +657,37 @@ const ExamEngine = (function () {
     if (state.submitted) return;
     state.submitted = true;
     stopTimer();
-    commitQuestionTime();
     computeAndShowResults();
   }
+
+  /* =================================================================
+     Confirm modal (replaces native confirm())
+     ================================================================= */
+
+  function showConfirmModal(message, onConfirm) {
+    var existing = document.getElementById('app-confirm-modal');
+    if (existing && existing.parentNode) existing.parentNode.removeChild(existing);
+    var overlay = createEl('div', 'app-modal', { id: 'app-confirm-modal' });
+    var box = createEl('div', 'app-modal__box');
+    var body = createEl('div', 'app-modal__body', { text: message });
+    var actions = createEl('div', 'app-modal__actions');
+    var cancelBtn = createEl('button', ['btn', 'btn--ghost'], { text: 'Cancel' });
+    var okBtn = createEl('button', ['btn', 'btn--primary'], { text: 'Confirm' });
+    cancelBtn.addEventListener('click', function () {
+      if (overlay.parentNode) overlay.parentNode.removeChild(overlay);
+    });
+    okBtn.addEventListener('click', function () {
+      if (overlay.parentNode) overlay.parentNode.removeChild(overlay);
+      if (typeof onConfirm === 'function') onConfirm();
+    });
+    actions.appendChild(cancelBtn);
+    actions.appendChild(okBtn);
+    box.appendChild(body);
+    box.appendChild(actions);
+    overlay.appendChild(box);
+    document.body.appendChild(overlay);
+  }
+  window.showConfirmModal = showConfirmModal;
 
   /* =================================================================
      Submission
@@ -698,10 +721,8 @@ const ExamEngine = (function () {
     showConfirmModal(msg, function () {
       state.submitted = true;
       stopTimer();
-      commitQuestionTime();
       computeAndShowResults();
     });
-    return;
   }
 
   function formatRange(start, end) {
@@ -790,15 +811,7 @@ const ExamEngine = (function () {
       appEl.appendChild(fallback);
     }
 
-    /* Back to home button — inject into filter bar */
-    var filterBar = appEl.querySelector('.results-filter');
-    if (filterBar) {
-      var backBtn = createEl('button', ['btn', 'btn--sm', 'results-filter__btn'], { text: tr('backHome') });
-      backBtn.addEventListener('click', function () {
-        window.location.reload();
-      });
-      filterBar.appendChild(backBtn);
-    }
+    /* Back to Home is rendered by the results toolbar (grading.js) */
   }
 
   /* =================================================================

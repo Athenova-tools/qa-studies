@@ -298,7 +298,7 @@ input, textarea, select {
   top: 0;
   left: 0;
   right: 0;
-  height: 64px;
+  height: var(--header-height);
   background-color: var(--color-surface);
   border-bottom: 1px solid var(--color-border);
   z-index: 1000;
@@ -657,16 +657,16 @@ input, textarea, select {
 /* ----- Exam Layout ----- */
 .exam-layout {
   display: flex;
-  min-height: calc(100vh - 64px);
-  padding-top: 104px;
+  min-height: calc(100vh - var(--header-height));
+  padding-top: var(--header-height);
 }
 
 .exam-main {
   flex: 1;
   padding: var(--space-xl);
   max-width: 100%;
-  overflow-x: visible;
-  margin-right: 0;
+  overflow-x: hidden;
+  margin-right: var(--sidebar-width);
 }
 
 @media (max-width: 768px) {
@@ -688,7 +688,7 @@ input, textarea, select {
   padding: var(--space-lg);
   overflow-y: auto;
   position: fixed;
-  top: 104px;
+  top: var(--header-height);
   right: 0;
   bottom: 0;
   z-index: 100;
@@ -726,33 +726,23 @@ input, textarea, select {
   color: var(--color-text);
 }
 
-/* ----- Question Navigator (top) ----- */
-.exam-nav-top {
-  background: var(--color-surface);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-lg);
-  padding: var(--space-sm);
-  position: sticky;
-  top: 104px;
-  z-index: 50;
-  margin-bottom: var(--space-xs);
-}
-
+/* ----- Question Navigator Grid ----- */
 .question-nav {
   display: grid;
-  grid-template-columns: repeat(10, 1fr);
-  gap: var(--space-xs);
-  margin-bottom: var(--space-sm);
+  grid-template-columns: repeat(5, 1fr);
+  gap: var(--space-sm);
+  margin-bottom: var(--space-lg);
 }
 
 .question-nav__item {
   display: flex;
   align-items: center;
   justify-content: center;
+  width: 100%;
   aspect-ratio: 1;
   border-radius: var(--radius-md);
   font-size: 0.8125rem;
-  font-weight: 700;
+  font-weight: 600;
   color: var(--color-text-secondary);
   background-color: var(--color-bg-alt);
   border: 2px solid transparent;
@@ -823,26 +813,24 @@ input, textarea, select {
 /* ----- Sidebar Legend ----- */
 .sidebar-legend {
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: center;
+  flex-direction: column;
   gap: var(--space-xs);
-  margin-bottom: 0;
-  padding-top: var(--space-xs);
+  margin-bottom: var(--space-lg);
+  padding-top: var(--space-md);
   border-top: 1px solid var(--color-border);
 }
 
 .sidebar-legend__item {
   display: flex;
   align-items: center;
-  gap: var(--space-xs);
-  font-size: 0.6875rem;
+  gap: var(--space-sm);
+  font-size: 0.75rem;
   color: var(--color-text-secondary);
 }
 
 .sidebar-legend__swatch {
-  width: 12px;
-  height: 12px;
+  width: 16px;
+  height: 16px;
   border-radius: var(--radius-sm);
   flex-shrink: 0;
   border: 1px solid var(--color-border);
@@ -874,58 +862,29 @@ input, textarea, select {
   border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);
   padding: var(--space-xl);
-  margin-bottom: var(--space-xs);
+  margin-bottom: var(--space-lg);
   transition: background-color var(--transition-base);
 }
 
 .question .timer {
+  margin-bottom: var(--space-md);
   justify-content: center;
+  width: 100%;
 }
 
 .question__timer-row {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: var(--space-md);
-  margin-top: var(--space-xs);
-  margin-bottom: 0;
-}
-
-.question__timer-row .timer {
-  width: auto;
-  font-size: 0.75rem;
-  padding: 0.25rem 0.625rem;
-  gap: var(--space-xs);
-}
-
-.question__flag-star {
-  margin-right: var(--space-xs);
-  color: var(--color-warning);
-}
-
-.exam-nav-legend-row {
-  display: flex;
-  align-items: center;
   justify-content: center;
-  gap: var(--space-md);
-  flex-wrap: wrap;
-  margin-top: var(--space-xs);
+  margin-bottom: var(--space-md);
 }
 
 .question__header {
   display: flex;
-  flex-direction: column;
-  gap: var(--space-xs);
-  margin-bottom: var(--space-xs);
-}
-
-.question__header-row {
-  display: flex;
   align-items: center;
   justify-content: space-between;
   gap: var(--space-sm);
-  flex-wrap: nowrap;
-  width: 100%;
+  margin-bottom: var(--space-lg);
+  flex-wrap: wrap;
 }
 
 .question__number {
@@ -1119,8 +1078,8 @@ input, textarea, select {
   align-items: center;
   justify-content: space-between;
   gap: var(--space-md);
-  margin-top: 0;
-  padding-top: var(--space-xs);
+  margin-top: var(--space-lg);
+  padding-top: var(--space-lg);
   border-top: 1px solid var(--color-border);
 }
 
@@ -1217,17 +1176,11 @@ input, textarea, select {
 
 /* ----- Timer Pace Indicator ----- */
 .timer-pace {
-  display: inline-flex;
-  align-items: center;
   font-size: 0.75rem;
   font-weight: 600;
   padding: 0.25rem 0.5rem;
   border-radius: var(--radius-sm);
   white-space: nowrap;
-}
-.timer-pace--block {
-  display: block;
-  margin-top: var(--space-xs);
 }
 .timer-pace--ok {
   color: var(--color-success);
@@ -1241,18 +1194,8 @@ input, textarea, select {
 .question__time-info {
   font-size: 0.75rem;
   color: var(--color-text-muted);
-  margin-bottom: 0;
-  padding: 0.15rem 0;
-}
-.question__time-info--row {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.question__pace {
-  margin-bottom: 0;
-  min-height: 0;
+  margin-bottom: var(--space-md);
+  padding: 0.25rem 0;
 }
 
 /* ----- Results Filter ----- */
@@ -1262,130 +1205,31 @@ input, textarea, select {
   gap: var(--space-sm);
   margin-bottom: var(--space-lg);
 }
-.results-filter__row {
+.results-filter__line1 {
+  display: flex;
+}
+.results-filter__select {
+  font-size: 0.85rem;
+  padding: 0.45rem 0.75rem;
+  border: 1px solid var(--color-border);
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  min-width: 180px;
+}
+.results-filter__line2 {
   display: flex;
   flex-wrap: wrap;
-  align-items: center;
-  gap: var(--space-xs);
-}
-.results-filter__row--actions {
   justify-content: space-between;
+  align-items: center;
+  gap: var(--space-sm);
 }
 .results-filter__group {
   display: flex;
   flex-wrap: wrap;
-  gap: var(--space-xs);
-}
-.results-filter__group--right {
-  margin-left: auto;
-}
-.results-filter__label {
-  font-size: 0.75rem;
-  font-weight: 600;
-  color: var(--color-text-secondary);
-  margin-right: var(--space-xs);
-}
-.results-filter__select {
-  font-size: 0.75rem;
-  padding: 0.25rem 0.5rem;
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-sm);
-  background-color: var(--color-bg);
-  color: var(--color-text);
-  cursor: pointer;
-}
-.results-filter__row--nav {
-  justify-content: flex-start;
-}
-
-/* ----- App Confirm Modal (replaces native confirm) ----- */
-.app-modal {
-  position: fixed;
-  inset: 0;
-  z-index: 1000;
-  display: flex;
   align-items: center;
-  justify-content: center;
-  background: rgba(15, 23, 42, 0.55);
-  padding: var(--space-lg);
-}
-.app-modal__box {
-  background: var(--color-surface);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-lg);
-  max-width: 420px;
-  width: 100%;
-  padding: var(--space-lg);
-}
-.app-modal__msg {
-  white-space: pre-line;
-  font-size: 0.875rem;
-  line-height: 1.5;
-  color: var(--color-text);
-  margin-bottom: var(--space-md);
-}
-.app-modal__actions {
-  display: flex;
-  justify-content: flex-end;
-  gap: var(--space-sm);
-}
-
-/* ----- Recent Attempts Grid ----- */
-.recent-attempts {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: var(--space-md);
-  margin-bottom: var(--space-xl);
-}
-.recent-attempt {
-  display: flex;
-  flex-direction: column;
   gap: var(--space-xs);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-lg);
-  background: var(--color-surface);
-  padding: var(--space-md);
-}
-.recent-attempt__top {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: var(--space-sm);
-}
-.recent-attempt__exam {
-  font-size: 0.9375rem;
-  font-weight: 700;
-  color: var(--color-text);
-}
-.recent-attempt__badge {
-  font-size: 0.6875rem;
-  font-weight: 700;
-  letter-spacing: 0.04em;
-  padding: 0.1rem 0.5rem;
-  border-radius: var(--radius-full);
-}
-.recent-attempt__badge--pass {
-  background: var(--color-success);
-  color: #fff;
-}
-.recent-attempt__badge--fail {
-  background: var(--color-danger);
-  color: #fff;
-}
-.recent-attempt__score {
-  font-size: 1.125rem;
-  font-weight: 800;
-  color: var(--color-text);
-}
-.recent-attempt__meta {
-  font-size: 0.75rem;
-  color: var(--color-text-muted);
-}
-.recent-attempt__actions {
-  display: flex;
-  gap: var(--space-xs);
-  margin-top: var(--space-xs);
 }
 .results-filter__btn {
   font-size: 0.75rem;
@@ -1405,6 +1249,38 @@ input, textarea, select {
   background-color: var(--color-primary);
   color: var(--color-text-inverse);
   border-color: var(--color-primary);
+}
+
+/* ----- Confirm Modal ----- */
+.app-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: var(--space-md);
+}
+.app-modal__box {
+  background: var(--color-bg);
+  color: var(--color-text);
+  border-radius: var(--radius-md);
+  max-width: 420px;
+  width: 100%;
+  padding: var(--space-lg);
+  box-shadow: var(--shadow-lg);
+}
+.app-modal__body {
+  white-space: pre-line;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  margin-bottom: var(--space-lg);
+}
+.app-modal__actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--space-sm);
 }
 
 /* ----- Results Page ----- */
@@ -2289,7 +2165,7 @@ input, textarea, select {
   }
 
   .question-nav {
-    grid-template-columns: repeat(10, 1fr);
+    grid-template-columns: repeat(4, 1fr);
   }
 }
 
@@ -2347,7 +2223,7 @@ input, textarea, select {
 
   .exam-sidebar {
     position: fixed;
-    top: 104px;
+    top: var(--header-height);
     right: 0;
     bottom: 0;
     width: 280px;
@@ -2373,7 +2249,7 @@ input, textarea, select {
   }
 
   .question-nav {
-    grid-template-columns: repeat(10, 1fr);
+    grid-template-columns: repeat(5, 1fr);
   }
 
   .question {
@@ -2463,7 +2339,7 @@ input, textarea, select {
   }
 
   .question-nav {
-    grid-template-columns: repeat(10, 1fr);
+    grid-template-columns: repeat(5, 1fr);
   }
 
   .results__card {
@@ -2569,7 +2445,7 @@ input, textarea, select {
   }
 
   .exam-layout {
-    padding-top: 104px;
+    padding-top: 0;
   }
 
   .exam-main {
@@ -2601,8 +2477,7 @@ input, textarea, select {
   }
 
   .results-filter {
-    display: flex !important;
-    flex-direction: column;
+    display: none !important;
   }
 
   .results-item {

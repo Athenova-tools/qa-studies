@@ -1201,8 +1201,35 @@ input, textarea, select {
 /* ----- Results Filter ----- */
 .results-filter {
   display: flex;
-  gap: var(--space-xs);
+  flex-direction: column;
+  gap: var(--space-sm);
   margin-bottom: var(--space-lg);
+}
+.results-filter__line1 {
+  display: flex;
+}
+.results-filter__select {
+  font-size: 0.85rem;
+  padding: 0.45rem 0.75rem;
+  border: 1px solid var(--color-border);
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  min-width: 180px;
+}
+.results-filter__line2 {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--space-sm);
+}
+.results-filter__group {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-xs);
 }
 .results-filter__btn {
   font-size: 0.75rem;
@@ -1222,6 +1249,38 @@ input, textarea, select {
   background-color: var(--color-primary);
   color: var(--color-text-inverse);
   border-color: var(--color-primary);
+}
+
+/* ----- Confirm Modal ----- */
+.app-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: var(--space-md);
+}
+.app-modal__box {
+  background: var(--color-bg);
+  color: var(--color-text);
+  border-radius: var(--radius-md);
+  max-width: 420px;
+  width: 100%;
+  padding: var(--space-lg);
+  box-shadow: var(--shadow-lg);
+}
+.app-modal__body {
+  white-space: pre-line;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  margin-bottom: var(--space-lg);
+}
+.app-modal__actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--space-sm);
 }
 
 /* ----- Results Page ----- */

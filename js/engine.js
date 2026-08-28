@@ -661,6 +661,35 @@ const ExamEngine = (function () {
   }
 
   /* =================================================================
+     Confirm modal (replaces native confirm())
+     ================================================================= */
+
+  function showConfirmModal(message, onConfirm) {
+    var existing = document.getElementById('app-confirm-modal');
+    if (existing && existing.parentNode) existing.parentNode.removeChild(existing);
+    var overlay = createEl('div', 'app-modal', { id: 'app-confirm-modal' });
+    var box = createEl('div', 'app-modal__box');
+    var body = createEl('div', 'app-modal__body', { text: message });
+    var actions = createEl('div', 'app-modal__actions');
+    var cancelBtn = createEl('button', ['btn', 'btn--ghost'], { text: 'Cancel' });
+    var okBtn = createEl('button', ['btn', 'btn--primary'], { text: 'Confirm' });
+    cancelBtn.addEventListener('click', function () {
+      if (overlay.parentNode) overlay.parentNode.removeChild(overlay);
+    });
+    okBtn.addEventListener('click', function () {
+      if (overlay.parentNode) overlay.parentNode.removeChild(overlay);
+      if (typeof onConfirm === 'function') onConfirm();
+    });
+    actions.appendChild(cancelBtn);
+    actions.appendChild(okBtn);
+    box.appendChild(body);
+    box.appendChild(actions);
+    overlay.appendChild(box);
+    document.body.appendChild(overlay);
+  }
+  window.showConfirmModal = showConfirmModal;
+
+  /* =================================================================
      Submission
      ================================================================= */
 
@@ -689,11 +718,11 @@ const ExamEngine = (function () {
     }
     msg += '\n\nOnce submitted, you cannot change your answers.';
 
-    if (!confirm(msg)) return;
-
-    state.submitted = true;
-    stopTimer();
-    computeAndShowResults();
+    showConfirmModal(msg, function () {
+      state.submitted = true;
+      stopTimer();
+      computeAndShowResults();
+    });
   }
 
   function formatRange(start, end) {
@@ -782,15 +811,7 @@ const ExamEngine = (function () {
       appEl.appendChild(fallback);
     }
 
-    /* Back to home button — inject into filter bar */
-    var filterBar = appEl.querySelector('.results-filter');
-    if (filterBar) {
-      var backBtn = createEl('button', ['btn', 'btn--sm', 'results-filter__btn'], { text: tr('backHome') });
-      backBtn.addEventListener('click', function () {
-        window.location.reload();
-      });
-      filterBar.appendChild(backBtn);
-    }
+    /* Back to Home is rendered by the results toolbar (grading.js) */
   }
 
   /* =================================================================
