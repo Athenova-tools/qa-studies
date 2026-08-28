@@ -730,19 +730,23 @@ input, textarea, select {
   margin-bottom: var(--space-sm);
 }
 .exam-nav-top .question-nav {
-  max-width: 560px;
+  max-width: 720px;
   margin: 0 auto var(--space-xs);
 }
 .exam-nav-top .sidebar-legend {
+  flex-direction: row;
+  flex-wrap: wrap;
   justify-content: center;
+  border-top: none;
+  padding-top: 0;
   margin-bottom: var(--space-md);
 }
 
 /* ----- Question Navigator Grid ----- */
 .question-nav {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: var(--space-sm);
+  grid-template-columns: repeat(10, 1fr);
+  gap: var(--space-xs);
   margin-bottom: var(--space-lg);
 }
 
@@ -886,7 +890,8 @@ input, textarea, select {
 
 .question__timer-row {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
+  align-items: center;
   margin-bottom: var(--space-md);
 }
 
@@ -1200,6 +1205,17 @@ input, textarea, select {
 .timer-pace--behind {
   color: var(--color-danger);
   background-color: var(--color-danger-light);
+}
+
+.question__time-info--row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--space-sm);
+  flex-wrap: wrap;
+}
+.question__time-info--main {
+  font-weight: 600;
 }
 
 /* ----- Per-Question Time Info ----- */

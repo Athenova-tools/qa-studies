@@ -136,6 +136,12 @@ const ExamEngine = (function () {
     var timerEl = createEl('div', 'timer', { text: formatTime(state.remaining) });
     timerEl.id = 'timer-display';
     timerRow.appendChild(timerEl);
+
+    var flagBtn = createEl('button', ['question__flag-btn'], { text: tr('flagReview') });
+    flagBtn.id = 'q-flag-btn';
+    flagBtn.addEventListener('click', flagQuestion);
+    timerRow.appendChild(flagBtn);
+
     inner.appendChild(timerRow);
 
     /* --- Question container --- */
@@ -154,17 +160,12 @@ const ExamEngine = (function () {
     nextBtn.id = 'btn-next';
     nextBtn.addEventListener('click', nextQuestion);
 
-    var flagBtn = createEl('button', ['btn', 'btn--ghost', 'btn--sm'], { text: tr('flag') });
-    flagBtn.id = 'btn-flag';
-    flagBtn.addEventListener('click', flagQuestion);
-
     var submitBtn = createEl('button', ['btn', 'btn--danger'], { text: tr('submit') });
     submitBtn.id = 'btn-submit';
     submitBtn.addEventListener('click', submitExam);
 
     leftGroup.appendChild(prevBtn);
     leftGroup.appendChild(nextBtn);
-    leftGroup.appendChild(flagBtn);
     rightGroup.appendChild(submitBtn);
     controls.appendChild(leftGroup);
     controls.appendChild(rightGroup);
@@ -291,11 +292,12 @@ const ExamEngine = (function () {
 
     header.appendChild(headerCenter);
 
-    var flagActive = state.flagged.has(index);
-    var flagBtn = createEl('button', ['question__flag-btn'].concat(flagActive ? ['question__flag-btn--active'] : []), { text: flagActive ? tr('flagged') : tr('flagReview') });
-    flagBtn.id = 'q-flag-btn';
-    flagBtn.addEventListener('click', flagQuestion);
-    header.appendChild(flagBtn);
+    var qfb = document.getElementById('q-flag-btn');
+    if (qfb) {
+      var flagActive = state.flagged.has(index);
+      qfb.textContent = flagActive ? tr('flagged') : tr('flagReview');
+      qfb.classList.toggle('question__flag-btn--active', flagActive);
+    }
     container.appendChild(header);
 
     /* Per-question recommended time */
@@ -574,36 +576,31 @@ const ExamEngine = (function () {
     var prevTime = state.timePerQuestion[state.index] || 0;
     var currentSession = state.questionStart > 0 ? Math.max(0, state.questionStart - state.remaining) : 0;
     var totalSpent = prevTime + currentSession;
-    var paceStatus = '';
+    var onPace = false;
+    var behindTime = '';
     if (!state.submitted && totalSpent > 0) {
       var answered = getAnsweredCount();
       if (answered > 0) {
         var actualTimeUsed = state.examTime - state.remaining;
         var expectedTimeUsed = answered * suggestedPerQ;
         if (actualTimeUsed <= expectedTimeUsed * 1.15) {
-          paceStatus = ' \u2713 On pace';
+          onPace = true;
         } else {
           var remainingPerQ = answered < TOTAL_Q ? state.remaining / (TOTAL_Q - answered) : 0;
-          paceStatus = ' \u26A0 Behind - ' + formatTime(Math.round(remainingPerQ)) + '/q left';
+          behindTime = formatTime(Math.round(remainingPerQ));
         }
       }
     }
-    timeInfoEl.innerHTML = 'Suggested: ' + formatTime(suggestedPerQ) + ' | Spent: ' + formatTime(totalSpent);
-
-    /* Pace indicator as a styled span */
-    var paceSpan = document.createElement('span');
-    paceSpan.id = 'question-pace-span';
-    if (paceStatus) {
-      paceSpan.textContent = ' ' + paceStatus.trim();
-      paceSpan.className = 'timer-pace';
-      if (paceStatus.indexOf('On pace') !== -1) {
-        paceSpan.classList.add('timer-pace--ok');
-      } else {
-        paceSpan.classList.add('timer-pace--behind');
-      }
+    timeInfoEl.textContent = '';
+    var row = createEl('div', 'question__time-info--row');
+    row.appendChild(createEl('span', 'question__time-info--main', { text: 'Suggested: ' + formatTime(suggestedPerQ) + ' | Spent: ' + formatTime(totalSpent) }));
+    if (onPace) {
+      row.appendChild(createEl('span', ['timer-pace', 'timer-pace--ok'], { text: '\u2713 On pace' }));
     }
-    timeInfoEl.appendChild(paceSpan);
-
+    timeInfoEl.appendChild(row);
+    if (behindTime) {
+      timeInfoEl.appendChild(createEl('div', ['timer-pace', 'timer-pace--behind'], { text: '\u26A0 Behind - ' + behindTime + '/q left' }));
+    }
     timeInfoEl.style.color = '';
     if (totalSpent > suggestedPerQ) {
       timeInfoEl.style.color = 'var(--color-danger)';
