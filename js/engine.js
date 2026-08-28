@@ -160,8 +160,12 @@ const ExamEngine = (function () {
     nextBtn.id = 'btn-next';
     nextBtn.addEventListener('click', nextQuestion);
 
-    var submitBtn = createEl('button', ['btn', 'btn--danger'], { text: tr('submit') });
+    var submitBtn = createEl('button', ['btn', 'btn--danger', 'exam-submit'], { text: '' });
     submitBtn.id = 'btn-submit';
+    submitBtn.appendChild(createEl('span', 'exam-submit__label', { text: tr('submit') }));
+    var submitTimer = createEl('span', 'exam-submit__timer', { text: formatTime(state.remaining) });
+    submitTimer.id = 'submit-timer';
+    submitBtn.appendChild(submitTimer);
     submitBtn.addEventListener('click', submitExam);
 
     leftGroup.appendChild(prevBtn);
@@ -559,13 +563,18 @@ const ExamEngine = (function () {
 
   function updateTimerDisplay() {
     var el = document.getElementById('timer-display');
-    if (!el) return;
-    el.textContent = formatTime(state.remaining);
-    el.className = 'timer';
-    if (state.remaining <= DANGER_S) {
-      el.classList.add('timer--danger');
-    } else if (state.remaining <= WARN_S) {
-      el.classList.add('timer--warning');
+    if (el) {
+      el.textContent = formatTime(state.remaining);
+      el.className = 'timer';
+      if (state.remaining <= DANGER_S) {
+        el.classList.add('timer--danger');
+      } else if (state.remaining <= WARN_S) {
+        el.classList.add('timer--warning');
+      }
+    }
+    var sub = document.getElementById('submit-timer');
+    if (sub) {
+      sub.textContent = formatTime(state.remaining);
     }
   }
 

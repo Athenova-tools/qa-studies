@@ -1100,6 +1100,15 @@ input, textarea, select {
   border-top: 1px solid var(--color-border);
 }
 
+.exam-submit__label {
+  margin-right: var(--space-xs);
+}
+.exam-submit__timer {
+  font-variant-numeric: tabular-nums;
+  font-weight: 700;
+  opacity: 0.92;
+}
+
 .exam-controls__group {
   display: flex;
   flex-wrap: wrap;
