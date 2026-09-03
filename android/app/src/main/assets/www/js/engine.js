@@ -13,7 +13,7 @@ const ExamEngine = (function () {
   /* =================================================================
      Constants
      ================================================================= */
-  const TOTAL_Q = 40;
+  let TOTAL_Q = 40;
   const EXAM_TIME_S = 3600;
   const WARN_S = 300;
   const DANGER_S = 60;
@@ -121,28 +121,6 @@ const ExamEngine = (function () {
     var layout = createEl('div', 'exam-layout');
     var main = createEl('main', 'exam-main');
     var inner = createEl('div', 'exam-main__inner');
-    /* --- Top navigator (Question Navigator grid) --- */
-    var navGrid = createEl('div', 'question-nav');
-    navGrid.id = 'question-nav';
-
-    var legend = buildLegend();
-
-    var navWrap = createEl('div', 'exam-nav-top');
-    navWrap.appendChild(navGrid);
-    navWrap.appendChild(legend);
-
-    /* --- Timer display (stable, outside question container) --- */
-    var timerRow = createEl('div', 'question__timer-row');
-    var timerEl = createEl('div', 'timer', { text: formatTime(state.remaining) });
-    timerEl.id = 'timer-display';
-    timerRow.appendChild(timerEl);
-
-    var flagBtn = createEl('button', ['question__flag-btn'], { text: tr('flagReview') });
-    flagBtn.id = 'q-flag-btn';
-    flagBtn.addEventListener('click', flagQuestion);
-    timerRow.appendChild(flagBtn);
-
-    inner.appendChild(timerRow);
 
     /* --- Question container --- */
     var qContainer = createEl('div', 'question', { id: 'question-container' });
@@ -160,13 +138,17 @@ const ExamEngine = (function () {
     nextBtn.id = 'btn-next';
     nextBtn.addEventListener('click', nextQuestion);
 
-    var submitBtn = createEl('button', ['btn', 'btn--danger', 'exam-submit'], { text: '' });
+    var flagBtn = createEl('button', ['btn', 'btn--ghost', 'btn--sm'], { text: tr('flag') });
+    flagBtn.id = 'btn-flag';
+    flagBtn.addEventListener('click', flagQuestion);
+
+    var submitBtn = createEl('button', ['btn', 'btn--danger'], { text: tr('submit') });
     submitBtn.id = 'btn-submit';
-    submitBtn.appendChild(createEl('span', 'exam-submit__label', { text: tr('submit') }));
-    var submitTimer = createEl('span', 'exam-submit__timer', { text: formatTime(state.remaining) });
-    submitTimer.id = 'submit-timer';
-    submitBtn.appendChild(submitTimer);
     submitBtn.addEventListener('click', submitExam);
+
+    var submitTimerEl = createEl('span', 'btn-submit__timer', { text: ' ' + formatTime(state.remaining) });
+    submitTimerEl.id = 'btn-submit-timer';
+    submitBtn.appendChild(submitTimerEl);
 
     leftGroup.appendChild(prevBtn);
     leftGroup.appendChild(nextBtn);
@@ -196,12 +178,20 @@ const ExamEngine = (function () {
     notesArea.appendChild(notesInput);
     inner.appendChild(notesArea);
 
+    /* --- Question Navigator (10 x 4) - below controls --- */
+    var navWrap = createEl('div', 'exam-nav-bottom');
+    var navGrid = createEl('div', 'question-nav');
+    navGrid.id = 'question-nav';
+    var legend = buildLegend();
+    navWrap.appendChild(navGrid);
+    var legendRow = createEl('div', 'exam-nav-legend-row');
+    legendRow.appendChild(legend);
+    navWrap.appendChild(legendRow);
     inner.appendChild(navWrap);
+
     main.appendChild(inner);
     layout.appendChild(main);
     appEl.appendChild(layout);
-
-    /* Sidebar overlay/toggle removed: navigator is an inline top grid */
 
     /* Store refs */
     window.currentExam = state.questions;
@@ -280,7 +270,8 @@ const ExamEngine = (function () {
     var numEl = createEl('span', 'question__number', { text: tr('qOf').replace('{n}', index + 1).replace('{t}', TOTAL_Q) });
     headerLeft.appendChild(numEl);
 
-    header.appendChild(headerLeft);
+    var headerRow = createEl('div', 'question__header-row');
+    headerRow.appendChild(headerLeft);
 
     var headerCenter = createEl('div', 'question__header-center');
 
@@ -294,20 +285,29 @@ const ExamEngine = (function () {
     qPBar.appendChild(qPFill);
     headerCenter.appendChild(qPBar);
 
-    header.appendChild(headerCenter);
+    headerRow.appendChild(headerCenter);
 
-    var qfb = document.getElementById('q-flag-btn');
-    if (qfb) {
-      var flagActive = state.flagged.has(index);
-      qfb.textContent = flagActive ? tr('flagged') : tr('flagReview');
-      qfb.classList.toggle('question__flag-btn--active', flagActive);
-    }
-    container.appendChild(header);
+    header.appendChild(headerRow);
 
-    /* Per-question recommended time */
+    /* Per-question recommended time (Suggested | Spent) + Flag for Review */
+    var timeFlagRow = createEl('div', 'question__time-flag-row');
     var timeInfo = createEl('div', 'question__time-info');
     timeInfo.id = 'question-time-info';
-    container.appendChild(timeInfo);
+    timeFlagRow.appendChild(timeInfo);
+
+    var flagActive = state.flagged.has(index);
+    var flagBtn = createEl('button', ['question__flag-btn'].concat(flagActive ? ['question__flag-btn--active'] : []), { text: flagActive ? tr('flagged') : tr('flagReview') });
+    flagBtn.id = 'q-flag-btn';
+    flagBtn.addEventListener('click', flagQuestion);
+    timeFlagRow.appendChild(flagBtn);
+    header.appendChild(timeFlagRow);
+
+    /* Per-question pace indicator (shown below Suggested | Spent when triggered) */
+    var paceEl = createEl('div', 'question__pace');
+    paceEl.id = 'question-pace';
+    header.appendChild(paceEl);
+
+    container.appendChild(header);
 
     /* Question text */
     var qText = createEl('div', 'question__text');
@@ -572,9 +572,15 @@ const ExamEngine = (function () {
         el.classList.add('timer--warning');
       }
     }
-    var sub = document.getElementById('submit-timer');
-    if (sub) {
-      sub.textContent = formatTime(state.remaining);
+    var submitTimer = document.getElementById('btn-submit-timer');
+    if (submitTimer) {
+      submitTimer.textContent = ' ' + formatTime(state.remaining);
+      submitTimer.className = 'btn-submit__timer';
+      if (state.remaining <= DANGER_S) {
+        submitTimer.classList.add('btn-submit__timer--danger');
+      } else if (state.remaining <= WARN_S) {
+        submitTimer.classList.add('btn-submit__timer--warning');
+      }
     }
   }
 
@@ -585,30 +591,33 @@ const ExamEngine = (function () {
     var prevTime = state.timePerQuestion[state.index] || 0;
     var currentSession = state.questionStart > 0 ? Math.max(0, state.questionStart - state.remaining) : 0;
     var totalSpent = prevTime + currentSession;
-    var paceText = '';
-    var paceClass = '';
+    var paceStatus = '';
     if (!state.submitted && totalSpent > 0) {
       var answered = getAnsweredCount();
-      if (answered > 0) {
-        var actualTimeUsed = state.examTime - state.remaining;
-        var expectedTimeUsed = answered * suggestedPerQ;
-        if (actualTimeUsed <= expectedTimeUsed * 1.15) {
-          paceText = '\u2713 On pace';
-          paceClass = 'timer-pace--ok';
-        } else {
-          var remainingPerQ = answered < TOTAL_Q ? state.remaining / (TOTAL_Q - answered) : 0;
-          paceText = '\u26A0 Behind - ' + formatTime(Math.round(remainingPerQ)) + '/q left';
-          paceClass = 'timer-pace--behind';
-        }
+      if (totalSpent <= suggestedPerQ) {
+        paceStatus = ' \u2713 On pace';
+      } else {
+        var remainingPerQ = (TOTAL_Q - answered) > 0 ? state.remaining / (TOTAL_Q - answered) : 0;
+        paceStatus = ' \u26A0 Behind - ' + formatTime(Math.round(remainingPerQ)) + '/q left';
       }
     }
-    timeInfoEl.textContent = '';
-    var row = createEl('div', 'question__time-info--row');
-    row.appendChild(createEl('span', 'question__time-info--main', { text: 'Suggested: ' + formatTime(suggestedPerQ) + ' | Spent: ' + formatTime(totalSpent) }));
-    if (paceText) {
-      row.appendChild(createEl('span', ['timer-pace', paceClass], { text: paceText }));
+    timeInfoEl.innerHTML = 'Suggested: ' + formatTime(suggestedPerQ) + ' | Spent: ' + formatTime(totalSpent);
+
+    /* Pace indicator: placed below Suggested/Spent line */
+    var paceEl = document.getElementById('question-pace');
+    if (paceEl) paceEl.innerHTML = '';
+    if (paceStatus) {
+      var paceSpan = document.createElement('span');
+      paceSpan.textContent = paceStatus.trim();
+      paceSpan.className = 'timer-pace';
+      var isOnPace = paceStatus.indexOf('On pace') !== -1;
+      paceSpan.classList.add(isOnPace ? 'timer-pace--ok' : 'timer-pace--behind');
+      paceEl.appendChild(paceSpan);
+      paceEl.style.display = 'block';
+    } else {
+      paceEl.style.display = 'none';
     }
-    timeInfoEl.appendChild(row);
+
     timeInfoEl.style.color = '';
     if (totalSpent > suggestedPerQ) {
       timeInfoEl.style.color = 'var(--color-danger)';
@@ -634,37 +643,28 @@ const ExamEngine = (function () {
   }
 
   /* =================================================================
-     Confirm modal (replaces native confirm())
+     Submission
      ================================================================= */
 
   function showConfirmModal(message, onConfirm) {
-    var existing = document.getElementById('app-confirm-modal');
-    if (existing && existing.parentNode) existing.parentNode.removeChild(existing);
-    var overlay = createEl('div', 'app-modal', { id: 'app-confirm-modal' });
+    var overlay = createEl('div', 'app-modal');
+    overlay.id = 'confirm-modal';
     var box = createEl('div', 'app-modal__box');
-    var body = createEl('div', 'app-modal__body', { text: message });
+    var p = createEl('div', 'app-modal__msg');
+    p.textContent = message;
     var actions = createEl('div', 'app-modal__actions');
-    var cancelBtn = createEl('button', ['btn', 'btn--ghost'], { text: 'Cancel' });
-    var okBtn = createEl('button', ['btn', 'btn--primary'], { text: 'Confirm' });
-    cancelBtn.addEventListener('click', function () {
-      if (overlay.parentNode) overlay.parentNode.removeChild(overlay);
-    });
-    okBtn.addEventListener('click', function () {
-      if (overlay.parentNode) overlay.parentNode.removeChild(overlay);
-      if (typeof onConfirm === 'function') onConfirm();
-    });
-    actions.appendChild(cancelBtn);
-    actions.appendChild(okBtn);
-    box.appendChild(body);
+    var cancel = createEl('button', ['btn', 'btn--ghost', 'btn--sm'], { text: 'Cancel' });
+    var ok = createEl('button', ['btn', 'btn--danger', 'btn--sm'], { text: 'Submit' });
+    cancel.addEventListener('click', function () { if (overlay.parentNode) overlay.parentNode.removeChild(overlay); });
+    ok.addEventListener('click', function () { if (overlay.parentNode) overlay.parentNode.removeChild(overlay); onConfirm(); });
+    actions.appendChild(cancel);
+    actions.appendChild(ok);
+    box.appendChild(p);
     box.appendChild(actions);
     overlay.appendChild(box);
     document.body.appendChild(overlay);
   }
   window.showConfirmModal = showConfirmModal;
-
-  /* =================================================================
-     Submission
-     ================================================================= */
 
   function submitExam() {
     if (state.submitted) return;
@@ -784,7 +784,6 @@ const ExamEngine = (function () {
       appEl.appendChild(fallback);
     }
 
-    /* Back to Home is rendered by the results toolbar (grading.js) */
   }
 
   /* =================================================================
@@ -875,6 +874,7 @@ const ExamEngine = (function () {
       }
 
       state.questions = window.questionSets[key];
+      TOTAL_Q = state.questions.length;
       state.examId = examId;
 
       showExamConfig();
@@ -889,7 +889,7 @@ const ExamEngine = (function () {
   };
 
   function isValidQuestionSet(questions) {
-    if (!Array.isArray(questions) || questions.length !== TOTAL_Q) return false;
+    if (!Array.isArray(questions) || questions.length === 0) return false;
 
     return questions.every(function (question) {
       return question &&

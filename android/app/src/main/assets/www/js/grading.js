@@ -36,22 +36,6 @@ const ExamGrading = (function () {
     return el;
   }
 
-  function fallbackCopy(text, cb) {
-    try {
-      var ta = document.createElement('textarea');
-      ta.value = text;
-      ta.style.position = 'fixed';
-      ta.style.top = '-9999px';
-      ta.style.opacity = '0';
-      document.body.appendChild(ta);
-      ta.focus();
-      ta.select();
-      var ok = document.execCommand && document.execCommand('copy');
-      document.body.removeChild(ta);
-      if (ok && cb) cb();
-    } catch (e) { /* clipboard unavailable */ }
-  }
-
   function escHtml(s) {
     return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
   }
@@ -131,13 +115,18 @@ const ExamGrading = (function () {
   function generateResultsHTML(results) {
     var container = createEl('div', 'results');
 
-    /* ---- Summary Card (single line) ---- */
+    /* ---- Question Review List ---- */
+    var list = createEl('div', 'results-list');
+    var listTitle = createEl('div', 'results-list__title', { text: 'Question Review' });
+    list.appendChild(listTitle);
+
+    /* ---- Summary Card (below Question Review title) ---- */
     var card = createEl('div', 'results__card');
 
     var mainRow = createEl('div', 'results__main-row');
 
     var iconClass = results.passed ? 'results__icon--pass' : 'results__icon--fail';
-    var icon = createEl('div', ['results__icon', iconClass], { text: results.passed ? '✓' : '✗' });
+    var icon = createEl('div', ['results__icon', iconClass], { text: results.passed ? '\u2713' : '\u2717' });
     mainRow.appendChild(icon);
 
     var scoreEl = createEl('div', 'results__score', { text: results.score + '/' + results.total });
@@ -157,7 +146,7 @@ const ExamGrading = (function () {
       { label: 'Correct', value: String(results.correctCount), style: 'color:var(--color-success);' },
       { label: 'Incorrect', value: String(results.incorrectCount), style: 'color:var(--color-danger);' },
       { label: 'Unanswered', value: String(results.unansweredCount), style: 'color:var(--color-text-muted);' },
-      { label: 'Time', value: results.timeSpent || '—', style: '' },
+      { label: 'Time', value: results.timeSpent || '\u2014', style: '' },
     ];
     statsData.forEach(function (s) {
       var statEl = createEl('span', 'results__stat-inline');
@@ -170,28 +159,22 @@ const ExamGrading = (function () {
     });
 
     card.appendChild(mainRow);
-    container.appendChild(card);
+    list.appendChild(card);
 
-    /* ---- Question Review List ---- */
-    var list = createEl('div', 'results-list');
-    var listTitle = createEl('div', 'results-list__title', { text: 'Question Review' });
-    list.appendChild(listTitle);
-
-    /* ---- Results toolbar (two rows) ---- */
+    /* ---- Question Review filter bar ---- */
     var filterBar = createEl('div', 'results-filter');
 
-    /* Line 1: filter selection list */
-    var selectRow = createEl('div', 'results-filter__line1');
+    /* Row 1: Filters (selection list) */
+    var filterRow = createEl('div', 'results-filter__row');
+    filterRow.appendChild(createEl('span', 'results-filter__label', { text: 'Filters:' }));
     var filterSelect = createEl('select', 'results-filter__select');
-    var filters = [
+    [
       { label: 'All', value: 'all' },
       { label: 'Correct', value: 'correct' },
       { label: 'Incorrect', value: 'incorrect' },
       { label: 'Flagged', value: 'flagged' },
-    ];
-    filters.forEach(function (f) {
-      var opt = createEl('option', null, { text: f.label });
-      opt.value = f.value;
+    ].forEach(function (f) {
+      var opt = createEl('option', null, { text: f.label, value: f.value });
       filterSelect.appendChild(opt);
     });
     filterSelect.addEventListener('change', function () {
@@ -206,15 +189,11 @@ const ExamGrading = (function () {
         }
       });
     });
-    selectRow.appendChild(filterSelect);
-    filterBar.appendChild(selectRow);
+    filterRow.appendChild(filterSelect);
+    filterBar.appendChild(filterRow);
 
-    /* Line 2: actions (left) + navigation (right) */
-    var actionRow = createEl('div', 'results-filter__line2');
-    var leftGroup = createEl('div', 'results-filter__group');
-    var rightGroup = createEl('div', 'results-filter__group');
-
-    /* Expand/Collapse All toggle */
+    /* Row 2: Actions */
+    var actionRow = createEl('div', 'results-filter__row');
     var expandBtn = createEl('button', ['btn', 'btn--sm', 'results-filter__btn'], { text: '\u25B2 Collapse All' });
     expandBtn.dataset.expanded = 'true';
     expandBtn.addEventListener('click', function () {
@@ -232,16 +211,14 @@ const ExamGrading = (function () {
       expandBtn.dataset.expanded = expanded ? 'false' : 'true';
       expandBtn.textContent = expanded ? '\u25BC Expand All' : '\u25B2 Collapse All';
     });
-    leftGroup.appendChild(expandBtn);
+    actionRow.appendChild(expandBtn);
 
-    /* Export to PDF button */
     var pdfBtn = createEl('button', ['btn', 'btn--sm', 'results-filter__btn'], { text: '\u2913 Export to PDF' });
     pdfBtn.addEventListener('click', function () {
       window.print();
     });
-    leftGroup.appendChild(pdfBtn);
+    actionRow.appendChild(pdfBtn);
 
-    /* Copy to clipboard button */
     var copyBtn = createEl('button', ['btn', 'btn--sm', 'results-filter__btn'], { text: '\u2398 Copy' });
     copyBtn.addEventListener('click', function () {
       var copyText = [];
@@ -252,41 +229,29 @@ const ExamGrading = (function () {
         copyText.push(lines.join('\n'));
       });
       if (copyText.length === 0) return;
-      var text = copyText.join('\n\n');
-      var markCopied = function () {
+      navigator.clipboard.writeText(copyText.join('\n\n')).then(function () {
         var orig = copyBtn.textContent;
         copyBtn.textContent = '\u2713 Copied!';
         setTimeout(function () { copyBtn.textContent = orig; }, 2000);
-      };
-      try {
-        if (navigator.clipboard && navigator.clipboard.writeText) {
-          navigator.clipboard.writeText(text).then(markCopied, function () { fallbackCopy(text, markCopied); });
-        } else {
-          fallbackCopy(text, markCopied);
-        }
-      } catch (e) {
-        fallbackCopy(text, markCopied);
-      }
+      }).catch(function () {});
     });
-    leftGroup.appendChild(copyBtn);
+    actionRow.appendChild(copyBtn);
+    filterBar.appendChild(actionRow);
 
-    /* Scroll to bottom button */
+    /* Row 3: Navigation */
+    var navRow = createEl('div', 'results-filter__row results-filter__row--nav');
     var bottomBtn = createEl('button', ['btn', 'btn--sm', 'results-filter__btn'], { text: '\u2193 Bottom' });
     bottomBtn.addEventListener('click', function () {
       window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
     });
-    rightGroup.appendChild(bottomBtn);
+    navRow.appendChild(bottomBtn);
 
-    /* Back to Home button */
     var backBtn = createEl('button', ['btn', 'btn--sm', 'results-filter__btn'], { text: '\u2190 Back to Home' });
     backBtn.addEventListener('click', function () {
-      window.location.reload();
+      window.location.href = 'index.html';
     });
-    rightGroup.appendChild(backBtn);
-
-    actionRow.appendChild(leftGroup);
-    actionRow.appendChild(rightGroup);
-    filterBar.appendChild(actionRow);
+    navRow.appendChild(backBtn);
+    filterBar.appendChild(navRow);
 
     list.appendChild(filterBar);
 

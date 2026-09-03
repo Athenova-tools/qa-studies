@@ -364,7 +364,7 @@ const ExamStats = (function () {
         a.score + '/' + a.total,
         a.percentage + '%',
         a.passed ? 'PASS' : 'FAIL',
-        a.timeSpent,
+        a.timeSpent || '—',
       ];
       cells.forEach(function (c, ci) {
         var td = document.createElement('td');

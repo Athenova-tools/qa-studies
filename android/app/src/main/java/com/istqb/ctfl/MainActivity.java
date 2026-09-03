@@ -1,6 +1,11 @@
 package com.istqb.ctfl;
 
 import android.app.Activity;
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.ViewGroup;
@@ -21,6 +26,18 @@ public class MainActivity extends Activity {
             + "window.addEventListener('error',function(e){showErr(e.message);});"
             + "window.addEventListener('unhandledrejection',function(e){showErr(e.reason&&e.reason.message?e.reason.message:String(e.reason));});"
             + "})();";
+
+    private BroadcastReceiver jsReceiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            String js = intent.getStringExtra("js");
+            if (js != null && webView != null) {
+                Log.d(TAG, "Executing JS: " + js);
+                webView.evaluateJavascript(js, null);
+            }
+        }
+    };
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,7 +52,21 @@ public class MainActivity extends Activity {
         webView.setWebChromeClient(new WebChromeClient(){ public boolean onConsoleMessage(ConsoleMessage cm){Log.d(TAG,cm.message());return true;}});
         webView.setWebViewClient(new WebViewClient(){ public void onPageFinished(WebView v,String u){super.onPageFinished(v,u);v.evaluateJavascript(BANNER,null);}});
         setContentView(webView);
-        webView.loadUrl("file:///android_asset/www/index.html");
+        webView.loadUrl("file:///android_asset/www/exam1.html");
+
+        IntentFilter filter = new IntentFilter("com.istqb.ctfl.EXEC_JS");
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            registerReceiver(jsReceiver, filter, Context.RECEIVER_EXPORTED);
+        } else {
+            registerReceiver(jsReceiver, filter);
+        }
     }
+
+    @Override
+    protected void onDestroy() {
+        unregisterReceiver(jsReceiver);
+        super.onDestroy();
+    }
+
     @Override public void onBackPressed(){ if(webView.canGoBack())webView.goBack(); else super.onBackPressed(); }
 }
