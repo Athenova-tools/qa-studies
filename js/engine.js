@@ -603,7 +603,7 @@ const ExamEngine = (function () {
     }
     timeInfoEl.innerHTML = 'Suggested: ' + formatTime(suggestedPerQ) + ' | Spent: ' + formatTime(totalSpent);
 
-    /* Pace indicator: placed below Suggested/Spent line */
+    /* Pace indicator: inline after Spent line */
     var paceEl = document.getElementById('question-pace');
     if (paceEl) paceEl.innerHTML = '';
     if (paceStatus) {
@@ -612,10 +612,7 @@ const ExamEngine = (function () {
       paceSpan.className = 'timer-pace';
       var isOnPace = paceStatus.indexOf('On pace') !== -1;
       paceSpan.classList.add(isOnPace ? 'timer-pace--ok' : 'timer-pace--behind');
-      paceEl.appendChild(paceSpan);
-      paceEl.style.display = 'block';
-    } else {
-      paceEl.style.display = 'none';
+      timeInfoEl.appendChild(paceSpan);
     }
 
     timeInfoEl.style.color = '';

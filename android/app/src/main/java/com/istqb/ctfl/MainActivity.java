@@ -52,7 +52,7 @@ public class MainActivity extends Activity {
         webView.setWebChromeClient(new WebChromeClient(){ public boolean onConsoleMessage(ConsoleMessage cm){Log.d(TAG,cm.message());return true;}});
         webView.setWebViewClient(new WebViewClient(){ public void onPageFinished(WebView v,String u){super.onPageFinished(v,u);v.evaluateJavascript(BANNER,null);}});
         setContentView(webView);
-        webView.loadUrl("file:///android_asset/www/exam1.html");
+        webView.loadUrl("file:///android_asset/www/index.html");
 
         IntentFilter filter = new IntentFilter("com.istqb.ctfl.EXEC_JS");
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
