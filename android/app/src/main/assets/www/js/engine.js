@@ -669,7 +669,13 @@ const ExamEngine = (function () {
   function submitExam() {
     if (state.submitted) return;
 
-    var unanswered = TOTAL_Q - getAnsweredCount();
+    var answeredCount = getAnsweredCount();
+    if (answeredCount === 0) {
+      showConfirmModal('Nenhuma questão foi respondida. Marque pelo menos uma questão antes de submeter o exame.', null);
+      return;
+    }
+
+    var unanswered = TOTAL_Q - answeredCount;
     var msg = 'Are you sure you want to submit your exam?';
     if (unanswered > 0) {
       var unansweredList = [];
