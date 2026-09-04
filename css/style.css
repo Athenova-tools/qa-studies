@@ -1437,11 +1437,10 @@ input, textarea, select {
   margin: 0 auto var(--space-lg);
 }
 
-/* Compact unified grid: 4x2 grid + verdict spanning 3 cols below (centered under data) */
+/* Compact unified grid: 3 columns + verdict row */
 .results__grid {
   display: grid;
-  grid-template-columns: repeat(4, max-content);
-  grid-template-rows: auto auto;
+  grid-template-columns: repeat(3, max-content);
   gap: var(--space-xs);
   align-items: start;
   justify-content: center;
@@ -1459,12 +1458,7 @@ input, textarea, select {
   padding: var(--space-xs) var(--space-sm);
   background-color: var(--color-bg-alt);
   border-radius: var(--radius-md);
-  min-width: 0;
-}
-
-/* Set minimum width based on "UNANSWERED" and "PERCENTAGE" */
-.results__grid-item {
-  min-width: 10ch; /* fits "UNANSWERED" and "PERCENTAGE" */
+  min-width: 10ch;
 }
 
 /* Hidden spacer for grid alignment */
@@ -1473,17 +1467,12 @@ input, textarea, select {
   min-width: 10ch;
 }
 
-/* Center the 3 data columns (1-3), spacer in col 4 is invisible */
-.results__grid-item:nth-child(1),
-.results__grid-item:nth-child(2),
-.results__grid-item:nth-child(3),
-.results__grid-item:nth-child(5),
-.results__grid-item:nth-child(6),
-.results__grid-item:nth-child(7) {
+/* Center all data items */
+.results__grid-item {
   justify-self: center;
 }
 
-/* Verdict below the grid - spans exactly 3 columns from Correct to Unanswered */
+/* Verdict: full width spanning all 3 columns (Correct to Unanswered) */
 .results__verdict {
   display: flex;
   align-items: center;
@@ -1497,8 +1486,7 @@ input, textarea, select {
   white-space: nowrap;
   margin-top: var(--space-md);
   margin-bottom: var(--space-xs);
-  grid-column: 1 / 4; /* spans columns 1-3 (Correct, Incorrect, Unanswered) */
-  width: 100%;
+  grid-column: 1 / -1;
 }
 
 .results__verdict--pass {
@@ -1528,7 +1516,6 @@ input, textarea, select {
 .results-filter__row--actions {
   justify-content: flex-start;
   margin-top: var(--space-xs);
-  padding-left: 0;
 }
 
 /* Row 3: Back to Attempts (left) | Back to Home (right) */

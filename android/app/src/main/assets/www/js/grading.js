@@ -120,7 +120,7 @@ const ExamGrading = (function () {
 
     var grid = createEl('div', 'results__grid');
 
-    /* Row 1: Score | Percentage | Time | (empty spacer) */
+    /* Row 1: Score | Percentage | Time */
     var scoreEl = createEl('div', ['results__grid-item', 'results__score']);
     var scoreVal = createEl('div', 'results__score-value', { text: results.score + '/' + results.total });
     var scoreLbl = createEl('div', 'results__score-label', { text: 'SCORE' });
@@ -143,11 +143,7 @@ const ExamGrading = (function () {
     timeEl.appendChild(timeLbl);
     grid.appendChild(timeEl);
 
-    /* Empty spacer for column 4 in row 1 */
-    var spacer1 = createEl('div', 'results__grid-item results__grid-spacer');
-    grid.appendChild(spacer1);
-
-    /* Row 2: Correct | Incorrect | Unanswered | (empty spacer) */
+    /* Row 2: Correct | Incorrect | Unanswered */
     var correctEl = createEl('div', ['results__grid-item', 'results__stat', 'results__stat--correct']);
     var correctVal = createEl('div', 'results__stat-value', { text: String(results.correctCount) });
     var correctLbl = createEl('div', 'results__stat-label', { text: 'CORRECT' });
@@ -169,11 +165,7 @@ const ExamGrading = (function () {
     unansweredEl.appendChild(unansweredLbl);
     grid.appendChild(unansweredEl);
 
-    /* Empty spacer for column 4 in row 2 */
-    var spacer2 = createEl('div', 'results__grid-item results__grid-spacer');
-    grid.appendChild(spacer2);
-
-    /* ---- Verdict INSIDE grid spanning columns 1-3 (Correct to Unanswered) ---- */
+    /* ---- Verdict: full width spanning all 3 columns ---- */
     var verdictClass = results.passed ? 'results__verdict--pass' : 'results__verdict--fail';
     var verdictText = results.passed ? 'SUCCESS' : 'FAIL';
     var verdictEl = createEl('div', ['results__verdict', verdictClass], { text: verdictText });
