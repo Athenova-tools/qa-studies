@@ -906,9 +906,3 @@ const ExamEngine = (function () {
     });
   }
 })();
-          console.log('Dev mode:', state.devMode);
-        }
-      }
-    }
-  });
-})();
