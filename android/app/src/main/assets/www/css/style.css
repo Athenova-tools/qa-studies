@@ -1516,9 +1516,16 @@ input, textarea, select {
   gap: var(--space-sm);
 }
 
-/* Row 2: Export, Copy, Back to Home, Back to Attempts (Back to Attempts on RIGHT) */
+/* Row 2: Export, Copy below Filters */
 .results-filter__row--actions {
-  justify-content: center;
+  justify-content: flex-start;
+  margin-top: var(--space-xs);
+  gap: var(--space-sm);
+}
+
+/* Row 3: Back to Home | Back to Attempts (right) below Filters */
+.results-filter__row--nav {
+  justify-content: flex-start;
   margin-top: var(--space-xs);
   gap: var(--space-sm);
 }
