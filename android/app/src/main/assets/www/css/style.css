@@ -1512,16 +1512,11 @@ input, textarea, select {
   justify-content: space-between;
 }
 
-/* Row 2: Export to PDF and Copy below Filters label */
+/* Row 2: Export to PDF, Copy, Back to Attempts, Back to Home */
 .results-filter__row--actions {
   justify-content: flex-start;
   margin-top: var(--space-xs);
-}
-
-/* Row 3: Back to Attempts (left) | Back to Home (right) */
-.results-filter__row--nav {
-  justify-content: space-between;
-  width: 100%;
+  gap: var(--space-sm);
 }
 
 /* --- Row 1 items --- */
