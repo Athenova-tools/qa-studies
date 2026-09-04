@@ -115,109 +115,83 @@ const ExamGrading = (function () {
   function generateResultsHTML(results) {
     var container = createEl('div', 'results');
 
-    /* ---- Summary Card (4x2 grid + verdict spanning 4 cols below) ---- */
+    /* ---- Summary Card (single line) ---- */
     var card = createEl('div', 'results__card');
 
-    var grid = createEl('div', 'results__grid');
+    var mainRow = createEl('div', 'results__main-row');
 
-    /* Row 1: Score | Percentage | Time */
-    var scoreEl = createEl('div', ['results__grid-item', 'results__score']);
-    var scoreVal = createEl('div', 'results__score-value', { text: results.score + '/' + results.total });
-    var scoreLbl = createEl('div', 'results__score-label', { text: 'SCORE' });
-    scoreEl.appendChild(scoreVal);
-    scoreEl.appendChild(scoreLbl);
-    grid.appendChild(scoreEl);
+    var iconClass = results.passed ? 'results__icon--pass' : 'results__icon--fail';
+    var icon = createEl('div', ['results__icon', iconClass], { text: results.passed ? '✓' : '✗' });
+    mainRow.appendChild(icon);
+
+    var scoreEl = createEl('div', 'results__score', { text: results.score + '/' + results.total });
+    mainRow.appendChild(scoreEl);
 
     var pctClass = results.passed ? 'results__percentage--pass' : 'results__percentage--fail';
-    var pctEl = createEl('div', ['results__grid-item', 'results__percentage', pctClass]);
-    var pctVal = createEl('div', 'results__percentage-value', { text: results.percentage + '%' });
-    var pctLbl = createEl('div', 'results__percentage-label', { text: 'PERCENTAGE' });
-    pctEl.appendChild(pctVal);
-    pctEl.appendChild(pctLbl);
-    grid.appendChild(pctEl);
+    var pctEl = createEl('div', ['results__percentage', pctClass], { text: results.percentage + '%' });
+    mainRow.appendChild(pctEl);
 
-    var timeEl = createEl('div', ['results__grid-item', 'results__time']);
-    var timeVal = createEl('div', 'results__time-value', { text: results.timeSpent || '\u2014' });
-    var timeLbl = createEl('div', 'results__time-label', { text: 'TIME' });
-    timeEl.appendChild(timeVal);
-    timeEl.appendChild(timeLbl);
-    grid.appendChild(timeEl);
-
-    /* Spacer for column 4 in row 1 */
-    var spacer1 = createEl('div', 'results__grid-item results__grid-spacer');
-    grid.appendChild(spacer1);
-
-    /* Row 2: Incorrect | Correct | Unanswered | Spacer */
-    var incorrectEl = createEl('div', ['results__grid-item', 'results__stat', 'results__stat--incorrect']);
-    var incorrectVal = createEl('div', 'results__stat-value', { text: String(results.incorrectCount) });
-    var incorrectLbl = createEl('div', 'results__stat-label', { text: 'INCORRECT' });
-    incorrectEl.appendChild(incorrectVal);
-    incorrectEl.appendChild(incorrectLbl);
-    grid.appendChild(incorrectEl);
-
-    var correctEl = createEl('div', ['results__grid-item', 'results__stat', 'results__stat--correct']);
-    var correctVal = createEl('div', 'results__stat-value', { text: String(results.correctCount) });
-    var correctLbl = createEl('div', 'results__stat-label', { text: 'CORRECT' });
-    correctEl.appendChild(correctVal);
-    correctEl.appendChild(correctLbl);
-    grid.appendChild(correctEl);
-
-    var unansweredEl = createEl('div', ['results__grid-item', 'results__stat', 'results__stat--unanswered']);
-    var unansweredVal = createEl('div', 'results__stat-value', { text: String(results.unansweredCount) });
-    var unansweredLbl = createEl('div', 'results__stat-label', { text: 'UNANSWERED' });
-    unansweredEl.appendChild(unansweredVal);
-    unansweredEl.appendChild(unansweredLbl);
-    grid.appendChild(unansweredEl);
-
-    /* Spacer for column 4 in row 2 */
-    var spacer2 = createEl('div', 'results__grid-item results__grid-spacer');
-    grid.appendChild(spacer2);
-
-    /* ---- Verdict: full width spanning all 3 columns ---- */
     var verdictClass = results.passed ? 'results__verdict--pass' : 'results__verdict--fail';
-    var verdictText = results.passed ? 'SUCCESS' : 'FAIL';
+    var verdictText = results.passed ? 'PASS' : 'FAIL';
     var verdictEl = createEl('div', ['results__verdict', verdictClass], { text: verdictText });
-    grid.appendChild(verdictEl);
+    mainRow.appendChild(verdictEl);
 
-    card.appendChild(grid);
+    /* Inline stats */
+    var statsData = [
+      { label: 'Correct', value: String(results.correctCount), style: 'color:var(--color-success);' },
+      { label: 'Incorrect', value: String(results.incorrectCount), style: 'color:var(--color-danger);' },
+      { label: 'Unanswered', value: String(results.unansweredCount), style: 'color:var(--color-text-muted);' },
+      { label: 'Time', value: results.timeSpent || '—', style: '' },
+    ];
+    statsData.forEach(function (s) {
+      var statEl = createEl('span', 'results__stat-inline');
+      var val = createEl('span', 'results__stat-inline-value');
+      val.textContent = s.value;
+      if (s.style) val.style.cssText = s.style;
+      statEl.appendChild(val);
+      statEl.appendChild(document.createTextNode(' ' + s.label));
+      mainRow.appendChild(statEl);
+    });
+
+    card.appendChild(mainRow);
+    container.appendChild(card);
 
     /* ---- Question Review List ---- */
     var list = createEl('div', 'results-list');
     var listTitle = createEl('div', 'results-list__title', { text: 'Question Review' });
     list.appendChild(listTitle);
-    list.appendChild(card);
 
-    /* ---- Question Review filter bar ---- */
+    /* Filter buttons */
     var filterBar = createEl('div', 'results-filter');
-
-    /* Row 1: Filters dropdown + Collapse All on right */
-    var filterRow = createEl('div', 'results-filter__row');
-    filterRow.appendChild(createEl('span', 'results-filter__label', { text: 'Filters:' }));
-    var filterSelect = createEl('select', 'results-filter__select');
-    [
+    var filters = [
       { label: 'All', value: 'all' },
       { label: 'Correct', value: 'correct' },
       { label: 'Incorrect', value: 'incorrect' },
       { label: 'Flagged', value: 'flagged' },
-    ].forEach(function (f) {
-      var opt = createEl('option', null, { text: f.label, value: f.value });
-      filterSelect.appendChild(opt);
-    });
-    filterSelect.addEventListener('change', function () {
-      var active = filterSelect.value;
-      list.querySelectorAll('.results-item').forEach(function (item) {
-        if (active === 'all') {
-          item.style.display = '';
-        } else if (active === 'flagged') {
-          item.style.display = item.dataset.flagged === 'true' ? '' : 'none';
-        } else {
-          item.style.display = item.dataset.result === active ? '' : 'none';
-        }
+    ];
+    filters.forEach(function (f) {
+      var btn = createEl('button', ['btn', 'btn--sm', 'results-filter__btn', f.value === 'all' ? 'results-filter__btn--active' : ''], { text: f.label });
+      btn.dataset.filter = f.value;
+      btn.addEventListener('click', function () {
+        filterBar.querySelectorAll('.results-filter__btn').forEach(function (b) {
+          b.classList.remove('results-filter__btn--active');
+        });
+        btn.classList.add('results-filter__btn--active');
+        var active = btn.dataset.filter;
+        list.querySelectorAll('.results-item').forEach(function (item) {
+          if (active === 'all') {
+            item.style.display = '';
+          } else if (active === 'flagged') {
+            item.style.display = item.dataset.flagged === 'true' ? '' : 'none';
+          } else {
+            item.style.display = item.dataset.result === active ? '' : 'none';
+          }
+        });
       });
+      filterBar.appendChild(btn);
     });
-    filterRow.appendChild(filterSelect);
 
-    /* Collapse All on the right */
+    /* Expand/Collapse All toggle */
     var expandBtn = createEl('button', ['btn', 'btn--sm', 'results-filter__btn'], { text: '\u25B2 Collapse All' });
     expandBtn.dataset.expanded = 'true';
     expandBtn.addEventListener('click', function () {
@@ -235,17 +209,20 @@ const ExamGrading = (function () {
       expandBtn.dataset.expanded = expanded ? 'false' : 'true';
       expandBtn.textContent = expanded ? '\u25BC Expand All' : '\u25B2 Collapse All';
     });
-    filterRow.appendChild(expandBtn);
-    filterBar.appendChild(filterRow);
+    filterBar.appendChild(expandBtn);
 
-    /* Row 2: Export to PDF and Copy below Filters label */
-    var actionRow = createEl('div', 'results-filter__row results-filter__row--actions');
+    /* Separator */
+    var sep = createEl('span', null, { style: 'flex:1;' });
+    filterBar.appendChild(sep);
+
+    /* Export to PDF button */
     var pdfBtn = createEl('button', ['btn', 'btn--sm', 'results-filter__btn'], { text: '\u2913 Export to PDF' });
     pdfBtn.addEventListener('click', function () {
       window.print();
     });
-    actionRow.appendChild(pdfBtn);
+    filterBar.appendChild(pdfBtn);
 
+    /* Copy to clipboard button */
     var copyBtn = createEl('button', ['btn', 'btn--sm', 'results-filter__btn'], { text: '\u2398 Copy' });
     copyBtn.addEventListener('click', function () {
       var copyText = [];
@@ -262,23 +239,14 @@ const ExamGrading = (function () {
         setTimeout(function () { copyBtn.textContent = orig; }, 2000);
       }).catch(function () {});
     });
-    actionRow.appendChild(copyBtn);
-    filterBar.appendChild(actionRow);
+    filterBar.appendChild(copyBtn);
 
-    /* Row 3: Back to Home | Back to Attempts (right) below Filters */
-    var navRow = createEl('div', 'results-filter__row results-filter__row--nav');
-    var backBtn = createEl('button', ['btn', 'btn--sm', 'results-filter__btn'], { text: '\u2190 Back to Home' });
-    backBtn.addEventListener('click', function () {
-      window.location.href = 'index.html';
+    /* Scroll to bottom button */
+    var bottomBtn = createEl('button', ['btn', 'btn--sm', 'results-filter__btn'], { text: '\u2193 Bottom' });
+    bottomBtn.addEventListener('click', function () {
+      window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
     });
-    navRow.appendChild(backBtn);
-
-    var backAttemptsBtn = createEl('button', ['btn', 'btn--sm', 'results-filter__btn'], { text: '\u2190 Back to Attempts' });
-    backAttemptsBtn.addEventListener('click', function () {
-      window.location.href = 'index.html';
-    });
-    navRow.appendChild(backAttemptsBtn);
-    filterBar.appendChild(navRow);
+    filterBar.appendChild(bottomBtn);
 
     list.appendChild(filterBar);
 

@@ -227,10 +227,19 @@ const ExamStats = (function () {
     if (dashboard && appEl.id !== 'stats-dashboard') dashboard.style.display = 'none';
     while (appEl.firstChild) { appEl.removeChild(appEl.firstChild); }
 
+    var backBtn = createEl('button', ['btn', 'btn--sm', 'results-filter__btn'], { text: '\u2190 Back to Dashboard' });
+    backBtn.addEventListener('click', function () {
+      if (dashboard) dashboard.style.display = '';
+      while (appEl.firstChild) { appEl.removeChild(appEl.firstChild); }
+      if (dashboard) renderStatsDashboard();
+    });
+
     if (full && typeof ExamGrading !== 'undefined') {
       full.chapterPerformance = full.chapterPerformance || {};
       var resultsEl = ExamGrading.generateResultsHTML(full);
       appEl.appendChild(resultsEl);
+      var filterBar = appEl.querySelector('.results-filter');
+      if (filterBar) filterBar.appendChild(backBtn);
     } else {
       var attempts = getAttempts();
       var entry = null;
@@ -355,7 +364,7 @@ const ExamStats = (function () {
         a.score + '/' + a.total,
         a.percentage + '%',
         a.passed ? 'PASS' : 'FAIL',
-        a.timeSpent || '—',
+        a.timeSpent,
       ];
       cells.forEach(function (c, ci) {
         var td = document.createElement('td');
@@ -380,10 +389,10 @@ const ExamStats = (function () {
       var delBtn = createEl('button', ['btn', 'btn--danger', 'btn--sm'], { text: 'Delete' });
       delBtn.addEventListener('click', (function (id) {
         return function () {
-          showConfirmModal('Delete this attempt? This cannot be undone.', function () {
+          if (confirm('Delete this attempt? This cannot be undone.')) {
             deleteAttempt(id);
             renderStatsDashboard();
-          });
+          }
         };
       })(a.id));
       actionTd.appendChild(delBtn);
@@ -445,10 +454,10 @@ const ExamStats = (function () {
     var clearGroup = createEl('div', null, { style: 'text-align:center;padding:var(--space-md) 0;' });
     var clearBtn = createEl('button', ['btn', 'btn--danger', 'btn--sm'], { text: 'Clear All History' });
     clearBtn.addEventListener('click', function () {
-      showConfirmModal('Are you sure you want to clear all exam history? This cannot be undone.', function () {
+      if (confirm('Are you sure you want to clear all exam history? This cannot be undone.')) {
         clearHistory();
         renderStatsDashboard();
-      });
+      }
     });
     clearGroup.appendChild(clearBtn);
     container.appendChild(clearGroup);
