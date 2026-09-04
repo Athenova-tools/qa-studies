@@ -11,7 +11,7 @@ window.questionSets = {
             },
             "correctAnswer": "D",
             "explanation": "Test completion activities include archiving testware, handing over test artifacts to maintenance teams, evaluating the test process, documenting lessons learned, and closing defect reports. This marks the formal end of the testing effort for a given test level or project.",
-            "whyWrong": "Deploying to production is not a testing activity; it is an operations activity.",
+            "whyWrong": "Deployment is an operational activity, not a test completion activity.",
             "optionExplanations": {
                 "A": "Code completion is a development activity.",
                 "B": "Deployment is an operations or release management activity.",
@@ -24,11 +24,7 @@ window.questionSets = {
             "learningObjective": "FL-1.4.1",
             "kLevel": "K2",
             "difficulty": "Medium",
-            "keywords": [
-                "test completion",
-                "test process",
-                "lessons learned"
-            ],
+            "keywords": ["test completion", "test process", "lessons learned"],
             "examTip": "Test completion = archive, evaluate, learn, and close.",
             "memoryAid": "Completion = Clean up, Learn, and Move on."
         },
@@ -42,8 +38,8 @@ window.questionSets = {
                 "D": "Testing is only necessary when developers cannot write correct code"
             },
             "correctAnswer": "A",
-            "explanation": "Testing provides information about the quality of the software product and supports informed decision-making by stakeholders. It cannot guarantee the absence of defects, but rather provides visibility into the quality level and residual risks to support stakeholder decisions.",
-            "whyWrong": "Testing cannot guarantee defect-free software; it can only reveal the presence of defects and provide quality information to support informed decision-making.",
+            "explanation": "Testing provides information about the quality of the software product and supports informed decision-making by stakeholders. It cannot guarantee the absence of defects, but rather provides visibility into the quality level and residual risks.",
+            "whyWrong": "Testing reveals defects; it does not prove their absence or guarantee quality.",
             "optionExplanations": {
                 "A": "Testing reveals defects and provides stakeholders with information to support informed decisions about quality levels and residual risks.",
                 "B": "Exhaustive testing is impossible; testing cannot prove the absence of defects.",
@@ -56,17 +52,13 @@ window.questionSets = {
             "learningObjective": "FL-1.1.1",
             "kLevel": "K1",
             "difficulty": "Easy",
-            "keywords": [
-                "testing purpose",
-                "quality information",
-                "risk of failure"
-            ],
+            "keywords": ["testing purpose", "quality information", "risk of failure"],
             "examTip": "Testing provides information and reveals defects; it does not prove correctness.",
             "memoryAid": "Testing = quality information provider, not correctness certifier."
         },
         {
             "id": "Q281",
-            "statement": "A developer claims that \\'debugging is just another name for testing.\\' Which response best clarifies the distinction?",
+            "statement": "A developer claims that 'debugging is just another name for testing.' Which response best clarifies the distinction?",
             "options": {
                 "A": "Both activities share the same goal of finding defects",
                 "B": "Testing reveals failures; debugging identifies and removes the root causes of those failures",
@@ -74,12 +66,12 @@ window.questionSets = {
                 "D": "Testing is always automated while debugging is always manual"
             },
             "correctAnswer": "B",
-            "explanation": "Testing is a systematic process of revealing failures through observation. Debugging is a development activity focused on locating the root cause of a known failure and removing the defect. They are complementary but distinct activities with different objectives and performers.",
-            "whyWrong": "Testing and debugging are not the same; testing finds failures, debugging fixes the underlying defect.",
+            "explanation": "Testing is a systematic process of revealing failures through observation. Debugging is a development activity focused on locating the root cause of a known failure and removing the defect. They are complementary but distinct activities.",
+            "whyWrong": "Testing finds failures; debugging fixes the underlying defect. They are not the same activity.",
             "optionExplanations": {
-                "A": "Testing finds failures to uncover defects; debugging fixes known defects. They are not the same.",
+                "A": "Testing finds failures; debugging fixes defects. Their goals differ.",
                 "B": "Testing reveals failures through systematic execution; debugging traces the failure to its root cause and removes the defect.",
-                "C": "Debugging can occur at any point in the lifecycle when a defect is identified, not just after release.",
+                "C": "Debugging can occur at any point in the lifecycle when a defect is identified.",
                 "D": "Both testing and debugging can be performed manually or with tool support."
             },
             "chapter": 1,
@@ -88,11 +80,7 @@ window.questionSets = {
             "learningObjective": "FL-1.1.2",
             "kLevel": "K2",
             "difficulty": "Medium",
-            "keywords": [
-                "testing",
-                "debugging",
-                "defects"
-            ],
+            "keywords": ["testing", "debugging", "defects"],
             "examTip": "Testing finds failures; debugging fixes the root cause.",
             "memoryAid": "Testing = detective; Debugging = surgeon."
         },
@@ -106,13 +94,13 @@ window.questionSets = {
                 "D": "Error"
             },
             "correctAnswer": "A",
-            "explanation": "The inadequate backup process design is a defect (a flaw in a work product, in this case the design/documentation). The root cause is the fundamental reason the inadequate design was produced (e.g., lack of training, time pressure, or absence of review). The failure is the observable data loss; the error is the human mistake that introduced the defect.",
-            "whyWrong": "A defect is a flaw in a work product; the root cause is the deeper reason the defect was introduced (e.g., lack of training or time pressure).",
+            "explanation": "The inadequate backup process design is a defect — a flaw in a work product. The root cause is the deeper reason the inadequate design was produced (e.g., lack of training, time pressure, missing review). The failure is the observable data loss; the error is the human mistake that introduced the defect.",
+            "whyWrong": "The design flaw itself is the defect; the root cause explains WHY that flaw existed.",
             "optionExplanations": {
                 "A": "The inadequate backup process design is a defect — a flaw in the design work product.",
                 "B": "The failure is the observable data loss, not the underlying design flaw.",
-                "C": "The root cause is the deeper reason the inadequate design was produced (e.g., lack of training); the design flaw itself is the defect.",
-                "D": "The error is the human mistake that produced the inadequate design, not the observable behavior."
+                "C": "The root cause is the deeper reason the inadequate design was produced; the design flaw itself is the defect.",
+                "D": "The error is the human mistake that produced the inadequate design."
             },
             "chapter": 1,
             "section": "1.2",
@@ -120,11 +108,7 @@ window.questionSets = {
             "learningObjective": "FL-1.2.3",
             "kLevel": "K2",
             "difficulty": "Hard",
-            "keywords": [
-                "root cause analysis",
-                "defect prevention",
-                "process improvement"
-            ],
+            "keywords": ["root cause analysis", "defect prevention", "process improvement"],
             "examTip": "Root cause is the deepest underlying reason.",
             "memoryAid": "Fix the root cause to prevent recurrence."
         },
@@ -138,13 +122,13 @@ window.questionSets = {
                 "D": "The tester manages the defect tracking system without participating in testing"
             },
             "correctAnswer": "A",
-            "explanation": "In the whole-team approach, quality is a shared responsibility. Testers collaborate with developers, product owners, and other stakeholders to achieve shared quality ownership. They contribute to requirements refinement, test design, and provide a testing perspective throughout the development process.",
-            "whyWrong": "Quality is a shared responsibility, not solely the tester's burden.",
+            "explanation": "In the whole-team approach, quality is a shared responsibility. Testers collaborate with developers, product owners, and other stakeholders to achieve shared quality ownership throughout the development lifecycle.",
+            "whyWrong": "Quality is everyone's responsibility, not solely the tester's burden.",
             "optionExplanations": {
                 "A": "The whole-team approach means everyone shares responsibility for quality.",
                 "B": "Quality is everyone's responsibility, not just the tester's.",
-                "C": "Testers do more than manual execution; they design tests and collaborate.",
-                "D": "Testers are active participants, not just tool administrators."
+                "C": "Testers design tests, analyze requirements, and collaborate — not only execute manual tests.",
+                "D": "Testers are active participants in quality assurance, not just tool administrators."
             },
             "chapter": 1,
             "section": "1.5",
@@ -152,12 +136,8 @@ window.questionSets = {
             "learningObjective": "FL-1.5.1",
             "kLevel": "K1",
             "difficulty": "Easy",
-            "keywords": [
-                "whole-team approach",
-                "tester role",
-                "collaboration"
-            ],
-            "examTip": "Whole-team = quality is everyone's job, testers are quality advocates.",
+            "keywords": ["whole-team approach", "tester role", "collaboration"],
+            "examTip": "Whole-team = quality is everyone's job; testers are quality advocates.",
             "memoryAid": "Whole-team = all hands on quality."
         },
         {
@@ -170,10 +150,10 @@ window.questionSets = {
                 "D": "Testing then debugging"
             },
             "correctAnswer": "D",
-            "explanation": "The tester performed testing (executing a test case that revealed a failure). The developer then performed debugging (locating and fixing the defect). Testing always precedes debugging in this scenario, as debugging requires a known failure or defect to investigate.",
-            "whyWrong": "Root cause analysis is part of debugging, not a separate activity that precedes it.",
+            "explanation": "The tester performed testing by executing a test case that revealed a failure. The developer then performed debugging by locating and fixing the underlying defect. Testing precedes debugging because debugging requires a known failure to investigate.",
+            "whyWrong": "Testing exposed the failure first; debugging followed to locate and fix the cause.",
             "optionExplanations": {
-                "A": "Testing came first (the test triggered the failure), not debugging.",
+                "A": "Testing came first — the test triggered the failure.",
                 "B": "Root cause analysis is part of debugging, not a prior activity.",
                 "C": "Configuration management is unrelated to finding and fixing the defect.",
                 "D": "Testing exposed the failure; debugging found and fixed the null pointer."
@@ -184,11 +164,7 @@ window.questionSets = {
             "learningObjective": "FL-1.1.2",
             "kLevel": "K2",
             "difficulty": "Medium",
-            "keywords": [
-                "testing sequence",
-                "debugging",
-                "defect lifecycle"
-            ],
+            "keywords": ["testing sequence", "debugging", "defect lifecycle"],
             "examTip": "Testing must happen before debugging can start.",
             "memoryAid": "Test first, debug second."
         },
@@ -202,13 +178,13 @@ window.questionSets = {
                 "D": "To close defect reports as quickly as possible"
             },
             "correctAnswer": "C",
-            "explanation": "Root cause analysis aims to identify the fundamental reason why a defect was introduced. By understanding the root cause, organizations can implement process improvements to prevent similar defects from occurring in future projects, supporting continuous improvement.",
-            "whyWrong": "Root cause analysis is a constructive learning activity, not a blame assignment process.",
+            "explanation": "Root cause analysis identifies the fundamental reason why a defect was introduced. Understanding the root cause enables organizations to implement process improvements that prevent similar defects in future projects.",
+            "whyWrong": "Root cause analysis focuses on process improvement, not blame or rapid closure.",
             "optionExplanations": {
-                "A": "Identifying failed test cases is part of test execution analysis, not RCA.",
+                "A": "Identifying failed test cases is part of test execution analysis.",
                 "B": "RCA focuses on process improvement, not individual blame.",
                 "C": "RCA identifies systemic causes to enable preventive actions and process improvement.",
-                "D": "Closing reports quickly does not address prevention."
+                "D": "Closing reports quickly does not address prevention or root causes."
             },
             "chapter": 1,
             "section": "1.2",
@@ -216,11 +192,7 @@ window.questionSets = {
             "learningObjective": "FL-1.2.3",
             "kLevel": "K2",
             "difficulty": "Medium",
-            "keywords": [
-                "root cause analysis",
-                "defect prevention",
-                "process improvement"
-            ],
+            "keywords": ["root cause analysis", "defect prevention", "process improvement"],
             "examTip": "Root cause analysis = find why, fix the process, prevent recurrence.",
             "memoryAid": "RCA = treat the cause, not just the symptom."
         },
@@ -234,13 +206,13 @@ window.questionSets = {
                 "D": "To move all test cases to the next project"
             },
             "correctAnswer": "B",
-            "explanation": "Test closure activities formally conclude the testing effort. This includes finalizing and archiving test artifacts, handing over testware to maintenance teams, analyzing lessons learned, documenting project knowledge, finalizing completion reports, closing all defect reports appropriately, and ensuring reusable testware is handed over to interested parties.",
-            "whyWrong": "Test closure is about completing testing properly, not terminating teams or ignoring defects.",
+            "explanation": "Test closure activities formally conclude the testing effort. This includes finalizing and archiving test artifacts, handing over testware, analyzing lessons learned, documenting project knowledge, and closing defect reports appropriately.",
+            "whyWrong": "Test closure completes the work properly; it does not abandon defects or disband teams.",
             "optionExplanations": {
-                "A": "Defect reports should be resolved (fixed, deferred, or rejected), not just closed.",
-                "B": "Archiving, lessons learned, and formal closure are the goals of test completion.",
-                "C": "Test closure is about completing the work, not disbanding the team.",
-                "D": "Artifacts are archived, not necessarily moved to other projects."
+                "A": "Defect reports should be resolved, not just closed without action.",
+                "B": "Archiving, lessons learned, and formal completion are the goals of test closure.",
+                "C": "Test closure completes the phase, not necessarily the team.",
+                "D": "Artifacts are archived for potential reuse, not automatically moved."
             },
             "chapter": 1,
             "section": "1.4",
@@ -248,11 +220,7 @@ window.questionSets = {
             "learningObjective": "FL-1.4.1",
             "kLevel": "K2",
             "difficulty": "Medium",
-            "keywords": [
-                "test closure",
-                "test completion",
-                "lessons learned"
-            ],
+            "keywords": ["test closure", "test completion", "lessons learned"],
             "examTip": "Test closure = archive, evaluate, learn, and formally complete.",
             "memoryAid": "Closure = clean up, then close the book."
         },
@@ -266,13 +234,13 @@ window.questionSets = {
                 "D": "An error"
             },
             "correctAnswer": "A",
-            "explanation": "The tester observed an actual result that deviates from the expected result. According to the ISTQB glossary, a failure is an event in which a component or system does not perform a required function within specified limits. The observable incorrect behavior is the failure itself. The fault (defect) is the underlying cause in the code that may lead to a failure, but what the tester directly observed is a failure.",
-            "whyWrong": "A fault (defect) is the underlying problem in the code, not the observable behavior. The tester observed a deviation during execution, which is a failure.",
+            "explanation": "A failure is the observable deviation of actual behavior from expected behavior during execution. The fault (defect) is the underlying cause in the code; the root cause explains why the defect existed; the error is the human mistake that introduced it.",
+            "whyWrong": "The tester observed behavior, not the code defect, root cause, or human mistake.",
             "optionExplanations": {
-                "A": "Correct. A failure is the observable deviation of actual behavior from expected behavior during execution.",
-                "B": "A fault (defect) is the underlying cause in the code that may produce a failure, but the tester observed the failure, not the fault.",
-                "C": "Root cause is the fundamental reason for a defect, discovered through analysis after the failure is observed.",
-                "D": "An error is a human mistake that introduced the defect; it is not what the tester observed."
+                "A": "Correct. A failure is the observable deviation of actual behavior from expected behavior.",
+                "B": "A fault (defect) is the underlying cause in the code — not what was observed.",
+                "C": "Root cause is discovered later through analysis, not observed directly.",
+                "D": "An error is the human mistake that introduced the defect — not observable behavior."
             },
             "chapter": 1,
             "section": "1.1",
@@ -280,14 +248,9 @@ window.questionSets = {
             "learningObjective": "FL-1.1.1",
             "kLevel": "K1",
             "difficulty": "Easy",
-            "keywords": [
-                "failure",
-                "fault",
-                "error",
-                "defect"
-            ],
-            "examTip": "Remember the sequence: Error (human mistake) -> Defect (in code) -> Failure (observable behavior).",
-            "memoryAid": "Error -> Defect -> Failure: Mistake causes bug causes crash."
+            "keywords": ["failure", "fault", "error", "defect"],
+            "examTip": "Remember: Error → Defect → Failure: Mistake causes bug causes observable problem.",
+            "memoryAid": "Error → Defect → Failure."
         },
         {
             "id": "Q008",
@@ -299,13 +262,13 @@ window.questionSets = {
                 "D": "Pesticide paradox"
             },
             "correctAnswer": "C",
-            "explanation": "The absence-of-errors fallacy states that finding and fixing defects does not guarantee that the system meets user needs. Even a system with no defects can be unusable or fail to satisfy customer requirements.",
-            "whyWrong": "Defect clustering would mean many defects were found in a few modules, which is not the case here.",
+            "explanation": "The absence-of-errors fallacy states that finding and fixing defects does not guarantee the system meets user needs. Even a defect-free system can fail to satisfy business requirements.",
+            "whyWrong": "No defects found ≠ the product is useful — this is the fallacy.",
             "optionExplanations": {
-                "A": "Defect clustering means most defects are found in a small number of modules.",
-                "B": "Early testing is about starting testing activities early in the lifecycle.",
+                "A": "Defect clustering means most defects appear in a few modules — irrelevant here.",
+                "B": "Early testing means starting testing early — not illustrated here.",
                 "C": "A defect-free system can still fail to meet stakeholder needs or business requirements.",
-                "D": "The pesticide paradox concerns tests becoming ineffective over time."
+                "D": "Pesticide paradox concerns tests losing effectiveness over time."
             },
             "chapter": 1,
             "section": "1.3",
@@ -313,12 +276,8 @@ window.questionSets = {
             "learningObjective": "FL-1.3.1",
             "kLevel": "K2",
             "difficulty": "Medium",
-            "keywords": [
-                "absence-of-errors fallacy",
-                "testing principles",
-                "user needs"
-            ],
-            "examTip": "If the system works but nobody wants it, think absence-of-errors fallacy.",
+            "keywords": ["absence-of-errors fallacy", "testing principles", "user needs"],
+            "examTip": "If it works but nobody wants it → absence-of-errors fallacy.",
             "memoryAid": "Zero defects can still mean zero value."
         },
         {
@@ -331,13 +290,13 @@ window.questionSets = {
                 "D": "Expert-level programming ability"
             },
             "correctAnswer": "B",
-            "explanation": "Curiosity and inquisitiveness are essential traits for testers. A curious tester asks probing questions, explores edge cases, and challenges assumptions, which leads to more thorough testing and finding defects that others might miss.",
-            "whyWrong": "Programming ability, project management, and certifications are not the primary skill demonstrated by curiosity.",
+            "explanation": "Curiosity and inquisitiveness are essential traits for testers. A curious tester asks probing questions, explores edge cases, and challenges assumptions — leading to more thorough testing.",
+            "whyWrong": "Curiosity and questioning demonstrate analytical thinking, not management or coding skills.",
             "optionExplanations": {
                 "A": "Project management focuses on planning and coordination, not inquisitiveness.",
                 "B": "Curiosity and analytical thinking drive thorough investigation and defect discovery.",
                 "C": "Certifications validate knowledge but do not replace curiosity.",
-                "D": "Programming is a technical skill separate from curiosity."
+                "D": "Programming is a separate technical skill."
             },
             "chapter": 1,
             "section": "1.5",
@@ -345,12 +304,8 @@ window.questionSets = {
             "learningObjective": "FL-1.5.1",
             "kLevel": "K1",
             "difficulty": "Easy",
-            "keywords": [
-                "curiosity",
-                "analytical thinking",
-                "tester skills"
-            ],
-            "examTip": "Good testers are naturally curious and ask 'what if?' questions.",
+            "keywords": ["curiosity", "analytical thinking", "tester skills"],
+            "examTip": "Good testers naturally ask 'what if?' questions.",
             "memoryAid": "Curious tester = better defect finder."
         },
         {
@@ -363,13 +318,13 @@ window.questionSets = {
                 "D": "The root cause is the inadequate design decision; the defect is the incorrect implementation"
             },
             "correctAnswer": "D",
-            "explanation": "The root cause is the fundamental reason the defect exists (here, the inadequate design decision). The defect is the specific flaw in the work product (the incorrect implementation). Note: the deeper root cause would be why the inadequate design decision was made (e.g., lack of training or time pressure); for this question the design decision is treated as the trigger that introduced the defect.",
-            "whyWrong": "Root cause is the underlying reason; defect is the specific flaw present in the work product.",
+            "explanation": "The root cause is the fundamental reason the defect exists — here, the inadequate design decision. The defect is the specific flaw in the work product — the incorrect implementation. Note: The deeper root cause would be WHY that decision was made; in this question, the design decision is treated as the immediate root cause for teaching purposes.",
+            "whyWrong": "Root cause = underlying reason; Defect = specific flaw in the work product.",
             "optionExplanations": {
                 "A": "The incorrect result is a failure, not a root cause.",
-                "B": "The root cause is the reason behind the defect, not the observable failure.",
-                "C": "Root cause and defect are related but distinct concepts.",
-                "D": "The inadequate design decision (root cause in this scenario) led to the incorrect implementation (the defect)."
+                "B": "The observable failure is the symptom, not the cause.",
+                "C": "Root cause and defect are distinct concepts.",
+                "D": "The inadequate design decision is the root cause; the incorrect code is the defect."
             },
             "chapter": 1,
             "section": "1.2",
@@ -377,18 +332,13 @@ window.questionSets = {
             "learningObjective": "FL-1.2.3",
             "kLevel": "K2",
             "difficulty": "Hard",
-            "keywords": [
-                "root cause",
-                "defect",
-                "race condition",
-                "failure"
-            ],
-            "examTip": "Root cause = why the defect exists; defect = what is wrong.",
+            "keywords": ["root cause", "defect", "failure"],
+            "examTip": "Root cause = why it exists; Defect = what is wrong.",
             "memoryAid": "Root cause = reason; Defect = result."
         },
         {
             "id": "Q082",
-            "statement": "A test execution reveals that the system displays an incorrect total in an invoice. The developer traces the issue to a calculation function and corrects the code. Which of the following pairs correctly matches the activities described?",
+            "statement": "A test execution reveals that the system displays an incorrect total in an invoice. The developer traces the issue to a calculation function and corrects the code. Which pair correctly matches the activities described?",
             "options": {
                 "A": "Test execution and debugging",
                 "B": "Test planning and code inspection",
@@ -396,13 +346,13 @@ window.questionSets = {
                 "D": "Static analysis and dynamic analysis"
             },
             "correctAnswer": "A",
-            "explanation": "Test execution revealed a failure (incorrect total). The developer then debugged the code to find and fix the underlying defect. Testing and debugging are complementary but distinct activities.",
-            "whyWrong": "Debugging is the development activity of locating and fixing the underlying cause of a known failure.",
+            "explanation": "Test execution revealed a failure (incorrect total). The developer then debugged the code to locate and fix the underlying defect. Testing and debugging are complementary but distinct activities.",
+            "whyWrong": "Execution revealed the failure; debugging located and fixed the cause.",
             "optionExplanations": {
                 "A": "Test execution revealed a failure; debugging locates the root cause and fixes the defect.",
-                "B": "Test planning occurs before execution; code inspection is a static technique.",
+                "B": "Planning and inspection occurred earlier in the lifecycle.",
                 "C": "No requirements review occurred in this scenario.",
-                "D": "This scenario involves dynamic testing and debugging, not static analysis."
+                "D": "This involved dynamic testing and debugging, not static analysis."
             },
             "chapter": 1,
             "section": "1.1",
@@ -410,13 +360,9 @@ window.questionSets = {
             "learningObjective": "FL-1.1.2",
             "kLevel": "K1",
             "difficulty": "Easy",
-            "keywords": [
-                "testing",
-                "debugging",
-                "root cause analysis"
-            ],
-            "examTip": "Testing reveals failures; debugging locates root causes and fixes defects.",
-            "memoryAid": "Testing = find failure; Debugging = find cause and fix."
+            "keywords": ["testing", "debugging"],
+            "examTip": "Testing reveals failures; debugging fixes their root causes.",
+            "memoryAid": "Test finds; Debug fixes."
         },
         {
             "id": "Q247",
@@ -428,13 +374,13 @@ window.questionSets = {
                 "D": "Developers may feel less responsibility for quality if testing is seen as only the test team's job"
             },
             "correctAnswer": "D",
-            "explanation": "High independence can improve objectivity but may also cause isolation or reduced shared quality ownership if not managed well. Independence should never reduce collaboration between testers and developers.",
-            "whyWrong": "High independence can improve objectivity but may also cause isolation or reduced shared quality ownership if not managed well.",
+            "explanation": "High independence improves objectivity but may reduce shared quality ownership if not managed well. Independence must be balanced with collaboration.",
+            "whyWrong": "Excessive independence can erode shared quality responsibility.",
             "optionExplanations": {
-                "A": "Independence can improve objectivity but does not prevent testers from finding failures.",
-                "B": "Independent testers can and do use requirements; independence does not limit access to information.",
-                "C": "Developers are not forbidden from debugging; independence is about who performs testing.",
-                "D": "High independence can improve objectivity but may also cause isolation or reduced shared quality ownership if not managed well."
+                "A": "Independence typically improves defect detection, not reduces it.",
+                "B": "Independent testers rely on requirements just as other testers do.",
+                "C": "Independence does not restrict developer activities.",
+                "D": "If testing is viewed as 'someone else's job', developers disengage from quality."
             },
             "chapter": 1,
             "section": "1.5",
@@ -442,11 +388,8 @@ window.questionSets = {
             "learningObjective": "FL-1.5.3",
             "kLevel": "K2",
             "difficulty": "Medium",
-            "keywords": [
-                "independence",
-                "drawbacks"
-            ],
-            "examTip": "Independence has benefits and risks.",
+            "keywords": ["independence", "drawbacks"],
+            "examTip": "Independence improves objectivity but can reduce shared ownership.",
             "memoryAid": "Independence needs collaboration."
         },
         {
@@ -459,172 +402,13 @@ window.questionSets = {
                 "D": "Counting the number of executed test cases"
             },
             "correctAnswer": "B",
-            "explanation": "Validation asks whether the right product is being built for users and stakeholders, not only whether it matches a specification.",
-            "whyWrong": "Debugging every observed failure (A): Debugging fixes defects; validation checks whether the right product is being built for users and stakeholders, not only whether it matches a specification.",
+            "explanation": "Validation answers: 'Are we building the right product?' — does it satisfy real user needs and intended use, beyond just matching specifications?",
+            "whyWrong": "Validation = fitness for use from the user's perspective.",
             "optionExplanations": {
-                "A": "Debugging fixes defects; validation checks if the product meets user needs.",
-                "B": "Validation asks whether the right product is being built for users and stakeholders, not only whether it matches a specification.",
+                "A": "Debugging fixes defects found during verification, not validation.",
+                "B": "Validation confirms fitness for use and satisfaction of actual user needs.",
                 "C": "Code standards compliance is verification, not validation.",
-                "D": "Counting test cases measures test execution progress, not validation."
-            },
-            "chapter": 1,
-            "section": "1.1",
-            "subsection": "1.1",
-            "learningObjective": "FL-1.1.1",
-            "kLevel": "K1",
-            "difficulty": "Easy",
-            "keywords": [
-                "validation",
-                "user needs"
-            ],
-            "examTip": "Validation is fitness for use.",
-            "memoryAid": "Right product for users."
-        },
-        {
-            "id": "Q293",
-            "statement": "A requirement changes during development. The test manager is able to quickly identify all test cases affected by this change and report the potential impact on the test schedule. This is possible because of:",
-            "options": {
-                "A": "Automated test execution",
-                "B": "Risk-based test prioritization",
-                "C": "Traceability between test basis and test cases",
-                "D": "Pairwise testing techniques"
-            },
-            "correctAnswer": "C",
-            "explanation": "Traceability links between the test basis (e.g., requirements) and test work products (e.g., test cases) enable impact analysis when changes occur. The test manager can identify which tests must be updated, added, or removed when a requirement changes, supporting change management.",
-            "whyWrong": "Traceability enables bidirectional tracking between requirements and tests, which is essential for impact analysis.",
-            "optionExplanations": {
-                "A": "Automation helps execution speed but does not link requirements to tests.",
-                "B": "Prioritization helps execution order but not impact analysis.",
-                "C": "Traceability provides the links needed to assess change impact.",
-                "D": "Pairwise testing is a test design technique, unrelated to traceability."
-            },
-            "chapter": 1,
-            "section": "1.4",
-            "subsection": "1.4.4",
-            "learningObjective": "FL-1.4.4",
-            "kLevel": "K2",
-            "difficulty": "Medium",
-            "keywords": [
-                "traceability",
-                "impact analysis",
-                "requirements",
-                "change management"
-            ],
-            "examTip": "Traceability connects requirements to tests for change impact.",
-            "memoryAid": "Trace = connect requirements to tests."
-        },
-        {
-            "id": "Q003",
-            "statement": "Which of the following is a fundamental test principle?",
-            "options": {
-                "A": "All defects will be found if enough tests are executed",
-                "B": "Testing should start as early as possible in the software development lifecycle",
-                "C": "Automated testing eliminates the need for manual testing",
-                "D": "Testing is only necessary after the code is complete"
-            },
-            "correctAnswer": "B",
-            "explanation": "One of the seven fundamental testing principles is 'Early testing saves time and money.' Testing activities should start as early as possible in the SDLC to find defects when they are least expensive to fix.",
-            "whyWrong": "The statement about all defects being found if enough tests are executed contradicts the principle of defect clustering and the impossibility of exhaustive testing.",
-            "optionExplanations": {
-                "A": "Exhaustive testing is impossible; no amount of testing can find all defects.",
-                "B": "The principle of early testing states that testing should begin as early as possible.",
-                "C": "Automation supports but does not replace manual testing.",
-                "D": "This contradicts the 'early testing' principle."
-            },
-            "chapter": 1,
-            "section": "1.3",
-            "subsection": "1.3.1",
-            "learningObjective": "FL-1.3.1",
-            "kLevel": "K2",
-            "difficulty": "Medium",
-            "keywords": [
-                "testing principles",
-                "early testing",
-                "SDLC"
-            ],
-            "examTip": "Memorize all seven testing principles for the exam.",
-            "memoryAid": "7 principles: Early, Exhaustive impossible, Defect clustering, Pesticide paradox, Context dependent, Absence-of-errors fallacy, Testing shows presence."
-        },
-        {
-            "id": "Q083",
-            "statement": "A project manager argues that testing can be postponed until the system is fully developed because testing adds no value early in the project. Which counter-argument best supports the need for early testing?",
-            "options": {
-                "A": "Defects found earlier in the development lifecycle are significantly less expensive to fix than those found later",
-                "B": "Developers prefer to have testers review their code from the start",
-                "C": "Testing early allows testers to write more test cases",
-                "D": "Early testing eliminates the need for acceptance testing"
-            },
-            "correctAnswer": "A",
-            "explanation": "Early testing finds defects when they are cheapest to fix, reducing cost and supporting informed stakeholder decisions about quality.",
-            "whyWrong": "While developers may appreciate early feedback, the primary economic argument is the significantly lower cost of fixing early defects.",
-            "optionExplanations": {
-                "A": "Early defect detection significantly reduces cost of quality. This is the key economic argument.",
-                "B": "This is a secondary benefit, not the primary economic argument.",
-                "C": "The goal is not just more test cases, but earlier and cheaper defect detection.",
-                "D": "Early testing complements but does not replace acceptance testing."
-            },
-            "chapter": 1,
-            "section": "1.2",
-            "subsection": "1.2.1",
-            "learningObjective": "FL-1.2.1",
-            "kLevel": "K2",
-            "difficulty": "Medium",
-            "keywords": [
-                "early testing",
-                "cost of defects",
-                "economics of testing"
-            ],
-            "examTip": "The earlier a defect is found, the cheaper it is to fix. This is the key argument for early testing.",
-            "memoryAid": "Early test = cheap fix; Late test = expensive fix."
-        },
-        {
-            "id": "Q243",
-            "statement": "A team starts reviews during backlog refinement and finds missing acceptance criteria before development. Which testing principle is demonstrated?",
-            "options": {
-                "A": "Testing is exhaustive",
-                "B": "Defect absence proves quality",
-                "C": "Automation replaces reviews",
-                "D": "Early testing saves time and money"
-            },
-            "correctAnswer": "D",
-            "explanation": "Finding defects early in requirements or user stories usually reduces rework cost compared with finding them after implementation.",
-            "whyWrong": "Testing is exhaustive (A): Finding defects early in requirements or user stories usually reduces rework ...; Defect absence proves quality (B): Finding defects early in requirements or user stories usually reduces rework ...; Automation replaces reviews (C): Finding defects early in requirements or user stories usually reduces rework ...",
-            "optionExplanations": {
-                "A": "Exhaustive testing is impossible, regardless of when testing starts.",
-                "B": "Absence-of-errors fallacy means zero defects do not guarantee user satisfaction.",
-                "C": "Automation supports but does not replace reviews or other manual activities.",
-                "D": "Finding defects early in requirements or user stories usually reduces rework cost compared with finding them after implementation."
-            },
-            "chapter": 1,
-            "section": "1.3",
-            "subsection": "1.3.1",
-            "learningObjective": "FL-1.3.1",
-            "kLevel": "K2",
-            "difficulty": "Medium",
-            "keywords": [
-                "early testing",
-                "reviews"
-            ],
-            "examTip": "Early defects are cheaper to fix.",
-            "memoryAid": "Earlier is cheaper."
-        },
-        {
-            "id": "Q202",
-            "statement": "During test execution a tester observes that a shopping cart total is wrong only when a coupon and gift card are both applied. What is the observable incorrect behavior called?",
-            "options": {
-                "A": "Error",
-                "B": "Root cause",
-                "C": "Failure",
-                "D": "Defect"
-            },
-            "correctAnswer": "C",
-            "explanation": "A failure is the externally visible incorrect behavior that occurs when a defect is executed under specific conditions.",
-            "whyWrong": "Error (A): A failure is the externally visible incorrect behavior that occurs when a def...; Root cause (B): A failure is the externally visible incorrect behavior that occurs when a def...; Defect (D): A failure is the externally visible incorrect behavior that occurs when a def...",
-            "optionExplanations": {
-                "A": "An error is a human mistake that may introduce a defect; the observed incorrect behavior is the failure, not the error.",
-                "B": "Root cause is the fundamental reason for a defect, discovered through analysis after the failure is observed.",
-                "C": "A failure is the externally visible incorrect behavior that occurs when a defect is executed under specific conditions.",
-                "D": "A defect (fault) is the underlying imperfection in the work product that causes the failure when executed."
+                "D": "Test case metrics measure progress, not validation."
             },
             "chapter": 1,
             "section": "1.1",
@@ -632,13 +416,93 @@ window.questionSets = {
             "learningObjective": "FL-1.1.1",
             "kLevel": "K1",
             "difficulty": "Easy",
-            "keywords": [
-                "failure",
-                "defect",
-                "error"
-            ],
-            "examTip": "Observable behavior is a failure.",
-            "memoryAid": "Failure is what users see."
+            "keywords": ["validation", "user needs"],
+            "examTip": "Validation = 'Are we building the right product?'",
+            "memoryAid": "Right product for users."
+        },
+        {
+            "id": "Q293",
+            "statement": "A test manager quickly identifies which test cases are affected by a changed requirement. This is possible because of:",
+            "options": {
+                "A": "Automated test execution",
+                "B": "Risk-based test prioritization",
+                "C": "Traceability between test basis and test cases",
+                "D": "Pairwise testing techniques"
+            },
+            "correctAnswer": "C",
+            "explanation": "Traceability links requirements to test cases. When requirements change, traceability enables impact analysis — identifying exactly which tests must be updated.",
+            "whyWrong": "Traceability connects requirements ↔ tests, enabling change impact analysis.",
+            "optionExplanations": {
+                "A": "Automation speeds execution but does not link requirements to tests.",
+                "B": "Prioritization orders execution but does not trace relationships.",
+                "C": "Traceability provides the bidirectional links needed to assess change impact.",
+                "D": "Pairwise is a test design technique, unrelated to traceability."
+            },
+            "chapter": 1,
+            "section": "1.4",
+            "subsection": "1.4.4",
+            "learningObjective": "FL-1.4.4",
+            "kLevel": "K2",
+            "difficulty": "Medium",
+            "keywords": ["traceability", "impact analysis", "requirements", "change management"],
+            "examTip": "Traceability connects requirements to tests for change impact.",
+            "memoryAid": "Trace = connect requirements to tests."
+        },
+        {
+            "id": "Q243",
+            "statement": "A team finds missing acceptance criteria during backlog refinement. Which testing principle is demonstrated?",
+            "options": {
+                "A": "Testing is exhaustive",
+                "B": "Defect absence proves quality",
+                "C": "Automation replaces reviews",
+                "D": "Early testing saves time and money"
+            },
+            "correctAnswer": "D",
+            "explanation": "Finding defects early in requirements or user stories significantly reduces rework cost compared with finding them after implementation.",
+            "whyWrong": "Early detection = cheaper fixes. The other options contradict fundamental principles.",
+            "optionExplanations": {
+                "A": "Exhaustive testing is impossible.",
+                "B": "Absence-of-errors fallacy: zero defects ≠ guaranteed value.",
+                "C": "Automation complements but does not replace reviews.",
+                "D": "Defects found early are dramatically cheaper to fix."
+            },
+            "chapter": 1,
+            "section": "1.3",
+            "subsection": "1.3.1",
+            "learningObjective": "FL-1.3.1",
+            "kLevel": "K2",
+            "difficulty": "Medium",
+            "keywords": ["early testing", "reviews"],
+            "examTip": "Early defects are cheaper to fix.",
+            "memoryAid": "Earlier is cheaper."
+        },
+        {
+            "id": "Q202",
+            "statement": "A shopping cart total is wrong only when a coupon and gift card are applied together. What is the observable incorrect behavior called?",
+            "options": {
+                "A": "Error",
+                "B": "Root cause",
+                "C": "Failure",
+                "D": "Defect"
+            },
+            "correctAnswer": "C",
+            "explanation": "A failure is the externally visible incorrect behavior observed during test execution.",
+            "whyWrong": "Observable behavior = failure. The others are not directly visible.",
+            "optionExplanations": {
+                "A": "An error is the human mistake that introduced the defect.",
+                "B": "Root cause is the underlying reason — discovered through analysis, not observation.",
+                "C": "A failure is the externally visible incorrect behavior observed during execution.",
+                "D": "A defect is the hidden flaw in the code that caused the failure."
+            },
+            "chapter": 1,
+            "section": "1.1",
+            "subsection": "1.1.1",
+            "learningObjective": "FL-1.1.1",
+            "kLevel": "K1",
+            "difficulty": "Easy",
+            "keywords": ["failure", "defect", "error"],
+            "examTip": "What users see = failure. What's in the code = defect.",
+            "memoryAid": "Failure is what users experience."
         },
         {
             "id": "Q207",
@@ -650,13 +514,13 @@ window.questionSets = {
                 "D": "Reduced author bias when evaluating the test object"
             },
             "correctAnswer": "D",
-            "explanation": "Independence can increase objectivity because people who did not create the work product may notice different defects.",
-            "whyWrong": "Removal of all project communication needs (A): Independence can increase objectivity because people who did not create the w...; Guarantee that more defects will be fixed (B): Independence can increase objectivity because people who did not create the w...",
+            "explanation": "Independence increases objectivity because people who did not create the work product approach it with fresh eyes and fewer preconceptions.",
+            "whyWrong": "Independence improves objectivity; it does not guarantee fixes or replace other testing.",
             "optionExplanations": {
-                "A": "Independence does not remove the need for communication; collaboration is always required.",
-                "B": "Independence does not guarantee more defects will be fixed; that depends on project priorities.",
-                "C": "Developer testing is still needed; independence complements, not replaces it.",
-                "D": "Independence reduces author bias because people who did not create the work product may notice different defects."
+                "A": "Communication remains essential regardless of independence.",
+                "B": "More defects may be found, but 'will be fixed' depends on project priorities.",
+                "C": "Developer testing remains necessary; independence complements it.",
+                "D": "Fresh perspectives reduce bias from the work product's authors."
             },
             "chapter": 1,
             "section": "1.5",
@@ -664,616 +528,9 @@ window.questionSets = {
             "learningObjective": "FL-1.5.1",
             "kLevel": "K1",
             "difficulty": "Easy",
-            "keywords": [
-                "independent testing",
-                "bias"
-            ],
-            "examTip": "Independence improves objectivity, not guarantees.",
+            "keywords": ["independent testing", "bias"],
+            "examTip": "Independence improves objectivity — it does not guarantee outcomes.",
             "memoryAid": "Fresh eyes find different issues."
-        },
-        {
-            "id": "Q086",
-            "statement": "Which of the following is considered testware produced during the test process?",
-            "options": {
-                "A": "The database schema of the production system",
-                "B": "Test scripts and test data files",
-                "C": "The user manual for the software",
-                "D": "The source code of the application under test"
-            },
-            "correctAnswer": "B",
-            "explanation": "Testware includes all artifacts produced during the test process such as test plans, test cases, test scripts, test data, test logs, and test reports. These are the work products of testing activities.",
-            "whyWrong": "Source code is a development artifact, not testware. Testware is produced by the testing process.",
-            "optionExplanations": {
-                "A": "Database schema is a design or development artifact.",
-                "B": "Test scripts and test data are testware produced during test implementation.",
-                "C": "User manuals are documentation artifacts, typically not classified as testware.",
-                "D": "Source code is a development artifact, not testware."
-            },
-            "chapter": 1,
-            "section": "1.4",
-            "subsection": "1.4.2",
-            "learningObjective": "FL-1.4.1",
-            "kLevel": "K2",
-            "difficulty": "Medium",
-            "keywords": [
-                "testware",
-                "test artifacts",
-                "test data",
-                "test scripts"
-            ],
-            "examTip": "Testware = all testing artifacts: plans, cases, scripts, data, logs, reports.",
-            "memoryAid": "Testware = everything testers create."
-        },
-        {
-            "id": "Q286",
-            "statement": "A tester observes that the actual output differs from the expected output during test execution. What has been found?",
-            "options": {
-                "A": "A failure",
-                "B": "A defect",
-                "C": "A root cause",
-                "D": "An error"
-            },
-            "correctAnswer": "A",
-            "explanation": "A failure is the observable deviation of actual behavior from expected behavior during execution. The defect is the underlying flaw in the code, the root cause is the fundamental reason the defect exists, and the error is the human mistake that introduced the defect.",
-            "whyWrong": "The observable incorrect behavior during execution is a failure.",
-            "optionExplanations": {
-                "A": "A failure is the observable deviation of actual behavior from expected behavior during execution.",
-                "B": "A defect (fault) is the underlying imperfection in the work product that may cause a failure.",
-                "C": "Root cause is the fundamental reason for a defect, discovered through analysis after the failure.",
-                "D": "An error is a human mistake that introduced the defect, not the observable behavior."
-            },
-            "chapter": 1,
-            "section": "1.2",
-            "subsection": "1.2.3",
-            "learningObjective": "FL-1.2.3",
-            "kLevel": "K2",
-            "difficulty": "Medium",
-            "keywords": [
-                "failure",
-                "defect",
-                "observable behavior",
-                "code flaw"
-            ],
-            "examTip": "Observed bug = failure; code bug = defect.",
-            "memoryAid": "I see failure; code has defect."
-        },
-        {
-            "id": "Q242",
-            "statement": "A mistaken assumption in a design document later leads to incorrect code. What is the mistaken assumption called?",
-            "options": {
-                "A": "Test condition",
-                "B": "Coverage item",
-                "C": "Error",
-                "D": "Failure"
-            },
-            "correctAnswer": "C",
-            "explanation": "An error is a human mistake that may introduce a defect into a work product.",
-            "whyWrong": "An error is a human mistake that introduces a defect. A test condition is a testable aspect; a coverage item measures test thoroughness; a failure is the observable incorrect behavior - none of these describe the mistaken assumption itself.",
-            "optionExplanations": {
-                "A": "A test condition is a testable aspect or attribute, not the mistaken assumption itself.",
-                "B": "A coverage item measures test thoroughness, not the mistaken assumption.",
-                "C": "An error is a human mistake (here, the mistaken assumption) that may introduce a defect into a work product.",
-                "D": "A failure is the observable incorrect behavior, not the mistaken assumption."
-            },
-            "chapter": 1,
-            "section": "1.1",
-            "subsection": "1.1.1",
-            "learningObjective": "FL-1.1.1",
-            "kLevel": "K1",
-            "difficulty": "Easy",
-            "keywords": [
-                "error",
-                "defect"
-            ],
-            "examTip": "Human mistake equals error.",
-            "memoryAid": "People make errors."
-        },
-        {
-            "id": "Q289",
-            "statement": "Which of the following is a task performed during test analysis?",
-            "options": {
-                "A": "Writing automated test scripts",
-                "B": "Executing test cases and logging results",
-                "C": "Setting up the test environment",
-                "D": "Reviewing the test basis and identifying test conditions"
-            },
-            "correctAnswer": "D",
-            "explanation": "Test analysis involves reviewing the test basis (requirements, specifications, risk analysis) to identify what to test. This produces test conditions that define what needs to be verified. Test implementation (writing scripts), test execution (running tests), and environment setup are separate activities.",
-            "whyWrong": "Test analysis focuses on understanding the test basis and identifying test conditions, not on execution or implementation.",
-            "optionExplanations": {
-                "A": "Writing automated scripts is a test implementation activity.",
-                "B": "Executing tests and logging results is a test execution activity.",
-                "C": "Setting up the environment is a test implementation or infrastructure activity.",
-                "D": "Test analysis involves reviewing the test basis to derive test conditions."
-            },
-            "chapter": 1,
-            "section": "1.4",
-            "subsection": "1.4.2",
-            "learningObjective": "FL-1.4.2",
-            "kLevel": "K2",
-            "difficulty": "Medium",
-            "keywords": [
-                "test analysis",
-                "test basis",
-                "test conditions"
-            ],
-            "examTip": "Test analysis = what to test, derived from the test basis.",
-            "memoryAid": "Analysis = find conditions."
-        },
-        {
-            "id": "Q244",
-            "statement": "Most serious incidents in production come from the billing import component. Which principle does this illustrate?",
-            "options": {
-                "A": "Defect clustering",
-                "B": "Pesticide paradox",
-                "C": "Exhaustive testing",
-                "D": "Context independence"
-            },
-            "correctAnswer": "A",
-            "explanation": "Defect clustering means a small number of components often contain most defects or failures.",
-            "whyWrong": "Defect clustering means most defects are found in a small number of components. Pesticide paradox means the same tests stop finding new defects; exhaustive testing means testing all combinations; context independence means testing approaches vary by context.",
-            "optionExplanations": {
-                "A": "Defect clustering means a small number of components often contain most defects or failures.",
-                "B": "Pesticide paradox means the same tests stop finding new defects over time.",
-                "C": "Exhaustive testing means testing all possible combinations, which is impossible.",
-                "D": "Context independence is not a real testing principle; testing approaches depend on context."
-            },
-            "chapter": 1,
-            "section": "1.3",
-            "subsection": "1.3.1",
-            "learningObjective": "FL-1.3.1",
-            "kLevel": "K2",
-            "difficulty": "Medium",
-            "keywords": [
-                "defect clustering",
-                "risk"
-            ],
-            "examTip": "Many defects in few areas is clustering.",
-            "memoryAid": "Bugs gather in clusters."
-        },
-        {
-            "id": "Q088",
-            "statement": "Which statement about independent testing is true?",
-            "options": {
-                "A": "Independent testing should always be performed by an external organization",
-                "B": "Higher levels of independence typically find more defects but may introduce communication challenges",
-                "C": "Independence eliminates the need for collaboration between testers and developers",
-                "D": "Testing by the original developer provides the highest level of independence"
-            },
-            "correctAnswer": "B",
-            "explanation": "Higher levels of independence can increase objectivity and find different types of defects, but may introduce communication challenges. Independence provides information to support stakeholder decisions about quality, but there is a trade-off between independence and collaboration.",
-            "whyWrong": "Testing by the original developer offers no independence, which is the opposite of the goal.",
-            "optionExplanations": {
-                "A": "Independence exists on a spectrum; external testing is the highest level but not always required.",
-                "B": "Greater independence improves defect detection but can reduce collaboration and increase communication overhead.",
-                "C": "Independence does not eliminate the need for communication and collaboration.",
-                "D": "Testing by the original developer lacks independence entirely."
-            },
-            "chapter": 1,
-            "section": "1.5",
-            "subsection": "1.5.3",
-            "learningObjective": "FL-1.5.3",
-            "kLevel": "K2",
-            "difficulty": "Easy",
-            "keywords": [
-                "independence",
-                "test organization",
-                "collaboration"
-            ],
-            "examTip": "Independence levels range from same-team to external. More independence = more objectivity, but also more distance.",
-            "memoryAid": "Independence = objectivity vs. distance trade-off."
-        },
-        {
-            "id": "Q246",
-            "statement": "What is a test condition?",
-            "options": {
-                "A": "A fixed rule that all defects must be severe",
-                "B": "A tool license condition only",
-                "C": "An aspect of the test basis that could be verified by one or more tests",
-                "D": "The room temperature during testing"
-            },
-            "correctAnswer": "C",
-            "explanation": "A test condition is a testable aspect of the test basis that can be verified by one or more test cases.",
-            "whyWrong": "A fixed rule that all defects must be severe (A): A test condition is a testable aspect of a component or system derived from t...",
-            "optionExplanations": {
-                "A": "A test condition is not a fixed rule about defect severity.",
-                "B": "Tool license conditions are unrelated to test conditions in the ISTQB process.",
-                "C": "A test condition is a testable aspect of a component or system derived from the test basis.",
-                "D": "Room temperature during testing is an environmental condition, not a test condition."
-            },
-            "chapter": 1,
-            "section": "1.4",
-            "subsection": "1.4.2",
-            "learningObjective": "FL-1.4.1",
-            "kLevel": "K1",
-            "difficulty": "Easy",
-            "keywords": [
-                "test condition",
-                "test basis"
-            ],
-            "examTip": "Conditions are what you test.",
-            "memoryAid": "Testable aspect."
-        },
-        {
-            "id": "Q208",
-            "statement": "A product has passed every specified requirement test but users cannot complete their most important task efficiently. Which principle is illustrated?",
-            "options": {
-                "A": "Absence-of-errors is a fallacy",
-                "B": "Exhaustive testing is possible",
-                "C": "Defect clustering",
-                "D": "Early testing is unnecessary"
-            },
-            "correctAnswer": "A",
-            "explanation": "A system that meets specifications may still fail user needs, so low defect counts do not alone prove fitness for use.",
-            "whyWrong": "Absence-of-errors fallacy means passing all requirements tests does not guarantee user satisfaction. Exhaustive testing is impossible; defect clustering is about defect distribution; early testing is valuable - none of these explain why meeting specs can still fail users.",
-            "optionExplanations": {
-                "A": "A system that meets specifications may still fail user needs, so low defect counts do not alone prove fitness for use.",
-                "B": "Exhaustive testing is impossible; this example illustrates the absence-of-errors fallacy, not exhaustive testing.",
-                "C": "Defect clustering means most defects are found in a small number of modules.",
-                "D": "Early testing is valuable; this scenario does not suggest otherwise."
-            },
-            "chapter": 1,
-            "section": "1.3",
-            "subsection": "1.3.1",
-            "learningObjective": "FL-1.3.1",
-            "kLevel": "K2",
-            "difficulty": "Medium",
-            "keywords": [
-                "absence-of-errors fallacy",
-                "validation"
-            ],
-            "examTip": "Passing tests does not equal useful product.",
-            "memoryAid": "No known bugs can still be wrong."
-        },
-        {
-            "id": "Q144",
-            "statement": "A project manager states that 'running all possible combinations of inputs will guarantee the software is defect-free.' Which testing principle contradicts this statement?",
-            "options": {
-                "A": "Defect clustering",
-                "B": "Exhaustive testing is impossible",
-                "C": "Testing shows the presence of defects, not their absence",
-                "D": "Pesticide paradox"
-            },
-            "correctAnswer": "B",
-            "explanation": "The principle 'Exhaustive testing is impossible' states that testing all possible combinations of inputs and preconditions is not feasible except for trivial systems. Therefore, risk analysis and prioritization are used to focus testing efforts on the most important areas.",
-            "whyWrong": "While 'Testing shows presence, not absence' is also a valid principle, the statement directly contradicts the impossibility of exhaustive testing.",
-            "optionExplanations": {
-                "A": "Defect clustering refers to defects concentrating in specific modules.",
-                "B": "Exhaustive testing is impractical; risk-based prioritization is necessary.",
-                "C": "This principle means absence of failures does not prove the software is defect-free.",
-                "D": "Pesticide paradox relates to tests becoming ineffective when repeated."
-            },
-            "chapter": 1,
-            "section": "1.3",
-            "subsection": "1.3.1",
-            "learningObjective": "FL-1.3.1",
-            "kLevel": "K2",
-            "difficulty": "Medium",
-            "keywords": [
-                "exhaustive testing",
-                "testing principles",
-                "testing principles"
-            ],
-            "examTip": "'Exhaustive testing is impossible' means you cannot test everything, so prioritize by risk.",
-            "memoryAid": "Exhaustive = impossible for anything beyond trivial."
-        },
-        {
-            "id": "Q167",
-            "statement": "Which of the following is the correct sequence of test activities in the ISTQB test process?",
-            "options": {
-                "A": "Test design, test analysis, test planning, test execution, test monitoring",
-                "B": "Test analysis, test design, test planning, test execution, test completion",
-                "C": "Test planning, test execution, test analysis, test design, test completion",
-                "D": "Test planning, test monitoring and control, test analysis, test design, test implementation, test execution, test completion"
-            },
-            "correctAnswer": "D",
-            "explanation": "The ISTQB test process consists of seven logically related activities: test planning (defining objectives and approach), test monitoring and control (tracking progress), test analysis (analyzing test basis), test design (designing test cases), test implementation (creating test data and scripts), test execution (running tests), and test completion (archiving and lessons learned). These activities are not always executed strictly one after another — some may run in parallel, be iterative, or repeat as needed.",
-            "whyWrong": "Test planning must come before analysis and design activities.",
-            "optionExplanations": {
-                "A": "Test planning must precede test analysis.",
-                "B": "Test planning comes before design and analysis.",
-                "C": "Test execution comes after design and implementation, not before.",
-                "D": "Correct. The ISTQB test process includes all seven activities in this logical order: planning, monitoring and control, analysis, design, implementation, execution, and completion."
-            },
-            "chapter": 1,
-            "section": "1.4",
-            "subsection": "1.4.1",
-            "learningObjective": "FL-1.4.1",
-            "kLevel": "K2",
-            "difficulty": "Medium",
-            "keywords": [
-                "test process",
-                "test activities",
-                "sequence"
-            ],
-            "examTip": "PMaADIEC: Plan, Monitor, Analysis, Design, Implementation, Execution, Completion.",
-            "memoryAid": "PMaADIEC = Plan Monitor analysis Design Implement Execute Complete."
-        },
-        {
-            "id": "Q206",
-            "statement": "A tester challenges an ambiguous requirement in a refinement meeting without blaming the analyst. Which tester skill is most clearly shown?",
-            "options": {
-                "A": "Contract negotiation",
-                "B": "Release authorization",
-                "C": "Effective communication and critical thinking",
-                "D": "Database administration"
-            },
-            "correctAnswer": "C",
-            "explanation": "Testers need analytical thinking and constructive communication to identify quality risks while maintaining collaboration.",
-            "whyWrong": "Contract negotiation (A): Testers need analytical thinking and constructive communication to identify q...; Release authorization (B): Testers need analytical thinking and constructive communication to identify q...",
-            "optionExplanations": {
-                "A": "Challenging ambiguity requires analytical and communication skills, not contract negotiation.",
-                "B": "Release authorization is a management decision, not a tester skill demonstrated in refinement meetings.",
-                "C": "Challenging ambiguity constructively requires critical thinking and effective communication.",
-                "D": "Database administration is a specialized technical skill unrelated to requirements refinement."
-            },
-            "chapter": 1,
-            "section": "1.5",
-            "subsection": "1.5.1",
-            "learningObjective": "FL-1.5.1",
-            "kLevel": "K2",
-            "difficulty": "Medium",
-            "keywords": [
-                "tester skills",
-                "communication"
-            ],
-            "examTip": "Tester psychology includes communication style.",
-            "memoryAid": "Question the product, not the person."
-        },
-        {
-            "id": "Q285",
-            "statement": "A developer makes a mistake while writing a SQL query. The resulting code contains an incorrect JOIN condition. This mistake (the human action) is a programmer\\'s:",
-            "options": {
-                "A": "Failure",
-                "B": "Error",
-                "C": "Defect",
-                "D": "Root cause"
-            },
-            "correctAnswer": "B",
-            "explanation": "An error is a human mistake made by a developer, tester, or analyst that introduces a defect. The developer's action of writing incorrect SQL is the error (mistake). The incorrect JOIN condition in the code is the resulting defect. If executed, it may cause a failure.",
-            "whyWrong": "The mistake itself is an error; the resulting problem in the code is a defect; the observable incorrect behavior is a failure.",
-            "optionExplanations": {
-                "A": "A failure is the observable incorrect behavior, not the human mistake.",
-                "B": "An error is the human action that introduces a defect into the system.",
-                "C": "A defect is the flaw in the code or work product caused by the error.",
-                "D": "Root cause is the underlying reason for the error, not the error itself."
-            },
-            "chapter": 1,
-            "section": "1.2",
-            "subsection": "1.2.3",
-            "learningObjective": "FL-1.2.3",
-            "kLevel": "K2",
-            "difficulty": "Medium",
-            "keywords": [
-                "error",
-                "defect",
-                "mistake",
-                "human error"
-            ],
-            "examTip": "Error = human mistake that creates a defect.",
-            "memoryAid": "Error: I made a mistake."
-        },
-        {
-            "id": "Q075",
-            "statement": "Which of the following is a characteristic of good test documentation?",
-            "options": {
-                "A": "It contains as much detail as possible, even if redundant",
-                "B": "It is written only for the test team and no one else",
-                "C": "It uses technical jargon to demonstrate expertise",
-                "D": "It is clear, concise, accurate, and allows reproduction of the tests"
-            },
-            "correctAnswer": "D",
-            "explanation": "Good test documentation should be clear and understandable by all stakeholders, concise enough to be useful, accurate in its descriptions, and detailed enough to allow anyone to reproduce the tests. It should be maintainable and serve its intended purpose.",
-            "whyWrong": "Excessive detail makes documentation hard to maintain and use.",
-            "optionExplanations": {
-                "A": "Excessive detail creates maintenance burden and reduces usability.",
-                "B": "Test documentation serves multiple stakeholders (testers, developers, managers, auditors).",
-                "C": "Jargon reduces readability and accessibility.",
-                "D": "Clarity, conciseness, accuracy, and reproducibility are key quality attributes."
-            },
-            "chapter": 1,
-            "section": "1.4",
-            "subsection": "1.4.3",
-            "learningObjective": "FL-1.4.3",
-            "kLevel": "K2",
-            "difficulty": "Medium",
-            "keywords": [
-                "test documentation",
-                "testware",
-                "quality"
-            ],
-            "examTip": "Good test documentation = understandable, reproducible, and maintainable.",
-            "memoryAid": "Test docs: CRCA - Clear, Reproducible, Concise, Accurate."
-        },
-        {
-            "id": "Q087",
-            "statement": "A tester is reviewing a requirements document and notices ambiguity in the wording of a critical business rule. Which essential tester skill is primarily being demonstrated?",
-            "options": {
-                "A": "Database administration expertise",
-                "B": "Advanced project management skills",
-                "C": "Critical thinking and analytical skills",
-                "D": "Expert programming ability"
-            },
-            "correctAnswer": "C",
-            "explanation": "Identifying ambiguity in requirements requires critical thinking and analytical skills. A good tester questions assumptions, identifies inconsistencies, and thinks about how requirements could be interpreted in multiple ways.",
-            "whyWrong": "Programming ability is not required to identify requirements ambiguity; analytical thinking is the key skill.",
-            "optionExplanations": {
-                "A": "Database expertise is domain-specific and not essential for all testers.",
-                "B": "Project management skills are not directly relevant to requirements review.",
-                "C": "Critical thinking allows testers to identify ambiguities, inconsistencies, and risks in requirements.",
-                "D": "Programming is useful for automation but not for requirements analysis."
-            },
-            "chapter": 1,
-            "section": "1.5",
-            "subsection": "1.5.1",
-            "learningObjective": "FL-1.5.1",
-            "kLevel": "K1",
-            "difficulty": "Easy",
-            "keywords": [
-                "critical thinking",
-                "analytical skills",
-                "tester skills"
-            ],
-            "examTip": "Testers need analytical thinking, communication, curiosity, and domain knowledge.",
-            "memoryAid": "Tester skills: Think critically, communicate clearly, question everything."
-        },
-        {
-            "id": "Q248",
-            "statement": "In a whole-team approach, who is responsible for quality?",
-            "options": {
-                "A": "The whole team, with testers contributing specialized testing skills",
-                "B": "Only the test manager",
-                "C": "Only the product owner",
-                "D": "Only an external audit group"
-            },
-            "correctAnswer": "A",
-            "explanation": "The whole-team approach treats quality as a shared responsibility while testers bring testing expertise and quality perspective. Testing reduces the risk of undetected defects but never eliminates it entirely.",
-            "whyWrong": "Whole-team approach means quality is everyone's responsibility. The test manager, product owner, or an external audit group alone cannot ensure quality - it requires collaboration across the entire team.",
-            "optionExplanations": {
-                "A": "The whole-team approach treats quality as a shared responsibility while testers bring specialized testing skills.",
-                "B": "Quality is a team responsibility, not solely the test manager's.",
-                "C": "Quality is a team responsibility, not solely the product owner's.",
-                "D": "An external audit group does not replace the team's shared ownership of quality."
-            },
-            "chapter": 1,
-            "section": "1.5",
-            "subsection": "1.5.2",
-            "learningObjective": "FL-1.5.1",
-            "kLevel": "K1",
-            "difficulty": "Easy",
-            "keywords": [
-                "whole-team approach",
-                "quality ownership"
-            ],
-            "examTip": "Whole team means shared quality ownership.",
-            "memoryAid": "Everyone owns quality."
-        },
-        {
-            "id": "Q201",
-            "statement": "A mobile banking team wants stakeholders to understand residual product risk before release. Which testing objective is most directly addressed?",
-            "options": {
-                "A": "Guaranteeing customer satisfaction",
-                "B": "Providing information for decision making",
-                "C": "Proving the application is defect-free",
-                "D": "Replacing project risk management"
-            },
-            "correctAnswer": "B",
-            "explanation": "Testing provides information about quality and risk so stakeholders can make informed release decisions; it cannot prove absence of defects.",
-            "whyWrong": "Guaranteeing customer satisfaction (A): Testing provides information about quality and risk so stakeholders can make ...",
-            "optionExplanations": {
-                "A": "Testing cannot guarantee customer satisfaction; it provides information to reduce risk, not certainty.",
-                "B": "Testing provides information for stakeholder decision-making about quality and release risk.",
-                "C": "Testing cannot prove a product is defect-free; it only reveals the presence of defects.",
-                "D": "Testing supports risk management; it does not replace it."
-            },
-            "chapter": 1,
-            "section": "1.1",
-            "subsection": "1.1.1",
-            "learningObjective": "FL-1.1.1",
-            "kLevel": "K2",
-            "difficulty": "Medium",
-            "keywords": [
-                "testing objectives",
-                "risk information"
-            ],
-            "examTip": "Testing informs decisions; it does not make guarantees.",
-            "memoryAid": "Information, not proof."
-        },
-        {
-            "id": "Q007",
-            "statement": "Which of the following is an essential skill for a tester?",
-            "options": {
-                "A": "Certification in project management",
-                "B": "Expert-level programming knowledge",
-                "C": "Being detail-oriented and having good communication skills",
-                "D": "Advanced database administration skills"
-            },
-            "correctAnswer": "C",
-            "explanation": "Testers need attention to detail and good communication skills. While programming can be helpful, it is not the primary essential skill for a tester.",
-            "whyWrong": "Expert-level programming is not essential for all testers; many testing roles focus on manual testing and analytical skills.",
-            "optionExplanations": {
-                "A": "PM certification is not a standard requirement for testers.",
-                "B": "Programming is useful for automation but not essential for all testers.",
-                "C": "Attention to detail and communication are universally essential for testers.",
-                "D": "DBA skills are not generally required for testing roles."
-            },
-            "chapter": 1,
-            "section": "1.5",
-            "subsection": "1.5.1",
-            "learningObjective": "FL-1.5.1",
-            "kLevel": "K1",
-            "difficulty": "Easy",
-            "keywords": [
-                "tester skills",
-                "communication",
-                "attention to detail"
-            ],
-            "examTip": "Focus on analytical skills, curiosity, and communication as key tester traits.",
-            "memoryAid": "A tester is a curious detective with excellent communication skills."
-        },
-        {
-            "id": "Q085",
-            "statement": "During which test activity are test cases prioritized and organized into a test execution schedule?",
-            "options": {
-                "A": "Test completion",
-                "B": "Test analysis",
-                "C": "Test planning",
-                "D": "Test implementation"
-            },
-            "correctAnswer": "D",
-            "explanation": "Test implementation is the activity where test cases are organized, prioritized, and assembled into test procedures and test execution schedules. It also involves creating test data and setting up the test environment.",
-            "whyWrong": "Test analysis involves identifying test conditions, not organizing test cases into execution schedules.",
-            "optionExplanations": {
-                "A": "Test completion archives artifacts and evaluates the process.",
-                "B": "Test analysis identifies test conditions from requirements.",
-                "C": "Test planning defines objectives, approach, and resources.",
-                "D": "Test implementation creates test procedures, schedules, and prepares test data."
-            },
-            "chapter": 1,
-            "section": "1.4",
-            "subsection": "1.4.1",
-            "learningObjective": "FL-1.4.1",
-            "kLevel": "K2",
-            "difficulty": "Medium",
-            "keywords": [
-                "test implementation",
-                "test process",
-                "test scheduling"
-            ],
-            "examTip": "Test implementation = organize, prioritize, schedule, and prepare test execution.",
-            "memoryAid": "Implementation = organize and schedule for execution."
-        },
-        {
-            "id": "Q284",
-            "statement": "A company implements process audits, definition of organizational quality standards, and continuous process improvement initiatives to reduce the number of defects introduced during development. These activities are examples of:",
-            "options": {
-                "A": "Quality assurance",
-                "B": "Quality control",
-                "C": "System testing",
-                "D": "Configuration management"
-            },
-            "correctAnswer": "A",
-            "explanation": "These are quality assurance (QA) activities. QA is a process-oriented, preventive approach that focuses on the implementation and improvement of processes so that good products result (ISTQB syllabus 1.2.2).",
-            "whyWrong": "These activities focus on preventing defects through process improvement, which is the domain of QA.",
-            "optionExplanations": {
-                "A": "QA is process-oriented and preventive, focusing on process improvement to prevent defects.",
-                "B": "Quality control is product-oriented (e.g., testing and code reviews); these activities target process improvement, not product verification.",
-                "C": "System testing is a specific test level, not a process improvement activity.",
-                "D": "Configuration management controls versions and artifacts, not process quality."
-            },
-            "chapter": 1,
-            "section": "1.2",
-            "subsection": "1.2.2",
-            "learningObjective": "FL-1.2.2",
-            "kLevel": "K2",
-            "difficulty": "Medium",
-            "keywords": [
-                "QA activities",
-                "process improvement",
-                "defect prevention"
-            ],
-            "examTip": "QA = process audits, standards, and reviews to prevent defects.",
-            "memoryAid": "QA prevents; QC detects."
         }
     ],
     "exam2": [
@@ -1287,13 +544,13 @@ window.questionSets = {
                 "D": "Static testing only, since no code changes are needed"
             },
             "correctAnswer": "A",
-            "explanation": "Maintenance testing after an enhancement should include impact analysis to determine the scope of regression testing, then execute confirmation and regression tests as needed.",
-            "whyWrong": "Only confirmation testing of the new account type (B): Incorrect. 'Only confirmation testing of the new account type' does not match the correct concept: Maintenance testing after an enhancement should include impact analysis to de...",
+            "explanation": "Maintenance testing after an enhancement includes impact analysis to define scope, confirmation testing to verify the change, and regression testing to protect existing functionality.",
+            "whyWrong": "Confirmation alone ignores side effects; full regression without analysis wastes effort; static testing cannot verify runtime behavior.",
             "optionExplanations": {
-                "A": "Maintenance testing after an enhancement should include impact analysis to determine the scope of regression testing, then execute confirmation and regression tests as needed.",
-                "B": "Incorrect. 'Only confirmation testing of the new account type' does not match the correct concept: Maintenance testing after an enhancement should include impact analysis to de...",
-                "C": "Incorrect. 'Full regression of all existing functionality without imp...' does not match the correct concept: Maintenance testing after an enhancement should include impact analysis to de...",
-                "D": "Incorrect. 'Static testing only, since no code changes are needed' does not match the correct concept: Maintenance testing after an enhancement should include impact analysis to de..."
+                "A": "Correct — impact analysis defines scope; confirmation verifies the change; regression protects existing features.",
+                "B": "Confirmation alone does not verify that existing functionality remains intact.",
+                "C": "Full regression without impact analysis is inefficient and unnecessary.",
+                "D": "Static testing cannot verify that the system behaves correctly after changes."
             },
             "chapter": 2,
             "section": "2.3",
@@ -1301,31 +558,27 @@ window.questionSets = {
             "learningObjective": "FL-2.3.1",
             "kLevel": "K2",
             "difficulty": "Medium",
-            "keywords": [
-                "maintenance testing",
-                "impact analysis",
-                "regression"
-            ],
-            "examTip": "Change the system, test the impact.",
-            "memoryAid": "Change drives testing."
+            "keywords": ["maintenance testing", "impact analysis", "regression"],
+            "examTip": "Change the system → test the change AND its impact.",
+            "memoryAid": "Change drives testing scope."
         },
         {
             "id": "Q043",
             "statement": "A system has been in production for three years. A new regulatory requirement mandates adding encryption to stored user data. What type of testing is most relevant after implementing this change?",
             "options": {
-                "D": "Only acceptance testing by end users",
                 "A": "Only unit testing the encryption module",
                 "B": "No testing is needed because encryption is a standard feature",
-                "C": "Maintenance testing with regression testing of affected areas"
+                "C": "Maintenance testing with regression testing of affected areas",
+                "D": "Only acceptance testing by end users"
             },
             "correctAnswer": "C",
-            "explanation": "Maintenance testing is required when changes are made to an existing system. The addition of encryption is a change that requires both confirmation testing (verifying the encryption works) and regression testing (ensuring existing functionality is not broken).",
-            "whyWrong": "Only testing the encryption module ignores potential side effects on other parts of the system.",
+            "explanation": "Any change to a released system requires maintenance testing: confirmation testing verifies the change works; regression testing ensures existing functionality was not broken.",
+            "whyWrong": "Testing only the change or skipping testing leaves critical risks unverified.",
             "optionExplanations": {
-                "D": "Acceptance testing alone may not catch technical regressions.",
-                "A": "Unit testing alone does not cover integration and system-level impacts.",
-                "B": "Testing is always needed when changes are introduced to a system.",
-                "C": "Maintenance testing with regression testing ensures the change works without breaking existing features."
+                "A": "Component testing alone misses integration and system-level impacts.",
+                "B": "All changes require verification — standard features do not eliminate risk.",
+                "C": "Maintenance testing = confirm the change + verify existing behavior remains intact.",
+                "D": "Acceptance testing alone may miss technical regressions introduced by the change."
             },
             "chapter": 2,
             "section": "2.3",
@@ -1333,204 +586,9 @@ window.questionSets = {
             "learningObjective": "FL-2.3.1",
             "kLevel": "K2",
             "difficulty": "Medium",
-            "keywords": [
-                "maintenance testing",
-                "regression testing",
-                "impact analysis"
-            ],
-            "examTip": "Any change to a production system requires maintenance testing = confirmation + regression.",
-            "memoryAid": "Change = confirm the change + check nothing else broke."
-        },
-        {
-            "id": "Q045",
-            "statement": "Which of the following statements about acceptance testing is true?",
-            "options": {
-                "A": "Acceptance testing is performed by developers to verify code quality",
-                "B": "Acceptance testing is performed to determine whether the system meets the user's needs and is ready for operational use",
-                "C": "Acceptance testing only validates non-functional requirements",
-                "D": "Acceptance testing is the same as system testing"
-            },
-            "correctAnswer": "B",
-            "explanation": "Acceptance testing is the final test level, performed by or on behalf of users, to determine whether the system is ready for deployment and use. It focuses on validating that the system meets business needs and user requirements.",
-            "whyWrong": "Acceptance testing is performed by users or business representatives, not developers.",
-            "optionExplanations": {
-                "A": "Acceptance testing involves users or customers, not typically developers.",
-                "B": "Acceptance testing validates business requirements and fitness for use.",
-                "C": "Acceptance testing covers both functional and non-functional requirements.",
-                "D": "System testing differs from acceptance testing in scope, audience, and objectives."
-            },
-            "chapter": 2,
-            "section": "2.2",
-            "subsection": "2.2.1",
-            "learningObjective": "FL-2.2.1",
-            "kLevel": "K2",
-            "difficulty": "Medium",
-            "keywords": [
-                "acceptance testing",
-                "user acceptance",
-                "validation"
-            ],
-            "examTip": "Acceptance testing = 'Are we building the right product?' from the user's perspective.",
-            "memoryAid": "Acceptance = user says 'Yes, this works for us.'"
-        },
-        {
-            "id": "Q014",
-            "statement": "A team is developing a banking application. After completing component testing, they perform integration testing. Which integration testing approach involves integrating all components at once and then testing the entire system?",
-            "options": {
-                "A": "Top-down integration testing",
-                "B": "Bottom-up integration testing",
-                "C": "Incremental integration testing",
-                "D": "Big-bang integration testing"
-            },
-            "correctAnswer": "D",
-            "explanation": "Big-bang integration testing integrates all components simultaneously and then tests the entire system. This approach is risky because if a failure occurs, it is difficult to isolate which component caused the failure.",
-            "whyWrong": "Incremental approaches (top-down, bottom-up) integrate components one by one, which is the opposite of big-bang.",
-            "optionExplanations": {
-                "A": "Top-down starts with high-level components and adds lower-level ones.",
-                "B": "Bottom-up starts with low-level components and builds upward.",
-                "C": "Incremental integration adds components one at a time, easing defect localization.",
-                "D": "Big-bang combines all components at once, making defect isolation difficult."
-            },
-            "chapter": 2,
-            "section": "2.2",
-            "subsection": "2.2.1",
-            "learningObjective": "FL-2.2.1",
-            "kLevel": "K2",
-            "difficulty": "Medium",
-            "keywords": [
-                "big-bang integration",
-                "integration testing",
-                "approaches"
-            ],
-            "examTip": "Big-bang = all at once (risky); Incremental = one by one (safer, easier debugging).",
-            "memoryAid": "Big-bang = Big risk of big headaches finding the bug."
-        },
-        {
-            "id": "Q147",
-            "statement": "In which development lifecycle model are testing activities typically performed after each increment, with each increment adding new functionality?",
-            "options": {
-                "A": "V-model",
-                "B": "Waterfall model",
-                "C": "Iterative development model",
-                "D": "Big-bang model"
-            },
-            "correctAnswer": "C",
-            "explanation": "In iterative development models (including Agile), development occurs in increments or iterations, with each iteration producing a potentially shippable product increment. Testing is performed within each iteration to verify the newly added functionality and perform regression testing.",
-            "whyWrong": "In the V-model, testing activities are planned in parallel with development phases but executed in sequence.",
-            "optionExplanations": {
-                "A": "The V-model pairs development and test phases but testing is not incremental.",
-                "B": "Waterfall performs testing as a single phase after development.",
-                "C": "Iterative models test each increment, building functionality progressively.",
-                "D": "Big-bang is an integration approach, not a development lifecycle model."
-            },
-            "chapter": 2,
-            "section": "2.1",
-            "subsection": "2.1.1",
-            "learningObjective": "FL-2.1.1",
-            "kLevel": "K2",
-            "difficulty": "Medium",
-            "keywords": [
-                "iterative development",
-                "Agile",
-                "incremental testing"
-            ],
-            "examTip": "Iterative = build a little, test a little, repeat.",
-            "memoryAid": "Iterative = repeated cycles of build and test."
-        },
-        {
-            "id": "Q009",
-            "statement": "In a V-model development lifecycle, when should test planning begin?",
-            "options": {
-                "B": "During the requirements phase, in parallel with the corresponding development activities",
-                "C": "During the test execution phase",
-                "D": "Only after the code is completely written",
-                "A": "After the system has been deployed to production"
-            },
-            "correctAnswer": "B",
-            "explanation": "In the V-model, each development phase has a corresponding test planning phase. Test planning begins early, typically during the requirements phase, with test conditions derived from requirements documents. This aligns with the principle of early testing.",
-            "whyWrong": "Waiting until after coding is complete violates the early testing principle and the V-model structure.",
-            "optionExplanations": {
-                "B": "The V-model pairs each development phase with a corresponding test planning activity.",
-                "C": "Test execution is a later phase; planning comes much earlier.",
-                "D": "This contradicts the V-model approach of parallel test planning.",
-                "A": "Deployment happens after testing is complete."
-            },
-            "chapter": 2,
-            "section": "2.1",
-            "subsection": "2.1.1",
-            "learningObjective": "FL-2.1.1",
-            "kLevel": "K2",
-            "difficulty": "Medium",
-            "keywords": [
-                "V-model",
-                "test planning",
-                "development lifecycle"
-            ],
-            "examTip": "In V-model, test planning mirrors development phases on the opposite side of the V.",
-            "memoryAid": "V-model: Left side = planning, Right side = execution."
-        },
-        {
-            "id": "Q362",
-            "statement": "In which development lifecycle model do testers typically write test scripts during the same iteration as development, with regression testing growing as increments accumulate?",
-            "options": {
-                "A": "Iterative and incremental development",
-                "B": "Waterfall model",
-                "C": "V-model",
-                "D": "Sequential development with fixed phases"
-            },
-            "correctAnswer": "A",
-            "explanation": "In iterative and incremental development, testing occurs in each iteration alongside development, and regression testing becomes increasingly important as new increments are added.",
-            "whyWrong": "Waterfall model (B): Incorrect. 'Waterfall model' does not match the correct concept: In iterative and incremental development, testing occurs in each iteration al...",
-            "optionExplanations": {
-                "A": "In iterative and incremental development, testing occurs in each iteration alongside development, and regression testing becomes increasingly important as new increments are added.",
-                "B": "Incorrect. 'Waterfall model' does not match the correct concept: In iterative and incremental development, testing occurs in each iteration al...",
-                "C": "Incorrect. 'V-model' does not match the correct concept: In iterative and incremental development, testing occurs in each iteration al...",
-                "D": "Incorrect. 'Sequential development with fixed phases' does not match the correct concept: In iterative and incremental development, testing occurs in each iteration al..."
-            },
-            "chapter": 2,
-            "section": "2.1",
-            "subsection": "2.1.2",
-            "learningObjective": "FL-2.1.1",
-            "kLevel": "K2",
-            "difficulty": "Medium",
-            "keywords": [
-                "iterative development",
-                "Agile testing"
-            ],
-            "examTip": "Iterative = develop and test in each cycle.",
-            "memoryAid": "Each iteration, test and code."
-        },
-        {
-            "id": "Q169",
-            "statement": "Which of the following is a characteristic of system testing?",
-            "options": {
-                "A": "Testing interactions between integrated components",
-                "B": "Testing performed by end users to determine acceptance",
-                "C": "Testing individual components in isolation",
-                "D": "Testing the complete, integrated system to evaluate compliance with specified requirements"
-            },
-            "correctAnswer": "D",
-            "explanation": "System testing is a test level that focuses on testing the complete, integrated system against its specified requirements. It evaluates both functional and non-functional requirements and is typically performed by an independent test team in a test environment that mirrors production.",
-            "whyWrong": "Testing individual components is component testing, not system testing.",
-            "optionExplanations": {
-                "A": "Interaction testing between components is integration testing.",
-                "B": "End-user testing is acceptance testing.",
-                "C": "Individual component testing is the component test level.",
-                "D": "System testing validates the complete system against functional and non-functional requirements."
-            },
-            "chapter": 2,
-            "section": "2.2",
-            "subsection": "2.2.1",
-            "learningObjective": "FL-2.2.1",
-            "kLevel": "K2",
-            "difficulty": "Medium",
-            "keywords": [
-                "system testing",
-                "test level",
-                "complete system"
-            ],
-            "examTip": "System testing = test the whole system against requirements.",
-            "memoryAid": "System = the big picture, everything together."
+            "keywords": ["maintenance testing", "regression testing", "impact analysis"],
+            "examTip": "Change in production = maintenance testing = confirmation + regression.",
+            "memoryAid": "Test the change + test that nothing else broke."
         },
         {
             "id": "Q253",
@@ -1542,13 +600,13 @@ window.questionSets = {
                 "D": "Only usability testing by marketing"
             },
             "correctAnswer": "B",
-            "explanation": "Maintenance testing is required for migrations because environment and platform changes can introduce failures even without new features.",
-            "whyWrong": "Maintenance testing is needed for migrations because environments differ. New features may not exist; testing is required even without feature changes; usability testing alone is insufficient.",
+            "explanation": "Platform and environment changes can alter behavior even without feature changes. Maintenance testing including impact analysis and regression is required.",
+            "whyWrong": "Different platforms, databases, or environments can cause failures regardless of feature changes.",
             "optionExplanations": {
-                "A": "Maintenance testing is required for migrations because environment and platfo...",
-                "B": "Maintenance testing is required for migrations because environment and platform changes can introduce failures even without new features.",
-                "C": "Maintenance testing is required for migrations because environment and platfo...",
-                "D": "Maintenance testing is required for migrations because environment and platfo..."
+                "A": "No new features exist to test.",
+                "B": "Migration alters the runtime environment — requires maintenance testing including regression.",
+                "C": "Untested migrations frequently fail due to behavioral differences.",
+                "D": "Usability alone cannot verify data integrity, correctness, or reliability."
             },
             "chapter": 2,
             "section": "2.3",
@@ -1556,12 +614,9 @@ window.questionSets = {
             "learningObjective": "FL-2.3.1",
             "kLevel": "K2",
             "difficulty": "Medium",
-            "keywords": [
-                "maintenance testing",
-                "migration"
-            ],
-            "examTip": "Migrations can break behavior.",
-            "memoryAid": "Changed platform, test impact."
+            "keywords": ["maintenance testing", "migration"],
+            "examTip": "Environment changes still require testing.",
+            "memoryAid": "Changed platform → test the impact."
         },
         {
             "id": "Q361",
@@ -1573,13 +628,13 @@ window.questionSets = {
                 "D": "Reviewing source code for coding standard violations"
             },
             "correctAnswer": "A",
-            "explanation": "Functional testing evaluates what the system does, including features, interactions, and data processing. Verifying login behavior is a classic functional test example.",
-            "whyWrong": "Measuring page load time under 100 concurrent users (B): Incorrect. 'Measuring page load time under 100 concurrent users' does not match the correct concept: Functional testing evaluates what the system does, including features, intera...",
+            "explanation": "Functional testing verifies WHAT the system does — features, behaviors, and data processing. Non-functional testing verifies HOW WELL it performs — speed, resource usage, reliability, etc.",
+            "whyWrong": "Performance and resource metrics are non-functional; code review is static analysis.",
             "optionExplanations": {
-                "A": "Functional testing evaluates what the system does, including features, interactions, and data processing. Verifying login behavior is a classic functional test example.",
-                "B": "Incorrect. 'Measuring page load time under 100 concurrent users' does not match the correct concept: Functional testing evaluates what the system does, including features, intera...",
-                "C": "Incorrect. 'Checking that CPU usage stays below 80% during peak load' does not match the correct concept: Functional testing evaluates what the system does, including features, intera...",
-                "D": "Incorrect. 'Reviewing source code for coding standard violations' does not match the correct concept: Functional testing evaluates what the system does, including features, intera..."
+                "A": "Verifying correct behavior of a feature is functional testing.",
+                "B": "Response time measurement = performance = non-functional.",
+                "C": "Resource utilization monitoring = performance = non-functional.",
+                "D": "Source code review = static analysis, not dynamic testing."
             },
             "chapter": 2,
             "section": "2.2",
@@ -1587,12 +642,9 @@ window.questionSets = {
             "learningObjective": "FL-2.2.2",
             "kLevel": "K1",
             "difficulty": "Easy",
-            "keywords": [
-                "functional testing",
-                "test types"
-            ],
-            "examTip": "Functional = what the system does.",
-            "memoryAid": "Function = what it does."
+            "keywords": ["functional testing", "test types"],
+            "examTip": "Functional = WHAT it does. Non-functional = HOW WELL it does it.",
+            "memoryAid": "Function = feature behavior."
         },
         {
             "id": "Q250",
@@ -1604,13 +656,13 @@ window.questionSets = {
                 "D": "Testing is postponed until all increments are complete"
             },
             "correctAnswer": "C",
-            "explanation": "Iterative and incremental models include repeated testing throughout development, with regression testing needed as new increments affect existing behavior.",
-            "whyWrong": "Iterative models include testing in each iteration with increasing regression testing. Static testing is used; acceptance testing occurs in iterations; testing is not postponed until the end.",
+            "explanation": "In iterative development, all test activities — including static testing, reviews, and all test levels — happen within each iteration. Regression testing grows in importance as the system expands.",
+            "whyWrong": "Static testing IS used; all test levels ARE used; testing happens throughout, not at the end.",
             "optionExplanations": {
-                "A": "Iterative and incremental models include repeated testing throughout developm...",
-                "B": "Iterative and incremental models include repeated testing throughout developm...",
-                "C": "Iterative and incremental models include repeated testing throughout development, with regression testing needed as new increments affect existing behavior.",
-                "D": "Iterative and incremental models include repeated testing throughout developm..."
+                "A": "Static testing (reviews, backlog refinement) IS actively used in iterative development.",
+                "B": "All test levels and types are applied; acceptance testing alone is insufficient.",
+                "C": "Testing occurs in every iteration; regression grows as functionality accumulates.",
+                "D": "Testing is integrated throughout each iteration, not deferred until completion."
             },
             "chapter": 2,
             "section": "2.1",
@@ -1618,592 +670,9 @@ window.questionSets = {
             "learningObjective": "FL-2.1.1",
             "kLevel": "K2",
             "difficulty": "Medium",
-            "keywords": [
-                "iterative development",
-                "regression"
-            ],
-            "examTip": "Each increment needs testing.",
+            "keywords": ["iterative development", "regression"],
+            "examTip": "Build a little, test a little — every iteration.",
             "memoryAid": "Test every iteration."
-        },
-        {
-            "id": "Q145",
-            "statement": "A team is testing a new authentication module. Developers write and execute tests for individual functions such as password hashing and token generation. Which test level does this represent?",
-            "options": {
-                "A": "Integration testing",
-                "B": "Acceptance testing",
-                "C": "System testing",
-                "D": "Component testing"
-            },
-            "correctAnswer": "D",
-            "explanation": "Component testing (also called unit testing) focuses on testing individual components in isolation. Testing individual functions like password hashing and token generation are classic examples of component-level testing, typically performed by developers.",
-            "whyWrong": "Integration testing would verify interactions between the authentication module and other modules.",
-            "optionExplanations": {
-                "A": "Integration testing checks interactions between components.",
-                "B": "Acceptance testing evaluates fitness for use from the user's perspective.",
-                "C": "System testing validates the complete, integrated system against requirements.",
-                "D": "Component testing verifies individual units like functions, methods, or classes in isolation."
-            },
-            "chapter": 2,
-            "section": "2.2",
-            "subsection": "2.2.1",
-            "learningObjective": "FL-2.2.1",
-            "kLevel": "K2",
-            "difficulty": "Medium",
-            "keywords": [
-                "component testing",
-                "unit testing",
-                "test level"
-            ],
-            "examTip": "Component testing = isolated units. Integration testing = connections between units.",
-            "memoryAid": "Component = single Lego brick; Integration = bricks connected."
-        },
-        {
-            "id": "Q125",
-            "statement": "In an iterative development model, how does the testing approach differ from a sequential model?",
-            "options": {
-                "C": "Testing is integrated throughout each iteration rather than performed as a single phase at the end",
-                "D": "Testing is not needed in iterative models because changes are small",
-                "A": "Testing is only performed at the end of all iterations",
-                "B": "Testing is performed only by developers in iterative models"
-            },
-            "correctAnswer": "C",
-            "explanation": "In iterative models (such as Agile), testing is integrated into each iteration. Testers collaborate with developers throughout each iteration, writing and executing tests continuously. This contrasts with sequential models where testing is a distinct phase that occurs after development.",
-            "whyWrong": "Testing in iterative models occurs continuously within each iteration, not at the end of all iterations.",
-            "optionExplanations": {
-                "C": "Iterative models integrate testing throughout each iteration for continuous feedback.",
-                "D": "Testing is still essential in iterative models; small changes still need verification.",
-                "A": "Testing occurs within each iteration, not at the end of all iterations.",
-                "B": "Both testers and developers perform testing in iterative models."
-            },
-            "chapter": 2,
-            "section": "2.1",
-            "subsection": "2.1.1",
-            "learningObjective": "FL-2.1.1",
-            "kLevel": "K2",
-            "difficulty": "Medium",
-            "keywords": [
-                "iterative development",
-                "Agile testing",
-                "continuous testing"
-            ],
-            "examTip": "Iterative = testing in every iteration. Sequential = testing as a later phase.",
-            "memoryAid": "Iterative = test as you build. Sequential = build then test."
-        },
-        {
-            "id": "Q044",
-            "statement": "Which of the following correctly describes a test level?",
-            "options": {
-                "A": "Functional testing, performance testing, and security testing",
-                "B": "Manual testing and automated testing",
-                "C": "Black-box testing, white-box testing, and experience-based testing",
-                "D": "Component testing, integration testing, system testing, and acceptance testing"
-            },
-            "correctAnswer": "D",
-            "explanation": "Test levels are groups of testing activities organized and managed together based on the development lifecycle phase. The four main test levels are component (unit), integration, system, and acceptance testing.",
-            "whyWrong": "Functional testing, performance testing, and security testing are test types, not test levels.",
-            "optionExplanations": {
-                "A": "These are categories of test techniques, not test levels.",
-                "B": "These are examples of test types, not test levels.",
-                "C": "These are modes of execution, not test levels.",
-                "D": "Component, integration, system, and acceptance are the standard test levels."
-            },
-            "chapter": 2,
-            "section": "2.2",
-            "subsection": "2.2.1",
-            "learningObjective": "FL-2.2.1",
-            "kLevel": "K2",
-            "difficulty": "Medium",
-            "keywords": [
-                "test levels",
-                "component",
-                "integration",
-                "system",
-                "acceptance"
-            ],
-            "examTip": "Test levels = phases of testing (CISA). Test types = what you test (functional/non-functional).",
-            "memoryAid": "CISA: Component, Integration, System, Acceptance."
-        },
-        {
-            "id": "Q170",
-            "statement": "A government agency requires that a new tax calculation system passes formal acceptance testing against specific regulatory requirements before it can be deployed. What type of acceptance testing is this?",
-            "options": {
-                "A": "Regulatory acceptance testing",
-                "B": "User acceptance testing",
-                "C": "Operational acceptance testing",
-                "D": "Contract acceptance testing"
-            },
-            "correctAnswer": "A",
-            "explanation": "Regulatory acceptance testing is performed to ensure the system complies with relevant regulations, laws, and government standards. Tax calculation systems must comply with tax regulations, making this regulatory acceptance testing. It is often mandatory before deployment.",
-            "whyWrong": "User acceptance testing focuses on whether the system meets user needs, not regulatory compliance.",
-            "optionExplanations": {
-                "A": "Regulatory acceptance testing verifies compliance with laws, regulations, and standards.",
-                "B": "UAT focuses on user needs and business processes.",
-                "C": "Operational acceptance testing checks operational readiness (backup, recovery, etc.).",
-                "D": "Contract acceptance testing verifies compliance with contract terms."
-            },
-            "chapter": 2,
-            "section": "2.2",
-            "subsection": "2.2.1",
-            "learningObjective": "FL-2.2.1",
-            "kLevel": "K2",
-            "difficulty": "Medium",
-            "keywords": [
-                "regulatory acceptance testing",
-                "acceptance testing",
-                "compliance"
-            ],
-            "examTip": "Types of acceptance: User, Operational, Contract, Regulatory.",
-            "memoryAid": "Acceptance types: User, Operational, Contract, Regulatory (UOCR)."
-        },
-        {
-            "id": "Q089",
-            "statement": "In a sequential development model, when is system testing typically performed?",
-            "options": {
-                "A": "Before component testing begins",
-                "B": "After integration testing is complete and the entire system is integrated",
-                "C": "After the system is deployed to production",
-                "D": "During the requirements phase"
-            },
-            "correctAnswer": "B",
-            "explanation": "In a sequential development model (e.g., waterfall or V-model), system testing is performed after integration testing is complete. At this point, the entire system has been assembled, and testing verifies the complete system against its specified requirements.",
-            "whyWrong": "System testing occurs after integration, not during requirements or before component testing.",
-            "optionExplanations": {
-                "A": "Component testing precedes integration, which precedes system testing.",
-                "B": "System testing follows integration testing and verifies the complete integrated system.",
-                "C": "System testing occurs before deployment to production.",
-                "D": "Requirements phase is when test planning begins, not system test execution."
-            },
-            "chapter": 2,
-            "section": "2.1",
-            "subsection": "2.1.1",
-            "learningObjective": "FL-2.1.1",
-            "kLevel": "K2",
-            "difficulty": "Medium",
-            "keywords": [
-                "sequential model",
-                "system testing",
-                "V-model"
-            ],
-            "examTip": "In sequential lifecycles: Component → Integration → System → Acceptance.",
-            "memoryAid": "CISA order: Component, Integration, System, Acceptance."
-        },
-        {
-            "id": "Q090",
-            "statement": "During component testing, a function calculates the square root of a number. The function calls a logarithm function that has not yet been implemented. What technique allows component testing to proceed?",
-            "options": {
-                "A": "Using a driver to call the square root function",
-                "B": "Skipping component testing until all functions are complete",
-                "C": "Performing system testing instead",
-                "D": "Using a stub to replace the missing logarithm function"
-            },
-            "correctAnswer": "D",
-            "explanation": "A stub is a minimal implementation of a component that is called by the component under test. It simulates the behavior of the called component, allowing testing of the calling component to proceed even when the called component is not yet available.",
-            "whyWrong": "A driver simulates a calling component, not a called component. Stubs replace called components.",
-            "optionExplanations": {
-                "A": "A driver simulates the calling component, not the called one.",
-                "B": "Skipping testing delays defect discovery and increases cost.",
-                "C": "System testing is a different level, not a substitute for component testing.",
-                "D": "A stub simulates the missing called component, allowing testing to proceed."
-            },
-            "chapter": 2,
-            "section": "2.2",
-            "subsection": "2.2.1",
-            "learningObjective": "FL-2.2.1",
-            "kLevel": "K2",
-            "difficulty": "Medium",
-            "keywords": [
-                "stubs",
-                "drivers",
-                "component testing",
-                "test infrastructure"
-            ],
-            "examTip": "Stub = called component simulator. Driver = calling component simulator.",
-            "memoryAid": "Stub = simulates what is below; Driver = simulates what is above."
-        },
-        {
-            "id": "Q249",
-            "statement": "Which work product is most appropriate as a test basis for acceptance testing?",
-            "options": {
-                "A": "Unrelated source-code comments",
-                "B": "Business process descriptions and acceptance criteria",
-                "C": "Only compiler warnings",
-                "D": "The tester's vacation schedule"
-            },
-            "correctAnswer": "B",
-            "explanation": "Acceptance testing is commonly based on business requirements, user needs, use cases, business processes, and acceptance criteria.",
-            "whyWrong": "Acceptance testing uses business process descriptions and acceptance criteria. Source-code comments, compiler warnings, and vacation schedules are not appropriate bases for acceptance testing.",
-            "optionExplanations": {
-                "A": "Acceptance testing is commonly based on business requirements, user needs, us...",
-                "B": "Acceptance testing is commonly based on business requirements, user needs, use cases, business processes, and acceptance criteria.",
-                "C": "Acceptance testing is commonly based on business requirements, user needs, us...",
-                "D": "Acceptance testing is commonly based on business requirements, user needs, us..."
-            },
-            "chapter": 2,
-            "section": "2.2",
-            "subsection": "2.2.1",
-            "learningObjective": "FL-2.2.1",
-            "kLevel": "K2",
-            "difficulty": "Medium",
-            "keywords": [
-                "acceptance testing",
-                "test basis"
-            ],
-            "examTip": "Acceptance focuses on user and business needs.",
-            "memoryAid": "Business basis for acceptance."
-        },
-        {
-            "id": "Q127",
-            "statement": "A system receives a major update that changes the underlying database schema and adds new REST APIs. Which combination of testing is most appropriate for maintenance of this system?",
-            "options": {
-                "A": "Confirmation testing of the new APIs and database changes, plus regression testing of existing functionality",
-                "B": "Only regression testing of existing functionality with no testing of new features",
-                "C": "Only testing the new APIs with no regression testing",
-                "D": "No testing is needed if the development team is experienced"
-            },
-            "correctAnswer": "A",
-            "explanation": "Maintenance testing requires both confirmation testing of the changes (new APIs and database changes work correctly) and regression testing (existing functionality is not broken by the changes). Both aspects are essential for a comprehensive maintenance testing approach.",
-            "whyWrong": "Skipping either confirmation testing or regression testing leaves significant risk uncovered.",
-            "optionExplanations": {
-                "A": "Regression testing is needed because database changes can affect existing functionality.",
-                "B": "Both confirmation of changes and regression of existing areas are essential.",
-                "C": "New changes must be confirmed to work correctly.",
-                "D": "Experience does not eliminate the need for testing."
-            },
-            "chapter": 2,
-            "section": "2.3",
-            "subsection": "2.3.1",
-            "learningObjective": "FL-2.3.1",
-            "kLevel": "K2",
-            "difficulty": "Medium",
-            "keywords": [
-                "maintenance testing",
-                "confirmation testing",
-                "regression testing"
-            ],
-            "examTip": "Maintenance testing = confirm the change + check nothing else broke.",
-            "memoryAid": "Maintenance = new stuff works + old stuff still works."
-        },
-        {
-            "id": "Q210",
-            "statement": "Which example best represents component testing?",
-            "options": {
-                "A": "The operations team monitors live incidents",
-                "B": "A tester evaluates interactions among several deployed services",
-                "C": "A developer tests a single tax-calculation function using a unit test framework",
-                "D": "Users validate an end-to-end payroll process"
-            },
-            "correctAnswer": "C",
-            "explanation": "Component testing focuses on individual components in isolation, often using unit test frameworks and stubs or drivers.",
-            "whyWrong": "Component testing focuses on individual units in isolation. Monitoring live incidents is operations; evaluating service interactions is integration testing; end-to-end payroll validation is acceptance testing.",
-            "optionExplanations": {
-                "A": "Component testing focuses on individual components in isolation, often using ...",
-                "B": "Component testing focuses on individual components in isolation, often using ...",
-                "C": "Component testing focuses on individual components in isolation, often using unit test frameworks and stubs or drivers.",
-                "D": "Component testing focuses on individual components in isolation, often using ..."
-            },
-            "chapter": 2,
-            "section": "2.2",
-            "subsection": "2.2.1",
-            "learningObjective": "FL-2.2.1",
-            "kLevel": "K1",
-            "difficulty": "Easy",
-            "keywords": [
-                "component testing",
-                "test levels"
-            ],
-            "examTip": "Component means smallest separately testable part.",
-            "memoryAid": "One component at a time."
-        },
-        {
-            "id": "Q297",
-            "statement": "Which of the following is a valid reason to adapt a software development lifecycle model?",
-            "options": {
-                "A": "The project must always use a pure waterfall model regardless of context",
-                "B": "The project characteristics such as product complexity, team size, and regulatory requirements may require tailoring of the SDLC model",
-                "C": "Agile models cannot be adapted or tailored",
-                "D": "SDLC models are fixed standards that cannot be modified"
-            },
-            "correctAnswer": "B",
-            "explanation": "SDLC models must often be adapted to fit the specific context of the project, including product complexity, team experience, regulatory requirements, risk profile, and customer involvement. No single model fits all situations.",
-            "whyWrong": "SDLC models are not one-size-fits-all; they should be tailored to project and product characteristics.",
-            "optionExplanations": {
-                "A": "Pure waterfall is unsuitable for many projects, especially those with changing requirements.",
-                "B": "Project context determines which SDLC model or combination works best.",
-                "C": "Agile models are frequently adapted through practices like Scrum ceremonies, kanban, etc.",
-                "D": "SDLC models are frameworks that should be adapted, not rigid standards."
-            },
-            "chapter": 2,
-            "section": "2.1",
-            "subsection": "2.1.2",
-            "learningObjective": "FL-2.1.2",
-            "kLevel": "K1",
-            "difficulty": "Easy",
-            "keywords": [
-                "SDLC adaptation",
-                "project context",
-                "lifecycle models"
-            ],
-            "examTip": "SDLC models must fit project and product characteristics.",
-            "memoryAid": "One size does not fit all."
-        },
-        {
-            "id": "Q172",
-            "statement": "A company is upgrading its CRM system and needs to verify that all customer records were correctly transferred from the old system. What type of testing is most appropriate?",
-            "options": {
-                "A": "Data migration testing as part of maintenance testing",
-                "B": "Usability testing of the new CRM interface",
-                "C": "Performance testing of the new system",
-                "D": "Security testing of the login module"
-            },
-            "correctAnswer": "A",
-            "explanation": "Data migration testing is a sub-type of maintenance testing that verifies data has been correctly extracted, transformed, and loaded into the new system. It checks data completeness, integrity, and consistency. This is essential when upgrading or replacing systems.",
-            "whyWrong": "Usability testing evaluates user experience, not data correctness after migration.",
-            "optionExplanations": {
-                "A": "Data migration testing verifies correct data transfer as part of maintenance testing.",
-                "B": "Usability is unrelated to data migration correctness.",
-                "C": "Performance testing measures system speed, not data accuracy.",
-                "D": "Security testing checks access control, not data integrity after migration."
-            },
-            "chapter": 2,
-            "section": "2.3",
-            "subsection": "2.3.1",
-            "learningObjective": "FL-2.3.1",
-            "kLevel": "K2",
-            "difficulty": "Medium",
-            "keywords": [
-                "maintenance testing",
-                "data migration",
-                "data integrity"
-            ],
-            "examTip": "Any change to a live system requires maintenance testing, including data migration.",
-            "memoryAid": "Data migration = move it, then prove it arrived intact."
-        },
-        {
-            "id": "Q212",
-            "statement": "Which statement correctly distinguishes functional from non-functional testing?",
-            "options": {
-                "C": "Functional testing checks what the system does; non-functional testing checks qualities such as performance or usability",
-                "D": "Functional testing is always manual; non-functional testing is always automated",
-                "A": "Functional testing is only done at acceptance level",
-                "B": "Non-functional testing cannot reveal failures"
-            },
-            "correctAnswer": "C",
-            "explanation": "Functional tests address behavior against functional requirements; non-functional tests address quality characteristics such as performance, usability, reliability, and security.",
-            "whyWrong": "Functional testing checks what the system does; non-functional checks qualities like performance. Both can be automated; both occur at all levels; non-functional testing can reveal failures.",
-            "optionExplanations": {
-                "C": "Functional tests address behavior against functional requirements; non-functional tests address quality characteristics such as performance, usability, reliability, and security.",
-                "D": "Functional tests address behavior against functional requirements; non-functi...",
-                "A": "Functional tests address behavior against functional requirements; non-functi...",
-                "B": "Functional tests address behavior against functional requirements; non-functi..."
-            },
-            "chapter": 2,
-            "section": "2.2",
-            "subsection": "2.2.2",
-            "learningObjective": "FL-2.2.2",
-            "kLevel": "K1",
-            "difficulty": "Easy",
-            "keywords": [
-                "test types",
-                "functional",
-                "non-functional"
-            ],
-            "examTip": "What it does versus how well it does it.",
-            "memoryAid": "Function vs quality attribute."
-        },
-        {
-            "id": "Q299",
-            "statement": "Which statement about test types and test levels is correct?",
-            "options": {
-                "A": "Functional testing is only performed during system testing",
-                "B": "Non-functional testing is only relevant during acceptance testing",
-                "C": "White-box testing can only be performed at the component test level",
-                "D": "Functional, non-functional, and white-box testing can be performed at any test level"
-            },
-            "correctAnswer": "D",
-            "explanation": "According to the ISTQB syllabus, all test types (functional, non-functional, white-box) can be performed at any test level (component, integration, system, acceptance). For example, performance testing (non-functional) can be done at component level for critical algorithms or at system level for end-to-end scenarios.",
-            "whyWrong": "All test types apply at all test levels; there is no restriction.",
-            "optionExplanations": {
-                "A": "Functional tests apply at component, integration, and acceptance levels as well.",
-                "B": "Non-functional tests like performance and security apply at all levels.",
-                "C": "White-box testing can also be used at integration and even system levels.",
-                "D": "All test types are applicable at every test level."
-            },
-            "chapter": 2,
-            "section": "2.3",
-            "subsection": "2.3.2",
-            "learningObjective": "FL-2.2.2",
-            "kLevel": "K1",
-            "difficulty": "Easy",
-            "keywords": [
-                "test types",
-                "test levels",
-                "functional",
-                "non-functional",
-                "white-box"
-            ],
-            "examTip": "All test types work at all test levels.",
-            "memoryAid": "Any type, any level."
-        },
-        {
-            "id": "Q092",
-            "statement": "A usability test is conducted to evaluate how easily new users can navigate an e-commerce website. Which test type category does usability testing belong to?",
-            "options": {
-                "A": "Non-functional testing",
-                "B": "Functional testing",
-                "C": "White-box testing",
-                "D": "Structural testing"
-            },
-            "correctAnswer": "A",
-            "explanation": "Usability testing is a type of non-functional testing. Non-functional testing evaluates how the system behaves, including usability, performance, reliability, security, and maintainability. Usability assesses how intuitive and user-friendly the system is.",
-            "whyWrong": "Functional testing verifies what the system does, not how well users can interact with it.",
-            "optionExplanations": {
-                "A": "Usability is a non-functional quality characteristic related to user experience.",
-                "B": "Functional testing verifies specific functions and features.",
-                "C": "White-box testing is based on internal code structure.",
-                "D": "Structural testing is another term for white-box testing."
-            },
-            "chapter": 2,
-            "section": "2.2",
-            "subsection": "2.2.2",
-            "learningObjective": "FL-2.2.1",
-            "kLevel": "K2",
-            "difficulty": "Medium",
-            "keywords": [
-                "non-functional testing",
-                "usability testing",
-                "test types"
-            ],
-            "examTip": "Usability, performance, security, reliability = non-functional test types.",
-            "memoryAid": "Usability = user experience, not what the system does but how well users can use it."
-        },
-        {
-            "id": "Q306",
-            "statement": "During maintenance testing, which of the following best describes the role of impact analysis?",
-            "options": {
-                "A": "It determines which developer should fix each defect",
-                "B": "It replaces the need for regression testing",
-                "C": "It evaluates the performance of the test team",
-                "D": "It identifies the scope and extent of testing needed after a change"
-            },
-            "correctAnswer": "D",
-            "explanation": "Impact analysis helps determine what needs to be re-tested, what regression tests to run, and how much effort is needed. It guides maintenance testing decisions by assessing the potential ripple effects of changes throughout the system.",
-            "whyWrong": "Impact analysis scopes the testing effort needed for a change.",
-            "optionExplanations": {
-                "A": "Assignment of developers is a project management decision, not impact analysis.",
-                "B": "Impact analysis informs regression testing; it does not replace it.",
-                "C": "Impact analysis assesses change effects, not team performance.",
-                "D": "Impact analysis defines the breadth of testing needed after a change."
-            },
-            "chapter": 2,
-            "section": "2.4",
-            "subsection": "2.4.2",
-            "learningObjective": "FL-2.3.1",
-            "kLevel": "K2",
-            "difficulty": "Medium",
-            "keywords": [
-                "impact analysis",
-                "maintenance testing",
-                "regression scope"
-            ],
-            "examTip": "Impact analysis = how much and what to test after a change.",
-            "memoryAid": "Change + trace = scope."
-        },
-        {
-            "id": "Q042",
-            "statement": "Which of the following is an example of a non-functional test?",
-            "options": {
-                "A": "Verifying that the search function returns correct results",
-                "B": "Checking that the login button redirects to the dashboard",
-                "C": "Verifying that a web page loads in less than 2 seconds under normal load",
-                "D": "Testing that the registration form accepts valid email formats"
-            },
-            "correctAnswer": "C",
-            "explanation": "Non-functional testing evaluates how the system behaves, including performance, security, usability, reliability, and maintainability. Testing page load time is a performance test, which is a type of non-functional testing.",
-            "whyWrong": "Checking that the login button redirects is functional testing (verifying a specific function).",
-            "optionExplanations": {
-                "A": "Search function correctness is functional testing.",
-                "B": "Testing login redirection is functional testing.",
-                "C": "Performance testing is a non-functional test type measuring response time.",
-                "D": "Email format validation is functional testing."
-            },
-            "chapter": 2,
-            "section": "2.2",
-            "subsection": "2.2.2",
-            "learningObjective": "FL-2.2.1",
-            "kLevel": "K2",
-            "difficulty": "Medium",
-            "keywords": [
-                "non-functional testing",
-                "performance testing",
-                "test types"
-            ],
-            "examTip": "Non-functional = HOW WELL (performance, security, usability). Functional = WHAT it does.",
-            "memoryAid": "Non-functional = quality attributes; Functional = features."
-        },
-        {
-            "id": "Q305",
-            "statement": "A team needs to modify a single module in a large financial system. The test manager uses traceability information to determine which test cases are likely affected by this change. This is an example of:",
-            "options": {
-                "A": "Risk analysis",
-                "B": "Impact analysis",
-                "C": "Root cause analysis",
-                "D": "Test completion"
-            },
-            "correctAnswer": "B",
-            "explanation": "Impact analysis uses traceability between requirements, design, code, and tests to assess the potential effects of a change. It helps determine the scope of regression testing needed, identifies which test cases to update, and estimates the effort required.",
-            "whyWrong": "Impact analysis assesses the effects of a change using traceability information.",
-            "optionExplanations": {
-                "A": "Risk analysis identifies potential problems but does not trace change effects.",
-                "B": "Impact analysis evaluates how a change affects existing artifacts and tests.",
-                "C": "Root cause analysis finds why a defect occurred, not what a change affects.",
-                "D": "Test completion closes the test phase."
-            },
-            "chapter": 2,
-            "section": "2.4",
-            "subsection": "2.4.2",
-            "learningObjective": "FL-2.3.1",
-            "kLevel": "K2",
-            "difficulty": "Medium",
-            "keywords": [
-                "impact analysis",
-                "traceability",
-                "change management",
-                "regression scope"
-            ],
-            "examTip": "Impact analysis = what else will this change break?",
-            "memoryAid": "Change impact = trace and assess."
-        },
-        {
-            "id": "Q012",
-            "statement": "Which of the following is a functional test type?",
-            "options": {
-                "A": "Assessing the maintainability of the source code",
-                "B": "Checking how the system behaves when network connectivity is lost",
-                "C": "Measuring the response time of a web page under heavy load",
-                "D": "Verifying that a login form correctly authenticates valid users"
-            },
-            "correctAnswer": "D",
-            "explanation": "Functional testing evaluates what the system does - its functions and features. Testing that a login form correctly authenticates users verifies a specific function against its requirements.",
-            "whyWrong": "Response time measurement is a performance test, which is non-functional testing.",
-            "optionExplanations": {
-                "A": "Maintainability assessment is a non-functional test type.",
-                "B": "Performance testing is a non-functional test type.",
-                "C": "Reliability or resilience testing is non-functional.",
-                "D": "Functional testing verifies that the system performs its specified functions correctly."
-            },
-            "chapter": 2,
-            "section": "2.2",
-            "subsection": "2.2.2",
-            "learningObjective": "FL-2.2.1",
-            "kLevel": "K2",
-            "difficulty": "Medium",
-            "keywords": [
-                "functional testing",
-                "test types",
-                "verification"
-            ],
-            "examTip": "Functional = WHAT the system does. Non-functional = HOW WELL it does it.",
-            "memoryAid": "Functional = features; Non-functional = performance, security, usability."
         },
         {
             "id": "Q213",
@@ -2215,13 +684,13 @@ window.questionSets = {
                 "D": "Component testing only"
             },
             "correctAnswer": "B",
-            "explanation": "Maintenance testing is performed after changes to an operational system, including enhancements, fixes, migrations, and changed business rules.",
-            "whyWrong": "Static testing only (A): Maintenance testing is performed after changes to an operational system, incl...",
+            "explanation": "Maintenance testing is performed after any change to an operational system — including rule changes, enhancements, fixes, and migrations.",
+            "whyWrong": "Static testing cannot verify the change's runtime effect; confirmation alone misses regression risk; component testing is too narrow.",
             "optionExplanations": {
-                "A": "Maintenance testing is performed after changes to an operational system, incl...",
-                "B": "Maintenance testing is performed after changes to an operational system, including enhancements, fixes, migrations, and changed business rules.",
-                "C": "Maintenance testing is performed after changes to an operational system, incl...",
-                "D": "Maintenance testing is performed after changes to an operational system, incl..."
+                "A": "Static testing cannot verify that the changed logic works correctly in production.",
+                "B": "Correct — changes to released systems trigger maintenance testing.",
+                "C": "Confirmation alone verifies the change but does not protect existing functionality.",
+                "D": "Component testing is too narrow for a released system change."
             },
             "chapter": 2,
             "section": "2.3",
@@ -2229,395 +698,12 @@ window.questionSets = {
             "learningObjective": "FL-2.3.1",
             "kLevel": "K2",
             "difficulty": "Medium",
-            "keywords": [
-                "maintenance testing",
-                "regression"
-            ],
-            "examTip": "Operational system plus change means maintenance testing.",
-            "memoryAid": "After release, test the change."
-        },
-        {
-            "id": "Q252",
-            "statement": "Which is an example of regression testing?",
-            "options": {
-                "A": "Testing existing payment methods after adding a new wallet payment option",
-                "B": "Testing the corrected line only",
-                "C": "Reviewing a design diagram",
-                "D": "Writing the initial project charter"
-            },
-            "correctAnswer": "A",
-            "explanation": "Regression testing checks that changes have not adversely affected unchanged areas.",
-            "whyWrong": "Regression testing checks that unchanged areas still work after a change. Testing only the corrected line is confirmation testing; reviewing design diagrams is static testing; writing a project charter is planning.",
-            "optionExplanations": {
-                "A": "Regression testing checks that changes have not adversely affected unchanged areas.",
-                "B": "Regression testing checks that changes have not adversely affected unchanged ...",
-                "C": "Regression testing checks that changes have not adversely affected unchanged ...",
-                "D": "Regression testing checks that changes have not adversely affected unchanged ..."
-            },
-            "chapter": 2,
-            "section": "2.2",
-            "subsection": "2.2.3",
-            "learningObjective": "FL-2.2.3",
-            "kLevel": "K2",
-            "difficulty": "Medium",
-            "keywords": [
-                "regression testing",
-                "change impact"
-            ],
-            "examTip": "Regression protects unchanged behavior.",
-            "memoryAid": "Change should not break old features."
-        },
-        {
-            "id": "Q011",
-            "statement": "What is the primary purpose of integration testing?",
-            "options": {
-                "A": "To evaluate non-functional characteristics like performance",
-                "B": "To test the system as a whole against requirements",
-                "C": "To expose defects in the interfaces and interactions between integrated components",
-                "D": "To verify individual functions work correctly in isolation"
-            },
-            "correctAnswer": "C",
-            "explanation": "Integration testing focuses on the interactions between components or systems. It aims to find defects in interfaces, data flow between modules, and communication protocols that cannot be detected during component testing.",
-            "whyWrong": "Testing the system as a whole is system testing, not integration testing.",
-            "optionExplanations": {
-                "A": "Non-functional testing can occur at any level but is not the primary purpose of integration testing.",
-                "B": "Testing the complete system against requirements is system testing.",
-                "C": "Integration testing specifically targets interface defects and interaction problems.",
-                "D": "Verifying individual functions is component testing."
-            },
-            "chapter": 2,
-            "section": "2.2",
-            "subsection": "2.2.1",
-            "learningObjective": "FL-2.2.1",
-            "kLevel": "K2",
-            "difficulty": "Medium",
-            "keywords": [
-                "integration testing",
-                "interfaces",
-                "interactions"
-            ],
-            "examTip": "Integration testing = testing the connections between pieces.",
-            "memoryAid": "Integration = how pieces fit together."
-        },
-        {
-            "id": "Q171",
-            "statement": "A test team is verifying that a website can handle 10,000 concurrent users without crashing. Which type of test is being performed?",
-            "options": {
-                "A": "Acceptance testing",
-                "B": "Functional testing",
-                "C": "Component testing",
-                "D": "Non-functional testing"
-            },
-            "correctAnswer": "D",
-            "explanation": "Non-functional testing evaluates how the system behaves, including performance, reliability, and scalability. Testing the system's ability to handle 10,000 concurrent users is a performance/load test, which falls under non-functional testing.",
-            "whyWrong": "Functional testing verifies what the system does (specific functions), not how well it performs.",
-            "optionExplanations": {
-                "A": "Acceptance testing validates fitness for use.",
-                "B": "Functional testing checks correct behavior of features.",
-                "C": "Component testing tests individual units.",
-                "D": "Load/performance testing is a non-functional test type."
-            },
-            "chapter": 2,
-            "section": "2.2",
-            "subsection": "2.2.2",
-            "learningObjective": "FL-2.2.1",
-            "kLevel": "K2",
-            "difficulty": "Medium",
-            "keywords": [
-                "non-functional testing",
-                "performance",
-                "load testing"
-            ],
-            "examTip": "If the test asks 'how well' or 'how many users,' it is non-functional testing.",
-            "memoryAid": "Non-functional = How well, how fast, how secure."
-        },
-        {
-            "id": "Q209",
-            "statement": "In a sequential model, which testing activity should begin during requirements work rather than waiting for executable code?",
-            "options": {
-                "A": "Replacing acceptance testing with unit testing",
-                "B": "Reviewing requirements and deriving initial test conditions",
-                "C": "Running performance scripts in production",
-                "D": "Closing all defect reports"
-            },
-            "correctAnswer": "B",
-            "explanation": "Early testing in sequential development includes static testing and test analysis of requirements before code exists.",
-            "whyWrong": "Early testing in sequential models includes requirements reviews and initial test design. Replacing unit testing, running performance scripts in production, or closing defect reports are not early testing activities.",
-            "optionExplanations": {
-                "A": "Early testing in sequential development includes static testing and test anal...",
-                "B": "Early testing in sequential development includes static testing and test analysis of requirements before code exists.",
-                "C": "Early testing in sequential development includes static testing and test anal...",
-                "D": "Early testing in sequential development includes static testing and test anal..."
-            },
-            "chapter": 2,
-            "section": "2.1",
-            "subsection": "2.1.1",
-            "learningObjective": "FL-2.1.1",
-            "kLevel": "K2",
-            "difficulty": "Medium",
-            "keywords": [
-                "SDLC",
-                "early testing"
-            ],
-            "examTip": "Testing includes static activities before execution.",
-            "memoryAid": "Test early, even without code."
-        },
-        {
-            "id": "Q363",
-            "statement": "A company updates its tax calculation module to comply with new legislation. The team tests the updated code and also checks that existing payroll reports remain correct. What types of testing are being performed?",
-            "options": {
-                "A": "Confirmation testing and regression testing",
-                "B": "Only component testing",
-                "C": "Acceptance testing and integration testing",
-                "D": "Only functional testing"
-            },
-            "correctAnswer": "A",
-            "explanation": "Confirmation testing (retesting) checks that the fix works, while regression testing ensures unchanged areas are not adversely affected by the change.",
-            "whyWrong": "Confirmation testing verifies the fix; regression testing checks unchanged areas. Component testing alone is insufficient; acceptance and integration tests don't exclusively cover fixes; functional testing alone misses regression.",
-            "optionExplanations": {
-                "A": "Confirmation testing (retesting) checks that the fix works, while regression testing ensures unchanged areas are not adversely affected by the change.",
-                "B": "Incorrect. 'Only component testing' does not match the correct concept: Confirmation testing (retesting) checks that the fix works, while regression ...",
-                "C": "Incorrect. 'Acceptance testing and integration testing' does not match the correct concept: Confirmation testing (retesting) checks that the fix works, while regression ...",
-                "D": "Incorrect. 'Only functional testing' does not match the correct concept: Confirmation testing (retesting) checks that the fix works, while regression ..."
-            },
-            "chapter": 2,
-            "section": "2.2",
-            "subsection": "2.2.3",
-            "learningObjective": "FL-2.2.3",
-            "kLevel": "K2",
-            "difficulty": "Medium",
-            "keywords": [
-                "confirmation testing",
-                "regression testing"
-            ],
-            "examTip": "Fix = confirm. Side effects = regress.",
-            "memoryAid": "Confirm + regress after each change."
-        },
-        {
-            "id": "Q010",
-            "statement": "Which of the following is an example of a component test?",
-            "options": {
-                "A": "Testing the entire application from end to end",
-                "B": "Testing the user interface for usability",
-                "C": "Testing a single function that calculates the square root of a number",
-                "D": "Testing the interaction between two microservices"
-            },
-            "correctAnswer": "C",
-            "explanation": "Component testing (also known as unit testing) focuses on testing individual components in isolation, such as a single function, method, class, or module. Testing a square root function is a classic example of component-level testing.",
-            "whyWrong": "Testing interactions between services is integration testing, not component testing.",
-            "optionExplanations": {
-                "A": "End-to-end testing is system testing.",
-                "B": "UI usability testing is a type of system or acceptance testing.",
-                "C": "Component testing verifies individual elements like functions, methods, or classes in isolation.",
-                "D": "Testing interaction between services is integration testing."
-            },
-            "chapter": 2,
-            "section": "2.2",
-            "subsection": "2.2.1",
-            "learningObjective": "FL-2.2.1",
-            "kLevel": "K2",
-            "difficulty": "Medium",
-            "keywords": [
-                "component testing",
-                "unit testing",
-                "test levels"
-            ],
-            "examTip": "Component testing = testing the smallest testable parts in isolation.",
-            "memoryAid": "Component = individual building block."
-        },
-        {
-            "id": "Q364",
-            "statement": "During which test level is interoperability with external systems MOST commonly evaluated?",
-            "options": {
-                "A": "System integration testing",
-                "B": "Component testing",
-                "C": "Acceptance testing only",
-                "D": "Unit testing"
-            },
-            "correctAnswer": "A",
-            "explanation": "System integration testing evaluates interactions between the tested system and external systems, including interoperability, data exchange, and protocol compliance.",
-            "whyWrong": "Component testing (B): Integration testing evaluates interfaces and interactions between components ...; Acceptance testing only (C): Integration testing evaluates interfaces and interactions between components ...; Unit testing (D): Integration testing evaluates interfaces and interactions between components or systems.",
-            "optionExplanations": {
-                "A": "System integration testing evaluates interactions between the tested system and external systems, including interoperability, data exchange, and protocol compliance.",
-                "B": "Incorrect. 'Component testing' does not match the correct concept: System integration testing evaluates interactions between the tested system a...",
-                "C": "Incorrect. 'Acceptance testing only' does not match the correct concept: System integration testing evaluates interactions between the tested system a...",
-                "D": "Incorrect. 'Unit testing' does not match the correct concept: System integration testing evaluates interactions between the tested system a..."
-            },
-            "chapter": 2,
-            "section": "2.2",
-            "subsection": "2.2.1",
-            "learningObjective": "FL-2.2.1",
-            "kLevel": "K1",
-            "difficulty": "Easy",
-            "keywords": [
-                "integration testing",
-                "interoperability"
-            ],
-            "examTip": "Integration = interaction between systems.",
-            "memoryAid": "Integration connects systems."
-        },
-        {
-            "id": "Q211",
-            "statement": "A team verifies that two microservices exchange contract-compliant messages after each service has passed its own tests. Which test level is this?",
-            "options": {
-                "A": "Component testing",
-                "B": "Acceptance testing",
-                "C": "Maintenance testing",
-                "D": "Integration testing"
-            },
-            "correctAnswer": "D",
-            "explanation": "Integration testing evaluates interfaces and interactions between components or systems.",
-            "whyWrong": "Component testing (A): Acceptance testing validates fitness for use.; Acceptance testing (B): Functional testing checks correct behavior of features.; Maintenance testing (C): Component testing tests individual units.",
-            "optionExplanations": {
-                "A": "Integration testing evaluates interfaces and interactions between components ...",
-                "B": "Integration testing evaluates interfaces and interactions between components ...",
-                "C": "Integration testing evaluates interfaces and interactions between components ...",
-                "D": "Integration testing evaluates interfaces and interactions between components or systems."
-            },
-            "chapter": 2,
-            "section": "2.2",
-            "subsection": "2.2.1",
-            "learningObjective": "FL-2.2.1",
-            "kLevel": "K2",
-            "difficulty": "Medium",
-            "keywords": [
-                "integration testing",
-                "interfaces"
-            ],
-            "examTip": "Interfaces and interactions point to integration.",
-            "memoryAid": "Integration = connections."
-        },
-        {
-            "id": "Q146",
-            "statement": "A company is migrating its customer database from an on-premise system to a cloud platform. What type of maintenance testing is most relevant during this migration?",
-            "options": {
-                "A": "Usability testing of the cloud platform interface",
-                "B": "No testing is needed if the migration tool is certified",
-                "C": "Data migration testing to verify data integrity and completeness after migration",
-                "D": "Only functional testing of the new cloud interface"
-            },
-            "correctAnswer": "C",
-            "explanation": "Data migration testing is a critical maintenance testing activity that verifies data is correctly transferred, transformed, and loaded into the target system. It checks data integrity, completeness, and consistency. This is essential when migrating from one system to another.",
-            "whyWrong": "Certification of a migration tool does not guarantee correct data migration for specific data structures.",
-            "optionExplanations": {
-                "A": "Usability is secondary to data integrity during migration.",
-                "B": "Testing is essential regardless of tool certification, as every migration is unique.",
-                "C": "Data migration testing ensures data integrity, completeness, and correctness after migration.",
-                "D": "Functional testing alone does not verify that existing data was correctly migrated."
-            },
-            "chapter": 2,
-            "section": "2.3",
-            "subsection": "2.3.1",
-            "learningObjective": "FL-2.3.1",
-            "kLevel": "K2",
-            "difficulty": "Medium",
-            "keywords": [
-                "maintenance testing",
-                "data migration",
-                "data integrity"
-            ],
-            "examTip": "Data migration testing = verify data moved correctly, no loss, no corruption.",
-            "memoryAid": "Migration testing = count, compare, validate."
-        },
-        {
-            "id": "Q173",
-            "statement": "A development team is integrating a payment gateway module with the existing order management system. They decide to integrate the payment module first, then the inventory module, then the shipping module, verifying at each step. What integration strategy are they using?",
-            "options": {
-                "A": "System testing",
-                "B": "Incremental integration testing",
-                "C": "Big-bang integration testing",
-                "D": "Component testing"
-            },
-            "correctAnswer": "B",
-            "explanation": "Incremental integration testing integrates components one at a time, testing after each addition. This allows defects to be localized to the newly added component, making debugging easier. The described approach (adding modules one by one with testing at each step) is incremental integration.",
-            "whyWrong": "Big-bang integration would integrate all modules at once before testing.",
-            "optionExplanations": {
-                "A": "System testing tests the complete system, not the integration process.",
-                "B": "Incremental integration adds and tests components one by one.",
-                "C": "Big-bang integrates everything at once before testing.",
-                "D": "Component testing tests individual modules in isolation."
-            },
-            "chapter": 2,
-            "section": "2.2",
-            "subsection": "2.2.1",
-            "learningObjective": "FL-2.2.1",
-            "kLevel": "K2",
-            "difficulty": "Medium",
-            "keywords": [
-                "incremental integration",
-                "integration testing",
-                "strategy"
-            ],
-            "examTip": "Incremental = one at a time. Big-bang = all at once.",
-            "memoryAid": "Incremental = step by step; Big-bang = all or nothing."
+            "keywords": ["maintenance testing", "regression"],
+            "examTip": "Released system + change = maintenance testing.",
+            "memoryAid": "After release, test the change and its impact."
         }
     ],
     "exam3": [
-        {
-            "id": "Q174",
-            "statement": "What are the two main categories of static testing?",
-            "options": {
-                "A": "Statement testing and decision testing",
-                "B": "Exploratory testing and error guessing",
-                "C": "Equivalence partitioning and boundary value analysis",
-                "D": "Reviews and static analysis"
-            },
-            "correctAnswer": "D",
-            "explanation": "The two main categories of static testing are reviews (human examination of work products) and static analysis (tool-based evaluation). Reviews include informal reviews, walkthroughs, technical reviews, and inspections. Static analysis uses tools to detect potential defects in code or other artifacts without executing them.",
-            "whyWrong": "Equivalence partitioning, boundary value analysis, statement testing, decision testing, exploratory testing, and error guessing are all dynamic testing techniques that require code execution.",
-            "optionExplanations": {
-                "A": "Statement testing and decision testing are dynamic white-box structural techniques.",
-                "B": "Exploratory testing and error guessing are dynamic experience-based techniques.",
-                "C": "Both equivalence partitioning and boundary value analysis are dynamic black-box techniques.",
-                "D": "Reviews and static analysis are the two main categories of static testing."
-            },
-            "chapter": 3,
-            "section": "3.1",
-            "subsection": "3.1.1",
-            "learningObjective": "FL-3.1.1",
-            "kLevel": "K1",
-            "difficulty": "Easy",
-            "keywords": [
-                "static testing",
-                "reviews",
-                "static analysis",
-                "categories"
-            ],
-            "examTip": "Static testing = no code execution. Dynamic testing = code execution required.",
-            "memoryAid": "Static = don't run it; Dynamic = run it and watch."
-        },
-        {
-            "id": "Q308",
-            "statement": "A team finds that 40% of the defects in their last release could have been detected by reviewing requirements and design documents before coding began. This finding emphasizes the value of:",
-            "options": {
-                "A": "Using more automated test tools",
-                "B": "Adding more testers to the execution phase",
-                "C": "Performing static testing on early work products",
-                "D": "Increasing dynamic test execution time"
-            },
-            "correctAnswer": "C",
-            "explanation": "The finding shows that many defects originate from decisions made early in the lifecycle. Static testing on requirements and design documents can detect such defects before they propagate into code, where they are more expensive to fix.",
-            "whyWrong": "Static testing on early work products catches defects at their source.",
-            "optionExplanations": {
-                "A": "Automation helps execution but does not address requirement defects.",
-                "B": "More testers executing tests would still find defects later rather than earlier.",
-                "C": "Static testing on early work products prevents defects from propagating.",
-                "D": "More dynamic testing would find these defects later, at higher cost."
-            },
-            "chapter": 3,
-            "section": "3.1",
-            "subsection": "3.1.2",
-            "learningObjective": "FL-3.1.2",
-            "kLevel": "K2",
-            "difficulty": "Medium",
-            "keywords": [
-                "static testing",
-                "early work products",
-                "defect prevention"
-            ],
-            "examTip": "Review early work products to catch defects before coding.",
-            "memoryAid": "Catch defects at the source."
-        },
         {
             "id": "Q366",
             "statement": "Which of the following is a typical objective of a static analysis tool?",
@@ -2628,13 +714,13 @@ window.questionSets = {
                 "D": "Managing test execution schedules and resource allocation"
             },
             "correctAnswer": "A",
-            "explanation": "Static analysis tools examine source code or models without execution, detecting potential defects such as infinite loops, unreachable code, syntax violations, and security vulnerabilities.",
-            "whyWrong": "Static analysis tools examine code or models without execution; the other options describe dynamic testing, performance measurement, or test management activities.",
+            "explanation": "Static analysis tools examine source code or models WITHOUT execution to detect potential defects: unreachable code, infinite loops, unused variables, standard violations, and security vulnerabilities.",
+            "whyWrong": "Response time, test execution, and scheduling are dynamic or management activities, not static analysis.",
             "optionExplanations": {
-                "A": "Static analysis tools examine source code or models without execution, detecting potential defects such as infinite loops, unreachable code, syntax violations, and security vulnerabilities.",
-                "B": "Incorrect. 'Measuring the response time of the application under test' does not match the correct concept: Static analysis tools examine source code or models without execution, detect...",
-                "C": "Incorrect. 'Executing test cases and comparing actual vs. expected re...' does not match the correct concept: Static analysis tools examine source code or models without execution, detect...",
-                "D": "Incorrect. 'Managing test execution schedules and resource allocation' does not match the correct concept: Static analysis tools examine source code or models without execution, detect..."
+                "A": "Static analysis detects code defects without executing the program.",
+                "B": "Response time measurement requires dynamic performance testing.",
+                "C": "Executing tests and comparing results = dynamic testing.",
+                "D": "Scheduling and resource management = test management activities."
             },
             "chapter": 3,
             "section": "3.1",
@@ -2642,585 +728,9 @@ window.questionSets = {
             "learningObjective": "FL-3.1.1",
             "kLevel": "K1",
             "difficulty": "Easy",
-            "keywords": [
-                "static analysis",
-                "static testing tools"
-            ],
-            "examTip": "Static analysis = find bugs without running code.",
-            "memoryAid": "Analyze code without executing."
-        },
-        {
-            "id": "Q128",
-            "statement": "Which of the following is a benefit of static testing compared to dynamic testing?",
-            "options": {
-                "A": "Static testing measures performance characteristics of the system",
-                "B": "Defects can be found directly in the work product without executing the code",
-                "C": "Static testing requires a fully functional test environment",
-                "D": "Static testing can only be performed after the code is compiled"
-            },
-            "correctAnswer": "B",
-            "explanation": "Static testing finds defects directly in work products (requirements, design, code) without executing the software. This allows defects to be detected earlier in the development lifecycle, before dynamic testing can begin, and at a lower cost.",
-            "whyWrong": "Static testing does not require a test environment or code execution.",
-            "optionExplanations": {
-                "A": "Performance measurement requires dynamic testing.",
-                "B": "Static testing finds defects directly in work products without execution.",
-                "C": "Static testing does not require a test environment.",
-                "D": "Static testing can be performed before code is compiled or even written."
-            },
-            "chapter": 3,
-            "section": "3.1",
-            "subsection": "3.1.1",
-            "learningObjective": "FL-3.1.1",
-            "kLevel": "K1",
-            "difficulty": "Easy",
-            "keywords": [
-                "static testing",
-                "benefits",
-                "early defect detection"
-            ],
-            "examTip": "Static testing = find defects early, no execution, no test environment needed.",
-            "memoryAid": "Static = early, cheap, no setup."
-        },
-        {
-            "id": "Q254",
-            "statement": "Which is a typical benefit of static testing?",
-            "options": {
-                "A": "Confirming a runtime memory leak",
-                "B": "Replacing all dynamic tests",
-                "C": "Finding defects in requirements before code is written",
-                "D": "Measuring actual response time under load"
-            },
-            "correctAnswer": "C",
-            "explanation": "Static testing can detect defects early in non-executable work products such as requirements, designs, and user stories.",
-            "whyWrong": "Static testing can detect defects early in non-executable work products such as requirements, designs, and user stories. Confirming a runtime memory leak (option A): Static testing can detect defects early in non-executable work products such ...; Replacing all dynamic tests (option B): Static testing can detect defects early in non-executable work products such ...; Measuring actual response time under load (option D): Static testing can detect defects early in non-executable work products s...",
-            "optionExplanations": {
-                "A": "Runtime memory leaks are found by dynamic testing, not by static testing.",
-                "B": "Static testing complements, not replaces, dynamic testing.",
-                "C": "Static testing finds defects early in non-executable work products such as requirements, designs, and user stories.",
-                "D": "Response time under load is measured by dynamic performance testing, not static testing."
-            },
-            "chapter": 3,
-            "section": "3.1",
-            "subsection": "3.1.1",
-            "learningObjective": "FL-3.1.1",
-            "kLevel": "K1",
-            "difficulty": "Easy",
-            "keywords": [
-                "static testing",
-                "early defects"
-            ],
-            "examTip": "Static testing finds defects before execution.",
-            "memoryAid": "Review before run."
-        },
-        {
-            "id": "Q177",
-            "statement": "Which of the following is a benefit of performing reviews during the requirements phase?",
-            "options": {
-                "A": "Automatically generating test cases from the reviewed requirements",
-                "B": "Fixing ambiguous requirements early, preventing costly rework during development",
-                "C": "Replacing the need for user acceptance testing",
-                "D": "Eliminating the need for all dynamic testing"
-            },
-            "correctAnswer": "B",
-            "explanation": "Reviews during the requirements phase can identify ambiguous, incomplete, or contradictory requirements early. Fixing these issues at this stage is significantly cheaper than discovering them during development or testing. This aligns with the principle of early testing.",
-            "whyWrong": "Reviews complement but do not eliminate the need for dynamic testing.",
-            "optionExplanations": {
-                "A": "Reviews do not automatically generate test cases.",
-                "B": "Early review of requirements reduces costly rework and clarifies expectations.",
-                "C": "UAT remains necessary to validate that the system meets user needs.",
-                "D": "Dynamic testing is still needed to verify actual system behavior."
-            },
-            "chapter": 3,
-            "section": "3.2",
-            "subsection": "3.2.1",
-            "learningObjective": "FL-3.2.1",
-            "kLevel": "K2",
-            "difficulty": "Medium",
-            "keywords": [
-                "reviews",
-                "requirements",
-                "early defect detection"
-            ],
-            "examTip": "Reviews at requirements phase = catch problems before they become expensive.",
-            "memoryAid": "Requirements review = fix the blueprint before you build the house."
-        },
-        {
-            "id": "Q256",
-            "statement": "A moderator checks that reviewers received the design document and checklist before the meeting. Which review activity is this?",
-            "options": {
-                "A": "Planning and preparation support",
-                "B": "Test execution",
-                "C": "Defect fixing",
-                "D": "Tool procurement"
-            },
-            "correctAnswer": "A",
-            "explanation": "Review preparation includes distributing work products, defining scope, and ensuring participants are ready to review effectively.",
-            "whyWrong": "Using suitable checklists and focusing on defined review objectives (B): Review preparation includes distributing work products, defining scope, and e...",
-            "optionExplanations": {
-                "A": "Review preparation includes distributing work products, defining scope, and ensuring participants are ready to review effectively.",
-                "B": "Test execution is a separate testing activity, not review preparation.",
-                "C": "Defect fixing happens after review findings, not during preparation.",
-                "D": "Tool procurement is unrelated to distributing review materials."
-            },
-            "chapter": 3,
-            "section": "3.2",
-            "subsection": "3.2.1",
-            "learningObjective": "FL-3.2.1",
-            "kLevel": "K2",
-            "difficulty": "Medium",
-            "keywords": [
-                "review process",
-                "preparation"
-            ],
-            "examTip": "Review meetings work only if preparation happens first.",
-            "memoryAid": "Prepare before review."
-        },
-        {
-            "id": "Q016",
-            "statement": "During a code review, a senior developer identifies that a loop may continue indefinitely under certain conditions. What type of defect has been found?",
-            "options": {
-                "A": "A data flow defect",
-                "B": "A usability defect",
-                "C": "A requirements defect",
-                "D": "A control flow defect"
-            },
-            "correctAnswer": "D",
-            "explanation": "An infinite loop is a control flow defect because it involves incorrect logic in the flow of program execution. Control flow defects include infinite loops, unreachable code, and incorrect branching logic. Such control flow defects are commonly detected by static analysis and code reviews (ISTQB static testing).",
-            "whyWrong": "A data flow defect would involve incorrect data usage, such as using a variable before initialization.",
-            "optionExplanations": {
-                "A": "Data flow defects involve improper handling of variable values.",
-                "B": "Usability defects relate to user interface and user experience issues.",
-                "C": "Requirements defects are errors in the specification, not in the code.",
-                "D": "Control flow defects involve incorrect sequencing or looping in program execution."
-            },
-            "chapter": 3,
-            "section": "3.1",
-            "subsection": "3.1.2",
-            "learningObjective": "FL-3.1.1",
-            "kLevel": "K2",
-            "difficulty": "Easy",
-            "keywords": [
-                "static testing",
-                "control flow",
-                "defect types",
-                "code review"
-            ],
-            "examTip": "Control flow = decisions and loops; Data flow = variable usage.",
-            "memoryAid": "Control flow = the path the program walks; Data flow = what it carries."
-        },
-        {
-            "id": "Q216",
-            "statement": "During a formal review, who is primarily responsible for recording anomalies, decisions, and open points?",
-            "options": {
-                "A": "Scribe",
-                "B": "Author",
-                "C": "Manager",
-                "D": "Moderator"
-            },
-            "correctAnswer": "A",
-            "explanation": "The scribe records review information, including identified anomalies, decisions, and action items.",
-            "whyWrong": "Author (B): The scribe records review information, including identified anomalies, decisi...; Manager (C): The scribe records review information, including identified anomalies, decisi...; Moderator (D): The scribe records review information, including identified anomalies, decisi...",
-            "optionExplanations": {
-                "A": "The scribe records review information, including identified anomalies, decisions, and action items.",
-                "B": "The scribe records review information, including identified anomalies, decisi...",
-                "C": "The scribe records review information, including identified anomalies, decisi...",
-                "D": "The scribe records review information, including identified anomalies, decisi..."
-            },
-            "chapter": 3,
-            "section": "3.2",
-            "subsection": "3.2.2",
-            "learningObjective": "FL-3.2.2",
-            "kLevel": "K1",
-            "difficulty": "Easy",
-            "keywords": [
-                "review roles",
-                "scribe"
-            ],
-            "examTip": "The scribe writes the review record.",
-            "memoryAid": "Scribe = recorder."
-        },
-        {
-            "id": "Q312",
-            "statement": "In a formal inspection, who is responsible for fixing the defects found during the review?",
-            "options": {
-                "A": "The moderator",
-                "B": "The tester who found the defect",
-                "C": "The review team as a whole",
-                "D": "The author of the work product"
-            },
-            "correctAnswer": "D",
-            "explanation": "The author is responsible for correcting defects found in their work product during the review. Reviewers identify defects, the moderator facilitates the process, and the scribe records findings - but fixing is the author\\'s responsibility.",
-            "whyWrong": "The author fixes defects in their own work product.",
-            "optionExplanations": {
-                "A": "The moderator facilitates the process but does not fix defects.",
-                "B": "The tester or reviewer reports defects but does not fix them.",
-                "C": "The team identifies defects; the author fixes them.",
-                "D": "The author fixes the defects found during the review."
-            },
-            "chapter": 3,
-            "section": "3.2",
-            "subsection": "3.2.2",
-            "learningObjective": "FL-3.2.2",
-            "kLevel": "K1",
-            "difficulty": "Easy",
-            "keywords": [
-                "review roles",
-                "author",
-                "defect fixing"
-            ],
-            "examTip": "The author fixes their own work product defects.",
-            "memoryAid": "Author finds and fixes."
-        },
-        {
-            "id": "Q311",
-            "statement": "In a formal review, which role is responsible for deciding whether to proceed to the next review phase and for ensuring that review objectives are met?",
-            "options": {
-                "A": "Scribe",
-                "B": "Moderator (review leader)",
-                "C": "Author",
-                "D": "Reviewer"
-            },
-            "correctAnswer": "B",
-            "explanation": "The moderator (or review leader) is responsible for the overall success of the review, including deciding on readiness to proceed, managing the review meeting, and ensuring objectives are achieved. The moderator plans the review, coordinates activities, and makes go/no-go decisions.",
-            "whyWrong": "The moderator leads the review process and makes key decisions.",
-            "optionExplanations": {
-                "A": "The scribe records defects and decisions but does not lead the review.",
-                "B": "The moderator manages the review process and decides on phase transitions.",
-                "C": "The author creates the work product and may answer questions.",
-                "D": "Reviewers examine the work product and identify potential defects."
-            },
-            "chapter": 3,
-            "section": "3.2",
-            "subsection": "3.2.2",
-            "learningObjective": "FL-3.2.2",
-            "kLevel": "K1",
-            "difficulty": "Easy",
-            "keywords": [
-                "review roles",
-                "moderator",
-                "review leader"
-            ],
-            "examTip": "Moderator leads the review process and makes decisions.",
-            "memoryAid": "Moderator = review leader."
-        },
-        {
-            "id": "Q214",
-            "statement": "Which defect is static testing most likely to find before test execution?",
-            "options": {
-                "A": "A timeout caused by production network latency",
-                "B": "A race condition visible only under load",
-                "C": "An inconsistent term in two requirement sections",
-                "D": "A memory leak occurring after six hours of runtime"
-            },
-            "correctAnswer": "C",
-            "explanation": "Static testing examines work products without executing software and is well suited to finding ambiguity, inconsistency, omissions, and standards violations.",
-            "whyWrong": "A walkthrough requires detailed preparation by all participants (A): Static testing examines work products without executing software and is well ...",
-            "optionExplanations": {
-                "A": "Static testing examines work products without executing software and is well ...",
-                "B": "Static testing examines work products without executing software and is well ...",
-                "C": "Static testing examines work products without executing software and is well suited to finding ambiguity, inconsistency, omissions, and standards violations.",
-                "D": "Static testing examines work products without executing software and is well ..."
-            },
-            "chapter": 3,
-            "section": "3.1",
-            "subsection": "3.1.1",
-            "learningObjective": "FL-3.1.1",
-            "kLevel": "K2",
-            "difficulty": "Medium",
-            "keywords": [
-                "static testing",
-                "reviews"
-            ],
-            "examTip": "No execution means documents and code are inspected, not run.",
-            "memoryAid": "Static finds paper defects early."
-        },
-        {
-            "id": "Q217",
-            "statement": "A checklist for reviewing user stories asks whether each story has clear acceptance criteria, business value, and testability. What review success factor is being applied?",
-            "options": {
-                "A": "Limiting reviews to managers only",
-                "B": "Using suitable checklists and focusing on defined review objectives",
-                "C": "Replacing dynamic testing with reviews",
-                "D": "Avoiding preparation to save time"
-            },
-            "correctAnswer": "B",
-            "explanation": "Effective reviews use appropriate techniques such as checklists and focus on objectives relevant to the work product.",
-            "whyWrong": "Performing static testing on early work products (A): Effective reviews use appropriate techniques such as checklists and focus on ...",
-            "optionExplanations": {
-                "A": "Effective reviews use appropriate techniques such as checklists and focus on ...",
-                "B": "Effective reviews use appropriate techniques such as checklists and focus on objectives relevant to the work product.",
-                "C": "Effective reviews use appropriate techniques such as checklists and focus on ...",
-                "D": "Effective reviews use appropriate techniques such as checklists and focus on ..."
-            },
-            "chapter": 3,
-            "section": "3.2",
-            "subsection": "3.2.4",
-            "learningObjective": "FL-3.2.4",
-            "kLevel": "K2",
-            "difficulty": "Medium",
-            "keywords": [
-                "review success factors",
-                "checklists"
-            ],
-            "examTip": "Checklists help reviewers focus.",
-            "memoryAid": "Good checklist, better review."
-        },
-        {
-            "id": "Q065",
-            "statement": "Which of the following is a key difference between a formal inspection and a technical review?",
-            "options": {
-                "C": "Inspections follow a defined process with formal entry and exit criteria, while technical reviews are less formal",
-                "D": "Inspections do not involve the author",
-                "A": "Technical reviews require management approval to proceed",
-                "B": "Inspections are always performed by external auditors"
-            },
-            "correctAnswer": "C",
-            "explanation": "Inspections are the most formal type of review, with defined roles, formal entry and exit criteria, a defined process, and detailed data collection. Technical reviews are also formal but less rigorous than inspections, with fewer formal checks and procedures.",
-            "whyWrong": "The author participates in an inspection by presenting the work product.",
-            "optionExplanations": {
-                "C": "Inspections are the most formal review type with strict entry/exit criteria.",
-                "D": "The author presents and participates in inspections.",
-                "A": "Technical reviews are typically managed within the team, not requiring management approval.",
-                "B": "Inspections are performed by trained team members, not necessarily external auditors."
-            },
-            "chapter": 3,
-            "section": "3.2",
-            "subsection": "3.2.1",
-            "learningObjective": "FL-3.2.1",
-            "kLevel": "K2",
-            "difficulty": "Medium",
-            "keywords": [
-                "inspection",
-                "technical review",
-                "formality",
-                "review types"
-            ],
-            "examTip": "Formality level (low to high): Informal, Walkthrough, Technical Review, Inspection.",
-            "memoryAid": "Review formality: I W T I (Informal, Walkthrough, Technical, Inspection)."
-        },
-        {
-            "id": "Q129",
-            "statement": "A review is being conducted on a requirements specification. The moderator notices that most meeting time is spent on suggesting improvements rather than identifying defects. Which type of review is likely being conducted?",
-            "options": {
-                "A": "Static analysis",
-                "B": "Walkthrough",
-                "C": "Inspection",
-                "D": "Technical review"
-            },
-            "correctAnswer": "B",
-            "explanation": "Walkthroughs are author-led review meetings that focus on knowledge sharing, gathering suggestions, and improving the work product. Unlike inspections or technical reviews that focus on defect detection, walkthroughs emphasize learning and collaborative improvement.",
-            "whyWrong": "Inspections focus on rigorous defect detection using formal entry/exit criteria.",
-            "optionExplanations": {
-                "A": "Static analysis is a tool-based technique, not a review meeting.",
-                "B": "Inspections focus on formal defect detection with defined roles and metrics.",
-                "C": "Walkthroughs emphasize knowledge sharing, suggestions, and improvement ideas.",
-                "D": "Technical reviews focus on defect detection with trained moderators."
-            },
-            "chapter": 3,
-            "section": "3.2",
-            "subsection": "3.2.1",
-            "learningObjective": "FL-3.2.1",
-            "kLevel": "K2",
-            "difficulty": "Medium",
-            "keywords": [
-                "walkthrough",
-                "review types",
-                "knowledge sharing"
-            ],
-            "examTip": "Walkthrough = learning and suggestions. Inspection = rigorous defect finding.",
-            "memoryAid": "Walkthrough = walk and talk through the document."
-        },
-        {
-            "id": "Q368",
-            "statement": "A walkthrough is being conducted on a requirements specification. The author actively presents each section while participants ask questions. What is the PRIMARY purpose of this type of review?",
-            "options": {
-                "A": "To share understanding, gather feedback, and identify potential ambiguities",
-                "B": "To formally approve the document for release",
-                "C": "To measure the author's presentation skills",
-                "D": "To replace dynamic testing of the requirements"
-            },
-            "correctAnswer": "A",
-            "explanation": "A walkthrough is an informal review led by the author to share knowledge, gather feedback, and identify issues such as ambiguities, inconsistencies, and omissions.",
-            "whyWrong": "A walkthrough is an informal review led by the author to share knowledge, gather feedback, and identify issues such as ambiguities, inconsistencies... To formally approve the document for release (option B); To measure the author's presentation skills (option C); To replace dynamic testing of the requirements (option D).",
-            "optionExplanations": {
-                "A": "A walkthrough is an informal review led by the author to share knowledge, gather feedback, and identify issues such as ambiguities, inconsistencies, and omissions.",
-                "B": "Incorrect. 'To formally approve the document for release' does not match the correct concept: A walkthrough is an informal review led by the author to share knowledge, gat...",
-                "C": "Incorrect. 'To measure the author's presentation skills' does not match the correct concept: A walkthrough is an informal review led by the author to share knowledge, gat...",
-                "D": "Incorrect. 'To replace dynamic testing of the requirements' does not match the correct concept: A walkthrough is an informal review led by the author to share knowledge, gat..."
-            },
-            "chapter": 3,
-            "section": "3.2",
-            "subsection": "3.2.3",
-            "learningObjective": "FL-3.2.3",
-            "kLevel": "K1",
-            "difficulty": "Easy",
-            "keywords": [
-                "walkthrough",
-                "review types"
-            ],
-            "examTip": "Walkthrough = author-led feedback session.",
-            "memoryAid": "Author walks through; reviewers comment."
-        },
-        {
-            "id": "Q316",
-            "statement": "Using a checklist-based review, evaluate this requirement: \"The system shall process orders quickly and efficiently.\" Which defect is most apparent?",
-            "options": {
-                "A": "The requirement is too detailed",
-                "B": "The requirement conflicts with another requirement",
-                "C": "The requirement is ambiguous and not testable because it does not define what \\'quickly\\' and \\'efficiently\\' mean in measurable terms",
-                "D": "The requirement is technically impossible to implement"
-            },
-            "correctAnswer": "C",
-            "explanation": "A good requirement must be testable (verifiable). \\'Quickly\\' and \\'efficiently\\' are subjective terms that cannot be objectively measured. The requirement should specify concrete, measurable criteria such as \\'95% of orders shall be processed within 2 seconds.\\'",
-            "whyWrong": "The requirement is not testable due to subjective, unmeasurable terms.",
-            "optionExplanations": {
-                "A": "The requirement is vague, not detailed.",
-                "B": "No information indicates a conflict.",
-                "C": "Good requirements must be testable; subjective terms make this requirement untestable.",
-                "D": "There is no evidence the requirement is technically impossible."
-            },
-            "chapter": 3,
-            "section": "3.2",
-            "subsection": "3.2.4",
-            "learningObjective": "FL-3.2.4",
-            "kLevel": "K3",
-            "difficulty": "Hard",
-            "keywords": [
-                "requirement review",
-                "testability",
-                "ambiguity",
-                "checklist-based review"
-            ],
-            "examTip": "Check each requirement for testability and ambiguity.",
-            "memoryAid": "If you cannot test it, it is not a good requirement."
-        },
-        {
-            "id": "Q017",
-            "statement": "What is the primary difference between a walkthrough and a technical review?",
-            "options": {
-                "A": "A walkthrough requires detailed preparation by all participants",
-                "B": "A walkthrough is led by the author and focuses on knowledge sharing; a technical review is led by a trained moderator and focuses on finding defects",
-                "C": "A technical review does not involve the author",
-                "D": "A walkthrough is formal; a technical review is informal"
-            },
-            "correctAnswer": "B",
-            "explanation": "A walkthrough is an informal review led by the author to share knowledge and gather feedback. A technical review is a more formal review led by a trained moderator, with defined roles and a focus on defect detection.",
-            "whyWrong": "Walkthroughs are less formal than technical reviews, not more formal.",
-            "optionExplanations": {
-                "A": "Walkthroughs require less formal preparation than technical reviews.",
-                "B": "Walkthroughs are author-led and informal; technical reviews are moderator-led and formal.",
-                "C": "The author typically participates in all review types.",
-                "D": "Walkthroughs are informal; technical reviews are more formal."
-            },
-            "chapter": 3,
-            "section": "3.2",
-            "subsection": "3.2.1",
-            "learningObjective": "FL-3.2.1",
-            "kLevel": "K2",
-            "difficulty": "Medium",
-            "keywords": [
-                "walkthrough",
-                "technical review",
-                "review types",
-                "static testing"
-            ],
-            "examTip": "Informal walkthrough (author-led) vs formal technical review (moderator-led).",
-            "memoryAid": "Walkthrough = walk in the park (informal); Technical review = serious business (formal)."
-        },
-        {
-            "id": "Q371",
-            "statement": "What is the PRIMARY difference between static testing and dynamic testing?",
-            "options": {
-                "A": "Static testing examines work products without executing code; dynamic testing executes code and observes behavior",
-                "B": "Static testing is only performed on requirements; dynamic testing is only performed on code",
-                "C": "Static testing finds functional defects; dynamic testing finds only non-functional defects",
-                "D": "Static testing requires automated tools; dynamic testing can only be performed manually"
-            },
-            "correctAnswer": "A",
-            "explanation": "The key distinction is execution: static testing (reviews, static analysis) does not involve executing the software, while dynamic testing runs the software and observes its behavior.",
-            "whyWrong": "The key distinction is execution: static testing (reviews, static analysis) does not involve executing the software, while dynamic testing runs the... Static testing is only performed on requirements; dynamic testing is only performed on code (option B); Static testing finds functional defects; dynamic testing finds only non-functional defects (option C); Static testing requires automated tools; dynamic testing can only be performed manually (option D).",
-            "optionExplanations": {
-                "A": "The key distinction is execution: static testing (reviews, static analysis) does not involve executing the software, while dynamic testing runs the software and observes its behavior.",
-                "B": "Incorrect. 'Static testing is only performed on requirements; dynamic...' does not match the correct concept: The key distinction is execution: static testing (reviews, static analysis) d...",
-                "C": "Incorrect. 'Static testing finds functional defects; dynamic testing ...' does not match the correct concept: The key distinction is execution: static testing (reviews, static analysis) d...",
-                "D": "Incorrect. 'Static testing requires automated tools; dynamic testing ...' does not match the correct concept: The key distinction is execution: static testing (reviews, static analysis) d..."
-            },
-            "chapter": 3,
-            "section": "3.1",
-            "subsection": "3.1.1",
-            "learningObjective": "FL-3.1.1",
-            "kLevel": "K1",
-            "difficulty": "Easy",
-            "keywords": [
-                "static testing",
-                "dynamic testing"
-            ],
-            "examTip": "Static = no execution; Dynamic = execution.",
-            "memoryAid": "Static = review; Dynamic = run."
-        },
-        {
-            "id": "Q310",
-            "statement": "A team reviews a design document to check for logical inconsistencies, while another team runs system tests on the built application. These activities represent:",
-            "options": {
-                "A": "White-box testing and black-box testing",
-                "B": "Functional testing and non-functional testing",
-                "C": "Component testing and integration testing",
-                "D": "Static testing and dynamic testing"
-            },
-            "correctAnswer": "D",
-            "explanation": "Reviewing a design document is static testing (examining a work product without execution). Running system tests is dynamic testing (executing the application and comparing results). They are complementary approaches that find different types of defects.",
-            "whyWrong": "Design review = static; System test execution = dynamic.",
-            "optionExplanations": {
-                "A": "Both review and system test could be black-box, but the key difference is execution vs. non-execution.",
-                "B": "Both functional and non-functional testing are dynamic.",
-                "C": "Component testing tests individual units; integration tests interfaces.",
-                "D": "Static = no execution review; Dynamic = execution-based testing."
-            },
-            "chapter": 3,
-            "section": "3.1",
-            "subsection": "3.1.3",
-            "learningObjective": "FL-3.1.3",
-            "kLevel": "K2",
-            "difficulty": "Medium",
-            "keywords": [
-                "static vs dynamic",
-                "reviews",
-                "system testing"
-            ],
-            "examTip": "No execution = static; Execution = dynamic.",
-            "memoryAid": "Static testing = review work products; Dynamic testing = execute code and observe behavior."
-        },
-        {
-            "id": "Q314",
-            "statement": "A review type is described as: led by the author, intended to educate participants and gather feedback, with no formal preparation required. Which review type is this?",
-            "options": {
-                "A": "Inspection",
-                "B": "Technical review",
-                "C": "Walkthrough",
-                "D": "Informal review"
-            },
-            "correctAnswer": "C",
-            "explanation": "A walkthrough is typically led by the author, focuses on explaining the work product to gather feedback and consensus, and participants may not need formal preparation. Walkthroughs are less formal than inspections but more structured than informal reviews.",
-            "whyWrong": "Walkthrough = author-led, educational, feedback-oriented.",
-            "optionExplanations": {
-                "A": "Inspections are formal, with defined roles and entry/exit criteria.",
-                "B": "Technical reviews are led by a moderator, not the author.",
-                "C": "Walkthroughs are author-led, educational, and feedback-focused.",
-                "D": "Informal reviews have no defined process or role structure."
-            },
-            "chapter": 3,
-            "section": "3.2",
-            "subsection": "3.2.3",
-            "learningObjective": "FL-3.2.3",
-            "kLevel": "K2",
-            "difficulty": "Medium",
-            "keywords": [
-                "walkthrough",
-                "review types",
-                "author-led"
-            ],
-            "examTip": "Walkthrough = author presents and gathers feedback.",
-            "memoryAid": "Author walks through."
+            "keywords": ["static analysis", "static testing tools"],
+            "examTip": "Static analysis = find bugs without running the code.",
+            "memoryAid": "Analyze code, don't run it."
         },
         {
             "id": "Q369",
@@ -3232,13 +742,13 @@ window.questionSets = {
                 "D": "Kick-off and distribution of work products"
             },
             "correctAnswer": "A",
-            "explanation": "The follow-up phase occurs after the review meeting, where the author addresses identified defects, the moderator checks that corrections are made, and the review is formally closed.",
-            "whyWrong": "A walkthrough is typically led by the author to share understanding and gather comments or feedback on a work product. To formally measure branch coverage (option A): The follow-up phase occurs after the review meeting, where the author addresses identified defects, the moderator checks that corrections are made, and the review is formally closed.; To execute test cases against the system (option B); To approve tool procurement (option C).",
+            "explanation": "The formal inspection sequence is: Planning → Kick-off → Individual preparation → Review meeting → Rework/Fixing → Follow-up/Verification. Follow-up and defect correction happen AFTER the meeting.",
+            "whyWrong": "Planning, kick-off, and preparation all occur BEFORE the meeting takes place.",
             "optionExplanations": {
-                "A": "The follow-up phase occurs after the review meeting, where the author addresses identified defects, the moderator checks that corrections are made, and the review is formally closed.",
-                "B": "Incorrect. 'Preparation by individual reviewers' does not match the correct concept: The follow-up phase occurs after the review meeting, where the author address...",
-                "C": "Incorrect. 'Selection of reviewers and scheduling' does not match the correct concept: The follow-up phase occurs after the review meeting, where the author address...",
-                "D": "Incorrect. 'Kick-off and distribution of work products' does not match the correct concept: The follow-up phase occurs after the review meeting, where the author address..."
+                "A": "Defect correction, verification, and closure happen after the review meeting.",
+                "B": "Individual preparation occurs before the meeting.",
+                "C": "Selection and scheduling happen during planning — well before the meeting.",
+                "D": "Kick-off and distribution occur before reviewers prepare."
             },
             "chapter": 3,
             "section": "3.2",
@@ -3246,12 +756,9 @@ window.questionSets = {
             "learningObjective": "FL-3.2.1",
             "kLevel": "K1",
             "difficulty": "Easy",
-            "keywords": [
-                "review process",
-                "follow-up"
-            ],
-            "examTip": "After the meeting comes fixing and follow-up.",
-            "memoryAid": "Fix and confirm."
+            "keywords": ["review process", "follow-up"],
+            "examTip": "Meeting → Fix → Verify → Close.",
+            "memoryAid": "Fix and confirm after the meeting."
         },
         {
             "id": "Q257",
@@ -3263,13 +770,13 @@ window.questionSets = {
                 "D": "Allow only managers to speak"
             },
             "correctAnswer": "B",
-            "explanation": "Successful reviews require trust, objectivity, respectful communication, and focus on the work product rather than the author.",
-            "whyWrong": "To share understanding, gather feedback, and identify potential ambiguities (A): Successful reviews require trust, objectivity, respectful communication, and ...; To measure the author's presentation skills (C): Successful reviews require trust, objectivity, respectful communication, and ...; To replace dynamic testing of the requirements (D): Successful reviews require trust, objectivity, resp...",
+            "explanation": "Reviews succeed when participants trust one another, focus on the work product rather than the author, and communicate respectfully.",
+            "whyWrong": "Skipping follow-up, evaluating people, or restricting participation destroys value and trust.",
             "optionExplanations": {
-                "A": "Successful reviews require trust, objectivity, respectful communication, and ...",
-                "B": "Successful reviews require trust, objectivity, respectful communication, and focus on the work product rather than the author.",
-                "C": "Successful reviews require trust, objectivity, respectful communication, and ...",
-                "D": "Successful reviews require trust, objectivity, respectful communication, and ..."
+                "A": "Unresolved actions undermine review effectiveness.",
+                "B": "Review the product, not the person — key success factor.",
+                "C": "Reviews must NEVER be used for performance evaluation.",
+                "D": "Broad participation brings diverse perspectives and better defect detection."
             },
             "chapter": 3,
             "section": "3.2",
@@ -3277,142 +784,37 @@ window.questionSets = {
             "learningObjective": "FL-3.2.4",
             "kLevel": "K2",
             "difficulty": "Medium",
-            "keywords": [
-                "review success",
-                "communication"
-            ],
-            "examTip": "Review the product, not the person.",
-            "memoryAid": "Objective and respectful."
+            "keywords": ["review success", "communication"],
+            "examTip": "Focus on the work product, not the author.",
+            "memoryAid": "Objective and respectful discussion."
         },
         {
-            "id": "Q315",
-            "statement": "Review the following user story: \"As a registered user, I want to reset my password so that I can regain access to my account.\" Acceptance criteria: \"User receives an email with a reset link. The link expires after 24 hours.\" Which potential defect is present in this user story?",
+            "id": "Q371",
+            "statement": "What is the PRIMARY difference between static testing and dynamic testing?",
             "options": {
-                "A": "The story is too long and detailed",
-                "B": "The story has too many acceptance criteria",
-                "C": "The acceptance criteria are too technical for stakeholders",
-                "D": "The story does not define what happens if the email does not arrive or if the link has expired"
+                "A": "Static testing examines work products without executing code; dynamic testing executes code and observes behavior",
+                "B": "Static testing is only performed on requirements; dynamic testing is only performed on code",
+                "C": "Static testing finds functional defects; dynamic testing finds only non-functional defects",
+                "D": "Static testing requires automated tools; dynamic testing can only be performed manually"
             },
-            "correctAnswer": "D",
-            "explanation": "The acceptance criteria only describe the happy path. Missing are alternative flows: what happens if the email is not delivered, if the link has expired before use, or if the user tries to use a link after already resetting the password. A well-defined user story should include both happy and alternative paths or reference where they are defined.",
-            "whyWrong": "The story lacks handling for failure scenarios such as missing email or expired links.",
+            "correctAnswer": "A",
+            "explanation": "The defining difference is execution. Static testing (reviews, static analysis) inspects work products WITHOUT running the software. Dynamic testing runs the software and observes its actual behavior.",
+            "whyWrong": "The other options all describe false restrictions that do not exist in ISTQB definitions.",
             "optionExplanations": {
-                "A": "The story is appropriately sized for a single feature.",
-                "B": "If anything, the story has too few acceptance criteria.",
-                "C": "The criteria are appropriate for any audience.",
-                "D": "The story is incomplete without describing alternative/error flows for email delivery and link expiration."
-            },
-            "chapter": 3,
-            "section": "3.2",
-            "subsection": "3.2.4",
-            "learningObjective": "FL-3.2.4",
-            "kLevel": "K3",
-            "difficulty": "Hard",
-            "keywords": [
-                "review technique",
-                "user story",
-                "acceptance criteria",
-                "defect identification"
-            ],
-            "examTip": "Look for missing error handling in acceptance criteria.",
-            "memoryAid": "Happy path + missing errors = defect."
-        },
-        {
-            "id": "Q095",
-            "statement": "A development team uses a tool to detect unreachable code, unused variables, and potential null pointer dereferences in their source code. What type of analysis is being performed?",
-            "options": {
-                "C": "Static analysis",
-                "D": "Usability analysis",
-                "A": "Performance analysis",
-                "B": "Dynamic analysis"
-            },
-            "correctAnswer": "C",
-            "explanation": "Static analysis tools examine source code without executing it to identify potential defects such as unreachable code, unused variables, null pointer dereferences, coding standard violations, and security vulnerabilities. These tools find defects early in the development process.",
-            "whyWrong": "Dynamic analysis requires code execution; static analysis does not execute the code.",
-            "optionExplanations": {
-                "C": "Static analysis detects code issues without execution, finding defects early.",
-                "D": "Usability analysis evaluates user interface and user experience.",
-                "A": "Performance analysis measures system responsiveness and resource usage.",
-                "B": "Dynamic analysis observes runtime behavior during execution."
+                "A": "Static = inspect without execution; Dynamic = execute and observe.",
+                "B": "Static applies to requirements, designs, AND code; dynamic applies throughout.",
+                "C": "Both approaches can find functional and non-functional defects.",
+                "D": "Static testing includes manual reviews; dynamic testing may be automated."
             },
             "chapter": 3,
             "section": "3.1",
-            "subsection": "3.1.2",
+            "subsection": "3.1.1",
             "learningObjective": "FL-3.1.1",
             "kLevel": "K1",
             "difficulty": "Easy",
-            "keywords": [
-                "static analysis",
-                "code analysis",
-                "unreachable code"
-            ],
-            "examTip": "Static analysis tools find issues like unreachable code, null pointers, and coding violations without running the program.",
-            "memoryAid": "Static analysis = code inspection by tools, no execution needed."
-        },
-        {
-            "id": "Q149",
-            "statement": "Which of the following is a benefit of using static analysis tools during development?",
-            "options": {
-                "A": "Replacing the need for all dynamic testing activities",
-                "B": "Identifying coding standard violations and potential security vulnerabilities before code execution",
-                "C": "Measuring the performance of the application under load",
-                "D": "Automatically fixing all defects found in the code"
-            },
-            "correctAnswer": "B",
-            "explanation": "Static analysis tools examine source code without executing it. They can identify coding standard violations, potential security vulnerabilities, syntax errors, and other issues early in development. This complements but does not replace dynamic testing.",
-            "whyWrong": "Static analysis cannot replace dynamic testing, which is needed to verify runtime behavior.",
-            "optionExplanations": {
-                "A": "Dynamic testing is still needed to verify runtime behavior and non-functional characteristics.",
-                "B": "Static analysis detects code issues, standard violations, and potential vulnerabilities early.",
-                "C": "Performance measurement requires dynamic testing tools, not static analysis.",
-                "D": "Tools identify defects but do not automatically fix them."
-            },
-            "chapter": 3,
-            "section": "3.1",
-            "subsection": "3.1.2",
-            "learningObjective": "FL-3.1.1",
-            "kLevel": "K1",
-            "difficulty": "Easy",
-            "keywords": [
-                "static analysis",
-                "static testing",
-                "coding standards",
-                "security"
-            ],
-            "examTip": "Static analysis = find issues early without running the code.",
-            "memoryAid": "Static analysis = code inspection by tool, no execution needed."
-        },
-        {
-            "id": "Q148",
-            "statement": "During an informal review of a requirements document, a reviewer notices several ambiguous statements. What is the primary goal of this type of review?",
-            "options": {
-                "A": "To formally approve the requirements document",
-                "B": "To collect detailed metrics for process improvement",
-                "C": "To assign corrective actions to specific team members",
-                "D": "To detect defects informally without a formal meeting, at low cost"
-            },
-            "correctAnswer": "D",
-            "explanation": "An informal review is a lightweight, inexpensive review technique that does not follow a formal process. It typically involves the author sharing the document with colleagues who provide comments. The goal is to detect defects early with minimal overhead.",
-            "whyWrong": "Formal approval, detailed metrics, and assigned corrective actions are characteristics of formal reviews.",
-            "optionExplanations": {
-                "A": "Formal approval is a goal of inspections, not informal reviews.",
-                "B": "Detailed metrics collection is associated with formal reviews.",
-                "C": "Corrective action assignment is more typical of formal review processes.",
-                "D": "Informal reviews are low-cost, flexible, and aim to find defects without process overhead."
-            },
-            "chapter": 3,
-            "section": "3.2",
-            "subsection": "3.2.1",
-            "learningObjective": "FL-3.2.1",
-            "kLevel": "K2",
-            "difficulty": "Medium",
-            "keywords": [
-                "informal review",
-                "review types",
-                "defect detection"
-            ],
-            "examTip": "Informal reviews = no formal process, no meeting required, low cost, flexible.",
-            "memoryAid": "Informal = no suits, no meeting room, just feedback."
+            "keywords": ["static testing", "dynamic testing"],
+            "examTip": "Static = don't run it. Dynamic = run it and watch.",
+            "memoryAid": "Inspect vs Execute."
         },
         {
             "id": "Q372",
@@ -3424,13 +826,13 @@ window.questionSets = {
                 "D": "It is only useful for safety-critical systems and does not add value in Agile projects"
             },
             "correctAnswer": "A",
-            "explanation": "Static testing adds value across all lifecycle models by detecting defects early (requirements, design) when they are significantly cheaper to fix, and it assesses code quality without execution.",
-            "whyWrong": "Static testing adds value across all lifecycle models by detecting defects early (requirements, design) when they are significantly cheaper to fix, and it assesses code quality without execution.",
+            "explanation": "Static testing detects defects EARLY — in requirements, designs, and code before execution. Early detection dramatically reduces repair cost. It complements but never replaces dynamic testing.",
+            "whyWrong": "Static testing complements, does not replace; it cannot guarantee zero defects; it adds value in ALL lifecycles including Agile.",
             "optionExplanations": {
-                "A": "Static testing adds value across all lifecycle models by detecting defects early (requirements, design) when they are significantly cheaper to fix, and it assesses code quality without execution.",
-                "B": "Incorrect. 'It replaces the need for all dynamic testing activities' does not match the correct concept: Static testing adds value across all lifecycle models by detecting defects ea...",
-                "C": "Incorrect. 'It guarantees that the delivered system will have zero de...' does not match the correct concept: Static testing adds value across all lifecycle models by detecting defects ea...",
-                "D": "Incorrect. 'It is only useful for safety-critical systems and does no...' does not match the correct concept: Static testing adds value across all lifecycle models by detecting defects ea..."
+                "A": "Find defects early → fix cheaply. Assess quality without execution.",
+                "B": "Static and dynamic testing find DIFFERENT defects — neither replaces the other.",
+                "C": "No testing approach can guarantee zero defects.",
+                "D": "Static testing adds value across ALL lifecycle models, including Agile."
             },
             "chapter": 3,
             "section": "3.1",
@@ -3438,394 +840,9 @@ window.questionSets = {
             "learningObjective": "FL-3.1.1",
             "kLevel": "K2",
             "difficulty": "Medium",
-            "keywords": [
-                "static testing value",
-                "early defect detection"
-            ],
-            "examTip": "Find defects early, fix them cheaply.",
-            "memoryAid": "Shift-left: find defects early when they cost less to fix."
-        },
-        {
-            "id": "Q317",
-            "statement": "Which factor is most likely to contribute to a successful review?",
-            "options": {
-                "C": "Adequate preparation time for all reviewers before the review meeting",
-                "D": "Using the review meeting to evaluate individual performance",
-                "A": "Inviting as many people as possible regardless of their role",
-                "B": "Skipping preparation to allow more time for the meeting"
-            },
-            "correctAnswer": "C",
-            "explanation": "Adequate preparation time is a critical success factor for reviews. Reviewers need sufficient time to study the work product, understand it, and identify potential defects before the meeting. Without preparation, the review meeting is less effective and may miss important defects.",
-            "whyWrong": "Preparation is essential for effective reviews.",
-            "optionExplanations": {
-                "C": "Sufficient preparation time enables reviewers to find more defects.",
-                "D": "Performance evaluation during reviews destroys trust and openness.",
-                "A": "Participants should have relevant roles and expertise, not just be numerous.",
-                "B": "Skipping preparation reduces defect detection effectiveness."
-            },
-            "chapter": 3,
-            "section": "3.2",
-            "subsection": "3.2.5",
-            "learningObjective": "FL-3.2.5",
-            "kLevel": "K2",
-            "difficulty": "Medium",
-            "keywords": [
-                "review success factors",
-                "preparation",
-                "effective reviews"
-            ],
-            "examTip": "Good preparation leads to good review results.",
-            "memoryAid": "Prepare well, review well."
-        },
-        {
-            "id": "Q048",
-            "statement": "Which of the following roles is responsible for ensuring that a review meeting runs effectively and that all participants follow the review process?",
-            "options": {
-                "A": "Reviewer",
-                "B": "Moderator",
-                "C": "Author",
-                "D": "Scribe"
-            },
-            "correctAnswer": "B",
-            "explanation": "The moderator (also called the review leader) is responsible for planning the review, leading the review meeting, ensuring the process is followed, mediating discussions, and ensuring the review achieves its objectives.",
-            "whyWrong": "The author is the creator of the work product being reviewed, not the process leader.",
-            "optionExplanations": {
-                "A": "Reviewers examine the work product and identify defects.",
-                "B": "The moderator leads and manages the review process.",
-                "C": "The author created the work product and participates as a reviewer of their own work.",
-                "D": "The scribe documents defects and decisions during the review."
-            },
-            "chapter": 3,
-            "section": "3.2",
-            "subsection": "3.2.1",
-            "learningObjective": "FL-3.2.1",
-            "kLevel": "K2",
-            "difficulty": "Medium",
-            "keywords": [
-                "moderator",
-                "review roles",
-                "review roles"
-            ],
-            "examTip": "Moderator = the leader/manager of the review. Author = the creator. Reviewer = the inspector. Scribe = the recorder.",
-            "memoryAid": "MARS: Moderator, Author, Reviewer, Scribe."
-        },
-        {
-            "id": "Q015",
-            "statement": "Which of the following is a benefit of static testing?",
-            "options": {
-                "A": "Finding defects early in the development process when they are cheaper to fix",
-                "B": "Executing the code to verify its behavior",
-                "C": "Validating the system against user acceptance criteria",
-                "D": "Testing the system under realistic load conditions"
-            },
-            "correctAnswer": "A",
-            "explanation": "Static testing (reviews and static analysis) finds defects without executing code. This allows defects to be detected early in the development lifecycle when they are significantly less expensive to fix than if found during dynamic testing.",
-            "whyWrong": "Static testing does not involve code execution; that is dynamic testing.",
-            "optionExplanations": {
-                "A": "Static testing finds defects early, reducing cost and effort.",
-                "B": "Code execution is dynamic testing, not static testing.",
-                "C": "UAT is a dynamic testing activity performed by end users.",
-                "D": "Load testing is a dynamic testing activity."
-            },
-            "chapter": 3,
-            "section": "3.1",
-            "subsection": "3.1.1",
-            "learningObjective": "FL-3.1.1",
-            "kLevel": "K1",
-            "difficulty": "Easy",
-            "keywords": [
-                "static testing",
-                "reviews",
-                "early defect detection"
-            ],
-            "examTip": "Static = no code execution; Dynamic = code execution.",
-            "memoryAid": "Static = sitting still, reading; Dynamic = running the code."
-        },
-        {
-            "id": "Q215",
-            "statement": "What is the main objective of a walkthrough?",
-            "options": {
-                "A": "To formally measure branch coverage",
-                "B": "To execute test cases against the system",
-                "C": "To approve tool procurement",
-                "D": "To explain a work product and obtain feedback from participants"
-            },
-            "correctAnswer": "D",
-            "explanation": "A walkthrough is typically led by the author to share understanding and gather comments or feedback on a work product.",
-            "whyWrong": "To formally measure branch coverage (A): A walkthrough is typically led by the author to share understanding and gathe...; To execute test cases against the system (B): A walkthrough is typically led by the author to share understanding and gathe...; To approve tool procurement (C): A walkthrough is typically led by the author to share understanding and gathe...",
-            "optionExplanations": {
-                "A": "A walkthrough is typically led by the author to share understanding and gathe...",
-                "B": "A walkthrough is typically led by the author to share understanding and gathe...",
-                "C": "A walkthrough is typically led by the author to share understanding and gathe...",
-                "D": "A walkthrough is typically led by the author to share understanding and gather comments or feedback on a work product."
-            },
-            "chapter": 3,
-            "section": "3.2",
-            "subsection": "3.2.3",
-            "learningObjective": "FL-3.2.3",
-            "kLevel": "K1",
-            "difficulty": "Easy",
-            "keywords": [
-                "walkthrough",
-                "review types"
-            ],
-            "examTip": "Walkthroughs are author-led explanation and feedback sessions.",
-            "memoryAid": "Walk through the work product."
-        },
-        {
-            "id": "Q046",
-            "statement": "During a formal review, a participant identifies a significant defect in the design document. The moderator determines the review cannot proceed until the defect is resolved. What should happen next?",
-            "options": {
-                "A": "The document should be approved with comments",
-                "B": "The review should be suspended or adjourned until the defect is resolved",
-                "C": "The author should fix the defect immediately while the review continues",
-                "D": "The review should continue and the defect can be fixed later"
-            },
-            "correctAnswer": "B",
-            "explanation": "When a significant defect is found during a review that prevents meaningful continuation, the moderator may suspend or adjourn the review. The author fixes the defect, and the review is rescheduled. This prevents wasting participants' time reviewing a known-problematic document.",
-            "whyWrong": "Continuing the review when a fundamental defect exists wastes participants' time as the document may change significantly.",
-            "optionExplanations": {
-                "A": "Approval cannot happen with unresolved major defects.",
-                "B": "Continuing ignores the major issue and wastes effort.",
-                "C": "Suspending the review is appropriate for major defects that affect reviewability.",
-                "D": "Fixing during the review disrupts the process and is not standard practice."
-            },
-            "chapter": 3,
-            "section": "3.2",
-            "subsection": "3.2.1",
-            "learningObjective": "FL-3.2.1",
-            "kLevel": "K2",
-            "difficulty": "Medium",
-            "keywords": [
-                "formal review",
-                "formal review",
-                "formal review"
-            ],
-            "examTip": "Major defect found? Suspend the review, fix the document, then reschedule.",
-            "memoryAid": "Big problem = pause review, fix, restart."
-        },
-        {
-            "id": "Q255",
-            "statement": "Which review type is usually the most formal and uses defined roles, entry criteria, and documented results?",
-            "options": {
-                "A": "Informal review",
-                "B": "Pair programming",
-                "C": "Ad hoc reading",
-                "D": "Inspection"
-            },
-            "correctAnswer": "D",
-            "explanation": "Inspections are formal reviews with defined roles, process, criteria, and documented outcomes.",
-            "whyWrong": "Informal review (A): Inspections are formal reviews with defined roles, process, criteria, and doc...; Pair programming (B): Inspections are formal reviews with defined roles, process, criteria, and doc...; Ad hoc reading (C): Inspections are formal reviews with defined roles, process, criteria, and doc...",
-            "optionExplanations": {
-                "A": "Inspections are formal reviews with defined roles, process, criteria, and doc...",
-                "B": "Inspections are formal reviews with defined roles, process, criteria, and doc...",
-                "C": "Inspections are formal reviews with defined roles, process, criteria, and doc...",
-                "D": "Inspections are formal reviews with defined roles, process, criteria, and documented outcomes."
-            },
-            "chapter": 3,
-            "section": "3.2",
-            "subsection": "3.2.3",
-            "learningObjective": "FL-3.2.3",
-            "kLevel": "K1",
-            "difficulty": "Easy",
-            "keywords": [
-                "inspection",
-                "review types"
-            ],
-            "examTip": "Inspection is the formal review type.",
-            "memoryAid": "Inspect formally."
-        },
-        {
-            "id": "Q176",
-            "statement": "During a code review, a reviewer notices that a variable is declared but never used in the method. What type of defect is this?",
-            "options": {
-                "C": "A data flow defect",
-                "D": "A control flow defect",
-                "A": "A requirements defect",
-                "B": "A usability defect"
-            },
-            "correctAnswer": "C",
-            "explanation": "An unused variable is a data flow defect because it relates to how data is handled in the code. Data flow defects include unused variables, variables used before initialization, and variables that are assigned but never read.",
-            "whyWrong": "Control flow defects involve incorrect execution paths, such as unreachable code or infinite loops.",
-            "optionExplanations": {
-                "C": "Data flow defects include unused variables and improper data usage.",
-                "D": "Control flow defects involve loops, branches, and execution sequences.",
-                "A": "Requirements defects are errors in specifications.",
-                "B": "Usability defects relate to user interface and experience."
-            },
-            "chapter": 3,
-            "section": "3.1",
-            "subsection": "3.1.2",
-            "learningObjective": "FL-3.1.1",
-            "kLevel": "K1",
-            "difficulty": "Easy",
-            "keywords": [
-                "data flow",
-                "defect types",
-                "code review",
-                "static testing"
-            ],
-            "examTip": "Data flow = variable usage. Control flow = decision paths.",
-            "memoryAid": "Data flow = what happens to data; Control flow = which path is taken."
-        },
-        {
-            "id": "Q313",
-            "statement": "Which of the following correctly distinguishes an informal review from a technical review?",
-            "options": {
-                "A": "An informal review has no formal documented process; a technical review follows a defined procedure with roles and documented results",
-                "B": "A technical review is always led by the author; an informal review is led by a moderator",
-                "C": "An informal review produces a formal inspection report",
-                "D": "A technical review requires no preparation by participants"
-            },
-            "correctAnswer": "A",
-            "explanation": "Informal reviews are casual, with no defined process, no formal roles, and minimal documentation. Technical reviews follow a defined procedure with identified roles (moderator, reviewers, author, scribe) and produce documented results. They differ in formality, structure, and documentation requirements.",
-            "whyWrong": "Informal = no defined process; Technical = defined procedure with roles and documented results.",
-            "optionExplanations": {
-                "A": "Informal reviews have no formal process; technical reviews have defined procedures.",
-                "B": "The author may lead informal reviews, but technical reviews are led by a moderator.",
-                "C": "Informal reviews do not produce formal reports.",
-                "D": "Technical reviews require participant preparation before the meeting."
-            },
-            "chapter": 3,
-            "section": "3.2",
-            "subsection": "3.2.3",
-            "learningObjective": "FL-3.2.3",
-            "kLevel": "K2",
-            "difficulty": "Medium",
-            "keywords": [
-                "review types",
-                "informal review",
-                "technical review"
-            ],
-            "examTip": "Informal = casual; Technical = structured.",
-            "memoryAid": "No formality vs. defined structure."
-        },
-        {
-            "id": "Q309",
-            "statement": "Which statement correctly compares static and dynamic testing?",
-            "options": {
-                "A": "Static testing requires the software to be compiled; dynamic testing does not",
-                "B": "Both static and dynamic testing require test cases to be executed",
-                "C": "Static testing examines work products without executing code; dynamic testing executes code with defined test cases",
-                "D": "Static testing is only applicable to source code"
-            },
-            "correctAnswer": "C",
-            "explanation": "Static testing reviews work products (requirements, design documents, code) without executing the software. Dynamic testing executes the software with specific inputs and compares actual results against expected results. Both are essential for comprehensive quality assurance.",
-            "whyWrong": "Static = no execution; Dynamic = execute and compare results.",
-            "optionExplanations": {
-                "A": "Static testing does not require compilation; dynamic testing does.",
-                "B": "Static testing does not execute anything; it involves review and analysis.",
-                "C": "Static = review without execution; Dynamic = execute with test cases.",
-                "D": "Static testing applies to any work product, including requirements and designs."
-            },
-            "chapter": 3,
-            "section": "3.1",
-            "subsection": "3.1.3",
-            "learningObjective": "FL-3.1.3",
-            "kLevel": "K2",
-            "difficulty": "Medium",
-            "keywords": [
-                "static testing",
-                "dynamic testing",
-                "comparison"
-            ],
-            "examTip": "Static = inspect; Dynamic = execute.",
-            "memoryAid": "No code run vs. code run."
-        },
-        {
-            "id": "Q370",
-            "statement": "A review team is preparing for a technical review of a design document. Which factor is MOST critical for the success of this review?",
-            "options": {
-                "A": "Each reviewer prepares individually using a defined checklist or focus area before the meeting",
-                "B": "The manager attends to evaluate individual performance",
-                "C": "All defects found during the review are immediately fixed during the meeting",
-                "D": "The review meeting is conducted without distributing the document beforehand to ensure fresh perspectives"
-            },
-            "correctAnswer": "A",
-            "explanation": "Effective reviews require adequate preparation by reviewers using checklists, defined objectives, and focus areas to identify defects before and during the meeting.",
-            "whyWrong": "Effective reviews require adequate preparation by reviewers using checklists, defined objectives, and focus areas to identify defects before and during the meeting.",
-            "optionExplanations": {
-                "A": "Effective reviews require adequate preparation by reviewers using checklists, defined objectives, and focus areas to identify defects before and during the meeting.",
-                "B": "Incorrect. 'The manager attends to evaluate individual performance' does not match the correct concept: Effective reviews require adequate preparation by reviewers using checklists,...",
-                "C": "Incorrect. 'All defects found during the review are immediately fixed...' does not match the correct concept: Effective reviews require adequate preparation by reviewers using checklists,...",
-                "D": "Incorrect. 'The review meeting is conducted without distributing the ...' does not match the correct concept: Effective reviews require adequate preparation by reviewers using checklists,..."
-            },
-            "chapter": 3,
-            "section": "3.2",
-            "subsection": "3.2.4",
-            "learningObjective": "FL-3.2.4",
-            "kLevel": "K2",
-            "difficulty": "Medium",
-            "keywords": [
-                "review success factors",
-                "preparation"
-            ],
-            "examTip": "Preparation separates effective reviews from ineffective ones.",
-            "memoryAid": "Prepare before you review."
-        },
-        {
-            "id": "Q175",
-            "statement": "What is the correct sequence of phases in a formal review process?",
-            "options": {
-                "A": "Review meeting, Individual preparation, Planning, Rework, Follow-up",
-                "B": "Planning, Kick-off, Individual preparation, Review meeting, Rework, Follow-up",
-                "C": "Planning, Review meeting, Kick-off, Individual preparation, Rework",
-                "D": "Individual preparation, Planning, Kick-off, Review meeting, Follow-up, Rework"
-            },
-            "correctAnswer": "B",
-            "explanation": "The formal review process follows these phases: 1) Planning (defining scope, selecting participants), 2) Kick-off (communicating logistics), 3) Individual preparation (each reviewer examines the work product), 4) Review meeting (discussing defects), 5) Rework (author fixes defects), 6) Follow-up (verifying fixes).",
-            "whyWrong": "The review meeting occurs after individual preparation, not before.",
-            "optionExplanations": {
-                "A": "Planning must come before the review meeting.",
-                "B": "Planning, Kick-off, Individual preparation, Review meeting, Rework, Follow-up is the correct order.",
-                "C": "Individual preparation occurs before the review meeting.",
-                "D": "Planning must come first, and follow-up after rework."
-            },
-            "chapter": 3,
-            "section": "3.2",
-            "subsection": "3.2.1",
-            "learningObjective": "FL-3.2.1",
-            "kLevel": "K2",
-            "difficulty": "Medium",
-            "keywords": [
-                "formal review",
-                "review process",
-                "phases"
-            ],
-            "examTip": "Formal review phases: Plan, Kick-off, Prepare, Meeting, Rework, Follow-up.",
-            "memoryAid": "PKPMRF: Plan, Kick-off, Prepare, Meeting, Rework, Follow-up."
-        },
-        {
-            "id": "Q047",
-            "statement": "What is the main difference between static analysis and dynamic analysis?",
-            "options": {
-                "A": "Static analysis requires a test environment; dynamic analysis does not",
-                "B": "Static analysis is automated; dynamic analysis is manual",
-                "C": "Static analysis finds defects at runtime; dynamic analysis finds defects at compile time",
-                "D": "Static analysis is performed without executing the code; dynamic analysis requires code execution"
-            },
-            "correctAnswer": "D",
-            "explanation": "Static analysis examines source code or other work products without executing them. Dynamic analysis involves executing the code and observing its behavior. Static analysis detects issues like coding standard violations, while dynamic analysis detects runtime failures.",
-            "whyWrong": "Both static and dynamic analysis can be automated or manual depending on the tools and context.",
-            "optionExplanations": {
-                "A": "Static analysis does not require a test environment; dynamic analysis typically does.",
-                "B": "Both can be automated or performed manually.",
-                "C": "This describes compile-time vs runtime, which is a different distinction.",
-                "D": "Static = no execution; Dynamic = execution required."
-            },
-            "chapter": 3,
-            "section": "3.1",
-            "subsection": "3.1.2",
-            "learningObjective": "FL-3.1.1",
-            "kLevel": "K1",
-            "difficulty": "Easy",
-            "keywords": [
-                "static analysis",
-                "dynamic analysis",
-                "code execution"
-            ],
-            "examTip": "Static = don't run the code; Dynamic = run the code and watch what happens.",
-            "memoryAid": "Static = read-only; Dynamic = run-time."
+            "keywords": ["static testing value", "early defect detection"],
+            "examTip": "Shift-left: find defects early when they cost less to fix.",
+            "memoryAid": "Early detection = lower cost."
         }
     ],
     "exam4": [
@@ -4750,7 +1767,7 @@ window.questionSets = {
             "section": "4.4",
             "subsection": "4.4.3",
             "learningObjective": "FL-4.4.3",
-            "kLevel": "K1",
+            "kLevel": "K2",
             "difficulty": "Easy",
             "keywords": [
                 "checklist-based testing",
@@ -5003,7 +2020,7 @@ window.questionSets = {
             "section": "4.4",
             "subsection": "4.4.1",
             "learningObjective": "FL-4.4.1",
-            "kLevel": "K1",
+            "kLevel": "K2",
             "difficulty": "Easy",
             "keywords": [
                 "error guessing",
@@ -5196,7 +2213,7 @@ window.questionSets = {
             "section": "5.3",
             "subsection": "5.3.1",
             "learningObjective": "FL-5.3.1",
-            "kLevel": "K1",
+            "kLevel": "K2",
             "difficulty": "Easy",
             "keywords": [
                 "test metrics",
@@ -5228,7 +2245,7 @@ window.questionSets = {
             "section": "5.3",
             "subsection": "5.3.2",
             "learningObjective": "FL-5.3.2",
-            "kLevel": "K1",
+            "kLevel": "K2",
             "difficulty": "Easy",
             "keywords": [
                 "test completion report",
@@ -5676,7 +2693,7 @@ window.questionSets = {
             "section": "5.3",
             "subsection": "5.3.1",
             "learningObjective": "FL-5.3.1",
-            "kLevel": "K1",
+            "kLevel": "K2",
             "difficulty": "Easy",
             "keywords": [
                 "test progress",
@@ -5708,7 +2725,7 @@ window.questionSets = {
             "section": "5.3",
             "subsection": "5.3.1",
             "learningObjective": "FL-5.3.1",
-            "kLevel": "K1",
+            "kLevel": "K2",
             "difficulty": "Easy",
             "keywords": [
                 "traceability matrix",
@@ -5836,7 +2853,7 @@ window.questionSets = {
             "section": "5.5",
             "subsection": "5.5.2",
             "learningObjective": "FL-5.5.1",
-            "kLevel": "K1",
+            "kLevel": "K2",
             "difficulty": "Easy",
             "keywords": [
                 "risk management",
@@ -5868,7 +2885,7 @@ window.questionSets = {
             "section": "5.5",
             "subsection": "5.5.1",
             "learningObjective": "FL-5.5.1",
-            "kLevel": "K1",
+            "kLevel": "K2",
             "difficulty": "Easy",
             "keywords": [
                 "product risk",
@@ -6187,7 +3204,7 @@ window.questionSets = {
             "section": "5.3",
             "subsection": "5.3.1",
             "learningObjective": "FL-5.3.1",
-            "kLevel": "K1",
+            "kLevel": "K2",
             "difficulty": "Easy",
             "keywords": [
                 "test control",
@@ -6219,7 +3236,7 @@ window.questionSets = {
             "section": "5.3",
             "subsection": "5.3.1",
             "learningObjective": "FL-5.3.1",
-            "kLevel": "K1",
+            "kLevel": "K2",
             "difficulty": "Easy",
             "keywords": [
                 "test monitoring",
@@ -6251,7 +3268,7 @@ window.questionSets = {
             "section": "5.5",
             "subsection": "5.5.1",
             "learningObjective": "FL-5.5.1",
-            "kLevel": "K1",
+            "kLevel": "K2",
             "difficulty": "Easy",
             "keywords": [
                 "project risk",
@@ -6315,7 +3332,7 @@ window.questionSets = {
             "section": "5.5",
             "subsection": "5.5.1",
             "learningObjective": "FL-5.5.1",
-            "kLevel": "K1",
+            "kLevel": "K2",
             "difficulty": "Easy",
             "keywords": [
                 "product risk",
@@ -6506,7 +3523,7 @@ window.questionSets = {
             "section": "6.2",
             "subsection": "6.2",
             "learningObjective": "FL-6.2.1",
-            "kLevel": "K1",
+            "kLevel": "K2",
             "difficulty": "Easy",
             "keywords": [
                 "test automation risks",
@@ -6538,7 +3555,7 @@ window.questionSets = {
             "section": "6.1",
             "subsection": "6.1",
             "learningObjective": "FL-6.1.1",
-            "kLevel": "K1",
+            "kLevel": "K2",
             "difficulty": "Easy",
             "keywords": [
                 "coverage tools",
@@ -6600,7 +3617,7 @@ window.questionSets = {
             "section": "6.2",
             "subsection": "6.2",
             "learningObjective": "FL-6.1.1",
-            "kLevel": "K1",
+            "kLevel": "K2",
             "difficulty": "Easy",
             "keywords": [
                 "pilot project objectives",
@@ -6664,7 +3681,7 @@ window.questionSets = {
             "section": "6.1",
             "subsection": "6.1",
             "learningObjective": "FL-6.1.1",
-            "kLevel": "K1",
+            "kLevel": "K2",
             "difficulty": "Easy",
             "keywords": [
                 "incident management tool",
@@ -6695,7 +3712,7 @@ window.questionSets = {
             "section": "6.1",
             "subsection": "6.1",
             "learningObjective": "FL-6.1.1",
-            "kLevel": "K1",
+            "kLevel": "K2",
             "difficulty": "Easy",
             "keywords": [
                 "configuration management",
@@ -6791,7 +3808,7 @@ window.questionSets = {
             "section": "6.2",
             "subsection": "6.2",
             "learningObjective": "FL-6.2.1",
-            "kLevel": "K1",
+            "kLevel": "K2",
             "difficulty": "Easy",
             "keywords": [
                 "test execution tools",
@@ -6854,7 +3871,7 @@ window.questionSets = {
             "section": "6.1",
             "subsection": "6.1",
             "learningObjective": "FL-6.1.1",
-            "kLevel": "K1",
+            "kLevel": "K2",
             "difficulty": "Easy",
             "keywords": [
                 "database testing",
@@ -6917,7 +3934,7 @@ window.questionSets = {
             "section": "6.2",
             "subsection": "6.2",
             "learningObjective": "FL-6.2.1",
-            "kLevel": "K1",
+            "kLevel": "K2",
             "difficulty": "Easy",
             "keywords": [
                 "tool introduction",
@@ -6948,7 +3965,7 @@ window.questionSets = {
             "section": "6.1",
             "subsection": "6.1",
             "learningObjective": "FL-6.1.1",
-            "kLevel": "K1",
+            "kLevel": "K2",
             "difficulty": "Easy",
             "keywords": [
                 "ALM",
@@ -7107,7 +4124,7 @@ window.questionSets = {
             "section": "6.2",
             "subsection": "6.2",
             "learningObjective": "FL-6.1.1",
-            "kLevel": "K1",
+            "kLevel": "K2",
             "difficulty": "Easy",
             "keywords": [
                 "tool deployment",
@@ -7170,7 +4187,7 @@ window.questionSets = {
             "section": "6.1",
             "subsection": "6.1",
             "learningObjective": "FL-6.1.1",
-            "kLevel": "K1",
+            "kLevel": "K2",
             "difficulty": "Easy",
             "keywords": [
                 "test management tool",
@@ -7202,7 +4219,7 @@ window.questionSets = {
             "section": "6.2",
             "subsection": "6.2",
             "learningObjective": "FL-6.2.1",
-            "kLevel": "K1",
+            "kLevel": "K2",
             "difficulty": "Easy",
             "keywords": [
                 "test automation",
@@ -7235,7 +4252,7 @@ window.questionSets = {
             "section": "6.2",
             "subsection": "6.2",
             "learningObjective": "FL-6.1.1",
-            "kLevel": "K1",
+            "kLevel": "K2",
             "difficulty": "Easy",
             "keywords": [
                 "pilot project",
@@ -7267,7 +4284,7 @@ window.questionSets = {
             "section": "6.2",
             "subsection": "6.2",
             "learningObjective": "FL-6.2.1",
-            "kLevel": "K1",
+            "kLevel": "K2",
             "difficulty": "Easy",
             "keywords": [
                 "tool evaluation",
@@ -7298,7 +4315,7 @@ window.questionSets = {
             "section": "6.1",
             "subsection": "6.1",
             "learningObjective": "FL-6.1.1",
-            "kLevel": "K1",
+            "kLevel": "K2",
             "difficulty": "Easy",
             "keywords": [
                 "static analysis tool",
@@ -7360,7 +4377,7 @@ window.questionSets = {
             "section": "6.2",
             "subsection": "6.2",
             "learningObjective": "FL-6.1.1",
-            "kLevel": "K1",
+            "kLevel": "K2",
             "difficulty": "Easy",
             "keywords": [
                 "tool deployment",
@@ -7423,7 +4440,7 @@ window.questionSets = {
             "section": "6.1",
             "subsection": "6.1",
             "learningObjective": "FL-6.2.1",
-            "kLevel": "K1",
+            "kLevel": "K2",
             "difficulty": "Easy",
             "keywords": [
                 "test automation benefits",
@@ -7486,7 +4503,7 @@ window.questionSets = {
             "section": "6.2",
             "subsection": "6.2",
             "learningObjective": "FL-6.2.1",
-            "kLevel": "K1",
+            "kLevel": "K2",
             "difficulty": "Easy",
             "keywords": [
                 "test automation benefits",
@@ -7517,7 +4534,7 @@ window.questionSets = {
             "section": "6.1",
             "subsection": "6.1",
             "learningObjective": "FL-6.1.1",
-            "kLevel": "K1",
+            "kLevel": "K2",
             "difficulty": "Easy",
             "keywords": [
                 "test execution tool",
@@ -7580,7 +4597,7 @@ window.questionSets = {
             "section": "6.2",
             "subsection": "6.2",
             "learningObjective": "FL-6.2.1",
-            "kLevel": "K1",
+            "kLevel": "K2",
             "difficulty": "Easy",
             "keywords": [
                 "test automation",
@@ -7612,7 +4629,7 @@ window.questionSets = {
             "section": "6.1",
             "subsection": "6.1",
             "learningObjective": "FL-6.1.1",
-            "kLevel": "K1",
+            "kLevel": "K2",
             "difficulty": "Easy",
             "keywords": [
                 "test management tool",
@@ -7643,7 +4660,7 @@ window.questionSets = {
             "section": "6.1",
             "subsection": "6.1",
             "learningObjective": "FL-6.2.1",
-            "kLevel": "K1",
+            "kLevel": "K2",
             "difficulty": "Easy",
             "keywords": [
                 "test automation",
@@ -7836,7 +4853,7 @@ window.questionSets = {
             "section": "1.1",
             "subsection": "1.1.1",
             "learningObjective": "FL-1.1.1",
-            "kLevel": "K1",
+            "kLevel": "K2",
             "difficulty": "Easy",
             "keywords": [
                 "testing purpose",
@@ -7900,7 +4917,7 @@ window.questionSets = {
             "section": "1.4",
             "subsection": "1.4.1",
             "learningObjective": "FL-1.4.1",
-            "kLevel": "K1",
+            "kLevel": "K2",
             "difficulty": "Easy",
             "keywords": [
                 "test implementation",
@@ -8059,7 +5076,7 @@ window.questionSets = {
             "section": "2.2",
             "subsection": "2.2.3",
             "learningObjective": "FL-2.2.3",
-            "kLevel": "K1",
+            "kLevel": "K2",
             "difficulty": "Easy",
             "keywords": [
                 "confirmation testing",
@@ -8121,8 +5138,8 @@ window.questionSets = {
             "chapter": 1,
             "section": "1.5",
             "subsection": "1.5.2",
-            "learningObjective": "FL-1.5.1",
-            "kLevel": "K1",
+            "learningObjective": "FL-1.5.3",
+            "kLevel": "K2",
             "difficulty": "Easy",
             "keywords": [
                 "good practices",
@@ -8281,7 +5298,7 @@ window.questionSets = {
             "section": "2.1",
             "subsection": "2.1.2",
             "learningObjective": "FL-2.1.2",
-            "kLevel": "K1",
+            "kLevel": "K2",
             "difficulty": "Easy",
             "keywords": [
                 "sequential model",
@@ -8440,7 +5457,7 @@ window.questionSets = {
             "section": "2.3",
             "subsection": "2.3.2",
             "learningObjective": "FL-2.2.1",
-            "kLevel": "K1",
+            "kLevel": "K2",
             "difficulty": "Easy",
             "keywords": [
                 "white-box testing",
@@ -8537,7 +5554,7 @@ window.questionSets = {
             "section": "5.5",
             "subsection": "5.5.2",
             "learningObjective": "FL-5.5.1",
-            "kLevel": "K1",
+            "kLevel": "K2",
             "difficulty": "Easy",
             "keywords": [
                 "risk analysis",
@@ -8570,7 +5587,7 @@ window.questionSets = {
             "section": "5.3",
             "subsection": "5.3.1",
             "learningObjective": "FL-5.3.1",
-            "kLevel": "K1",
+            "kLevel": "K2",
             "difficulty": "Easy",
             "keywords": [
                 "test monitoring",
@@ -8602,7 +5619,7 @@ window.questionSets = {
             "section": "5.5",
             "subsection": "5.5.2",
             "learningObjective": "FL-5.5.1",
-            "kLevel": "K1",
+            "kLevel": "K2",
             "difficulty": "Easy",
             "keywords": [
                 "risk-based testing",
@@ -8698,7 +5715,7 @@ window.questionSets = {
             "section": "5.2",
             "subsection": "5.2.1",
             "learningObjective": "FL-5.2.1",
-            "kLevel": "K1",
+            "kLevel": "K2",
             "difficulty": "Easy",
             "keywords": [
                 "product risk",
@@ -8760,7 +5777,7 @@ window.questionSets = {
             "section": "6.2",
             "subsection": "6.2",
             "learningObjective": "FL-6.2.1",
-            "kLevel": "K1",
+            "kLevel": "K2",
             "difficulty": "Easy",
             "keywords": [
                 "test automation",
@@ -8823,7 +5840,7 @@ window.questionSets = {
             "section": "6.2",
             "subsection": "6.2",
             "learningObjective": "FL-6.2.1",
-            "kLevel": "K1",
+            "kLevel": "K2",
             "difficulty": "Easy",
             "keywords": [
                 "test automation",
@@ -8856,7 +5873,7 @@ window.questionSets = {
             "section": "6.1",
             "subsection": "6.1",
             "learningObjective": "FL-6.1.1",
-            "kLevel": "K1",
+            "kLevel": "K2",
             "difficulty": "Easy",
             "keywords": [
                 "test management tool",
@@ -8920,7 +5937,7 @@ window.questionSets = {
             "section": "6.2",
             "subsection": "6.2",
             "learningObjective": "FL-6.2.1",
-            "kLevel": "K1",
+            "kLevel": "K2",
             "difficulty": "Easy",
             "keywords": [
                 "record-and-playback",
@@ -9050,7 +6067,7 @@ window.questionSets = {
             "section": "1.1",
             "subsection": "1.1.1",
             "learningObjective": "FL-1.1.1",
-            "kLevel": "K1",
+            "kLevel": "K2",
             "difficulty": "Easy",
             "keywords": [
                 "quality",
@@ -9337,7 +6354,7 @@ window.questionSets = {
             "section": "5.3",
             "subsection": "5.3.1",
             "learningObjective": "FL-5.3.1",
-            "kLevel": "K1",
+            "kLevel": "K2",
             "difficulty": "Easy",
             "keywords": [
                 "test metrics",
@@ -9559,7 +6576,7 @@ window.questionSets = {
             "section": "5.3",
             "subsection": "5.3.1",
             "learningObjective": "FL-5.3.1",
-            "kLevel": "K1",
+            "kLevel": "K2",
             "difficulty": "Easy",
             "keywords": [
                 "test metrics",
@@ -9592,7 +6609,7 @@ window.questionSets = {
             "section": "3.1",
             "subsection": "3.1.1",
             "learningObjective": "FL-3.1.1",
-            "kLevel": "K1",
+            "kLevel": "K2",
             "difficulty": "Easy",
             "keywords": [
                 "static testing",
@@ -9941,7 +6958,7 @@ window.questionSets = {
             "section": "5.1",
             "subsection": "5.1.1",
             "learningObjective": "FL-5.1.1",
-            "kLevel": "K1",
+            "kLevel": "K2",
             "difficulty": "Easy",
             "keywords": [
                 "test plan",
@@ -10004,7 +7021,7 @@ window.questionSets = {
             "section": "6.1",
             "subsection": "6.1",
             "learningObjective": "FL-6.1.1",
-            "kLevel": "K1",
+            "kLevel": "K2",
             "difficulty": "Easy",
             "keywords": [
                 "test design tools",
@@ -10194,7 +7211,7 @@ window.questionSets = {
             "section": "5.2",
             "subsection": "5.2.5",
             "learningObjective": "FL-5.1.4",
-            "kLevel": "K1",
+            "kLevel": "K2",
             "difficulty": "Easy",
             "keywords": [
                 "test effort",
@@ -10261,7 +7278,7 @@ window.questionSets = {
             "section": "1.4",
             "subsection": "1.4.1",
             "learningObjective": "FL-1.4.1",
-            "kLevel": "K1",
+            "kLevel": "K2",
             "difficulty": "Easy",
             "keywords": [
                 "test completion",
@@ -10291,8 +7308,8 @@ window.questionSets = {
             "chapter": 1,
             "section": "1.5",
             "subsection": "1.5.1",
-            "learningObjective": "FL-1.5.1",
-            "kLevel": "K1",
+            "learningObjective": "FL-1.5.3",
+            "kLevel": "K2",
             "difficulty": "Easy",
             "keywords": [
                 "independence",
@@ -10357,7 +7374,7 @@ window.questionSets = {
             "section": "1.1",
             "subsection": "1.1.2",
             "learningObjective": "FL-1.1.1",
-            "kLevel": "K1",
+            "kLevel": "K2",
             "difficulty": "Easy",
             "keywords": [
                 "testing",
@@ -10454,7 +7471,7 @@ window.questionSets = {
             "chapter": 1,
             "section": "1.5",
             "subsection": "1.5.2",
-            "learningObjective": "FL-1.5.2",
+            "learningObjective": "FL-1.5.3",
             "kLevel": "K2",
             "difficulty": "Medium",
             "keywords": [
@@ -10486,7 +7503,7 @@ window.questionSets = {
             "chapter": 1,
             "section": "1.5",
             "subsection": "1.5.2",
-            "learningObjective": "FL-1.5.2",
+            "learningObjective": "FL-1.5.3",
             "kLevel": "K2",
             "difficulty": "Medium",
             "keywords": [
@@ -10519,8 +7536,8 @@ window.questionSets = {
             "chapter": 1,
             "section": "1.5",
             "subsection": "1.5.1",
-            "learningObjective": "FL-1.5.1",
-            "kLevel": "K1",
+            "learningObjective": "FL-1.5.3",
+            "kLevel": "K2",
             "difficulty": "Easy",
             "keywords": [
                 "independence",
@@ -10648,7 +7665,7 @@ window.questionSets = {
             "section": "1.1",
             "subsection": "1.1.1",
             "learningObjective": "FL-1.1.1",
-            "kLevel": "K1",
+            "kLevel": "K2",
             "difficulty": "Easy",
             "keywords": [
                 "root cause analysis",
@@ -10871,7 +7888,7 @@ window.questionSets = {
             "section": "1.1",
             "subsection": "1.1.1",
             "learningObjective": "FL-1.1.1",
-            "kLevel": "K1",
+            "kLevel": "K2",
             "difficulty": "Easy",
             "keywords": [
                 "verification",
@@ -11094,7 +8111,7 @@ window.questionSets = {
             "section": "1.1",
             "subsection": "1.1.1",
             "learningObjective": "FL-1.1.1",
-            "kLevel": "K1",
+            "kLevel": "K2",
             "difficulty": "Easy",
             "keywords": [
                 "error",
@@ -11159,7 +8176,7 @@ window.questionSets = {
             "section": "4.2",
             "subsection": "4.2.7",
             "learningObjective": "FL-4.1.1",
-            "kLevel": "K1",
+            "kLevel": "K2",
             "difficulty": "Medium",
             "keywords": [
                 "pairwise testing",
@@ -11634,7 +8651,7 @@ window.questionSets = {
             "section": "5.6",
             "subsection": "5.6.2",
             "learningObjective": "FL-5.5.1",
-            "kLevel": "K1",
+            "kLevel": "K2",
             "difficulty": "Easy",
             "keywords": [
                 "severity",
