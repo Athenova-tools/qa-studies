@@ -227,19 +227,10 @@ const ExamStats = (function () {
     if (dashboard && appEl.id !== 'stats-dashboard') dashboard.style.display = 'none';
     while (appEl.firstChild) { appEl.removeChild(appEl.firstChild); }
 
-    var backBtn = createEl('button', ['btn', 'btn--sm', 'results-filter__btn'], { text: '\u2190 Back to Attempts' });
-    backBtn.addEventListener('click', function () {
-      if (dashboard) dashboard.style.display = '';
-      while (appEl.firstChild) { appEl.removeChild(appEl.firstChild); }
-      if (dashboard) renderStatsDashboard();
-    });
-
     if (full && typeof ExamGrading !== 'undefined') {
       full.chapterPerformance = full.chapterPerformance || {};
       var resultsEl = ExamGrading.generateResultsHTML(full);
       appEl.appendChild(resultsEl);
-      var filterBar = appEl.querySelector('.results-filter');
-      if (filterBar) filterBar.appendChild(backBtn);
     } else {
       var attempts = getAttempts();
       var entry = null;
