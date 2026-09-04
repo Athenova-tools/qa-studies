@@ -906,3 +906,30 @@ const ExamEngine = (function () {
     });
   }
 })();
+
+/* Dev mode: 5 taps on version badge */
+(function () {
+  var badge = document.getElementById('version-badge');
+  if (!badge) return;
+  var tapCount = 0;
+  var tapTimer = null;
+  badge.style.cursor = 'pointer';
+  badge.title = 'Tap 5x for dev mode';
+  badge.addEventListener('click', function () {
+    tapCount++;
+    clearTimeout(tapTimer);
+    tapTimer = setTimeout(function () { tapCount = 0; }, 1000);
+    if (tapCount >= 5) {
+      tapCount = 0;
+      if (typeof ExamEngine !== 'undefined') {
+        var state = ExamEngine.getState();
+        if (state) {
+          state.devMode = !state.devMode;
+          badge.textContent = state.devMode ? 'DEV MODE ON' : 'v4.0.1 \u00B7 Foundation Level';
+          badge.style.color = state.devMode ? 'var(--color-success)' : '';
+          console.log('Dev mode:', state.devMode);
+        }
+      }
+    }
+  });
+})();

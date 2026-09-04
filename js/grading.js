@@ -147,16 +147,20 @@ const ExamGrading = (function () {
     var correctEl = createEl('div', ['results__grid-item', 'results__stat', 'results__stat--correct']);
     var correctVal = createEl('div', 'results__stat-value', { text: String(results.correctCount) });
     var correctLbl = createEl('div', 'results__stat-label', { text: 'CORRECT' });
-    correctEl.appendChild(correctVal);
-    correctEl.appendChild(correctLbl);
-    grid.appendChild(correctEl);
-
+    /* Row 2: Incorrect | Correct | Unanswered (Incorrect left of Correct, below Score) */
     var incorrectEl = createEl('div', ['results__grid-item', 'results__stat', 'results__stat--incorrect']);
     var incorrectVal = createEl('div', 'results__stat-value', { text: String(results.incorrectCount) });
     var incorrectLbl = createEl('div', 'results__stat-label', { text: 'INCORRECT' });
     incorrectEl.appendChild(incorrectVal);
     incorrectEl.appendChild(incorrectLbl);
     grid.appendChild(incorrectEl);
+
+    var correctEl = createEl('div', ['results__grid-item', 'results__stat', 'results__stat--correct']);
+    var correctVal = createEl('div', 'results__stat-value', { text: String(results.correctCount) });
+    var correctLbl = createEl('div', 'results__stat-label', { text: 'CORRECT' });
+    correctEl.appendChild(correctVal);
+    correctEl.appendChild(correctLbl);
+    grid.appendChild(correctEl);
 
     var unansweredEl = createEl('div', ['results__grid-item', 'results__stat', 'results__stat--unanswered']);
     var unansweredVal = createEl('div', 'results__stat-value', { text: String(results.unansweredCount) });
