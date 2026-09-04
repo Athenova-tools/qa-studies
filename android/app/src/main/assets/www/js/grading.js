@@ -143,14 +143,11 @@ const ExamGrading = (function () {
     timeEl.appendChild(timeLbl);
     grid.appendChild(timeEl);
 
-    /* Row 2: Correct | Incorrect | Unanswered (Correct left, below Score) */
-    var correctEl = createEl('div', ['results__grid-item', 'results__stat', 'results__stat--correct']);
-    var correctVal = createEl('div', 'results__stat-value', { text: String(results.correctCount) });
-    var correctLbl = createEl('div', 'results__stat-label', { text: 'CORRECT' });
-    correctEl.appendChild(correctVal);
-    correctEl.appendChild(correctLbl);
-    grid.appendChild(correctEl);
+    /* Spacer for column 4 in row 1 */
+    var spacer1 = createEl('div', 'results__grid-item results__grid-spacer');
+    grid.appendChild(spacer1);
 
+    /* Row 2: Incorrect | Correct | Unanswered | Spacer */
     var incorrectEl = createEl('div', ['results__grid-item', 'results__stat', 'results__stat--incorrect']);
     var incorrectVal = createEl('div', 'results__stat-value', { text: String(results.incorrectCount) });
     var incorrectLbl = createEl('div', 'results__stat-label', { text: 'INCORRECT' });
@@ -158,12 +155,23 @@ const ExamGrading = (function () {
     incorrectEl.appendChild(incorrectLbl);
     grid.appendChild(incorrectEl);
 
+    var correctEl = createEl('div', ['results__grid-item', 'results__stat', 'results__stat--correct']);
+    var correctVal = createEl('div', 'results__stat-value', { text: String(results.correctCount) });
+    var correctLbl = createEl('div', 'results__stat-label', { text: 'CORRECT' });
+    correctEl.appendChild(correctVal);
+    correctEl.appendChild(correctLbl);
+    grid.appendChild(correctEl);
+
     var unansweredEl = createEl('div', ['results__grid-item', 'results__stat', 'results__stat--unanswered']);
     var unansweredVal = createEl('div', 'results__stat-value', { text: String(results.unansweredCount) });
     var unansweredLbl = createEl('div', 'results__stat-label', { text: 'UNANSWERED' });
     unansweredEl.appendChild(unansweredVal);
     unansweredEl.appendChild(unansweredLbl);
     grid.appendChild(unansweredEl);
+
+    /* Spacer for column 4 in row 2 */
+    var spacer2 = createEl('div', 'results__grid-item results__grid-spacer');
+    grid.appendChild(spacer2);
 
     /* ---- Verdict: full width spanning all 3 columns ---- */
     var verdictClass = results.passed ? 'results__verdict--pass' : 'results__verdict--fail';

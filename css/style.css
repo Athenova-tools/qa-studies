@@ -1437,10 +1437,10 @@ input, textarea, select {
   margin: 0 auto var(--space-lg);
 }
 
-/* Compact unified grid: 3 columns + verdict row */
+/* Compact unified grid: 4 columns + verdict row */
 .results__grid {
   display: grid;
-  grid-template-columns: repeat(3, max-content);
+  grid-template-columns: repeat(4, max-content);
   gap: var(--space-xs);
   align-items: start;
   justify-content: center;
@@ -1472,7 +1472,7 @@ input, textarea, select {
   justify-self: center;
 }
 
-/* Verdict: full width spanning all 3 columns (Correct to Unanswered) */
+/* Verdict: spans columns 1-3 (Incorrect to Unanswered) */
 .results__verdict {
   display: flex;
   align-items: center;
@@ -1486,7 +1486,7 @@ input, textarea, select {
   white-space: nowrap;
   margin-top: var(--space-md);
   margin-bottom: var(--space-xs);
-  grid-column: 1 / -1;
+  grid-column: 1 / 4;
 }
 
 .results__verdict--pass {
@@ -1507,9 +1507,16 @@ input, textarea, select {
   gap: var(--space-xs);
 }
 
-/* Row 1: Filters label + select + Collapse All on right */
+/* Row 1: Filters label + select on left, Collapse All on right */
 .results-filter__row:first-child {
   justify-content: space-between;
+}
+
+/* Row 2: Export, Copy, Back to Attempts, Back to Home */
+.results-filter__row--actions {
+  justify-content: flex-start;
+  margin-top: var(--space-xs);
+  gap: var(--space-sm);
 }
 
 /* Row 2: Export to PDF, Copy, Back to Attempts, Back to Home */
