@@ -115,56 +115,82 @@ const ExamGrading = (function () {
   function generateResultsHTML(results) {
     var container = createEl('div', 'results');
 
+    /* ---- Summary Card (4x2 grid + verdict spanning 4 cols below) ---- */
+    var card = createEl('div', 'results__card');
+
+    var grid = createEl('div', 'results__grid');
+
+    /* Row 1: Score | Percentage | Time | (empty spacer) */
+    var scoreEl = createEl('div', ['results__grid-item', 'results__score']);
+    var scoreVal = createEl('div', 'results__score-value', { text: results.score + '/' + results.total });
+    var scoreLbl = createEl('div', 'results__score-label', { text: 'SCORE' });
+    scoreEl.appendChild(scoreVal);
+    scoreEl.appendChild(scoreLbl);
+    grid.appendChild(scoreEl);
+
+    var pctClass = results.passed ? 'results__percentage--pass' : 'results__percentage--fail';
+    var pctEl = createEl('div', ['results__grid-item', 'results__percentage', pctClass]);
+    var pctVal = createEl('div', 'results__percentage-value', { text: results.percentage + '%' });
+    var pctLbl = createEl('div', 'results__percentage-label', { text: 'PERCENTAGE' });
+    pctEl.appendChild(pctVal);
+    pctEl.appendChild(pctLbl);
+    grid.appendChild(pctEl);
+
+    var timeEl = createEl('div', ['results__grid-item', 'results__time']);
+    var timeVal = createEl('div', 'results__time-value', { text: results.timeSpent || '\u2014' });
+    var timeLbl = createEl('div', 'results__time-label', { text: 'TIME' });
+    timeEl.appendChild(timeVal);
+    timeEl.appendChild(timeLbl);
+    grid.appendChild(timeEl);
+
+    /* Empty spacer for column 4 in row 1 */
+    var spacer1 = createEl('div', 'results__grid-item results__grid-spacer');
+    grid.appendChild(spacer1);
+
+    /* Row 2: Correct | Incorrect | Unanswered | (empty spacer) */
+    var correctEl = createEl('div', ['results__grid-item', 'results__stat', 'results__stat--correct']);
+    var correctVal = createEl('div', 'results__stat-value', { text: String(results.correctCount) });
+    var correctLbl = createEl('div', 'results__stat-label', { text: 'CORRECT' });
+    correctEl.appendChild(correctVal);
+    correctEl.appendChild(correctLbl);
+    grid.appendChild(correctEl);
+
+    var incorrectEl = createEl('div', ['results__grid-item', 'results__stat', 'results__stat--incorrect']);
+    var incorrectVal = createEl('div', 'results__stat-value', { text: String(results.incorrectCount) });
+    var incorrectLbl = createEl('div', 'results__stat-label', { text: 'INCORRECT' });
+    incorrectEl.appendChild(incorrectVal);
+    incorrectEl.appendChild(incorrectLbl);
+    grid.appendChild(incorrectEl);
+
+    var unansweredEl = createEl('div', ['results__grid-item', 'results__stat', 'results__stat--unanswered']);
+    var unansweredVal = createEl('div', 'results__stat-value', { text: String(results.unansweredCount) });
+    var unansweredLbl = createEl('div', 'results__stat-label', { text: 'UNANSWERED' });
+    unansweredEl.appendChild(unansweredVal);
+    unansweredEl.appendChild(unansweredLbl);
+    grid.appendChild(unansweredEl);
+
+    /* Empty spacer for column 4 in row 2 */
+    var spacer2 = createEl('div', 'results__grid-item results__grid-spacer');
+    grid.appendChild(spacer2);
+
+    card.appendChild(grid);
+
+    /* ---- Verdict below grid (FAIL / SUCCESS) spanning full width ---- */
+    var verdictClass = results.passed ? 'results__verdict--pass' : 'results__verdict--fail';
+    var verdictText = results.passed ? 'SUCCESS' : 'FAIL';
+    var verdictEl = createEl('div', ['results__verdict', verdictClass], { text: verdictText });
+    card.appendChild(verdictEl);
+
     /* ---- Question Review List ---- */
     var list = createEl('div', 'results-list');
     var listTitle = createEl('div', 'results-list__title', { text: 'Question Review' });
     list.appendChild(listTitle);
-
-    /* ---- Summary Card (below Question Review title) ---- */
-    var card = createEl('div', 'results__card');
-
-    var mainRow = createEl('div', 'results__main-row');
-
-    var iconClass = results.passed ? 'results__icon--pass' : 'results__icon--fail';
-    var icon = createEl('div', ['results__icon', iconClass], { text: results.passed ? '\u2713' : '\u2717' });
-    mainRow.appendChild(icon);
-
-    var scoreEl = createEl('div', 'results__score', { text: results.score + '/' + results.total });
-    mainRow.appendChild(scoreEl);
-
-    var pctClass = results.passed ? 'results__percentage--pass' : 'results__percentage--fail';
-    var pctEl = createEl('div', ['results__percentage', pctClass], { text: results.percentage + '%' });
-    mainRow.appendChild(pctEl);
-
-    var verdictClass = results.passed ? 'results__verdict--pass' : 'results__verdict--fail';
-    var verdictText = results.passed ? 'PASS' : 'FAIL';
-    var verdictEl = createEl('div', ['results__verdict', verdictClass], { text: verdictText });
-    mainRow.appendChild(verdictEl);
-
-    /* Inline stats */
-    var statsData = [
-      { label: 'Correct', value: String(results.correctCount), style: 'color:var(--color-success);' },
-      { label: 'Incorrect', value: String(results.incorrectCount), style: 'color:var(--color-danger);' },
-      { label: 'Unanswered', value: String(results.unansweredCount), style: 'color:var(--color-text-muted);' },
-      { label: 'Time', value: results.timeSpent || '\u2014', style: '' },
-    ];
-    statsData.forEach(function (s) {
-      var statEl = createEl('span', 'results__stat-inline');
-      var val = createEl('span', 'results__stat-inline-value');
-      val.textContent = s.value;
-      if (s.style) val.style.cssText = s.style;
-      statEl.appendChild(val);
-      statEl.appendChild(document.createTextNode(' ' + s.label));
-      mainRow.appendChild(statEl);
-    });
-
-    card.appendChild(mainRow);
     list.appendChild(card);
 
     /* ---- Question Review filter bar ---- */
     var filterBar = createEl('div', 'results-filter');
 
-    /* Row 1: Filters (selection list) */
+    /* Row 1: Filters dropdown + Collapse All on right */
     var filterRow = createEl('div', 'results-filter__row');
     filterRow.appendChild(createEl('span', 'results-filter__label', { text: 'Filters:' }));
     var filterSelect = createEl('select', 'results-filter__select');
@@ -190,10 +216,8 @@ const ExamGrading = (function () {
       });
     });
     filterRow.appendChild(filterSelect);
-    filterBar.appendChild(filterRow);
 
-    /* Row 2: Actions */
-    var actionRow = createEl('div', 'results-filter__row');
+    /* Collapse All on the right */
     var expandBtn = createEl('button', ['btn', 'btn--sm', 'results-filter__btn'], { text: '\u25B2 Collapse All' });
     expandBtn.dataset.expanded = 'true';
     expandBtn.addEventListener('click', function () {
@@ -211,8 +235,11 @@ const ExamGrading = (function () {
       expandBtn.dataset.expanded = expanded ? 'false' : 'true';
       expandBtn.textContent = expanded ? '\u25BC Expand All' : '\u25B2 Collapse All';
     });
-    actionRow.appendChild(expandBtn);
+    filterRow.appendChild(expandBtn);
+    filterBar.appendChild(filterRow);
 
+    /* Row 2: Export to PDF and Copy below Filters label */
+    var actionRow = createEl('div', 'results-filter__row results-filter__row--actions');
     var pdfBtn = createEl('button', ['btn', 'btn--sm', 'results-filter__btn'], { text: '\u2913 Export to PDF' });
     pdfBtn.addEventListener('click', function () {
       window.print();
@@ -238,13 +265,13 @@ const ExamGrading = (function () {
     actionRow.appendChild(copyBtn);
     filterBar.appendChild(actionRow);
 
-    /* Row 3: Navigation */
+    /* Row 3: Back to Attempts (left) | Back to Home (right) */
     var navRow = createEl('div', 'results-filter__row results-filter__row--nav');
-    var bottomBtn = createEl('button', ['btn', 'btn--sm', 'results-filter__btn'], { text: '\u2193 Bottom' });
-    bottomBtn.addEventListener('click', function () {
-      window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+    var backAttemptsBtn = createEl('button', ['btn', 'btn--sm', 'results-filter__btn'], { text: '\u2190 Back to Attempts' });
+    backAttemptsBtn.addEventListener('click', function () {
+      window.location.href = 'index.html';
     });
-    navRow.appendChild(bottomBtn);
+    navRow.appendChild(backAttemptsBtn);
 
     var backBtn = createEl('button', ['btn', 'btn--sm', 'results-filter__btn'], { text: '\u2190 Back to Home' });
     backBtn.addEventListener('click', function () {

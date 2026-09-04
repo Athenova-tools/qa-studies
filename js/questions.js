@@ -54,7 +54,7 @@ window.questionSets = {
             "section": "1.1",
             "subsection": "1.1.1",
             "learningObjective": "FL-1.1.1",
-            "kLevel": "K1",
+            "kLevel": "K2",
             "difficulty": "Easy",
             "keywords": [
                 "testing purpose",
@@ -149,8 +149,8 @@ window.questionSets = {
             "chapter": 1,
             "section": "1.5",
             "subsection": "1.5.2",
-            "learningObjective": "FL-1.5.1",
-            "kLevel": "K1",
+            "learningObjective": "FL-1.5.3",
+            "kLevel": "K2",
             "difficulty": "Easy",
             "keywords": [
                 "whole-team approach",
@@ -278,7 +278,7 @@ window.questionSets = {
             "section": "1.1",
             "subsection": "1.1.1",
             "learningObjective": "FL-1.1.1",
-            "kLevel": "K1",
+            "kLevel": "K2",
             "difficulty": "Easy",
             "keywords": [
                 "failure",
@@ -342,8 +342,8 @@ window.questionSets = {
             "chapter": 1,
             "section": "1.5",
             "subsection": "1.5.1",
-            "learningObjective": "FL-1.5.1",
-            "kLevel": "K1",
+            "learningObjective": "FL-1.5.3",
+            "kLevel": "K2",
             "difficulty": "Easy",
             "keywords": [
                 "curiosity",
@@ -408,7 +408,7 @@ window.questionSets = {
             "section": "1.1",
             "subsection": "1.1.2",
             "learningObjective": "FL-1.1.2",
-            "kLevel": "K1",
+            "kLevel": "K2",
             "difficulty": "Easy",
             "keywords": [
                 "testing",
@@ -471,7 +471,7 @@ window.questionSets = {
             "section": "1.1",
             "subsection": "1.1",
             "learningObjective": "FL-1.1.1",
-            "kLevel": "K1",
+            "kLevel": "K2",
             "difficulty": "Easy",
             "keywords": [
                 "validation",
@@ -630,7 +630,7 @@ window.questionSets = {
             "section": "1.1",
             "subsection": "1.1.1",
             "learningObjective": "FL-1.1.1",
-            "kLevel": "K1",
+            "kLevel": "K2",
             "difficulty": "Easy",
             "keywords": [
                 "failure",
@@ -661,8 +661,8 @@ window.questionSets = {
             "chapter": 1,
             "section": "1.5",
             "subsection": "1.5.1",
-            "learningObjective": "FL-1.5.1",
-            "kLevel": "K1",
+            "learningObjective": "FL-1.5.3",
+            "kLevel": "K2",
             "difficulty": "Easy",
             "keywords": [
                 "independent testing",
@@ -759,7 +759,7 @@ window.questionSets = {
             "section": "1.1",
             "subsection": "1.1.1",
             "learningObjective": "FL-1.1.1",
-            "kLevel": "K1",
+            "kLevel": "K2",
             "difficulty": "Easy",
             "keywords": [
                 "error",
@@ -885,7 +885,7 @@ window.questionSets = {
             "section": "1.4",
             "subsection": "1.4.2",
             "learningObjective": "FL-1.4.1",
-            "kLevel": "K1",
+            "kLevel": "K2",
             "difficulty": "Easy",
             "keywords": [
                 "test condition",
@@ -1010,7 +1010,7 @@ window.questionSets = {
             "chapter": 1,
             "section": "1.5",
             "subsection": "1.5.1",
-            "learningObjective": "FL-1.5.1",
+            "learningObjective": "FL-1.5.3",
             "kLevel": "K2",
             "difficulty": "Medium",
             "keywords": [
@@ -1106,8 +1106,8 @@ window.questionSets = {
             "chapter": 1,
             "section": "1.5",
             "subsection": "1.5.1",
-            "learningObjective": "FL-1.5.1",
-            "kLevel": "K1",
+            "learningObjective": "FL-1.5.3",
+            "kLevel": "K2",
             "difficulty": "Easy",
             "keywords": [
                 "critical thinking",
@@ -1138,8 +1138,8 @@ window.questionSets = {
             "chapter": 1,
             "section": "1.5",
             "subsection": "1.5.2",
-            "learningObjective": "FL-1.5.1",
-            "kLevel": "K1",
+            "learningObjective": "FL-1.5.3",
+            "kLevel": "K2",
             "difficulty": "Easy",
             "keywords": [
                 "whole-team approach",
@@ -1200,8 +1200,8 @@ window.questionSets = {
             "chapter": 1,
             "section": "1.5",
             "subsection": "1.5.1",
-            "learningObjective": "FL-1.5.1",
-            "kLevel": "K1",
+            "learningObjective": "FL-1.5.3",
+            "kLevel": "K2",
             "difficulty": "Easy",
             "keywords": [
                 "tester skills",
@@ -1585,7 +1585,7 @@ window.questionSets = {
             "section": "2.2",
             "subsection": "2.2.2",
             "learningObjective": "FL-2.2.2",
-            "kLevel": "K1",
+            "kLevel": "K2",
             "difficulty": "Easy",
             "keywords": [
                 "functional testing",
@@ -1905,7 +1905,7 @@ window.questionSets = {
             "section": "2.2",
             "subsection": "2.2.1",
             "learningObjective": "FL-2.2.1",
-            "kLevel": "K1",
+            "kLevel": "K2",
             "difficulty": "Easy",
             "keywords": [
                 "component testing",
@@ -1936,7 +1936,7 @@ window.questionSets = {
             "section": "2.1",
             "subsection": "2.1.2",
             "learningObjective": "FL-2.1.2",
-            "kLevel": "K1",
+            "kLevel": "K2",
             "difficulty": "Easy",
             "keywords": [
                 "SDLC adaptation",
@@ -2000,7 +2000,7 @@ window.questionSets = {
             "section": "2.2",
             "subsection": "2.2.2",
             "learningObjective": "FL-2.2.2",
-            "kLevel": "K1",
+            "kLevel": "K2",
             "difficulty": "Easy",
             "keywords": [
                 "test types",
@@ -2032,7 +2032,7 @@ window.questionSets = {
             "section": "2.3",
             "subsection": "2.3.2",
             "learningObjective": "FL-2.2.2",
-            "kLevel": "K1",
+            "kLevel": "K2",
             "difficulty": "Easy",
             "keywords": [
                 "test types",
@@ -2447,7 +2447,7 @@ window.questionSets = {
             "section": "2.2",
             "subsection": "2.2.1",
             "learningObjective": "FL-2.2.1",
-            "kLevel": "K1",
+            "kLevel": "K2",
             "difficulty": "Easy",
             "keywords": [
                 "integration testing",
@@ -2575,7 +2575,7 @@ window.questionSets = {
             "section": "3.1",
             "subsection": "3.1.1",
             "learningObjective": "FL-3.1.1",
-            "kLevel": "K1",
+            "kLevel": "K2",
             "difficulty": "Easy",
             "keywords": [
                 "static testing",
@@ -2640,7 +2640,7 @@ window.questionSets = {
             "section": "3.1",
             "subsection": "3.1.1",
             "learningObjective": "FL-3.1.1",
-            "kLevel": "K1",
+            "kLevel": "K2",
             "difficulty": "Easy",
             "keywords": [
                 "static analysis",
@@ -2671,7 +2671,7 @@ window.questionSets = {
             "section": "3.1",
             "subsection": "3.1.1",
             "learningObjective": "FL-3.1.1",
-            "kLevel": "K1",
+            "kLevel": "K2",
             "difficulty": "Easy",
             "keywords": [
                 "static testing",
@@ -2703,7 +2703,7 @@ window.questionSets = {
             "section": "3.1",
             "subsection": "3.1.1",
             "learningObjective": "FL-3.1.1",
-            "kLevel": "K1",
+            "kLevel": "K2",
             "difficulty": "Easy",
             "keywords": [
                 "static testing",
@@ -2830,7 +2830,7 @@ window.questionSets = {
             "section": "3.2",
             "subsection": "3.2.2",
             "learningObjective": "FL-3.2.2",
-            "kLevel": "K1",
+            "kLevel": "K2",
             "difficulty": "Easy",
             "keywords": [
                 "review roles",
@@ -2861,7 +2861,7 @@ window.questionSets = {
             "section": "3.2",
             "subsection": "3.2.2",
             "learningObjective": "FL-3.2.2",
-            "kLevel": "K1",
+            "kLevel": "K2",
             "difficulty": "Easy",
             "keywords": [
                 "review roles",
@@ -2893,7 +2893,7 @@ window.questionSets = {
             "section": "3.2",
             "subsection": "3.2.2",
             "learningObjective": "FL-3.2.2",
-            "kLevel": "K1",
+            "kLevel": "K2",
             "difficulty": "Easy",
             "keywords": [
                 "review roles",
@@ -3052,7 +3052,7 @@ window.questionSets = {
             "section": "3.2",
             "subsection": "3.2.3",
             "learningObjective": "FL-3.2.3",
-            "kLevel": "K1",
+            "kLevel": "K2",
             "difficulty": "Easy",
             "keywords": [
                 "walkthrough",
@@ -3149,7 +3149,7 @@ window.questionSets = {
             "section": "3.1",
             "subsection": "3.1.1",
             "learningObjective": "FL-3.1.1",
-            "kLevel": "K1",
+            "kLevel": "K2",
             "difficulty": "Easy",
             "keywords": [
                 "static testing",
@@ -3244,7 +3244,7 @@ window.questionSets = {
             "section": "3.2",
             "subsection": "3.2.1",
             "learningObjective": "FL-3.2.1",
-            "kLevel": "K1",
+            "kLevel": "K2",
             "difficulty": "Easy",
             "keywords": [
                 "review process",
@@ -3339,7 +3339,7 @@ window.questionSets = {
             "section": "3.1",
             "subsection": "3.1.2",
             "learningObjective": "FL-3.1.1",
-            "kLevel": "K1",
+            "kLevel": "K2",
             "difficulty": "Easy",
             "keywords": [
                 "static analysis",
@@ -3371,7 +3371,7 @@ window.questionSets = {
             "section": "3.1",
             "subsection": "3.1.2",
             "learningObjective": "FL-3.1.1",
-            "kLevel": "K1",
+            "kLevel": "K2",
             "difficulty": "Easy",
             "keywords": [
                 "static analysis",
@@ -3531,7 +3531,7 @@ window.questionSets = {
             "section": "3.1",
             "subsection": "3.1.1",
             "learningObjective": "FL-3.1.1",
-            "kLevel": "K1",
+            "kLevel": "K2",
             "difficulty": "Easy",
             "keywords": [
                 "static testing",
@@ -3563,7 +3563,7 @@ window.questionSets = {
             "section": "3.2",
             "subsection": "3.2.3",
             "learningObjective": "FL-3.2.3",
-            "kLevel": "K1",
+            "kLevel": "K2",
             "difficulty": "Easy",
             "keywords": [
                 "walkthrough",
@@ -3626,7 +3626,7 @@ window.questionSets = {
             "section": "3.2",
             "subsection": "3.2.3",
             "learningObjective": "FL-3.2.3",
-            "kLevel": "K1",
+            "kLevel": "K2",
             "difficulty": "Easy",
             "keywords": [
                 "inspection",
@@ -3657,7 +3657,7 @@ window.questionSets = {
             "section": "3.1",
             "subsection": "3.1.2",
             "learningObjective": "FL-3.1.1",
-            "kLevel": "K1",
+            "kLevel": "K2",
             "difficulty": "Easy",
             "keywords": [
                 "data flow",
@@ -3817,7 +3817,7 @@ window.questionSets = {
             "section": "3.1",
             "subsection": "3.1.2",
             "learningObjective": "FL-3.1.1",
-            "kLevel": "K1",
+            "kLevel": "K2",
             "difficulty": "Easy",
             "keywords": [
                 "static analysis",
@@ -4750,7 +4750,7 @@ window.questionSets = {
             "section": "4.4",
             "subsection": "4.4.3",
             "learningObjective": "FL-4.4.3",
-            "kLevel": "K1",
+            "kLevel": "K2",
             "difficulty": "Easy",
             "keywords": [
                 "checklist-based testing",
@@ -5003,7 +5003,7 @@ window.questionSets = {
             "section": "4.4",
             "subsection": "4.4.1",
             "learningObjective": "FL-4.4.1",
-            "kLevel": "K1",
+            "kLevel": "K2",
             "difficulty": "Easy",
             "keywords": [
                 "error guessing",
@@ -5196,7 +5196,7 @@ window.questionSets = {
             "section": "5.3",
             "subsection": "5.3.1",
             "learningObjective": "FL-5.3.1",
-            "kLevel": "K1",
+            "kLevel": "K2",
             "difficulty": "Easy",
             "keywords": [
                 "test metrics",
@@ -5228,7 +5228,7 @@ window.questionSets = {
             "section": "5.3",
             "subsection": "5.3.2",
             "learningObjective": "FL-5.3.2",
-            "kLevel": "K1",
+            "kLevel": "K2",
             "difficulty": "Easy",
             "keywords": [
                 "test completion report",
@@ -5676,7 +5676,7 @@ window.questionSets = {
             "section": "5.3",
             "subsection": "5.3.1",
             "learningObjective": "FL-5.3.1",
-            "kLevel": "K1",
+            "kLevel": "K2",
             "difficulty": "Easy",
             "keywords": [
                 "test progress",
@@ -5708,7 +5708,7 @@ window.questionSets = {
             "section": "5.3",
             "subsection": "5.3.1",
             "learningObjective": "FL-5.3.1",
-            "kLevel": "K1",
+            "kLevel": "K2",
             "difficulty": "Easy",
             "keywords": [
                 "traceability matrix",
@@ -5836,7 +5836,7 @@ window.questionSets = {
             "section": "5.5",
             "subsection": "5.5.2",
             "learningObjective": "FL-5.5.1",
-            "kLevel": "K1",
+            "kLevel": "K2",
             "difficulty": "Easy",
             "keywords": [
                 "risk management",
@@ -5868,7 +5868,7 @@ window.questionSets = {
             "section": "5.5",
             "subsection": "5.5.1",
             "learningObjective": "FL-5.5.1",
-            "kLevel": "K1",
+            "kLevel": "K2",
             "difficulty": "Easy",
             "keywords": [
                 "product risk",
@@ -6187,7 +6187,7 @@ window.questionSets = {
             "section": "5.3",
             "subsection": "5.3.1",
             "learningObjective": "FL-5.3.1",
-            "kLevel": "K1",
+            "kLevel": "K2",
             "difficulty": "Easy",
             "keywords": [
                 "test control",
@@ -6219,7 +6219,7 @@ window.questionSets = {
             "section": "5.3",
             "subsection": "5.3.1",
             "learningObjective": "FL-5.3.1",
-            "kLevel": "K1",
+            "kLevel": "K2",
             "difficulty": "Easy",
             "keywords": [
                 "test monitoring",
@@ -6251,7 +6251,7 @@ window.questionSets = {
             "section": "5.5",
             "subsection": "5.5.1",
             "learningObjective": "FL-5.5.1",
-            "kLevel": "K1",
+            "kLevel": "K2",
             "difficulty": "Easy",
             "keywords": [
                 "project risk",
@@ -6315,7 +6315,7 @@ window.questionSets = {
             "section": "5.5",
             "subsection": "5.5.1",
             "learningObjective": "FL-5.5.1",
-            "kLevel": "K1",
+            "kLevel": "K2",
             "difficulty": "Easy",
             "keywords": [
                 "product risk",
@@ -6506,7 +6506,7 @@ window.questionSets = {
             "section": "6.2",
             "subsection": "6.2",
             "learningObjective": "FL-6.2.1",
-            "kLevel": "K1",
+            "kLevel": "K2",
             "difficulty": "Easy",
             "keywords": [
                 "test automation risks",
@@ -6538,7 +6538,7 @@ window.questionSets = {
             "section": "6.1",
             "subsection": "6.1",
             "learningObjective": "FL-6.1.1",
-            "kLevel": "K1",
+            "kLevel": "K2",
             "difficulty": "Easy",
             "keywords": [
                 "coverage tools",
@@ -6600,7 +6600,7 @@ window.questionSets = {
             "section": "6.2",
             "subsection": "6.2",
             "learningObjective": "FL-6.1.1",
-            "kLevel": "K1",
+            "kLevel": "K2",
             "difficulty": "Easy",
             "keywords": [
                 "pilot project objectives",
@@ -6664,7 +6664,7 @@ window.questionSets = {
             "section": "6.1",
             "subsection": "6.1",
             "learningObjective": "FL-6.1.1",
-            "kLevel": "K1",
+            "kLevel": "K2",
             "difficulty": "Easy",
             "keywords": [
                 "incident management tool",
@@ -6695,7 +6695,7 @@ window.questionSets = {
             "section": "6.1",
             "subsection": "6.1",
             "learningObjective": "FL-6.1.1",
-            "kLevel": "K1",
+            "kLevel": "K2",
             "difficulty": "Easy",
             "keywords": [
                 "configuration management",
@@ -6791,7 +6791,7 @@ window.questionSets = {
             "section": "6.2",
             "subsection": "6.2",
             "learningObjective": "FL-6.2.1",
-            "kLevel": "K1",
+            "kLevel": "K2",
             "difficulty": "Easy",
             "keywords": [
                 "test execution tools",
@@ -6854,7 +6854,7 @@ window.questionSets = {
             "section": "6.1",
             "subsection": "6.1",
             "learningObjective": "FL-6.1.1",
-            "kLevel": "K1",
+            "kLevel": "K2",
             "difficulty": "Easy",
             "keywords": [
                 "database testing",
@@ -6917,7 +6917,7 @@ window.questionSets = {
             "section": "6.2",
             "subsection": "6.2",
             "learningObjective": "FL-6.2.1",
-            "kLevel": "K1",
+            "kLevel": "K2",
             "difficulty": "Easy",
             "keywords": [
                 "tool introduction",
@@ -6948,7 +6948,7 @@ window.questionSets = {
             "section": "6.1",
             "subsection": "6.1",
             "learningObjective": "FL-6.1.1",
-            "kLevel": "K1",
+            "kLevel": "K2",
             "difficulty": "Easy",
             "keywords": [
                 "ALM",
@@ -7107,7 +7107,7 @@ window.questionSets = {
             "section": "6.2",
             "subsection": "6.2",
             "learningObjective": "FL-6.1.1",
-            "kLevel": "K1",
+            "kLevel": "K2",
             "difficulty": "Easy",
             "keywords": [
                 "tool deployment",
@@ -7170,7 +7170,7 @@ window.questionSets = {
             "section": "6.1",
             "subsection": "6.1",
             "learningObjective": "FL-6.1.1",
-            "kLevel": "K1",
+            "kLevel": "K2",
             "difficulty": "Easy",
             "keywords": [
                 "test management tool",
@@ -7202,7 +7202,7 @@ window.questionSets = {
             "section": "6.2",
             "subsection": "6.2",
             "learningObjective": "FL-6.2.1",
-            "kLevel": "K1",
+            "kLevel": "K2",
             "difficulty": "Easy",
             "keywords": [
                 "test automation",
@@ -7235,7 +7235,7 @@ window.questionSets = {
             "section": "6.2",
             "subsection": "6.2",
             "learningObjective": "FL-6.1.1",
-            "kLevel": "K1",
+            "kLevel": "K2",
             "difficulty": "Easy",
             "keywords": [
                 "pilot project",
@@ -7267,7 +7267,7 @@ window.questionSets = {
             "section": "6.2",
             "subsection": "6.2",
             "learningObjective": "FL-6.2.1",
-            "kLevel": "K1",
+            "kLevel": "K2",
             "difficulty": "Easy",
             "keywords": [
                 "tool evaluation",
@@ -7298,7 +7298,7 @@ window.questionSets = {
             "section": "6.1",
             "subsection": "6.1",
             "learningObjective": "FL-6.1.1",
-            "kLevel": "K1",
+            "kLevel": "K2",
             "difficulty": "Easy",
             "keywords": [
                 "static analysis tool",
@@ -7360,7 +7360,7 @@ window.questionSets = {
             "section": "6.2",
             "subsection": "6.2",
             "learningObjective": "FL-6.1.1",
-            "kLevel": "K1",
+            "kLevel": "K2",
             "difficulty": "Easy",
             "keywords": [
                 "tool deployment",
@@ -7423,7 +7423,7 @@ window.questionSets = {
             "section": "6.1",
             "subsection": "6.1",
             "learningObjective": "FL-6.2.1",
-            "kLevel": "K1",
+            "kLevel": "K2",
             "difficulty": "Easy",
             "keywords": [
                 "test automation benefits",
@@ -7486,7 +7486,7 @@ window.questionSets = {
             "section": "6.2",
             "subsection": "6.2",
             "learningObjective": "FL-6.2.1",
-            "kLevel": "K1",
+            "kLevel": "K2",
             "difficulty": "Easy",
             "keywords": [
                 "test automation benefits",
@@ -7517,7 +7517,7 @@ window.questionSets = {
             "section": "6.1",
             "subsection": "6.1",
             "learningObjective": "FL-6.1.1",
-            "kLevel": "K1",
+            "kLevel": "K2",
             "difficulty": "Easy",
             "keywords": [
                 "test execution tool",
@@ -7580,7 +7580,7 @@ window.questionSets = {
             "section": "6.2",
             "subsection": "6.2",
             "learningObjective": "FL-6.2.1",
-            "kLevel": "K1",
+            "kLevel": "K2",
             "difficulty": "Easy",
             "keywords": [
                 "test automation",
@@ -7612,7 +7612,7 @@ window.questionSets = {
             "section": "6.1",
             "subsection": "6.1",
             "learningObjective": "FL-6.1.1",
-            "kLevel": "K1",
+            "kLevel": "K2",
             "difficulty": "Easy",
             "keywords": [
                 "test management tool",
@@ -7643,7 +7643,7 @@ window.questionSets = {
             "section": "6.1",
             "subsection": "6.1",
             "learningObjective": "FL-6.2.1",
-            "kLevel": "K1",
+            "kLevel": "K2",
             "difficulty": "Easy",
             "keywords": [
                 "test automation",
@@ -7836,7 +7836,7 @@ window.questionSets = {
             "section": "1.1",
             "subsection": "1.1.1",
             "learningObjective": "FL-1.1.1",
-            "kLevel": "K1",
+            "kLevel": "K2",
             "difficulty": "Easy",
             "keywords": [
                 "testing purpose",
@@ -7900,7 +7900,7 @@ window.questionSets = {
             "section": "1.4",
             "subsection": "1.4.1",
             "learningObjective": "FL-1.4.1",
-            "kLevel": "K1",
+            "kLevel": "K2",
             "difficulty": "Easy",
             "keywords": [
                 "test implementation",
@@ -8059,7 +8059,7 @@ window.questionSets = {
             "section": "2.2",
             "subsection": "2.2.3",
             "learningObjective": "FL-2.2.3",
-            "kLevel": "K1",
+            "kLevel": "K2",
             "difficulty": "Easy",
             "keywords": [
                 "confirmation testing",
@@ -8121,8 +8121,8 @@ window.questionSets = {
             "chapter": 1,
             "section": "1.5",
             "subsection": "1.5.2",
-            "learningObjective": "FL-1.5.1",
-            "kLevel": "K1",
+            "learningObjective": "FL-1.5.3",
+            "kLevel": "K2",
             "difficulty": "Easy",
             "keywords": [
                 "good practices",
@@ -8281,7 +8281,7 @@ window.questionSets = {
             "section": "2.1",
             "subsection": "2.1.2",
             "learningObjective": "FL-2.1.2",
-            "kLevel": "K1",
+            "kLevel": "K2",
             "difficulty": "Easy",
             "keywords": [
                 "sequential model",
@@ -8440,7 +8440,7 @@ window.questionSets = {
             "section": "2.3",
             "subsection": "2.3.2",
             "learningObjective": "FL-2.2.1",
-            "kLevel": "K1",
+            "kLevel": "K2",
             "difficulty": "Easy",
             "keywords": [
                 "white-box testing",
@@ -8537,7 +8537,7 @@ window.questionSets = {
             "section": "5.5",
             "subsection": "5.5.2",
             "learningObjective": "FL-5.5.1",
-            "kLevel": "K1",
+            "kLevel": "K2",
             "difficulty": "Easy",
             "keywords": [
                 "risk analysis",
@@ -8570,7 +8570,7 @@ window.questionSets = {
             "section": "5.3",
             "subsection": "5.3.1",
             "learningObjective": "FL-5.3.1",
-            "kLevel": "K1",
+            "kLevel": "K2",
             "difficulty": "Easy",
             "keywords": [
                 "test monitoring",
@@ -8602,7 +8602,7 @@ window.questionSets = {
             "section": "5.5",
             "subsection": "5.5.2",
             "learningObjective": "FL-5.5.1",
-            "kLevel": "K1",
+            "kLevel": "K2",
             "difficulty": "Easy",
             "keywords": [
                 "risk-based testing",
@@ -8698,7 +8698,7 @@ window.questionSets = {
             "section": "5.2",
             "subsection": "5.2.1",
             "learningObjective": "FL-5.2.1",
-            "kLevel": "K1",
+            "kLevel": "K2",
             "difficulty": "Easy",
             "keywords": [
                 "product risk",
@@ -8760,7 +8760,7 @@ window.questionSets = {
             "section": "6.2",
             "subsection": "6.2",
             "learningObjective": "FL-6.2.1",
-            "kLevel": "K1",
+            "kLevel": "K2",
             "difficulty": "Easy",
             "keywords": [
                 "test automation",
@@ -8823,7 +8823,7 @@ window.questionSets = {
             "section": "6.2",
             "subsection": "6.2",
             "learningObjective": "FL-6.2.1",
-            "kLevel": "K1",
+            "kLevel": "K2",
             "difficulty": "Easy",
             "keywords": [
                 "test automation",
@@ -8856,7 +8856,7 @@ window.questionSets = {
             "section": "6.1",
             "subsection": "6.1",
             "learningObjective": "FL-6.1.1",
-            "kLevel": "K1",
+            "kLevel": "K2",
             "difficulty": "Easy",
             "keywords": [
                 "test management tool",
@@ -8920,7 +8920,7 @@ window.questionSets = {
             "section": "6.2",
             "subsection": "6.2",
             "learningObjective": "FL-6.2.1",
-            "kLevel": "K1",
+            "kLevel": "K2",
             "difficulty": "Easy",
             "keywords": [
                 "record-and-playback",
@@ -9050,7 +9050,7 @@ window.questionSets = {
             "section": "1.1",
             "subsection": "1.1.1",
             "learningObjective": "FL-1.1.1",
-            "kLevel": "K1",
+            "kLevel": "K2",
             "difficulty": "Easy",
             "keywords": [
                 "quality",
@@ -9337,7 +9337,7 @@ window.questionSets = {
             "section": "5.3",
             "subsection": "5.3.1",
             "learningObjective": "FL-5.3.1",
-            "kLevel": "K1",
+            "kLevel": "K2",
             "difficulty": "Easy",
             "keywords": [
                 "test metrics",
@@ -9559,7 +9559,7 @@ window.questionSets = {
             "section": "5.3",
             "subsection": "5.3.1",
             "learningObjective": "FL-5.3.1",
-            "kLevel": "K1",
+            "kLevel": "K2",
             "difficulty": "Easy",
             "keywords": [
                 "test metrics",
@@ -9592,7 +9592,7 @@ window.questionSets = {
             "section": "3.1",
             "subsection": "3.1.1",
             "learningObjective": "FL-3.1.1",
-            "kLevel": "K1",
+            "kLevel": "K2",
             "difficulty": "Easy",
             "keywords": [
                 "static testing",
@@ -9941,7 +9941,7 @@ window.questionSets = {
             "section": "5.1",
             "subsection": "5.1.1",
             "learningObjective": "FL-5.1.1",
-            "kLevel": "K1",
+            "kLevel": "K2",
             "difficulty": "Easy",
             "keywords": [
                 "test plan",
@@ -10004,7 +10004,7 @@ window.questionSets = {
             "section": "6.1",
             "subsection": "6.1",
             "learningObjective": "FL-6.1.1",
-            "kLevel": "K1",
+            "kLevel": "K2",
             "difficulty": "Easy",
             "keywords": [
                 "test design tools",
@@ -10194,7 +10194,7 @@ window.questionSets = {
             "section": "5.2",
             "subsection": "5.2.5",
             "learningObjective": "FL-5.1.4",
-            "kLevel": "K1",
+            "kLevel": "K2",
             "difficulty": "Easy",
             "keywords": [
                 "test effort",
@@ -10261,7 +10261,7 @@ window.questionSets = {
             "section": "1.4",
             "subsection": "1.4.1",
             "learningObjective": "FL-1.4.1",
-            "kLevel": "K1",
+            "kLevel": "K2",
             "difficulty": "Easy",
             "keywords": [
                 "test completion",
@@ -10291,8 +10291,8 @@ window.questionSets = {
             "chapter": 1,
             "section": "1.5",
             "subsection": "1.5.1",
-            "learningObjective": "FL-1.5.1",
-            "kLevel": "K1",
+            "learningObjective": "FL-1.5.3",
+            "kLevel": "K2",
             "difficulty": "Easy",
             "keywords": [
                 "independence",
@@ -10357,7 +10357,7 @@ window.questionSets = {
             "section": "1.1",
             "subsection": "1.1.2",
             "learningObjective": "FL-1.1.1",
-            "kLevel": "K1",
+            "kLevel": "K2",
             "difficulty": "Easy",
             "keywords": [
                 "testing",
@@ -10454,7 +10454,7 @@ window.questionSets = {
             "chapter": 1,
             "section": "1.5",
             "subsection": "1.5.2",
-            "learningObjective": "FL-1.5.2",
+            "learningObjective": "FL-1.5.3",
             "kLevel": "K2",
             "difficulty": "Medium",
             "keywords": [
@@ -10486,7 +10486,7 @@ window.questionSets = {
             "chapter": 1,
             "section": "1.5",
             "subsection": "1.5.2",
-            "learningObjective": "FL-1.5.2",
+            "learningObjective": "FL-1.5.3",
             "kLevel": "K2",
             "difficulty": "Medium",
             "keywords": [
@@ -10519,8 +10519,8 @@ window.questionSets = {
             "chapter": 1,
             "section": "1.5",
             "subsection": "1.5.1",
-            "learningObjective": "FL-1.5.1",
-            "kLevel": "K1",
+            "learningObjective": "FL-1.5.3",
+            "kLevel": "K2",
             "difficulty": "Easy",
             "keywords": [
                 "independence",
@@ -10648,7 +10648,7 @@ window.questionSets = {
             "section": "1.1",
             "subsection": "1.1.1",
             "learningObjective": "FL-1.1.1",
-            "kLevel": "K1",
+            "kLevel": "K2",
             "difficulty": "Easy",
             "keywords": [
                 "root cause analysis",
@@ -10871,7 +10871,7 @@ window.questionSets = {
             "section": "1.1",
             "subsection": "1.1.1",
             "learningObjective": "FL-1.1.1",
-            "kLevel": "K1",
+            "kLevel": "K2",
             "difficulty": "Easy",
             "keywords": [
                 "verification",
@@ -11094,7 +11094,7 @@ window.questionSets = {
             "section": "1.1",
             "subsection": "1.1.1",
             "learningObjective": "FL-1.1.1",
-            "kLevel": "K1",
+            "kLevel": "K2",
             "difficulty": "Easy",
             "keywords": [
                 "error",
@@ -11159,7 +11159,7 @@ window.questionSets = {
             "section": "4.2",
             "subsection": "4.2.7",
             "learningObjective": "FL-4.1.1",
-            "kLevel": "K1",
+            "kLevel": "K2",
             "difficulty": "Medium",
             "keywords": [
                 "pairwise testing",
@@ -11634,7 +11634,7 @@ window.questionSets = {
             "section": "5.6",
             "subsection": "5.6.2",
             "learningObjective": "FL-5.5.1",
-            "kLevel": "K1",
+            "kLevel": "K2",
             "difficulty": "Easy",
             "keywords": [
                 "severity",
