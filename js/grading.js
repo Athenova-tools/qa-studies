@@ -264,17 +264,17 @@ const ExamGrading = (function () {
     });
     actionRow.appendChild(copyBtn);
 
-    var backAttemptsBtn = createEl('button', ['btn', 'btn--sm', 'results-filter__btn'], { text: '\u2190 Back to Attempts' });
-    backAttemptsBtn.addEventListener('click', function () {
-      window.location.href = 'index.html';
-    });
-    actionRow.appendChild(backAttemptsBtn);
-
     var backBtn = createEl('button', ['btn', 'btn--sm', 'results-filter__btn'], { text: '\u2190 Back to Home' });
     backBtn.addEventListener('click', function () {
       window.location.href = 'index.html';
     });
     actionRow.appendChild(backBtn);
+
+    var backAttemptsBtn = createEl('button', ['btn', 'btn--sm', 'results-filter__btn'], { text: '\u2190 Back to Attempts' });
+    backAttemptsBtn.addEventListener('click', function () {
+      window.location.href = 'index.html';
+    });
+    actionRow.appendChild(backAttemptsBtn);
 
     filterBar.appendChild(actionRow);
 
