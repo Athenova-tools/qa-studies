@@ -1526,8 +1526,13 @@ input, textarea, select {
 /* Row 3: Back to Home | Back to Attempts (right) below Filters */
 .results-filter__row--nav {
   justify-content: flex-start;
-  margin-top: var(--space-xs);
+  margin-top: 2px;
   gap: var(--space-sm);
+}
+
+/* Reduce space between filter bar and question list */
+.results-list {
+  margin-top: var(--space-xs);
 }
 
 /* Row 2: Export to PDF, Copy, Back to Attempts, Back to Home */
