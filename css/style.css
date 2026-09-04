@@ -1507,6 +1507,7 @@ input, textarea, select {
   align-items: center;
   gap: var(--space-xs);
   justify-content: center;
+  padding-left: var(--space-md);
 }
 
 /* Row 1: Filters label + select + Collapse All close together */
