@@ -1612,29 +1612,6 @@ input, textarea, select {
   color: var(--color-danger);
 }
 
-.results__verdict {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0.25rem 0.625rem;
-  border-radius: var(--radius-full);
-  font-size: 0.75rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  white-space: nowrap;
-}
-
-.results__verdict--pass {
-  background-color: var(--color-success-light);
-  color: var(--color-success);
-}
-
-.results__verdict--fail {
-  background-color: var(--color-danger-light);
-  color: var(--color-danger);
-}
-
 /* --- Row 2 items --- */
 .results__time {
   display: flex;

@@ -173,13 +173,13 @@ const ExamGrading = (function () {
     var spacer2 = createEl('div', 'results__grid-item results__grid-spacer');
     grid.appendChild(spacer2);
 
-    card.appendChild(grid);
-
-    /* ---- Verdict below grid (FAIL / SUCCESS) spanning full width ---- */
+    /* ---- Verdict INSIDE grid spanning columns 1-3 (Correct to Unanswered) ---- */
     var verdictClass = results.passed ? 'results__verdict--pass' : 'results__verdict--fail';
     var verdictText = results.passed ? 'SUCCESS' : 'FAIL';
     var verdictEl = createEl('div', ['results__verdict', verdictClass], { text: verdictText });
-    card.appendChild(verdictEl);
+    grid.appendChild(verdictEl);
+
+    card.appendChild(grid);
 
     /* ---- Question Review List ---- */
     var list = createEl('div', 'results-list');
