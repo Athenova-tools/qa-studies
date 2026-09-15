@@ -1243,6 +1243,7 @@ input, textarea, select {
   padding: 0.25rem 0.5rem;
   border-radius: var(--radius-sm);
   white-space: nowrap;
+  display: block;
 }
 .timer-pace--ok {
   color: var(--color-success);

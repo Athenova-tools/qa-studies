@@ -12,6 +12,9 @@ const ExamStats = (function () {
   var FULL_KEY_PREFIX = 'istqb_ctfl_full_';
   var MAX_FULL_RESULTS = 5;
   var TOTAL_Q = 40;
+  var selectedExamFilter = 'all';
+
+  window.__inReviewMode = false;
 
   /* =================================================================
      Helpers
@@ -188,7 +191,10 @@ const ExamStats = (function () {
 
     /* Per-chapter breakdown (from saved detail data) */
     var perChapter = {};
-    attempts.forEach(function (a) {
+    var filteredAttempts = selectedExamFilter === 'all'
+      ? attempts
+      : attempts.filter(function (a) { return String(a.examId) === String(selectedExamFilter); });
+    filteredAttempts.forEach(function (a) {
       if (a.chapterPerformance) {
         Object.keys(a.chapterPerformance).forEach(function (ch) {
           if (!perChapter[ch]) {
@@ -211,11 +217,82 @@ const ExamStats = (function () {
     };
   }
 
+  var CHAPTER_WEIGHTS = {
+    'Chapter 1': 22.5,
+    'Chapter 2': 17.5,
+    'Chapter 3': 12.5,
+    'Chapter 4': 25,
+    'Chapter 5': 15,
+    'Chapter 6': 7.5,
+  };
+
+  function renderChapterChart(chapterPerformance) {
+    var chKeys = Object.keys(chapterPerformance || {});
+    if (!chKeys.length) return null;
+
+    var GRID_COLS = '70px 1fr 40px 36px 40px';
+
+    var wrapper = createEl('div', null, {
+      style: 'padding:0 var(--space-md);margin-bottom:var(--space-xl);',
+    });
+    wrapper.appendChild(createEl('h3', null, {
+      text: 'Per-Chapter Performance',
+      style: 'font-size:1.125rem;font-weight:700;color:var(--color-text);margin-bottom:var(--space-md);',
+    }));
+
+    /* Header row */
+    var header = createEl('div', null, {
+      style: 'display:grid;grid-template-columns:' + GRID_COLS + ';gap:6px;align-items:center;padding:6px 0;border-bottom:2px solid var(--color-border);',
+    });
+    header.appendChild(createEl('div', null, { text: 'Chapter', style: 'font-size:0.6875rem;font-weight:700;color:var(--color-text-muted);text-transform:uppercase;letter-spacing:0.04em;' }));
+    header.appendChild(createEl('div', null, { text: '', style: '' }));
+    header.appendChild(createEl('div', null, { text: 'Score', style: 'font-size:0.6875rem;font-weight:700;color:var(--color-text-muted);text-transform:uppercase;letter-spacing:0.04em;text-align:right;' }));
+    header.appendChild(createEl('div', null, { text: 'Pct', style: 'font-size:0.6875rem;font-weight:700;color:var(--color-text-muted);text-transform:uppercase;letter-spacing:0.04em;text-align:right;' }));
+    header.appendChild(createEl('div', null, { text: 'Wt', style: 'font-size:0.6875rem;font-weight:700;color:var(--color-text-muted);text-transform:uppercase;letter-spacing:0.04em;text-align:right;' }));
+    wrapper.appendChild(header);
+
+    /* Data rows */
+    var chart = createEl('div', null, {
+      style: 'display:flex;flex-direction:column;',
+    });
+    chKeys.forEach(function (ch) {
+      var data = chapterPerformance[ch];
+      var pct = data.total > 0 ? Math.round((data.correct / data.total) * 100) : 0;
+      var weight = CHAPTER_WEIGHTS[ch] || 0;
+      var row = createEl('div', null, {
+        style: 'display:grid;grid-template-columns:' + GRID_COLS + ';gap:6px;align-items:center;padding:8px 0;border-bottom:1px solid var(--color-border-light);',
+      });
+      row.appendChild(createEl('div', null, {
+        text: ch, style: 'font-size:0.8125rem;font-weight:600;color:var(--color-text);white-space:nowrap;',
+      }));
+      var barOuter = createEl('div', null, {
+        style: 'height:32px;background-color:var(--color-bg-alt);border-radius:var(--radius-md);overflow:hidden;',
+      });
+      barOuter.appendChild(createEl('div', null, {
+        style: 'height:100%;width:' + pct + '%;background:linear-gradient(90deg,var(--color-primary),var(--color-accent));border-radius:var(--radius-md);transition:width 0.6s ease;',
+      }));
+      row.appendChild(barOuter);
+      row.appendChild(createEl('div', null, {
+        text: data.correct + '/' + data.total, style: 'font-size:0.75rem;font-weight:600;color:var(--color-text);text-align:right;',
+      }));
+      row.appendChild(createEl('div', null, {
+        text: pct + '%', style: 'font-size:0.75rem;font-weight:700;color:' + (pct >= 60 ? 'var(--color-success)' : 'var(--color-danger)') + ';text-align:right;',
+      }));
+      row.appendChild(createEl('div', null, {
+        text: weight > 0 ? weight + '%' : '\u2014', style: 'font-size:0.75rem;color:var(--color-text-muted);font-style:italic;text-align:right;',
+      }));
+      chart.appendChild(row);
+    });
+    wrapper.appendChild(chart);
+    return wrapper;
+  }
+
   /* =================================================================
      Review Saved Attempt
      ================================================================= */
 
   function reviewAttempt(id) {
+    window.__inReviewMode = true;
     var appEl = document.getElementById('app');
     if (!appEl) {
       appEl = document.getElementById('stats-dashboard');
@@ -231,6 +308,8 @@ const ExamStats = (function () {
       full.chapterPerformance = full.chapterPerformance || {};
       var resultsEl = ExamGrading.generateResultsHTML(full);
       appEl.appendChild(resultsEl);
+      var chartEl = renderChapterChart(full.chapterPerformance);
+      if (chartEl) appEl.appendChild(chartEl);
     } else {
       var attempts = getAttempts();
       var entry = null;
@@ -272,7 +351,10 @@ const ExamStats = (function () {
       }
       container.appendChild(card);
       appEl.appendChild(container);
-      appEl.appendChild(backBtn);
+      if (entry && entry.chapterPerformance) {
+        var fallbackChart = renderChapterChart(entry.chapterPerformance);
+        if (fallbackChart) appEl.appendChild(fallbackChart);
+      }
     }
   }
 
@@ -281,6 +363,7 @@ const ExamStats = (function () {
      ================================================================= */
 
   function renderStatsDashboard() {
+    window.__inReviewMode = false;
     var container = document.getElementById('stats-dashboard');
     if (!container) return;
     clearContainer(container);
@@ -355,7 +438,7 @@ const ExamStats = (function () {
         a.score + '/' + a.total,
         a.percentage + '%',
         a.passed ? 'PASS' : 'FAIL',
-        a.timeSpent || '—',
+        a.timeSpent,
       ];
       cells.forEach(function (c, ci) {
         var td = document.createElement('td');
@@ -395,50 +478,132 @@ const ExamStats = (function () {
     tableWrap.appendChild(table);
     container.appendChild(tableWrap);
 
-    /* ---- Per-Chapter Bar Chart ---- */
-    var chKeys = Object.keys(stats.perChapter);
-    if (chKeys.length) {
-      var chartTitle = createEl('h3', null, {
-        text: 'Per-Chapter Performance',
-        style: 'font-size:1.125rem;font-weight:700;color:var(--color-text);margin-bottom:var(--space-md);',
+    /* ---- Per-Chapter Bar Chart with Exam Filter ---- */
+    var allAttempts = getAttempts();
+    var examIds = [];
+    allAttempts.forEach(function (a) {
+      if (a.examId && examIds.indexOf(a.examId) === -1) examIds.push(a.examId);
+    });
+    examIds.sort(function (a, b) { return a - b; });
+
+    if (examIds.length > 0) {
+      var filterWrap = createEl('div', null, {
+        style: 'padding:0 var(--space-lg);margin-bottom:var(--space-md);display:flex;align-items:center;gap:var(--space-sm);',
       });
-      container.appendChild(chartTitle);
-
-      var chartContainer = createEl('div', null, {
-        style: 'display:flex;flex-direction:column;gap:var(--space-md);margin-bottom:var(--space-xl);',
+      filterWrap.appendChild(createEl('label', null, {
+        text: 'Filter by exam:',
+        style: 'font-size:0.8125rem;font-weight:600;color:var(--color-text-muted);',
+      }));
+      var select = createEl('select', null, {
+        style: 'padding:var(--space-xs) var(--space-sm);border:1px solid var(--color-border);border-radius:var(--radius-md);font-size:0.8125rem;background:var(--color-bg);color:var(--color-text);',
       });
-
-      chKeys.forEach(function (ch) {
-        var data = stats.perChapter[ch];
-        var pct = data.total > 0 ? Math.round((data.correct / data.total) * 100) : 0;
-
-        var row = createEl('div', null, { style: 'display:flex;align-items:center;gap:var(--space-md);' });
-
-        var label = createEl('div', null, {
-          text: ch,
-          style: 'width:100px;flex-shrink:0;font-size:0.8125rem;font-weight:600;color:var(--color-text);',
-        });
-        row.appendChild(label);
-
-        var barOuter = createEl('div', null, {
-          style: 'flex:1;height:24px;background-color:var(--color-bg-alt);border-radius:var(--radius-md);overflow:hidden;position:relative;',
-        });
-        var barFill = createEl('div', null, {
-          style: 'height:100%;width:' + pct + '%;background:linear-gradient(90deg,var(--color-primary),var(--color-accent));border-radius:var(--radius-md);transition:width 0.6s ease;',
-        });
-        barOuter.appendChild(barFill);
-
-        var pctLabel = createEl('div', null, {
-          text: pct + '%',
-          style: 'width:50px;flex-shrink:0;font-size:0.8125rem;font-weight:700;color:var(--color-text);text-align:right;',
-        });
-
-        row.appendChild(barOuter);
-        row.appendChild(pctLabel);
-        chartContainer.appendChild(row);
+      var optAll = createEl('option', null, { text: 'All Exams (aggregated)', value: 'all' });
+      if (selectedExamFilter === 'all') optAll.setAttribute('selected', 'selected');
+      select.appendChild(optAll);
+      examIds.forEach(function (eid) {
+        var count = allAttempts.filter(function (a) { return String(a.examId) === String(eid); }).length;
+        var label = 'Exam ' + eid + (count > 1 ? ' (' + count + ' attempts)' : '');
+        var opt = createEl('option', null, { text: label, value: String(eid) });
+        if (String(selectedExamFilter) === String(eid)) opt.setAttribute('selected', 'selected');
+        select.appendChild(opt);
       });
+      select.addEventListener('change', function () {
+        selectedExamFilter = this.value;
+        renderStatsDashboard();
+      });
+      filterWrap.appendChild(select);
+      container.appendChild(filterWrap);
+    }
 
-      container.appendChild(chartContainer);
+    /* Render per-chapter chart */
+    if (selectedExamFilter === 'all') {
+      /* Aggregated view: all exams combined */
+      var dashboardChart = renderChapterChart(stats.perChapter);
+      if (dashboardChart) container.appendChild(dashboardChart);
+    } else {
+      /* Single exam view: each attempt shown separately with date/time */
+      var examAttempts = allAttempts.filter(function (a) {
+        return String(a.examId) === String(selectedExamFilter);
+      }).slice().reverse();
+
+      if (examAttempts.length > 0) {
+        var wrapper = createEl('div', null, {
+          style: 'padding:0 var(--space-lg);margin-bottom:var(--space-xl);',
+        });
+        wrapper.appendChild(createEl('h3', null, {
+          text: 'Per-Chapter Performance \u2014 Exam ' + selectedExamFilter,
+          style: 'font-size:1.125rem;font-weight:700;color:var(--color-text);margin-bottom:var(--space-md);',
+        }));
+
+        examAttempts.forEach(function (attempt) {
+          var cp = attempt.chapterPerformance;
+          if (!cp || !Object.keys(cp).length) return;
+
+          /* Attempt header with date and score */
+          var attemptHeader = createEl('div', null, {
+            style: 'display:flex;align-items:center;gap:var(--space-sm);margin-bottom:var(--space-sm);margin-top:var(--space-md);padding:var(--space-xs) var(--space-sm);background:var(--color-bg-alt);border-radius:var(--radius-md);',
+          });
+          attemptHeader.appendChild(createEl('span', null, {
+            text: attempt.date || 'unknown date',
+            style: 'font-size:0.8125rem;font-weight:600;color:var(--color-text-secondary);',
+          }));
+          attemptHeader.appendChild(createEl('span', null, {
+            text: '\u2014',
+            style: 'color:var(--color-text-muted);',
+          }));
+          attemptHeader.appendChild(createEl('span', null, {
+            text: attempt.score + '/' + attempt.total + ' (' + attempt.percentage + '%)',
+            style: 'font-size:0.8125rem;font-weight:700;color:' + (attempt.passed ? 'var(--color-success)' : 'var(--color-danger)') + ';',
+          }));
+          wrapper.appendChild(attemptHeader);
+
+          /* Chapter bars for this attempt */
+          var chKeys = Object.keys(cp);
+          var GRID_COLS = '70px 1fr 40px 36px 40px';
+
+          /* Header row */
+          var attHeader = createEl('div', null, {
+            style: 'display:grid;grid-template-columns:' + GRID_COLS + ';gap:6px;align-items:center;padding:4px 0 var(--space-xs) var(--space-sm);border-bottom:1px solid var(--color-border);',
+          });
+          attHeader.appendChild(createEl('div', null, { text: 'Chapter', style: 'font-size:0.625rem;font-weight:700;color:var(--color-text-muted);text-transform:uppercase;letter-spacing:0.04em;' }));
+          attHeader.appendChild(createEl('div', null, { text: '', style: '' }));
+          attHeader.appendChild(createEl('div', null, { text: 'Score', style: 'font-size:0.625rem;font-weight:700;color:var(--color-text-muted);text-transform:uppercase;letter-spacing:0.04em;text-align:right;' }));
+          attHeader.appendChild(createEl('div', null, { text: 'Pct', style: 'font-size:0.625rem;font-weight:700;color:var(--color-text-muted);text-transform:uppercase;letter-spacing:0.04em;text-align:right;' }));
+          attHeader.appendChild(createEl('div', null, { text: 'Wt', style: 'font-size:0.625rem;font-weight:700;color:var(--color-text-muted);text-transform:uppercase;letter-spacing:0.04em;text-align:right;' }));
+          wrapper.appendChild(attHeader);
+
+          chKeys.forEach(function (ch) {
+            var data = cp[ch];
+            var pct = data.total > 0 ? Math.round((data.correct / data.total) * 100) : 0;
+            var weight = CHAPTER_WEIGHTS[ch] || 0;
+            var row = createEl('div', null, {
+              style: 'display:grid;grid-template-columns:' + GRID_COLS + ';gap:6px;align-items:center;padding:6px 0 6px var(--space-sm);border-bottom:1px solid var(--color-border-light);',
+            });
+            row.appendChild(createEl('div', null, {
+              text: ch, style: 'font-size:0.75rem;font-weight:600;color:var(--color-text);white-space:nowrap;',
+            }));
+            var barOuter = createEl('div', null, {
+              style: 'height:26px;background-color:var(--color-bg-alt);border-radius:var(--radius-md);overflow:hidden;',
+            });
+            barOuter.appendChild(createEl('div', null, {
+              style: 'height:100%;width:' + pct + '%;background:linear-gradient(90deg,var(--color-primary),var(--color-accent));border-radius:var(--radius-md);transition:width 0.6s ease;',
+            }));
+            row.appendChild(barOuter);
+            row.appendChild(createEl('div', null, {
+              text: data.correct + '/' + data.total, style: 'font-size:0.6875rem;font-weight:600;color:var(--color-text);text-align:right;',
+            }));
+            row.appendChild(createEl('div', null, {
+              text: pct + '%', style: 'font-size:0.6875rem;font-weight:700;color:' + (pct >= 60 ? 'var(--color-success)' : 'var(--color-danger)') + ';text-align:right;',
+            }));
+            row.appendChild(createEl('div', null, {
+              text: weight > 0 ? weight + '%' : '\u2014', style: 'font-size:0.6875rem;color:var(--color-text-muted);font-style:italic;text-align:right;',
+            }));
+            wrapper.appendChild(row);
+          });
+        });
+
+        container.appendChild(wrapper);
+      }
     }
 
     /* ---- Clear History Button ---- */

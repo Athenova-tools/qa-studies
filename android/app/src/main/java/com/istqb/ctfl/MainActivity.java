@@ -14,9 +14,11 @@ import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.widget.Toast;
 
 public class MainActivity extends Activity {
     private WebView webView;
+    private long lastBackPress = 0;
     private static final String TAG = "ISTQB_WV";
     private static final String BANNER = "(function(){"
             + "function showErr(m){var b=document.getElementById('err-banner');"
@@ -49,7 +51,14 @@ public class MainActivity extends Activity {
         s.setAllowContentAccess(true); s.setMixedContentMode(WebSettings.MIXED_CONTENT_ALWAYS_ALLOW);
         s.setBuiltInZoomControls(true); s.setDisplayZoomControls(false);
         s.setLoadWithOverviewMode(true); s.setUseWideViewPort(true);
-        webView.setWebChromeClient(new WebChromeClient(){ public boolean onConsoleMessage(ConsoleMessage cm){Log.d(TAG,cm.message());return true;}});
+        webView.setWebChromeClient(new WebChromeClient(){
+            @Override
+            public boolean onConsoleMessage(ConsoleMessage cm) {
+                Log.d(TAG, "JS [" + cm.messageLevel() + "]: " + cm.message()
+                    + " (" + cm.sourceId() + ":" + cm.lineNumber() + ")");
+                return true;
+            }
+        });
         webView.setWebViewClient(new WebViewClient(){ public void onPageFinished(WebView v,String u){super.onPageFinished(v,u);v.evaluateJavascript(BANNER,null);}});
         setContentView(webView);
         webView.loadUrl("file:///android_asset/www/index.html");
@@ -68,5 +77,40 @@ public class MainActivity extends Activity {
         super.onDestroy();
     }
 
-    @Override public void onBackPressed(){ if(webView.canGoBack())webView.goBack(); else super.onBackPressed(); }
+    @Override
+    public void onBackPressed() {
+        if (webView == null) { super.onBackPressed(); return; }
+
+        webView.evaluateJavascript(
+            "(function(){"
+            + " if(window.__inReviewMode){"
+            + "   window.__inReviewMode=false;"
+            + "   var dash=document.getElementById('stats-dashboard');"
+            + "   var app=document.getElementById('app');"
+            + "   if(dash){"
+            + "     if(app) app.innerHTML='';"
+            + "     dash.style.display='';"
+            + "     if(typeof ExamStats!=='undefined'&&ExamStats.renderStatsDashboard) ExamStats.renderStatsDashboard();"
+            + "     return 'review';"
+            + "   }"
+            + " }"
+            + " return 'nreview';"
+            + "})()",
+            value -> {
+                if (value != null && value.contains("review") && !value.contains("nreview")) {
+                    return;
+                }
+                if (webView.canGoBack()) {
+                    webView.goBack();
+                } else {
+                    long now = System.currentTimeMillis();
+                    if (now - lastBackPress < 2000) {
+                        finish();
+                    } else {
+                        lastBackPress = now;
+                        Toast.makeText(MainActivity.this, "Press back again to exit", Toast.LENGTH_SHORT).show();
+                    }
+                }
+            });
+    }
 }

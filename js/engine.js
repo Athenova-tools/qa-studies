@@ -787,7 +787,7 @@ const ExamEngine = (function () {
     if (filterBar) {
       var backBtn = createEl('button', ['btn', 'btn--sm', 'results-filter__btn'], { text: tr('backHome') });
       backBtn.addEventListener('click', function () {
-        window.location.reload();
+        window.location.href = 'index.html';
       });
       filterBar.appendChild(backBtn);
     }

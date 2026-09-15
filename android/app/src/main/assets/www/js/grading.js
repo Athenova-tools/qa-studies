@@ -275,7 +275,15 @@ const ExamGrading = (function () {
 
     var backAttemptsBtn = createEl('button', ['btn', 'btn--sm', 'results-filter__btn'], { text: '\u2190 Back to Attempts' });
     backAttemptsBtn.addEventListener('click', function () {
-      window.location.href = 'index.html';
+      var dash = document.getElementById('stats-dashboard');
+      var app = document.getElementById('app');
+      if (dash) {
+        if (app) app.innerHTML = '';
+        dash.style.display = '';
+        if (typeof ExamStats !== 'undefined' && ExamStats.renderStatsDashboard) ExamStats.renderStatsDashboard();
+      } else {
+        window.location.href = 'index.html';
+      }
     });
     navRow.appendChild(backAttemptsBtn);
     filterBar.appendChild(navRow);
