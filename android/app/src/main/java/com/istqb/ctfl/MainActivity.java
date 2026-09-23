@@ -1,8 +1,10 @@
 package com.istqb.ctfl;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.BroadcastReceiver;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Build;
@@ -82,35 +84,33 @@ public class MainActivity extends Activity {
         if (webView == null) { super.onBackPressed(); return; }
 
         webView.evaluateJavascript(
-            "(function(){"
-            + " if(window.__inReviewMode){"
-            + "   window.__inReviewMode=false;"
-            + "   var dash=document.getElementById('stats-dashboard');"
-            + "   var app=document.getElementById('app');"
-            + "   if(dash){"
-            + "     if(app) app.innerHTML='';"
-            + "     dash.style.display='';"
-            + "     if(typeof ExamStats!=='undefined'&&ExamStats.renderStatsDashboard) ExamStats.renderStatsDashboard();"
-            + "     return 'review';"
-            + "   }"
-            + " }"
-            + " return 'nreview';"
-            + "})()",
+            "(function(){ return window.__inReviewMode ? 1 : 0; })()",
             value -> {
-                if (value != null && value.contains("review") && !value.contains("nreview")) {
+                int reviewMode = value != null ? Integer.parseInt(value) : 0;
+                if (reviewMode == 1) {
+                    // Sair do modo review - voltar ao dashboard ou finalizar
+                    if (webView.canGoBack()) {
+                        webView.goBack();
+                    } else {
+                        finish();
+                    }
                     return;
                 }
+
                 if (webView.canGoBack()) {
                     webView.goBack();
                 } else {
-                    long now = System.currentTimeMillis();
-                    if (now - lastBackPress < 2000) {
-                        finish();
-                    } else {
-                        lastBackPress = now;
-                        Toast.makeText(MainActivity.this, "Press back again to exit", Toast.LENGTH_SHORT).show();
-                    }
+                    showExitConfirmation();
                 }
             });
+    }
+
+    private void showExitConfirmation() {
+        new AlertDialog.Builder(this)
+            .setTitle("Sair do exame")
+            .setMessage("Tem certeza que deseja sair do exame em andamento? Suas respostas não serão salvas.")
+            .setPositiveButton("Sair", (dialog, which) -> finish())
+            .setNegativeButton("Cancelar", null)
+            .show();
     }
 }

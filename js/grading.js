@@ -340,9 +340,6 @@ const ExamGrading = (function () {
       function pushBold(text) { parts.push('<strong>' + escHtml(text) + '</strong>'); }
       function push(text) { parts.push(escHtml(text)); }
 
-      pushBold('Correct Answer:');
-      push(d.correctAnswer + '. ' + d.options[d.correctAnswer]);
-      parts.push('');
       pushBold('Why?');
       push(d.explanation || 'Not specified in the official CTFL v4.0.1 syllabus.');
       if (!d.isCorrect && d.whyWrong) {

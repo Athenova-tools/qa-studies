@@ -432,6 +432,7 @@ const ExamEngine = (function () {
   }
 
   function nextQuestion() {
+    window.scrollTo(0, 0);
     if (state.index === TOTAL_Q - 1) {
       var unanswered = getFirstUnanswered();
       if (unanswered >= 0) {
@@ -450,6 +451,7 @@ const ExamEngine = (function () {
   }
 
   function prevQuestion() {
+    window.scrollTo(0, 0);
     if (state.index > 0) {
       goToQuestion(state.index - 1);
     }

@@ -317,6 +317,14 @@ const ExamStats = (function () {
       renderStatsDashboard();
     });
     backBar.appendChild(backBtn);
+
+    /* Label explaining whyWrong meaning */
+    var label = createEl('div', null, {
+      style: 'margin-top:var(--space-sm);font-size:0.75rem;color:var(--color-text-secondary);',
+      text: 'Por que a opção está incorreta: princípio que a torna errada (não é a explicação da opção em si)'
+    });
+    backBar.appendChild(label);
+
     appEl.appendChild(backBar);
 
     if (full && typeof ExamGrading !== 'undefined') {
