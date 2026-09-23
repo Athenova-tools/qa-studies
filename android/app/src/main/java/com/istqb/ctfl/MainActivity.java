@@ -88,7 +88,7 @@ public class MainActivity extends Activity {
             value -> {
                 int reviewMode = value != null ? Integer.parseInt(value) : 0;
                 if (reviewMode == 1) {
-                    // Sair do modo review - voltar ao dashboard ou finalizar
+                    // Sair do modo review - voltar ao dashboard
                     if (webView.canGoBack()) {
                         webView.goBack();
                     } else {
@@ -97,11 +97,8 @@ public class MainActivity extends Activity {
                     return;
                 }
 
-                if (webView.canGoBack()) {
-                    webView.goBack();
-                } else {
-                    showExitConfirmation();
-                }
+                // Always show exit confirmation during exam execution
+                showExitConfirmation();
             });
     }
 
