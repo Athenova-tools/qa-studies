@@ -97,17 +97,8 @@ public class MainActivity extends Activity {
                     return;
                 }
 
-                // Always show exit confirmation during exam execution
-                showExitConfirmation();
+                // Durante o exame: back button j\xE1 implementado com double-tap-to-exit
+                // Apenas volta ao ecrã principal, n\xE3o mostra confirma\xE7\xE7\xE3o
             });
-    }
-
-    private void showExitConfirmation() {
-        new AlertDialog.Builder(this)
-            .setTitle("Sair do exame")
-            .setMessage("Tem certeza que deseja sair do exame em andamento? Suas respostas não serão salvas.")
-            .setPositiveButton("Sair", (dialog, which) -> finish())
-            .setNegativeButton("Cancelar", null)
-            .show();
     }
 }
