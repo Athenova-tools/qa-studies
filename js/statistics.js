@@ -313,8 +313,12 @@ const ExamStats = (function () {
     backBar.appendChild(homeBtn);
     var backBtn = createEl('button', ['btn', 'btn--secondary', 'btn--sm'], { text: '\u2190 Back to Attempts' });
     backBtn.addEventListener('click', function () {
-      if (dashboard) dashboard.style.display = '';
-      renderStatsDashboard();
+      if (dashboard) {
+        dashboard.style.display = '';
+        renderStatsDashboard();
+      } else {
+        window.location.href = 'index.html#stats-dashboard';
+      }
     });
     backBar.appendChild(backBtn);
 

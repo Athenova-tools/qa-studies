@@ -285,7 +285,7 @@ const ExamGrading = (function () {
         dash.style.display = '';
         if (typeof ExamStats !== 'undefined' && ExamStats.renderStatsDashboard) ExamStats.renderStatsDashboard();
       } else {
-        window.location.href = 'index.html';
+        window.location.href = 'index.html#stats-dashboard';
       }
     });
     navRow.appendChild(backAttemptsBtn);
