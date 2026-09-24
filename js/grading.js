@@ -355,11 +355,6 @@ const ExamGrading = (function () {
           push(wrongFb.replace(/^❌\s*Incorrect:\s*/, '❌: '));
         }
       }
-      ['A', 'B', 'C', 'D'].forEach(function (letter) {
-        parts.push('');
-        pushBold('Why option ' + letter + ' is ' + (letter === d.correctAnswer ? 'correct' : 'incorrect') + ':');
-        push(d.optionExplanations[letter] || 'Not specified in the official CTFL v4.0.1 syllabus.');
-      });
       parts.push('');
       pushBold('Reference');
       push('Chapter: ' + d.chapter);
