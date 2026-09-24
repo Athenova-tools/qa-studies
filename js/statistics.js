@@ -455,9 +455,12 @@ const ExamStats = (function () {
     thead.appendChild(hRow);
     table.appendChild(thead);
 
-    /* Body */
+    /* Body (respects exam filter) */
     var tbody = document.createElement('tbody');
-    stats.recentAttempts.forEach(function (a) {
+    var recentList = selectedExamFilter === 'all'
+      ? stats.recentAttempts
+      : stats.recentAttempts.filter(function (a) { return String(a.examId) === String(selectedExamFilter); });
+    recentList.forEach(function (a) {
       var row = document.createElement('tr');
       var cells = [
         a.date,
@@ -484,7 +487,7 @@ const ExamStats = (function () {
       var reviewBtn = createEl('button', ['btn', 'btn--ghost', 'btn--sm'], { text: 'Review' });
       reviewBtn.style.marginRight = 'var(--space-xs)';
       reviewBtn.addEventListener('click', (function (id) {
-        return function () { reviewAttempt(id); };
+        return function () { window.location.href = 'review.html?id=' + id; };
       })(a.id));
       actionTd.appendChild(reviewBtn);
       var delBtn = createEl('button', ['btn', 'btn--danger', 'btn--sm'], { text: 'Delete' });
