@@ -94,7 +94,7 @@ public class MainActivity extends Activity {
 
         webView.evaluateJavascript(
             "(function(){"
-            + " if(window.__inReviewMode) return 'review';"
+            + " if(window.__inReviewMode||document.querySelector('.results-list')) return 'review';"
             + " try{"
             + "   if(typeof ExamEngine!=='undefined'&&ExamEngine.getState){"
             + "     var s=ExamEngine.getState();"
