@@ -13,6 +13,8 @@ const ExamStats = (function () {
   var MAX_FULL_RESULTS = 5;
   var TOTAL_Q = 40;
   var selectedExamFilter = 'all';
+  var PAGE_SIZE = 5;
+  var recentCurrentPage = 1;
 
   window.__inReviewMode = false;
 
@@ -404,14 +406,37 @@ const ExamStats = (function () {
     });
     container.appendChild(summaryGrid);
 
-    /* ---- Recent Attempts Table ---- */
+    /* ---- Recent Attempts Table (paginated 5 per page) ---- */
+    var attemptsHeader = createEl('div', null, {
+      style: 'display:flex;align-items:center;justify-content:space-between;gap:var(--space-md);margin-bottom:var(--space-md);',
+    });
     var tableTitle = createEl('h3', null, {
       text: 'Recent Attempts',
-      style: 'font-size:1.125rem;font-weight:700;color:var(--color-text);margin-bottom:var(--space-md);',
+      style: 'font-size:1.125rem;font-weight:700;color:var(--color-text);margin:0;',
     });
-    container.appendChild(tableTitle);
+    attemptsHeader.appendChild(tableTitle);
+    var topBtn = createEl('button', ['btn', 'btn--ghost', 'btn--sm'], { text: '\u2191 TOP' });
+    topBtn.setAttribute('aria-label', 'Voltar ao topo');
+    topBtn.setAttribute('title', 'Voltar ao topo');
+    topBtn.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+    attemptsHeader.appendChild(topBtn);
+    container.appendChild(attemptsHeader);
 
-    var tableWrap = createEl('div', null, { style: 'overflow-x:auto;margin-bottom:var(--space-xl);' });
+    /* Build filtered list from all attempts (newest first) */
+    var allForTable = getAttempts().slice().reverse();
+    var filteredList = selectedExamFilter === 'all'
+      ? allForTable
+      : allForTable.filter(function (a) { return String(a.examId) === String(selectedExamFilter); });
+
+    var totalItems = filteredList.length;
+    var totalPages = Math.ceil(totalItems / PAGE_SIZE) || 1;
+    if (recentCurrentPage > totalPages) recentCurrentPage = totalPages;
+    if (recentCurrentPage < 1) recentCurrentPage = 1;
+
+    var startIdx = (recentCurrentPage - 1) * PAGE_SIZE;
+    var paginatedList = filteredList.slice(startIdx, startIdx + PAGE_SIZE);
+
+    var tableWrap = createEl('div', null, { style: 'overflow-x:auto;margin-bottom:var(--space-sm);' });
     var table = createEl('table', null, {
       style: 'width:100%;border-collapse:collapse;font-size:0.875rem;',
     });
@@ -428,12 +453,9 @@ const ExamStats = (function () {
     thead.appendChild(hRow);
     table.appendChild(thead);
 
-    /* Body (respects exam filter) */
+    /* Body */
     var tbody = document.createElement('tbody');
-    var recentList = selectedExamFilter === 'all'
-      ? stats.recentAttempts
-      : stats.recentAttempts.filter(function (a) { return String(a.examId) === String(selectedExamFilter); });
-    recentList.forEach(function (a) {
+    paginatedList.forEach(function (a) {
       var row = document.createElement('tr');
       var cells = [
         a.date,
@@ -468,6 +490,11 @@ const ExamStats = (function () {
         return function () {
           showConfirmModal('Delete this attempt? This cannot be undone.', function () {
             deleteAttempt(id);
+            var remaining = getAttempts().filter(function (x) {
+              return selectedExamFilter === 'all' ? true : String(x.examId) === String(selectedExamFilter);
+            }).length - 1;
+            var newTotalPages = Math.ceil(remaining / PAGE_SIZE) || 1;
+            if (recentCurrentPage > newTotalPages) recentCurrentPage = newTotalPages;
             renderStatsDashboard();
           });
         };
@@ -480,6 +507,48 @@ const ExamStats = (function () {
     table.appendChild(tbody);
     tableWrap.appendChild(table);
     container.appendChild(tableWrap);
+
+    /* Pagination controls (only when > 1 page) */
+    if (totalItems > PAGE_SIZE) {
+      var paginationWrap = createEl('div', null, {
+        style: 'display:flex;align-items:center;justify-content:center;gap:var(--space-md);margin-bottom:var(--space-xl);flex-wrap:wrap;',
+      });
+
+      var prevBtn = createEl('button', ['btn', 'btn--secondary', 'btn--sm'], { text: '\u2039' });
+      prevBtn.setAttribute('aria-label', 'Previous page');
+      prevBtn.disabled = recentCurrentPage <= 1;
+      prevBtn.addEventListener('click', function () {
+        if (recentCurrentPage > 1) {
+          recentCurrentPage--;
+          renderStatsDashboard();
+        }
+      });
+      paginationWrap.appendChild(prevBtn);
+
+      var pageInfo = createEl('span', null, {
+        style: 'font-size:0.875rem;font-weight:700;color:var(--color-text);min-width:80px;text-align:center;',
+      });
+      pageInfo.textContent = paginatedList.length + '/' + totalItems + '  \u00B7  ' + recentCurrentPage + '/' + totalPages;
+      pageInfo.setAttribute('aria-live', 'polite');
+      pageInfo.title = paginatedList.length + ' nesta página de ' + totalItems + ' no total \u00B7 Página ' + recentCurrentPage + ' de ' + totalPages;
+      paginationWrap.appendChild(pageInfo);
+
+      var nextBtn = createEl('button', ['btn', 'btn--secondary', 'btn--sm'], { text: '\u203A' });
+      nextBtn.setAttribute('aria-label', 'Next page');
+      nextBtn.disabled = recentCurrentPage >= totalPages;
+      nextBtn.addEventListener('click', function () {
+        if (recentCurrentPage < totalPages) {
+          recentCurrentPage++;
+          renderStatsDashboard();
+        }
+      });
+      paginationWrap.appendChild(nextBtn);
+
+      container.appendChild(paginationWrap);
+    } else {
+      var spacer = createEl('div', null, { style: 'margin-bottom:var(--space-xl);' });
+      container.appendChild(spacer);
+    }
 
     /* ---- Per-Chapter Bar Chart with Exam Filter ---- */
     var allAttempts = getAttempts();
@@ -512,6 +581,7 @@ const ExamStats = (function () {
       });
       select.addEventListener('change', function () {
         selectedExamFilter = this.value;
+        recentCurrentPage = 1;
         renderStatsDashboard();
       });
       filterWrap.appendChild(select);
@@ -615,6 +685,7 @@ const ExamStats = (function () {
     clearBtn.addEventListener('click', function () {
       showConfirmModal('Are you sure you want to clear all exam history? This cannot be undone.', function () {
         clearHistory();
+        recentCurrentPage = 1;
         renderStatsDashboard();
       });
     });
