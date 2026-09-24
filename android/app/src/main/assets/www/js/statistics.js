@@ -531,9 +531,9 @@ const ExamStats = (function () {
       var pageInfo = createEl('span', null, {
         style: 'font-size:0.875rem;font-weight:700;color:var(--color-text);min-width:80px;text-align:center;',
       });
-      pageInfo.textContent = paginatedList.length + '/' + totalItems;
+      pageInfo.textContent = recentCurrentPage + '/' + totalPages;
       pageInfo.setAttribute('aria-live', 'polite');
-      pageInfo.title = paginatedList.length + ' nesta página de ' + totalItems + ' no total';
+      pageInfo.title = 'Página ' + recentCurrentPage + ' de ' + totalPages + ' · ' + totalItems + ' exames no total';
       paginationWrap.appendChild(pageInfo);
 
       var nextBtn = createEl('button', ['btn', 'btn--secondary', 'btn--sm'], { text: '\u203A' });

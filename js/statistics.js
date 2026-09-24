@@ -547,10 +547,10 @@ const ExamStats = (function () {
       var pageInfo = createEl('span', null, {
         style: 'font-size:0.875rem;font-weight:700;color:var(--color-text);min-width:80px;text-align:center;',
       });
-      /* Formato pedido: < 5/8 > — quantos nesta página / total */
-      pageInfo.textContent = paginatedList.length + '/' + totalItems;
+      /* Formato: < 1/2 > — nº de páginas (lista é sempre 5) */
+      pageInfo.textContent = recentCurrentPage + '/' + totalPages;
       pageInfo.setAttribute('aria-live', 'polite');
-      pageInfo.title = paginatedList.length + ' nesta página de ' + totalItems + ' no total';
+      pageInfo.title = 'Página ' + recentCurrentPage + ' de ' + totalPages + ' · ' + totalItems + ' exames no total';
       paginationWrap.appendChild(pageInfo);
 
       var nextBtn = createEl('button', ['btn', 'btn--secondary', 'btn--sm'], { text: '\u203A' });
