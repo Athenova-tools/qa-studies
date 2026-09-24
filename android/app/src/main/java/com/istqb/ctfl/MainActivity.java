@@ -23,7 +23,7 @@ public class MainActivity extends Activity {
     private long lastBackPress = 0;
     private static final String TAG = "ISTQB_WV";
     private static final String HOME_URL = "file:///android_asset/www/index.html";
-    private static final String ATTEMPTS_URL = HOME_URL + "#stats-dashboard";
+    private static final String ATTEMPTS_URL = HOME_URL + "?goto=attempts#stats-dashboard";
     private static final String BANNER = "(function(){"
             + "function showErr(m){var b=document.getElementById('err-banner');"
             + " if(!b){b=document.createElement('div');b.id='err-banner';"

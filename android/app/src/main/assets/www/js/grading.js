@@ -285,7 +285,7 @@ const ExamGrading = (function () {
         dash.style.display = '';
         if (typeof ExamStats !== 'undefined' && ExamStats.renderStatsDashboard) ExamStats.renderStatsDashboard();
       } else {
-        window.location.href = 'index.html#stats-dashboard';
+        window.location.href = 'index.html?goto=attempts#stats-dashboard';
       }
     });
     navRow.appendChild(backAttemptsBtn);
@@ -404,7 +404,11 @@ const ExamGrading = (function () {
       }
       ['A', 'B', 'C', 'D'].forEach(function (letter) {
         parts.push('');
-        pushBold('Why option ' + letter + ' is ' + (letter === d.correctAnswer ? 'correct' : 'incorrect') + ':');
+        if (letter === d.correctAnswer) {
+          parts.push('<strong style="color:var(--color-success);">' + escHtml('Why option ' + letter + ' is correct:') + '</strong>');
+        } else {
+          pushBold('Why option ' + letter + ' is incorrect:');
+        }
         push(d.optionExplanations[letter] || 'Not specified in the official CTFL v4.0.1 syllabus.');
       });
       parts.push('');

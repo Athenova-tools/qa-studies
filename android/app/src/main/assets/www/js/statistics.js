@@ -637,6 +637,15 @@ const ExamStats = (function () {
     var el = document.getElementById('stats-dashboard');
     if (el) {
       renderStatsDashboard();
+      try {
+        if (window.location && window.location.search && window.location.search.indexOf('goto=attempts') !== -1) {
+          var target = document.getElementById('stats-dashboard');
+          if (target && target.scrollIntoView) {
+            target.scrollIntoView();
+            window.scrollBy(0, -70);
+          }
+        }
+      } catch (e) { /* ignore */ }
     }
   }
 
