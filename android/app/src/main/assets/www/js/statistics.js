@@ -528,9 +528,9 @@ const ExamStats = (function () {
       var pageInfo = createEl('span', null, {
         style: 'font-size:0.875rem;font-weight:700;color:var(--color-text);min-width:80px;text-align:center;',
       });
-      pageInfo.textContent = paginatedList.length + '/' + totalItems + '  \u00B7  ' + recentCurrentPage + '/' + totalPages;
+      pageInfo.textContent = paginatedList.length + '/' + totalItems;
       pageInfo.setAttribute('aria-live', 'polite');
-      pageInfo.title = paginatedList.length + ' nesta página de ' + totalItems + ' no total \u00B7 Página ' + recentCurrentPage + ' de ' + totalPages;
+      pageInfo.title = paginatedList.length + ' nesta página de ' + totalItems + ' no total';
       paginationWrap.appendChild(pageInfo);
 
       var nextBtn = createEl('button', ['btn', 'btn--secondary', 'btn--sm'], { text: '\u203A' });
