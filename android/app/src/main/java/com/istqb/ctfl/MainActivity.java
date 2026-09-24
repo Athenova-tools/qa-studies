@@ -94,18 +94,7 @@ public class MainActivity extends Activity {
 
         webView.evaluateJavascript(
             "(function(){"
-            + " if(window.__inReviewMode){"
-            + "   window.__inReviewMode=false;"
-            + "   var dash=document.getElementById('stats-dashboard');"
-            + "   var app=document.getElementById('app');"
-            + "   if(dash){"
-            + "     if(app) app.innerHTML='';"
-            + "     dash.style.display='';"
-            + "     if(typeof ExamStats!=='undefined'&&ExamStats.renderStatsDashboard) ExamStats.renderStatsDashboard();"
-            + "     return 'review';"
-            + "   }"
-            + "   return 'review-nodash';"
-            + " }"
+            + " if(window.__inReviewMode) return 'review';"
             + " try{"
             + "   if(typeof ExamEngine!=='undefined'&&ExamEngine.getState){"
             + "     var s=ExamEngine.getState();"
@@ -115,19 +104,57 @@ public class MainActivity extends Activity {
             + " return 'other';"
             + "})()",
             value -> {
-                if (value != null && value.contains("review") && !value.contains("nodash")) {
+                if (value != null && value.contains("review")) {
+                    showReviewNavDialog();
                     return;
                 }
-                if (value != null && (value.contains("nodash") || value.contains("exam"))) {
-                    if (value.contains("exam")) {
-                        showExitConfirmation();
-                    } else {
-                        goBackOrHome();
-                    }
+                if (value != null && value.contains("exam")) {
+                    showExitConfirmation();
                     return;
                 }
-                goBackOrHome();
+                if (webView.canGoBack()) {
+                    webView.goBack();
+                    return;
+                }
+                long now = System.currentTimeMillis();
+                if (now - lastBackPress < 2000) {
+                    finish();
+                } else {
+                    lastBackPress = now;
+                    Toast.makeText(MainActivity.this, "Press back again to exit", Toast.LENGTH_SHORT).show();
+                }
             });
+    }
+
+    private void exitReviewToAttempts() {
+        webView.evaluateJavascript(
+            "(function(){"
+            + " window.__inReviewMode=false;"
+            + " var dash=document.getElementById('stats-dashboard');"
+            + " var app=document.getElementById('app');"
+            + " if(dash){"
+            + "   if(app) app.innerHTML='';"
+            + "   dash.style.display='';"
+            + "   if(typeof ExamStats!=='undefined'&&ExamStats.renderStatsDashboard) ExamStats.renderStatsDashboard();"
+            + "   return 'ok';"
+            + " }"
+            + " return 'nodash';"
+            + "})()",
+            value -> {
+                if (value == null || value.contains("nodash")) {
+                    webView.loadUrl(HOME_URL);
+                }
+            });
+    }
+
+    private void showReviewNavDialog() {
+        new AlertDialog.Builder(this)
+            .setTitle("Voltar")
+            .setMessage("Para onde pretende voltar?")
+            .setPositiveButton("Back to Home", (dialog, which) -> webView.loadUrl(HOME_URL))
+            .setNegativeButton("Back to Attempts", (dialog, which) -> exitReviewToAttempts())
+            .setNeutralButton("Cancelar", null)
+            .show();
     }
 
     private void showExitConfirmation() {

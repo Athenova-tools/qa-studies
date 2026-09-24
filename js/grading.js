@@ -351,7 +351,6 @@ const ExamGrading = (function () {
         var wrongFb = (d.incorrectFeedback && d.selectedAnswer && d.incorrectFeedback[d.selectedAnswer]) || d.whyWrong || '';
         if (wrongFb) {
           parts.push('');
-          pushBold('Why your answer is incorrect:');
           push(wrongFb);
         }
       }
