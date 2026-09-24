@@ -415,9 +415,12 @@ const ExamStats = (function () {
       style: 'font-size:1.125rem;font-weight:700;color:var(--color-text);margin:0;',
     });
     attemptsHeader.appendChild(tableTitle);
-    var topBtn = createEl('button', ['btn', 'btn--ghost', 'btn--sm'], { text: '\u2191 TOP' });
+    var topBtn = createEl('button', ['btn', 'btn--primary', 'btn--sm'], { text: '\u2191 TOP' });
     topBtn.setAttribute('aria-label', 'Voltar ao topo');
     topBtn.setAttribute('title', 'Voltar ao topo');
+    topBtn.style.boxShadow = 'var(--shadow-md)';
+    topBtn.style.fontWeight = '700';
+    topBtn.style.whiteSpace = 'nowrap';
     topBtn.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
     attemptsHeader.appendChild(topBtn);
     container.appendChild(attemptsHeader);
