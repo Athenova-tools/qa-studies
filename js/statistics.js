@@ -486,7 +486,7 @@ const ExamStats = (function () {
       cells.forEach(function (c, ci) {
         var td = document.createElement('td');
         td.textContent = c;
-        td.style.cssText = 'padding:var(--space-sm) var(--space-md);border-bottom:1px solid var(--color-border-light);color:var(--color-text-secondary);';
+        td.style.cssText = 'padding:var(--space-sm) var(--space-md);border-bottom:1px solid var(--color-border);color:var(--color-text-secondary);';
         if (ci === 4) {
           td.style.fontWeight = '700';
           td.style.color = a.passed ? 'var(--color-success)' : 'var(--color-danger)';
@@ -496,7 +496,7 @@ const ExamStats = (function () {
 
       /* Action buttons */
       var actionTd = document.createElement('td');
-      actionTd.style.cssText = 'padding:var(--space-sm) var(--space-md);border-bottom:1px solid var(--color-border-light);white-space:nowrap;';
+      actionTd.style.cssText = 'padding:var(--space-sm) var(--space-md);border-bottom:1px solid var(--color-border);white-space:nowrap;';
       var reviewBtn = createEl('button', ['btn', 'btn--ghost', 'btn--sm'], { text: 'Review' });
       reviewBtn.style.marginRight = 'var(--space-xs)';
       reviewBtn.addEventListener('click', (function (id) {
