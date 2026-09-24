@@ -397,7 +397,8 @@ const ExamGrading = (function () {
         var wrongFb = (d.incorrectFeedback && d.selectedAnswer && d.incorrectFeedback[d.selectedAnswer]) || d.whyWrong || '';
         if (wrongFb) {
           parts.push('');
-          push(wrongFb);
+          pushBold('Why your answer is incorrect:');
+          push(wrongFb.replace(/^❌\s*Incorrect:\s*/, '❌: '));
         }
       }
       ['A', 'B', 'C', 'D'].forEach(function (letter) {
