@@ -169,6 +169,7 @@ const ExamGrading = (function () {
       { label: 'All', value: 'all' },
       { label: 'Correct', value: 'correct' },
       { label: 'Incorrect', value: 'incorrect' },
+      { label: 'Unanswered', value: 'unanswered' },
       { label: 'Flagged', value: 'flagged' },
     ];
     filters.forEach(function (f) {
@@ -253,7 +254,7 @@ const ExamGrading = (function () {
     list.appendChild(filterBar);
 
     results.details.forEach(function (d) {
-      var resultType = d.isCorrect ? 'correct' : 'incorrect';
+      var resultType = d.isCorrect ? 'correct' : (d.selectedAnswer === null ? 'unanswered' : 'incorrect');
       var item = createEl('div', 'results-item');
       item.dataset.result = resultType;
       item.dataset.flagged = d.flagged ? 'true' : 'false';
