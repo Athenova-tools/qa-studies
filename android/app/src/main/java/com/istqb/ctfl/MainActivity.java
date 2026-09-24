@@ -22,6 +22,7 @@ public class MainActivity extends Activity {
     private WebView webView;
     private long lastBackPress = 0;
     private static final String TAG = "ISTQB_WV";
+    private static final String HOME_URL = "file:///android_asset/www/index.html";
     private static final String BANNER = "(function(){"
             + "function showErr(m){var b=document.getElementById('err-banner');"
             + " if(!b){b=document.createElement('div');b.id='err-banner';"
@@ -63,7 +64,7 @@ public class MainActivity extends Activity {
         });
         webView.setWebViewClient(new WebViewClient(){ public void onPageFinished(WebView v,String u){super.onPageFinished(v,u);v.evaluateJavascript(BANNER,null);}});
         setContentView(webView);
-        webView.loadUrl("file:///android_asset/www/index.html");
+        webView.loadUrl(HOME_URL);
 
         IntentFilter filter = new IntentFilter("com.istqb.ctfl.EXEC_JS");
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
@@ -79,26 +80,62 @@ public class MainActivity extends Activity {
         super.onDestroy();
     }
 
+    private void goBackOrHome() {
+        if (webView.canGoBack()) {
+            webView.goBack();
+        } else {
+            webView.loadUrl(HOME_URL);
+        }
+    }
+
     @Override
     public void onBackPressed() {
         if (webView == null) { super.onBackPressed(); return; }
 
         webView.evaluateJavascript(
-            "(function(){ return window.__inReviewMode ? 1 : 0; })()",
+            "(function(){"
+            + " if(window.__inReviewMode){"
+            + "   window.__inReviewMode=false;"
+            + "   var dash=document.getElementById('stats-dashboard');"
+            + "   var app=document.getElementById('app');"
+            + "   if(dash){"
+            + "     if(app) app.innerHTML='';"
+            + "     dash.style.display='';"
+            + "     if(typeof ExamStats!=='undefined'&&ExamStats.renderStatsDashboard) ExamStats.renderStatsDashboard();"
+            + "     return 'review';"
+            + "   }"
+            + "   return 'review-nodash';"
+            + " }"
+            + " try{"
+            + "   if(typeof ExamEngine!=='undefined'&&ExamEngine.getState){"
+            + "     var s=ExamEngine.getState();"
+            + "     if(s&&s.configDone&&!s.submitted) return 'exam';"
+            + "   }"
+            + " }catch(e){}"
+            + " return 'other';"
+            + "})()",
             value -> {
-                int reviewMode = value != null ? Integer.parseInt(value) : 0;
-                if (reviewMode == 1) {
-                    // Sair do modo review - voltar ao dashboard
-                    if (webView.canGoBack()) {
-                        webView.goBack();
+                if (value != null && value.contains("review") && !value.contains("nodash")) {
+                    return;
+                }
+                if (value != null && (value.contains("nodash") || value.contains("exam"))) {
+                    if (value.contains("exam")) {
+                        showExitConfirmation();
                     } else {
-                        finish();
+                        goBackOrHome();
                     }
                     return;
                 }
-
-                // Durante o exame: back button jà implementado com double-tap-to-exit
-                // Apenas volta ao ecrã principal, nÃo mostra confirmaÃÏÃo
+                goBackOrHome();
             });
+    }
+
+    private void showExitConfirmation() {
+        new AlertDialog.Builder(this)
+            .setTitle("Sair do exame")
+            .setMessage("Tem certeza que deseja sair do exame em andamento? Suas respostas não serão salvas.")
+            .setPositiveButton("Sair", (dialog, which) -> goBackOrHome())
+            .setNegativeButton("Cancelar", null)
+            .show();
     }
 }
