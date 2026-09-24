@@ -77,6 +77,8 @@ const ExamGrading = (function () {
         note: notes ? (notes[i] || '') : '',
         explanation: q.explanation || '',
         whyWrong: q.whyWrong || '',
+        correctFeedback: q.correctFeedback || '',
+        incorrectFeedback: q.incorrectFeedback || {},
         optionExplanations: q.optionExplanations || {},
         chapter: q.chapter || '',
         section: q.section || '',
@@ -388,10 +390,16 @@ const ExamGrading = (function () {
 
       pushBold('Why?');
       push(d.explanation || 'Not specified in the official CTFL v4.0.1 syllabus.');
-      if (!d.isCorrect && d.whyWrong) {
+      if (d.isCorrect && d.correctFeedback) {
         parts.push('');
-        pushBold('Why your answer is incorrect:');
-        push(d.whyWrong);
+        push(d.correctFeedback);
+      } else if (!d.isCorrect) {
+        var wrongFb = (d.incorrectFeedback && d.selectedAnswer && d.incorrectFeedback[d.selectedAnswer]) || d.whyWrong || '';
+        if (wrongFb) {
+          parts.push('');
+          pushBold('Why your answer is incorrect:');
+          push(wrongFb);
+        }
       }
       ['A', 'B', 'C', 'D'].forEach(function (letter) {
         parts.push('');
