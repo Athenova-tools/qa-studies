@@ -84,21 +84,35 @@ public class MainActivity extends Activity {
         if (webView == null) { super.onBackPressed(); return; }
 
         webView.evaluateJavascript(
-            "(function(){ return window.__inReviewMode ? 1 : 0; })()",
+            "(function(){"
+            + " if(window.__inReviewMode){"
+            + "   window.__inReviewMode=false;"
+            + "   var dash=document.getElementById('stats-dashboard');"
+            + "   var app=document.getElementById('app');"
+            + "   if(dash){"
+            + "     if(app) app.innerHTML='';"
+            + "     dash.style.display='';"
+            + "     if(typeof ExamStats!=='undefined'&&ExamStats.renderStatsDashboard) ExamStats.renderStatsDashboard();"
+            + "     return 'review';"
+            + "   }"
+            + " }"
+            + " return 'nreview';"
+            + "})()",
             value -> {
-                int reviewMode = value != null ? Integer.parseInt(value) : 0;
-                if (reviewMode == 1) {
-                    // Sair do modo review - voltar ao dashboard
-                    if (webView.canGoBack()) {
-                        webView.goBack();
-                    } else {
-                        finish();
-                    }
+                if (value != null && value.contains("review") && !value.contains("nreview")) {
                     return;
                 }
-
-                // Durante o exame: back button j\xE1 implementado com double-tap-to-exit
-                // Apenas volta ao ecrã principal, n\xE3o mostra confirma\xE7\xE7\xE3o
+                if (webView.canGoBack()) {
+                    webView.goBack();
+                } else {
+                    long now = System.currentTimeMillis();
+                    if (now - lastBackPress < 2000) {
+                        finish();
+                    } else {
+                        lastBackPress = now;
+                        Toast.makeText(MainActivity.this, "Press back again to exit", Toast.LENGTH_SHORT).show();
+                    }
+                }
             });
     }
 }
