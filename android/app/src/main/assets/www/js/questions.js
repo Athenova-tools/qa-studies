@@ -4512,18 +4512,18 @@ window.questionSets = {
                 "D": "2"
             },
             "correctAnswer": "D",
-            "explanation": "There are four executable statements: PRINT 'Positive', PRINT 'Non-positive', PRINT 'Positive Y'. However, PRINT 'Non-positive' and PRINT 'Positive' are mutually exclusive (only one executes depending on x). To cover all statements, we need: Test 1 (x > 0, y > 0) covering 'Positive' and 'Positive Y', and Test 2 (x <= 0) covering 'Non-positive'.",
-            "correctFeedback": "✅ Correct: Four is also more than necessary for statement coverage.",
+            "explanation": "There are three executable PRINT statements: PRINT 'Positive', PRINT 'Non-positive', and PRINT 'Positive Y'. 'Positive' and 'Non-positive' are mutually exclusive (only one executes, depending on x). Test 1 (x > 0, y > 0) covers 'Positive' and 'Positive Y'. Test 2 (x <= 0) covers 'Non-positive'. Two test cases are enough to execute every statement at least once.",
+            "correctFeedback": "✅ Correct: Two test cases: one with x>0 and y>0, another with x<=0 (y value can be anything).",
             "incorrectFeedback": {
-                "A": "❌ Incorrect: Two test cases: one with x>0 and y>0, another with x<=0 (y value can be anything).",
-                "B": "❌ Incorrect: One test case cannot cover both branches of the IF-ELSE.",
-                "C": "❌ Incorrect: Three is more than the minimum needed."
+                "A": "❌ Incorrect: Three is more than the minimum needed.",
+                "B": "❌ Incorrect: Four is also more than necessary for statement coverage.",
+                "C": "❌ Incorrect: One test case cannot cover both branches of the IF-ELSE."
             },
             "optionExplanations": {
-                "A": "Two test cases: one with x>0 and y>0, another with x<=0 (y value can be anything).",
-                "B": "One test case cannot cover both branches of the IF-ELSE.",
-                "C": "Three is more than the minimum needed.",
-                "D": "Four is also more than necessary for statement coverage."
+                "A": "Three is more than the minimum needed.",
+                "B": "Four is also more than necessary for statement coverage.",
+                "C": "One test case cannot cover both branches of the IF-ELSE.",
+                "D": "Two test cases: one with x>0 and y>0, another with x<=0 (y value can be anything)."
             },
             "chapter": 4,
             "section": "4.3",
@@ -5698,17 +5698,17 @@ window.questionSets = {
             },
             "correctAnswer": "D",
             "explanation": "The valid partitions are: (0 to 1kg], (1kg to 5kg], (5kg to 10kg], and (10kg to +infinity). Each partition represents a range of inputs that are treated equivalently by the system, producing the same shipping cost.",
-            "correctFeedback": "✅ Correct: Two would miss the intermediate weight ranges.",
+            "correctFeedback": "✅ Correct: Four distinct input ranges produce four distinct outputs.",
             "incorrectFeedback": {
-                "A": "❌ Incorrect: Four distinct input ranges produce four distinct outputs.",
+                "A": "❌ Incorrect: Two would miss the intermediate weight ranges.",
                 "B": "❌ Incorrect: Three partitions would miss one of the defined weight ranges.",
                 "C": "❌ Incorrect: Five would include an extra partition not defined."
             },
             "optionExplanations": {
-                "A": "Four distinct input ranges produce four distinct outputs.",
+                "A": "Two would miss the intermediate weight ranges.",
                 "B": "Three partitions would miss one of the defined weight ranges.",
                 "C": "Five would include an extra partition not defined.",
-                "D": "Two would miss the intermediate weight ranges."
+                "D": "Four distinct input ranges produce four distinct outputs."
             },
             "chapter": 4,
             "section": "4.2",
@@ -9826,14 +9826,14 @@ window.questionSets = {
             "explanation": "There are two statements to cover: z = x + y (inside the if block) and z = 0 (inside the else block). To execute both statements, we need two test cases: one where the condition (x > 0 && y < 10) is true, and one where it is false.",
             "correctFeedback": "✅ Correct: Two test cases cover both the true and false branches, executing all statements.",
             "incorrectFeedback": {
-                "A": "❌ Incorrect: One test case covers only one branch (50% statement coverage).",
+                "A": "❌ Incorrect: Four is also more than necessary.",
                 "B": "❌ Incorrect: Three is more than the minimum needed.",
-                "C": "❌ Incorrect: Four is also more than necessary."
+                "C": "❌ Incorrect: One test case covers only one branch (50% statement coverage)."
             },
             "optionExplanations": {
-                "A": "One test case covers only one branch (50% statement coverage).",
+                "A": "Four is also more than necessary.",
                 "B": "Three is more than the minimum needed.",
-                "C": "Four is also more than necessary.",
+                "C": "One test case covers only one branch (50% statement coverage).",
                 "D": "Two test cases cover both the true and false branches, executing all statements."
             },
             "chapter": 4,
@@ -10153,19 +10153,19 @@ window.questionSets = {
                 "C": "2",
                 "D": "3"
             },
-            "correctAnswer": "B",
-            "explanation": "There are three branch outcomes: the outer if (a > 5) true/false, and the inner if (b < 10) true/false. To cover all three decision outcomes, we need test case 1 (a > 5 and b < 10), test case 2 (a > 5 and b >= 10), and test case 3 (a <= 5).",
-            "correctFeedback": "✅ Correct: One test case covers only one path through the nested conditions.",
+            "correctAnswer": "D",
+            "explanation": "There are three branch outcomes to cover: the outer IF (a > 5) true/false, and the inner IF (b < 10) true/false (only reachable when the outer condition is true). Test 1 (a > 5, b < 10) covers outer-true + inner-true. Test 2 (a > 5, b >= 10) covers outer-true + inner-false. Test 3 (a <= 5) covers outer-false. The inner branches cannot be reached when the outer condition is false, so these 3 test cases are the minimum needed for 100% branch coverage.",
+            "correctFeedback": "✅ Correct: Three test cases cover: outer true + inner true, outer true + inner false, and outer false.",
             "incorrectFeedback": {
-                "A": "❌ Incorrect: Three test cases cover: outer true + inner true, outer true + inner false, and outer false.",
-                "C": "❌ Incorrect: Two test cases cannot cover all three branch outcomes.",
-                "D": "❌ Incorrect: Four would also work but is not the minimum."
+                "A": "❌ Incorrect: Four would also work but is not the minimum.",
+                "B": "❌ Incorrect: One test case covers only one path through the nested conditions.",
+                "C": "❌ Incorrect: Two test cases cannot cover all three branch outcomes."
             },
             "optionExplanations": {
-                "A": "Three test cases cover: outer true + inner true, outer true + inner false, and outer false.",
+                "A": "Four would also work but is not the minimum.",
                 "B": "One test case covers only one path through the nested conditions.",
                 "C": "Two test cases cannot cover all three branch outcomes.",
-                "D": "Four would also work but is not the minimum."
+                "D": "Three test cases cover: outer true + inner true, outer true + inner false, and outer false."
             },
             "chapter": 4,
             "section": "4.3",
@@ -12226,19 +12226,19 @@ window.questionSets = {
                 "C": "2",
                 "D": "3"
             },
-            "correctAnswer": "B",
-            "explanation": "There are five statements: print('DANGER...'), soundAlarm(), print('WARNING...'), and print('Temperature...') appears in all paths. To cover both print statements inside the two if blocks, we need Test 1 (temperature > 100, e.g., 150), Test 2 (temperature < 0, e.g., -10), and Test 3 (temperature between 0 and 100, e.g., 50) to ensure the last print executes when neither condition is true.",
-            "correctFeedback": "✅ Correct: Four is more than the minimum needed.",
+            "correctAnswer": "C",
+            "explanation": "There are four executable statements: print('DANGER: HIGH TEMPERATURE'), soundAlarm(), print('WARNING: LOW TEMPERATURE'), and print('Temperature reading complete.'). The last print is unconditional and runs in every test case, so it needs no dedicated test of its own. Test 1 (temperature > 100, e.g. 150) covers the DANGER print, soundAlarm(), and the final print. Test 2 (temperature < 0, e.g. -10) covers the WARNING print and the final print again. These 2 test cases execute every statement at least once.",
+            "correctFeedback": "✅ Correct: Two test cases are enough: one with temperature > 100 (covers the DANGER print and soundAlarm()) and one with temperature < 0 (covers the WARNING print). The unconditional final print ('Temperature reading complete.') is covered by either test, since it sits outside both IF blocks.",
             "incorrectFeedback": {
-                "A": "❌ Incorrect: Two test cases could miss the normal temperature path where both if conditions are false.",
-                "C": "❌ Incorrect: Three test cases cover: high temp path, low temp path, and normal temp path (all statements).",
-                "D": "❌ Incorrect: One test case covers at most one branch, missing other statements."
+                "A": "❌ Incorrect: Four test cases are more than the minimum needed; two are enough for full statement coverage.",
+                "B": "❌ Incorrect: A single test case cannot satisfy both temperature > 100 and temperature < 0 at the same time, so it cannot execute both conditional PRINT statements.",
+                "D": "❌ Incorrect: Three test cases would also achieve statement coverage, but the third case (neither condition true) is not required here — it would only be needed for full branch/decision coverage of both IF statements, not for the statement coverage asked about."
             },
             "optionExplanations": {
-                "A": "Two test cases could miss the normal temperature path where both if conditions are false.",
-                "B": "Four is more than the minimum needed.",
-                "C": "Three test cases cover: high temp path, low temp path, and normal temp path (all statements).",
-                "D": "One test case covers at most one branch, missing other statements."
+                "A": "Four test cases are more than the minimum needed; two are enough for full statement coverage.",
+                "B": "A single test case cannot satisfy both temperature > 100 and temperature < 0 at the same time, so it cannot execute both conditional PRINT statements.",
+                "C": "Two test cases are enough: one with temperature > 100 (covers the DANGER print and soundAlarm()) and one with temperature < 0 (covers the WARNING print). The unconditional final print ('Temperature reading complete.') is covered by either test, since it sits outside both IF blocks.",
+                "D": "Three test cases would also achieve statement coverage, but the third case (neither condition true) is not required here — it would only be needed for full branch/decision coverage of both IF statements, not for the statement coverage asked about."
             },
             "chapter": 4,
             "section": "4.3",
@@ -12337,19 +12337,19 @@ window.questionSets = {
                 "C": "4",
                 "D": "1"
             },
-            "correctAnswer": "B",
-            "explanation": "There are two decision points. The first if (with OR condition) has two outcomes (true/false). The second if has two outcomes (true/false). To achieve 100% branch coverage: Test 1 (a > 0, c == 10) covers first IF true and second IF true. Test 2 (a > 0, c != 10) covers first IF true and second IF false. Test 3 (a <= 0, b >= 5, any c) covers first IF false. So 3 test cases.",
-            "correctFeedback": "✅ Correct: Two test cases cannot cover the false outcome of the first IF if both have a > 0.",
+            "correctAnswer": "A",
+            "explanation": "There are two independent decision points, each with a true/false outcome: the first IF (a > 0 OR b < 5) and the second IF (c == 10). Because the variables involved (a, b, c) are independent of each other, a single test case can be built to hit any combination of the two decisions' outcomes. Test 1 (a > 0, c == 10) covers first-IF-true and second-IF-true. Test 2 (a <= 0, b >= 5, c != 10) covers first-IF-false and second-IF-false. 2 test cases are therefore the minimum needed for 100% branch coverage.",
+            "correctFeedback": "✅ Correct: Two test cases are enough, because the two decisions are independent: Test 1 (a > 0, c == 10) covers first-IF-true and second-IF-true. Test 2 (a <= 0, b >= 5, c != 10) covers first-IF-false and second-IF-false. All four branch outcomes are exercised in 2 test cases.",
             "incorrectFeedback": {
-                "A": "❌ Incorrect: One test case covers at most 2 branch outcomes.",
-                "C": "❌ Incorrect: Three test cases cover all 4 branch outcomes.",
-                "D": "❌ Incorrect: Four is more than the minimum needed."
+                "B": "❌ Incorrect: Three test cases work but are not the minimum: since the two decisions use independent variables, their true/false outcomes can be paired up within just 2 test cases.",
+                "C": "❌ Incorrect: Four test cases would also achieve branch coverage but are more than necessary.",
+                "D": "❌ Incorrect: One test case can cover at most one outcome per decision (2 of the 4 branch outcomes), so it cannot achieve full branch coverage on its own."
             },
             "optionExplanations": {
-                "A": "One test case covers at most 2 branch outcomes.",
-                "B": "Two test cases cannot cover the false outcome of the first IF if both have a > 0.",
-                "C": "Three test cases cover all 4 branch outcomes.",
-                "D": "Four is more than the minimum needed."
+                "A": "Two test cases are enough, because the two decisions are independent: Test 1 (a > 0, c == 10) covers first-IF-true and second-IF-true. Test 2 (a <= 0, b >= 5, c != 10) covers first-IF-false and second-IF-false. All four branch outcomes are exercised in 2 test cases.",
+                "B": "Three test cases work but are not the minimum: since the two decisions use independent variables, their true/false outcomes can be paired up within just 2 test cases.",
+                "C": "Four test cases would also achieve branch coverage but are more than necessary.",
+                "D": "One test case can cover at most one outcome per decision (2 of the 4 branch outcomes), so it cannot achieve full branch coverage on its own."
             },
             "chapter": 4,
             "section": "4.3",
