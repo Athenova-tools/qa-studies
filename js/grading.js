@@ -342,8 +342,6 @@ const ExamGrading = (function () {
 
       pushBold('Why?');
       push(d.explanation || 'Not specified in the official CTFL v4.0.1 syllabus.');
-      // Note: Correct Answer is already displayed in the question status area (green)
-      // It should NOT be repeated here to avoid duplication
       if (!d.isCorrect && d.whyWrong) {
         parts.push('');
         pushBold('Why your answer is incorrect:');
