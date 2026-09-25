@@ -127,33 +127,19 @@ public class MainActivity extends Activity {
             });
     }
 
-    private void exitReviewToAttempts() {
-        webView.evaluateJavascript(
-            "(function(){"
-            + " window.__inReviewMode=false;"
-            + " var dash=document.getElementById('stats-dashboard');"
-            + " var app=document.getElementById('app');"
-            + " if(dash){"
-            + "   if(app) app.innerHTML='';"
-            + "   dash.style.display='';"
-            + "   if(typeof ExamStats!=='undefined'&&ExamStats.renderStatsDashboard) ExamStats.renderStatsDashboard();"
-            + "   return 'ok';"
-            + " }"
-            + " return 'nodash';"
-            + "})()",
-            value -> {
-                if (value == null || value.contains("nodash")) {
-                    webView.loadUrl(ATTEMPTS_URL);
-                }
-            });
+    private void navigateAwayFromReview(String url) {
+        webView.clearHistory();
+        webView.evaluateJavascript("window.__inReviewMode = false;", null);
+        webView.loadUrl(url);
+        lastBackPress = 0;
     }
 
     private void showReviewNavDialog() {
         new AlertDialog.Builder(this)
             .setTitle("Voltar")
             .setMessage("Para onde pretende voltar?")
-            .setPositiveButton("Back to Home", (dialog, which) -> webView.loadUrl(HOME_URL))
-            .setNegativeButton("Back to Attempts", (dialog, which) -> exitReviewToAttempts())
+            .setPositiveButton("Back to Home", (dialog, which) -> navigateAwayFromReview(HOME_URL))
+            .setNegativeButton("Back to Attempts", (dialog, which) -> navigateAwayFromReview(ATTEMPTS_URL))
             .setNeutralButton("Cancelar", null)
             .show();
     }
