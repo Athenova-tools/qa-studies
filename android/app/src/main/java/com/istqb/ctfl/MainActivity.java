@@ -21,6 +21,7 @@ import android.widget.Toast;
 public class MainActivity extends Activity {
     private WebView webView;
     private long lastBackPress = 0;
+    private boolean clearHistoryOnNextPage = false;
     private static final String TAG = "ISTQB_WV";
     private static final String HOME_URL = "file:///android_asset/www/index.html";
     private static final String ATTEMPTS_URL = HOME_URL + "?goto=attempts#stats-dashboard";
@@ -63,7 +64,18 @@ public class MainActivity extends Activity {
                 return true;
             }
         });
-        webView.setWebViewClient(new WebViewClient(){ public void onPageFinished(WebView v,String u){super.onPageFinished(v,u);v.evaluateJavascript(BANNER,null);}});
+        webView.setWebViewClient(new WebViewClient(){
+            @Override
+            public void onPageFinished(WebView v, String u) {
+                super.onPageFinished(v, u);
+                if (clearHistoryOnNextPage) {
+                    clearHistoryOnNextPage = false;
+                    v.clearHistory();
+                    Log.d(TAG, "History cleared after load: " + u);
+                }
+                v.evaluateJavascript(BANNER, null);
+            }
+        });
         setContentView(webView);
         webView.loadUrl(HOME_URL);
 
@@ -93,6 +105,16 @@ public class MainActivity extends Activity {
     public void onBackPressed() {
         if (webView == null) { super.onBackPressed(); return; }
 
+        String currentUrl = webView.getUrl();
+        Log.d(TAG, "Back press on: " + currentUrl);
+
+        /* Main screen (Home / Attempts): never goBack(), run the exit routine */
+        if (currentUrl != null && currentUrl.contains("index.html")) {
+            Log.d(TAG, "branch=home-exit");
+            handleExitBackPress();
+            return;
+        }
+
         webView.evaluateJavascript(
             "(function(){"
             + " if(window.__inReviewMode||document.querySelector('.results-list')) return 'review';"
@@ -106,32 +128,41 @@ public class MainActivity extends Activity {
             + "})()",
             value -> {
                 if (value != null && value.contains("review")) {
+                    Log.d(TAG, "branch=review");
                     showReviewNavDialog();
                     return;
                 }
                 if (value != null && value.contains("exam")) {
+                    Log.d(TAG, "branch=exam");
                     showExitConfirmation();
                     return;
                 }
                 if (webView.canGoBack()) {
+                    Log.d(TAG, "branch=go-back");
                     webView.goBack();
                     return;
                 }
-                long now = System.currentTimeMillis();
-                if (now - lastBackPress < 2000) {
-                    finish();
-                } else {
-                    lastBackPress = now;
-                    Toast.makeText(MainActivity.this, "Press back again to exit", Toast.LENGTH_SHORT).show();
-                }
+                Log.d(TAG, "branch=exit-timer");
+                handleExitBackPress();
             });
     }
 
+    private void handleExitBackPress() {
+        long now = System.currentTimeMillis();
+        if (now - lastBackPress < 2000) {
+            finish();
+        } else {
+            lastBackPress = now;
+            Toast.makeText(MainActivity.this, "Press back again to exit", Toast.LENGTH_SHORT).show();
+        }
+    }
+
     private void navigateAwayFromReview(String url) {
+        clearHistoryOnNextPage = true;
         webView.clearHistory();
-        webView.evaluateJavascript("window.__inReviewMode = false;", null);
         webView.loadUrl(url);
         lastBackPress = 0;
+        Log.d(TAG, "Navigate away from review -> " + url);
     }
 
     private void showReviewNavDialog() {
