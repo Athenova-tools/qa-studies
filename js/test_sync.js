@@ -121,6 +121,7 @@ async function ok(name, fn) {
   } catch (e) {
     console.log('  FAIL  ' + name);
     console.log('        ' + (e && e.message ? e.message : e));
+    if (e && e.stack) console.log(e.stack.split('\n').slice(0, 5).join('\n'));
     process.exitCode = 1;
   }
 }
@@ -548,6 +549,40 @@ async function main() {
     assert.strictEqual(ES.attemptSortValue({ examId: 4 }, 'exam'), 4);
     assert(ES.attemptSortValue({ passed: true }, 'result') > ES.attemptSortValue({ passed: false }, 'result'));
     assert.strictEqual(ES.attemptSortValue({ percentage: '83%' }, 'percentage'), 83);
+  });
+
+  /* ---- T15: grelha do study plan + click abre Study Slides com backTo ---- */
+  await ok('study plan em grelha e click abre slides da chapter com backTo', () => {
+    const prevLocation = global.location;
+    global.location = { href: 'review.html?id=7', search: '?id=7' };
+    try {
+      const mk = (subsection, lo) => ({
+        subsection, learningObjective: lo, isCorrect: false,
+        question: 'Q', options: ['A', 'B', 'C', 'D'], selectedAnswer: 'A', correctAnswer: 'B',
+        optionExplanations: {},
+      });
+      const results = { details: [mk('1.4.1', 'FL-1.4.1'), mk('3.2.1', 'FL-3.2.1')] };
+      const el = EG.generateResultsHTML(results);
+      const els = [];
+      (function walk(e) { els.push(e); (e.children || []).forEach(walk); })(el);
+      const grids = els.filter(e => e.className === 'study-plan__grid');
+      assert.strictEqual(grids.length, 1, 'grelha study-plan__grid presente');
+      const items = grids[0].children;
+      assert.strictEqual(items.length, 2, 'dois subsections na grelha');
+      assert.strictEqual(items[0].role, 'button', 'item com role button');
+      assert.strictEqual(typeof items[0].on_click, 'function', 'item clicavel');
+      items[0].on_click({});
+      assert.strictEqual(global.location.href,
+        'slides/chapter1.html?backTo=review.html%3Fid%3D7#1.4',
+        'click navega para chapter1 com backTo e ancora 1.4');
+      global.location.href = 'review.html?id=7'; /* simula regresso ao review */
+      items[1].on_click({});
+      assert.strictEqual(global.location.href,
+        'slides/chapter3.html?backTo=review.html%3Fid%3D7#3.2',
+        'click subsection 3.2.1 abre chapter3 ancora 3.2');
+    } finally {
+      if (prevLocation === undefined) delete global.location; else global.location = prevLocation;
+    }
   });
 
   console.log('');

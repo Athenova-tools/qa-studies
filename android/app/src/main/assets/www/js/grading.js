@@ -214,6 +214,15 @@ const ExamGrading = (function () {
     });
   }
 
+  function openStudySlides(subsection) {
+    var parts = String(subsection).split('.');
+    var chapter = parseInt(parts[0], 10);
+    if (!chapter || chapter < 1 || chapter > 6) chapter = 1;
+    var section = parts.slice(0, 2).join('.');
+    window.location.href = 'slides/chapter' + chapter + '.html?backTo=' +
+      encodeURIComponent(window.location.href) + '#' + section;
+  }
+
   /* =================================================================
      Generate Results HTML
      ================================================================= */
@@ -301,21 +310,30 @@ const ExamGrading = (function () {
       planCard.appendChild(createEl('div', 'study-plan__subtitle', {
         text: 'Review these syllabus areas in ascending order, based on your incorrect and unanswered questions.',
       }));
+      var planGrid = createEl('div', 'study-plan__grid');
       studyPlan.forEach(function (item) {
         var row = createEl('div', 'study-plan__item');
-        row.appendChild(createEl('div', 'study-plan__code', { text: item.subsection }));
-        var infoCol = createEl('div', 'study-plan__info');
-        infoCol.appendChild(createEl('div', 'study-plan__count', {
-          text: item.count + (item.count === 1 ? ' question to review' : ' questions to review'),
+        row.setAttribute('role', 'button');
+        row.setAttribute('tabindex', '0');
+        var top = createEl('div', 'study-plan__top');
+        top.appendChild(createEl('span', 'study-plan__code', { text: item.subsection }));
+        top.appendChild(createEl('span', 'study-plan__count', {
+          text: item.count + (item.count === 1 ? ' question' : ' questions'),
         }));
+        top.appendChild(createEl('span', 'study-plan__go', { text: '→' }));
+        row.appendChild(top);
         if (item.objectives.length) {
-          infoCol.appendChild(createEl('div', 'study-plan__los', {
+          row.appendChild(createEl('div', 'study-plan__los', {
             text: 'Objectives: ' + item.objectives.join(', '),
           }));
         }
-        row.appendChild(infoCol);
-        planCard.appendChild(row);
+        row.addEventListener('click', function () { openStudySlides(item.subsection); });
+        row.addEventListener('keydown', function (e) {
+          if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openStudySlides(item.subsection); }
+        });
+        planGrid.appendChild(row);
       });
+      planCard.appendChild(planGrid);
       list.appendChild(planCard);
     }
 
@@ -607,6 +625,7 @@ const ExamGrading = (function () {
     calculateResults: calculateResults,
     generateResultsHTML: generateResultsHTML,
     buildStudyPlan: buildStudyPlan,
+    openStudySlides: openStudySlides,
     rebuildDetails: rebuildDetails,
     PASS_THRESHOLD: PASS_THRESHOLD,
   };
