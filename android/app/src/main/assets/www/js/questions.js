@@ -627,8 +627,8 @@ window.questionSets = {
                 "early testing",
                 "SDLC"
             ],
-            "examTip": "Memorize all seven testing principles for the exam.",
-            "memoryAid": "7 principles: Early, Exhaustive impossible, Defect clustering, Pesticide paradox, Context dependent, Absence-of-errors fallacy, Testing shows presence."
+            "examTip": "Memorise all seven testing principles for the exam. Note that principle 5 is \"Tests wear out\" in CTFL v4.0.1.",
+            "memoryAid": "7 principles: shows presence of defects; exhaustive testing impossible; early testing; defects cluster together; tests wear out; context dependent; absence-of-defects fallacy."
         },
         {
             "id": "Q083",
@@ -854,39 +854,42 @@ window.questionSets = {
         },
         {
             "id": "Q242",
-            "statement": "A mistaken assumption in a design document later leads to incorrect code. What is the mistaken assumption called?",
+            "statement": "A designer forms a mistaken assumption about how a component should behave and writes that incorrect assumption into the design document. The flawed statement now sitting in the design document is best described as:",
             "options": {
-                "A": "Test condition",
-                "B": "Coverage item",
-                "C": "Error",
-                "D": "Failure"
+                "A": "An error, because an error is a human action that produces an incorrect result",
+                "B": "A defect, because it is an imperfection in a work product",
+                "C": "A failure, because it is incorrect behaviour observed during execution",
+                "D": "A root cause, because it is the fundamental reason the problem occurred"
             },
-            "correctAnswer": "C",
-            "explanation": "An error is a human mistake that may introduce a defect into a work product.",
-            "correctFeedback": "✅ Correct: An error is a human mistake that may introduce a defect into a work product.",
+            "correctAnswer": "B",
+            "explanation": "The syllabus separates four concepts: humans make errors, errors produce defects, and defects may result in failures. An error is the human action or mistake — here, the designer forming the mistaken assumption. A defect is an imperfection in a work product — here, the incorrect assumption as written into the design document, which the syllabus explicitly lists as a place where defects can be found. A failure would only appear when the defective code is executed and the system does not do what it should. A root cause is the fundamental reason a problem occurred, which is a deeper question identified through root cause analysis, not the flaw itself.",
+            "correctFeedback": "✅ Correct: the flaw recorded in the design document is a defect. The designer forming the mistaken assumption is the error that produced it.",
             "incorrectFeedback": {
-                "A": "❌ Incorrect: 'Test condition' is incorrect. An error is a human mistake that introduces a defect. A test condition is a testable aspect; a coverage item measures test thoroughness; a failure is the observable incorrect behavior - none of these describe the mistaken assumption itself.",
-                "B": "❌ Incorrect: 'Coverage item' is incorrect. An error is a human mistake that introduces a defect. A test condition is a testable aspect; a coverage item measures test thoroughness; a failure is the observable incorrect behavior - none of these describe the mistaken assumption itself.",
-                "D": "❌ Incorrect: 'Failure' is observable incorrect behavior during execution. This scenario requires error, which is a human mistake that may introduce a defect."
+                "A": "❌ Incorrect: The error is the designer's human action of forming the mistaken assumption, not the flawed content sitting in the design document.",
+                "C": "❌ Incorrect: A failure is the externally observable incorrect behaviour when a defect is executed. No execution is described here.",
+                "D": "❌ Incorrect: A root cause is the fundamental reason a problem occurred, identified through root cause analysis — it is not the flaw itself."
             },
             "optionExplanations": {
-                "A": "'Test condition' is incorrect. An error is a human mistake that introduces a defect. A test condition is a testable aspect; a coverage item measures test thoroughness; a failure is the observable incorrect behavior - none of these describe the mistaken assumption itself.",
-                "B": "'Coverage item' is incorrect. An error is a human mistake that introduces a defect. A test condition is a testable aspect; a coverage item measures test thoroughness; a failure is the observable incorrect behavior - none of these describe the mistaken assumption itself.",
-                "C": "An error is a human mistake that may introduce a defect into a work product.",
-                "D": "'Failure' is observable incorrect behavior during execution. This scenario requires error, which is a human mistake that may introduce a defect."
+                "A": "The error is the designer's human action of forming the mistaken assumption, not the flawed content sitting in the design document.",
+                "B": "The flaw recorded in the design document is a defect. The designer forming the mistaken assumption is the error that produced it.",
+                "C": "A failure is the externally observable incorrect behaviour when a defect is executed. No execution is described here.",
+                "D": "A root cause is the fundamental reason a problem occurred, identified through root cause analysis — it is not the flaw itself."
             },
             "chapter": 1,
-            "section": "1.1",
-            "subsection": "1.1.1",
-            "learningObjective": "FL-1.1.1",
-            "kLevel": "K1",
-            "difficulty": "Easy",
+            "section": "1.2",
+            "subsection": "1.2.3",
+            "learningObjective": "FL-1.2.3",
+            "kLevel": "K2",
+            "difficulty": "Medium",
             "keywords": [
                 "error",
-                "defect"
+                "defect",
+                "failure",
+                "root cause",
+                "work product"
             ],
-            "examTip": "Human mistake equals error.",
-            "memoryAid": "People make errors."
+            "examTip": "Error = the human action. Defect = the flaw in the work product. Failure = what you observe when the defect runs. Ask which one the scenario names.",
+            "memoryAid": "Error lives in a person, defect lives in a document, failure lives in the running system."
         },
         {
             "id": "Q289",
@@ -963,40 +966,41 @@ window.questionSets = {
         },
         {
             "id": "Q088",
-            "statement": "Which statement about independent testing is true?",
+            "statement": "Which statement about independence of testing is correct?",
             "options": {
                 "A": "Independent testing should always be performed by an external organization",
-                "B": "Higher levels of independence typically find more defects but may introduce communication challenges",
-                "C": "Independence eliminates the need for collaboration between testers and developers",
+                "B": "A certain degree of independence makes the tester more effective at recognising different kinds of failures and defects, but excessive independence can introduce drawbacks such as communication problems",
+                "C": "Independence removes the need for collaboration between testers and developers",
                 "D": "Testing by the original developer provides the highest level of independence"
             },
             "correctAnswer": "B",
-            "explanation": "Higher levels of independence can increase objectivity and find different types of defects, but may introduce communication challenges. Independence provides information to support stakeholder decisions about quality, but there is a trade-off between independence and collaboration.",
-            "correctFeedback": "✅ Correct: Greater independence improves defect detection but can reduce collaboration and increase communication overhead.",
+            "explanation": "The syllabus states that a certain degree of independence makes the tester more effective at finding defects, because the author and the tester have different cognitive biases. The main benefit is that independent testers are likely to recognise different kinds of failures and defects, and an independent tester can verify, challenge or disprove assumptions made by stakeholders. Independence also has drawbacks: testers may become isolated from the development team, leading to communication problems or an adversarial relationship, and developers may lose a sense of responsibility for quality. For most projects it is best to carry out testing with multiple levels of independence rather than only the highest one.",
+            "correctFeedback": "✅ Correct: Independence brings different perspectives and recognises different kinds of failures, but too much independence introduces drawbacks such as communication problems.",
             "incorrectFeedback": {
-                "A": "❌ Incorrect: Independence exists on a spectrum; external testing is the highest level but not always required.",
-                "C": "❌ Incorrect: Independence does not eliminate the need for communication and collaboration.",
-                "D": "❌ Incorrect: Testing by the original developer lacks independence entirely."
+                "A": "❌ Incorrect: Independence is a spectrum from no independence to very high independence. For most projects, testing with multiple levels of independence is best, not only external testing.",
+                "C": "❌ Incorrect: One of the documented drawbacks of independence is precisely a lack of collaboration and communication problems.",
+                "D": "❌ Incorrect: Testing by the author provides no independence at all — it is the lowest level on the spectrum."
             },
             "optionExplanations": {
-                "A": "Independence exists on a spectrum; external testing is the highest level but not always required.",
-                "B": "Greater independence improves defect detection but can reduce collaboration and increase communication overhead.",
-                "C": "Independence does not eliminate the need for communication and collaboration.",
-                "D": "Testing by the original developer lacks independence entirely."
+                "A": "Independence is a spectrum from no independence to very high independence. For most projects, testing with multiple levels of independence is best, not only external testing.",
+                "B": "Independence brings different perspectives and recognises different kinds of failures, but too much independence introduces drawbacks such as communication problems.",
+                "C": "One of the documented drawbacks of independence is precisely a lack of collaboration and communication problems.",
+                "D": "Testing by the author provides no independence at all — it is the lowest level on the spectrum."
             },
             "chapter": 1,
             "section": "1.5",
-            "subsection": "1.5.2",
-            "learningObjective": "FL-1.5.2",
-            "kLevel": "K1",
+            "subsection": "1.5.3",
+            "learningObjective": "FL-1.5.3",
+            "kLevel": "K2",
             "difficulty": "Medium",
             "keywords": [
-                "independence",
-                "test organization",
-                "collaboration"
+                "independence of testing",
+                "benefits and drawbacks",
+                "test levels of independence",
+                "whole team approach"
             ],
-            "examTip": "Independence levels range from same-team to external. More independence = more objectivity, but also more distance.",
-            "memoryAid": "Independence = objectivity vs. distance trade-off."
+            "examTip": "Independence is about different KINDS of findings, not a higher defect count. Always weigh it against the collaboration drawbacks.",
+            "memoryAid": "Independence = different perspective finds different kinds of problems, but distance costs collaboration."
         },
         {
             "id": "Q246",
@@ -4431,26 +4435,26 @@ window.questionSets = {
     "exam4": [
         {
             "id": "Q218",
-            "statement": "A field accepts integer order quantities from 1 to 99 inclusive. Using two-value boundary value analysis, which set is most appropriate?",
+            "statement": "A field accepts integer order quantities from 1 to 99 inclusive. Values outside this range are rejected as invalid. Using two-value boundary value analysis, which set of values covers all boundary values and their required neighbours?",
             "options": {
                 "A": "50, 51, 52, 53",
                 "B": "-1, 0, 100, 101",
                 "C": "1, 2, 98, 99",
                 "D": "0, 1, 99, 100"
             },
-            "correctAnswer": "C",
-            "explanation": "Two-value BVA for valid boundaries uses the boundary value and the nearest valid neighbor on each side inside the valid range.",
-            "correctFeedback": "✅ Correct: 1, 2, 98, 99 cover each boundary (1, 99) with its nearest valid neighbor inside the range (2, 98).",
+            "correctAnswer": "D",
+            "explanation": "In two-value BVA each boundary value has two coverage items: the boundary value itself and its closest neighbour belonging to the adjacent partition. The valid partition 1-99 has two boundary values, 1 and 99. The neighbour of 1 in the partition below is 0, and the neighbour of 99 in the partition above is 100. The complete set of coverage items is therefore 0, 1, 99, 100. Selecting 1, 2, 98, 99 would only exercise values that are still inside the valid partition, so the adjacent partitions would never be tested.",
+            "correctFeedback": "✅ Correct: 0, 1, 99, 100 — each boundary value (1 and 99) together with its closest neighbour in the adjacent partition (0 and 100).",
             "incorrectFeedback": {
-                "A": "❌ Incorrect: 50, 51, 52, 53 are interior values, not boundary values.",
-                "B": "❌ Incorrect: -1, 0, 100, 101 include invalid adjacent values (not two-value BVA for valid boundaries).",
-                "D": "❌ Incorrect: 0, 1, 99, 100 includes invalid adjacent values (0 and 100) instead of valid neighbors (2 and 98)."
+                "A": "❌ Incorrect: 50, 51, 52, 53 are interior values of the valid partition, not boundary values.",
+                "B": "❌ Incorrect: -1 and 101 are not the closest neighbours of the boundary values. The neighbours of 1 and 99 are 0 and 100.",
+                "C": "❌ Incorrect: 2 and 98 still belong to the valid partition. Two-value BVA requires the neighbour in the adjacent partition, which is 0 below 1 and 100 above 99."
             },
             "optionExplanations": {
-                "A": "50, 51, 52, 53 are interior values, not boundary values.",
-                "B": "-1, 0, 100, 101 include invalid adjacent values (not two-value BVA for valid boundaries).",
-                "C": "1, 2, 98, 99 cover each boundary (1, 99) with its nearest valid neighbor inside the range (2, 98).",
-                "D": "0, 1, 99, 100 includes invalid adjacent values (0 and 100) instead of valid neighbors (2 and 98)."
+                "A": "50, 51, 52, 53 are interior values of the valid partition, not boundary values.",
+                "B": "-1 and 101 are not the closest neighbours of the boundary values. The neighbours of 1 and 99 are 0 and 100.",
+                "C": "2 and 98 still belong to the valid partition. Two-value BVA requires the neighbour in the adjacent partition, which is 0 below 1 and 100 above 99.",
+                "D": "0, 1, 99, 100 — each boundary value (1 and 99) together with its closest neighbour in the adjacent partition (0 and 100)."
             },
             "chapter": 4,
             "section": "4.2",
@@ -4460,10 +4464,13 @@ window.questionSets = {
             "difficulty": "Hard",
             "keywords": [
                 "boundary value analysis",
-                "BVA"
+                "BVA",
+                "two-value BVA",
+                "equivalence partitions",
+                "boundary values"
             ],
-            "examTip": "Two-value BVA uses boundary and adjacent in-range values.",
-            "memoryAid": "In-range pairs hug the edges."
+            "examTip": "Two-value BVA = boundary value + closest neighbour in the ADJACENT partition, not a second value inside the same partition.",
+            "memoryAid": "2-value BVA: step across the border (1 and 0, 99 and 100)."
         },
         {
             "id": "Q069",
@@ -4615,40 +4622,41 @@ window.questionSets = {
         },
         {
             "id": "Q099",
-            "statement": "A system categorizes parcels by weight for shipping. The categories are: Light (0 to 500g), Medium (501g to 2000g), Heavy (2001g to 5000g), and Oversized (over 5000g). Using equivalence partitioning, which set of weight values provides the most complete coverage of valid partitions?",
+            "statement": "A courier categorises parcels by weight: Light (0 to 500g), Medium (501g to 2000g), Heavy (2001g to 5000g), and Oversized (over 5000g). Using equivalence partitioning, which set of weight values covers all four valid partitions?",
             "options": {
                 "A": "250g, 1250g, 3500g, 6000g",
                 "B": "500g, 2000g, 5000g",
-                "C": "100g, 1000g, 3000g, 7000g",
-                "D": "0g, 500g, 2000g, 5000g"
+                "C": "100g, 1000g, 3000g, 5000g",
+                "D": "250g, 1000g, 1500g, 6000g"
             },
             "correctAnswer": "A",
-            "explanation": "The four valid equivalence partitions are: Light (0-500g), Medium (501-2000g), Heavy (2001-5000g), and Oversized (>5000g). Option A provides one representative from each valid partition: 250g (Light), 1250g (Medium), 3500g (Heavy), and 6000g (Oversized).",
-            "correctFeedback": "✅ Correct: One representative value from each of the four valid partitions.",
+            "explanation": "The four valid partitions are Light (0-500g), Medium (501-2000g), Heavy (2001-5000g) and Oversized (over 5000g), and one representative from each is sufficient. Option A provides 250g (Light), 1250g (Medium), 3500g (Heavy) and 6000g (Oversized), so every partition is exercised. Option B supplies only three values and never reaches the Oversized partition. Option C ends at 5000g, which is still the maximum of the Heavy partition, so Oversized is untested. Option D uses both 1000g and 1500g from the Medium partition, leaving the Heavy partition untested.",
+            "correctFeedback": "✅ Correct: 250g, 1250g, 3500g and 6000g come from the Light, Medium, Heavy and Oversized partitions respectively.",
             "incorrectFeedback": {
-                "B": "❌ Incorrect: These are boundary values, not representative values from each partition.",
-                "C": "❌ Incorrect: 7000g is also a valid oversized value, but the set is otherwise fine.",
-                "D": "❌ Incorrect: 0g and 500g are boundary values; 0g is actually at the edge of Light."
+                "B": "❌ Incorrect: Only three values are supplied, so no value comes from the Oversized partition (over 5000g).",
+                "C": "❌ Incorrect: 5000g is still the maximum of the Heavy partition (2001g-5000g), so the Oversized partition is never exercised.",
+                "D": "❌ Incorrect: 1000g and 1500g are both from the Medium partition, so the Heavy partition (2001g-5000g) is never exercised."
             },
             "optionExplanations": {
-                "A": "One representative value from each of the four valid partitions.",
-                "B": "These are boundary values, not representative values from each partition.",
-                "C": "7000g is also a valid oversized value, but the set is otherwise fine.",
-                "D": "0g and 500g are boundary values; 0g is actually at the edge of Light."
+                "A": "250g, 1250g, 3500g and 6000g come from the Light, Medium, Heavy and Oversized partitions respectively.",
+                "B": "Only three values are supplied, so no value comes from the Oversized partition (over 5000g).",
+                "C": "5000g is still the maximum of the Heavy partition (2001g-5000g), so the Oversized partition is never exercised.",
+                "D": "1000g and 1500g are both from the Medium partition, so the Heavy partition (2001g-5000g) is never exercised."
             },
             "chapter": 4,
             "section": "4.2",
             "subsection": "4.2.1",
             "learningObjective": "FL-4.2.1",
             "kLevel": "K3",
-            "difficulty": "Medium",
+            "difficulty": "Hard",
             "keywords": [
                 "equivalence partitioning",
-                "weight categories",
-                "valid partitions"
+                "EP",
+                "valid partitions",
+                "representative value"
             ],
-            "examTip": "Equivalence partitioning: choose one representative from each partition, not boundaries.",
-            "memoryAid": "EP = one from each group, avoiding the edges."
+            "examTip": "Check the exact partition limits. 5000g belongs to Heavy, not Oversized — the partition is \"over 5000g\".",
+            "memoryAid": "One value per partition, and read the range boundaries literally."
         },
         {
             "id": "Q023",
@@ -4839,26 +4847,26 @@ window.questionSets = {
         },
         {
             "id": "Q330",
-            "statement": "A safety-critical system requires the highest level of structural coverage. The test manager should prioritize which coverage metric?",
+            "statement": "Among the white-box test techniques covered by the CTFL syllabus, a safety-critical system requires the strongest structural coverage available. Which coverage metric should the test manager prioritise?",
             "options": {
-                "A": "Decision/branch coverage, because it ensures all decision outcomes are tested and subsumes statement coverage",
-                "B": "Statement coverage, because it is easier to achieve",
-                "C": "Use case coverage, because it tests real user scenarios",
-                "D": "Equivalence partition coverage, because it tests input ranges"
+                "A": "Branch coverage, because every branch must be exercised and branch coverage subsumes statement coverage",
+                "B": "Statement coverage, because it is the easiest structural criterion to achieve and measure",
+                "C": "Requirements coverage, because it is what stakeholders ask about during acceptance",
+                "D": "Equivalence partition coverage, because it exercises every partition of the input space"
             },
             "correctAnswer": "A",
-            "explanation": "For safety-critical systems, structural coverage of code is often mandated by standards. Decision coverage is stronger than statement coverage and is typically the minimum requirement for such systems. It ensures that both outcomes of each decision are tested, providing greater confidence in the code's behavior.",
-            "correctFeedback": "✅ Correct: Decision coverage provides stronger structural coverage than statement coverage.",
+            "explanation": "The syllabus covers two code-related white-box techniques: statement testing and branch testing. Branch coverage is the stronger of the two because its coverage items are all branches, including both outcomes of each decision, and it subsumes statement coverage — any set of test cases achieving 100% branch coverage also achieves 100% statement coverage. Statement coverage is weaker because 100% statement coverage does not ensure that all decision logic has been tested. Note that more rigorous white-box techniques exist and are used in some safety-critical, mission-critical or high-integrity environments, but those techniques are outside the scope of this syllabus.",
+            "correctFeedback": "✅ Correct: Of the techniques covered by the syllabus, branch coverage is the strongest, since it subsumes statement coverage.",
             "incorrectFeedback": {
-                "B": "❌ Incorrect: Statement coverage is the minimum; safety-critical systems require branch coverage.",
-                "C": "❌ Incorrect: Use case coverage is functional and does not provide structural coverage.",
-                "D": "❌ Incorrect: Equivalence partitioning is a black-box technique with no structural coverage."
+                "B": "❌ Incorrect: Statement coverage is the weaker criterion. It only requires every executable statement to run at least once and does not ensure all decision logic is tested.",
+                "C": "❌ Incorrect: Requirements coverage is a black-box criterion, not structural coverage of the code.",
+                "D": "❌ Incorrect: Equivalence partitioning is a black-box technique derived from the specification; it provides no structural coverage of the code."
             },
             "optionExplanations": {
-                "A": "Decision coverage provides stronger structural coverage than statement coverage.",
-                "B": "Statement coverage is the minimum; safety-critical systems require branch coverage.",
-                "C": "Use case coverage is functional and does not provide structural coverage.",
-                "D": "Equivalence partitioning is a black-box technique with no structural coverage."
+                "A": "Of the techniques covered by the syllabus, branch coverage is the strongest, since it subsumes statement coverage.",
+                "B": "Statement coverage is the weaker criterion. It only requires every executable statement to run at least once and does not ensure all decision logic is tested.",
+                "C": "Requirements coverage is a black-box criterion, not structural coverage of the code.",
+                "D": "Equivalence partitioning is a black-box technique derived from the specification; it provides no structural coverage of the code."
             },
             "chapter": 4,
             "section": "4.3",
@@ -4867,49 +4875,51 @@ window.questionSets = {
             "kLevel": "K2",
             "difficulty": "Medium",
             "keywords": [
-                "coverage metrics",
-                "safety-critical",
-                "decision coverage"
+                "white-box testing",
+                "branch coverage",
+                "statement coverage",
+                "structural coverage"
             ],
-            "examTip": "Safety-critical needs decision/branch coverage.",
-            "memoryAid": "Safety = branch coverage."
+            "examTip": "Within this syllabus branch coverage is the strongest structural technique, but more rigorous techniques (e.g. MC/DC) exist outside its scope — never call branch coverage the highest possible.",
+            "memoryAid": "Branch coverage subsumes statement coverage. More rigorous criteria exist but are out of syllabus scope."
         },
         {
             "id": "Q325",
-            "statement": "A use case for a banking ATM includes: Main flow - 'Customer inserts card, enters PIN, selects withdrawal, enters amount, receives cash, card returned.' Alternative flow - 'Insufficient funds: display message, return card without cash.' Which test scenario is derived from the alternative flow?",
+            "statement": "A user story for an ATM withdrawal has this acceptance criterion: \"When the requested amount exceeds the available balance, the system displays an insufficient funds message and returns the card without dispensing cash.\" Which set of test cases is derived correctly from this acceptance criterion?",
             "options": {
-                "A": "Insert card, enter correct PIN, withdraw $100, receive cash",
-                "B": "Insert card, enter correct PIN, request $500 when balance is $200, see insufficient funds message, get card back",
-                "C": "Insert card, enter wrong PIN three times",
-                "D": "Insert card and cancel immediately"
+                "A": "One test case that requests $100 from an account with a $500 balance, and one test case that requests $500 from an account with a $200 balance and observes the insufficient funds message",
+                "B": "One test case that inserts a card, enters a wrong PIN three times and observes a lockout message",
+                "C": "One test case that inserts a card, enters a correct PIN, requests $100 and receives cash",
+                "D": "One test case that inserts a card and cancels the transaction immediately"
             },
-            "correctAnswer": "B",
-            "explanation": "The alternative flow for insufficient funds describes what happens when the requested amount exceeds the balance. Test scenario B directly exercises this alternative flow. The main flow is exercised by scenario A, while C and D describe different scenarios not defined in the given use case.",
-            "correctFeedback": "✅ Correct: This tests the alternative flow where insufficient funds are detected.",
+            "correctAnswer": "A",
+            "explanation": "Acceptance criteria describe both positive and negative scenarios, and the tests derived from them must cover those scenarios. This criterion describes a negative scenario: the requested amount exceeds the available balance, so the system must display the insufficient funds message and return the card without dispensing cash. The matching test therefore needs an amount above the balance and must assert both the message and the absence of cash. Including a positive test in the same set is good practice because acceptance criteria normally describe both positive and negative scenarios. Options B, C and D describe scenarios that are not defined by this acceptance criterion.",
+            "correctFeedback": "✅ Correct: the test that requests more than the available balance directly exercises the negative scenario, and the withdrawal below the balance covers the positive case.",
             "incorrectFeedback": {
-                "A": "❌ Incorrect: This exercises the main flow (happy path), not the alternative flow.",
-                "C": "❌ Incorrect: PIN errors are not described in the given use case.",
-                "D": "❌ Incorrect: Cancellation is not described in the given use case."
+                "B": "❌ Incorrect: A wrong-PIN lockout scenario is not part of this acceptance criterion, so it must not go beyond the story.",
+                "C": "❌ Incorrect: Withdrawing below the balance does not exercise the behaviour this acceptance criterion describes, so it is not a test derived from it.",
+                "D": "❌ Incorrect: Cancelling immediately is not covered by this acceptance criterion, so it must not go beyond the story."
             },
             "optionExplanations": {
-                "A": "This exercises the main flow (happy path), not the alternative flow.",
-                "B": "This tests the alternative flow where insufficient funds are detected.",
-                "C": "PIN errors are not described in the given use case.",
-                "D": "Cancellation is not described in the given use case."
+                "A": "The test that requests more than the available balance directly exercises the negative scenario, and the withdrawal below the balance covers the positive case.",
+                "B": "A wrong-PIN lockout scenario is not part of this acceptance criterion, so it must not go beyond the story.",
+                "C": "Withdrawing below the balance does not exercise the behaviour this acceptance criterion describes, so it is not a test derived from it.",
+                "D": "Cancelling immediately is not covered by this acceptance criterion, so it must not go beyond the story."
             },
             "chapter": 4,
-            "section": "4.2",
-            "subsection": "4.2.5",
-            "learningObjective": "FL-4.2.5",
+            "section": "4.5",
+            "subsection": "4.5.2",
+            "learningObjective": "FL-4.5.2",
             "kLevel": "K2",
-            "difficulty": "Medium",
+            "difficulty": "Hard",
             "keywords": [
-                "use case testing",
-                "alternative flow",
-                "ATM scenario"
+                "acceptance criteria",
+                "positive scenario",
+                "negative scenario",
+                "user story"
             ],
-            "examTip": "Test both main and alternative flows from use cases.",
-            "memoryAid": "Happy path + exceptions."
+            "examTip": "Acceptance criteria are the test conditions for a user story. Tests must cover the described scenarios and must not go beyond the story.",
+            "memoryAid": "Acceptance criteria = test conditions. Positive and negative scenarios both count."
         },
         {
             "id": "Q153",
@@ -5260,15 +5270,15 @@ window.questionSets = {
             "explanation": "Statement coverage is executed statements divided by total executable statements: 15/20 = 75%.",
             "correctFeedback": "✅ Correct: Statement coverage is executed statements divided by total executable statements: 15/20 = 75%.",
             "incorrectFeedback": {
-                "B": "❌ Incorrect: '25%' is incorrect. Use case testing derives tests from interactions between actors and the syste...; 80% Use case testing derives tests from interactions between actors and the syste...; 133% Use case testing derives tests from interactions between actors and the system to achieve user goals.",
-                "C": "❌ Incorrect: '80%' is incorrect. Use case testing derives tests from interactions between actors and the syste...; 80% Use case testing derives tests from interactions between actors and the syste...; 133% Use case testing derives tests from interactions between actors and the system to achieve user goals.",
-                "D": "❌ Incorrect: '133%' is incorrect. Use case testing derives tests from interactions between actors and the syste...; 80% Use case testing derives tests from interactions between actors and the syste...; 133% Use case testing derives tests from interactions between actors and the system to achieve user goals."
+                "B": "❌ Incorrect: 25% is 5/20, which would mean only 5 of the 20 executable statements were exercised.",
+                "C": "❌ Incorrect: 80% would mean 16 of 20 statements were exercised, but 15 statements give exactly 75%.",
+                "D": "❌ Incorrect: Coverage cannot exceed 100%, since coverage is a ratio of exercised statements to total executable statements."
             },
             "optionExplanations": {
-                "A": "Statement coverage is executed statements divided by total executable statements: 15/20 = 75%.",
-                "B": "'25%' is incorrect. Use case testing derives tests from interactions between actors and the syste...; 80% Use case testing derives tests from interactions between actors and the syste...; 133% Use case testing derives tests from interactions between actors and the system to achieve user goals.",
-                "C": "'80%' is incorrect. Use case testing derives tests from interactions between actors and the syste...; 80% Use case testing derives tests from interactions between actors and the syste...; 133% Use case testing derives tests from interactions between actors and the system to achieve user goals.",
-                "D": "'133%' is incorrect. Use case testing derives tests from interactions between actors and the syste...; 80% Use case testing derives tests from interactions between actors and the syste...; 133% Use case testing derives tests from interactions between actors and the system to achieve user goals."
+                "A": "15 divided by 20 executable statements is exactly 75%.",
+                "B": "25% would mean only 5 of the 20 executable statements were exercised.",
+                "C": "80% would mean 16 of 20 statements were exercised, but 15 statements give exactly 75%.",
+                "D": "Coverage cannot exceed 100%, since coverage is a ratio of exercised statements to total executable statements."
             },
             "chapter": 4,
             "section": "4.3",
@@ -5293,18 +5303,18 @@ window.questionSets = {
                 "D": "2"
             },
             "correctAnswer": "D",
-            "explanation": "There are two decisions: (a > 10 OR b < 5) with two outcomes (true/false), and (c == 0) with two outcomes. To cover all four branch outcomes: Test 1 makes the first condition true (a > 10) and c == 0; Test 2 makes the first condition false (a <= 10 AND b >= 5) and c != 0. However, since the OR operator needs only one sub-condition true for the overall to be true, we can cover the first decision's true outcome with Test 1. For the first decision's false outcome, both sub-conditions must be false, which is Test 2. For the second decision, we need c == 0 (Test 1 or 3) and c != 0 (Test 2). So 3 test cases: (a=20,b=0,c=0), (a=5,b=10,c=1), and (a=5,b=10,c=0) or similar.",
-            "correctFeedback": "✅ Correct: 2 can cover 4 branch outcomes only if each test covers two distinct branch outcomes.",
+            "explanation": "The code contains two decisions, each with a true and a false outcome, so 100% branch coverage requires all four outcomes to be exercised. Two test cases are enough because a single test case can combine outcomes from both decisions. Test 1 with a = 20, b = 0, c = 0 makes the first condition (a > 10 OR b < 5) true and the second condition (c == 0) true. Test 2 with a = 5, b = 10, c = 1 makes the first condition false, since neither a > 10 nor b < 5 holds, and the second condition false as well. Between them the two test cases exercise all four branch outcomes.",
+            "correctFeedback": "✅ Correct: 2 test cases — Test 1 (a = 20, b = 0, c = 0) covers true/true and Test 2 (a = 5, b = 10, c = 1) covers false/false, so all four branch outcomes are exercised.",
             "incorrectFeedback": {
-                "A": "❌ Incorrect: 3 test cases: (true branch of 1st, true of 2nd), (false of 1st, false of 2nd), (false of 1st, true of 2nd).",
-                "B": "❌ Incorrect: One test case covers only one path through all decisions.",
-                "C": "❌ Incorrect: 4 would also achieve coverage but is not the minimum."
+                "A": "❌ Incorrect: One test case can exercise at most one outcome per decision, so it covers only 2 of the 4 branch outcomes.",
+                "B": "❌ Incorrect: Three test cases would also achieve full branch coverage, but two already cover all four outcomes, so three is not the minimum.",
+                "C": "❌ Incorrect: Four test cases would cover every branch but is more than the minimum of two."
             },
             "optionExplanations": {
-                "A": "3 test cases: (true branch of 1st, true of 2nd), (false of 1st, false of 2nd), (false of 1st, true of 2nd).",
-                "B": "One test case covers only one path through all decisions.",
-                "C": "4 would also achieve coverage but is not the minimum.",
-                "D": "2 can cover 4 branch outcomes only if each test covers two distinct branch outcomes."
+                "A": "One test case can exercise at most one outcome per decision, so it covers only 2 of the 4 branch outcomes.",
+                "B": "Three test cases would also achieve full branch coverage, but two already cover all four outcomes, so three is not the minimum.",
+                "C": "Four test cases would cover every branch but is more than the minimum of two.",
+                "D": "Two test cases can cover all four branch outcomes because each test case exercises one outcome of each decision."
             },
             "chapter": 4,
             "section": "4.3",
@@ -5331,17 +5341,17 @@ window.questionSets = {
             },
             "correctAnswer": "B",
             "explanation": "There are four executable statements: alarm = 1, warning = 1, normal = 1, and print('Done'). However, the print statement is always executed regardless of the condition. The three assignment statements are mutually exclusive (only one executes based on temperature). Therefore, we need 3 test cases: one for temperature > 100, one for 80 < temperature <= 100, and one for temperature <= 80.",
-            "correctFeedback": "✅ Correct: One test case covers only one path (33% statement coverage of conditional assignments).",
+            "correctFeedback": "✅ Correct: 3 test cases — one each for temperature > 100, 80 < temperature <= 100, and temperature <= 80. The three assignments are mutually exclusive, so three tests are needed to execute all of them plus print('Done').",
             "incorrectFeedback": {
-                "A": "❌ Incorrect: Four is more than the minimum needed.",
-                "C": "❌ Incorrect: Three test cases cover all three branches and thus all four statements.",
-                "D": "❌ Incorrect: Two test cases miss one of the three assignment statements."
+                "A": "❌ Incorrect: One test case executes only one of the three mutually exclusive assignments, so two statements remain unexecuted.",
+                "C": "❌ Incorrect: Four test cases is more than the minimum; the three mutually exclusive branches already cover all four statements.",
+                "D": "❌ Incorrect: Two test cases execute only two of the three mutually exclusive assignments, leaving one statement unexecuted."
             },
             "optionExplanations": {
-                "A": "Four is more than the minimum needed.",
-                "B": "One test case covers only one path (33% statement coverage of conditional assignments).",
-                "C": "Three test cases cover all three branches and thus all four statements.",
-                "D": "Two test cases miss one of the three assignment statements."
+                "A": "One test case executes only one of the three mutually exclusive assignments, so two statements remain unexecuted.",
+                "B": "Three test cases — one for each mutually exclusive branch — execute alarm = 1, warning = 1, normal = 1 and print('Done').",
+                "C": "Four test cases is more than the minimum; the three mutually exclusive branches already cover all four statements.",
+                "D": "Two test cases execute only two of the three mutually exclusive assignments, leaving one statement unexecuted."
             },
             "chapter": 4,
             "section": "4.3",
@@ -5359,76 +5369,80 @@ window.questionSets = {
         },
         {
             "id": "Q227",
-            "statement": "A user can search for a product, add it to a basket, change quantity, checkout, and receive confirmation. Which technique best derives end-to-end scenario tests from this interaction?",
+            "statement": "In a specification workshop for an acceptance test-driven development (ATDD) approach, what is the primary purpose of the workshop?",
             "options": {
-                "A": "Statement testing",
-                "B": "Syntax testing",
-                "C": "Static analysis",
-                "D": "Use case testing"
+                "A": "To analyse, discuss and write the user story and its acceptance criteria, resolving ambiguities and defects before test cases are created",
+                "B": "To execute all automated regression tests before coding begins",
+                "C": "To estimate the total test effort for the release",
+                "D": "To hand the finished feature over to the maintenance team"
             },
-            "correctAnswer": "D",
-            "explanation": "Use case testing derives tests from interactions between actors and the system to achieve user goals.",
-            "correctFeedback": "✅ Correct: Use case testing derives tests from interactions between actors and the system to achieve user goals.",
+            "correctAnswer": "A",
+            "explanation": "ATDD is a test-first approach in which test cases are created prior to implementing the user story, by team members with different perspectives such as customers, developers and testers. The first step is a specification workshop where the user story and, if not yet defined, its acceptance criteria are analysed, discussed and written by the team members. Incompleteness, ambiguities or defects in the user story are resolved during this process. The next step is to create the test cases, based on the acceptance criteria, which can then serve as examples of how the software works and become executable requirements when captured in a format supported by an automation framework.",
+            "correctFeedback": "✅ Correct: the specification workshop analyses and writes the story and acceptance criteria and resolves ambiguities before the test cases are created.",
             "incorrectFeedback": {
-                "A": "❌ Incorrect: 'Statement testing' is a white-box technique covering executable statements in code. This scenario requires use case, which derives tests from user-system interactions and scenarios.",
-                "B": "❌ Incorrect: 'Syntax testing' is incorrect. Use case testing derives tests from interactions between actors and the system to achieve user goals. Statement testing (option A): Use case testing derives tests from interactions between actors and the syste...; Syntax testing (option B): Use case testing derives tests from interactions between actors and the syste...; Static analysis (option C): Use case testing derives tests from interactions between actors and the syste.",
-                "C": "❌ Incorrect: 'Static analysis' analyzes code or work products without execution to find defects. This scenario requires use case, which derives tests from user-system interactions and scenarios."
+                "B": "❌ Incorrect: Regression testing happens later, once there is something to regress against. ATDD starts with the specification workshop.",
+                "C": "❌ Incorrect: Effort estimation is a test management activity, not the purpose of the ATDD specification workshop.",
+                "D": "❌ Incorrect: Handover to maintenance is part of test completion, not of ATDD."
             },
             "optionExplanations": {
-                "A": "'Statement testing' is a white-box technique covering executable statements in code. This scenario requires use case, which derives tests from user-system interactions and scenarios.",
-                "B": "'Syntax testing' is incorrect. Use case testing derives tests from interactions between actors and the system to achieve user goals. Statement testing (option A): Use case testing derives tests from interactions between actors and the syste...; Syntax testing (option B): Use case testing derives tests from interactions between actors and the syste...; Static analysis (option C): Use case testing derives tests from interactions between actors and the syste.",
-                "C": "'Static analysis' analyzes code or work products without execution to find defects. This scenario requires use case, which derives tests from user-system interactions and scenarios.",
-                "D": "Use case testing derives tests from interactions between actors and the system to achieve user goals."
+                "A": "The specification workshop analyses and writes the story and acceptance criteria and resolves ambiguities before the test cases are created.",
+                "B": "Regression testing happens later, once there is something to regress against. ATDD starts with the specification workshop.",
+                "C": "Effort estimation is a test management activity, not the purpose of the ATDD specification workshop.",
+                "D": "Handover to maintenance is part of test completion, not of ATDD."
             },
             "chapter": 4,
-            "section": "4.2",
-            "subsection": "4.2.6",
-            "learningObjective": "FL-4.2.6",
-            "kLevel": "K2",
-            "difficulty": "Medium",
+            "section": "4.5",
+            "subsection": "4.5.3",
+            "learningObjective": "FL-4.5.3",
+            "kLevel": "K3",
+            "difficulty": "Hard",
             "keywords": [
-                "use case testing",
-                "scenario"
+                "ATDD",
+                "acceptance test-driven development",
+                "specification workshop",
+                "acceptance criteria",
+                "executable requirements"
             ],
-            "examTip": "Actor goal and steps point to use cases.",
-            "memoryAid": "Use cases follow user goals."
+            "examTip": "ATDD order: specification workshop, then create test cases from acceptance criteria, usually positive first, then negative, then non-functional.",
+            "memoryAid": "Workshop first, tests second, code last. Tests become executable requirements."
         },
         {
             "id": "Q052",
-            "statement": "A ticket vending machine has the following states: Idle, SelectingTicket, ProcessingPayment, DispensingTicket, and OutOfService. A transition exists from ProcessingPayment to DispensingTicket if payment is successful. The machine can go from ProcessingPayment back to SelectingTicket if payment fails. How many test cases are needed to achieve 100% transition coverage in this scenario?",
+            "statement": "A ticket vending machine is modelled with the states Idle, SelectingTicket, ProcessingPayment, DispensingTicket and OutOfService. The model defines valid transitions including ProcessingPayment to DispensingTicket when payment succeeds, and ProcessingPayment back to SelectingTicket when payment fails. What is required to achieve 100% valid transitions coverage?",
             "options": {
-                "A": "At least one test case per transition, so 2 test cases for these two transitions",
-                "B": "Exactly 1 test case covering all states",
-                "C": "Exactly 5 test cases for 5 states",
-                "D": "At least 3 test cases to cover all transitions and states"
+                "A": "Test cases must collectively exercise every valid transition in the model at least once; a single test case may cover several transitions",
+                "B": "Each state must be visited by its own dedicated test case",
+                "C": "The number of test cases must be exactly equal to the number of transitions in the model",
+                "D": "All invalid transitions shown in the state table must also be executed"
             },
             "correctAnswer": "A",
-            "explanation": "Transition coverage requires that each transition be executed at least once. From the scenario, we have at least two transitions from ProcessingPayment: to DispensingTicket (success) and back to SelectingTicket (failure). These can be covered by two test cases: one with successful payment and one with failed payment.",
-            "correctFeedback": "✅ Correct: Each transition must be exercised at least once for 100% transition coverage.",
+            "explanation": "In valid transitions coverage (also called 0-switch coverage) the coverage items are the individual valid transitions, and 100% coverage means test cases exercise all of them. A test case is a sequence of events that produces a sequence of state changes, so one test case usually covers several transitions; it is the set of test cases that must cover every valid transition. Visiting every state is all states coverage, which is weaker. Attempting invalid transitions is required for all transitions coverage, not for valid transitions coverage. The number of test cases is not fixed by the number of transitions, because transitions can be combined into longer paths.",
+            "correctFeedback": "✅ Correct: 100% valid transitions coverage means every valid transition is exercised at least once across the test cases.",
             "incorrectFeedback": {
-                "B": "❌ Incorrect: One test case can only follow one path through the state machine.",
-                "C": "❌ Incorrect: State coverage (visit each state) is different from transition coverage.",
-                "D": "❌ Incorrect: Two test cases are sufficient for these two specific transitions."
+                "B": "❌ Incorrect: Visiting every state is all states coverage, which is a weaker criterion than valid transitions coverage.",
+                "C": "❌ Incorrect: The number of test cases is not fixed by the number of transitions, since a single test case can traverse several transitions.",
+                "D": "❌ Incorrect: Attempting invalid transitions is required for all transitions coverage, not for valid transitions coverage."
             },
             "optionExplanations": {
-                "A": "Each transition must be exercised at least once for 100% transition coverage.",
-                "B": "One test case can only follow one path through the state machine.",
-                "C": "State coverage (visit each state) is different from transition coverage.",
-                "D": "Two test cases are sufficient for these two specific transitions."
+                "A": "100% valid transitions coverage means every valid transition is exercised at least once across the test cases.",
+                "B": "Visiting every state is all states coverage, which is a weaker criterion than valid transitions coverage.",
+                "C": "The number of test cases is not fixed by the number of transitions, since a single test case can traverse several transitions.",
+                "D": "Attempting invalid transitions is required for all transitions coverage, not for valid transitions coverage."
             },
             "chapter": 4,
             "section": "4.2",
             "subsection": "4.2.4",
             "learningObjective": "FL-4.2.4",
-            "kLevel": "K3",
+            "kLevel": "K2",
             "difficulty": "Hard",
             "keywords": [
-                "state transition",
-                "transition coverage",
-                "test cases"
+                "state transition testing",
+                "valid transitions coverage",
+                "coverage items",
+                "state table"
             ],
-            "examTip": "Transition coverage = number of transitions. State coverage = number of states.",
-            "memoryAid": "Transitions = arrows; States = circles. Cover each arrow at least once."
+            "examTip": "Three criteria: all states, valid transitions, all transitions. Only \"all transitions\" requires attempting invalid transitions.",
+            "memoryAid": "Valid transitions = walk every valid arrow. All transitions = walk the invalid arrows too."
         },
         {
             "id": "Q321",
@@ -5542,39 +5556,41 @@ window.questionSets = {
         },
         {
             "id": "Q267",
-            "statement": "A business process has alternate flows for payment failure, address validation failure, and successful order placement. Which technique is most suitable for deriving scenario tests?",
+            "statement": "A team wants to apply acceptance test-driven development (ATDD) to a user story that has business rules with several interacting conditions. Which test design approach does the syllabus recommend be applied during test design in ATDD?",
             "options": {
-                "A": "Branch coverage",
-                "B": "Static analysis",
-                "C": "Pairwise testing",
-                "D": "Use case testing"
+                "A": "Only exploratory testing, since the business rules are still unclear",
+                "B": "The test techniques described in sections 4.2, 4.3 and 4.4, such as decision table testing, to design the acceptance test cases",
+                "C": "Only branch coverage of the production code, because ATDD is a white-box technique",
+                "D": "Only exploratory testing, since ATDD does not produce test cases"
             },
-            "correctAnswer": "D",
-            "explanation": "Use case testing covers main, alternate, and exception flows through user-system interactions.",
-            "correctFeedback": "✅ Correct: Use case testing covers main, alternate, and exception flows through user-system interactions.",
+            "correctAnswer": "B",
+            "explanation": "During test design in ATDD, the test techniques described in sections 4.2, 4.3 and 4.4 may be applied. For a story whose business rules involve several interacting conditions, decision table testing is the natural fit, because its coverage items are the columns containing feasible combinations of conditions and it provides a systematic way to identify combinations that might otherwise be overlooked. ATDD is not restricted to a single technique, and it is not a white-box technique: its test cases are based on the acceptance criteria and become executable requirements.",
+            "correctFeedback": "✅ Correct: the test techniques from sections 4.2, 4.3 and 4.4 — here decision table testing — may be applied when designing ATDD test cases.",
             "incorrectFeedback": {
-                "A": "❌ Incorrect: 'Branch coverage' is a white-box metric for decision outcomes. This scenario requires use case, which derives tests from user-system interactions and scenarios.",
-                "B": "❌ Incorrect: 'Static analysis' analyzes code or work products without execution to find defects. This scenario requires use case, which derives tests from user-system interactions and scenarios.",
-                "C": "❌ Incorrect: 'Pairwise testing' reduces combinations by covering all pairs of input values. This scenario requires use case, which derives tests from user-system interactions and scenarios."
+                "A": "❌ Incorrect: ATDD produces test cases before implementation, and exploratory testing alone would not systematically cover the business rules.",
+                "C": "❌ Incorrect: ATDD is driven by acceptance criteria, not by code structure, so branch coverage of production code is not its basis.",
+                "D": "❌ Incorrect: ATDD explicitly creates test cases prior to implementing the user story."
             },
             "optionExplanations": {
-                "A": "'Branch coverage' is a white-box metric for decision outcomes. This scenario requires use case, which derives tests from user-system interactions and scenarios.",
-                "B": "'Static analysis' analyzes code or work products without execution to find defects. This scenario requires use case, which derives tests from user-system interactions and scenarios.",
-                "C": "'Pairwise testing' reduces combinations by covering all pairs of input values. This scenario requires use case, which derives tests from user-system interactions and scenarios.",
-                "D": "Use case testing covers main, alternate, and exception flows through user-system interactions."
+                "A": "ATDD produces test cases before implementation, and exploratory testing alone would not systematically cover the business rules.",
+                "B": "The test techniques from sections 4.2, 4.3 and 4.4 — here decision table testing — may be applied when designing ATDD test cases.",
+                "C": "ATDD is driven by acceptance criteria, not by code structure, so branch coverage of production code is not its basis.",
+                "D": "ATDD explicitly creates test cases prior to implementing the user story."
             },
             "chapter": 4,
-            "section": "4.2",
-            "subsection": "4.2.6",
-            "learningObjective": "FL-4.2.6",
-            "kLevel": "K2",
-            "difficulty": "Medium",
+            "section": "4.5",
+            "subsection": "4.5.3",
+            "learningObjective": "FL-4.5.3",
+            "kLevel": "K3",
+            "difficulty": "Hard",
             "keywords": [
-                "use case testing",
-                "alternate flows"
+                "ATDD",
+                "decision table testing",
+                "test design",
+                "acceptance criteria"
             ],
-            "examTip": "Main and alternate user flows indicate use cases.",
-            "memoryAid": "User flows become tests."
+            "examTip": "ATDD does not replace the standard techniques — during test design you may still apply EP, BVA, decision tables, white-box or experience-based techniques.",
+            "memoryAid": "ATDD = when to write tests (before code). Techniques = how to design them."
         },
         {
             "id": "Q178",
@@ -5844,17 +5860,17 @@ window.questionSets = {
             },
             "correctAnswer": "B",
             "explanation": "There are three statements: grade = 'Pass', grade = 'Fail', and print(grade). To execute all three, we need Test 1 (score >= 70, e.g., 85) which executes 'Pass' and print, and Test 2 (score < 70, e.g., 50) which executes 'Fail' and print. Two test cases cover all statements.",
-            "correctFeedback": "✅ Correct: Three is more than the minimum needed.",
+            "correctFeedback": "✅ Correct: 2 test cases — one with score = 85 executes grade = 'Pass' and print(grade), the other with score = 50 executes grade = 'Fail' and print(grade), so all three statements run.",
             "incorrectFeedback": {
-                "A": "❌ Incorrect: Four is more than necessary.",
-                "C": "❌ Incorrect: One test case covers only one branch, missing the other assignment statement.",
-                "D": "❌ Incorrect: Two test cases cover both branches, executing all three statements."
+                "A": "❌ Incorrect: Four test cases is more than the minimum needed for 100% statement coverage.",
+                "C": "❌ Incorrect: One test case executes only one of the two assignments, leaving the other statement unexecuted.",
+                "D": "❌ Incorrect: Three test cases is more than the minimum. Two test cases already execute all three statements."
             },
             "optionExplanations": {
-                "A": "Four is more than necessary.",
-                "B": "Three is more than the minimum needed.",
-                "C": "One test case covers only one branch, missing the other assignment statement.",
-                "D": "Two test cases cover both branches, executing all three statements."
+                "A": "Four test cases is more than the minimum needed for 100% statement coverage.",
+                "B": "Two test cases — one with score = 85 and one with score = 50 — execute all three statements.",
+                "C": "One test case executes only one of the two assignments, leaving the other statement unexecuted.",
+                "D": "Three test cases is more than the minimum. Two test cases already execute all three statements."
             },
             "chapter": 4,
             "section": "4.3",
@@ -7549,15 +7565,15 @@ window.questionSets = {
             "explanation": "Coverage measurement tools monitor the execution of code during testing and provide metrics such as statement, branch, or condition coverage achieved.",
             "correctFeedback": "✅ Correct: Coverage measurement tools monitor the execution of code during testing and provide metrics such as statement, branch, or condition coverage achieved.",
             "incorrectFeedback": {
-                "B": "❌ Incorrect: 'Static analysis tool' analyzes code or work products without execution to find defects. The correct technique here is: Coverage measurement tools monitor the execution of code during testing and provide metrics such as statement, branch, or condition coverage achieved.",
-                "C": "❌ Incorrect: 'Test management tool' is incorrect. Coverage measurement tools monitor the execution of code during testing and provide metrics such as statement, branch, or condition coverage achieved. Static analysis tool (option B); Test management tool (option C); Performance testing tool (option D).",
-                "D": "❌ Incorrect: 'Performance testing tool' measures response times, throughput, and resource usage under load. The correct technique here is: Coverage measurement tools monitor the execution of code during testing and provide metrics such as statement, branch, or condition coverage achieved."
+                "B": "❌ Incorrect: Static analysis tools examine code without executing it, so they cannot report the percentage of statements exercised during a test run.",
+                "C": "❌ Incorrect: Test management tools track planned versus executed tests, schedules and defect status. They do not measure code coverage.",
+                "D": "❌ Incorrect: Performance testing tools measure response times, throughput and resource usage under load, not code coverage."
             },
             "optionExplanations": {
-                "A": "Coverage measurement tools monitor the execution of code during testing and provide metrics such as statement, branch, or condition coverage achieved.",
-                "B": "'Static analysis tool' analyzes code or work products without execution to find defects. The correct technique here is: Coverage measurement tools monitor the execution of code during testing and provide metrics such as statement, branch, or condition coverage achieved.",
-                "C": "'Test management tool' is incorrect. Coverage measurement tools monitor the execution of code during testing and provide metrics such as statement, branch, or condition coverage achieved. Static analysis tool (option B); Test management tool (option C); Performance testing tool (option D).",
-                "D": "'Performance testing tool' measures response times, throughput, and resource usage under load. The correct technique here is: Coverage measurement tools monitor the execution of code during testing and provide metrics such as statement, branch, or condition coverage achieved."
+                "A": "Coverage measurement tools monitor code execution during testing and report metrics such as statement, branch or condition coverage.",
+                "B": "Static analysis tools examine code without executing it, so they cannot report the percentage of statements exercised during a test run.",
+                "C": "Test management tools track planned versus executed tests, schedules and defect status. They do not measure code coverage.",
+                "D": "Performance testing tools measure response times, throughput and resource usage under load, not code coverage."
             },
             "chapter": 6,
             "section": "6.1",
@@ -9335,40 +9351,42 @@ window.questionSets = {
         },
         {
             "id": "Q183",
-            "statement": "Which of the following best describes use case testing?",
+            "statement": "Which three aspects, known as the \"3 C's\", are the critical aspects of a user story?",
             "options": {
-                "A": "Testing based on scenarios that describe how a user interacts with the system to achieve a specific goal",
-                "B": "Testing each individual function of the system in isolation",
-                "C": "Testing random inputs to find unexpected failures",
-                "D": "Testing the internal code structure to achieve high coverage"
+                "A": "Card, Conversation, Confirmation",
+                "B": "Cost, Change, Control",
+                "C": "Context, Constraints, Coverage",
+                "D": "Card, Code, Checklist"
             },
             "correctAnswer": "A",
-            "explanation": "Use case testing is a black-box technique that designs test cases based on use cases - descriptions of how users interact with the system to accomplish specific goals. It covers the main flow (happy path) and alternative flows (error handling, exceptions).",
-            "correctFeedback": "✅ Correct: Use case testing validates user-system interactions for specific goals.",
+            "explanation": "A user story has three critical aspects, called together the 3 C's. The Card is the medium describing the user story, for example an index card or an entry in an electronic board. The Conversation explains how the software will be used, and can be documented or verbal. The Confirmation is the acceptance criteria, which define the conditions the implementation must meet to be accepted. Good user stories should be Independent, Negotiable, Valuable, Estimable, Small and Testable (INVEST).",
+            "correctFeedback": "✅ Correct: Card (the medium), Conversation (how the software is used) and Confirmation (the acceptance criteria).",
             "incorrectFeedback": {
-                "B": "❌ Incorrect: Individual function testing is component-level testing.",
-                "C": "❌ Incorrect: Random input testing is fuzz testing, not use case testing.",
-                "D": "❌ Incorrect: Internal code coverage is white-box testing."
+                "B": "❌ Incorrect: Cost, Change and Control are not the 3 C's of a user story.",
+                "C": "❌ Incorrect: Context, Constraints and Coverage are not the 3 C's of a user story.",
+                "D": "❌ Incorrect: The third C is Confirmation (acceptance criteria), not Code, and the second is Conversation, not Checklist."
             },
             "optionExplanations": {
-                "A": "Use case testing validates user-system interactions for specific goals.",
-                "B": "Individual function testing is component-level testing.",
-                "C": "Random input testing is fuzz testing, not use case testing.",
-                "D": "Internal code coverage is white-box testing."
+                "A": "Card (the medium), Conversation (how the software is used) and Confirmation (the acceptance criteria).",
+                "B": "Cost, Change and Control are not the 3 C's of a user story.",
+                "C": "Context, Constraints and Coverage are not the 3 C's of a user story.",
+                "D": "The third C is Confirmation (acceptance criteria), not Code, and the second is Conversation, not Checklist."
             },
             "chapter": 4,
-            "section": "4.2",
-            "subsection": "4.2.5",
-            "learningObjective": "FL-4.2.1",
-            "kLevel": "K3",
+            "section": "4.5",
+            "subsection": "4.5.1",
+            "learningObjective": "FL-4.5.1",
+            "kLevel": "K2",
             "difficulty": "Medium",
             "keywords": [
-                "use case testing",
-                "scenarios",
-                "user interaction"
+                "user story",
+                "3 Cs",
+                "collaborative user story writing",
+                "INVEST",
+                "acceptance criteria"
             ],
-            "examTip": "Use case testing = testing user stories or scenarios from the user's perspective.",
-            "memoryAid": "Use case = user's journey through the system."
+            "examTip": "User stories are written collaboratively. The 3 C's are Card, Conversation and Confirmation; INVEST describes what makes a good story.",
+            "memoryAid": "Card, Conversation, Confirmation. Good stories follow INVEST."
         },
         {
             "id": "Q038",
@@ -9409,26 +9427,26 @@ window.questionSets = {
         },
         {
             "id": "Q327",
-            "statement": "Which of the following best describes the difference between statement coverage and decision coverage?",
+            "statement": "Which of the following best describes the difference between statement coverage and branch coverage?",
             "options": {
-                "A": "Statement coverage measures the percentage of decisions tested; decision coverage measures the percentage of statements executed",
-                "B": "Statement coverage is stronger than decision coverage",
-                "C": "Decision coverage requires each decision outcome (true/false) to be executed at least once; statement coverage only requires each executable statement to be executed at least once",
-                "D": "Statement coverage and decision coverage are two names for the same metric"
+                "A": "Statement coverage measures the percentage of branches tested; branch coverage measures the percentage of statements executed",
+                "B": "Statement coverage is stronger than branch coverage",
+                "C": "Branch coverage requires every branch to be exercised at least once, including both outcomes of each conditional decision, while statement coverage only requires every executable statement to be executed at least once",
+                "D": "Statement coverage and branch coverage are two names for the same metric"
             },
             "correctAnswer": "C",
-            "explanation": "Statement coverage measures what percentage of executable statements are executed by tests. Decision coverage (also called branch coverage) measures what percentage of decision outcomes (true/false branches) have been executed. Decision coverage subsumes statement coverage: 100% decision coverage guarantees 100% statement coverage, but not vice versa.",
-            "correctFeedback": "✅ Correct: Decision coverage requires all branch outcomes; statement coverage requires all statements.",
+            "explanation": "In statement testing the coverage items are the executable statements, and coverage is the number of statements exercised divided by the total number of executable statements. In branch testing a branch is a transfer of control between two nodes, and conditional branches typically correspond to the true or false outcome of an if-then decision, a switch/case outcome, or a decision to exit or continue in a loop. Branch coverage therefore requires each such outcome to be exercised. Branch coverage subsumes statement coverage: any set of test cases achieving 100% branch coverage also achieves 100% statement coverage, but not the other way round. Older syllabi used the term decision coverage for what v4.0.1 calls branch coverage.",
+            "correctFeedback": "✅ Correct: branch coverage requires every branch, including both outcomes of each decision, whereas statement coverage requires only that every executable statement runs.",
             "incorrectFeedback": {
-                "A": "❌ Incorrect: This reverses the definitions of both coverage types.",
-                "B": "❌ Incorrect: Statement coverage is weaker, not stronger, than decision coverage.",
-                "D": "❌ Incorrect: They are distinct metrics with different strengths."
+                "A": "❌ Incorrect: This reverses both definitions — statement coverage counts statements, branch coverage counts branches.",
+                "B": "❌ Incorrect: Branch coverage is the stronger criterion because it subsumes statement coverage.",
+                "D": "❌ Incorrect: They are distinct metrics with different coverage items and different strengths."
             },
             "optionExplanations": {
-                "A": "This reverses the definitions of both coverage types.",
-                "B": "Statement coverage is weaker, not stronger, than decision coverage.",
-                "C": "Decision coverage requires all branch outcomes; statement coverage requires all statements.",
-                "D": "They are distinct metrics with different strengths."
+                "A": "This reverses both definitions — statement coverage counts statements, branch coverage counts branches.",
+                "B": "Branch coverage is the stronger criterion because it subsumes statement coverage.",
+                "C": "Branch coverage requires every branch, including both outcomes of each decision, whereas statement coverage requires only that every executable statement runs.",
+                "D": "They are distinct metrics with different coverage items and different strengths."
             },
             "chapter": 4,
             "section": "4.3",
@@ -9437,49 +9455,52 @@ window.questionSets = {
             "kLevel": "K2",
             "difficulty": "Medium",
             "keywords": [
-                "decision coverage",
+                "branch coverage",
                 "statement coverage",
-                "branch coverage"
+                "branch testing",
+                "coverage items"
             ],
-            "examTip": "Decision coverage = both true/false; Statement coverage = reached.",
-            "memoryAid": "Decisions > Statements."
+            "examTip": "CTFL v4.0 uses \"branch testing\" and \"branch coverage\". Older materials say \"decision testing\" and \"decision coverage\" for the same idea.",
+            "memoryAid": "Branches > statements. Branch coverage subsumes statement coverage."
         },
         {
             "id": "Q020",
-            "statement": "A function calculates the price of a ticket based on age: Children (0-12): $5, Adults (13-64): $10, Seniors (65-120): $7. Using boundary value analysis, what is the minimum set of age values to test?",
+            "statement": "A ticket pricing function partitions customers by age: Children (0-12) at $5, Adults (13-64) at $10, and Seniors (65-120) at $7. These three partitions are the only ones defined by the specification. Using two-value boundary value analysis, which is the minimum set of age values to test?",
             "options": {
                 "A": "0, 1, 12, 13, 64, 65, 120, 121",
                 "B": "12, 13, 64, 65",
                 "C": "0, 12, 13, 64, 65, 120",
                 "D": "1, 12, 13, 64, 65, 120"
             },
-            "correctAnswer": "A",
-            "explanation": "Boundary value analysis tests the boundaries at the edges of equivalence partitions. The partitions are: below valid (0 and below), Child (0-12), Adult (13-64), Senior (65-120), and above valid (121+). The boundary values to test are: 0 (just below child), 1 (first child), 12 (last child), 13 (first adult), 64 (last adult), 65 (first senior), 120 (last senior), 121 (just above senior).",
-            "correctFeedback": "✅ Correct: This misses the boundaries at 0, 1, and 120-121.",
+            "correctAnswer": "C",
+            "explanation": "In two-value BVA each boundary value is a coverage item together with its closest neighbour in the adjacent partition. The boundary values are the minimum and maximum of each partition: 0 and 12 for Children, 13 and 64 for Adults, and 65 and 120 for Seniors. At the borders between partitions the neighbour of a boundary value is the boundary value of the neighbouring partition, so the pairs are 12 and 13, and 64 and 65. The outer ends contribute only 0 and 120 because no adjacent partition exists beyond them. The complete set of coverage items is therefore 0, 12, 13, 64, 65, 120. Note that 0 is the minimum boundary value of the Children partition, which is defined as 0-12, so it is valid rather than out of range.",
+            "correctFeedback": "✅ Correct: 0, 12, 13, 64, 65, 120 are exactly the boundary values of the three partitions, which is the minimum set of coverage items for two-value BVA.",
             "incorrectFeedback": {
-                "B": "❌ Incorrect: Includes both valid and invalid boundaries for complete BVA coverage.",
-                "C": "❌ Incorrect: Missing 0 (just below child) and 121 (just above senior).",
-                "D": "❌ Incorrect: Missing 1 (first valid child) and 121 (just above senior)."
+                "A": "❌ Incorrect: 1 and 121 are not boundary values and are not required neighbours here. Adding them exceeds the minimum set without adding coverage.",
+                "B": "❌ Incorrect: This omits 0 and 120, which are boundary values at the outer ends of the Children and Seniors partitions.",
+                "D": "❌ Incorrect: 1 is not a boundary value; the Children partition starts at 0, so 0 is required instead."
             },
             "optionExplanations": {
-                "A": "This misses the boundaries at 0, 1, and 120-121.",
-                "B": "Includes both valid and invalid boundaries for complete BVA coverage.",
-                "C": "Missing 0 (just below child) and 121 (just above senior).",
-                "D": "Missing 1 (first valid child) and 121 (just above senior)."
+                "A": "1 and 121 are not boundary values and are not required neighbours here. Adding them exceeds the minimum set without adding coverage.",
+                "B": "This omits 0 and 120, which are boundary values at the outer ends of the Children and Seniors partitions.",
+                "C": "0, 12, 13, 64, 65, 120 are exactly the boundary values of the three partitions, which is the minimum set of coverage items for two-value BVA.",
+                "D": "1 is not a boundary value; the Children partition starts at 0, so 0 is required instead."
             },
             "chapter": 4,
             "section": "4.2",
-            "subsection": "4.2.1",
-            "learningObjective": "FL-4.2.1",
+            "subsection": "4.2.2",
+            "learningObjective": "FL-4.2.2",
             "kLevel": "K3",
             "difficulty": "Hard",
             "keywords": [
                 "boundary value analysis",
                 "BVA",
+                "two-value BVA",
+                "boundary values",
                 "black-box"
             ],
-            "examTip": "BVA: Test the minima and maxima of each partition, plus one just above and below.",
-            "memoryAid": "BVA = test the edges, not the middle."
+            "examTip": "Boundary values are the minimum and maximum of each partition. Two-value BVA adds the neighbour from the ADJACENT partition, which at an internal border is the neighbouring boundary value.",
+            "memoryAid": "List min/max per partition: 0-12, 13-64, 65-120 gives 0, 12, 13, 64, 65, 120."
         },
         {
             "id": "Q230",
@@ -9762,19 +9783,19 @@ window.questionSets = {
                 "D": "White-box testing can address interface coverage at integration level."
             },
             "chapter": 2,
-            "section": "2.3",
-            "subsection": "2.3.1",
-            "learningObjective": "FL-2.3.1",
+            "section": "2.2",
+            "subsection": "2.2.1",
+            "learningObjective": "FL-2.2.1",
             "kLevel": "K2",
-            "difficulty": "Easy",
+            "difficulty": "Medium",
             "keywords": [
                 "white-box testing",
                 "test levels",
-                "component",
-                "integration"
+                "component testing",
+                "integration testing"
             ],
-            "examTip": "White-box works at any level.",
-            "memoryAid": "Code coverage at any level."
+            "examTip": "White-box techniques are not restricted to component testing; they can be applied at any test level as appropriate.",
+            "memoryAid": "White-box = technique, not a test level. It applies wherever code structure is available."
         },
         {
             "id": "Q030",
@@ -10372,7 +10393,7 @@ window.questionSets = {
         },
         {
             "id": "Q204",
-            "statement": "A team repeatedly executes a regression pack for unchanged features but periodically adds tests for new workflows and recent defect patterns. Which principle is mainly being addressed?",
+            "statement": "A team repeatedly executes a regression pack for unchanged features but periodically adds tests for new workflows and recent defect patterns. Which testing principle is mainly being addressed?",
             "options": {
                 "A": "Tests wear out and should be maintained",
                 "B": "Testing proves there are no remaining defects",
@@ -10380,18 +10401,18 @@ window.questionSets = {
                 "D": "Quality is independent of context"
             },
             "correctAnswer": "A",
-            "explanation": "The pesticide paradox says repeated unchanged tests become less effective, so regression suites should be reviewed and refreshed.",
-            "correctFeedback": "✅ Correct: The pesticide paradox says repeated unchanged tests become less effective, so regression suites should be reviewed and refreshed.",
+            "explanation": "The fifth CTFL v4.0.1 testing principle is \"Tests wear out\": repeated unchanged tests become increasingly ineffective in detecting new defects. The team counters this by adding tests for new workflows and recent defect patterns, and by modifying existing tests and test data where needed. This principle was called the \"pesticide paradox\" in older CTFL material, but v4.0.1 uses the \"Tests wear out\" wording.",
+            "correctFeedback": "✅ Correct: Tests wear out — repeated unchanged tests become less effective, so regression suites must be reviewed and refreshed.",
             "incorrectFeedback": {
-                "B": "❌ Incorrect: 'Testing proves there are no remaining defects' is a flaw in a work product that may cause a failure. The correct technique here is: The pesticide paradox says repeated unchanged tests become less effective, so regression suites should be reviewed and refreshed.",
-                "C": "❌ Incorrect: 'Defects are always evenly distributed' is a flaw in a work product that may cause a failure. The correct technique here is: The pesticide paradox says repeated unchanged tests become less effective, so regression suites should be reviewed and refreshed.",
-                "D": "❌ Incorrect: 'Quality is independent of context' is incorrect. Testing proves there are no remaining defects Test analysis produces test conditions - what should be tested.; Defects are always evenly distributed Execution logs are produced during test execution.; Quality is independent of context Test cases with input values are designed during test design."
+                "B": "❌ Incorrect: Testing cannot prove the absence of defects. It can show that defects are present, not that none remain.",
+                "C": "❌ Incorrect: Defects are not evenly distributed; a small number of components usually contain most of them.",
+                "D": "❌ Incorrect: Testing is context dependent — the approach differs with the application type, so quality is never independent of context."
             },
             "optionExplanations": {
-                "A": "The pesticide paradox says repeated unchanged tests become less effective, so regression suites should be reviewed and refreshed.",
-                "B": "'Testing proves there are no remaining defects' is a flaw in a work product that may cause a failure. The correct technique here is: The pesticide paradox says repeated unchanged tests become less effective, so regression suites should be reviewed and refreshed.",
-                "C": "'Defects are always evenly distributed' is a flaw in a work product that may cause a failure. The correct technique here is: The pesticide paradox says repeated unchanged tests become less effective, so regression suites should be reviewed and refreshed.",
-                "D": "'Quality is independent of context' is incorrect. Testing proves there are no remaining defects Test analysis produces test conditions - what should be tested.; Defects are always evenly distributed Execution logs are produced during test execution.; Quality is independent of context Test cases with input values are designed during test design."
+                "A": "Tests wear out — repeated unchanged tests become less effective, so regression suites must be reviewed and refreshed.",
+                "B": "Testing cannot prove the absence of defects. It can show that defects are present, not that none remain.",
+                "C": "Defects are not evenly distributed; a small number of components usually contain most of them.",
+                "D": "Testing is context dependent — the approach differs with the application type, so quality is never independent of context."
             },
             "chapter": 1,
             "section": "1.3",
@@ -10400,10 +10421,11 @@ window.questionSets = {
             "kLevel": "K2",
             "difficulty": "Medium",
             "keywords": [
-                "pesticide paradox",
-                "regression"
+                "tests wear out",
+                "regression testing",
+                "testing principles"
             ],
-            "examTip": "Same tests forever is the clue.",
+            "examTip": "Adding fresh tests to counter declining effectiveness is the \"Tests wear out\" principle in action.",
             "memoryAid": "Refresh stale tests."
         },
         {
@@ -11293,26 +11315,26 @@ window.questionSets = {
         },
         {
             "id": "Q179",
-            "statement": "A library charges late fees for books returned after the due date. The fee is: $0 for 0 days late, $1 per day for 1-7 days late, $2 per day for 8-14 days late, and $5 per day for 15+ days late. Using equivalence partitioning, which set of values provides the best coverage of all valid partitions?",
+            "statement": "A library charges late fees for books returned after the due date: $0 for 0 days late, $1 per day for 1-7 days late, $2 per day for 8-14 days late, and $5 per day for 15 or more days late. Using equivalence partitioning, which set of values covers all four valid partitions?",
             "options": {
+                "A": "0, 4, 10",
+                "B": "5, 12, 18, 25",
                 "C": "0, 4, 10, 20",
-                "D": "1, 7, 8, 15",
-                "A": "0, 1, 8, 15",
-                "B": "5, 12, 18, 25"
+                "D": "0, 2, 5, 9, 14"
             },
             "correctAnswer": "C",
-            "explanation": "The valid partitions are: 0 days (no fee), 1-7 days ($1/day), 8-14 days ($2/day), and 15+ days ($5/day). Option A provides one representative from each: 0 (first partition), 4 (1-7 range), 10 (8-14 range), and 20 (15+ range).",
-            "correctFeedback": "✅ Correct: 0, 4, 10, and 20 each represent one distinct valid partition.",
+            "explanation": "The four valid partitions are 0 days (no fee), 1-7 days, 8-14 days and 15 or more days, and one representative from each is sufficient. Option C provides 0 (the no-fee partition), 4 (1-7 days), 10 (8-14 days) and 20 (15 or more days), so every partition is exercised. Option A supplies only three values and leaves the 15-or-more partition untested. Option B starts at 5 days, so the no-fee partition is never exercised. Option D places 0, 2 and 5 all in the first two partitions and 9 and 14 in the 8-14 partition, so the 15-or-more partition is never exercised.",
+            "correctFeedback": "✅ Correct: 0, 4, 10 and 20 come from the no-fee, 1-7 days, 8-14 days and 15-or-more partitions respectively.",
             "incorrectFeedback": {
-                "A": "❌ Incorrect: 1, 8, and 15 are boundary values rather than partition representatives.",
-                "B": "❌ Incorrect: 5, 12, 18, and 25 all fall within partitions but miss the 0-day partition.",
-                "D": "❌ Incorrect: 1, 7, 8, and 15 are boundary values at the edges of partitions."
+                "A": "❌ Incorrect: Only three values are supplied, so the 15-or-more days partition is never exercised.",
+                "B": "❌ Incorrect: All values fall between 1 and 7 or above, so the 0-days (no fee) partition is never exercised.",
+                "D": "❌ Incorrect: No value reaches 15 or more days, so the $5-per-day partition is never exercised."
             },
             "optionExplanations": {
-                "A": "1, 8, and 15 are boundary values rather than partition representatives.",
-                "B": "5, 12, 18, and 25 all fall within partitions but miss the 0-day partition.",
-                "C": "0, 4, 10, and 20 each represent one distinct valid partition.",
-                "D": "1, 7, 8, and 15 are boundary values at the edges of partitions."
+                "A": "Only three values are supplied, so the 15-or-more days partition is never exercised.",
+                "B": "All values fall between 1 and 7 or above, so the 0-days (no fee) partition is never exercised.",
+                "C": "0, 4, 10 and 20 come from the no-fee, 1-7 days, 8-14 days and 15-or-more partitions respectively.",
+                "D": "No value reaches 15 or more days, so the $5-per-day partition is never exercised."
             },
             "chapter": 4,
             "section": "4.2",
@@ -11322,11 +11344,12 @@ window.questionSets = {
             "difficulty": "Hard",
             "keywords": [
                 "equivalence partitioning",
-                "library fines",
-                "late fees"
+                "EP",
+                "valid partitions",
+                "representative value"
             ],
-            "examTip": "Equivalence partitioning = one representative from each partition, not specifically boundaries.",
-            "memoryAid": "One from each group, any value in the range will do."
+            "examTip": "Count distinct partitions covered, not the number of values supplied. Boundary values such as 1, 7, 8 and 15 are still valid representatives.",
+            "memoryAid": "One value per partition; count the partitions you actually touch."
         },
         {
             "id": "Q221",
@@ -11366,40 +11389,41 @@ window.questionSets = {
         },
         {
             "id": "Q022",
-            "statement": "In state transition testing, what is the minimum number of test cases needed to cover all states in a system with 5 states?",
+            "statement": "In state transition testing, which statement correctly compares all states coverage with valid transitions coverage?",
             "options": {
-                "C": "At least one test case to visit each state",
-                "D": "It depends on the number of transitions between states",
-                "A": "Exactly 10 test cases for all transitions",
-                "B": "Exactly 5 test cases"
+                "A": "All states coverage requires every state to be exercised, and it is weaker than valid transitions coverage because it can be achieved without exercising all transitions",
+                "B": "All states coverage requires every state to be exercised, and this automatically guarantees that every valid transition is exercised",
+                "C": "Valid transitions coverage is weaker than all states coverage because it focuses on states rather than transitions",
+                "D": "All states coverage and valid transitions coverage use the same coverage items and can therefore be achieved by the same test cases"
             },
-            "correctAnswer": "C",
-            "explanation": "At minimum, one test case can visit all states if the path covers each state at least once. The test case would traverse transitions that lead through all five states. The minimum is not fixed at 5 because a single path can pass through multiple states.",
-            "correctFeedback": "✅ Correct: A single test case could visit all states if the path is designed correctly.",
+            "correctAnswer": "A",
+            "explanation": "In all states coverage the coverage items are the states, so 100% coverage means every state is exercised at least once. In valid transitions coverage the coverage items are the individual valid transitions, so every valid transition must be exercised. Because a test case can pass through several states without traversing every transition between them, all states coverage is the weaker criterion. Achieving full valid transitions coverage does guarantee full all states coverage, but the reverse does not hold.",
+            "correctFeedback": "✅ Correct: All states coverage exercises every state, but it is weaker than valid transitions coverage because it does not require every transition to be traversed.",
             "incorrectFeedback": {
-                "A": "❌ Incorrect: The number depends on the transition diagram, not a fixed value.",
-                "B": "❌ Incorrect: A single test case can potentially visit all states through a well-designed path.",
-                "D": "❌ Incorrect: This is the most accurate - the number depends on the specific transition model."
+                "B": "❌ Incorrect: This reverses the relationship. All states coverage does not guarantee that every valid transition is exercised.",
+                "C": "❌ Incorrect: Valid transitions coverage is the stronger criterion because it requires each individual valid transition to be exercised.",
+                "D": "❌ Incorrect: The coverage items differ — states for all states coverage, individual valid transitions for valid transitions coverage."
             },
             "optionExplanations": {
-                "A": "The number depends on the transition diagram, not a fixed value.",
-                "B": "A single test case can potentially visit all states through a well-designed path.",
-                "C": "A single test case could visit all states if the path is designed correctly.",
-                "D": "This is the most accurate - the number depends on the specific transition model."
+                "A": "All states coverage exercises every state, but it is weaker than valid transitions coverage because it does not require every transition to be traversed.",
+                "B": "This reverses the relationship. All states coverage does not guarantee that every valid transition is exercised.",
+                "C": "Valid transitions coverage is the stronger criterion because it requires each individual valid transition to be exercised.",
+                "D": "The coverage items differ — states for all states coverage, individual valid transitions for valid transitions coverage."
             },
             "chapter": 4,
             "section": "4.2",
             "subsection": "4.2.4",
             "learningObjective": "FL-4.2.4",
-            "kLevel": "K3",
+            "kLevel": "K2",
             "difficulty": "Medium",
             "keywords": [
-                "state transition",
-                "state coverage",
-                "black-box"
+                "state transition testing",
+                "all states coverage",
+                "valid transitions coverage",
+                "coverage items"
             ],
-            "examTip": "State coverage: visit each state at least once. Transition coverage: exercise each transition at least once.",
-            "memoryAid": "States = places you visit; Transitions = roads you take."
+            "examTip": "All states coverage < valid transitions coverage < all transitions coverage. Each stronger criterion guarantees the weaker ones, never the other way round.",
+            "memoryAid": "States = circles, transitions = arrows. Covering all circles does not mean you walked every arrow."
         },
         {
             "id": "Q158",
@@ -12110,38 +12134,38 @@ window.questionSets = {
             "statement": "A developer who is asked to test their own code focuses on confirming that the code works correctly rather than trying to find problems. This illustrates:",
             "options": {
                 "A": "The importance of independent testing at all levels",
-                "B": "The pesticide paradox in software testing",
+                "B": "The principle that tests wear out over time",
                 "C": "The difference between the development mindset and the testing mindset",
                 "D": "The need for exhaustive testing"
             },
             "correctAnswer": "C",
-            "explanation": "Developers naturally have a confirmation or constructive mindset focused on building solutions. Testing requires a critical, analytical mindset focused on finding problems. This difference in mindset is why independent testing and separate test roles add value.",
+            "explanation": "Developers naturally have a confirmation or constructive mindset focused on building solutions, and confirmation bias can make it difficult to accept information that contradicts existing beliefs. Testing requires an analytical and critical mindset focused on finding problems and challenging assumptions. This difference in mindset is why independent testing and clearly separated test roles add value.",
             "correctFeedback": "✅ Correct: The development mindset seeks to confirm; the testing mindset seeks to find problems.",
             "incorrectFeedback": {
                 "A": "❌ Incorrect: Independent testing is a practice, not the mindset difference itself.",
-                "B": "❌ Incorrect: The pesticide paradox concerns test effectiveness over time, not mindset.",
-                "D": "❌ Incorrect: Exhaustive testing is impossible and unrelated to mindset."
+                "B": "❌ Incorrect: Tests wear out concerns how effective tests remain over repeated runs, not how a developer approaches testing.",
+                "D": "❌ Incorrect: Exhaustive testing is impossible and is unrelated to mindset."
             },
             "optionExplanations": {
                 "A": "Independent testing is a practice, not the mindset difference itself.",
-                "B": "The pesticide paradox concerns test effectiveness over time, not mindset.",
-                "C": "The development mindset seeks to confirm; the testing mindset seeks to find problems.",
-                "D": "Exhaustive testing is impossible and unrelated to mindset."
+                "B": "Tests wear out concerns how effective tests remain over repeated runs, not how a developer approaches testing.",
+                "C": "Developers naturally have a confirmation mindset focused on building solutions. Testing requires a critical, analytical mindset focused on finding problems.",
+                "D": "Exhaustive testing is impossible and is unrelated to mindset."
             },
             "chapter": 1,
             "section": "1.5",
-            "subsection": "1.5.2",
-            "learningObjective": "FL-1.5.2",
-            "kLevel": "K1",
+            "subsection": "1.5.1",
+            "learningObjective": "FL-1.5.1",
+            "kLevel": "K2",
             "difficulty": "Medium",
             "keywords": [
                 "test mindset",
                 "development mindset",
                 "confirmation bias",
-                "psychology of testing"
+                "critical thinking"
             ],
-            "examTip": "Development mindset = build and confirm; Test mindset = find and critique.",
-            "memoryAid": "Builder vs. Inspector."
+            "examTip": "Confirmation bias is a generic testing obstacle: it is hard to accept information that contradicts what you already believe.",
+            "memoryAid": "Builder vs. inspector — testing needs the inspector mindset."
         },
         {
             "id": "Q062",
@@ -12443,38 +12467,38 @@ window.questionSets = {
             "id": "Q004",
             "statement": "A test team has been testing the same module for several releases using the same set of test cases. They notice that no new defects are being found. Which testing principle does this scenario illustrate?",
             "options": {
-                "C": "Absence-of-errors fallacy",
-                "D": "Pesticide paradox",
-                "A": "Defect clustering",
-                "B": "Testing is context dependent"
+                "A": "Absence-of-defects fallacy",
+                "B": "Tests wear out",
+                "C": "Defects cluster together",
+                "D": "Testing is context dependent"
             },
-            "correctAnswer": "D",
-            "explanation": "The pesticide paradox states that if the same tests are repeated over and over, they will eventually stop finding new defects. To find new defects, test cases must be regularly reviewed and updated to cover new or changed functionality.",
-            "correctFeedback": "✅ Correct: Repeating the same tests becomes ineffective over time, just as pesticides become ineffective when used repeatedly.",
+            "correctAnswer": "B",
+            "explanation": "The fifth CTFL v4.0.1 testing principle is \"Tests wear out\": if the same tests are repeated many times, they become increasingly ineffective in detecting new defects. To overcome this effect, existing tests and test data may need to be modified and new tests may need to be written, although in some cases repeating the same tests has a beneficial outcome, for example in automated regression testing. This principle was called the \"pesticide paradox\" in older CTFL material, but that wording is not used in v4.0.1.",
+            "correctFeedback": "✅ Correct: Tests wear out — repeated unchanged tests become increasingly ineffective at finding new defects.",
             "incorrectFeedback": {
-                "A": "❌ Incorrect: Defect clustering means most defects are found in a small number of modules.",
-                "B": "❌ Incorrect: Context dependency means testing approaches differ based on the application type.",
-                "C": "❌ Incorrect: The absence-of-errors fallacy means finding no defects does not mean the system is fit for use."
+                "A": "❌ Incorrect: The absence-of-defects fallacy is the misconception that thorough verification of all requirements guarantees the software will succeed.",
+                "C": "❌ Incorrect: Defects cluster together means a small number of components contain most of the defects discovered.",
+                "D": "❌ Incorrect: Testing is context dependent means there is no single universally applicable approach to testing."
             },
             "optionExplanations": {
-                "A": "Defect clustering means most defects are found in a small number of modules.",
-                "B": "Context dependency means testing approaches differ based on the application type.",
-                "C": "The absence-of-errors fallacy means finding no defects does not mean the system is fit for use.",
-                "D": "Repeating the same tests becomes ineffective over time, just as pesticides become ineffective when used repeatedly."
+                "A": "The absence-of-defects fallacy is the misconception that thorough verification of all requirements guarantees the software will succeed.",
+                "B": "Tests wear out — repeated unchanged tests become increasingly ineffective at finding new defects.",
+                "C": "Defects cluster together means a small number of components contain most of the defects discovered.",
+                "D": "Testing is context dependent means there is no single universally applicable approach to testing."
             },
             "chapter": 1,
             "section": "1.3",
             "subsection": "1.3.1",
             "learningObjective": "FL-1.3.1",
             "kLevel": "K2",
-            "difficulty": "Medium",
+            "difficulty": "Easy",
             "keywords": [
-                "pesticide paradox",
+                "tests wear out",
                 "testing principles",
-                "test case review"
+                "test maintenance"
             ],
-            "examTip": "When you see 'same tests, no new defects,' think pesticide paradox.",
-            "memoryAid": "Pesticide paradox = stale tests find no new bugs."
+            "examTip": "In CTFL v4.0.1 principle 5 is called \"Tests wear out\". \"Pesticide paradox\" is the older name for the same idea.",
+            "memoryAid": "Same tests, no new defects = tests wear out."
         },
         {
             "id": "Q261",
@@ -12489,15 +12513,15 @@ window.questionSets = {
             "explanation": "Executing all executable statements at least once gives 100% statement coverage.",
             "correctFeedback": "✅ Correct: Executing all executable statements at least once gives 100% statement coverage.",
             "incorrectFeedback": {
-                "A": "❌ Incorrect: 'Cannot exceed 90%' is incorrect. Cannot exceed 90% Executing all executable statements at least once gives 100% statement coverage.; 12% Executing all executable statements at least once gives 100% statement coverage.; 50% Executing all executable statements at least once gives 100% statement coverage.",
-                "C": "❌ Incorrect: '12%' is incorrect. Cannot exceed 90% Executing all executable statements at least once gives 100% statement coverage.; 12% Executing all executable statements at least once gives 100% statement coverage.; 50% Executing all executable statements at least once gives 100% statement coverage.",
-                "D": "❌ Incorrect: '50%' is incorrect. Cannot exceed 90% Executing all executable statements at least once gives 100% statement coverage.; 12% Executing all executable statements at least once gives 100% statement coverage.; 50% Executing all executable statements at least once gives 100% statement coverage."
+                "A": "❌ Incorrect: There is no such limit. Executing every executable statement gives exactly 100%.",
+                "C": "❌ Incorrect: 12% would mean only about 1.4 of the 12 statements were exercised, which is not what happened.",
+                "D": "❌ Incorrect: 50% would mean only 6 of the 12 statements were exercised, but all 12 were executed."
             },
             "optionExplanations": {
-                "A": "'Cannot exceed 90%' is incorrect. Cannot exceed 90% Executing all executable statements at least once gives 100% statement coverage.; 12% Executing all executable statements at least once gives 100% statement coverage.; 50% Executing all executable statements at least once gives 100% statement coverage.",
+                "A": "There is no such limit. Executing every executable statement gives exactly 100%.",
                 "B": "Executing all executable statements at least once gives 100% statement coverage.",
-                "C": "'12%' is incorrect. Cannot exceed 90% Executing all executable statements at least once gives 100% statement coverage.; 12% Executing all executable statements at least once gives 100% statement coverage.; 50% Executing all executable statements at least once gives 100% statement coverage.",
-                "D": "'50%' is incorrect. Cannot exceed 90% Executing all executable statements at least once gives 100% statement coverage.; 12% Executing all executable statements at least once gives 100% statement coverage.; 50% Executing all executable statements at least once gives 100% statement coverage."
+                "C": "12% would mean only about 1.4 of the 12 statements were exercised, which is not what happened.",
+                "D": "50% would mean only 6 of the 12 statements were exercised, but all 12 were executed."
             },
             "chapter": 4,
             "section": "4.3",
@@ -12514,26 +12538,26 @@ window.questionSets = {
         },
         {
             "id": "Q019",
-            "statement": "A system accepts age values between 1 and 120 inclusive. Using equivalence partitioning, which of the following sets of values would provide the most valid partition coverage?",
+            "statement": "A system accepts age values between 1 and 120 inclusive; values of 0 or below and values of 121 or above are rejected as invalid. Using equivalence partitioning, which set of values achieves 100% equivalence partition coverage?",
             "options": {
                 "A": "1, 60, 120",
                 "B": "-1, 1, 120",
                 "C": "25, 60, 100",
                 "D": "0, 50, 121"
             },
-            "correctAnswer": "C",
-            "explanation": "Equivalence partitioning divides input data into partitions that should be treated equivalently. For ages 1-120, there are three partitions: below valid (0 and below), valid (1-120), and above valid (121+). To test the valid partition, any single value within 1-120 suffices, but using multiple values (25, 60, 100) provides broader coverage of the valid range without redundancy.",
-            "correctFeedback": "✅ Correct: All three values are in the valid partition (1-120), providing good coverage of the valid range.",
+            "correctAnswer": "D",
+            "explanation": "In EP the coverage items are the equivalence partitions themselves, and one test per partition is sufficient. Three partitions are identified: 0 and below (invalid), 1-120 (valid), and 121 and above (invalid). To achieve 100% coverage, each partition must be exercised at least once. Option D provides exactly that: 0 from the invalid-low partition, 50 from the valid partition, and 121 from the invalid-high partition. Options A and C place all three values inside the same valid partition, so they exercise only one partition. Option B covers the invalid-low and valid partitions but never the invalid-high partition.",
+            "correctFeedback": "✅ Correct: 0, 50 and 121 exercise all three partitions — invalid below, valid, and invalid above.",
             "incorrectFeedback": {
-                "A": "❌ Incorrect: 1 and 120 are boundary values; equivalence partitioning typically uses one representative per partition.",
-                "B": "❌ Incorrect: -1 is invalid, 1 is a boundary, 120 is a boundary.",
-                "D": "❌ Incorrect: 0 and 121 are boundary values for invalid partitions, but 50 alone covers valid."
+                "A": "❌ Incorrect: 1, 60 and 120 all belong to the single valid partition 1-120, so only one partition is exercised.",
+                "B": "❌ Incorrect: -1, 1 and 120 cover the invalid-low and valid partitions, but no value comes from the invalid-high partition (121+).",
+                "C": "❌ Incorrect: 25, 60 and 100 all belong to the valid partition 1-120. Extra values from one partition do not increase partition coverage."
             },
             "optionExplanations": {
-                "A": "1 and 120 are boundary values; equivalence partitioning typically uses one representative per partition.",
-                "B": "-1 is invalid, 1 is a boundary, 120 is a boundary.",
-                "C": "All three values are in the valid partition (1-120), providing good coverage of the valid range.",
-                "D": "0 and 121 are boundary values for invalid partitions, but 50 alone covers valid."
+                "A": "1, 60 and 120 all belong to the single valid partition 1-120, so only one partition is exercised.",
+                "B": "-1, 1 and 120 cover the invalid-low and valid partitions, but no value comes from the invalid-high partition (121+).",
+                "C": "25, 60 and 100 all belong to the valid partition 1-120. Extra values from one partition do not increase partition coverage.",
+                "D": "0, 50 and 121 exercise all three partitions — invalid below, valid, and invalid above."
             },
             "chapter": 4,
             "section": "4.2",
@@ -12543,11 +12567,13 @@ window.questionSets = {
             "difficulty": "Hard",
             "keywords": [
                 "equivalence partitioning",
+                "EP",
                 "black-box",
-                "input partitions"
+                "equivalence partitions",
+                "valid and invalid partitions"
             ],
-            "examTip": "Pick one representative from each equivalence class. For valid partitions, any value works.",
-            "memoryAid": "Equivalence = same behavior = one test is enough per group."
+            "examTip": "In EP the coverage items are the partitions, so 100% coverage means at least one representative from EVERY partition, valid and invalid.",
+            "memoryAid": "EP = one per partition. Three values from the same partition still cover only one partition."
         },
         {
             "id": "Q039",
@@ -12847,26 +12873,26 @@ window.questionSets = {
         },
         {
             "id": "Q066",
-            "statement": "A system calculates discounts based on customer type (Regular, Premium, VIP) and purchase amount (>= $100). Using equivalence partitioning, which of the following input combinations should be tested?",
+            "statement": "A discount system depends on two sets of equivalence partitions: customer type (Regular, Premium, VIP) and purchase amount (below $100, or $100 and above). Using equivalence partitioning, which is the minimum set of test cases that achieves 100% Each Choice coverage?",
             "options": {
-                "A": "Regular with $150, Premium with $150, VIP with $150",
-                "B": "Regular with $100, Premium with $100, VIP with $100",
-                "C": "Regular with $50, Regular with $150, Premium with $50, Premium with $150, VIP with $50, VIP with $150",
-                "D": "Regular with $50, Premium with $150, VIP with $200"
+                "A": "3 test cases: Regular with $50, Premium with $150, VIP with $200",
+                "B": "6 test cases covering all 3 × 2 combinations of customer type and amount",
+                "C": "2 test cases: Regular with $50, VIP with $200",
+                "D": "3 test cases: Regular with $150, Premium with $150, VIP with $150"
             },
-            "correctAnswer": "C",
-            "explanation": "There are two conditions: customer type (3 values) and purchase amount relative to $100 (2 partitions: below $100 and >= $100). The Cartesian product gives 3 x 2 = 6 combinations to test all partitions thoroughly.",
-            "correctFeedback": "✅ Correct: All 6 combinations of customer type (3) and amount partition (2) are covered.",
+            "correctAnswer": "A",
+            "explanation": "When a test object has several sets of partitions, the simplest criterion is Each Choice coverage: test cases must exercise each partition from each set of partitions at least once. Each Choice coverage does not take combinations of partitions into account. Here there are three customer-type partitions and two amount partitions, so three test cases are enough as long as each customer type appears once and both amount partitions appear. Option A does this: Regular exercises the below-$100 partition, while Premium and VIP exercise the $100-and-above partition. Option B is exhaustive combination coverage, which EP does not require. Option C never exercises the Premium partition. Option D never exercises the below-$100 partition.",
+            "correctFeedback": "✅ Correct: three test cases cover all three customer-type partitions and both amount partitions without needing every combination.",
             "incorrectFeedback": {
-                "A": "❌ Incorrect: Only tests the >= $100 partition; misses the below $100 partition.",
-                "B": "❌ Incorrect: Only tests >= $100; misses below $100 and the boundary.",
-                "D": "❌ Incorrect: Incomplete coverage - only one value per customer type with mixed amount conditions."
+                "B": "❌ Incorrect: Testing all six combinations is exhaustive combination coverage. Each Choice coverage does not require combinations of partitions.",
+                "C": "❌ Incorrect: Only two customer types are exercised, so the Premium partition is never covered. Three test cases are the minimum.",
+                "D": "❌ Incorrect: All three amounts are $150 or above, so the below-$100 partition is never exercised."
             },
             "optionExplanations": {
-                "A": "Only tests the >= $100 partition; misses the below $100 partition.",
-                "B": "Only tests >= $100; misses below $100 and the boundary.",
-                "C": "All 6 combinations of customer type (3) and amount partition (2) are covered.",
-                "D": "Incomplete coverage - only one value per customer type with mixed amount conditions."
+                "A": "Three test cases cover all three customer-type partitions and both amount partitions without needing every combination.",
+                "B": "Testing all six combinations is exhaustive combination coverage. Each Choice coverage does not require combinations of partitions.",
+                "C": "Only two customer types are exercised, so the Premium partition is never covered. Three test cases are the minimum.",
+                "D": "All three amounts are $150 or above, so the below-$100 partition is never exercised."
             },
             "chapter": 4,
             "section": "4.2",
@@ -12876,48 +12902,49 @@ window.questionSets = {
             "difficulty": "Hard",
             "keywords": [
                 "equivalence partitioning",
-                "combinations",
-                "discount calculation"
+                "EP",
+                "Each Choice coverage",
+                "multiple sets of partitions"
             ],
-            "examTip": "When multiple conditions exist, consider combining partitions from each condition.",
-            "memoryAid": "Multiple conditions = multiple partitions = more test combinations."
+            "examTip": "Multiple input parameters produce multiple sets of partitions. Each Choice coverage needs each partition from each set once — not the full Cartesian product.",
+            "memoryAid": "Each Choice = every partition of every input, at least once. Combinations are a different technique."
         },
         {
             "id": "Q999",
-            "statement": "Which of the following is a key characteristic of pairwise testing?",
+            "statement": "According to CTFL v4.0.1, which statement about the test pyramid is correct?",
             "options": {
-                "A": "It tests all possible combinations of input parameters",
-                "B": "It tests all pairs of parameter values to reduce the number of test cases while maintaining effective defect detection",
-                "C": "It focuses exclusively on boundary values of input parameters",
-                "D": "It requires testing every parameter with every other parameter at least three times"
+                "A": "It is a model that suggests the relative number of tests at each test level, with the majority of automated tests at the lower levels and more manual tests towards acceptance",
+                "B": "It requires that every test level has exactly the same number of tests",
+                "C": "It describes the order in which test levels must be executed in a sequential lifecycle",
+                "D": "It ranks test techniques by defect-detection effectiveness"
             },
-            "correctAnswer": "B",
-            "explanation": "Pairwise testing (also called all-pairs testing) is a combinatorial test design technique that tests all possible discrete combinations of each pair of input parameters. This reduces the number of test cases dramatically while still providing effective defect detection.",
-            "correctFeedback": "✅ Correct: Correct - pairwise testing covers all pairs of parameter values.",
+            "correctAnswer": "A",
+            "explanation": "The test pyramid is a model suggesting the relative amount of testing at each test level. It shows that the majority of tests should be automated and written at the lower levels, such as component and component integration testing, because these tests are fast to run and failures are easier to diagnose there. Higher levels, in particular acceptance testing, are typically fewer and more often manual because they are harder to automate and depend on business representatives. The pyramid expresses relative proportions, not exact counts, and it does not dictate execution order.",
+            "correctFeedback": "✅ Correct: the pyramid expresses the relative number of tests per level — many fast automated tests low down, fewer and more manual tests towards acceptance.",
             "incorrectFeedback": {
-                "A": "❌ Incorrect: Testing all combinations would be exhaustive.",
-                "C": "❌ Incorrect: Boundary value analysis is a separate technique.",
-                "D": "❌ Incorrect: Exactly one test per pair is sufficient."
+                "B": "❌ Incorrect: The pyramid expresses relative proportions, not equal numbers of tests at every level.",
+                "C": "❌ Incorrect: The pyramid does not prescribe an execution order for test levels; test levels are often executed iteratively.",
+                "D": "❌ Incorrect: The pyramid is about test levels and automation, not a ranking of test techniques."
             },
             "optionExplanations": {
-                "A": "Testing all combinations would be exhaustive.",
-                "B": "Correct - pairwise testing covers all pairs of parameter values.",
-                "C": "Boundary value analysis is a separate technique.",
-                "D": "Exactly one test per pair is sufficient."
+                "A": "The pyramid expresses the relative number of tests per level — many fast automated tests low down, fewer and more manual tests towards acceptance.",
+                "B": "The pyramid expresses relative proportions, not equal numbers of tests at every level.",
+                "C": "The pyramid does not prescribe an execution order for test levels; test levels are often executed iteratively.",
+                "D": "The pyramid is about test levels and automation, not a ranking of test techniques."
             },
-            "chapter": 4,
-            "section": "4.2",
-            "subsection": "4.2.7",
-            "learningObjective": "FL-4.2.7",
+            "chapter": 5,
+            "section": "5.1",
+            "subsection": "5.1.6",
+            "learningObjective": "FL-5.1.6",
             "kLevel": "K1",
-            "difficulty": "Medium",
+            "difficulty": "Easy",
             "keywords": [
-                "pairwise testing",
-                "all-pairs testing",
-                "combinatorial testing"
+                "test pyramid",
+                "test levels",
+                "test automation"
             ],
-            "examTip": "Pairwise covers all pairs, not all combinations.",
-            "memoryAid": "Pairs, not all combinations."
+            "examTip": "Pyramid = wide base of fast automated tests at the lower levels, narrow top of mostly manual acceptance tests.",
+            "memoryAid": "Wide base, narrow top. Lower levels: many and automated. Upper levels: few and manual."
         },
         {
             "id": "Q258",
@@ -12957,40 +12984,41 @@ window.questionSets = {
         },
         {
             "id": "Q328",
-            "statement": "Given the code: if (x > 0) { print(\"Positive\"); } else { print(\"Non-positive\"); } print(\"Done\"); A test with x = 5 achieves 100% statement coverage but only 50% decision coverage. Which additional test is needed for 100% decision coverage?",
+            "statement": "Consider the code: if (x > 0) { print(\"Positive\"); } else { print(\"Non-positive\"); } print(\"Done\"); A test case with x = 5 executes 2 of the 3 executable statements, giving 66.7% statement coverage and 50% branch coverage. Which additional test case is required to reach 100% branch coverage?",
             "options": {
                 "A": "x = -1",
-                "B": "x = 0",
-                "C": "x = 10",
-                "D": "No additional test is needed"
+                "B": "x = 10",
+                "C": "x = 5",
+                "D": "No additional test case is needed"
             },
             "correctAnswer": "A",
-            "explanation": "With x = 5, the true branch is executed (prints 'Positive'), covering statements 1 and 3. However, the false branch (else) has not been exercised. To achieve 100% decision coverage, the false outcome must also be tested. x = -1 exercises the false branch (prints 'Non-positive').",
-            "correctFeedback": "✅ Correct: x = -1 executes the else branch, covering the false outcome.",
+            "explanation": "The code contains three executable statements: print(\"Positive\"), print(\"Non-positive\") and print(\"Done\"). With x = 5 the true outcome of the condition is taken, so print(\"Positive\") and print(\"Done\") execute while print(\"Non-positive\") does not. That is 2 of 3 statements, or 66.7% statement coverage, and only the true outcome of the single decision is exercised, giving 50% branch coverage. Reaching 100% branch coverage requires taking the false outcome as well, which means a value where x > 0 is false. x = -1 satisfies that condition and executes the else branch. Note that x = 10 also fails the condition x > 0, but 10 is a positive value so it takes the true branch and adds nothing, and re-running x = 5 adds nothing either.",
+            "correctFeedback": "✅ Correct: x = -1 makes the condition x > 0 false, so the else branch executes and both branch outcomes are covered.",
             "incorrectFeedback": {
-                "B": "❌ Incorrect: x = 0 also triggers the else (0 is not > 0), but -1 is clearer.",
-                "C": "❌ Incorrect: x = 10 also exercises the true branch only.",
-                "D": "❌ Incorrect: The false branch has not been exercised yet."
+                "B": "❌ Incorrect: x = 10 satisfies x > 0, so it takes the same true branch as x = 5 and adds no new branch outcome.",
+                "C": "❌ Incorrect: x = 5 is the test case already executed, and it only covers the true outcome.",
+                "D": "❌ Incorrect: Only the true outcome of the decision has been exercised, so branch coverage is at 50% and one more test case is needed."
             },
             "optionExplanations": {
-                "A": "x = -1 executes the else branch, covering the false outcome.",
-                "B": "x = 0 also triggers the else (0 is not > 0), but -1 is clearer.",
-                "C": "x = 10 also exercises the true branch only.",
-                "D": "The false branch has not been exercised yet."
+                "A": "x = -1 makes the condition x > 0 false, so the else branch executes and both branch outcomes are covered.",
+                "B": "x = 10 satisfies x > 0, so it takes the same true branch as x = 5 and adds no new branch outcome.",
+                "C": "x = 5 is the test case already executed, and it only covers the true outcome.",
+                "D": "Only the true outcome of the decision has been exercised, so branch coverage is at 50% and one more test case is needed."
             },
             "chapter": 4,
             "section": "4.3",
             "subsection": "4.3.2",
             "learningObjective": "FL-4.3.2",
             "kLevel": "K2",
-            "difficulty": "Hard",
+            "difficulty": "Medium",
             "keywords": [
-                "decision coverage",
-                "branch testing",
-                "conditional logic"
+                "branch coverage",
+                "statement coverage",
+                "conditional logic",
+                "branch testing"
             ],
-            "examTip": "Decision coverage = test both branches.",
-            "memoryAid": "Test both sides of every IF."
+            "examTip": "Branch coverage counts decision outcomes, not lines. Reading x > 0 literally matters: any positive value takes the same branch.",
+            "memoryAid": "Statement coverage = lines reached. Branch coverage = every if-taken / if-not-taken outcome."
         },
         {
             "id": "Q181",
@@ -13031,39 +13059,42 @@ window.questionSets = {
         },
         {
             "id": "Q998",
-            "statement": "In the context of pairwise testing, what is the minimum number of test cases needed to cover all pairs of values for three parameters each having two possible values?",
+            "statement": "A team is deciding how to relate testing quadrants to test levels and test types. Which statement about the testing quadrants is correct?",
             "options": {
-                "A": "8",
-                "B": "4",
-                "C": "2",
-                "D": "6"
+                "A": "The quadrants characterise tests by the level and type feedback they provide, combining functional and non-functional testing with the business-facing or developer-facing perspective",
+                "B": "The quadrants prescribe that all business-facing tests must be executed before any developer-facing tests",
+                "C": "The quadrants define which test techniques must be used at each test level",
+                "D": "The quadrants require every quadrant to contain the same number of test cases"
             },
-            "correctAnswer": "B",
-            "explanation": "For three parameters each with two values (2x2x2 = 8 full combinations), pairwise testing reduces this to 4 test cases.",
-            "correctFeedback": "✅ Correct: Correct - 4 test cases cover all pairs for 3 parameters x 2 values.",
+            "correctAnswer": "A",
+            "explanation": "The testing quadrants characterise tests along two dimensions: the perspective they support, business-facing or developer-facing, and whether they are used to give feedback on functional or non-functional aspects of the product. Combining these dimensions gives four quadrants, such as the business-facing functional quadrant that supports acceptance-oriented testing and the developer-facing functional quadrant used at the lower test levels. The quadrants help choose an appropriate balance of tests and clarify the purpose of each group of tests; they do not prescribe execution order, do not dictate test techniques, and do not require equal numbers of tests in each quadrant.",
+            "correctFeedback": "✅ Correct: the quadrants combine a business-facing or developer-facing perspective with functional or non-functional testing to characterise the feedback each group provides.",
             "incorrectFeedback": {
-                "A": "❌ Incorrect: 8 would be exhaustive (all combinations), not pairwise.",
-                "C": "❌ Incorrect: 2 is too few to cover all pairs.",
-                "D": "❌ Incorrect: 6 is more than necessary."
+                "B": "❌ Incorrect: The quadrants do not prescribe an execution order between quadrants.",
+                "C": "❌ Incorrect: The quadrants are about perspectives and feedback, not about which test techniques to apply.",
+                "D": "❌ Incorrect: Nothing requires the quadrants to contain the same number of test cases."
             },
             "optionExplanations": {
-                "A": "8 would be exhaustive (all combinations), not pairwise.",
-                "B": "Correct - 4 test cases cover all pairs for 3 parameters x 2 values.",
-                "C": "2 is too few to cover all pairs.",
-                "D": "6 is more than necessary."
+                "A": "The quadrants combine a business-facing or developer-facing perspective with functional or non-functional testing to characterise the feedback each group provides.",
+                "B": "The quadrants do not prescribe an execution order between quadrants.",
+                "C": "The quadrants are about perspectives and feedback, not about which test techniques to apply.",
+                "D": "Nothing requires the quadrants to contain the same number of test cases."
             },
-            "chapter": 4,
-            "section": "4.2",
-            "subsection": "4.2.7",
-            "learningObjective": "FL-4.2.7",
+            "chapter": 5,
+            "section": "5.1",
+            "subsection": "5.1.7",
+            "learningObjective": "FL-5.1.7",
             "kLevel": "K2",
             "difficulty": "Medium",
             "keywords": [
-                "pairwise testing",
-                "test case reduction"
+                "testing quadrants",
+                "test levels",
+                "test types",
+                "business-facing",
+                "developer-facing"
             ],
-            "examTip": "Pairwise dramatically reduces test cases vs. exhaustive.",
-            "memoryAid": "Pairs reduce: 3x2 values = 4 tests."
+            "examTip": "Quadrants = perspective (business-facing / developer-facing) × focus (functional / non-functional).",
+            "memoryAid": "Two axes, four quadrants. They guide the mix of tests, not their order."
         },
         {
             "id": "Q103",
@@ -13216,37 +13247,39 @@ window.questionSets = {
             "id": "Q262",
             "statement": "A test suite executes every statement but never takes the false outcome of one decision. Which coverage is not yet complete?",
             "options": {
-                "A": "Use case coverage",
+                "A": "Requirement coverage",
                 "B": "Review coverage",
                 "C": "Branch coverage",
                 "D": "Statement coverage"
             },
             "correctAnswer": "C",
-            "explanation": "Complete statement coverage does not guarantee complete branch coverage; every decision outcome must be covered for branch coverage.",
+            "explanation": "Statement coverage requires only that each executable statement is executed at least once, so it can reach 100% while a decision outcome is never taken. Branch coverage requires every branch to be exercised, including both the true and the false outcome of each conditional decision, so a suite that never takes a false outcome has incomplete branch coverage even with full statement coverage. Branch coverage subsumes statement coverage, but statement coverage does not subsume branch coverage.",
             "correctFeedback": "✅ Correct: Branch coverage requires every decision outcome (true/false) to be exercised, which is not guaranteed by statement coverage alone.",
             "incorrectFeedback": {
-                "A": "❌ Incorrect: Use case coverage tests user scenarios, not whether each decision outcome is exercised.",
-                "B": "❌ Incorrect: Review coverage is a static testing technique, not a measure of decision outcome coverage.",
-                "D": "❌ Incorrect: Statement coverage ensures every executable line is run, but does not require each decision outcome to be tested."
+                "A": "❌ Incorrect: Requirement coverage tracks whether specified requirements are exercised. It says nothing about whether each decision outcome is exercised.",
+                "B": "❌ Incorrect: Review coverage relates to static testing activities such as reviews, not to measuring decision outcomes during execution.",
+                "D": "❌ Incorrect: Statement coverage ensures every executable statement runs, but it does not require each decision outcome to be exercised."
             },
             "optionExplanations": {
-                "A": "Use case coverage tests user scenarios, not whether each decision outcome is exercised.",
-                "B": "Review coverage is a static testing technique, not a measure of decision outcome coverage.",
-                "C": "Branch coverage requires every decision outcome (true/false) to be exercised, which is not guaranteed by statement coverage alone.",
-                "D": "Statement coverage ensures every executable line is run, but does not require each decision outcome to be tested."
+                "A": "Requirement coverage tracks whether specified requirements are exercised. It says nothing about whether each decision outcome is exercised.",
+                "B": "Review coverage relates to static testing activities such as reviews, not to measuring decision outcomes during execution.",
+                "C": "Branch coverage requires every branch, including both outcomes of each decision, to be exercised.",
+                "D": "Statement coverage ensures every executable statement runs, but it does not require each decision outcome to be exercised."
             },
             "chapter": 4,
             "section": "4.3",
             "subsection": "4.3.2",
             "learningObjective": "FL-4.3.2",
             "kLevel": "K2",
-            "difficulty": "Hard",
+            "difficulty": "Medium",
             "keywords": [
                 "branch coverage",
-                "statement coverage"
+                "statement coverage",
+                "coverage criteria",
+                "white-box testing"
             ],
-            "examTip": "Statement coverage can miss decision outcomes.",
-            "memoryAid": "Branches need each outcome."
+            "examTip": "Full statement coverage with an untaken branch outcome is the classic illustration that the two criteria are not equivalent.",
+            "memoryAid": "Statements can all run while a branch outcome is never taken."
         },
         {
             "id": "Q997",
@@ -13287,26 +13320,26 @@ window.questionSets = {
         },
         {
             "id": "Q151",
-            "statement": "An insurance company calculates annual premiums based on age groups: 18-25: $800, 26-40: $600, 41-65: $700, 66+: $900. Using equivalence partitioning, which set of values provides coverage of each valid partition?",
+            "statement": "An insurance company calculates annual premiums by age group: 18-25 at $800, 26-40 at $600, 41-65 at $700, and 66 and above at $900. These four ranges are the valid equivalence partitions. Using equivalence partitioning, which set of values provides coverage of every valid partition?",
             "options": {
                 "A": "22, 30, 50, 70",
-                "B": "25, 26, 65, 66",
+                "B": "22, 30, 50",
                 "C": "17, 25, 41, 66",
-                "D": "18, 40, 65, 67"
+                "D": "22, 28, 45, 62"
             },
             "correctAnswer": "A",
-            "explanation": "The valid partitions are: 18-25, 26-40, 41-65, and 66+. Option A provides one representative from each partition: 22 (18-25), 30 (26-40), 50 (41-65), and 70 (66+). Each value falls within a distinct valid partition.",
-            "correctFeedback": "✅ Correct: 22, 30, 50, and 70 each represent one of the four valid age partitions.",
+            "explanation": "One test per equivalence partition is sufficient, so a set covering all four valid partitions needs exactly one representative from each. Option A provides 22 (18-25), 30 (26-40), 50 (41-65) and 70 (66+), so every partition is exercised. Option B supplies only three values and leaves the 66+ partition untested. Option C uses 17, which is below the minimum insurable age, and it also omits the 26-40 partition. Option D places both 45 and 62 inside the 41-65 partition, so that partition is used twice while the 66+ partition is never exercised.",
+            "correctFeedback": "✅ Correct: 22, 30, 50 and 70 each come from a different valid partition — 18-25, 26-40, 41-65 and 66+.",
             "incorrectFeedback": {
-                "B": "❌ Incorrect: 25, 26, 65, 66 are boundary or near-boundary values.",
-                "C": "❌ Incorrect: 17 is in an invalid partition (below minimum age requirement).",
-                "D": "❌ Incorrect: 18 and 40 are boundary values; 67 is valid but 18 is a boundary."
+                "B": "❌ Incorrect: Only three values are supplied, so the 66+ partition is never exercised.",
+                "C": "❌ Incorrect: 17 is below the minimum age of 18 and belongs to an invalid partition, and the 26-40 partition is not represented.",
+                "D": "❌ Incorrect: 45 and 62 are both inside the 41-65 partition, which is therefore covered twice while the 66+ partition is never exercised."
             },
             "optionExplanations": {
-                "A": "22, 30, 50, and 70 each represent one of the four valid age partitions.",
-                "B": "25, 26, 65, 66 are boundary or near-boundary values.",
-                "C": "17 is in an invalid partition (below minimum age requirement).",
-                "D": "18 and 40 are boundary values; 67 is valid but 18 is a boundary."
+                "A": "22, 30, 50 and 70 each come from a different valid partition — 18-25, 26-40, 41-65 and 66+.",
+                "B": "Only three values are supplied, so the 66+ partition is never exercised.",
+                "C": "17 is below the minimum age of 18 and belongs to an invalid partition, and the 26-40 partition is not represented.",
+                "D": "45 and 62 are both inside the 41-65 partition, which is therefore covered twice while the 66+ partition is never exercised."
             },
             "chapter": 4,
             "section": "4.2",
@@ -13316,11 +13349,12 @@ window.questionSets = {
             "difficulty": "Hard",
             "keywords": [
                 "equivalence partitioning",
-                "insurance",
-                "premiums"
+                "EP",
+                "valid partitions",
+                "representative value"
             ],
-            "examTip": "Pick one value from each partition. Any value in the range works for equivalence partitioning.",
-            "memoryAid": "One representative per group, any member will do."
+            "examTip": "For full EP coverage count the DISTINCT partitions your values come from — repeating one partition never adds coverage.",
+            "memoryAid": "One value per partition. Check that no partition is skipped and none is used twice."
         },
         {
             "id": "Q259",
