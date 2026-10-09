@@ -1,0 +1,680 @@
+# OpenCode Task: Audit and Fix ISTQB CTFL v4.0.1 Question Bank
+
+## Role
+
+You are acting as a conservative senior ISTQB Certified Tester Foundation Level (CTFL) exam-content reviewer and JavaScript/JSON data maintainer.
+
+Your job is to **edit the existing `questionsR.txt` question bank in place** so that the questions, answer keys, explanations, feedback, and metadata are internally consistent and aligned with the latest ISTQB CTFL Foundation Level syllabus used by this project: **CTFL v4.0.1**.
+
+The file contains JavaScript similar to:
+
+```js
+window.questionSets = {
+  "exam1": [...],
+  ...
+};
+```
+
+There are approximately **365 questions across 9 exam sets**.
+
+Do NOT redesign the application or change the data structure. This task is about question-bank correctness.
+
+---
+
+# Primary goals
+
+1. Fix the known defects listed below.
+2. Audit the entire question bank for the same classes of defects.
+3. Preserve correct questions unchanged whenever possible.
+4. Ensure every question has exactly one defensible correct answer unless the question explicitly states that multiple answers may be selected.
+5. Keep all fields associated with an answer synchronized after a correction.
+6. Do not invent syllabus rules.
+7. Do not perform stylistic rewrites unless needed to remove ambiguity or factual errors.
+
+---
+
+# Source of truth
+
+Use the **official ISTQB CTFL v4.0.1 syllabus** as the primary authority.
+
+When checking terminology, learning objectives, techniques, definitions, coverage criteria, or expected exam reasoning, prefer the official syllabus over generic testing knowledge, old CTFL versions, blogs, tutorials, or model memory.
+
+Important terminology differences from older CTFL material must be respected. For example, CTFL v4 uses terminology such as **"tests wear out"** rather than relying on the older "pesticide paradox" wording.
+
+If internet/document access is unavailable, be conservative:
+- Fix the defects explicitly identified below.
+- Fix clear internal contradictions or mathematical/logical errors.
+- Do NOT guess at uncertain syllabus-specific changes.
+- Mark uncertain cases in the audit report instead of silently changing them.
+
+---
+
+# CRITICAL EDITING RULES
+
+For every modified question, inspect and synchronize ALL relevant fields, including:
+
+- `statement`
+- `options`
+- `correctAnswer`
+- `explanation`
+- `correctFeedback`
+- `incorrectFeedback`
+- `optionExplanations`
+- `chapter`
+- `section`
+- `subsection`
+- `learningObjective`
+- `kLevel`
+- `difficulty`
+- `keywords`
+- `examTip`
+- `memoryAid`
+
+Changing only `correctAnswer` is NOT sufficient.
+
+If the wording of an option changes, update all feedback/explanation references to that option.
+
+Do not change IDs.
+
+Do not reorder questions unless absolutely necessary.
+
+Do not remove questions merely because they are defective. Prefer rewriting them into valid, unambiguous CTFL questions.
+
+Keep the existing JavaScript structure syntactically valid.
+
+---
+
+# Known defects requiring attention
+
+The following were found in a preliminary audit. Treat these as high-priority.
+
+## Q218 — Boundary Value Analysis
+
+Current key appears to be:
+
+`C: 1, 2, 98, 99`
+
+The question concerns **two-value Boundary Value Analysis for a valid range 1–99**.
+
+Under CTFL v4.0.1 two-value BVA, values should exercise each boundary and its closest neighbor in the adjacent partition.
+
+Expected set is therefore likely:
+
+`0, 1, 99, 100`
+
+If the existing option D contains this set, the expected answer should be D.
+
+Before changing it, verify against the official CTFL v4.0.1 definition/example of two-value BVA.
+
+Then update:
+- `correctAnswer`
+- explanation
+- correct/incorrect feedback
+- option explanations
+- exam tip/memory aid if they teach the wrong BVA rule.
+
+Do NOT confuse two-value BVA with older interpretations that select two values inside the valid partition.
+
+---
+
+## Q328 — Statement coverage / branch logic
+
+The current question/key is logically defective.
+
+It reportedly suggests:
+- `x = 5` gives 100% statement coverage, while an `else` branch remains unexecuted.
+- keyed answer is `x = -1`
+- `x = 0` may also satisfy the same missing branch.
+
+Problems:
+1. The premise about 100% statement coverage may be false.
+2. More than one option may satisfy the requested coverage.
+
+Rewrite the question and/or code example so that:
+- the initial coverage statement is mathematically correct;
+- exactly one option is correct;
+- statement coverage and branch coverage are not confused;
+- boundary conditions such as `<`, `<=`, `>`, `>=` are handled correctly.
+
+Update all associated fields.
+
+---
+
+## Q019 — Equivalence Partitioning
+
+Current key reportedly selects:
+
+`25, 60, 100`
+
+for an age range such as `1–120`.
+
+This is defective because all three values are in the same valid equivalence partition.
+
+Another option such as:
+
+`1, 60, 120`
+
+also remains entirely inside that same partition.
+
+Equivalence partitioning normally requires representative values from distinct relevant partitions, not multiple arbitrary representatives from one partition.
+
+Rewrite this question so it tests EP correctly and has exactly one correct answer.
+
+If testing a valid range with invalid values outside it, clearly define partitions such as:
+- below valid range
+- valid range
+- above valid range
+
+Then provide one representative per required partition.
+
+Do NOT describe multiple values from the same partition as broader non-redundant EP coverage.
+
+---
+
+## Q020 — Boundary Value Analysis
+
+Known issues:
+- keyed answer reportedly: `0,1,12,13,64,65,120,121`
+- explanation incorrectly says `0` is below the valid child partition even though the child partition is defined as `0–12`;
+- `correctFeedback` is contradictory and may say that the correct answer "misses" values it actually contains;
+- option explanations appear inconsistent;
+- question does not clearly specify whether **2-value or 3-value BVA** is required.
+
+Rewrite/repair the question.
+
+Requirements:
+- Clearly state whether 2-value or 3-value BVA is requested.
+- Define partitions/ranges precisely.
+- Make one answer uniquely correct.
+- Correct the treatment of `0` if the partition is `0–12`.
+- Ensure feedback matches the selected option exactly.
+
+---
+
+## Q151 — Equivalence Partitioning
+
+Current key reportedly:
+
+`A: 22, 30, 50, 70`
+
+But other options, including sets similar to:
+- `25,26,65,66`
+- `18,40,65,67`
+
+may also cover all four valid equivalence partitions.
+
+This makes the question multiple-correct.
+
+Rewrite the options or scenario so exactly one answer achieves the requested EP coverage.
+
+Do not arbitrarily keep A merely because it is the existing key.
+
+---
+
+## Q022 — State Transition Testing
+
+Current key reportedly says:
+
+`At least one test case to visit each state`
+
+for a question asking the minimum number of tests needed to cover all five states.
+
+Without a transition diagram/table, initial-state assumptions, or path constraints, the number of test cases cannot generally be derived from the number of states alone.
+
+Rewrite the question so it asks something that can be answered from the information provided.
+
+Possible approaches:
+- provide a concrete transition graph/table;
+- ask about the objective of state coverage rather than an exact test-case count;
+- ask what additional information is needed.
+
+Do not claim that five states automatically require five tests or one test per state.
+
+---
+
+## Q066 — Equivalence Partitioning vs combinations
+
+Current key reportedly requires all six combinations of:
+- customer type: Regular / Premium / VIP
+- amount: `<100` / `>=100`
+
+The explanation appears to equate EP coverage with exhaustive Cartesian-product combination coverage.
+
+That is incorrect unless the question explicitly introduces a technique requiring those combinations.
+
+For basic equivalence partition coverage, a small set of tests may cover all three customer-type partitions and both amount partitions without testing all six combinations.
+
+Rewrite so the technique being assessed is clear.
+
+If the intended answer is all six combinations, explicitly frame the requirement as combination coverage rather than basic equivalence partitioning.
+
+If the intended topic is EP, make the minimum test set consistent with EP.
+
+---
+
+## Q099 — Equivalence Partitioning
+
+Current key reportedly:
+
+`A: 250g, 1250g, 3500g, 6000g`
+
+but another option such as:
+
+`C: 100g, 1000g, 3000g, 7000g`
+
+appears to cover the same four valid partitions.
+
+Therefore the question has multiple correct answers.
+
+Rewrite options so exactly one option contains representatives from every required partition.
+
+Do not require arbitrary "middle" values unless the question explicitly asks for something beyond EP.
+
+---
+
+# Additional suspicious questions / concepts to audit
+
+These are not automatically wrong. Verify before editing.
+
+## Q330 — "highest structural coverage"
+
+If the question says a safety-critical system requires the "highest level of structural coverage" and keys decision/branch coverage, wording may be misleading because stronger structural criteria such as MC/DC exist outside/basic to this CTFL context.
+
+If the intended meaning is "which of the listed CTFL techniques provides stronger coverage than statement coverage", rewrite accordingly.
+
+Do not teach that branch coverage is universally the highest possible structural coverage.
+
+---
+
+## Q088 — Independence of testing
+
+Current wording may state:
+
+"Higher levels of independence typically find more defects."
+
+Check this carefully.
+
+ISTQB's point is closer to independent testers being likely to recognize **different kinds of failures/defects** because of different perspectives, while excessive independence can also introduce disadvantages.
+
+Avoid an unsupported universal claim that greater independence necessarily finds a greater number of defects.
+
+Rewrite if necessary.
+
+---
+
+## Q242 — Error vs defect
+
+Scenario reportedly asks:
+
+"A mistaken assumption in a design document later leads to incorrect code. What is the mistaken assumption called?"
+
+Current key may be `Error`.
+
+Check ISTQB definitions:
+- an **error** is a human action that produces an incorrect result;
+- a **defect** is an imperfection/flaw in a work product.
+
+A mistaken assumption that exists *in a design document* may constitute a defect in that work product, while the human misconception/action that introduced it is an error.
+
+If the current options do not permit this distinction, rewrite the scenario/options.
+
+Make the tested concept unambiguous.
+
+---
+
+## Q327 — Decision/branch terminology
+
+Review terminology against CTFL v4.0.1.
+
+Prefer syllabus terminology such as **branch coverage** where appropriate.
+
+Do not change technically valid synonyms merely for style unless the current terminology conflicts with the syllabus or makes the question misleading.
+
+---
+
+## Q052 — State transition coverage
+
+Review the use of "100% transition coverage".
+
+Ensure it corresponds to the syllabus definition and does not imply invalid transitions must be executed as part of valid-transition coverage unless specifically discussing invalid transitions.
+
+---
+
+## Learning Objective metadata
+
+Audit `learningObjective` mappings.
+
+Some mappings appear suspicious, including examples around:
+- root cause analysis;
+- errors, defects, and failures;
+- objectives of testing.
+
+Do not assume the current LO number is correct simply because the chapter is approximately correct.
+
+Where possible, compare each question's actual tested concept against the CTFL v4.0.1 Learning Objectives.
+
+Only change an LO when there is solid evidence it is mismatched.
+
+---
+
+# Full-bank audit requirements
+
+After fixing the known questions, inspect **all ~365 questions**.
+
+For every question, perform the following checks.
+
+## 1. Correct-answer validation
+
+Determine whether:
+- the keyed answer is actually correct;
+- another option is also correct;
+- no option is correct;
+- the correct answer depends on an unstated assumption.
+
+Every normal single-answer question must have exactly one correct answer.
+
+---
+
+## 2. Numerical/logical validation
+
+Manually reason through:
+- BVA values;
+- EP partitions;
+- statement coverage;
+- branch coverage;
+- decision tables;
+- state transitions;
+- percentages;
+- risk calculations;
+- estimation calculations;
+- test metrics;
+- any arithmetic.
+
+Do not trust the existing explanation as proof that the answer is correct.
+
+---
+
+## 3. Technique purity
+
+Check that the question does not conflate techniques.
+
+Examples:
+- EP does not automatically require every Cartesian product of independent partitions.
+- BVA must follow the specified 2-value/3-value approach.
+- Statement coverage is not branch coverage.
+- State coverage is not transition coverage.
+- Decision table testing is not pairwise testing.
+- Experience-based techniques should not be described as specification-based techniques.
+
+---
+
+## 4. Ambiguity
+
+Flag/fix questions where:
+- multiple answers are defensible;
+- terminology is vague;
+- ranges overlap;
+- ranges leave gaps unintentionally;
+- boundary inclusivity is unspecified;
+- initial states are unspecified;
+- the question asks for a minimum without enough information;
+- words such as "always", "never", "best", "highest", or "most" make the claim stronger than the syllabus supports.
+
+Prefer minimal wording changes that remove ambiguity.
+
+---
+
+## 5. Explanation consistency
+
+For each question verify:
+- `explanation` supports the actual correct answer;
+- `correctFeedback` does not contradict the answer;
+- `incorrectFeedback` is meaningful;
+- `optionExplanations` align with each option;
+- option letters/numbers referenced in prose are still correct;
+- examples use the same numbers/ranges as the statement.
+
+---
+
+## 6. Syllabus terminology
+
+Check for obsolete or misleading terminology inherited from older CTFL versions.
+
+Examples worth checking:
+- "pesticide paradox" vs "tests wear out";
+- branch vs decision terminology;
+- test basis / testware terminology;
+- defect/error/failure/root cause distinctions;
+- whole-team approach;
+- shift-left;
+- retrospectives;
+- DevOps;
+- test pyramid/quadrants;
+- static testing;
+- review roles and review types.
+
+Do NOT mass-replace terminology without checking context.
+
+---
+
+## 7. Learning objective and K-level
+
+Check whether:
+- `learningObjective` actually matches the concept tested;
+- `kLevel` is plausible for the task.
+
+Examples:
+- recall/recognition questions should generally not masquerade as application-level questions;
+- calculation/application questions may require higher cognitive level than definition recall.
+
+Do not aggressively remap metadata without official evidence.
+
+---
+
+# How to fix ambiguous questions
+
+Preferred order:
+
+1. Keep the intended syllabus concept.
+2. Preserve the original scenario if possible.
+3. Make the stem precise.
+4. Adjust distractors so exactly one answer is correct.
+5. Change the keyed answer only when necessary.
+6. Rewrite explanations/feedback to match.
+7. Preserve difficulty approximately.
+
+Avoid turning every question into an obvious definition question.
+
+Distractors should be plausible but clearly wrong according to CTFL.
+
+---
+
+# Important BVA rule
+
+Never apply BVA without identifying:
+1. the equivalence partitions;
+2. the boundaries between partitions;
+3. whether the question requests 2-value or 3-value BVA.
+
+For 2-value BVA, verify the exact CTFL v4.0.1 definition before choosing values.
+
+Do not assume that selecting two values *inside* a valid range around each endpoint constitutes correct two-value BVA.
+
+---
+
+# Important EP rule
+
+For equivalence partitioning, distinguish between:
+
+- **coverage of individual equivalence partitions**, and
+- **coverage of combinations of partitions across multiple parameters**.
+
+Do not require the full Cartesian product unless the requirement/question explicitly calls for combination coverage or another technique that requires it.
+
+Multiple values from the same partition do not increase basic EP partition coverage.
+
+---
+
+# Error / defect / failure / root cause
+
+Keep these concepts distinct.
+
+Conceptually:
+- **Error**: human action/mistake that produces an incorrect result.
+- **Defect**: flaw/imperfection in a work product.
+- **Failure**: externally observable deviation during execution.
+- **Root cause**: fundamental reason a problem occurred.
+
+Use the exact official syllabus definitions when available.
+
+Scenarios must identify whether they are referring to the human mistake or the resulting flaw in an artifact.
+
+---
+
+# Output requirements
+
+Modify the source question-bank file.
+
+Additionally create:
+
+`ISTQB_AUDIT_REPORT.md`
+
+The report should contain:
+
+## Summary
+
+- total questions checked;
+- number modified;
+- number left unchanged;
+- number requiring manual review, if any.
+
+## Changes
+
+Use a table:
+
+| Question | Severity | Issue | Old answer | New answer | What changed |
+|---|---|---|---|---|---|
+
+Severity:
+- `Critical`: wrong answer/key or no valid answer.
+- `High`: multiple correct answers / materially misleading teaching.
+- `Medium`: explanation/feedback contradiction or significant ambiguity.
+- `Low`: terminology/metadata/wording cleanup.
+
+## Manual-review items
+
+List any item you could not confidently resolve from authoritative material.
+
+Do not silently guess.
+
+---
+
+# Validation after editing
+
+Run a structural validation of the final file.
+
+At minimum verify:
+
+1. JavaScript object can still be parsed/extracted.
+2. All original question IDs still exist.
+3. No duplicate IDs were introduced.
+4. Question count remains the same unless there is an extremely strong reason otherwise.
+5. Every question has a `correctAnswer`.
+6. Every `correctAnswer` maps to an existing option.
+7. Every single-answer question has exactly one intended correct option.
+8. Required metadata fields have not accidentally disappeared.
+9. No malformed quotes, commas, brackets, or braces.
+10. No placeholder text such as TODO/FIXME remains unless placed only in `ISTQB_AUDIT_REPORT.md`.
+
+If possible, write a small temporary validation script rather than relying on visual inspection.
+
+---
+
+# Conservative-change policy
+
+This is important because the model performing this task may be inexpensive.
+
+**DO NOT rewrite hundreds of questions just to improve wording.**
+
+Only modify a question when at least one of these is true:
+
+- answer key is wrong;
+- more than one answer is correct;
+- no answer is correct;
+- question is impossible to answer from the supplied information;
+- explanation/feedback contradicts the answer;
+- mathematical/logical reasoning is wrong;
+- terminology materially conflicts with CTFL v4.0.1;
+- metadata is demonstrably wrong;
+- ambiguity materially affects which answer is correct.
+
+If a question is merely stylistically imperfect but technically correct, leave it alone.
+
+When uncertain, put it in the audit report instead of making a speculative edit.
+
+---
+
+# Workflow
+
+Perform the work in this order:
+
+1. Back up the original file as:
+   `questionsR.backup.txt`
+
+2. Parse the question bank and inventory:
+   - exam sets;
+   - question count;
+   - IDs;
+   - chapters;
+   - learning objectives.
+
+3. Fix and verify the explicitly known defects:
+   - Q218
+   - Q328
+   - Q019
+   - Q020
+   - Q151
+   - Q022
+   - Q066
+   - Q099
+
+4. Investigate the additional suspicious items:
+   - Q330
+   - Q088
+   - Q242
+   - Q327
+   - Q052
+   - suspicious learning-objective mappings.
+
+5. Audit the remaining questions systematically.
+
+6. Apply only justified corrections.
+
+7. Synchronize every affected explanation/feedback field.
+
+8. Run structural validation.
+
+9. Re-read every modified question from scratch and answer it without looking at `correctAnswer`.
+   - If your independent answer differs from the key, investigate again.
+   - If two options remain defensible, fix the ambiguity.
+
+10. Create `ISTQB_AUDIT_REPORT.md`.
+
+11. Print a concise final summary with:
+   - total checked;
+   - total modified;
+   - critical/high/medium/low counts;
+   - unresolved manual-review count;
+   - confirmation that structural validation passed.
+
+---
+
+# Final quality bar
+
+The resulting question bank should be suitable for serious CTFL v4.0.1 exam preparation.
+
+A learner should not be taught an incorrect rule merely because the existing answer key says so.
+
+Correctness and unambiguous exam logic take priority over preserving the original wording.
+
+At the same time, **do not hallucinate corrections**. Preserve correct content and explicitly flag uncertainty.
