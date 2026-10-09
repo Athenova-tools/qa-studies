@@ -56,6 +56,7 @@ const ExamGrading = (function () {
     var incorrectCount = 0;
     var unansweredCount = 0;
     var details = [];
+    var compact = [];
 
     for (var i = 0; i < total; i++) {
       var q = questions[i];
@@ -65,6 +66,13 @@ const ExamGrading = (function () {
       if (isCorrect) correctCount++;
       else if (selected === null) unansweredCount++;
       else incorrectCount++;
+
+      /* Compact answer record — enough to rebuild details from the question bank */
+      var compactEntry = { i: i, qid: q.id || null, sel: selected };
+      if (flagged && flagged.has(i)) compactEntry.f = true;
+      var qNote = notes ? (notes[i] || '') : '';
+      if (qNote) compactEntry.n = qNote;
+      compact.push(compactEntry);
 
       details.push({
         index: i,
@@ -107,7 +115,103 @@ const ExamGrading = (function () {
       unansweredCount: unansweredCount,
       timeSpent: '—',
       details: details,
+      answers: compact,
     };
+  }
+
+  /* =================================================================
+     Rebuild details from compact answers (question bank lookup)
+     Used when a stored/imported attempt has only `answers`.
+     ================================================================= */
+
+  var questionIndexCache = null;
+
+  function getQuestionIndex() {
+    if (questionIndexCache) return questionIndexCache;
+    var idx = {};
+    var sets = window.questionSets || {};
+    Object.keys(sets).forEach(function (key) {
+      (sets[key] || []).forEach(function (q) {
+        if (q && q.id) idx[q.id] = q;
+      });
+    });
+    questionIndexCache = idx;
+    return idx;
+  }
+
+  function rebuildDetails(answers) {
+    if (!answers || !answers.length) return null;
+    var idx = getQuestionIndex();
+    var details = [];
+    for (var i = 0; i < answers.length; i++) {
+      var a = answers[i];
+      var q = a && a.qid ? idx[a.qid] : null;
+      if (!q) return null;
+      var sel = a.sel !== undefined ? a.sel : null;
+      var isCorrect = sel !== null && sel === q.correctAnswer;
+      details.push({
+        index: typeof a.i === 'number' ? a.i : i,
+        question: q.statement,
+        options: q.options,
+        selectedAnswer: sel,
+        correctAnswer: q.correctAnswer,
+        isCorrect: isCorrect,
+        flagged: !!a.f,
+        note: a.n || '',
+        explanation: q.explanation || '',
+        whyWrong: q.whyWrong || '',
+        correctFeedback: q.correctFeedback || '',
+        incorrectFeedback: q.incorrectFeedback || {},
+        optionExplanations: q.optionExplanations || {},
+        chapter: q.chapter || '',
+        section: q.section || '',
+        subsection: q.subsection || '',
+        learningObjective: q.learningObjective || '',
+        kLevel: q.kLevel || '',
+        keywords: q.keywords || '',
+        examTip: q.examTip || '',
+        memoryAid: q.memoryAid || '',
+        timeSpent: 0,
+      });
+    }
+    return details;
+  }
+
+  /* =================================================================
+     Study plan — subsections to review (ascending)
+     ================================================================= */
+
+  function compareSubsectionCodes(a, b) {
+    var pa = a.split('.');
+    var pb = b.split('.');
+    var len = Math.max(pa.length, pb.length);
+    for (var i = 0; i < len; i++) {
+      var na = parseInt(pa[i], 10);
+      var nb = parseInt(pb[i], 10);
+      if (isNaN(na)) na = Number.MAX_SAFE_INTEGER;
+      if (isNaN(nb)) nb = Number.MAX_SAFE_INTEGER;
+      if (na !== nb) return na - nb;
+      if ((pa[i] || '') !== (pb[i] || '')) return String(pa[i] || '').localeCompare(String(pb[i] || ''));
+    }
+    return 0;
+  }
+
+  function buildStudyPlan(results) {
+    var details = (results && results.details) || [];
+    var bySub = {};
+    details.forEach(function (d) {
+      if (!d || d.isCorrect) return;
+      var key = d.subsection || '';
+      if (!key) return;
+      if (!bySub[key]) bySub[key] = { subsection: key, count: 0, objectives: [] };
+      bySub[key].count++;
+      var lo = d.learningObjective || '';
+      if (lo && bySub[key].objectives.indexOf(lo) === -1) bySub[key].objectives.push(lo);
+    });
+    return Object.keys(bySub).sort(compareSubsectionCodes).map(function (k) {
+      bySub[k].objectives.sort();
+      return bySub[k];
+    });
   }
 
   /* =================================================================
@@ -157,6 +261,32 @@ const ExamGrading = (function () {
 
     card.appendChild(mainRow);
     container.appendChild(card);
+
+    /* ---- Subsections to Study (resumo do que rever) ---- */
+    var studyPlan = buildStudyPlan(results);
+    if (studyPlan.length) {
+      var planCard = createEl('div', 'study-plan');
+      planCard.appendChild(createEl('div', 'study-plan__title', { text: 'Subsections to Study' }));
+      planCard.appendChild(createEl('div', 'study-plan__subtitle', {
+        text: 'Review these syllabus areas in ascending order, based on your incorrect and unanswered questions.',
+      }));
+      studyPlan.forEach(function (item) {
+        var row = createEl('div', 'study-plan__item');
+        row.appendChild(createEl('div', 'study-plan__code', { text: item.subsection }));
+        var infoCol = createEl('div', 'study-plan__info');
+        infoCol.appendChild(createEl('div', 'study-plan__count', {
+          text: item.count + (item.count === 1 ? ' question to review' : ' questions to review'),
+        }));
+        if (item.objectives.length) {
+          infoCol.appendChild(createEl('div', 'study-plan__los', {
+            text: 'Objectives: ' + item.objectives.join(', '),
+          }));
+        }
+        row.appendChild(infoCol);
+        planCard.appendChild(row);
+      });
+      container.appendChild(planCard);
+    }
 
     /* ---- Question Review List ---- */
     var list = createEl('div', 'results-list');
@@ -224,6 +354,18 @@ const ExamGrading = (function () {
       window.print();
     });
     filterBar.appendChild(pdfBtn);
+
+    /* Export exam as JSON file (before Copy) */
+    var exportBtn = createEl('button', ['btn', 'btn--sm', 'results-filter__btn'], { text: '⤓ Export JSON' });
+    exportBtn.addEventListener('click', function () {
+      if (typeof ExamStats !== 'undefined' && ExamStats.exportAttempt) {
+        ExamStats.exportAttempt(results.id, results);
+        var origText = exportBtn.textContent;
+        exportBtn.textContent = '✓ Exported';
+        setTimeout(function () { exportBtn.textContent = origText; }, 2000);
+      }
+    });
+    filterBar.appendChild(exportBtn);
 
     /* Copy to clipboard button */
     var copyBtn = createEl('button', ['btn', 'btn--sm', 'results-filter__btn'], { text: '\u2398 Copy' });
@@ -418,6 +560,8 @@ const ExamGrading = (function () {
   return {
     calculateResults: calculateResults,
     generateResultsHTML: generateResultsHTML,
+    buildStudyPlan: buildStudyPlan,
+    rebuildDetails: rebuildDetails,
     PASS_THRESHOLD: PASS_THRESHOLD,
   };
 })();

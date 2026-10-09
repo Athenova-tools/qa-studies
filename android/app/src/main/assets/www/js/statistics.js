@@ -10,13 +10,41 @@ const ExamStats = (function () {
 
   var STORAGE_KEY = 'istqb_ctfl_attempts';
   var FULL_KEY_PREFIX = 'istqb_ctfl_full_';
-  var MAX_FULL_RESULTS = 5;
   var TOTAL_Q = 40;
   var selectedExamFilter = 'all';
   var PAGE_SIZE = 5;
   var recentCurrentPage = 1;
+  /* Ordenação da tabela Recent Attempts: null = default (data desc) */
+  var recentSort = { key: null, dir: null };
+
+  function attemptSortValue(a, key) {
+    if (key === 'date') {
+      var t = Date.parse(a.date);
+      return isNaN(t) ? (a.id || 0) : t;
+    }
+    if (key === 'exam') return Number(a.examId) || 0;
+    if (key === 'score') return Number(a.score) || 0;
+    if (key === 'percentage') return parseFloat(a.percentage) || 0;
+    if (key === 'result') return a.passed ? 1 : 0;
+    if (key === 'time') {
+      var parts = String(a.timeSpent || '').split(':');
+      var secs = 0;
+      for (var pi = 0; pi < parts.length; pi++) {
+        var n = parseInt(parts[pi], 10);
+        if (isNaN(n)) return 0;
+        secs = secs * 60 + n;
+      }
+      return secs;
+    }
+    return 0;
+  }
 
   window.__inReviewMode = false;
+
+  /* Last import report (shown in the dashboard until it expires) */
+  var importReport = null;
+  var importReportTimer = null;
+  var hiddenFileInput = null;
 
   /* =================================================================
      Helpers
@@ -51,13 +79,59 @@ const ExamStats = (function () {
   }
 
   /* =================================================================
+     Platform origin detection
+     ================================================================= */
+
+  /* =================================================================
+     Keep screen awake (Screen Wake Lock API — web).
+     Na app Android isto e' garantido por FLAG_KEEP_SCREEN_ON no MainActivity.
+     ================================================================= */
+  var screenWakeLock = null;
+  function keepScreenAwake() {
+    if (typeof navigator === 'undefined' || !navigator.wakeLock ||
+        typeof navigator.wakeLock.request !== 'function') return;
+    if (screenWakeLock) return;
+    try {
+      navigator.wakeLock.request('screen').then(function (lock) {
+        screenWakeLock = lock;
+        lock.addEventListener('release', function () { screenWakeLock = null; });
+      }).catch(function () { /* permissao negada / nao suportado */ });
+    } catch (e) { /* API indisponivel */ }
+  }
+  if (typeof document !== 'undefined' && document.addEventListener) {
+    document.addEventListener('visibilitychange', function () {
+      if (document.visibilityState === 'visible' && !screenWakeLock) keepScreenAwake();
+    });
+  }
+
+  function detectOrigin() {
+    try {
+      if (typeof navigator !== 'undefined' && /android/i.test(navigator.userAgent || '')) {
+        return 'android';
+      }
+    } catch (e) { /* ignore */ }
+    return 'web';
+  }
+
+  /* =================================================================
      localStorage Persistence
      ================================================================= */
 
   function getAttempts() {
     try {
       var data = localStorage.getItem(STORAGE_KEY);
-      return data ? JSON.parse(data) : [];
+      var attempts = data ? JSON.parse(data) : [];
+      if (!Array.isArray(attempts)) return [];
+      /* Backfill origin for records created before this field existed */
+      var changed = false;
+      var origin = detectOrigin();
+      attempts.forEach(function (a) {
+        if (a && !a.origin) { a.origin = origin; changed = true; }
+      });
+      if (changed && attempts.length) {
+        try { localStorage.setItem(STORAGE_KEY, JSON.stringify(attempts)); } catch (e) { /* ignore */ }
+      }
+      return attempts;
     } catch (e) {
       return [];
     }
@@ -80,16 +154,20 @@ const ExamStats = (function () {
       unansweredCount: result.unansweredCount,
       timeSpent: result.timeSpent || '—',
       chapterPerformance: result.chapterPerformance || undefined,
+      origin: detectOrigin(),
     };
     attempts.push(entry);
+    /* Stamp the id on the result so the Review screen can export it */
+    result.id = id;
     try {
       localStorage.setItem(STORAGE_KEY, JSON.stringify(attempts));
     } catch (e) {
       /* localStorage full or unavailable — silently ignore */
     }
 
-    /* Save full result (with details) for review */
-    if (result.details && result.details.length) {
+    /* Save review data for this attempt (compact answers; no eviction —
+       every attempt keeps its Question Review data so it can be exported) */
+    if ((result.answers && result.answers.length) || (result.details && result.details.length)) {
       try {
         var fullKey = FULL_KEY_PREFIX + id;
         var fullData = {
@@ -105,17 +183,16 @@ const ExamStats = (function () {
           unansweredCount: result.unansweredCount,
           timeSpent: entry.timeSpent,
           chapterPerformance: result.chapterPerformance,
-          details: result.details,
         };
+        if (result.answers && result.answers.length) {
+          fullData.answers = result.answers;
+        } else {
+          /* Fallback: legacy callers that only provide details */
+          fullData.details = result.details;
+        }
         localStorage.setItem(fullKey, JSON.stringify(fullData));
-
-        /* Clean up old full results beyond MAX_FULL_RESULTS */
-        var allIds = attempts.map(function (a) { return a.id; }).sort(function (a, b) { return b - a; });
-        allIds.slice(MAX_FULL_RESULTS).forEach(function (oldId) {
-          try { localStorage.removeItem(FULL_KEY_PREFIX + oldId); } catch (e) { /* ignore */ }
-        });
       } catch (e) {
-        /* ignore */
+        /* ignore — summary is still saved, review falls back to the summary card */
       }
     }
   }
@@ -156,6 +233,384 @@ const ExamStats = (function () {
     } catch (e) {
       /* ignore */
     }
+  }
+
+  /* =================================================================
+     Export / Import — JSON sync between devices
+     Export: single attempt (Review) or all attempts (dashboard).
+     Import: strictly additive for local attempts; records previously
+     imported are refreshed from the file; new ones are added.
+     ================================================================= */
+
+  function pad2(n) { return (n < 10 ? '0' : '') + n; }
+
+  function fileStamp() {
+    var d = new Date();
+    return d.getFullYear() + pad2(d.getMonth() + 1) + pad2(d.getDate()) +
+      '-' + pad2(d.getHours()) + pad2(d.getMinutes()) + pad2(d.getSeconds());
+  }
+
+  /* Origin sigla no nome do ficheiro exportado: WEB ou AND */
+  function originTag() {
+    return detectOrigin() === 'android' ? 'AND' : 'WEB';
+  }
+
+  function attemptFromResults(results) {
+    return {
+      id: results.id || Date.now(),
+      date: results.date || getDateStr(),
+      examId: results.examId || 1,
+      score: results.score,
+      total: results.total || TOTAL_Q,
+      percentage: results.percentage,
+      passed: results.passed,
+      correctCount: results.correctCount,
+      incorrectCount: results.incorrectCount,
+      unansweredCount: results.unansweredCount,
+      timeSpent: results.timeSpent || '—',
+      chapterPerformance: results.chapterPerformance || undefined,
+      origin: detectOrigin(),
+    };
+  }
+
+  function buildExportPayload(attemptIds) {
+    var attempts = getAttempts();
+    var wanted = null;
+    if (attemptIds) {
+      wanted = {};
+      attemptIds.forEach(function (id) { wanted[id] = true; });
+    }
+    var outAttempts = wanted
+      ? attempts.filter(function (a) { return wanted[a.id]; })
+      : attempts.slice();
+    var fullResults = {};
+    outAttempts.forEach(function (a) {
+      var full = getFullResult(a.id);
+      if (full) fullResults[a.id] = full;
+    });
+    return {
+      format: 'istqb-attempts',
+      version: 1,
+      exportedAt: new Date().toISOString(),
+      origin: detectOrigin(),
+      attempts: outAttempts,
+      fullResults: fullResults,
+    };
+  }
+
+  function exportAttempt(id, results) {
+    var summary = null;
+    if (id !== undefined && id !== null) {
+      var attempts = getAttempts();
+      for (var i = 0; i < attempts.length; i++) {
+        if (attempts[i].id === id) { summary = attempts[i]; break; }
+      }
+    }
+    var full = (id !== undefined && id !== null) ? getFullResult(id) : null;
+
+    /* Fallback: attempt not (or no longer) in storage but available in memory */
+    if (!summary && results) summary = attemptFromResults(results);
+    if (!full && results) {
+      full = attemptFromResults(results);
+      if (results.answers && results.answers.length) full.answers = results.answers;
+      else if (results.details && results.details.length) full.details = results.details;
+      else full = null;
+    }
+    if (!summary && !full) {
+      if (typeof alert === 'function') alert('Attempt not found — nothing to export.');
+      return false;
+    }
+
+    var payload = {
+      format: 'istqb-attempts',
+      version: 1,
+      exportedAt: new Date().toISOString(),
+      origin: detectOrigin(),
+      attempts: summary ? [summary] : [],
+      fullResults: {},
+    };
+    if (full) payload.fullResults[full.id] = full;
+    var examId = (summary && summary.examId) || (full && full.examId) || 1;
+    return downloadJSON(payload, 'istqb-exam' + examId + '-' + originTag() + '-' + fileStamp() + '.json');
+  }
+
+  function exportAllAttempts() {
+    var payload = buildExportPayload(null);
+    return downloadJSON(payload, 'istqb-attempts-all-' + originTag() + '-' + fileStamp() + '.json');
+  }
+
+  function utf8ToBase64(str) {
+    if (typeof TextEncoder !== 'undefined') {
+      var bytes = new TextEncoder().encode(str);
+      var bin = '';
+      var CHUNK = 0x8000;
+      for (var i = 0; i < bytes.length; i += CHUNK) {
+        bin += String.fromCharCode.apply(null, bytes.subarray(i, i + CHUNK));
+      }
+      return btoa(bin);
+    }
+    /* Fallback for very old engines */
+    return btoa(unescape(encodeURIComponent(str)));
+  }
+
+  function downloadJSON(obj, filename) {
+    var json;
+    try {
+      json = JSON.stringify(obj, null, 2);
+    } catch (e) {
+      return false;
+    }
+    /* Android WebView: native bridge writes the file via the system save dialog */
+    if (typeof window !== 'undefined' && window.IstqbNative &&
+        typeof window.IstqbNative.saveJsonFile === 'function') {
+      try {
+        window.IstqbNative.saveJsonFile(filename, utf8ToBase64(json));
+        return true;
+      } catch (e) {
+        /* fall through to the browser download */
+      }
+    }
+    /* Web: Blob + <a download> */
+    try {
+      var blob = new Blob([json], { type: 'application/json' });
+      var url = URL.createObjectURL(blob);
+      var a = document.createElement('a');
+      a.href = url;
+      a.download = filename;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      setTimeout(function () { URL.revokeObjectURL(url); }, 10000);
+      return true;
+    } catch (e) {
+      return false;
+    }
+  }
+
+  function sanitizeSummary(fa, fallbackOrigin) {
+    var rec = {
+      id: fa.id,
+      date: typeof fa.date === 'string' ? fa.date : '',
+      examId: typeof fa.examId === 'number' ? fa.examId : 1,
+      score: typeof fa.score === 'number' ? fa.score : 0,
+      total: typeof fa.total === 'number' ? fa.total : TOTAL_Q,
+      percentage: typeof fa.percentage === 'number' ? fa.percentage : 0,
+      passed: !!fa.passed,
+      correctCount: typeof fa.correctCount === 'number' ? fa.correctCount : 0,
+      incorrectCount: typeof fa.incorrectCount === 'number' ? fa.incorrectCount : 0,
+      unansweredCount: typeof fa.unansweredCount === 'number' ? fa.unansweredCount : 0,
+      timeSpent: typeof fa.timeSpent === 'string' ? fa.timeSpent : '—',
+    };
+    if (fa.chapterPerformance && typeof fa.chapterPerformance === 'object') {
+      rec.chapterPerformance = fa.chapterPerformance;
+    }
+    if (fa.origin === 'android' || fa.origin === 'web') rec.origin = fa.origin;
+    else if (fallbackOrigin === 'android' || fallbackOrigin === 'web') rec.origin = fallbackOrigin;
+    else rec.origin = detectOrigin();
+    return rec;
+  }
+
+  function normalizeFull(full, id) {
+    var rec = {};
+    ['id', 'date', 'examId', 'score', 'total', 'percentage', 'passed',
+     'correctCount', 'incorrectCount', 'unansweredCount', 'timeSpent'
+    ].forEach(function (k) {
+      if (full[k] !== undefined) rec[k] = full[k];
+    });
+    rec.id = id;
+    if (full.chapterPerformance && typeof full.chapterPerformance === 'object') {
+      rec.chapterPerformance = full.chapterPerformance;
+    }
+    if (Array.isArray(full.answers) && full.answers.length) {
+      rec.answers = full.answers;
+    } else if (Array.isArray(full.details) && full.details.length) {
+      rec.details = full.details;
+    }
+    return rec;
+  }
+
+  function normalizeImport(data) {
+    if (Array.isArray(data)) data = { attempts: data };
+    if (!data || typeof data !== 'object' || !Array.isArray(data.attempts)) {
+      throw new Error('unrecognized file format — expected an ISTQB attempts export');
+    }
+    if (data.fullResults !== undefined &&
+        (typeof data.fullResults !== 'object' || data.fullResults === null || Array.isArray(data.fullResults))) {
+      throw new Error('invalid fullResults field');
+    }
+    return data;
+  }
+
+  /**
+   * Incremental import. Rules:
+   *  - id not present locally        -> added (marked imported: true)
+   *  - id present and was imported   -> overwritten from the file
+   *  - id present and taken locally  -> kept unchanged (never overwritten)
+   *  - review data: written when the summary is added/updated; also added
+   *    when missing (heal) — never replaces existing local review data.
+   */
+  function importParsed(raw) {
+    var data = normalizeImport(raw);
+    var report = { added: 0, updated: 0, kept: 0, invalid: 0, fullAdded: 0, fullUpdated: 0, fullFailed: 0, orphans: 0 };
+
+    var attempts = getAttempts();
+    var byId = {};
+    attempts.forEach(function (a) { byId[a.id] = a; });
+
+    var mode = {}; /* id -> 'add' | 'update' | 'keep' */
+
+    data.attempts.forEach(function (fa) {
+      if (!fa || typeof fa !== 'object' || typeof fa.id !== 'number' || !isFinite(fa.id)) {
+        report.invalid++;
+        return;
+      }
+      var local = byId[fa.id];
+      if (local) {
+        if (local.imported) {
+          byId[fa.id] = sanitizeSummary(fa, data.origin);
+          byId[fa.id].imported = true;
+          mode[fa.id] = 'update';
+          report.updated++;
+        } else {
+          mode[fa.id] = 'keep';
+          report.kept++;
+        }
+      } else {
+        var rec = sanitizeSummary(fa, data.origin);
+        rec.imported = true;
+        byId[fa.id] = rec;
+        mode[fa.id] = 'add';
+        report.added++;
+      }
+    });
+
+    /* Review data (full records) */
+    var fileFull = data.fullResults || {};
+    Object.keys(fileFull).forEach(function (key) {
+      var id = parseInt(key, 10);
+      if (!isFinite(id)) return;
+      var full = fileFull[key];
+      if (!full || typeof full !== 'object') return;
+      var m = mode[id];
+      if (!m) {
+        if (byId[id]) m = 'keep'; /* summary exists but was not in the file — only heal */
+        else { report.orphans++; return; } /* review data without any summary — skip */
+      }
+      var exists = localStorage.getItem(FULL_KEY_PREFIX + id) !== null;
+      try {
+        if (m === 'keep') {
+          if (!exists) {
+            localStorage.setItem(FULL_KEY_PREFIX + id, JSON.stringify(normalizeFull(full, id)));
+            report.fullAdded++;
+          }
+          /* exists -> leave the local review data untouched */
+        } else {
+          /* added or updated imported record — file wins */
+          localStorage.setItem(FULL_KEY_PREFIX + id, JSON.stringify(normalizeFull(full, id)));
+          if (exists) report.fullUpdated++;
+          else report.fullAdded++;
+        }
+      } catch (e) {
+        report.fullFailed++;
+      }
+    });
+
+    /* Persist merged list sorted by id ascending (oldest first) */
+    var merged = [];
+    Object.keys(byId).forEach(function (k) { merged.push(byId[k]); });
+    merged.sort(function (a, b) { return a.id - b.id; });
+    try {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(merged));
+    } catch (e) {
+      report.storageError = true;
+    }
+
+    importReport = report;
+    if (importReportTimer) clearTimeout(importReportTimer);
+    importReportTimer = setTimeout(function () {
+      importReport = null;
+      renderStatsDashboard();
+    }, 30000);
+    return report;
+  }
+
+  function importFromFile(file) {
+    if (!file) return;
+    var reader = new FileReader();
+    reader.onload = function () {
+      try {
+        importParsed(JSON.parse(String(reader.result)));
+        renderStatsDashboard();
+      } catch (e) {
+        if (typeof alert === 'function') {
+          alert('Import failed: ' + (e && e.message ? e.message : e));
+        }
+      }
+    };
+    reader.onerror = function () {
+      if (typeof alert === 'function') alert('Could not read the selected file.');
+    };
+    reader.readAsText(file);
+  }
+
+  function formatImportReport(r) {
+    if (!r) return '';
+    var parts = [];
+    parts.push('Imported ' + r.added + ' new attempt' + (r.added === 1 ? '' : 's'));
+    if (r.updated) parts.push(r.updated + ' updated');
+    if (r.kept) parts.push(r.kept + ' kept (taken on this device)');
+    var review = (r.fullAdded || 0) + (r.fullUpdated || 0);
+    if (review) parts.push(review + ' review record' + (review === 1 ? '' : 's') + ' stored');
+    if (r.invalid) parts.push(r.invalid + ' invalid entr' + (r.invalid === 1 ? 'y' : 'ies') + ' skipped');
+    if (r.orphans) parts.push(r.orphans + ' orphan record' + (r.orphans === 1 ? '' : 's') + ' skipped');
+    if (r.fullFailed) parts.push(r.fullFailed + ' review record(s) not stored (storage full)');
+    if (r.storageError) parts.push('WARNING: attempt list could not be saved (storage full)');
+    return parts.join(' · ');
+  }
+
+  function createSyncButtons() {
+    var wrap = createEl('div', null, { style: 'display:flex;gap:var(--space-sm);flex-wrap:wrap;' });
+    var exportBtn = createEl('button', ['btn', 'btn--secondary', 'btn--sm'], { text: '\u2913 Export All JSON' });
+    exportBtn.addEventListener('click', function () {
+      exportAllAttempts();
+    });
+    wrap.appendChild(exportBtn);
+    var importBtn = createEl('button', ['btn', 'btn--secondary', 'btn--sm'], { text: '\u2912 Import JSON' });
+    importBtn.addEventListener('click', function () { pickImportFile(); });
+    wrap.appendChild(importBtn);
+    return wrap;
+  }
+
+  function pickImportFile() {
+    if (!hiddenFileInput) {
+      hiddenFileInput = document.createElement('input');
+      hiddenFileInput.type = 'file';
+      hiddenFileInput.accept = '.json,application/json';
+      hiddenFileInput.style.display = 'none';
+      hiddenFileInput.addEventListener('change', function () {
+        var f = hiddenFileInput.files && hiddenFileInput.files[0];
+        hiddenFileInput.value = ''; /* allow selecting the same file again */
+        if (f) importFromFile(f);
+      });
+      document.body.appendChild(hiddenFileInput);
+    }
+    hiddenFileInput.click();
+  }
+
+  function originIconEl(a) {
+    var span = document.createElement('span');
+    span.className = 'attempt-origin';
+    if (a.origin === 'android') {
+      span.textContent = '\uD83D\uDCF1'; /* 📱 */
+      span.title = 'Origin: Android';
+    } else if (a.origin === 'web') {
+      span.textContent = '\uD83D\uDCBB'; /* 💻 */
+      span.title = 'Origin: Web';
+    } else {
+      span.textContent = '❔';
+      span.title = 'Origin: unknown';
+    }
+    return span;
   }
 
   /* =================================================================
@@ -294,6 +749,7 @@ const ExamStats = (function () {
      ================================================================= */
 
   function reviewAttempt(id) {
+    keepScreenAwake();
     window.__inReviewMode = true;
     var appEl = document.getElementById('app');
     if (!appEl) {
@@ -306,7 +762,14 @@ const ExamStats = (function () {
     if (dashboard && appEl.id !== 'stats-dashboard') dashboard.style.display = 'none';
     while (appEl.firstChild) { appEl.removeChild(appEl.firstChild); }
 
-    if (full && typeof ExamGrading !== 'undefined') {
+    /* Rebuild per-question details from compact answers when needed
+       (attempts saved after the compact-answer change, or imported) */
+    if (full && !full.details && full.answers && typeof ExamGrading !== 'undefined' && ExamGrading.rebuildDetails) {
+      var rebuilt = ExamGrading.rebuildDetails(full.answers);
+      if (rebuilt) full.details = rebuilt;
+    }
+
+    if (full && full.details && typeof ExamGrading !== 'undefined') {
       full.chapterPerformance = full.chapterPerformance || {};
       var resultsEl = ExamGrading.generateResultsHTML(full);
       appEl.appendChild(resultsEl);
@@ -377,6 +840,12 @@ const ExamStats = (function () {
         text: 'No exam attempts yet. Start an exam to see your statistics here.',
         style: 'text-align:center;color:var(--color-text-muted);padding:var(--space-xl) 0;',
       }));
+      var emptyRow = createEl('div', null, { style: 'display:flex;justify-content:center;gap:var(--space-sm);flex-wrap:wrap;padding-bottom:var(--space-lg);' });
+      emptyRow.appendChild(createSyncButtons());
+      container.appendChild(emptyRow);
+      if (importReport) {
+        container.appendChild(createEl('div', 'sync-status', { text: formatImportReport(importReport) }));
+      }
       return;
     }
 
@@ -425,11 +894,29 @@ const ExamStats = (function () {
     attemptsHeader.appendChild(topBtn);
     container.appendChild(attemptsHeader);
 
+    /* Export/Import por baixo do label, um ao lado do outro */
+    container.appendChild(createSyncButtons());
+
+    if (importReport) {
+      container.appendChild(createEl('div', 'sync-status', { text: formatImportReport(importReport) }));
+    }
+
     /* Build filtered list from all attempts (newest first) */
     var allForTable = getAttempts().slice().reverse();
     var filteredList = selectedExamFilter === 'all'
       ? allForTable
       : allForTable.filter(function (a) { return String(a.examId) === String(selectedExamFilter); });
+
+    if (recentSort.key) {
+      var sortKey = recentSort.key;
+      var sortDir = recentSort.dir;
+      filteredList = filteredList.slice().sort(function (x, y) {
+        var vx = attemptSortValue(x, sortKey);
+        var vy = attemptSortValue(y, sortKey);
+        var cmp = vx < vy ? -1 : (vx > vy ? 1 : 0);
+        return sortDir === 'desc' ? -cmp : cmp;
+      });
+    }
 
     var totalItems = filteredList.length;
     var totalPages = Math.ceil(totalItems / PAGE_SIZE) || 1;
@@ -447,10 +934,41 @@ const ExamStats = (function () {
     /* Header */
     var thead = document.createElement('thead');
     var hRow = document.createElement('tr');
-    ['Date', 'Exam', 'Score', 'Percentage', 'Result', 'Time', ''].forEach(function (h) {
+    var sortableKeys = ['date', 'exam', 'score', 'percentage', 'result', 'time', null];
+    ['Date', 'Exam', 'Score', 'Percentage', 'Result', 'Time', ''].forEach(function (h, hi) {
       var th = document.createElement('th');
-      th.textContent = h;
+      var key = sortableKeys[hi];
       th.style.cssText = 'text-align:left;padding:var(--space-sm) var(--space-md);border-bottom:2px solid var(--color-border);color:var(--color-text-muted);font-weight:700;text-transform:uppercase;font-size:0.75rem;letter-spacing:0.04em;';
+      if (!key) {
+        th.textContent = h;
+        hRow.appendChild(th);
+        return;
+      }
+      var isActive = recentSort.key === key;
+      if (isActive) th.style.color = 'var(--color-primary)';
+      th.style.cursor = 'pointer';
+      th.setAttribute('role', 'button');
+      th.setAttribute('aria-label', 'Sort by ' + h);
+      th.setAttribute('title', 'Sort: 1st tap A-Z, 2nd tap Z-A, 3rd tap default (by date)');
+      th.appendChild(document.createTextNode(h));
+      var icon = document.createElement('span');
+      icon.className = 'sort-icon';
+      icon.textContent = isActive ? (recentSort.dir === 'asc' ? ' \u21C5 A-Z' : ' \u21C5 Z-A') : ' \u21C5';
+      icon.style.cssText = 'margin-left:6px;font-size:0.6875rem;letter-spacing:0;text-transform:none;';
+      th.appendChild(icon);
+      th.addEventListener('click', function () {
+        if (recentSort.key !== key) {
+          recentSort.key = key;
+          recentSort.dir = 'asc';
+        } else if (recentSort.dir === 'asc') {
+          recentSort.dir = 'desc';
+        } else {
+          recentSort.key = null;
+          recentSort.dir = null;
+        }
+        recentCurrentPage = 1;
+        renderStatsDashboard();
+      });
       hRow.appendChild(th);
     });
     thead.appendChild(hRow);
@@ -472,6 +990,7 @@ const ExamStats = (function () {
         var td = document.createElement('td');
         td.textContent = c;
         td.style.cssText = 'padding:var(--space-sm) var(--space-md);border-bottom:1px solid var(--color-border);color:var(--color-text-secondary);';
+        if (ci === 0) td.appendChild(originIconEl(a));
         if (ci === 4) {
           td.style.fontWeight = '700';
           td.style.color = a.passed ? 'var(--color-success)' : 'var(--color-danger)';
@@ -745,5 +1264,13 @@ const ExamStats = (function () {
     clearHistory: clearHistory,
     reviewAttempt: reviewAttempt,
     getFullResult: getFullResult,
+    exportAttempt: exportAttempt,
+    exportAllAttempts: exportAllAttempts,
+    buildExportPayload: buildExportPayload,
+    importParsed: importParsed,
+    importFromFile: importFromFile,
+    detectOrigin: detectOrigin,
+    keepScreenAwake: keepScreenAwake,
+    attemptSortValue: attemptSortValue,
   };
 })();

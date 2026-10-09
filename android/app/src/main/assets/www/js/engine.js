@@ -505,6 +505,7 @@ const ExamEngine = (function () {
         item.setAttribute('aria-label', 'Go to question ' + (idx + 1));
         item.addEventListener('click', function () {
           if (!state.submitted) {
+            window.scrollTo(0, 0);
             goToQuestion(idx);
           }
         });
@@ -835,6 +836,7 @@ const ExamEngine = (function () {
   }
 
   function beginExam() {
+    if (typeof ExamStats !== 'undefined' && ExamStats.keepScreenAwake) ExamStats.keepScreenAwake();
     state.index = 0;
     state.answers = {};
     state.flagged = new Set();

@@ -2891,3 +2891,74 @@ results-list__title {
     padding: 0.5em;
   }
 }
+
+/* ============================================================
+   Attempt origin icon + sync (export/import) status line
+   ============================================================ */
+.attempt-origin {
+  margin-left: 6px;
+  font-size: 0.9em;
+  line-height: 1;
+}
+
+.sync-status {
+  font-size: 0.8125rem;
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-sm);
+  padding: var(--space-xs) var(--space-sm);
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  background: var(--color-surface, transparent);
+}
+
+
+/* =================================================================
+   Subsections to Study (Question Review)
+   ================================================================= */
+.study-plan {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-lg);
+  margin: var(--space-md) 0;
+}
+.study-plan__title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--color-text);
+  margin-bottom: 4px;
+}
+.study-plan__subtitle {
+  font-size: 0.8125rem;
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-sm);
+}
+.study-plan__item {
+  display: grid;
+  grid-template-columns: 90px 1fr;
+  gap: var(--space-sm);
+  align-items: start;
+  padding: 8px 0;
+  border-top: 1px solid var(--color-border);
+}
+.study-plan__code {
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  background: var(--color-bg, transparent);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  padding: 2px 8px;
+  text-align: center;
+}
+.study-plan__count {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--color-text);
+}
+.study-plan__los {
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+  margin-top: 2px;
+}

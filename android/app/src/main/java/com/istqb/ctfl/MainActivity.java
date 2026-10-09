@@ -7,16 +7,24 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.Base64;
 import android.util.Log;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.webkit.ConsoleMessage;
+import android.webkit.JavascriptInterface;
+import android.webkit.ValueCallback;
 import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.Toast;
+
+import java.io.IOException;
+import java.io.OutputStream;
 
 public class MainActivity extends Activity {
     private WebView webView;
@@ -25,6 +33,13 @@ public class MainActivity extends Activity {
     private static final String TAG = "ISTQB_WV";
     private static final String HOME_URL = "file:///android_asset/www/index.html";
     private static final String ATTEMPTS_URL = HOME_URL + "?goto=attempts#stats-dashboard";
+    private static final int REQ_FILE_CHOOSER = 101;
+    private static final int REQ_SAVE_FILE = 102;
+
+    /* Import: callback for the WebView <input type="file"> chooser */
+    private ValueCallback<Uri[]> fileChooserCallback;
+    /* Export: pending file content waiting for the user-chosen save location */
+    private byte[] pendingSaveBytes;
     private static final String BANNER = "(function(){"
             + "function showErr(m){var b=document.getElementById('err-banner');"
             + " if(!b){b=document.createElement('div');b.id='err-banner';"
@@ -63,7 +78,32 @@ public class MainActivity extends Activity {
                     + " (" + cm.sourceId() + ":" + cm.lineNumber() + ")");
                 return true;
             }
+
+            /* Import JSON: let the WebView open the system file picker */
+            @Override
+            public boolean onShowFileChooser(WebView view, ValueCallback<Uri[]> callback,
+                                             FileChooserParams params) {
+                if (fileChooserCallback != null) {
+                    fileChooserCallback.onReceiveValue(null);
+                }
+                fileChooserCallback = callback;
+                Intent chooser = new Intent(Intent.ACTION_GET_CONTENT);
+                chooser.addCategory(Intent.CATEGORY_OPENABLE);
+                chooser.setType("*/*");
+                chooser.putExtra(Intent.EXTRA_MIME_TYPES,
+                    new String[]{"application/json", "text/json", "text/plain"});
+                try {
+                    startActivityForResult(chooser, REQ_FILE_CHOOSER);
+                } catch (Exception e) {
+                    Log.e(TAG, "No activity can open the file chooser", e);
+                    fileChooserCallback = null;
+                    callback.onReceiveValue(null);
+                }
+                return true;
+            }
         });
+        /* Export JSON: JS hands the file content to native code */
+        webView.addJavascriptInterface(new JsBridge(), "IstqbNative");
         webView.setWebViewClient(new WebViewClient(){
             @Override
             public void onPageFinished(WebView v, String u) {
@@ -76,6 +116,9 @@ public class MainActivity extends Activity {
                 v.evaluateJavascript(BANNER, null);
             }
         });
+        /* Ecrã sempre aceso durante o exame/revisão (como nos vídeos) */
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+
         setContentView(webView);
         webView.loadUrl(HOME_URL);
 
@@ -84,6 +127,66 @@ public class MainActivity extends Activity {
             registerReceiver(jsReceiver, filter, Context.RECEIVER_EXPORTED);
         } else {
             registerReceiver(jsReceiver, filter);
+        }
+    }
+
+    /* Results from the file chooser (import) and the save dialog (export) */
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == REQ_FILE_CHOOSER) {
+            Uri[] uris = null;
+            if (resultCode == RESULT_OK && data != null && data.getData() != null) {
+                uris = new Uri[]{data.getData()};
+            }
+            if (fileChooserCallback != null) {
+                fileChooserCallback.onReceiveValue(uris);
+                fileChooserCallback = null;
+            }
+            return;
+        }
+        if (requestCode == REQ_SAVE_FILE) {
+            if (resultCode == RESULT_OK && data != null && data.getData() != null
+                    && pendingSaveBytes != null) {
+                try (OutputStream os = getContentResolver().openOutputStream(data.getData())) {
+                    if (os != null) {
+                        os.write(pendingSaveBytes);
+                        Toast.makeText(this, "JSON file saved", Toast.LENGTH_SHORT).show();
+                        Log.d(TAG, "Exported JSON: " + pendingSaveBytes.length + " bytes");
+                    } else {
+                        Toast.makeText(this, "Could not open the save location", Toast.LENGTH_LONG).show();
+                    }
+                } catch (IOException | SecurityException e) {
+                    Log.e(TAG, "Failed to write exported file", e);
+                    Toast.makeText(this, "Save failed: " + e.getMessage(), Toast.LENGTH_LONG).show();
+                }
+            }
+            pendingSaveBytes = null;
+            return;
+        }
+        super.onActivityResult(requestCode, resultCode, data);
+    }
+
+    /**
+     * Native side of the JSON export: receives filename + base64 content from JS
+     * and lets the user pick a save location via the system document picker.
+     */
+    public class JsBridge {
+        @JavascriptInterface
+        public void saveJsonFile(final String filename, final String base64) {
+            runOnUiThread(() -> {
+                try {
+                    pendingSaveBytes = Base64.decode(base64, Base64.NO_WRAP);
+                    Intent save = new Intent(Intent.ACTION_CREATE_DOCUMENT);
+                    save.addCategory(Intent.CATEGORY_OPENABLE);
+                    save.setType("application/json");
+                    save.putExtra(Intent.EXTRA_TITLE, filename != null ? filename : "istqb-export.json");
+                    startActivityForResult(save, REQ_SAVE_FILE);
+                } catch (IllegalArgumentException e) {
+                    Log.e(TAG, "Invalid base64 payload for export", e);
+                    pendingSaveBytes = null;
+                    Toast.makeText(MainActivity.this, "Export failed: invalid data", Toast.LENGTH_LONG).show();
+                }
+            });
         }
     }
 
