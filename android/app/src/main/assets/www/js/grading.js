@@ -451,12 +451,6 @@ const ExamGrading = (function () {
     navRow.appendChild(backAttemptsBtn);
     filterBar.appendChild(navRow);
 
-    /* whyWrong meaning note */
-    filterBar.appendChild(createEl('div', null, {
-      style: 'font-size:0.75rem;color:var(--color-text-secondary);padding:0 var(--space-sm) var(--space-sm);',
-      text: 'Por que a opção está incorreta: princípio que a torna errada (não é a explicação da opção em si)'
-    }));
-
     list.appendChild(filterBar);
 
     results.details.forEach(function (d) {
