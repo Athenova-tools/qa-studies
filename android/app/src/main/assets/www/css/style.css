@@ -2542,6 +2542,7 @@ results-list__title {
     bottom: 0;
     width: 280px;
     transform: translateX(100%);
+    animation: none;
     z-index: 100;
     box-shadow: var(--shadow-xl);
   }
@@ -2686,7 +2687,8 @@ results-list__title {
   }
 
   .exam-sidebar {
-    width: 100%;
+    width: 300px;
+    max-width: 85vw;
   }
 
   .question-nav {

@@ -217,7 +217,7 @@ const ExamEngine = (function () {
     toggleBtn.setAttribute('aria-label', tr('sidebarAria'));
     toggleBtn.addEventListener('click', toggleSidebar);
     toggleBtn.style.position = 'fixed';
-    toggleBtn.style.bottom = 'var(--space-lg)';
+    toggleBtn.style.bottom = '80px';
     toggleBtn.style.right = 'var(--space-lg)';
     toggleBtn.style.zIndex = '50';
     toggleBtn.style.boxShadow = 'var(--shadow-lg)';
