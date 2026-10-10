@@ -884,7 +884,7 @@ const ExamEngine = (function () {
         return;
       }
 
-      state.questions = window.questionSets[key];
+      state.questions = selectExamQuestions(window.questionSets[key]);
       state.examId = examId;
 
       showExamConfig();
@@ -898,8 +898,23 @@ const ExamEngine = (function () {
     getState: function () { return state; },
   };
 
+  function selectExamQuestions(all) {
+    if (all.length <= TOTAL_Q) return all.slice();
+    var idx = [];
+    for (var i = 0; i < all.length; i++) idx.push(i);
+    for (var k = idx.length - 1; k > 0; k--) {
+      var j = Math.floor(Math.random() * (k + 1));
+      var tmp = idx[k];
+      idx[k] = idx[j];
+      idx[j] = tmp;
+    }
+    var keep = idx.slice(0, TOTAL_Q);
+    keep.sort(function (a, b) { return a - b; });
+    return keep.map(function (i) { return all[i]; });
+  }
+
   function isValidQuestionSet(questions) {
-    if (!Array.isArray(questions) || questions.length !== TOTAL_Q) return false;
+    if (!Array.isArray(questions) || questions.length < TOTAL_Q) return false;
 
     return questions.every(function (question) {
       return question &&

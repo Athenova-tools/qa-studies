@@ -13503,5 +13503,2969 @@ window.questionSets = {
             "examTip": "Severity = impact level; Priority = fix urgency.",
             "memoryAid": "Severity = Severity of the problem; Priority = when to fix it."
         }
+    ],
+    "exam10": [
+        {
+            "id": "Q1001",
+            "statement": "When the tester verifies the test basis while designing tests early in the lifecycle, which test objective is being achieved?",
+            "options": {
+                "A": "Gaining confidence",
+                "B": "Finding defects",
+                "C": "Evaluating work products",
+                "D": "Providing information for decision making"
+            },
+            "correctAnswer": "C",
+            "explanation": "C is correct per the syllabus. The other three are achieved primarily by doing dynamic testing. This is a bit tricky because you are very likely to find defects while doing this analysis and this may lead to either gaining or destroying confidence and needing to supply information to the decision makers. What is occurring here is an evaluation of the work product, in this case the requirements.",
+            "correctFeedback": "✅ Correct: per the syllabus. The other three are achieved primarily by doing dynamic testing. This is a bit tricky because you are very likely to find defects while doing this analysis and th.",
+            "incorrectFeedback": {
+                "A": "❌ Incorrect: This option is not the correct answer (see the official explanation).",
+                "B": "❌ Incorrect: This option is not the correct answer (see the official explanation).",
+                "D": "❌ Incorrect: This option is not the correct answer (see the official explanation)."
+            },
+            "optionExplanations": {
+                "C": "per the syllabus. The other three are achieved primarily by doing dynamic testing. This is a bit tricky because you are very likely to find defects while doing this analysis and this may lead to either gaining or destroying confidence and needing to supply information to the decision makers. What is occurring here is an evaluation of the work product, in this case the requirements",
+                "A": "This option is not the correct answer (see the official explanation).",
+                "B": "This option is not the correct answer (see the official explanation).",
+                "D": "This option is not the correct answer (see the official explanation)."
+            },
+            "chapter": 1,
+            "section": "1.1",
+            "subsection": "1.1.1",
+            "learningObjective": "FL-1.1.1",
+            "kLevel": "K1",
+            "difficulty": "Easy",
+            "keywords": [
+                "identify",
+                "typical",
+                "objectives"
+            ],
+            "examTip": "ASTQB official sample — Identify typical test objectives",
+            "memoryAid": ""
+        },
+        {
+            "id": "Q1002",
+            "statement": "In some Agile teams, people are encouraged to use their skills to help the team, regardless of their role. This could mean that testers help the developers write code and developers help testers test. What is this approach called?",
+            "options": {
+                "A": "Team Aid",
+                "B": "Whole Team",
+                "C": "Skills First",
+                "D": "First Aid"
+            },
+            "correctAnswer": "B",
+            "explanation": "B is correct. This is an example of the Whole Team approach where the team members leverage their skills, regardless of roles, to accomplish the goals of the team.",
+            "correctFeedback": "✅ Correct: This is an example of the Whole Team approach where the team members leverage their skills, regardless of roles, to accomplish the goals of the team.",
+            "incorrectFeedback": {
+                "A": "❌ Incorrect: This option is not the correct answer (see the official explanation).",
+                "C": "❌ Incorrect: This option is not the correct answer (see the official explanation).",
+                "D": "❌ Incorrect: This option is not the correct answer (see the official explanation)."
+            },
+            "optionExplanations": {
+                "B": "This is an example of the Whole Team approach where the team members leverage their skills, regardless of roles, to accomplish the goals of the team",
+                "A": "This option is not the correct answer (see the official explanation).",
+                "C": "This option is not the correct answer (see the official explanation).",
+                "D": "This option is not the correct answer (see the official explanation)."
+            },
+            "chapter": 1,
+            "section": "1.5",
+            "subsection": "1.5.2",
+            "learningObjective": "FL-1.5.2",
+            "kLevel": "K1",
+            "difficulty": "Easy",
+            "keywords": [
+                "recall",
+                "advantages",
+                "whole"
+            ],
+            "examTip": "ASTQB official sample — Recall the advantages of the whole team approach",
+            "memoryAid": ""
+        },
+        {
+            "id": "Q1003",
+            "statement": "Which of the following is a correct statement?",
+            "options": {
+                "A": "A developer makes a mistake which causes a defect that may be seen as a failure during dynamic testing",
+                "B": "A developer makes an error which results in a failure that may be seen as a fault when the software is executed",
+                "C": "A developer has introduced a failure which results in a defect that may be seen as a mistake during dynamic testing",
+                "D": "A developer makes a mistake which causes a bug that may be seen as a defect when the software is executed"
+            },
+            "correctAnswer": "A",
+            "explanation": "A is correct. The developer makes a mistake/error which causes a defect/fault/bug which may cause a failure when the code is dynamically tested or executed. B is incorrect because fault and failure are reversed. C is incorrect because failure and mistake are reversed. D is incorrect because it’s a failure that’s seen during execution, not the defect itself. The failure is a symptom of the defect.",
+            "correctFeedback": "✅ Correct: The developer makes a mistake/error which causes a defect/fault/bug which may cause a failure when the code is dynamically tested or executed.",
+            "incorrectFeedback": {
+                "B": "❌ Incorrect: fault and failure are reversed",
+                "C": "❌ Incorrect: failure and mistake are reversed",
+                "D": "❌ Incorrect: it’s a failure that’s seen during execution, not the defect itself. The failure is a symptom of the defect"
+            },
+            "optionExplanations": {
+                "A": "The developer makes a mistake/error which causes a defect/fault/bug which may cause a failure when the code is dynamically tested or executed",
+                "B": "fault and failure are reversed",
+                "C": "failure and mistake are reversed",
+                "D": "it’s a failure that’s seen during execution, not the defect itself. The failure is a symptom of the defect"
+            },
+            "chapter": 1,
+            "section": "1.2",
+            "subsection": "1.2.3",
+            "learningObjective": "FL-1.2.3",
+            "kLevel": "K2",
+            "difficulty": "Medium",
+            "keywords": [
+                "distinguish",
+                "between",
+                "root"
+            ],
+            "examTip": "ASTQB official sample — Distinguish between root cause, error, defect, and failure",
+            "memoryAid": ""
+        },
+        {
+            "id": "Q1004",
+            "statement": "Why is it important to avoid the principle of tests wearing out?",
+            "options": {
+                "A": "Dynamic testing is less reliable in finding bugs",
+                "B": "Running the same tests repeatedly will consistently find new failures",
+                "C": "Tests should not be context dependent",
+                "D": "Running the same tests repeatedly will reduce the chance of finding new failures"
+            },
+            "correctAnswer": "D",
+            "explanation": "D is correct. As tests are run repeatedly, the tests become less effective. A is not correct because dynamic testing should be used and helps to alleviate tests wearing out. B is not correct. The same tests do wear out. C is not correct because testing should be context dependent.",
+            "correctFeedback": "✅ Correct: As tests are run repeatedly, the tests become less effective.",
+            "incorrectFeedback": {
+                "A": "❌ Incorrect: dynamic testing should be used and helps to alleviate tests wearing out",
+                "B": "❌ Incorrect: The same tests do wear out",
+                "C": "❌ Incorrect: testing should be context dependent"
+            },
+            "optionExplanations": {
+                "D": "As tests are run repeatedly, the tests become less effective",
+                "A": "dynamic testing should be used and helps to alleviate tests wearing out",
+                "B": "The same tests do wear out",
+                "C": "testing should be context dependent"
+            },
+            "chapter": 1,
+            "section": "1.3",
+            "subsection": "1.3.1",
+            "learningObjective": "FL-1.3.1",
+            "kLevel": "K2",
+            "difficulty": "Medium",
+            "keywords": [
+                "explain",
+                "seven",
+                "principles"
+            ],
+            "examTip": "ASTQB official sample — Explain the seven testing principles",
+            "memoryAid": ""
+        },
+        {
+            "id": "Q1005",
+            "statement": "When following a standard test process, when should the test control activity take place?",
+            "options": {
+                "A": "During the planning activities",
+                "B": "During the implementation and execution activities",
+                "C": "During the monitoring activities",
+                "D": "During all the activities"
+            },
+            "correctAnswer": "D",
+            "explanation": "D is correct. Control occurs throughout the project to ensure that it is staying on track based on the plan and to take any corrective steps that may be necessary. The monitoring information is used to determine if control actions are needed.",
+            "correctFeedback": "✅ Correct: Control occurs throughout the project to ensure that it is staying on track based on the plan and to take any corrective steps that may be necessary. The monitoring information is .",
+            "incorrectFeedback": {
+                "A": "❌ Incorrect: This option is not the correct answer (see the official explanation).",
+                "B": "❌ Incorrect: This option is not the correct answer (see the official explanation).",
+                "C": "❌ Incorrect: This option is not the correct answer (see the official explanation)."
+            },
+            "optionExplanations": {
+                "D": "Control occurs throughout the project to ensure that it is staying on track based on the plan and to take any corrective steps that may be necessary. The monitoring information is used to determine if control actions are needed",
+                "A": "This option is not the correct answer (see the official explanation).",
+                "B": "This option is not the correct answer (see the official explanation).",
+                "C": "This option is not the correct answer (see the official explanation)."
+            },
+            "chapter": 1,
+            "section": "1.4",
+            "subsection": "1.4.1",
+            "learningObjective": "FL-1.4.1",
+            "kLevel": "K2",
+            "difficulty": "Medium",
+            "keywords": [
+                "explain",
+                "different",
+                "activities"
+            ],
+            "examTip": "ASTQB official sample — Explain the different test activities and related tasks",
+            "memoryAid": ""
+        },
+        {
+            "id": "Q1006",
+            "statement": "Which of the following is the activity that compares the planned test progress to the actual test progress?",
+            "options": {
+                "A": "Test monitoring",
+                "B": "Test planning",
+                "C": "Test closure",
+                "D": "Test control"
+            },
+            "correctAnswer": "A",
+            "explanation": "A is correct. Test monitoring involves the on-going comparison of actual progress against the test plan. B is incorrect because it defines testing objectives. C is incorrect because the activities have already completed and the project is closing down. D is incorrect because test control is when you take actions to correct any issues observed during monitoring.",
+            "correctFeedback": "✅ Correct: Test monitoring involves the on-going comparison of actual progress against the test plan.",
+            "incorrectFeedback": {
+                "B": "❌ Incorrect: it defines testing objectives",
+                "C": "❌ Incorrect: the activities have already completed and the project is closing down",
+                "D": "❌ Incorrect: test control is when you take actions to correct any issues observed during monitoring"
+            },
+            "optionExplanations": {
+                "A": "Test monitoring involves the on-going comparison of actual progress against the test plan",
+                "B": "it defines testing objectives",
+                "C": "the activities have already completed and the project is closing down",
+                "D": "test control is when you take actions to correct any issues observed during monitoring"
+            },
+            "chapter": 1,
+            "section": "1.4",
+            "subsection": "1.4.1",
+            "learningObjective": "FL-1.4.1",
+            "kLevel": "K2",
+            "difficulty": "Medium",
+            "keywords": [
+                "explain",
+                "different",
+                "activities"
+            ],
+            "examTip": "ASTQB official sample — Explain the different test activities and related tasks",
+            "memoryAid": ""
+        },
+        {
+            "id": "Q1007",
+            "statement": "You are working on a project that is constrained by time and budget, which is pressuring testing to be done quickly. How should the test approach be adjusted?",
+            "options": {
+                "A": "Develop detailed test cases to reduce the test automation effort",
+                "B": "Use techniques such as exploratory and checklist testing to spend less time on test case development",
+                "C": "Ensure that your testing starts only after the developers have completed integration tests",
+                "D": "Develop end-to-end test automation before performing manual testing so the automation can be used sooner"
+            },
+            "correctAnswer": "B",
+            "explanation": "B is correct. These techniques will help adjust to the project context where there is pressure to test quickly. These are lightweight approaches that require less time preparing documentation and allow test execution to start sooner. A is not correct because developing detailed test cases will take significant time. C is not correct because starting testing earlier would be helpful, not later. D is not correct because this will be problematic automation and the automators will be slowed down by the failures that would have been found in manual testing.",
+            "correctFeedback": "✅ Correct: These techniques will help adjust to the project context where there is pressure to test quickly. These are lightweight approaches that require less time preparing documentation an.",
+            "incorrectFeedback": {
+                "A": "❌ Incorrect: developing detailed test cases will take significant time",
+                "C": "❌ Incorrect: starting testing earlier would be helpful, not later",
+                "D": "❌ Incorrect: this will be problematic automation and the automators will be slowed down by the failures that would have been found in manual testing"
+            },
+            "optionExplanations": {
+                "B": "These techniques will help adjust to the project context where there is pressure to test quickly. These are lightweight approaches that require less time preparing documentation and allow test execution to start sooner",
+                "A": "developing detailed test cases will take significant time",
+                "C": "starting testing earlier would be helpful, not later",
+                "D": "this will be problematic automation and the automators will be slowed down by the failures that would have been found in manual testing"
+            },
+            "chapter": 1,
+            "section": "1.4",
+            "subsection": "1.4.2",
+            "learningObjective": "FL-1.4.2",
+            "kLevel": "K2",
+            "difficulty": "Medium",
+            "keywords": [
+                "explain",
+                "impact",
+                "context"
+            ],
+            "examTip": "ASTQB official sample — Explain the impact of context on the test process",
+            "memoryAid": ""
+        },
+        {
+            "id": "Q1008",
+            "statement": "What is the biggest problem with a developer testing his own code?",
+            "options": {
+                "A": "Developers are not good testers",
+                "B": "Developers are not quality focused",
+                "C": "Developers are not objective about their own code",
+                "D": "Developers do not have time to test their own code"
+            },
+            "correctAnswer": "C",
+            "explanation": "C is correct. This is the biggest problem because developers have biases toward the accuracy and implementation of their own code. Testers and developers think differently and testers can be more objective as they are not invested in the code. A and B are not necessarily true – some developers are good testers and have a good quality focus. D is not correct because unit testing is part of their job and time should be made in the schedule for at least unit testing.",
+            "correctFeedback": "✅ Correct: This is the biggest problem because developers have biases toward the accuracy and implementation of their own code. Testers and developers think differently and testers can be mor.",
+            "incorrectFeedback": {
+                "A": "❌ Incorrect: This option is not the correct answer (see the official explanation).",
+                "B": "❌ Incorrect: This option is not the correct answer (see the official explanation).",
+                "D": "❌ Incorrect: unit testing is part of their job and time should be made in the schedule for at least unit testing"
+            },
+            "optionExplanations": {
+                "C": "This is the biggest problem because developers have biases toward the accuracy and implementation of their own code. Testers and developers think differently and testers can be more objective as they are not invested in the code. A and B are not necessarily true – some developers are good testers and have a good quality focus",
+                "A": "This option is not the correct answer (see the official explanation).",
+                "B": "This option is not the correct answer (see the official explanation).",
+                "D": "unit testing is part of their job and time should be made in the schedule for at least unit testing"
+            },
+            "chapter": 1,
+            "section": "1.5",
+            "subsection": "1.5.3",
+            "learningObjective": "FL-1.5.3",
+            "kLevel": "K2",
+            "difficulty": "Medium",
+            "keywords": [
+                "distinguish",
+                "benefits",
+                "drawbacks"
+            ],
+            "examTip": "ASTQB official sample — Distinguish the benefits and drawbacks of independence of testing",
+            "memoryAid": ""
+        },
+        {
+            "id": "Q1009",
+            "statement": "Which of the following is an example of a good testing practice?",
+            "options": {
+                "A": "Testers should have development experience",
+                "B": "Developers should determine the order of test execution in the test procedures",
+                "C": "Test design should begin when the code is complete to avoid changes",
+                "D": "Testers should review requirements documents as soon as a readable draft is available"
+            },
+            "correctAnswer": "D",
+            "explanation": "D is correct. This is a good testing practice. A is not a requirement for many testers. B is not correct because this should be determined by the testers based on priority, risk, availability, etc. C is not correct because test design should start during code design and implementation.",
+            "correctFeedback": "✅ Correct: This is a good testing practice. A is not a requirement for many testers.",
+            "incorrectFeedback": {
+                "A": "❌ Incorrect: This option is not the correct answer (see the official explanation).",
+                "B": "❌ Incorrect: this should be determined by the testers based on priority, risk, availability, etc",
+                "C": "❌ Incorrect: test design should start during code design and implementation"
+            },
+            "optionExplanations": {
+                "D": "This is a good testing practice. A is not a requirement for many testers",
+                "A": "This option is not the correct answer (see the official explanation).",
+                "B": "this should be determined by the testers based on priority, risk, availability, etc",
+                "C": "test design should start during code design and implementation"
+            },
+            "chapter": 2,
+            "section": "2.1",
+            "subsection": "2.1.2",
+            "learningObjective": "FL-2.1.2",
+            "kLevel": "K1",
+            "difficulty": "Easy",
+            "keywords": [
+                "recall",
+                "good",
+                "practices"
+            ],
+            "examTip": "ASTQB official sample — Recall good testing practices that apply to all software development lifecycles",
+            "memoryAid": ""
+        },
+        {
+            "id": "Q1010",
+            "statement": "When coding is directed by the test cases, what development approach is being used?",
+            "options": {
+                "A": "TDD",
+                "B": "BDD",
+                "C": "ATDD",
+                "D": "TBD"
+            },
+            "correctAnswer": "A",
+            "explanation": "A is correct. This is an example of test-driven development.",
+            "correctFeedback": "✅ Correct: This is an example of test-driven development.",
+            "incorrectFeedback": {
+                "B": "❌ Incorrect: This option is not the correct answer (see the official explanation).",
+                "C": "❌ Incorrect: This option is not the correct answer (see the official explanation).",
+                "D": "❌ Incorrect: This option is not the correct answer (see the official explanation)."
+            },
+            "optionExplanations": {
+                "A": "This is an example of test-driven development",
+                "B": "This option is not the correct answer (see the official explanation).",
+                "C": "This option is not the correct answer (see the official explanation).",
+                "D": "This option is not the correct answer (see the official explanation)."
+            },
+            "chapter": 2,
+            "section": "2.1",
+            "subsection": "2.1.3",
+            "learningObjective": "FL-2.1.3",
+            "kLevel": "K1",
+            "difficulty": "Easy",
+            "keywords": [
+                "recall",
+                "examples",
+                "test-first"
+            ],
+            "examTip": "ASTQB official sample — Recall the examples of test-first approaches to development",
+            "memoryAid": ""
+        },
+        {
+            "id": "Q1011",
+            "statement": "During which level(s) of testing should non-functional tests be executed?",
+            "options": {
+                "A": "Unit and integration only",
+                "B": "System testing only",
+                "C": "Integration, system and acceptance only",
+                "D": "Unit, integration, system and acceptance only"
+            },
+            "correctAnswer": "D",
+            "explanation": "D is correct. Non-functional tests can and should be executed at all levels of testing.",
+            "correctFeedback": "✅ Correct: Non-functional tests can and should be executed at all levels of testing.",
+            "incorrectFeedback": {
+                "A": "❌ Incorrect: This option is not the correct answer (see the official explanation).",
+                "B": "❌ Incorrect: This option is not the correct answer (see the official explanation).",
+                "C": "❌ Incorrect: This option is not the correct answer (see the official explanation)."
+            },
+            "optionExplanations": {
+                "D": "Non-functional tests can and should be executed at all levels of testing",
+                "A": "This option is not the correct answer (see the official explanation).",
+                "B": "This option is not the correct answer (see the official explanation).",
+                "C": "This option is not the correct answer (see the official explanation)."
+            },
+            "chapter": 2,
+            "section": "2.2",
+            "subsection": "2.2.1",
+            "learningObjective": "FL-2.2.1",
+            "kLevel": "K2",
+            "difficulty": "Medium",
+            "keywords": [
+                "distinguish",
+                "different",
+                "levels"
+            ],
+            "examTip": "ASTQB official sample — Distinguish the different test levels",
+            "memoryAid": ""
+        },
+        {
+            "id": "Q1012",
+            "statement": "When a system is targeted for decommissioning, what type of maintenance testing may be required?",
+            "options": {
+                "A": "Retirement testing",
+                "B": "Regression testing",
+                "C": "Data migration testing",
+                "D": "Patch testing"
+            },
+            "correctAnswer": "C",
+            "explanation": "C is correct, per syllabus. Data migration to another system or data migration to an archival system may be needed. A is incorrect. This can be a trigger for maintenance testing, but it is not an actual type of testing. B is incorrect because this is more appropriate for current systems, not the system being retired. D is incorrect because this is of no use for a system being retired.",
+            "correctFeedback": "✅ Correct: , per syllabus. Data migration to another system or data migration to an archival system may be needed.",
+            "incorrectFeedback": {
+                "A": "❌ Incorrect: This can be a trigger for maintenance testing, but it is not an actual type of testing",
+                "B": "❌ Incorrect: this is more appropriate for current systems, not the system being retired",
+                "D": "❌ Incorrect: this is of no use for a system being retired"
+            },
+            "optionExplanations": {
+                "C": ", per syllabus. Data migration to another system or data migration to an archival system may be needed",
+                "A": "This can be a trigger for maintenance testing, but it is not an actual type of testing",
+                "B": "this is more appropriate for current systems, not the system being retired",
+                "D": "this is of no use for a system being retired"
+            },
+            "chapter": 2,
+            "section": "2.3",
+            "subsection": "2.3.1",
+            "learningObjective": "FL-2.3.1",
+            "kLevel": "K2",
+            "difficulty": "Medium",
+            "keywords": [
+                "summarize",
+                "maintenance",
+                "triggers"
+            ],
+            "examTip": "ASTQB official sample — Summarize maintenance testing and its triggers",
+            "memoryAid": ""
+        },
+        {
+            "id": "Q1013",
+            "statement": "In an iterative lifecycle model, which of the following is an accurate statement about testing activities?",
+            "options": {
+                "A": "For every development activity, there should be a corresponding testing activity",
+                "B": "For every testing activity, appropriate documentation should be produced, versioned and stored",
+                "C": "For every development activity resulting in code, there should be a testing activity to document test cases",
+                "D": "For every testing activity, metrics should be recorded and posted to a metrics dashboard for all stakeholders"
+            },
+            "correctAnswer": "A",
+            "explanation": "A is correct. For any lifecycle model, this is a correct statement. B is not correct because some testing activities may not produce documentation, such as reviews. C is not correct because test cases are not always written, particularly in an Agile lifecycle (which is an iterative lifecycle) where only exploratory testing might be used. D is not correct because not all testing activities produce metrics (such as test case creation, reviews, etc.) and, even if they did, not all stakeholders would be interested in those metrics.",
+            "correctFeedback": "✅ Correct: For any lifecycle model, this is a correct statement.",
+            "incorrectFeedback": {
+                "B": "❌ Incorrect: some testing activities may not produce documentation, such as reviews",
+                "C": "❌ Incorrect: test cases are not always written, particularly in an Agile lifecycle (which is an iterative lifecycle) where only exploratory testing might be used",
+                "D": "❌ Incorrect: not all testing activities produce metrics (such as test case creation, reviews, etc.) and, even if they did, not all stakeholders would be interested in those metrics"
+            },
+            "optionExplanations": {
+                "A": "For any lifecycle model, this is a correct statement",
+                "B": "some testing activities may not produce documentation, such as reviews",
+                "C": "test cases are not always written, particularly in an Agile lifecycle (which is an iterative lifecycle) where only exploratory testing might be used",
+                "D": "not all testing activities produce metrics (such as test case creation, reviews, etc.) and, even if they did, not all stakeholders would be interested in those metrics"
+            },
+            "chapter": 2,
+            "section": "2.1",
+            "subsection": "2.1.1",
+            "learningObjective": "FL-2.1.1",
+            "kLevel": "K2",
+            "difficulty": "Medium",
+            "keywords": [
+                "explain",
+                "impact",
+                "chosen"
+            ],
+            "examTip": "ASTQB official sample — Explain the impact of the chosen software development lifecycle on testing",
+            "memoryAid": ""
+        },
+        {
+            "id": "Q1014",
+            "statement": "In what way is CI/CD an example of the concept of shift-left?",
+            "options": {
+                "A": "It gets the code to production faster",
+                "B": "It allows the developers to continuously integrate their code",
+                "C": "It requires continuous testing throughout the pipeline",
+                "D": "It elevates the testers as the owners of quality"
+            },
+            "correctAnswer": "C",
+            "explanation": "C is correct. CI/CD requires continuous testing, including test automation, to be implemented for the entire pipeline. This starts testing as early as possible and shifts it to the left in the timeline. A is not correct as this is not a shift-left concept. B is true of CI/CD implementations but does not shift-left the testing. D is not correct because in a good CI/CD implementation, everyone owns quality.",
+            "correctFeedback": "✅ Correct: CI/CD requires continuous testing, including test automation, to be implemented for the entire pipeline. This starts testing as early as possible and shifts it to the left in the t.",
+            "incorrectFeedback": {
+                "A": "❌ Incorrect: this is not a shift-left concept. B is true of CI/CD implementations but does not shift-left the testing",
+                "B": "❌ Incorrect: This option is not the correct answer (see the official explanation).",
+                "D": "❌ Incorrect: in a good CI/CD implementation, everyone owns quality"
+            },
+            "optionExplanations": {
+                "C": "CI/CD requires continuous testing, including test automation, to be implemented for the entire pipeline. This starts testing as early as possible and shifts it to the left in the timeline",
+                "A": "this is not a shift-left concept. B is true of CI/CD implementations but does not shift-left the testing",
+                "B": "This option is not the correct answer (see the official explanation).",
+                "D": "in a good CI/CD implementation, everyone owns quality"
+            },
+            "chapter": 2,
+            "section": "2.1",
+            "subsection": "2.1.5",
+            "learningObjective": "FL-2.1.5",
+            "kLevel": "K2",
+            "difficulty": "Medium",
+            "keywords": [
+                "eexplain",
+                "shift-left",
+                "example"
+            ],
+            "examTip": "ASTQB official sample — EExplain shift-left",
+            "memoryAid": ""
+        },
+        {
+            "id": "Q1015",
+            "statement": "In a formal review, which role is normally responsible for documenting all the open issues?",
+            "options": {
+                "A": "The facilitator",
+                "B": "The author",
+                "C": "The scribe",
+                "D": "The manager"
+            },
+            "correctAnswer": "C",
+            "explanation": "C is correct. The scribe is normally responsible for documenting all issues, problems and open points. The author may take notes as well, but that is not their primary role.",
+            "correctFeedback": "✅ Correct: The scribe is normally responsible for documenting all issues, problems and open points. The author may take notes as well, but that is not their primary role.",
+            "incorrectFeedback": {
+                "A": "❌ Incorrect: This option is not the correct answer (see the official explanation).",
+                "B": "❌ Incorrect: This option is not the correct answer (see the official explanation).",
+                "D": "❌ Incorrect: This option is not the correct answer (see the official explanation)."
+            },
+            "optionExplanations": {
+                "C": "The scribe is normally responsible for documenting all issues, problems and open points. The author may take notes as well, but that is not their primary role",
+                "A": "This option is not the correct answer (see the official explanation).",
+                "B": "This option is not the correct answer (see the official explanation).",
+                "D": "This option is not the correct answer (see the official explanation)."
+            },
+            "chapter": 3,
+            "section": "3.2",
+            "subsection": "3.2.3",
+            "learningObjective": "FL-3.2.3",
+            "kLevel": "K1",
+            "difficulty": "Easy",
+            "keywords": [
+                "recall",
+                "responsibilities",
+                "assigned"
+            ],
+            "examTip": "ASTQB official sample — Recall which responsibilities are assigned to the principal roles when performing reviews",
+            "memoryAid": ""
+        },
+        {
+            "id": "Q1016",
+            "statement": "What is the primary reason to get early and frequent feedback from stakeholders regarding a product being developed?",
+            "options": {
+                "A": "To make them feel involved",
+                "B": "To ensure that their vision for the product will be realized",
+                "C": "To create more meetings",
+                "D": "To use the stakeholders as testers"
+            },
+            "correctAnswer": "B",
+            "explanation": "B is correct per the syllabus. By getting their feedback, the team can ensure that what they are building is what the stakeholders want. A is not correct because, although it may be beneficial to have them feel a part of the team, it isn’t the primary reason to get their feedback. C is not correct because no one needs more meetings. D is not correct although stakeholders may be used for UAT. Their feedback is needed much earlier than UAT.",
+            "correctFeedback": "✅ Correct: per the syllabus. By getting their feedback, the team can ensure that what they are building is what the stakeholders want.",
+            "incorrectFeedback": {
+                "A": "❌ Incorrect: because, although it may be beneficial to have them feel a part of the team, it isn’t the primary reason to get their feedback",
+                "C": "❌ Incorrect: no one needs more meetings",
+                "D": "❌ Incorrect: although stakeholders may be used for UAT. Their feedback is needed much earlier than UAT"
+            },
+            "optionExplanations": {
+                "B": "per the syllabus. By getting their feedback, the team can ensure that what they are building is what the stakeholders want",
+                "A": "because, although it may be beneficial to have them feel a part of the team, it isn’t the primary reason to get their feedback",
+                "C": "no one needs more meetings",
+                "D": "although stakeholders may be used for UAT. Their feedback is needed much earlier than UAT"
+            },
+            "chapter": 3,
+            "section": "3.2",
+            "subsection": "3.2.1",
+            "learningObjective": "FL-3.2.1",
+            "kLevel": "K1",
+            "difficulty": "Easy",
+            "keywords": [
+                "identify",
+                "benefits",
+                "early"
+            ],
+            "examTip": "ASTQB official sample — Identify the benefits of early and frequent stakeholder feedback",
+            "memoryAid": ""
+        },
+        {
+            "id": "Q1017",
+            "statement": "Which of the following is a benefit of static analysis?",
+            "options": {
+                "A": "Defects can be identified that might not be caught by dynamic testing",
+                "B": "Early defect identification requires less documentation",
+                "C": "Early execution of the code provides a gauge of code quality",
+                "D": "Tools are not needed because reviews are used instead of executing code"
+            },
+            "correctAnswer": "A",
+            "explanation": "A is correct, per syllabus. Static analysis with a static analyzer can be used to find defects such as uninitialized variables that could be difficult to catch with dynamic testing. B is incorrect because defects will still need to be documented regardless of how early they are found. C is incorrect because this is dynamic analysis. D is incorrect because static analysis usually requires the use of tools.",
+            "correctFeedback": "✅ Correct: , per syllabus. Static analysis with a static analyzer can be used to find defects such as uninitialized variables that could be difficult to catch with dynamic testing.",
+            "incorrectFeedback": {
+                "B": "❌ Incorrect: defects will still need to be documented regardless of how early they are found",
+                "C": "❌ Incorrect: this is dynamic analysis",
+                "D": "❌ Incorrect: static analysis usually requires the use of tools"
+            },
+            "optionExplanations": {
+                "A": ", per syllabus. Static analysis with a static analyzer can be used to find defects such as uninitialized variables that could be difficult to catch with dynamic testing",
+                "B": "defects will still need to be documented regardless of how early they are found",
+                "C": "this is dynamic analysis",
+                "D": "static analysis usually requires the use of tools"
+            },
+            "chapter": 3,
+            "section": "3.1",
+            "subsection": "3.1.2",
+            "learningObjective": "FL-3.1.2",
+            "kLevel": "K2",
+            "difficulty": "Medium",
+            "keywords": [
+                "explain",
+                "value",
+                "static"
+            ],
+            "examTip": "ASTQB official sample — Explain the value of static testing",
+            "memoryAid": ""
+        },
+        {
+            "id": "Q1018",
+            "statement": "For a formal review, at what point in the process are the exit criteria defined?",
+            "options": {
+                "A": "Planning",
+                "B": "Review initiation",
+                "C": "Individual review",
+                "D": "Fixing and reporting"
+            },
+            "correctAnswer": "A",
+            "explanation": "A is correct. The entry and exit criteria should be defined during the planning step in the review process. These should be evaluated at each step to ensure the product is ready for the next step in the process. B, C and D are not correct because the criteria should already be defined by this point.",
+            "correctFeedback": "✅ Correct: The entry and exit criteria should be defined during the planning step in the review process. These should be evaluated at each step to ensure the product is ready for the next ste.",
+            "incorrectFeedback": {
+                "B": "❌ Incorrect: This option is not the correct answer (see the official explanation).",
+                "C": "❌ Incorrect: This option is not the correct answer (see the official explanation).",
+                "D": "❌ Incorrect: This option is not the correct answer (see the official explanation)."
+            },
+            "optionExplanations": {
+                "A": "The entry and exit criteria should be defined during the planning step in the review process. These should be evaluated at each step to ensure the product is ready for the next step in the process. B, C and D are not correct because the criteria should already be defined by this point",
+                "B": "This option is not the correct answer (see the official explanation).",
+                "C": "This option is not the correct answer (see the official explanation).",
+                "D": "This option is not the correct answer (see the official explanation)."
+            },
+            "chapter": 3,
+            "section": "3.2",
+            "subsection": "3.2.2",
+            "learningObjective": "FL-3.2.2",
+            "kLevel": "K2",
+            "difficulty": "Medium",
+            "keywords": [
+                "summarize",
+                "activities",
+                "review"
+            ],
+            "examTip": "ASTQB official sample — Summarize the activities of the review process",
+            "memoryAid": ""
+        },
+        {
+            "id": "Q1019",
+            "statement": "Which of the following test techniques uses the requirements specifications as a test basis?",
+            "options": {
+                "A": "Structure-based",
+                "B": "Black-box",
+                "C": "White-box",
+                "D": "Exploratory"
+            },
+            "correctAnswer": "B",
+            "explanation": "B is correct, per syllabus. Black-box testing is based off the requirements documents. A and C are incorrect because these use the structure of the software as the test basis. D is incorrect because exploratory testing is often done when there is no specification, thus giving the tester the opportunity to learn about the software while testing.",
+            "correctFeedback": "✅ Correct: , per syllabus. Black-box testing is based off the requirements documents. A and C are incorrect because these use the structure of the software as the test basis.",
+            "incorrectFeedback": {
+                "A": "❌ Incorrect: This option is not the correct answer (see the official explanation).",
+                "C": "❌ Incorrect: This option is not the correct answer (see the official explanation).",
+                "D": "❌ Incorrect: exploratory testing is often done when there is no specification, thus giving the tester the opportunity to learn about the software while testing"
+            },
+            "optionExplanations": {
+                "B": ", per syllabus. Black-box testing is based off the requirements documents. A and C are incorrect because these use the structure of the software as the test basis",
+                "A": "This option is not the correct answer (see the official explanation).",
+                "C": "This option is not the correct answer (see the official explanation).",
+                "D": "exploratory testing is often done when there is no specification, thus giving the tester the opportunity to learn about the software while testing"
+            },
+            "chapter": 4,
+            "section": "4.1",
+            "subsection": "4.1.1",
+            "learningObjective": "FL-4.1.1",
+            "kLevel": "K2",
+            "difficulty": "Medium",
+            "keywords": [
+                "distinguish",
+                "black-box",
+                "white-box"
+            ],
+            "examTip": "ASTQB official sample — Distinguish black-box, white-box, and experience-based test techniques",
+            "memoryAid": ""
+        },
+        {
+            "id": "Q1020",
+            "statement": "If you are testing a module of code, how do you determine the level of branch coverage you have achieved?",
+            "options": {
+                "A": "By taking the number of branches you have tested and dividing that by the total number of executable statements in the module",
+                "B": "By taking the number of branches you have tested and dividing that by the total number of branches in the module",
+                "C": "By taking the number of branches you have tested and dividing that by the total lines of code in the module",
+                "D": "By taking the number of branches you have tested and dividing that by the total number of test cases you have executed for the module"
+            },
+            "correctAnswer": "B",
+            "explanation": "B is correct. Branch coverage looks at the number of branches tested versus the number of branches in the code under test.",
+            "correctFeedback": "✅ Correct: Branch coverage looks at the number of branches tested versus the number of branches in the code under test.",
+            "incorrectFeedback": {
+                "A": "❌ Incorrect: This option is not the correct answer (see the official explanation).",
+                "C": "❌ Incorrect: This option is not the correct answer (see the official explanation).",
+                "D": "❌ Incorrect: This option is not the correct answer (see the official explanation)."
+            },
+            "optionExplanations": {
+                "B": "Branch coverage looks at the number of branches tested versus the number of branches in the code under test",
+                "A": "This option is not the correct answer (see the official explanation).",
+                "C": "This option is not the correct answer (see the official explanation).",
+                "D": "This option is not the correct answer (see the official explanation)."
+            },
+            "chapter": 4,
+            "section": "4.3",
+            "subsection": "4.3.2",
+            "learningObjective": "FL-4.3.2",
+            "kLevel": "K2",
+            "difficulty": "Medium",
+            "keywords": [
+                "explain",
+                "branch",
+                "module"
+            ],
+            "examTip": "ASTQB official sample — Explain branch testing",
+            "memoryAid": ""
+        },
+        {
+            "id": "Q1021",
+            "statement": "If you have a section of code that has one simple IF statement, how many tests will be needed to achieve 100% branch coverage?",
+            "options": {
+                "A": "1",
+                "B": "2",
+                "C": "5",
+                "D": "Unknown with this information"
+            },
+            "correctAnswer": "B",
+            "explanation": "B is correct. A simple IF statement will be composed of If ... then ... else end if. There are two branch outcomes, one for the result of the If being true and one for it being false. Since 100% branch coverage requires at least one test case for each branch outcome, two tests are needed. A and C are incorrect because these are the wrong numbers of tests. D would be correct if this weren’t defined as a simple if statement because a complex if statement could include more than two outcomes.",
+            "correctFeedback": "✅ Correct: A simple IF statement will be composed of If ... then ... else end if. There are two branch outcomes, one for the result of the If being true and one for it being false. Since 100%.",
+            "incorrectFeedback": {
+                "A": "❌ Incorrect: This option is not the correct answer (see the official explanation).",
+                "C": "❌ Incorrect: This option is not the correct answer (see the official explanation).",
+                "D": "❌ Incorrect: This option is not the correct answer (see the official explanation)."
+            },
+            "optionExplanations": {
+                "B": "A simple IF statement will be composed of If ... then ... else end if. There are two branch outcomes, one for the result of the If being true and one for it being false. Since 100% branch coverage requires at least one test case for each branch outcome, two tests are needed. A and C are incorrect because these are the wrong numbers of tests. D would be correct if this weren’t defined as a simple if statement because a complex if statement could include more than two outcomes",
+                "A": "This option is not the correct answer (see the official explanation).",
+                "C": "This option is not the correct answer (see the official explanation).",
+                "D": "This option is not the correct answer (see the official explanation)."
+            },
+            "chapter": 4,
+            "section": "4.3",
+            "subsection": "4.3.2",
+            "learningObjective": "FL-4.3.2",
+            "kLevel": "K2",
+            "difficulty": "Medium",
+            "keywords": [
+                "explain",
+                "branch",
+                "section"
+            ],
+            "examTip": "ASTQB official sample — Explain branch testing",
+            "memoryAid": ""
+        },
+        {
+            "id": "Q1022",
+            "statement": "Which of the following is a good reason to use experience-based testing?",
+            "options": {
+                "A": "You can find defects that might be missed by more formal techniques",
+                "B": "You can test for defects that only experienced users would encounter",
+                "C": "You can target the developer’s efforts to the areas that users will be more likely to use",
+                "D": "It is supported by strong tools and can be automated"
+            },
+            "correctAnswer": "A",
+            "explanation": "A is correct. Experience-based testing is often used to fill in the gaps left by the more formal testing techniques. B is not correct because it is used by experienced testers and has nothing to do with the experience level of the users. C is not correct because it is a test technique, not a development technique. D is not correct. There is not much tool support for these techniques and automation is not usually a goal because the effectiveness depends on the experience of the tester.",
+            "correctFeedback": "✅ Correct: Experience-based testing is often used to fill in the gaps left by the more formal testing techniques.",
+            "incorrectFeedback": {
+                "B": "❌ Incorrect: it is used by experienced testers and has nothing to do with the experience level of the users",
+                "C": "❌ Incorrect: it is a test technique, not a development technique",
+                "D": "❌ Incorrect: There is not much tool support for these techniques and automation is not usually a goal because the effectiveness depends on the experience of the tester"
+            },
+            "optionExplanations": {
+                "A": "Experience-based testing is often used to fill in the gaps left by the more formal testing techniques",
+                "B": "it is used by experienced testers and has nothing to do with the experience level of the users",
+                "C": "it is a test technique, not a development technique",
+                "D": "There is not much tool support for these techniques and automation is not usually a goal because the effectiveness depends on the experience of the tester"
+            },
+            "chapter": 4,
+            "section": "4.4",
+            "subsection": "4.4.2",
+            "learningObjective": "FL-4.4.2",
+            "kLevel": "K2",
+            "difficulty": "Medium",
+            "keywords": [
+                "explain",
+                "exploratory",
+                "good"
+            ],
+            "examTip": "ASTQB official sample — Explain exploratory testing",
+            "memoryAid": ""
+        },
+        {
+            "id": "Q1023",
+            "statement": "What is error guessing?",
+            "options": {
+                "A": "A testing technique used to guess where a developer is likely to have made a mistake",
+                "B": "A technique used for assessing defect metrics",
+                "C": "A development technique to verify that all error paths have been coded",
+                "D": "A planning technique used to anticipate likely schedule variances due to faults"
+            },
+            "correctAnswer": "A",
+            "explanation": "A is correct. Error guessing is a technique used to anticipate where developers are likely to make errors and to create tests to cover those areas. B, C and D are not correct.",
+            "correctFeedback": "✅ Correct: Error guessing is a technique used to anticipate where developers are likely to make errors and to create tests to cover those areas. B, C and D are not correct.",
+            "incorrectFeedback": {
+                "B": "❌ Incorrect: This option is not the correct answer (see the official explanation).",
+                "C": "❌ Incorrect: This option is not the correct answer (see the official explanation).",
+                "D": "❌ Incorrect: This option is not the correct answer (see the official explanation)."
+            },
+            "optionExplanations": {
+                "A": "Error guessing is a technique used to anticipate where developers are likely to make errors and to create tests to cover those areas. B, C and D are not correct",
+                "B": "This option is not the correct answer (see the official explanation).",
+                "C": "This option is not the correct answer (see the official explanation).",
+                "D": "This option is not the correct answer (see the official explanation)."
+            },
+            "chapter": 4,
+            "section": "4.4",
+            "subsection": "4.4.1",
+            "learningObjective": "FL-4.4.1",
+            "kLevel": "K2",
+            "difficulty": "Medium",
+            "keywords": [
+                "explain",
+                "error",
+                "guessing"
+            ],
+            "examTip": "ASTQB official sample — Explain error guessing",
+            "memoryAid": ""
+        },
+        {
+            "id": "Q1024",
+            "statement": "When using the 3 C’s technique for user story development, what is the work product that is created for the Confirmation aspect?",
+            "options": {
+                "A": "Test Approach",
+                "B": "Acceptance Criteria",
+                "C": "Entry Criteria",
+                "D": "Exit Criteria"
+            },
+            "correctAnswer": "B",
+            "explanation": "B is correct. The confirmation aspect of the 3 C’s is the acceptance criteria.",
+            "correctFeedback": "✅ Correct: The confirmation aspect of the 3 C’s is the acceptance criteria.",
+            "incorrectFeedback": {
+                "A": "❌ Incorrect: This option is not the correct answer (see the official explanation).",
+                "C": "❌ Incorrect: This option is not the correct answer (see the official explanation).",
+                "D": "❌ Incorrect: This option is not the correct answer (see the official explanation)."
+            },
+            "optionExplanations": {
+                "B": "The confirmation aspect of the 3 C’s is the acceptance criteria",
+                "A": "This option is not the correct answer (see the official explanation).",
+                "C": "This option is not the correct answer (see the official explanation).",
+                "D": "This option is not the correct answer (see the official explanation)."
+            },
+            "chapter": 4,
+            "section": "4.5",
+            "subsection": "4.5.1",
+            "learningObjective": "FL-4.5.1",
+            "kLevel": "K2",
+            "difficulty": "Medium",
+            "keywords": [
+                "explain",
+                "write",
+                "user"
+            ],
+            "examTip": "ASTQB official sample — Explain how to write user stories in collaboration with developers and business representatives",
+            "memoryAid": ""
+        },
+        {
+            "id": "Q1025",
+            "statement": "You are testing a machine that scores exam papers and assigns grades. Based on the score achieved the grades are as follows: 1-49 = F, 50-59 = D-, 60-69 = D, 70-79 = C, 80-89 = B, 90-100=A If you apply equivalence partitioning, how many test cases will you need to achieve minimum test coverage?",
+            "options": {
+                "A": "6",
+                "B": "8",
+                "C": "10",
+                "D": "12"
+            },
+            "correctAnswer": "B",
+            "explanation": "B is correct. You need a test for the invalid too low (0 or less), one for each valid partition, and one for invalid too high (>100). It may not allow you to enter a value > 100, but it should be tested to make sure it provides a proper error.",
+            "correctFeedback": "✅ Correct: You need a test for the invalid too low (0 or less), one for each valid partition, and one for invalid too high (>100). It may not allow you to enter a value > 100, but it should b.",
+            "incorrectFeedback": {
+                "A": "❌ Incorrect: This option is not the correct answer (see the official explanation).",
+                "C": "❌ Incorrect: This option is not the correct answer (see the official explanation).",
+                "D": "❌ Incorrect: This option is not the correct answer (see the official explanation)."
+            },
+            "optionExplanations": {
+                "B": "You need a test for the invalid too low (0 or less), one for each valid partition, and one for invalid too high (>100). It may not allow you to enter a value > 100, but it should be tested to make sure it provides a proper error",
+                "A": "This option is not the correct answer (see the official explanation).",
+                "C": "This option is not the correct answer (see the official explanation).",
+                "D": "This option is not the correct answer (see the official explanation)."
+            },
+            "chapter": 4,
+            "section": "4.2",
+            "subsection": "4.2.1",
+            "learningObjective": "FL-4.2.1",
+            "kLevel": "K3",
+            "difficulty": "Hard",
+            "keywords": [
+                "equivalence",
+                "partitioning",
+                "derive"
+            ],
+            "examTip": "ASTQB official sample — Use equivalence partitioning to derive test cases",
+            "memoryAid": ""
+        },
+        {
+            "id": "Q1026",
+            "statement": "You are testing a thermostat for a heating/air conditioning system. You have been given the following requirements: • When the temperature is below 70 degrees, turn on the heating system • When the temperature is above 75 degrees, turn on the air conditioning system • When the temperature is between 70 and 75 degrees, inclusive, turn on fan only Which of the following is the minimum set of test temperature values to achieve 100% two-value boundary value analysis coverage?",
+            "options": {
+                "A": "70, 75",
+                "B": "65, 72, 80",
+                "C": "69, 70, 75, 76",
+                "D": "70, 71, 74, 75, 76"
+            },
+            "correctAnswer": "C",
+            "explanation": "C is correct. For the heating system, the values to test are 69, 70. For the air conditioning system, the values are 75, 76. For the fan only, the values are 69, 70, 75, 76. The proper test set combines all these values, 69, 70, 75, 76",
+            "correctFeedback": "✅ Correct: For the heating system, the values to test are 69, 70. For the air conditioning system, the values are 75, 76. For the fan only, the values are 69, 70, 75, 76. The proper test set .",
+            "incorrectFeedback": {
+                "A": "❌ Incorrect: This option is not the correct answer (see the official explanation).",
+                "B": "❌ Incorrect: This option is not the correct answer (see the official explanation).",
+                "D": "❌ Incorrect: This option is not the correct answer (see the official explanation)."
+            },
+            "optionExplanations": {
+                "C": "For the heating system, the values to test are 69, 70. For the air conditioning system, the values are 75, 76. For the fan only, the values are 69, 70, 75, 76. The proper test set combines all these values, 69, 70, 75, 76",
+                "A": "This option is not the correct answer (see the official explanation).",
+                "B": "This option is not the correct answer (see the official explanation).",
+                "D": "This option is not the correct answer (see the official explanation)."
+            },
+            "chapter": 4,
+            "section": "4.2",
+            "subsection": "4.2.2",
+            "learningObjective": "FL-4.2.2",
+            "kLevel": "K3",
+            "difficulty": "Hard",
+            "keywords": [
+                "boundary",
+                "value",
+                "analysis"
+            ],
+            "examTip": "ASTQB official sample — Use boundary value analysis to derive test cases",
+            "memoryAid": ""
+        },
+        {
+            "id": "Q1027",
+            "statement": "You have been given the following conditions and results from those condition combinations. Given this information, using the decision table technique, what is the minimum number of test cases you would need to test these conditions? Conditions: Valid cash Valid credit card Valid debit card Valid pin Bank accepts Valid Selection Item in Stock Results: Reject Cash Reject Card Error Message Return Cash Refund Card Sell Item",
+            "options": {
+                "A": "7",
+                "B": "13",
+                "C": "15",
+                "D": "18"
+            },
+            "correctAnswer": "C",
+            "explanation": "C is correct. Building the full decision table from the listed conditions (Valid cash, Valid credit card, Valid debit card, Valid pin, Bank accepts, Valid Selection, Item in Stock) and results (Reject Cash, Reject Card, Error Message, Return Cash, Refund Card, Sell Item) yields 15 valid test rules.",
+            "correctFeedback": "✅ Correct: Building the full decision table from the listed conditions (Valid cash, Valid credit card, Valid debit card, Valid pin, Bank accepts, Valid Selection, Item in Stock) and results (.",
+            "incorrectFeedback": {
+                "A": "❌ Incorrect: This option is not the correct answer (see the official explanation).",
+                "B": "❌ Incorrect: This option is not the correct answer (see the official explanation).",
+                "D": "❌ Incorrect: This option is not the correct answer (see the official explanation)."
+            },
+            "optionExplanations": {
+                "C": "Building the full decision table from the listed conditions (Valid cash, Valid credit card, Valid debit card, Valid pin, Bank accepts, Valid Selection, Item in Stock) and results (Reject Cash, Reject Card, Error Message, Return Cash, Refund Card, Sell Item) yields 15 valid test rules",
+                "A": "This option is not the correct answer (see the official explanation).",
+                "B": "This option is not the correct answer (see the official explanation).",
+                "D": "This option is not the correct answer (see the official explanation)."
+            },
+            "chapter": 4,
+            "section": "4.2",
+            "subsection": "4.2.3",
+            "learningObjective": "FL-4.2.3",
+            "kLevel": "K3",
+            "difficulty": "Hard",
+            "keywords": [
+                "decision",
+                "table",
+                "derive"
+            ],
+            "examTip": "ASTQB official sample — Use decision table testing to derive test cases",
+            "memoryAid": ""
+        },
+        {
+            "id": "Q1028",
+            "statement": "You have been given the following requirement: A user must log in to the system with a valid username and password. If they fail to enter the correct combination three times, they will receive an error and will have to wait 10 minutes before trying again. The test terminates when the user successfully logs in. How many test cases are needed to provide 100% valid transitions coverage?",
+            "options": {
+                "A": "1",
+                "B": "2",
+                "C": "4",
+                "D": "5"
+            },
+            "correctAnswer": "A",
+            "explanation": "a is correct. Per the diagram below, only one test is needed: Login, Fail, Fail, Fail =3, Wait, Login, Home. If you were required to exit after the Wait, a second test would be required but the question doesn’t indicate that an exit is required.",
+            "correctFeedback": "✅ Correct: Per the diagram below, only one test is needed: Login, Fail, Fail, Fail =3, Wait, Login, Home. If you were required to exit after the Wait, a second test would be required but the .",
+            "incorrectFeedback": {
+                "B": "❌ Incorrect: This option is not the correct answer (see the official explanation).",
+                "C": "❌ Incorrect: This option is not the correct answer (see the official explanation).",
+                "D": "❌ Incorrect: This option is not the correct answer (see the official explanation)."
+            },
+            "optionExplanations": {
+                "A": "Per the diagram below, only one test is needed: Login, Fail, Fail, Fail =3, Wait, Login, Home. If you were required to exit after the Wait, a second test would be required but the question doesn’t indicate that an exit is required",
+                "B": "This option is not the correct answer (see the official explanation).",
+                "C": "This option is not the correct answer (see the official explanation).",
+                "D": "This option is not the correct answer (see the official explanation)."
+            },
+            "chapter": 4,
+            "section": "4.2",
+            "subsection": "4.2.4",
+            "learningObjective": "FL-4.2.4",
+            "kLevel": "K3",
+            "difficulty": "Hard",
+            "keywords": [
+                "state",
+                "transition",
+                "derive"
+            ],
+            "examTip": "ASTQB official sample — Use state transition testing to derive test cases",
+            "memoryAid": ""
+        },
+        {
+            "id": "Q1029",
+            "statement": "You are creating test cases for the following story, applying the ATDD approach. As a hotel owner I want to reserve all the rooms on a floor before moving to the next floor So I can maximize the efficiency of the housekeeping staff You have decided to apply equivalence partitioning to this requirement and have identified the following partitions for the occupancy of a floor: 0 | 1 - floor full | overbooked You also want to be sure that the software is usable by the staff and that it performs quickly in determining which floors have availability. Given this information, what should be the priority order for the tests you will design?",
+            "options": {
+                "A": "0, 1-floor full, overbooked, usability, performance",
+                "B": "Performance, 1-floor full, usability, overbooked, 0",
+                "C": "Usability, performance, overbooked, 0, 1-floor full",
+                "D": "Overbooked, 0, 1-floor full, performance, usability"
+            },
+            "correctAnswer": "A",
+            "explanation": "A is correct. This tests the valid scenarios first, then invalid (overbooked), then the non-functional tests.",
+            "correctFeedback": "✅ Correct: This tests the valid scenarios first, then invalid (overbooked), then the non-functional tests.",
+            "incorrectFeedback": {
+                "B": "❌ Incorrect: This option is not the correct answer (see the official explanation).",
+                "C": "❌ Incorrect: This option is not the correct answer (see the official explanation).",
+                "D": "❌ Incorrect: This option is not the correct answer (see the official explanation)."
+            },
+            "optionExplanations": {
+                "A": "This tests the valid scenarios first, then invalid (overbooked), then the non-functional tests",
+                "B": "This option is not the correct answer (see the official explanation).",
+                "C": "This option is not the correct answer (see the official explanation).",
+                "D": "This option is not the correct answer (see the official explanation)."
+            },
+            "chapter": 4,
+            "section": "4.5",
+            "subsection": "4.5.3",
+            "learningObjective": "FL-4.5.3",
+            "kLevel": "K3",
+            "difficulty": "Hard",
+            "keywords": [
+                "acceptance",
+                "test-driven",
+                "development"
+            ],
+            "examTip": "ASTQB official sample — Use acceptance test-driven development (ATDD) to derive test cases",
+            "memoryAid": ""
+        },
+        {
+            "id": "Q1030",
+            "statement": "A metric that tracks the number of test cases passed is gathered during which activity in the test process?",
+            "options": {
+                "A": "Planning",
+                "B": "Implementation",
+                "C": "Execution",
+                "D": "Reporting"
+            },
+            "correctAnswer": "C",
+            "explanation": "C is correct. Test execution metrics are gathered during the Test Execution activity. These metrics are used in reporting.",
+            "correctFeedback": "✅ Correct: Test execution metrics are gathered during the Test Execution activity. These metrics are used in reporting.",
+            "incorrectFeedback": {
+                "A": "❌ Incorrect: This option is not the correct answer (see the official explanation).",
+                "B": "❌ Incorrect: This option is not the correct answer (see the official explanation).",
+                "D": "❌ Incorrect: This option is not the correct answer (see the official explanation)."
+            },
+            "optionExplanations": {
+                "C": "Test execution metrics are gathered during the Test Execution activity. These metrics are used in reporting",
+                "A": "This option is not the correct answer (see the official explanation).",
+                "B": "This option is not the correct answer (see the official explanation).",
+                "D": "This option is not the correct answer (see the official explanation)."
+            },
+            "chapter": 5,
+            "section": "5.3",
+            "subsection": "5.3.1",
+            "learningObjective": "FL-5.3.1",
+            "kLevel": "K1",
+            "difficulty": "Easy",
+            "keywords": [
+                "recall",
+                "metrics",
+                "used"
+            ],
+            "examTip": "ASTQB official sample — Recall metrics used for testing",
+            "memoryAid": ""
+        },
+        {
+            "id": "Q1031",
+            "statement": "You are working in a team of testers who are all writing test cases. You have noticed that there is a significant inconsistency with the length and amount of detail in the different test cases. Where should the criteria for test case writing be documented?",
+            "options": {
+                "A": "The test plan",
+                "B": "The test approach",
+                "C": "The test case template",
+                "D": "The project plan"
+            },
+            "correctAnswer": "A",
+            "explanation": "A is correct. The level of detail and structure for the test documentation should be included in the test plan as part of the criteria for the performance of testing activities.",
+            "correctFeedback": "✅ Correct: The level of detail and structure for the test documentation should be included in the test plan as part of the criteria for the performance of testing activities.",
+            "incorrectFeedback": {
+                "B": "❌ Incorrect: This option is not the correct answer (see the official explanation).",
+                "C": "❌ Incorrect: This option is not the correct answer (see the official explanation).",
+                "D": "❌ Incorrect: This option is not the correct answer (see the official explanation)."
+            },
+            "optionExplanations": {
+                "A": "The level of detail and structure for the test documentation should be included in the test plan as part of the criteria for the performance of testing activities",
+                "B": "This option is not the correct answer (see the official explanation).",
+                "C": "This option is not the correct answer (see the official explanation).",
+                "D": "This option is not the correct answer (see the official explanation)."
+            },
+            "chapter": 5,
+            "section": "5.1",
+            "subsection": "5.1.1",
+            "learningObjective": "FL-5.1.1",
+            "kLevel": "K2",
+            "difficulty": "Medium",
+            "keywords": [
+                "exemplify",
+                "purpose",
+                "content"
+            ],
+            "examTip": "ASTQB official sample — Exemplify the purpose and content of a test plan",
+            "memoryAid": ""
+        },
+        {
+            "id": "Q1032",
+            "statement": "Unit tests belong in which testing quadrant?",
+            "options": {
+                "A": "Q1",
+                "B": "Q2",
+                "C": "Q3",
+                "D": "Q4"
+            },
+            "correctAnswer": "A",
+            "explanation": "A is correct. Unit, or component, tests belong to quadrant 1.",
+            "correctFeedback": "✅ Correct: Unit, or component, tests belong to quadrant 1.",
+            "incorrectFeedback": {
+                "B": "❌ Incorrect: This option is not the correct answer (see the official explanation).",
+                "C": "❌ Incorrect: This option is not the correct answer (see the official explanation).",
+                "D": "❌ Incorrect: This option is not the correct answer (see the official explanation)."
+            },
+            "optionExplanations": {
+                "A": "Unit, or component, tests belong to quadrant 1",
+                "B": "This option is not the correct answer (see the official explanation).",
+                "C": "This option is not the correct answer (see the official explanation).",
+                "D": "This option is not the correct answer (see the official explanation)."
+            },
+            "chapter": 5,
+            "section": "5.1",
+            "subsection": "5.1.7",
+            "learningObjective": "FL-5.1.7",
+            "kLevel": "K2",
+            "difficulty": "Medium",
+            "keywords": [
+                "summarize",
+                "quadrants",
+                "their"
+            ],
+            "examTip": "ASTQB official sample — Summarize the testing quadrants and their relationships with test levels and test types",
+            "memoryAid": ""
+        },
+        {
+            "id": "Q1033",
+            "statement": "Which of the following is a project risk?",
+            "options": {
+                "A": "A module that performs incorrect calculations due to a defect in a formula",
+                "B": "A failed performance test",
+                "C": "An issue with the interface between the system under test and a peripheral device",
+                "D": "A problem with the development manager which is resulting in his rejecting all defect reports"
+            },
+            "correctAnswer": "D",
+            "explanation": "D is a project risk. The other three are product risks.",
+            "correctFeedback": "✅ Correct: D is a project risk. The other three are product risks.",
+            "incorrectFeedback": {
+                "A": "❌ Incorrect: This option is not the correct answer (see the official explanation).",
+                "B": "❌ Incorrect: This option is not the correct answer (see the official explanation).",
+                "C": "❌ Incorrect: This option is not the correct answer (see the official explanation)."
+            },
+            "optionExplanations": {
+                "D": "D is a project risk. The other three are product risks",
+                "A": "This option is not the correct answer (see the official explanation).",
+                "B": "This option is not the correct answer (see the official explanation).",
+                "C": "This option is not the correct answer (see the official explanation)."
+            },
+            "chapter": 5,
+            "section": "5.2",
+            "subsection": "5.2.2",
+            "learningObjective": "FL-5.2.2",
+            "kLevel": "K2",
+            "difficulty": "Medium",
+            "keywords": [
+                "distinguish",
+                "between",
+                "risks"
+            ],
+            "examTip": "ASTQB official sample — Distinguish between project risks and product risks",
+            "memoryAid": ""
+        },
+        {
+            "id": "Q1034",
+            "statement": "Which of the following variances should be explained in the Test Summary Report?",
+            "options": {
+                "A": "The variances between the weekly status reports and the test exit criteria",
+                "B": "The variances between the defects found and the defects fixed",
+                "C": "The variances between what was planned for testing and what was actually tested",
+                "D": "The variances between the test cases executed and the total number of test cases"
+            },
+            "correctAnswer": "C",
+            "explanation": "C is correct. The variances or deviations between the test plan and the testing that was actually done must be explained in the test summary report. A is not correct because if the weekly status reports have been tracking incorrectly to the test exit criteria, something is wrong and should have been caught a lot earlier. B is not correct because this information should be included in the test summary report, but a variance is expected. D is not correct because this should be tracked in the metrics section of the report rather than as a variance.",
+            "correctFeedback": "✅ Correct: The variances or deviations between the test plan and the testing that was actually done must be explained in the test summary report.",
+            "incorrectFeedback": {
+                "A": "❌ Incorrect: if the weekly status reports have been tracking incorrectly to the test exit criteria, something is wrong and should have been caught a lot earlier",
+                "B": "❌ Incorrect: this information should be included in the test summary report, but a variance is expected",
+                "D": "❌ Incorrect: this should be tracked in the metrics section of the report rather than as a variance"
+            },
+            "optionExplanations": {
+                "C": "The variances or deviations between the test plan and the testing that was actually done must be explained in the test summary report",
+                "A": "if the weekly status reports have been tracking incorrectly to the test exit criteria, something is wrong and should have been caught a lot earlier",
+                "B": "this information should be included in the test summary report, but a variance is expected",
+                "D": "this should be tracked in the metrics section of the report rather than as a variance"
+            },
+            "chapter": 5,
+            "section": "5.3",
+            "subsection": "5.3.2",
+            "learningObjective": "FL-5.3.2",
+            "kLevel": "K2",
+            "difficulty": "Medium",
+            "keywords": [
+                "summarize",
+                "purposes",
+                "content"
+            ],
+            "examTip": "ASTQB official sample — Summarize the purposes, content, and audiences for test reports",
+            "memoryAid": ""
+        },
+        {
+            "id": "Q1035",
+            "statement": "If the developers are releasing code for testing that is not version controlled, what process is missing?",
+            "options": {
+                "A": "Configuration management",
+                "B": "Debugging",
+                "C": "Test and defect management",
+                "D": "Risk analysis"
+            },
+            "correctAnswer": "A",
+            "explanation": "A is correct. Configuration management is missing if the code is not being properly versioned and tracked.",
+            "correctFeedback": "✅ Correct: Configuration management is missing if the code is not being properly versioned and tracked.",
+            "incorrectFeedback": {
+                "B": "❌ Incorrect: This option is not the correct answer (see the official explanation).",
+                "C": "❌ Incorrect: This option is not the correct answer (see the official explanation).",
+                "D": "❌ Incorrect: This option is not the correct answer (see the official explanation)."
+            },
+            "optionExplanations": {
+                "A": "Configuration management is missing if the code is not being properly versioned and tracked",
+                "B": "This option is not the correct answer (see the official explanation).",
+                "C": "This option is not the correct answer (see the official explanation).",
+                "D": "This option is not the correct answer (see the official explanation)."
+            },
+            "chapter": 5,
+            "section": "5.4",
+            "subsection": "5.4.1",
+            "learningObjective": "FL-5.4.1",
+            "kLevel": "K2",
+            "difficulty": "Medium",
+            "keywords": [
+                "summarize",
+                "configuration",
+                "management"
+            ],
+            "examTip": "ASTQB official sample — Summarize how configuration management supports testing",
+            "memoryAid": ""
+        },
+        {
+            "id": "Q1036",
+            "statement": "Your team is using Planning Poker to estimate the effort for a story. Developer Vote Tester Vote First vote 3 8 Second vote 5 8 Third vote 5 5 Although three votes were taken to reach consensus, how many story points should be allocated to the story?",
+            "options": {
+                "A": "10 because that’s the sum of the points",
+                "B": "8 because that was the highest number",
+                "C": "3 because that was the lowest number",
+                "D": "5 because that was the consensus"
+            },
+            "correctAnswer": "D",
+            "explanation": "D is correct. Voting should continue until consensus is reached and that number should be used to assign the points to the story.",
+            "correctFeedback": "✅ Correct: Voting should continue until consensus is reached and that number should be used to assign the points to the story.",
+            "incorrectFeedback": {
+                "A": "❌ Incorrect: This option is not the correct answer (see the official explanation).",
+                "B": "❌ Incorrect: This option is not the correct answer (see the official explanation).",
+                "C": "❌ Incorrect: This option is not the correct answer (see the official explanation)."
+            },
+            "optionExplanations": {
+                "D": "Voting should continue until consensus is reached and that number should be used to assign the points to the story",
+                "A": "This option is not the correct answer (see the official explanation).",
+                "B": "This option is not the correct answer (see the official explanation).",
+                "C": "This option is not the correct answer (see the official explanation)."
+            },
+            "chapter": 5,
+            "section": "5.1",
+            "subsection": "5.1.4",
+            "learningObjective": "FL-5.1.4",
+            "kLevel": "K3",
+            "difficulty": "Hard",
+            "keywords": [
+                "estimation",
+                "techniques",
+                "calculate"
+            ],
+            "examTip": "ASTQB official sample — Use estimation techniques to calculate the required test effort",
+            "memoryAid": ""
+        },
+        {
+            "id": "Q1037",
+            "statement": "You have been given the following set of test cases to run. You have been instructed to run them in order by risk and to accomplish the testing as quickly as possible to provide feedback to the developers as soon as possible. Given this information, what is the best order in which to run these tests? Test cases: ID 1: 30 mins, Low risk, depends on 6; ID 2: 10 mins, Medium risk, no dependency; ID 3: 45 mins, High risk, depends on 1; ID 4: 30 mins, High risk, depends on 2; ID 5: 10 mins, Medium risk, depends on 4; ID 6: 15 mins, Low risk, depends on 2.",
+            "options": {
+                "A": "2, 4, 5, 6, 1, 3",
+                "B": "4, 3, 2, 5, 6, 1",
+                "C": "2, 5, 6, 4, 1, 3",
+                "D": "6, 1, 3, 2, 4, 5"
+            },
+            "correctAnswer": "A",
+            "explanation": "A is correct because it addresses the highest risk and fastest tests first. It runs a fast medium test before a slow and more dependent high-risk test because this will give feedback to the developers more quickly.",
+            "correctFeedback": "✅ Correct: because it addresses the highest risk and fastest tests first. It runs a fast medium test before a slow and more dependent high-risk test because this will give feedback to the dev.",
+            "incorrectFeedback": {
+                "B": "❌ Incorrect: This option is not the correct answer (see the official explanation).",
+                "C": "❌ Incorrect: This option is not the correct answer (see the official explanation).",
+                "D": "❌ Incorrect: This option is not the correct answer (see the official explanation)."
+            },
+            "optionExplanations": {
+                "A": "because it addresses the highest risk and fastest tests first. It runs a fast medium test before a slow and more dependent high-risk test because this will give feedback to the developers more quickly",
+                "B": "This option is not the correct answer (see the official explanation).",
+                "C": "This option is not the correct answer (see the official explanation).",
+                "D": "This option is not the correct answer (see the official explanation)."
+            },
+            "chapter": 5,
+            "section": "5.1",
+            "subsection": "5.1.5",
+            "learningObjective": "FL-5.1.5",
+            "kLevel": "K3",
+            "difficulty": "Hard",
+            "keywords": [
+                "apply",
+                "case",
+                "prioritization"
+            ],
+            "examTip": "ASTQB official sample — Apply test case prioritization",
+            "memoryAid": ""
+        },
+        {
+            "id": "Q1038",
+            "statement": "You have been testing software that will be used to track credit card purchases. You have found a defect that causes the system to crash, but only if a person has made and voided 10 purchases in a row. What is the proper priority and severity rating for this defect?",
+            "options": {
+                "A": "Priority high, severity high",
+                "B": "Priority high, severity low",
+                "C": "Priority low, severity low",
+                "D": "Priority low, severity high"
+            },
+            "correctAnswer": "D",
+            "explanation": "D is correct. This is not likely to happen, so the urgency to fix it is low but it does crash the system so the impact to the system is high so the severity should be high.",
+            "correctFeedback": "✅ Correct: This is not likely to happen, so the urgency to fix it is low but it does crash the system so the impact to the system is high so the severity should be high.",
+            "incorrectFeedback": {
+                "A": "❌ Incorrect: This option is not the correct answer (see the official explanation).",
+                "B": "❌ Incorrect: This option is not the correct answer (see the official explanation).",
+                "C": "❌ Incorrect: This option is not the correct answer (see the official explanation)."
+            },
+            "optionExplanations": {
+                "D": "This is not likely to happen, so the urgency to fix it is low but it does crash the system so the impact to the system is high so the severity should be high",
+                "A": "This option is not the correct answer (see the official explanation).",
+                "B": "This option is not the correct answer (see the official explanation).",
+                "C": "This option is not the correct answer (see the official explanation)."
+            },
+            "chapter": 5,
+            "section": "5.5",
+            "subsection": "5.5.1",
+            "learningObjective": "FL-5.5.1",
+            "kLevel": "K3",
+            "difficulty": "Hard",
+            "keywords": [
+                "prepare",
+                "defect",
+                "report"
+            ],
+            "examTip": "ASTQB official sample — Prepare a defect report",
+            "memoryAid": ""
+        },
+        {
+            "id": "Q1039",
+            "statement": "Which of the following is an example of a tool that supports static testing?",
+            "options": {
+                "A": "A tool that assists with tracking the results of reviews",
+                "B": "A defect tracking tool",
+                "C": "A test automation tool",
+                "D": "A tool that helps design test cases for security testing"
+            },
+            "correctAnswer": "A",
+            "explanation": "A is correct. Reviews are a form of static testing and a tool that supports reviews is an example of a tool that supports static testing. B is an example of a management tool used for defect management. C is an example of a test execution tool. D is an example of a test design tool.",
+            "correctFeedback": "✅ Correct: Reviews are a form of static testing and a tool that supports reviews is an example of a tool that supports static testing. B is an example of a management tool used for defect man.",
+            "incorrectFeedback": {
+                "B": "❌ Incorrect: This option is not the correct answer (see the official explanation).",
+                "C": "❌ Incorrect: This option is not the correct answer (see the official explanation).",
+                "D": "❌ Incorrect: This option is not the correct answer (see the official explanation)."
+            },
+            "optionExplanations": {
+                "A": "Reviews are a form of static testing and a tool that supports reviews is an example of a tool that supports static testing. B is an example of a management tool used for defect management. C is an example of a test execution tool. D is an example of a test design tool",
+                "B": "This option is not the correct answer (see the official explanation).",
+                "C": "This option is not the correct answer (see the official explanation).",
+                "D": "This option is not the correct answer (see the official explanation)."
+            },
+            "chapter": 6,
+            "section": "6.1",
+            "subsection": "6.1.1",
+            "learningObjective": "FL-6.1.1",
+            "kLevel": "K2",
+            "difficulty": "Medium",
+            "keywords": [
+                "explain",
+                "different",
+                "types"
+            ],
+            "examTip": "ASTQB official sample — Explain how different types of test tools support testing",
+            "memoryAid": ""
+        },
+        {
+            "id": "Q1040",
+            "statement": "Which of the following is a benefit of test automation?",
+            "options": {
+                "A": "Test execution is faster",
+                "B": "Manual testing becomes obsolete",
+                "C": "ROI is easy to determine",
+                "D": "Test implementation is faster"
+            },
+            "correctAnswer": "A",
+            "explanation": "A is correct. Test execution should be faster with automation than with manual testing, once the test cases have been developed. Developing automation takes more time than writing manual test cases (usually) so D is incorrect. B is incorrect because manual testing isn’t obsolete, it can concentrate on new areas. C is not correct because return on investment (ROI) can be tricky to calculate as it has to be based on equivalent manual test effort",
+            "correctFeedback": "✅ Correct: Test execution should be faster with automation than with manual testing, once the test cases have been developed. Developing automation takes more time than writing manual test ca.",
+            "incorrectFeedback": {
+                "B": "❌ Incorrect: manual testing isn’t obsolete, it can concentrate on new areas",
+                "C": "❌ Incorrect: return on investment (ROI) can be tricky to calculate as it has to be based on equivalent manual test effort",
+                "D": "❌ Incorrect: This option is not the correct answer (see the official explanation)."
+            },
+            "optionExplanations": {
+                "A": "Test execution should be faster with automation than with manual testing, once the test cases have been developed. Developing automation takes more time than writing manual test cases (usually) so",
+                "B": "manual testing isn’t obsolete, it can concentrate on new areas",
+                "C": "return on investment (ROI) can be tricky to calculate as it has to be based on equivalent manual test effort",
+                "D": "This option is not the correct answer (see the official explanation)."
+            },
+            "chapter": 6,
+            "section": "6.2",
+            "subsection": "6.2.1",
+            "learningObjective": "FL-6.2.1",
+            "kLevel": "K1",
+            "difficulty": "Easy",
+            "keywords": [
+                "recall",
+                "benefits",
+                "risks"
+            ],
+            "examTip": "ASTQB official sample — Recall the benefits and risks of test automation",
+            "memoryAid": ""
+        }
+    ],
+    "exam11": [
+        {
+            "id": "Q1041",
+            "statement": "In what way does root cause analysis contribute to quality assurance?",
+            "options": {
+                "A": "Helps to better identify and correct the root cause of defects",
+                "B": "Outlines how development teams can code faster",
+                "C": "Specifies the desired root causes to be achieved by other teams",
+                "D": "Contributes to the justification of future project funding"
+            },
+            "correctAnswer": "A",
+            "explanation": "A is correct. Root cause analysis can determine common causes of issues. Addressing these common causes by process improvement can increase quality. B is incorrect because root cause analysis will not make the developers code faster, better maybe, not faster. C is incorrect because root causes generally are not good things that should be transferred between teams. D is not correct because it will not improve funding.",
+            "correctFeedback": "✅ Correct: Root cause analysis can determine common causes of issues. Addressing these common causes by process improvement can increase quality.",
+            "incorrectFeedback": {
+                "B": "❌ Incorrect: root cause analysis will not make the developers code faster, better maybe, not faster",
+                "C": "❌ Incorrect: root causes generally are not good things that should be transferred between teams",
+                "D": "❌ Incorrect: it will not improve funding"
+            },
+            "optionExplanations": {
+                "A": "Root cause analysis can determine common causes of issues. Addressing these common causes by process improvement can increase quality",
+                "B": "root cause analysis will not make the developers code faster, better maybe, not faster",
+                "C": "root causes generally are not good things that should be transferred between teams",
+                "D": "it will not improve funding"
+            },
+            "chapter": 1,
+            "section": "1.2",
+            "subsection": "1.2.2",
+            "learningObjective": "FL-1.2.2",
+            "kLevel": "K1",
+            "difficulty": "Easy",
+            "keywords": [
+                "recall",
+                "relation",
+                "between"
+            ],
+            "examTip": "ASTQB official sample — Recall the relation between testing and quality assurance",
+            "memoryAid": ""
+        },
+        {
+            "id": "Q1042",
+            "statement": "You are working in an Agile team where the testers are being accused of slowing down the process because of the time system testing is taking. Which of the following would be an approach that would better spread the skills of the team to complete the tasks?",
+            "options": {
+                "A": "Whole Team",
+                "B": "Team Split",
+                "C": "Behavior-Driven Development",
+                "D": "Waterfall"
+            },
+            "correctAnswer": "A",
+            "explanation": "A is correct. The whole team approach would support the developers helping with the testing tasks rather than waiting for the testers to complete all the testing.",
+            "correctFeedback": "✅ Correct: The whole team approach would support the developers helping with the testing tasks rather than waiting for the testers to complete all the testing.",
+            "incorrectFeedback": {
+                "B": "❌ Incorrect: This option is not the correct answer (see the official explanation).",
+                "C": "❌ Incorrect: This option is not the correct answer (see the official explanation).",
+                "D": "❌ Incorrect: This option is not the correct answer (see the official explanation)."
+            },
+            "optionExplanations": {
+                "A": "The whole team approach would support the developers helping with the testing tasks rather than waiting for the testers to complete all the testing",
+                "B": "This option is not the correct answer (see the official explanation).",
+                "C": "This option is not the correct answer (see the official explanation).",
+                "D": "This option is not the correct answer (see the official explanation)."
+            },
+            "chapter": 1,
+            "section": "1.5",
+            "subsection": "1.5.2",
+            "learningObjective": "FL-1.5.2",
+            "kLevel": "K1",
+            "difficulty": "Easy",
+            "keywords": [
+                "recall",
+                "advantages",
+                "whole"
+            ],
+            "examTip": "ASTQB official sample — Recall the advantages of the whole team approach",
+            "memoryAid": ""
+        },
+        {
+            "id": "Q1043",
+            "statement": "Which of the following is an example of debugging?",
+            "options": {
+                "A": "A tester finds a defect and reports it",
+                "B": "A tester retests a fix from the developer and finds a regression",
+                "C": "A developer finds and fixes a defect",
+                "D": "A developer performs unit testing"
+            },
+            "correctAnswer": "C",
+            "explanation": "C is correct. Debugging is what the developer does to identify the cause of the defect, analyze it and fix it. D may involve debugging, if the developer finds a defect, but the act of unit testing is not the same as debugging.",
+            "correctFeedback": "✅ Correct: Debugging is what the developer does to identify the cause of the defect, analyze it and fix it. D may involve debugging, if the developer finds a defect, but the act of unit testi.",
+            "incorrectFeedback": {
+                "A": "❌ Incorrect: This option is not the correct answer (see the official explanation).",
+                "B": "❌ Incorrect: This option is not the correct answer (see the official explanation).",
+                "D": "❌ Incorrect: This option is not the correct answer (see the official explanation)."
+            },
+            "optionExplanations": {
+                "C": "Debugging is what the developer does to identify the cause of the defect, analyze it and fix it. D may involve debugging, if the developer finds a defect, but the act of unit testing is not the same as debugging",
+                "A": "This option is not the correct answer (see the official explanation).",
+                "B": "This option is not the correct answer (see the official explanation).",
+                "D": "This option is not the correct answer (see the official explanation)."
+            },
+            "chapter": 1,
+            "section": "1.1",
+            "subsection": "1.1.2",
+            "learningObjective": "FL-1.1.2",
+            "kLevel": "K2",
+            "difficulty": "Medium",
+            "keywords": [
+                "differentiate",
+                "debugging",
+                "example"
+            ],
+            "examTip": "ASTQB official sample — Differentiate testing from debugging",
+            "memoryAid": ""
+        },
+        {
+            "id": "Q1044",
+            "statement": "Which of the following is a true statement about exhaustive testing?",
+            "options": {
+                "A": "It is a form of stress testing",
+                "B": "It is not feasible except in the case of trivial software",
+                "C": "It is commonly done with test automation",
+                "D": "It is normally the responsibility of the developer during unit testing"
+            },
+            "correctAnswer": "B",
+            "explanation": "B is correct. Exhaustive testing, all combinations of inputs and preconditions, is not feasible unless the software is trivially simple. Otherwise, it would take too long and might not even be possible.",
+            "correctFeedback": "✅ Correct: Exhaustive testing, all combinations of inputs and preconditions, is not feasible unless the software is trivially simple. Otherwise, it would take too long and might not even be p.",
+            "incorrectFeedback": {
+                "A": "❌ Incorrect: This option is not the correct answer (see the official explanation).",
+                "C": "❌ Incorrect: This option is not the correct answer (see the official explanation).",
+                "D": "❌ Incorrect: This option is not the correct answer (see the official explanation)."
+            },
+            "optionExplanations": {
+                "B": "Exhaustive testing, all combinations of inputs and preconditions, is not feasible unless the software is trivially simple. Otherwise, it would take too long and might not even be possible",
+                "A": "This option is not the correct answer (see the official explanation).",
+                "C": "This option is not the correct answer (see the official explanation).",
+                "D": "This option is not the correct answer (see the official explanation)."
+            },
+            "chapter": 1,
+            "section": "1.3",
+            "subsection": "1.3.1",
+            "learningObjective": "FL-1.3.1",
+            "kLevel": "K2",
+            "difficulty": "Medium",
+            "keywords": [
+                "explain",
+                "seven",
+                "principles"
+            ],
+            "examTip": "ASTQB official sample — Explain the seven testing principles",
+            "memoryAid": ""
+        },
+        {
+            "id": "Q1045",
+            "statement": "If you need to provide a report showing test case execution coverage of the requirements, what do you need to track?",
+            "options": {
+                "A": "Traceability between the test cases and the requirements",
+                "B": "Coverage of the risk items by test case",
+                "C": "Traceability between the requirements and the risk items",
+                "D": "Coverage of the requirements by the test cases that have been designed"
+            },
+            "correctAnswer": "A",
+            "explanation": "A is correct. In order to show the test execution coverage of the requirements you will need traceability between the requirements and the test cases. As the test cases are executed this traceability can be used to record tests executed against the requirements. B is not correct because it’s looking for requirements coverage, not risk coverage. C is not correct because it’s looking for test execution, not risk items. D is not correct because it’s looking for test cases that have been executed, not just designed.",
+            "correctFeedback": "✅ Correct: In order to show the test execution coverage of the requirements you will need traceability between the requirements and the test cases. As the test cases are executed this traceab.",
+            "incorrectFeedback": {
+                "B": "❌ Incorrect: it’s looking for requirements coverage, not risk coverage",
+                "C": "❌ Incorrect: it’s looking for test execution, not risk items",
+                "D": "❌ Incorrect: it’s looking for test cases that have been executed, not just designed"
+            },
+            "optionExplanations": {
+                "A": "In order to show the test execution coverage of the requirements you will need traceability between the requirements and the test cases. As the test cases are executed this traceability can be used to record tests executed against the requirements",
+                "B": "it’s looking for requirements coverage, not risk coverage",
+                "C": "it’s looking for test execution, not risk items",
+                "D": "it’s looking for test cases that have been executed, not just designed"
+            },
+            "chapter": 1,
+            "section": "1.4",
+            "subsection": "1.4.4",
+            "learningObjective": "FL-1.4.4",
+            "kLevel": "K2",
+            "difficulty": "Medium",
+            "keywords": [
+                "explain",
+                "value",
+                "maintaining"
+            ],
+            "examTip": "ASTQB official sample — Explain the value of maintaining traceability",
+            "memoryAid": ""
+        },
+        {
+            "id": "Q1046",
+            "statement": "Who normally writes the test plan for a project?",
+            "options": {
+                "A": "The project manager",
+                "B": "The product owner",
+                "C": "The test manager",
+                "D": "The tester"
+            },
+            "correctAnswer": "C",
+            "explanation": "C is correct. Writing and updating the test plan is normally the responsibility of the test manager. A, B and D may contribute to the test plan, but the overall responsibility belongs to the test manager.",
+            "correctFeedback": "✅ Correct: Writing and updating the test plan is normally the responsibility of the test manager. A, B and D may contribute to the test plan, but the overall responsibility belongs to the tes.",
+            "incorrectFeedback": {
+                "A": "❌ Incorrect: This option is not the correct answer (see the official explanation).",
+                "B": "❌ Incorrect: This option is not the correct answer (see the official explanation).",
+                "D": "❌ Incorrect: This option is not the correct answer (see the official explanation)."
+            },
+            "optionExplanations": {
+                "C": "Writing and updating the test plan is normally the responsibility of the test manager. A, B and D may contribute to the test plan, but the overall responsibility belongs to the test manager",
+                "A": "This option is not the correct answer (see the official explanation).",
+                "B": "This option is not the correct answer (see the official explanation).",
+                "D": "This option is not the correct answer (see the official explanation)."
+            },
+            "chapter": 1,
+            "section": "1.4",
+            "subsection": "1.4.5",
+            "learningObjective": "FL-1.4.5",
+            "kLevel": "K2",
+            "difficulty": "Medium",
+            "keywords": [
+                "compare",
+                "different",
+                "roles"
+            ],
+            "examTip": "ASTQB official sample — Compare the different roles in testing",
+            "memoryAid": ""
+        },
+        {
+            "id": "Q1047",
+            "statement": "Your team has conducted a quality risk analysis and has determined the likelihood, impact and mitigation plan for each identified risk. This information should be captured in what work product?",
+            "options": {
+                "A": "Test strategy",
+                "B": "Test plan",
+                "C": "Risk register",
+                "D": "Risk plan"
+            },
+            "correctAnswer": "C",
+            "explanation": "C is correct, per the syllabus. This information should be recorded in the risk register. The risk register should be referenced in the test plan for the project.",
+            "correctFeedback": "✅ Correct: , per the syllabus. This information should be recorded in the risk register. The risk register should be referenced in the test plan for the project.",
+            "incorrectFeedback": {
+                "A": "❌ Incorrect: This option is not the correct answer (see the official explanation).",
+                "B": "❌ Incorrect: This option is not the correct answer (see the official explanation).",
+                "D": "❌ Incorrect: This option is not the correct answer (see the official explanation)."
+            },
+            "optionExplanations": {
+                "C": ", per the syllabus. This information should be recorded in the risk register. The risk register should be referenced in the test plan for the project",
+                "A": "This option is not the correct answer (see the official explanation).",
+                "B": "This option is not the correct answer (see the official explanation).",
+                "D": "This option is not the correct answer (see the official explanation)."
+            },
+            "chapter": 1,
+            "section": "1.4",
+            "subsection": "1.4.3",
+            "learningObjective": "FL-1.4.3",
+            "kLevel": "K2",
+            "difficulty": "Medium",
+            "keywords": [
+                "differentiate",
+                "testware",
+                "supports"
+            ],
+            "examTip": "ASTQB official sample — Differentiate the testware that supports the test activities",
+            "memoryAid": ""
+        },
+        {
+            "id": "Q1048",
+            "statement": "You are working with a junior tester who has been given a user story to test. They have created only one positive path test for the story. You know there are more areas that should be tested for this story, including negative scenarios. Which of the following generic skills do they appear to be lacking?",
+            "options": {
+                "A": "Communication",
+                "B": "Curiosity",
+                "C": "Confidence",
+                "D": "Creativity"
+            },
+            "correctAnswer": "D",
+            "explanation": "D is correct. It appears they are lacking in creativity in designing test scenarios. A is not correct because there is no indication that they are not communicating effectively. B is not correct, although if they were more curious, they might have done more investigation. C is not correct because it doesn’t appear that confidence is a factor, rather that they just aren’t approaching the test creation with much creativity.",
+            "correctFeedback": "✅ Correct: It appears they are lacking in creativity in designing test scenarios.",
+            "incorrectFeedback": {
+                "A": "❌ Incorrect: there is no indication that they are not communicating effectively",
+                "B": "❌ Incorrect: , although if they were more curious, they might have done more investigation",
+                "C": "❌ Incorrect: it doesn’t appear that confidence is a factor, rather that they just aren’t approaching the test creation with much creativity"
+            },
+            "optionExplanations": {
+                "D": "It appears they are lacking in creativity in designing test scenarios",
+                "A": "there is no indication that they are not communicating effectively",
+                "B": ", although if they were more curious, they might have done more investigation",
+                "C": "it doesn’t appear that confidence is a factor, rather that they just aren’t approaching the test creation with much creativity"
+            },
+            "chapter": 1,
+            "section": "1.5",
+            "subsection": "1.5.1",
+            "learningObjective": "FL-1.5.1",
+            "kLevel": "K2",
+            "difficulty": "Medium",
+            "keywords": [
+                "give",
+                "examples",
+                "generic"
+            ],
+            "examTip": "ASTQB official sample — Give examples of the generic skills required for testing",
+            "memoryAid": ""
+        },
+        {
+            "id": "Q1049",
+            "statement": "Which of the following is an example of a good testing practice?",
+            "options": {
+                "A": "Different test levels should have specific test objectives",
+                "B": "Testers should have development experience",
+                "C": "Developers should determine the order of test execution in the test procedures",
+                "D": "Test design should begin when the code is complete to avoid changes"
+            },
+            "correctAnswer": "A",
+            "explanation": "A is correct. This is a good testing practice. B is not a requirement for many testers. C is not correct because this should be determined by the testers based on priority, risk, availability, etc. D is not correct because test design should start during code design and implementation.",
+            "correctFeedback": "✅ Correct: This is a good testing practice. B is not a requirement for many testers.",
+            "incorrectFeedback": {
+                "B": "❌ Incorrect: This option is not the correct answer (see the official explanation).",
+                "C": "❌ Incorrect: this should be determined by the testers based on priority, risk, availability, etc",
+                "D": "❌ Incorrect: test design should start during code design and implementation"
+            },
+            "optionExplanations": {
+                "A": "This is a good testing practice. B is not a requirement for many testers",
+                "B": "This option is not the correct answer (see the official explanation).",
+                "C": "this should be determined by the testers based on priority, risk, availability, etc",
+                "D": "test design should start during code design and implementation"
+            },
+            "chapter": 2,
+            "section": "2.1",
+            "subsection": "2.1.2",
+            "learningObjective": "FL-2.1.2",
+            "kLevel": "K1",
+            "difficulty": "Easy",
+            "keywords": [
+                "recall",
+                "good",
+                "practices"
+            ],
+            "examTip": "ASTQB official sample — Recall good testing practices that apply to all software development lifecycles",
+            "memoryAid": ""
+        },
+        {
+            "id": "Q1050",
+            "statement": "Which development approach captures the requirements in a simple test case format?",
+            "options": {
+                "A": "TDD",
+                "B": "BDD",
+                "C": "ATDD",
+                "D": "TBD"
+            },
+            "correctAnswer": "B",
+            "explanation": "B is correct. Behavior-driven development uses the given/when/then format to define the test cases. Those are then used as the requirements to develop the code.",
+            "correctFeedback": "✅ Correct: Behavior-driven development uses the given/when/then format to define the test cases. Those are then used as the requirements to develop the code.",
+            "incorrectFeedback": {
+                "A": "❌ Incorrect: This option is not the correct answer (see the official explanation).",
+                "C": "❌ Incorrect: This option is not the correct answer (see the official explanation).",
+                "D": "❌ Incorrect: This option is not the correct answer (see the official explanation)."
+            },
+            "optionExplanations": {
+                "B": "Behavior-driven development uses the given/when/then format to define the test cases. Those are then used as the requirements to develop the code",
+                "A": "This option is not the correct answer (see the official explanation).",
+                "C": "This option is not the correct answer (see the official explanation).",
+                "D": "This option is not the correct answer (see the official explanation)."
+            },
+            "chapter": 2,
+            "section": "2.1",
+            "subsection": "2.1.3",
+            "learningObjective": "FL-2.1.3",
+            "kLevel": "K1",
+            "difficulty": "Easy",
+            "keywords": [
+                "recall",
+                "examples",
+                "test-first"
+            ],
+            "examTip": "ASTQB official sample — Recall the examples of test-first approaches to development",
+            "memoryAid": ""
+        },
+        {
+            "id": "Q1051",
+            "statement": "Usability testing is an example of which type of testing?",
+            "options": {
+                "A": "Functional",
+                "B": "Non-functional",
+                "C": "Structural",
+                "D": "Change-related"
+            },
+            "correctAnswer": "B",
+            "explanation": "B is correct. Usability is one of the non-functional test types according to ISO 25010.",
+            "correctFeedback": "✅ Correct: Usability is one of the non-functional test types according to ISO 25010.",
+            "incorrectFeedback": {
+                "A": "❌ Incorrect: This option is not the correct answer (see the official explanation).",
+                "C": "❌ Incorrect: This option is not the correct answer (see the official explanation).",
+                "D": "❌ Incorrect: This option is not the correct answer (see the official explanation)."
+            },
+            "optionExplanations": {
+                "B": "Usability is one of the non-functional test types according to ISO 25010",
+                "A": "This option is not the correct answer (see the official explanation).",
+                "C": "This option is not the correct answer (see the official explanation).",
+                "D": "This option is not the correct answer (see the official explanation)."
+            },
+            "chapter": 2,
+            "section": "2.2",
+            "subsection": "2.2.2",
+            "learningObjective": "FL-2.2.2",
+            "kLevel": "K2",
+            "difficulty": "Medium",
+            "keywords": [
+                "distinguish",
+                "different",
+                "types"
+            ],
+            "examTip": "ASTQB official sample — Distinguish the different test types",
+            "memoryAid": ""
+        },
+        {
+            "id": "Q1052",
+            "statement": "You have been receiving daily builds from the developers. Even though they are documenting the fixes they are including in each build, you are finding that the fixes either aren’t in the build or are not working. What type of testing is best suited for finding these issues?",
+            "options": {
+                "A": "Unit testing",
+                "B": "System testing",
+                "C": "Confirmation testing",
+                "D": "Regression testing"
+            },
+            "correctAnswer": "C",
+            "explanation": "C is correct. Confirmation testing will determine if a fix is present in a build and if it actually fixes the defect it is supposed to fix. A is not correct because this would be conducted by the developer as they fix the issues. While it might catch a fix that doesn’t work, it’s not likely to catch the check-in/build process that is excluding the fix from the build. B is not correct because system testing will take longer to pinpoint this problem and may result in more troubleshooting time when the problem is discovered again. D is not correct because this is the testing that is done to see if there have been any unintended changes in the software’s behavior.",
+            "correctFeedback": "✅ Correct: Confirmation testing will determine if a fix is present in a build and if it actually fixes the defect it is supposed to fix.",
+            "incorrectFeedback": {
+                "A": "❌ Incorrect: this would be conducted by the developer as they fix the issues. While it might catch a fix that doesn’t work, it’s not likely to catch the check-in/build process that is excluding the fix from the build",
+                "B": "❌ Incorrect: system testing will take longer to pinpoint this problem and may result in more troubleshooting time when the problem is discovered again",
+                "D": "❌ Incorrect: this is the testing that is done to see if there have been any unintended changes in the software’s behavior"
+            },
+            "optionExplanations": {
+                "C": "Confirmation testing will determine if a fix is present in a build and if it actually fixes the defect it is supposed to fix",
+                "A": "this would be conducted by the developer as they fix the issues. While it might catch a fix that doesn’t work, it’s not likely to catch the check-in/build process that is excluding the fix from the build",
+                "B": "system testing will take longer to pinpoint this problem and may result in more troubleshooting time when the problem is discovered again",
+                "D": "this is the testing that is done to see if there have been any unintended changes in the software’s behavior"
+            },
+            "chapter": 2,
+            "section": "2.2",
+            "subsection": "2.2.3",
+            "learningObjective": "FL-2.2.3",
+            "kLevel": "K2",
+            "difficulty": "Medium",
+            "keywords": [
+                "distinguish",
+                "confirmation",
+                "regression"
+            ],
+            "examTip": "ASTQB official sample — Distinguish confirmation testing from regression test",
+            "memoryAid": ""
+        },
+        {
+            "id": "Q1053",
+            "statement": "Your team has just completed a retrospective. They have discussed what was successful and should be retained, and they discussed what improvements are needed. What else do they need to discuss in order to recognize process improvements?",
+            "options": {
+                "A": "When will the accepted changes be made",
+                "B": "Who is to blame for the shortcomings of the project",
+                "C": "How much money was spent that could have been saved",
+                "D": "Why changes were not made earlier in the project"
+            },
+            "correctAnswer": "A",
+            "explanation": "A is correct. It’s great to gather the information, but in order for change to really be made, it has to be planned for implementation in future sprints/releases/projects. B is not correct because retrospectives are not about blaming. C is not part of a retrospective, although this information may be gathered by the project manager. D is also tending toward blaming but is something that should be considered as it may impact the ability to implement future changes.",
+            "correctFeedback": "✅ Correct: It’s great to gather the information, but in order for change to really be made, it has to be planned for implementation in future sprints/releases/projects.",
+            "incorrectFeedback": {
+                "B": "❌ Incorrect: retrospectives are not about blaming. C is not part of a retrospective, although this information may be gathered by the project manager. D is also tending toward blaming but is something that should be considered as it may impact the ability to implement future changes",
+                "C": "❌ Incorrect: This option is not the correct answer (see the official explanation).",
+                "D": "❌ Incorrect: This option is not the correct answer (see the official explanation)."
+            },
+            "optionExplanations": {
+                "A": "It’s great to gather the information, but in order for change to really be made, it has to be planned for implementation in future sprints/releases/projects",
+                "B": "retrospectives are not about blaming. C is not part of a retrospective, although this information may be gathered by the project manager. D is also tending toward blaming but is something that should be considered as it may impact the ability to implement future changes",
+                "C": "This option is not the correct answer (see the official explanation).",
+                "D": "This option is not the correct answer (see the official explanation)."
+            },
+            "chapter": 2,
+            "section": "2.1",
+            "subsection": "2.1.6",
+            "learningObjective": "FL-2.1.6",
+            "kLevel": "K2",
+            "difficulty": "Medium",
+            "keywords": [
+                "explain",
+                "retrospectives",
+                "used"
+            ],
+            "examTip": "ASTQB official sample — Explain how retrospectives can be used as a mechanism for process improvement",
+            "memoryAid": ""
+        },
+        {
+            "id": "Q1054",
+            "statement": "Your organization has decided to implement DevOps. One of the biggest concerns from the operations people is that there have been ongoing performance issues in production. How will implementing DevOps and CI/CD help with this problem?",
+            "options": {
+                "A": "It won’t - the problem needs to be addressed during design",
+                "B": "Performance testing can be integrated into the CI/CD pipeline to test it incrementally and repeatedly throughout development",
+                "C": "Performance testing will be the main focus of the system integration testing, after the code has been delivered to the test environment",
+                "D": "Performance testing experts will be used to conduct the performance testing in an isolated environment which is developed using Infrastructure as Code"
+            },
+            "correctAnswer": "B",
+            "explanation": "B is correct. With a CI/CD implementation, performance testing can be implemented throughout the pipeline, starting with the unit testing and continuing through to the fully developed product. CI/CD will also help ensure that the delivery is into the proper environments that can support the various types of testing. A is not correct. The problem probably does need to be addressed during design, but it needs to be tested throughout the pipeline. C is not correct because testing performance only in SIT doesn’t leverage the capabilities of the testing pipeline. D is not correct because performance testing can be conducted early and often through the pipeline, although a final test in an isolated environment may be needed as well.",
+            "correctFeedback": "✅ Correct: With a CI/CD implementation, performance testing can be implemented throughout the pipeline, starting with the unit testing and continuing through to the fully developed product. C.",
+            "incorrectFeedback": {
+                "A": "❌ Incorrect: The problem probably does need to be addressed during design, but it needs to be tested throughout the pipeline",
+                "C": "❌ Incorrect: testing performance only in SIT doesn’t leverage the capabilities of the testing pipeline",
+                "D": "❌ Incorrect: performance testing can be conducted early and often through the pipeline, although a final test in an isolated environment may be needed as well"
+            },
+            "optionExplanations": {
+                "B": "With a CI/CD implementation, performance testing can be implemented throughout the pipeline, starting with the unit testing and continuing through to the fully developed product. CI/CD will also help ensure that the delivery is into the proper environments that can support the various types of testing",
+                "A": "The problem probably does need to be addressed during design, but it needs to be tested throughout the pipeline",
+                "C": "testing performance only in SIT doesn’t leverage the capabilities of the testing pipeline",
+                "D": "performance testing can be conducted early and often through the pipeline, although a final test in an isolated environment may be needed as well"
+            },
+            "chapter": 2,
+            "section": "2.1",
+            "subsection": "2.1.4",
+            "learningObjective": "FL-2.1.4",
+            "kLevel": "K2",
+            "difficulty": "Medium",
+            "keywords": [
+                "summarize",
+                "devops",
+                "impact"
+            ],
+            "examTip": "ASTQB official sample — Summarize how DevOps might have an impact on testing",
+            "memoryAid": ""
+        },
+        {
+            "id": "Q1055",
+            "statement": "Which of the following techniques is a form of static testing?",
+            "options": {
+                "A": "Error guessing",
+                "B": "Automated regression testing",
+                "C": "Providing inputs and examining the resulting outputs",
+                "D": "Code review"
+            },
+            "correctAnswer": "D",
+            "explanation": "D is correct, per syllabus. A, B and C are all forms of dynamic testing.",
+            "correctFeedback": "✅ Correct: , per syllabus. A, B and C are all forms of dynamic testing.",
+            "incorrectFeedback": {
+                "A": "❌ Incorrect: This option is not the correct answer (see the official explanation).",
+                "B": "❌ Incorrect: This option is not the correct answer (see the official explanation).",
+                "C": "❌ Incorrect: This option is not the correct answer (see the official explanation)."
+            },
+            "optionExplanations": {
+                "D": ", per syllabus. A, B and C are all forms of dynamic testing",
+                "A": "This option is not the correct answer (see the official explanation).",
+                "B": "This option is not the correct answer (see the official explanation).",
+                "C": "This option is not the correct answer (see the official explanation)."
+            },
+            "chapter": 3,
+            "section": "3.1",
+            "subsection": "3.1.1",
+            "learningObjective": "FL-3.1.1",
+            "kLevel": "K1",
+            "difficulty": "Easy",
+            "keywords": [
+                "recognize",
+                "types",
+                "work"
+            ],
+            "examTip": "ASTQB official sample — Recognize types of work products that can be examined by static testing techniques",
+            "memoryAid": ""
+        },
+        {
+            "id": "Q1056",
+            "statement": "You are frequently asked to participate in reviews of requirements. Unfortunately, you usually receive the document to be reviewed the night before the review meeting will be held. This is resulting in your not doing a thorough review and having to work significant overtime to get the review done. What review success factor is missing from this process?",
+            "options": {
+                "A": "Management support for the overall review process",
+                "B": "Reviewing only small chunks at a time",
+                "C": "Training for the proper performance in the meetings",
+                "D": "Allowing adequate time to conduct the review"
+            },
+            "correctAnswer": "D",
+            "explanation": "D is correct. The reviewers are not being given adequate time to conduct the review. A is not correct but might be an issue given that this is a repeated problem and could indicate that the schedules are not realistic. B is not correct because there’s no indication that the work product is too big, just that it’s being delivered too late. C is not correct because the problem is not with the meetings.",
+            "correctFeedback": "✅ Correct: The reviewers are not being given adequate time to conduct the review.",
+            "incorrectFeedback": {
+                "A": "❌ Incorrect: but might be an issue given that this is a repeated problem and could indicate that the schedules are not realistic",
+                "B": "❌ Incorrect: there’s no indication that the work product is too big, just that it’s being delivered too late",
+                "C": "❌ Incorrect: the problem is not with the meetings"
+            },
+            "optionExplanations": {
+                "D": "The reviewers are not being given adequate time to conduct the review",
+                "A": "but might be an issue given that this is a repeated problem and could indicate that the schedules are not realistic",
+                "B": "there’s no indication that the work product is too big, just that it’s being delivered too late",
+                "C": "the problem is not with the meetings"
+            },
+            "chapter": 3,
+            "section": "3.2",
+            "subsection": "3.2.5",
+            "learningObjective": "FL-3.2.5",
+            "kLevel": "K1",
+            "difficulty": "Easy",
+            "keywords": [
+                "recall",
+                "factors",
+                "contribute"
+            ],
+            "examTip": "ASTQB official sample — Recall the factors that contribute to a successful review",
+            "memoryAid": ""
+        },
+        {
+            "id": "Q1057",
+            "statement": "What is the main difference between static and dynamic testing?",
+            "options": {
+                "A": "Static testing is performed by developers; dynamic testing is performed by testers",
+                "B": "Manual test cases are used for dynamic testing; automated tests are used for static testing",
+                "C": "Static testing must be executed before dynamic testing",
+                "D": "Dynamic testing requires executing the software; the software is not executed during static testing"
+            },
+            "correctAnswer": "D",
+            "explanation": "D is correct. Dynamic testing is done while the software is actually running whereas static testing depends on examining the software while it is not running. A is not correct because both types of testing can be done by both developers and testers. B is not correct because manual and automated tests can be used for dynamic testing. C is not correct because static testing can occur at any time although it is usually done before dynamic testing.",
+            "correctFeedback": "✅ Correct: Dynamic testing is done while the software is actually running whereas static testing depends on examining the software while it is not running.",
+            "incorrectFeedback": {
+                "A": "❌ Incorrect: both types of testing can be done by both developers and testers",
+                "B": "❌ Incorrect: manual and automated tests can be used for dynamic testing",
+                "C": "❌ Incorrect: static testing can occur at any time although it is usually done before dynamic testing"
+            },
+            "optionExplanations": {
+                "D": "Dynamic testing is done while the software is actually running whereas static testing depends on examining the software while it is not running",
+                "A": "both types of testing can be done by both developers and testers",
+                "B": "manual and automated tests can be used for dynamic testing",
+                "C": "static testing can occur at any time although it is usually done before dynamic testing"
+            },
+            "chapter": 3,
+            "section": "3.1",
+            "subsection": "3.1.3",
+            "learningObjective": "FL-3.1.3",
+            "kLevel": "K2",
+            "difficulty": "Medium",
+            "keywords": [
+                "compare",
+                "contrast",
+                "static"
+            ],
+            "examTip": "ASTQB official sample — Compare and contrast static testing and dynamic testing",
+            "memoryAid": ""
+        },
+        {
+            "id": "Q1058",
+            "statement": "If a review session is led by the author of the work product, what type of review is it?",
+            "options": {
+                "A": "Ad hoc",
+                "B": "Walkthrough",
+                "C": "Inspection",
+                "D": "Audit"
+            },
+            "correctAnswer": "B",
+            "explanation": "B is correct. In a walkthrough, the author normally leads the review session. A is not correct as this is not normally an organized session. C is not correct because an inspection is normally led by the facilitator (moderator). D is not correct because an audit is usually led by a third party.",
+            "correctFeedback": "✅ Correct: In a walkthrough, the author normally leads the review session.",
+            "incorrectFeedback": {
+                "A": "❌ Incorrect: this is not normally an organized session",
+                "C": "❌ Incorrect: an inspection is normally led by the facilitator (moderator)",
+                "D": "❌ Incorrect: an audit is usually led by a third party"
+            },
+            "optionExplanations": {
+                "B": "In a walkthrough, the author normally leads the review session",
+                "A": "this is not normally an organized session",
+                "C": "an inspection is normally led by the facilitator (moderator)",
+                "D": "an audit is usually led by a third party"
+            },
+            "chapter": 3,
+            "section": "3.2",
+            "subsection": "3.2.4",
+            "learningObjective": "FL-3.2.4",
+            "kLevel": "K2",
+            "difficulty": "Medium",
+            "keywords": [
+                "compare",
+                "contrast",
+                "different"
+            ],
+            "examTip": "ASTQB official sample — Compare and contrast the different review types",
+            "memoryAid": ""
+        },
+        {
+            "id": "Q1059",
+            "statement": "If test cases are derived from looking at the code, what type of test technique is being used?",
+            "options": {
+                "A": "Black-box",
+                "B": "White-box",
+                "C": "Specification-based",
+                "D": "Behavior-based"
+            },
+            "correctAnswer": "B",
+            "explanation": "B is correct. A, C and D are all black-box and use the specifications or requirements for the test design.",
+            "correctFeedback": "✅ Correct: A, C and D are all black-box and use the specifications or requirements for the test design.",
+            "incorrectFeedback": {
+                "A": "❌ Incorrect: This option is not the correct answer (see the official explanation).",
+                "C": "❌ Incorrect: This option is not the correct answer (see the official explanation).",
+                "D": "❌ Incorrect: This option is not the correct answer (see the official explanation)."
+            },
+            "optionExplanations": {
+                "B": "A, C and D are all black-box and use the specifications or requirements for the test design",
+                "A": "This option is not the correct answer (see the official explanation).",
+                "C": "This option is not the correct answer (see the official explanation).",
+                "D": "This option is not the correct answer (see the official explanation)."
+            },
+            "chapter": 4,
+            "section": "4.1",
+            "subsection": "4.1.1",
+            "learningObjective": "FL-4.1.1",
+            "kLevel": "K2",
+            "difficulty": "Medium",
+            "keywords": [
+                "distinguish",
+                "black-box",
+                "white-box"
+            ],
+            "examTip": "ASTQB official sample — Distinguish black-box, white-box, and experience-based test techniques",
+            "memoryAid": ""
+        },
+        {
+            "id": "Q1060",
+            "statement": "How is statement coverage determined?",
+            "options": {
+                "A": "Number of test decision points divided by the number of test cases",
+                "B": "Number of branches tested divided by the total number of executable statements",
+                "C": "Number of possible test case outcomes divided by the total number of function points",
+                "D": "Number of executable statements tested divided by the total number of executable statements"
+            },
+            "correctAnswer": "D",
+            "explanation": "D is correct, per syllabus as each tested statement is considered to be exercised. A, B and C are not valid measures.",
+            "correctFeedback": "✅ Correct: , per syllabus as each tested statement is considered to be exercised. A, B and C are not valid measures.",
+            "incorrectFeedback": {
+                "A": "❌ Incorrect: This option is not the correct answer (see the official explanation).",
+                "B": "❌ Incorrect: This option is not the correct answer (see the official explanation).",
+                "C": "❌ Incorrect: This option is not the correct answer (see the official explanation)."
+            },
+            "optionExplanations": {
+                "D": ", per syllabus as each tested statement is considered to be exercised. A, B and C are not valid measures",
+                "A": "This option is not the correct answer (see the official explanation).",
+                "B": "This option is not the correct answer (see the official explanation).",
+                "C": "This option is not the correct answer (see the official explanation)."
+            },
+            "chapter": 4,
+            "section": "4.3",
+            "subsection": "4.3.1",
+            "learningObjective": "FL-4.3.1",
+            "kLevel": "K2",
+            "difficulty": "Medium",
+            "keywords": [
+                "explain",
+                "coverage",
+                "determined"
+            ],
+            "examTip": "ASTQB official sample — Explain statement testing",
+            "memoryAid": ""
+        },
+        {
+            "id": "Q1061",
+            "statement": "You are working on a project with very tight deadlines. The code is being developed but is not yet executable. What type of testing could you apply that would help find defects now?",
+            "options": {
+                "A": "Black-box",
+                "B": "White-box",
+                "C": "Experience-based",
+                "D": "Factor-based"
+            },
+            "correctAnswer": "B",
+            "explanation": "B is correct. You have code that can be structurally reviewed for items such as the proper handling of branching. A and C are not correct because nothing can be executed yet. D is not correct because it’s not a type of testing.",
+            "correctFeedback": "✅ Correct: You have code that can be structurally reviewed for items such as the proper handling of branching. A and C are not correct because nothing can be executed yet.",
+            "incorrectFeedback": {
+                "A": "❌ Incorrect: This option is not the correct answer (see the official explanation).",
+                "C": "❌ Incorrect: This option is not the correct answer (see the official explanation).",
+                "D": "❌ Incorrect: it’s not a type of testing"
+            },
+            "optionExplanations": {
+                "B": "You have code that can be structurally reviewed for items such as the proper handling of branching. A and C are not correct because nothing can be executed yet",
+                "A": "This option is not the correct answer (see the official explanation).",
+                "C": "This option is not the correct answer (see the official explanation).",
+                "D": "it’s not a type of testing"
+            },
+            "chapter": 4,
+            "section": "4.3",
+            "subsection": "4.3.3",
+            "learningObjective": "FL-4.3.3",
+            "kLevel": "K2",
+            "difficulty": "Medium",
+            "keywords": [
+                "explain",
+                "value",
+                "white-box"
+            ],
+            "examTip": "ASTQB official sample — Explain the value of white-box testing",
+            "memoryAid": ""
+        },
+        {
+            "id": "Q1062",
+            "statement": "If you are using error guessing to target your testing, which type of testing are you doing?",
+            "options": {
+                "A": "Specification-based",
+                "B": "Structure-based",
+                "C": "Experience-based",
+                "D": "Reference-based"
+            },
+            "correctAnswer": "C",
+            "explanation": "C is correct. This is an experience-based technique.",
+            "correctFeedback": "✅ Correct: This is an experience-based technique.",
+            "incorrectFeedback": {
+                "A": "❌ Incorrect: This option is not the correct answer (see the official explanation).",
+                "B": "❌ Incorrect: This option is not the correct answer (see the official explanation).",
+                "D": "❌ Incorrect: This option is not the correct answer (see the official explanation)."
+            },
+            "optionExplanations": {
+                "C": "This is an experience-based technique",
+                "A": "This option is not the correct answer (see the official explanation).",
+                "B": "This option is not the correct answer (see the official explanation).",
+                "D": "This option is not the correct answer (see the official explanation)."
+            },
+            "chapter": 4,
+            "section": "4.4",
+            "subsection": "4.4.1",
+            "learningObjective": "FL-4.4.1",
+            "kLevel": "K2",
+            "difficulty": "Medium",
+            "keywords": [
+                "explain",
+                "error",
+                "guessing"
+            ],
+            "examTip": "ASTQB official sample — Explain error guessing",
+            "memoryAid": ""
+        },
+        {
+            "id": "Q1063",
+            "statement": "When exploratory testing is conducted using time-boxing and test charters, what is it called?",
+            "options": {
+                "A": "Schedule-based testing",
+                "B": "Session-based testing",
+                "C": "Risk-based testing",
+                "D": "Formal chartering"
+            },
+            "correctAnswer": "B",
+            "explanation": "B is correct. This is often called session-based testing and may use session sheets. A is not correct. Exploratory doesn’t usually comply to schedules but rather allows the tester to explore and learn about the software. Coverage is difficult to assess which is one of the reasons it is difficult to match the time spent to the amount accomplished. C is not correct. This may be one of the forms of risk-based testing, but it is not entirely RBT. D is not correct as this is not actually a testing term.",
+            "correctFeedback": "✅ Correct: This is often called session-based testing and may use session sheets.",
+            "incorrectFeedback": {
+                "A": "❌ Incorrect: Exploratory doesn’t usually comply to schedules but rather allows the tester to explore and learn about the software. Coverage is difficult to assess which is one of the reasons it is difficult to match the time spent to the amount accomplished",
+                "C": "❌ Incorrect: This may be one of the forms of risk-based testing, but it is not entirely RBT",
+                "D": "❌ Incorrect: this is not actually a testing term"
+            },
+            "optionExplanations": {
+                "B": "This is often called session-based testing and may use session sheets",
+                "A": "Exploratory doesn’t usually comply to schedules but rather allows the tester to explore and learn about the software. Coverage is difficult to assess which is one of the reasons it is difficult to match the time spent to the amount accomplished",
+                "C": "This may be one of the forms of risk-based testing, but it is not entirely RBT",
+                "D": "this is not actually a testing term"
+            },
+            "chapter": 4,
+            "section": "4.4",
+            "subsection": "4.4.2",
+            "learningObjective": "FL-4.4.2",
+            "kLevel": "K2",
+            "difficulty": "Medium",
+            "keywords": [
+                "explain",
+                "exploratory",
+                "conducted"
+            ],
+            "examTip": "ASTQB official sample — Explain exploratory testing",
+            "memoryAid": ""
+        },
+        {
+            "id": "Q1064",
+            "statement": "You are writing some acceptance criteria for a story. You have decided to make a list of all the likely inputs to the code and the expected outputs based on those inputs. What format are you using?",
+            "options": {
+                "A": "IPO chart",
+                "B": "Acceptance-based",
+                "C": "Rules-oriented",
+                "D": "Behavior-driven"
+            },
+            "correctAnswer": "C",
+            "explanation": "C is correct per the syllabus. This is a rules-oriented format. A is not correct because, although you are tracking the inputs and outputs, you are not tracking the processing. B is not correct because this is not a recognized format. D is not correct because the given/when/then format is referred to as scenario-oriented.",
+            "correctFeedback": "✅ Correct: per the syllabus. This is a rules-oriented format.",
+            "incorrectFeedback": {
+                "A": "❌ Incorrect: because, although you are tracking the inputs and outputs, you are not tracking the processing",
+                "B": "❌ Incorrect: this is not a recognized format",
+                "D": "❌ Incorrect: the given/when/then format is referred to as scenario-oriented"
+            },
+            "optionExplanations": {
+                "C": "per the syllabus. This is a rules-oriented format",
+                "A": "because, although you are tracking the inputs and outputs, you are not tracking the processing",
+                "B": "this is not a recognized format",
+                "D": "the given/when/then format is referred to as scenario-oriented"
+            },
+            "chapter": 4,
+            "section": "4.5",
+            "subsection": "4.5.2",
+            "learningObjective": "FL-4.5.2",
+            "kLevel": "K2",
+            "difficulty": "Medium",
+            "keywords": [
+                "classify",
+                "different",
+                "options"
+            ],
+            "examTip": "ASTQB official sample — Classify the different options for writing acceptance criteria",
+            "memoryAid": ""
+        },
+        {
+            "id": "Q1065",
+            "statement": "You are testing a banking application that allows a customer to withdraw 20, 100 or 500 dollars in a single transaction. The values are chosen from a drop-down list and no other values may be entered. How many equivalence partitions need to be tested to achieve 100% equivalence partition coverage?",
+            "options": {
+                "A": "1",
+                "B": "2",
+                "C": "3",
+                "D": "4"
+            },
+            "correctAnswer": "D",
+            "explanation": "D is correct. The values to be tested are 20, 100, 500 and no selection.",
+            "correctFeedback": "✅ Correct: The values to be tested are 20, 100, 500 and no selection.",
+            "incorrectFeedback": {
+                "A": "❌ Incorrect: This option is not the correct answer (see the official explanation).",
+                "B": "❌ Incorrect: This option is not the correct answer (see the official explanation).",
+                "C": "❌ Incorrect: This option is not the correct answer (see the official explanation)."
+            },
+            "optionExplanations": {
+                "D": "The values to be tested are 20, 100, 500 and no selection",
+                "A": "This option is not the correct answer (see the official explanation).",
+                "B": "This option is not the correct answer (see the official explanation).",
+                "C": "This option is not the correct answer (see the official explanation)."
+            },
+            "chapter": 4,
+            "section": "4.2",
+            "subsection": "4.2.1",
+            "learningObjective": "FL-4.2.1",
+            "kLevel": "K3",
+            "difficulty": "Hard",
+            "keywords": [
+                "equivalence",
+                "partitioning",
+                "derive"
+            ],
+            "examTip": "ASTQB official sample — Use equivalence partitioning to derive test cases",
+            "memoryAid": ""
+        },
+        {
+            "id": "Q1066",
+            "statement": "You are testing a scale system that determines shipping rates for a regional web-based auto parts distributor. Due to regulations, shipments cannot exceed 100 lbs. You want to include boundary value analysis as part of your black-box test design. How many tests will you need to execute to achieve 100% two- value boundary value analysis? Weight 0 to 10 lbs. 11 to 25 lbs. 26 to 50 lbs. 51 lbs. to 100 Shipping Cost $5.00 $7.50 $12.00 $17.00",
+            "options": {
+                "A": "4",
+                "B": "8",
+                "C": "10",
+                "D": "12"
+            },
+            "correctAnswer": "C",
+            "explanation": "C is correct. 2 per valid weight range plus one for a negative weight and one for a weight exceeding 100 lbs (-1, 0, 10, 11, 25, 26, 50, 51, 100, 101).",
+            "correctFeedback": "✅ Correct: 2 per valid weight range plus one for a negative weight and one for a weight exceeding 100 lbs (-1, 0, 10, 11, 25, 26, 50, 51, 100, 101).",
+            "incorrectFeedback": {
+                "A": "❌ Incorrect: This option is not the correct answer (see the official explanation).",
+                "B": "❌ Incorrect: This option is not the correct answer (see the official explanation).",
+                "D": "❌ Incorrect: This option is not the correct answer (see the official explanation)."
+            },
+            "optionExplanations": {
+                "C": "2 per valid weight range plus one for a negative weight and one for a weight exceeding 100 lbs (-1, 0, 10, 11, 25, 26, 50, 51, 100, 101)",
+                "A": "This option is not the correct answer (see the official explanation).",
+                "B": "This option is not the correct answer (see the official explanation).",
+                "D": "This option is not the correct answer (see the official explanation)."
+            },
+            "chapter": 4,
+            "section": "4.2",
+            "subsection": "4.2.2",
+            "learningObjective": "FL-4.2.2",
+            "kLevel": "K3",
+            "difficulty": "Hard",
+            "keywords": [
+                "boundary",
+                "value",
+                "analysis"
+            ],
+            "examTip": "ASTQB official sample — Use boundary value analysis to derive test cases",
+            "memoryAid": ""
+        },
+        {
+            "id": "Q1067",
+            "statement": "Which of the following is the correct decision table for the following pseudocode for ordering a hamburger? Note: if you add or delete items from the basic burger, you no longer get the basic burger. Start Select basic burger If customer adds items While items to be added Ask customer which item Add item End while Endif If customer deletes items While items to be deleted Ask customer which item Delete item End while Endif If customer wants fries Add fries to order Endif Complete order End",
+            "options": {
+                "A": "6 tests. Conditions (Add items / Delete items / Add fries): 1: T/F/T, 2: T/F/F, 3: F/T/T, 4: F/T/F, 5: F/F/T, 6: F/F/F. Results: Added items X (1,2); Basic burger X (2,6); Burger-items X (3,4); Fries X (3,5).",
+                "B": "8 tests. Conditions (Add/Delete/Fries): 1: T/T/T, 2: T/T/F, 3: T/F/T, 4: T/F/F, 5: F/T/T, 6: F/T/F, 7: F/F/T, 8: F/F/F. Results: Deleted items X (1,2,5,6); Added items X (1,2,3,4); Fries X (1,3,5,7); Basic burger X (7,8).",
+                "C": "8 tests. Conditions (Add/Delete/Fries): 1: T/F/T, 2: T/F/F, 3: T/F/T, 4: T/F/F, 5: F/T/T, 6: F/T/F, 7: F/T/T, 8: F/T/F. Results: Basic burger X (1,2,3,4); Burger-items X (5,6,7,8); Added items X (1,2,3,4); Fries X (1,3,5,7).",
+                "D": "8 tests. Conditions (Add/Delete/Fries): 1: T/T/T, 2: T/T/F, 3: T/F/T, 4: T/F/F, 5: F/T/T, 6: F/T/F, 7: F/F/T, 8: F/F/F. Results: Basic burger X (1,2,3,4,7,8); Burger-items X (5,6); Added items X (1,2,3,4); Fries X (1,3,5,7)."
+            },
+            "correctAnswer": "B",
+            "explanation": "B is correct. A is not correct because it assumes you can’t add and delete items from a burger. C is not correct because it makes the same assumption as A and has duplicate tests. D is not correct because the Results are wrong for the first four tests.",
+            "correctFeedback": "✅ Correct: B is correct.",
+            "incorrectFeedback": {
+                "A": "❌ Incorrect: it assumes you can’t add and delete items from a burger",
+                "C": "❌ Incorrect: it makes the same assumption as A and has duplicate tests",
+                "D": "❌ Incorrect: the Results are wrong for the first four tests"
+            },
+            "optionExplanations": {
+                "B": "B is correct",
+                "A": "it assumes you can’t add and delete items from a burger",
+                "C": "it makes the same assumption as A and has duplicate tests",
+                "D": "the Results are wrong for the first four tests"
+            },
+            "chapter": 4,
+            "section": "4.2",
+            "subsection": "4.2.3",
+            "learningObjective": "FL-4.2.3",
+            "kLevel": "K3",
+            "difficulty": "Hard",
+            "keywords": [
+                "decision",
+                "table",
+                "derive"
+            ],
+            "examTip": "ASTQB official sample — Use decision table testing to derive test cases",
+            "memoryAid": ""
+        },
+        {
+            "id": "Q1068",
+            "statement": "You are testing an e-commerce transaction that has the following states and transitions: 1. Login (invalid) > Login 2. Login > Search 3. Search > Search 4. Search > Shopping Cart 5. Shopping Cart > Search 6. Shopping Cart > Checkout 7. Checkout > Search 8. Checkout > Logout For a state diagram, how many transitions should be shown?",
+            "options": {
+                "A": "4",
+                "B": "6",
+                "C": "8",
+                "D": "16"
+            },
+            "correctAnswer": "C",
+            "explanation": "C is correct. There are 8 transitions that should be shown in the state diagram as explained in the question. A is not correct as this is only checking one transition from each state. B is not correct because this is probably excluding login > login and search > search. D is not correct because it is checking the invalid transitions as well and those would be included in a state table, not a state diagram. These are: Login (invalid) > Login Login > Search Login > Shopping Cart (invalid transition) Login > Checkout (invalid transition) Search > Login (invalid transition) Search > Search Search > Shopping Cart Search > Checkout (invalid transition) Shopping Cart > Login (invalid transition) Shopping Cart > Search Shopping Cart > Shopping Cart (invalid transition) Shopping Cart > Checkout Checkout > Login (invalid transition) Checkout > Search Checkout > Shopping Cart (invalid transition) Checkout > Logout",
+            "correctFeedback": "✅ Correct: There are 8 transitions that should be shown in the state diagram as explained in the question.",
+            "incorrectFeedback": {
+                "A": "❌ Incorrect: this is only checking one transition from each state",
+                "B": "❌ Incorrect: this is probably excluding login > login and search > search",
+                "D": "❌ Incorrect: it is checking the invalid transitions as well and those would be included in a state table, not a state diagram. These are: Login (invalid) > Login Login > Search Login > Shopping Cart (invalid transition) Login > Checkout (invalid transition) Search > Login (invalid transition) Search > Search Search > Shopping Cart Search > Checkout (invalid transition) Shopping Cart > Login (invalid transition) Shopping Cart > Search Shopping Cart > Shopping Cart (invalid transition) Shopping Cart > Checkout Checkout > Login (invalid transition) Checkout > Search Checkout > Shopping Cart (invalid transition) Checkout > Logout"
+            },
+            "optionExplanations": {
+                "C": "There are 8 transitions that should be shown in the state diagram as explained in the question",
+                "A": "this is only checking one transition from each state",
+                "B": "this is probably excluding login > login and search > search",
+                "D": "it is checking the invalid transitions as well and those would be included in a state table, not a state diagram. These are: Login (invalid) > Login Login > Search Login > Shopping Cart (invalid transition) Login > Checkout (invalid transition) Search > Login (invalid transition) Search > Search Search > Shopping Cart Search > Checkout (invalid transition) Shopping Cart > Login (invalid transition) Shopping Cart > Search Shopping Cart > Shopping Cart (invalid transition) Shopping Cart > Checkout Checkout > Login (invalid transition) Checkout > Search Checkout > Shopping Cart (invalid transition) Checkout > Logout"
+            },
+            "chapter": 4,
+            "section": "4.2",
+            "subsection": "4.2.4",
+            "learningObjective": "FL-4.2.4",
+            "kLevel": "K3",
+            "difficulty": "Hard",
+            "keywords": [
+                "state",
+                "transition",
+                "derive"
+            ],
+            "examTip": "ASTQB official sample — Use state transition testing to derive test cases",
+            "memoryAid": ""
+        },
+        {
+            "id": "Q1069",
+            "statement": "You are creating test cases for the following story, applying the ATDD approach. As a hotel owner I want to reserve all the rooms on a floor before moving to the next floor So I can maximize the efficiency of the housekeeping staff You have decided to apply boundary value analysis to this requirement and have identified the following partitions for the occupancy of a floor: 0 | 1 - floor full | overbooked You also want to be sure that the software is usable by the staff and that it performs quickly in determining which floors have availability. You have designed the following test cases: 1. Test with 1 occupant on the floor 2. Test with the floor full and ensure the next floor is made available for bookings 3. Test with 0 occupants on the floor and ensure that floor is only available when lower floors are fully booked 4. Test the usability to ensure hotel staff will find the software usable 5. Test for response time when the system is at average load and the hotel is 80% occupied What are you missing?",
+            "options": {
+                "A": "A test with a floor partially occupied but not fully occupied",
+                "B": "A test for performance",
+                "C": "A test for trying to assign someone to a floor that is full",
+                "D": "A test for usability"
+            },
+            "correctAnswer": "C",
+            "explanation": "C is correct. The test that is missing is to try to see if you can allocate someone to a floor that is already fully booked. This is a negative test and should result in an error. A is covered by testing with one occupant. B and D are covered.",
+            "correctFeedback": "✅ Correct: The test that is missing is to try to see if you can allocate someone to a floor that is already fully booked. This is a negative test and should result in an error. A is covered b.",
+            "incorrectFeedback": {
+                "A": "❌ Incorrect: This option is not the correct answer (see the official explanation).",
+                "B": "❌ Incorrect: This option is not the correct answer (see the official explanation).",
+                "D": "❌ Incorrect: This option is not the correct answer (see the official explanation)."
+            },
+            "optionExplanations": {
+                "C": "The test that is missing is to try to see if you can allocate someone to a floor that is already fully booked. This is a negative test and should result in an error. A is covered by testing with one occupant. B and D are covered",
+                "A": "This option is not the correct answer (see the official explanation).",
+                "B": "This option is not the correct answer (see the official explanation).",
+                "D": "This option is not the correct answer (see the official explanation)."
+            },
+            "chapter": 4,
+            "section": "4.5",
+            "subsection": "4.5.3",
+            "learningObjective": "FL-4.5.3",
+            "kLevel": "K3",
+            "difficulty": "Hard",
+            "keywords": [
+                "acceptance",
+                "test-driven",
+                "development"
+            ],
+            "examTip": "ASTQB official sample — Use acceptance test-driven development (ATDD) to derive test cases",
+            "memoryAid": ""
+        },
+        {
+            "id": "Q1070",
+            "statement": "Level of risk is determined by which of the following?",
+            "options": {
+                "A": "Likelihood and impact",
+                "B": "Priority and risk rating",
+                "C": "Probability and practicality",
+                "D": "Risk identification and mitigation"
+            },
+            "correctAnswer": "A",
+            "explanation": "A is correct. The combination of likelihood and impact is normally used to determine the overall risk level (sometimes called the risk priority number).",
+            "correctFeedback": "✅ Correct: The combination of likelihood and impact is normally used to determine the overall risk level (sometimes called the risk priority number).",
+            "incorrectFeedback": {
+                "B": "❌ Incorrect: This option is not the correct answer (see the official explanation).",
+                "C": "❌ Incorrect: This option is not the correct answer (see the official explanation).",
+                "D": "❌ Incorrect: This option is not the correct answer (see the official explanation)."
+            },
+            "optionExplanations": {
+                "A": "The combination of likelihood and impact is normally used to determine the overall risk level (sometimes called the risk priority number)",
+                "B": "This option is not the correct answer (see the official explanation).",
+                "C": "This option is not the correct answer (see the official explanation).",
+                "D": "This option is not the correct answer (see the official explanation)."
+            },
+            "chapter": 5,
+            "section": "5.2",
+            "subsection": "5.2.1",
+            "learningObjective": "FL-5.2.1",
+            "kLevel": "K1",
+            "difficulty": "Easy",
+            "keywords": [
+                "identify",
+                "risk",
+                "level"
+            ],
+            "examTip": "ASTQB official sample — Identify risk level by using risk likelihood and risk impact",
+            "memoryAid": ""
+        },
+        {
+            "id": "Q1071",
+            "statement": "Which of the following is an example of a good exit criterion from system testing?",
+            "options": {
+                "A": "All tests should be completed",
+                "B": "The project budget should be spent",
+                "C": "All defects should be fixed",
+                "D": "All severity 1 defects must be resolved"
+            },
+            "correctAnswer": "D",
+            "explanation": "D is correct. This is measurable and clear. A is not correct because completed is not a clear term and this might not be a reasonable goal and “should” is not a clear goal. B is not correct because spending the budget is generally not the goal and you wouldn’t expect the budget to be spent when system testing is done because that leaves no money for acceptance testing or roll out. C is not correct because this is a “should” and also probably is not realistic.",
+            "correctFeedback": "✅ Correct: This is measurable and clear.",
+            "incorrectFeedback": {
+                "A": "❌ Incorrect: completed is not a clear term and this might not be a reasonable goal and “should” is not a clear goal",
+                "B": "❌ Incorrect: spending the budget is generally not the goal and you wouldn’t expect the budget to be spent when system testing is done because that leaves no money for acceptance testing or roll out",
+                "C": "❌ Incorrect: this is a “should” and also probably is not realistic"
+            },
+            "optionExplanations": {
+                "D": "This is measurable and clear",
+                "A": "completed is not a clear term and this might not be a reasonable goal and “should” is not a clear goal",
+                "B": "spending the budget is generally not the goal and you wouldn’t expect the budget to be spent when system testing is done because that leaves no money for acceptance testing or roll out",
+                "C": "this is a “should” and also probably is not realistic"
+            },
+            "chapter": 5,
+            "section": "5.1",
+            "subsection": "5.1.3",
+            "learningObjective": "FL-5.1.3",
+            "kLevel": "K2",
+            "difficulty": "Medium",
+            "keywords": [
+                "compare",
+                "contrast",
+                "entry"
+            ],
+            "examTip": "ASTQB official sample — Compare and contrast entry criteria and exit criteria",
+            "memoryAid": ""
+        },
+        {
+            "id": "Q1072",
+            "statement": "You are working on a project and have determined that exploratory testing is the best test technique to apply. Which testing quadrant are you using?",
+            "options": {
+                "A": "Q1",
+                "B": "Q2",
+                "C": "Q3",
+                "D": "Q4"
+            },
+            "correctAnswer": "C",
+            "explanation": "C is correct. Exploratory testing belongs to quadrant 3.",
+            "correctFeedback": "✅ Correct: Exploratory testing belongs to quadrant 3.",
+            "incorrectFeedback": {
+                "A": "❌ Incorrect: This option is not the correct answer (see the official explanation).",
+                "B": "❌ Incorrect: This option is not the correct answer (see the official explanation).",
+                "D": "❌ Incorrect: This option is not the correct answer (see the official explanation)."
+            },
+            "optionExplanations": {
+                "C": "Exploratory testing belongs to quadrant 3",
+                "A": "This option is not the correct answer (see the official explanation).",
+                "B": "This option is not the correct answer (see the official explanation).",
+                "D": "This option is not the correct answer (see the official explanation)."
+            },
+            "chapter": 5,
+            "section": "5.1",
+            "subsection": "5.1.7",
+            "learningObjective": "FL-5.1.7",
+            "kLevel": "K2",
+            "difficulty": "Medium",
+            "keywords": [
+                "summarize",
+                "quadrants",
+                "their"
+            ],
+            "examTip": "ASTQB official sample — Summarize the testing quadrants and their relationships with test levels and test types",
+            "memoryAid": ""
+        },
+        {
+            "id": "Q1073",
+            "statement": "Which of the following is a project risk?",
+            "options": {
+                "A": "A defect that is causing a performance issue",
+                "B": "A duplicate requirement",
+                "C": "An issue with a data conversion procedure",
+                "D": "A schedule that requires work during Christmas shutdown"
+            },
+            "correctAnswer": "D",
+            "explanation": "D is correct, this is a risk to the entire project. A, B and C are product risks.",
+            "correctFeedback": "✅ Correct: , this is a risk to the entire project. A, B and C are product risks.",
+            "incorrectFeedback": {
+                "A": "❌ Incorrect: This option is not the correct answer (see the official explanation).",
+                "B": "❌ Incorrect: This option is not the correct answer (see the official explanation).",
+                "C": "❌ Incorrect: This option is not the correct answer (see the official explanation)."
+            },
+            "optionExplanations": {
+                "D": ", this is a risk to the entire project. A, B and C are product risks",
+                "A": "This option is not the correct answer (see the official explanation).",
+                "B": "This option is not the correct answer (see the official explanation).",
+                "C": "This option is not the correct answer (see the official explanation)."
+            },
+            "chapter": 5,
+            "section": "5.1",
+            "subsection": "5.1.7",
+            "learningObjective": "FL-5.1.7",
+            "kLevel": "K2",
+            "difficulty": "Medium",
+            "keywords": [
+                "summarize",
+                "quadrants",
+                "their"
+            ],
+            "examTip": "ASTQB official sample — Summarize the testing quadrants and their relationships with test levels and test types",
+            "memoryAid": ""
+        },
+        {
+            "id": "Q1074",
+            "statement": "You have just completed testing on a major ERP implementation. The project has taken two years and is now ready for final approval before go-live. What test documentation should be produced at this time?",
+            "options": {
+                "A": "Formal test completion",
+                "B": "Testing team task board",
+                "C": "Email to the team congratulating them on their success",
+                "D": "Burn down chart"
+            },
+            "correctAnswer": "A",
+            "explanation": "A is correct. At this point in the project, the formal test completion report should be prepared. B and D are used for information communication during the project work. C might be premature as final approval has not yet been obtained and this is not test documentation",
+            "correctFeedback": "✅ Correct: At this point in the project, the formal test completion report should be prepared. B and D are used for information communication during the project work. C might be premature as .",
+            "incorrectFeedback": {
+                "B": "❌ Incorrect: This option is not the correct answer (see the official explanation).",
+                "C": "❌ Incorrect: This option is not the correct answer (see the official explanation).",
+                "D": "❌ Incorrect: This option is not the correct answer (see the official explanation)."
+            },
+            "optionExplanations": {
+                "A": "At this point in the project, the formal test completion report should be prepared. B and D are used for information communication during the project work. C might be premature as final approval has not yet been obtained and this is not test documentation",
+                "B": "This option is not the correct answer (see the official explanation).",
+                "C": "This option is not the correct answer (see the official explanation).",
+                "D": "This option is not the correct answer (see the official explanation)."
+            },
+            "chapter": 5,
+            "section": "5.3",
+            "subsection": "5.3.3",
+            "learningObjective": "FL-5.3.3",
+            "kLevel": "K2",
+            "difficulty": "Medium",
+            "keywords": [
+                "exemplify",
+                "communicate",
+                "status"
+            ],
+            "examTip": "ASTQB official sample — Exemplify how to communicate the status of testing",
+            "memoryAid": ""
+        },
+        {
+            "id": "Q1075",
+            "statement": "You are working on a project that is releasing software to the test team in iterations. In iteration 3 you identified a failure. The developer found and fixed the defect and released the fix in iteration 4. You confirmed the fix and closed the defect report. You are now testing iteration 7 and the failure has occurred again. You have talked to the developer and he doesn’t know how or when the failure came back and has asked you to investigate. How can configuration management help you gather more information on this failure?",
+            "options": {
+                "A": "You can see what changed in iteration 4 to fix the problem",
+                "B": "You can reload and retest iterations 5 and 6 to see where the problem was re-introduced",
+                "C": "You can review all the code changes that have occurred since iteration 4 to see what might have broken it",
+                "D": "You can improve the regression testing to ensure the failure is caught earlier"
+            },
+            "correctAnswer": "B",
+            "explanation": "B is correct. Because you have configuration management, you should be able to obtain and reinstall the code from iterations 5 and 6 and see where the problem was re-introduced. A is not correct as that would have helped with the initial confirmation test and maybe regression testing, but it doesn’t help with the current problem. C is the responsibility of the developer. D is a good idea but won’t help with the current situation.",
+            "correctFeedback": "✅ Correct: Because you have configuration management, you should be able to obtain and reinstall the code from iterations 5 and 6 and see where the problem was re-introduced.",
+            "incorrectFeedback": {
+                "A": "❌ Incorrect: that would have helped with the initial confirmation test and maybe regression testing, but it doesn’t help with the current problem. C is the responsibility of the developer. D is a good idea but won’t help with the current situation",
+                "C": "❌ Incorrect: This option is not the correct answer (see the official explanation).",
+                "D": "❌ Incorrect: This option is not the correct answer (see the official explanation)."
+            },
+            "optionExplanations": {
+                "B": "Because you have configuration management, you should be able to obtain and reinstall the code from iterations 5 and 6 and see where the problem was re-introduced",
+                "A": "that would have helped with the initial confirmation test and maybe regression testing, but it doesn’t help with the current problem. C is the responsibility of the developer. D is a good idea but won’t help with the current situation",
+                "C": "This option is not the correct answer (see the official explanation).",
+                "D": "This option is not the correct answer (see the official explanation)."
+            },
+            "chapter": 5,
+            "section": "5.4",
+            "subsection": "5.4.1",
+            "learningObjective": "FL-5.4.1",
+            "kLevel": "K2",
+            "difficulty": "Medium",
+            "keywords": [
+                "summarize",
+                "configuration",
+                "management"
+            ],
+            "examTip": "ASTQB official sample — Summarize how configuration management supports testing",
+            "memoryAid": ""
+        },
+        {
+            "id": "Q1076",
+            "statement": "You are estimating the testing time required for a new project. You have gathered information from three experts and they have given you the following numbers in days: Expert 1: Optimistic 20, Likely 40, Pessimistic 60; Expert 2: Optimistic 40, Likely 55, Pessimistic 75; Expert 3: Optimistic 30, Likely 70, Pessimistic 90; Averages: Optimistic 30, Likely 55, Pessimistic 75. Using the average numbers from the table above and applying the three-point estimation technique, what is the estimate?",
+            "options": {
+                "A": "325 ± 45",
+                "B": "81.25 ± 8",
+                "C": "54.17 ± 7.5",
+                "D": "40 ± 2"
+            },
+            "correctAnswer": "C",
+            "explanation": "C is correct. The formula is (Optimistic + 4(Likely) + Pessimistic)/6 so the answer is (30+220+75)/6 = 54.17 and the standard deviation is (75-30)/6 which is 7.5.",
+            "correctFeedback": "✅ Correct: The formula is (Optimistic + 4(Likely) + Pessimistic)/6 so the answer is (30+220+75)/6 = 54.17 and the standard deviation is (75-30)/6 which is 7.5.",
+            "incorrectFeedback": {
+                "A": "❌ Incorrect: This option is not the correct answer (see the official explanation).",
+                "B": "❌ Incorrect: This option is not the correct answer (see the official explanation).",
+                "D": "❌ Incorrect: This option is not the correct answer (see the official explanation)."
+            },
+            "optionExplanations": {
+                "C": "The formula is (Optimistic + 4(Likely) + Pessimistic)/6 so the answer is (30+220+75)/6 = 54.17 and the standard deviation is (75-30)/6 which is 7.5",
+                "A": "This option is not the correct answer (see the official explanation).",
+                "B": "This option is not the correct answer (see the official explanation).",
+                "D": "This option is not the correct answer (see the official explanation)."
+            },
+            "chapter": 5,
+            "section": "5.1",
+            "subsection": "5.1.4",
+            "learningObjective": "FL-5.1.4",
+            "kLevel": "K3",
+            "difficulty": "Hard",
+            "keywords": [
+                "estimation",
+                "techniques",
+                "calculate"
+            ],
+            "examTip": "ASTQB official sample — Use estimation techniques to calculate the required test effort",
+            "memoryAid": ""
+        },
+        {
+            "id": "Q1077",
+            "statement": "Consider the following test cases that are used to test an accounting system. Test 1: Purchase Item, no dependency, priority 2; Test 2: Receive Invoice, depends on Test 1, priority 3; Test 3: Receive Goods, depends on Test 1, priority 2; Test 4: Send Payment, depends on Test 2, priority 3; Test 5: Report Payments, depends on Test 4, priority 1. Given this information, what is the proper order in which to execute these test cases?",
+            "options": {
+                "A": "5, 1, 3, 2, 4",
+                "B": "1, 2, 4, 5, 3",
+                "C": "1, 3, 2, 4, 5",
+                "D": "3, 4, 5, 1, 2"
+            },
+            "correctAnswer": "B",
+            "explanation": "B is correct. The goal is to run the highest priority tests as soon as possible. Dependency has to be considered in order for the tests to actually be executed. In order to get the highest priority test run as soon as possible, the correct order is as follows: test 1 has to go first since everything else is dependent on it. Then we need to do 2 so we can do 4 and 5 (the highest priority test) and then 3 is last because 5 is not dependent on it. A is not correct because 5 cannot be run first. C is not correct because it does not run 5 as soon as possible; it defers it until after 3 is run. D is not correct because 3 can’t be run first as it requires 1 and 2.",
+            "correctFeedback": "✅ Correct: The goal is to run the highest priority tests as soon as possible. Dependency has to be considered in order for the tests to actually be executed. In order to get the highest prior.",
+            "incorrectFeedback": {
+                "A": "❌ Incorrect: 5 cannot be run first",
+                "C": "❌ Incorrect: it does not run 5 as soon as possible; it defers it until after 3 is run",
+                "D": "❌ Incorrect: 3 can’t be run first as it requires 1 and 2"
+            },
+            "optionExplanations": {
+                "B": "The goal is to run the highest priority tests as soon as possible. Dependency has to be considered in order for the tests to actually be executed. In order to get the highest priority test run as soon as possible, the correct order is as follows: test 1 has to go first since everything else is dependent on it. Then we need to do 2 so we can do 4 and 5 (the highest priority test) and then 3 is last because 5 is not dependent on it",
+                "A": "5 cannot be run first",
+                "C": "it does not run 5 as soon as possible; it defers it until after 3 is run",
+                "D": "3 can’t be run first as it requires 1 and 2"
+            },
+            "chapter": 5,
+            "section": "5.1",
+            "subsection": "5.1.5",
+            "learningObjective": "FL-5.1.5",
+            "kLevel": "K3",
+            "difficulty": "Hard",
+            "keywords": [
+                "apply",
+                "case",
+                "prioritization"
+            ],
+            "examTip": "ASTQB official sample — Apply test case prioritization",
+            "memoryAid": ""
+        },
+        {
+            "id": "Q1078",
+            "statement": "You have received the following description section in a defect report: The report executed per the attached steps, but the data was incorrect. For example, the information in column 1 was wrong. See the attached screenshot. This report is critical to the users and they will be unable to do their jobs without this information. What is the biggest problem with this defect report?",
+            "options": {
+                "A": "The developer won’t know how important the problem is",
+                "B": "The developer won’t know how to repeat the test",
+                "C": "The developer won’t be able to see what the tester is saying is wrong",
+                "D": "The developer won’t know what the tester expected to see"
+            },
+            "correctAnswer": "D",
+            "explanation": "D is correct. From this information, the developer only knows the tester thinks the information is wrong, but it’s not clear what was expected. A is incorrect because, although vague, the incident report seems to indicate this is an important problem. B is incorrect because the steps are attached (or so it says). C is incorrect because the screen shot should indicate column 1 that is wrong.",
+            "correctFeedback": "✅ Correct: From this information, the developer only knows the tester thinks the information is wrong, but it’s not clear what was expected.",
+            "incorrectFeedback": {
+                "A": "❌ Incorrect: because, although vague, the incident report seems to indicate this is an important problem",
+                "B": "❌ Incorrect: the steps are attached (or so it says)",
+                "C": "❌ Incorrect: the screen shot should indicate column 1 that is wrong"
+            },
+            "optionExplanations": {
+                "D": "From this information, the developer only knows the tester thinks the information is wrong, but it’s not clear what was expected",
+                "A": "because, although vague, the incident report seems to indicate this is an important problem",
+                "B": "the steps are attached (or so it says)",
+                "C": "the screen shot should indicate column 1 that is wrong"
+            },
+            "chapter": 5,
+            "section": "5.1",
+            "subsection": "5.1.5",
+            "learningObjective": "FL-5.1.5",
+            "kLevel": "K3",
+            "difficulty": "Hard",
+            "keywords": [
+                "apply",
+                "case",
+                "prioritization"
+            ],
+            "examTip": "ASTQB official sample — Apply test case prioritization",
+            "memoryAid": ""
+        },
+        {
+            "id": "Q1079",
+            "statement": "What is the primary purpose of a test execution tool?",
+            "options": {
+                "A": "It runs automated test scripts to test the test object",
+                "B": "It automatically records defects in the defect tracking system",
+                "C": "It analyzes code to determine if there are any coding standard violations",
+                "D": "It tracks test cases, defects and requirements traceability"
+            },
+            "correctAnswer": "A",
+            "explanation": "A is correct. This is the primary purpose of the test execution tools. B may be something the tool can do, but this is not the primary purpose. C is a static analysis tool and D is a test management tool.",
+            "correctFeedback": "✅ Correct: This is the primary purpose of the test execution tools. B may be something the tool can do, but this is not the primary purpose. C is a static analysis tool and D is a test manage.",
+            "incorrectFeedback": {
+                "B": "❌ Incorrect: This option is not the correct answer (see the official explanation).",
+                "C": "❌ Incorrect: This option is not the correct answer (see the official explanation).",
+                "D": "❌ Incorrect: This option is not the correct answer (see the official explanation)."
+            },
+            "optionExplanations": {
+                "A": "This is the primary purpose of the test execution tools. B may be something the tool can do, but this is not the primary purpose. C is a static analysis tool and D is a test management tool",
+                "B": "This option is not the correct answer (see the official explanation).",
+                "C": "This option is not the correct answer (see the official explanation).",
+                "D": "This option is not the correct answer (see the official explanation)."
+            },
+            "chapter": 6,
+            "section": "6.1",
+            "subsection": "6.1.1",
+            "learningObjective": "FL-6.1.1",
+            "kLevel": "K2",
+            "difficulty": "Medium",
+            "keywords": [
+                "explain",
+                "different",
+                "types"
+            ],
+            "examTip": "ASTQB official sample — Explain how different types of test tools support testing",
+            "memoryAid": ""
+        },
+        {
+            "id": "Q1080",
+            "statement": "Which of the following is a risk with test automation?",
+            "options": {
+                "A": "Using an automation tool that will not be supported in the future",
+                "B": "Developing test automation for particularly tedious manual testing areas",
+                "C": "Using technical testers to implement the automation",
+                "D": "Developing automated reporting"
+            },
+            "correctAnswer": "A",
+            "explanation": "A is correct. That is a known risk with test automation because it will be dependent upon the tool used for implementation and that tool might fall out of support by the vendor or the community. B, C and D are expected results from automation and are not risks.",
+            "correctFeedback": "✅ Correct: That is a known risk with test automation because it will be dependent upon the tool used for implementation and that tool might fall out of support by the vendor or the community.",
+            "incorrectFeedback": {
+                "B": "❌ Incorrect: This option is not the correct answer (see the official explanation).",
+                "C": "❌ Incorrect: This option is not the correct answer (see the official explanation).",
+                "D": "❌ Incorrect: This option is not the correct answer (see the official explanation)."
+            },
+            "optionExplanations": {
+                "A": "That is a known risk with test automation because it will be dependent upon the tool used for implementation and that tool might fall out of support by the vendor or the community. B, C and D are expected results from automation and are not risks",
+                "B": "This option is not the correct answer (see the official explanation).",
+                "C": "This option is not the correct answer (see the official explanation).",
+                "D": "This option is not the correct answer (see the official explanation)."
+            },
+            "chapter": 6,
+            "section": "6.2",
+            "subsection": "6.2.1",
+            "learningObjective": "FL-6.2.1",
+            "kLevel": "K1",
+            "difficulty": "Easy",
+            "keywords": [
+                "recall",
+                "benefits",
+                "risks"
+            ],
+            "examTip": "ASTQB official sample — Recall the benefits and risks of test automation",
+            "memoryAid": ""
+        }
     ]
 };
