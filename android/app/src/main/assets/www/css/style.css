@@ -3486,3 +3486,17 @@ results-list__title {
     display: flex !important;
   }
 }
+
+/* ============================================================
+   System bars offset (MainActivity injeta --inset-top/--inset-bottom).
+   Sem isto o header fixo fica por baixo da status bar e os botões
+   de língua/tema não recebem o tap.
+   ============================================================ */
+.header {
+  top: var(--inset-top, 0px);
+}
+
+body {
+  padding-top: var(--inset-top, 0px);
+  padding-bottom: var(--inset-bottom, 0px);
+}

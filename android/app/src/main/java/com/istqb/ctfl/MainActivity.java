@@ -28,7 +28,24 @@ import java.io.OutputStream;
 
 public class MainActivity extends Activity {
     private WebView webView;
+    private int insetTopPx = 0;
+    private int insetBottomPx = 0;
     private long lastBackPress = 0;
+
+    /* Desvia o conteúdo web das system bars: o header fixo desce
+       --inset-top e o fundo da página sobe --inset-bottom. */
+    private void applyInsetsToPage() {
+        if (webView == null) return;
+        float density = getResources().getDisplayMetrics().density;
+        if (density <= 0) density = 1;
+        int topCss = Math.round(insetTopPx / density);
+        int bottomCss = Math.round(insetBottomPx / density);
+        webView.evaluateJavascript(
+                "(function(){var d=document.documentElement;if(!d)return;"
+                + "d.style.setProperty('--inset-top','" + topCss + "px');"
+                + "d.style.setProperty('--inset-bottom','" + bottomCss + "px');})();",
+                null);
+    }
     private boolean clearHistoryOnNextPage = false;
     private static final String TAG = "ISTQB_WV";
     private static final String HOME_URL = "file:///android_asset/www/index.html";
@@ -114,21 +131,21 @@ public class MainActivity extends Activity {
                     Log.d(TAG, "History cleared after load: " + u);
                 }
                 v.evaluateJavascript(BANNER, null);
+                applyInsetsToPage();
             }
         });
         /* Ecrã sempre aceso durante o exame/revisão (como nos vídeos) */
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
 
-        /* Edge-to-edge é imposto com targetSdk 35: sem isto a WebView fica
-           por baixo da status bar e da navigation bar, e os botões do
-           header (língua, tema) e do fundo deixam de receber o tap. */
-        webView.setOnApplyWindowInsetsListener((v, insets) -> {
-            v.setPadding(
-                    insets.getSystemWindowInsetLeft(),
-                    insets.getSystemWindowInsetTop(),
-                    insets.getSystemWindowInsetRight(),
-                    insets.getSystemWindowInsetBottom());
-            return insets.consumeSystemWindowInsets();
+        /* Edge-to-edge é imposto com targetSdk 35: a decor consome os
+           insets (a WebView recebe-os a zero e o padding nela não move
+           elementos position:fixed). Por isso os valores brutos são lidos
+           na decor e aplicados à página como variáveis CSS. */
+        getWindow().getDecorView().setOnApplyWindowInsetsListener((v, insets) -> {
+            insetTopPx = insets.getSystemWindowInsetTop();
+            insetBottomPx = insets.getSystemWindowInsetBottom();
+            applyInsetsToPage();
+            return insets;
         });
 
         setContentView(webView);
