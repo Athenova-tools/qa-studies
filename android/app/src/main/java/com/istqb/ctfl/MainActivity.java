@@ -119,6 +119,18 @@ public class MainActivity extends Activity {
         /* Ecrã sempre aceso durante o exame/revisão (como nos vídeos) */
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
 
+        /* Edge-to-edge é imposto com targetSdk 35: sem isto a WebView fica
+           por baixo da status bar e da navigation bar, e os botões do
+           header (língua, tema) e do fundo deixam de receber o tap. */
+        webView.setOnApplyWindowInsetsListener((v, insets) -> {
+            v.setPadding(
+                    insets.getSystemWindowInsetLeft(),
+                    insets.getSystemWindowInsetTop(),
+                    insets.getSystemWindowInsetRight(),
+                    insets.getSystemWindowInsetBottom());
+            return insets.consumeSystemWindowInsets();
+        });
+
         setContentView(webView);
         webView.loadUrl(HOME_URL);
 

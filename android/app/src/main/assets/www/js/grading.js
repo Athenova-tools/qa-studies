@@ -312,7 +312,7 @@ const ExamGrading = (function () {
       var badgeText = '';
       var badgeCls = '';
       if (isSelected && isCorrect) { badgeText = '✓ Your answer'; badgeCls = ' results-item__option-badge--correct'; }
-      else if (isSelected) { badgeText = 'Your answer'; badgeCls = ' results-item__option-badge--wrong'; }
+      else if (isSelected) { badgeText = '✕ Your answer'; badgeCls = ' results-item__option-badge--wrong'; }
       else if (isCorrect) { badgeText = '✓ Correct'; badgeCls = ' results-item__option-badge--correct'; }
       if (badgeText) {
         var badges = createEl('span', 'results-item__option-badges');
