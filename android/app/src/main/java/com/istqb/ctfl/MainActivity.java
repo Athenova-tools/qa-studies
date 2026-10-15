@@ -40,7 +40,6 @@ public class MainActivity extends Activity {
         if (density <= 0) density = 1;
         int topCss = Math.round(insetTopPx / density);
         int bottomCss = Math.round(insetBottomPx / density);
-        Log.d(TAG, "applyInsetsToPage topCss=" + topCss + " bottomCss=" + bottomCss);
         webView.evaluateJavascript(
                 "(function(){var d=document.documentElement;if(!d)return;"
                 + "d.style.setProperty('--inset-top','" + topCss + "px');"
@@ -145,7 +144,6 @@ public class MainActivity extends Activity {
         getWindow().getDecorView().setOnApplyWindowInsetsListener((v, insets) -> {
             insetTopPx = insets.getSystemWindowInsetTop();
             insetBottomPx = insets.getSystemWindowInsetBottom();
-            Log.d(TAG, "insets top=" + insetTopPx + " bottom=" + insetBottomPx);
             applyInsetsToPage();
             return insets;
         });
