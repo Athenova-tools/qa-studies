@@ -585,6 +585,152 @@ async function main() {
     }
   });
 
+  /* ---- T16: cartão expansível da Question Review (default expandido) ---- */
+  await ok('Question Review: cartão expansível com as 4 opções e Why inline', () => {
+    const results = {
+      details: [{
+        index: 0,
+        question: 'Given the following code: if (a > 10) ... minimum number of test cases for 100% branch coverage?',
+        /* ordem propositalmente desordenada, como no banco de perguntas */
+        options: { B: '3', C: '4', D: '2', A: '1' },
+        selectedAnswer: null,
+        correctAnswer: 'D',
+        isCorrect: false,
+        flagged: false,
+        note: '',
+        explanation: 'x',
+        optionExplanations: {},
+        chapter: 4, section: '4.3', subsection: '4.3.2',
+        learningObjective: 'FL-4.3.2', kLevel: 'K2',
+        keywords: [], examTip: '', memoryAid: '',
+      }],
+    };
+    const el = EG.generateResultsHTML(results);
+    const all = [];
+    (function walk(e) { all.push(e); (e.children || []).forEach(walk); })(el);
+
+    /* chevron de expand/collapse no header (substitui o "?" antigo) */
+    const chevrons = all.filter(e => e.className === 'results-item__chevron');
+    assert.strictEqual(chevrons.length, 1, 'um chevron por questão');
+    assert.strictEqual(chevrons[0].textContent, '▲', 'começa expandido');
+    assert.strictEqual(chevrons[0]['aria-expanded'], 'true', 'aria-expanded true por default');
+
+    const bodies = all.filter(e => e.className === 'results-item__body');
+    assert.strictEqual(bodies.length, 1, 'corpo do cartão criado');
+    assert.strictEqual(bodies[0].style.display, 'block', 'corpo visível por default (expand)');
+    assert.strictEqual(chevrons[0]['aria-controls'], bodies[0].id, 'aria-controls liga ao corpo');
+
+    const panels = all.filter(e => e.className === 'results-item__options');
+    assert.strictEqual(panels.length, 1, 'painel de opções criado');
+    assert.strictEqual(panels[0].hidden, false, 'opções visíveis por default (dentro do expand)');
+
+    /* cada opção é um bloco com a linha + Why inline */
+    const blocks = panels[0].children.filter(e =>
+      String(e.className).indexOf('results-item__opt-block') === 0);
+    assert.strictEqual(blocks.length, 4, 'quatro blocos de opção');
+    const letters = blocks.map(b => b.children[0].children[0].textContent);
+    assert.deepStrictEqual(letters, ['A', 'B', 'C', 'D'], 'opções ordenadas A-D');
+    const texts = blocks.map(b => b.children[0].children[1].textContent);
+    assert.deepStrictEqual(texts, ['1', '3', '4', '2'], 'texto das opções');
+    const correctBlock = blocks.find(b => String(b.className).indexOf('--correct') !== -1);
+    assert(correctBlock, 'a opção correta está marcada');
+    assert(String(correctBlock.children[0].className).indexOf('--selected') === -1, 'sem resposta não fica marcada como escolhida');
+    assert.strictEqual(correctBlock.children[0].children[2].children[0].textContent, '✓ Correct', 'badge "✓ Correct" na opção D');
+    blocks.forEach(b => {
+      const why = b.children[1];
+      assert(String(why.className).indexOf('results-item__opt-why') === 0, 'Why inline por opção');
+      assert(why.children[0].textContent.indexOf('Why option ') === 0, 'rótulo "Why option X..."');
+    });
+    assert(blocks[3].children[1].children[0].textContent.indexOf('is correct:') !== -1, 'Why da correta diz "is correct"');
+    assert(blocks[0].children[1].children[0].textContent.indexOf('is incorrect:') !== -1, 'Why da errada diz "is incorrect"');
+
+    /* título da explicação passou a "📖 Explanation" */
+    const expl = all.filter(e => String(e.className).indexOf('results-item__explanation') === 0);
+    assert(expl.length >= 1, 'caixa de explicação existe');
+    assert(expl[0].innerHTML.indexOf('Explanation') !== -1, 'título "Explanation"');
+    assert(expl[0].innerHTML.indexOf('Why option A is incorrect') === -1, 'Whys por opção saíram da explicação (estão inline)');
+
+    /* linhas "Your answer"/"Correct answer" removidas — só badges nos cartões */
+    const answers = all.filter(e =>
+      e.className === 'results-item__answer' ||
+      String(e.className).indexOf('results-item__answer ') === 0);
+    assert.strictEqual(answers.length, 0, 'sem linhas "Your answer"/"Correct answer" (badges chegam)');
+
+    /* click no chevron colapsa / volta a expandir */
+    chevrons[0].on_click({ stopPropagation: () => {} });
+    assert.strictEqual(bodies[0].style.display, 'none', 'click colapsa o cartão');
+    assert.strictEqual(chevrons[0]['aria-expanded'], 'false', 'aria-expanded passa a false');
+    assert.strictEqual(chevrons[0].textContent, '▼', 'ícone passa a ▼');
+    chevrons[0].on_click({ stopPropagation: () => {} });
+    assert.strictEqual(bodies[0].style.display, 'block', 'segundo click volta a expandir');
+    assert.strictEqual(chevrons[0]['aria-expanded'], 'true', 'aria-expanded volta a true');
+  });
+
+  /* ---- T16b: sem linhas "Your answer"/"Correct answer" — só badges ---- */
+  await ok('Question Review: badges indicam tudo, sem linhas redundantes', () => {
+    const results = {
+      details: [{
+        index: 0, question: 'Q?',
+        options: { A: '1', B: '2', C: '3', D: '4' },
+        selectedAnswer: 'B',
+        correctAnswer: 'B',
+        isCorrect: true,
+        flagged: false, note: '',
+        explanation: 'x', optionExplanations: {},
+        chapter: '', section: '', subsection: '',
+        learningObjective: '', kLevel: '', keywords: [],
+        examTip: '', memoryAid: '',
+      }],
+    };
+    const el = EG.generateResultsHTML(results);
+    const all = [];
+    (function walk(e) { all.push(e); (e.children || []).forEach(walk); })(el);
+    const answers = all.filter(e =>
+      e.className === 'results-item__answer' ||
+      String(e.className).indexOf('results-item__answer ') === 0);
+    assert.strictEqual(answers.length, 0, 'nem certa nem errada têm linhas (só badges)');
+    const badges = [];
+    (function walk2(e) {
+      if (String(e.className || '').indexOf('results-item__option-badge') === 0) badges.push(e);
+      (e.children || []).forEach(walk2);
+    })(el);
+    const texts = badges.map(b => b.textContent);
+    assert(texts.indexOf('✓ Your answer') !== -1, 'badge "✓ Your answer" na opção certa escolhida');
+  });
+
+  /* ---- T17: tentativas antigas sem opções não rebentam o review ---- */
+  await ok('Question Review degrada sem crash quando faltam as opções', () => {
+    const results = {
+      details: [{
+        index: 0, question: 'Sem opções guardadas?',
+        options: undefined,
+        selectedAnswer: 'A',
+        correctAnswer: 'B',
+        isCorrect: false,
+        flagged: false, note: '',
+        explanation: '', optionExplanations: {},
+        chapter: '', section: '', subsection: '',
+        learningObjective: '', kLevel: '', keywords: [],
+        examTip: '', memoryAid: '',
+      }],
+    };
+    const el = EG.generateResultsHTML(results);
+    const all = [];
+    (function walk(e) { all.push(e); (e.children || []).forEach(walk); })(el);
+    const panels = all.filter(e => e.className === 'results-item__options');
+    assert.strictEqual(panels.length, 1, 'painel criado mesmo sem opções');
+    assert.strictEqual(panels[0].children.length, 2, 'título + aviso de opções indisponíveis');
+    assert(panels[0].children[1].textContent.indexOf('not available') !== -1, 'aviso legível');
+    const answers = all.filter(e =>
+      e.className === 'results-item__answer' ||
+      String(e.className).indexOf('results-item__answer ') === 0);
+    assert.strictEqual(answers.length, 0, 'sem linhas redundantes mesmo sem opções');
+    const cards = all.filter(e => String(e.className || '').indexOf('results-item') === 0);
+    assert(cards.length >= 1, 'cartão da questão existe');
+    const dump = JSON.stringify(cards);
+    assert(dump.indexOf('undefined') === -1, 'sem "undefined" no cartão da questão');
+  });
+
   console.log('');
   console.log(process.exitCode ? 'RESULT: FAILURES' : 'RESULT: ALL ' + passed + ' TESTS PASSED');
 }

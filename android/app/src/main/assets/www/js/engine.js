@@ -668,39 +668,98 @@ const ExamEngine = (function () {
 
   function submitExam() {
     if (state.submitted) return;
+    showSubmitModal();
+  }
 
-    var answeredCount = getAnsweredCount();
-    if (answeredCount === 0) {
-      showConfirmModal('Nenhuma questão foi respondida. Marque pelo menos uma questão antes de submeter o exame.', null);
-      return;
+  /* Custom "Submit Exam?" modal: answered / unanswered / time + warning
+     when questions are left blank, with a brief "Submitting..." state. */
+  function showSubmitModal() {
+    var answered = getAnsweredCount();
+    var unanswered = TOTAL_Q - answered;
+    var timeStr = formatTime(state.remaining);
+
+    /* Overlay */
+    var overlay = createEl('div', 'submit-modal-overlay');
+    overlay.setAttribute('role', 'dialog');
+    overlay.setAttribute('aria-modal', 'true');
+    overlay.setAttribute('aria-labelledby', 'submit-modal-title');
+
+    var card = createEl('div', 'submit-modal animate-scale-in');
+
+    /* Header: warning icon + title */
+    var head = createEl('div', 'submit-modal__header');
+    var iconWrap = createEl('div', 'submit-modal__icon', { text: '⚠' });
+    iconWrap.setAttribute('aria-hidden', 'true');
+    var title = createEl('h2', 'submit-modal__title', { text: 'Submit Exam?' });
+    title.id = 'submit-modal-title';
+    head.appendChild(iconWrap);
+    head.appendChild(title);
+    card.appendChild(head);
+
+    /* Stats rows */
+    var rows = createEl('div', 'submit-modal__rows');
+    function addRow(label, value, valueClass) {
+      var row = createEl('div', 'submit-modal__row');
+      row.appendChild(createEl('span', 'submit-modal__label', { text: label }));
+      var val = createEl('span', 'submit-modal__value' + (valueClass ? ' ' + valueClass : ''), { text: value });
+      row.appendChild(val);
+      rows.appendChild(row);
     }
+    addRow('Questions answered', answered + ' / ' + TOTAL_Q, '');
+    addRow('Unanswered', String(unanswered), unanswered > 0 ? 'submit-modal__value--danger' : '');
+    addRow('Time remaining', timeStr, '');
+    card.appendChild(rows);
 
-    var unanswered = TOTAL_Q - answeredCount;
-    var msg = 'Are you sure you want to submit your exam?';
+    /* Warning box when there are unanswered questions */
     if (unanswered > 0) {
-      var unansweredList = [];
-      var rangeStart = null;
-      for (var i = 0; i < TOTAL_Q; i++) {
-        if (state.answers[i] === undefined) {
-          if (rangeStart === null) rangeStart = i;
-        } else {
-          if (rangeStart !== null) {
-            unansweredList.push(formatRange(rangeStart, i - 1));
-            rangeStart = null;
-          }
-        }
-      }
-      if (rangeStart !== null) {
-        unansweredList.push(formatRange(rangeStart, TOTAL_Q - 1));
-      }
-      msg += '\n\nYou have ' + unanswered + ' unanswered question' + (unanswered > 1 ? 's' : '') + ':\n' + unansweredList.join(', ');
+      var warn = createEl('div', 'submit-modal__warning');
+      warn.textContent = 'You have ' + unanswered + ' unanswered question' +
+        (unanswered > 1 ? 's' : '') + '. These will be marked as incorrect.';
+      card.appendChild(warn);
     }
-    msg += '\n\nOnce submitted, you cannot change your answers.';
 
-    showConfirmModal(msg, function () {
-      state.submitted = true;
-      stopTimer();
-      computeAndShowResults();
+    /* Actions */
+    var actions = createEl('div', 'submit-modal__actions');
+    var cancelBtn = createEl('button', ['btn', 'submit-modal__btn', 'submit-modal__btn--cancel'], { text: 'Continue Exam' });
+    var confirmBtn = createEl('button', ['btn', 'submit-modal__btn', 'submit-modal__btn--confirm'], { text: 'Submit' });
+    actions.appendChild(cancelBtn);
+    actions.appendChild(confirmBtn);
+    card.appendChild(actions);
+
+    overlay.appendChild(card);
+    document.body.appendChild(overlay);
+
+    function close() {
+      if (overlay.parentNode) overlay.parentNode.removeChild(overlay);
+      document.removeEventListener('keydown', onKey);
+    }
+    function onKey(e) {
+      if (e.key === 'Escape') close();
+    }
+    document.addEventListener('keydown', onKey);
+    overlay.addEventListener('click', function (e) {
+      if (e.target === overlay) close();
+    });
+    cancelBtn.addEventListener('click', close);
+    /* Focus confirm for keyboard users */
+    if (confirmBtn.focus) confirmBtn.focus();
+
+    confirmBtn.addEventListener('click', function () {
+      confirmBtn.disabled = true;
+      cancelBtn.disabled = true;
+      confirmBtn.innerHTML = '';
+      var spin = createEl('span', 'submit-modal__spinner');
+      spin.setAttribute('aria-hidden', 'true');
+      confirmBtn.appendChild(spin);
+      confirmBtn.appendChild(document.createTextNode(' Submitting...'));
+      /* Brief submitting state so the user sees feedback */
+      setTimeout(function () {
+        close();
+        state.submitted = true;
+        stopTimer();
+        computeAndShowResults();
+        window.scrollTo(0, 0);
+      }, 600);
     });
   }
 

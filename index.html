@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <a href="#main-content" class="sr-only">Skip to main content</a>
+  <a href="#main-content" class="sr-only" data-i18n="nav.skip">Skip to main content</a>
 
   <header class="header" role="banner">
     <div class="header__inner">
@@ -20,7 +20,11 @@
         </span>
       </a>
       <nav class="header__actions" aria-label="Main navigation">
-        <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode" title="Toggle dark mode">&#9790;</button>
+        <div class="lang-switch" role="group" aria-label="Language / Idioma">
+          <button type="button" class="lang-switch__btn" data-lang="en" aria-pressed="true">EN</button>
+          <button type="button" class="lang-switch__btn" data-lang="pt" aria-pressed="false">PT</button>
+        </div>
+        <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode" title="Toggle dark mode" data-i18n-aria-label="nav.theme" data-i18n-title="nav.theme">&#9790;</button>
       </nav>
     </div>
   </header>
@@ -33,31 +37,31 @@
           <span class="hero__title-highlight">ISTQB CTFL</span><br>
           Exam Simulator
         </h1>
-        <p class="hero__subtitle">
+        <p class="hero__subtitle" data-i18n="hero.subtitle">
           Prepare for the ISTQB Certified Tester Foundation Level certification with realistic practice exams,
           detailed explanations, study slides, and performance tracking &mdash; all offline, zero setup required.
         </p>
         <div class="hero__actions">
-          <a href="#exam-cards" class="btn btn--primary btn--lg">Start Practicing</a>
-          <a href="#stats-dashboard" class="btn btn--secondary btn--lg">View Statistics</a>
-          <a href="#slides-section" class="btn btn--ghost btn--lg">Study Materials</a>
+          <a href="#exam-cards" class="btn btn--primary btn--lg" data-i18n="hero.start">Start Practicing</a>
+          <a href="#stats-dashboard" class="btn btn--secondary btn--lg" data-i18n="hero.stats">View Statistics</a>
+          <a href="#slides-section" class="btn btn--ghost btn--lg" data-i18n="hero.study">Study Materials</a>
         </div>
         <div class="hero__stats">
           <div class="hero__stat">
             <div class="hero__stat-value">13</div>
-            <div class="hero__stat-label">Practice Exams</div>
+            <div class="hero__stat-label" data-i18n="hero.statExams">Practice Exams</div>
           </div>
           <div class="hero__stat">
             <div class="hero__stat-value">525</div>
-            <div class="hero__stat-label">Total Questions</div>
+            <div class="hero__stat-label" data-i18n="hero.statQuestions">Total Questions</div>
           </div>
           <div class="hero__stat">
             <div class="hero__stat-value">6</div>
-            <div class="hero__stat-label">Study Chapters</div>
+            <div class="hero__stat-label" data-i18n="hero.statChapters">Study Chapters</div>
           </div>
           <div class="hero__stat">
             <div class="hero__stat-value">65%</div>
-            <div class="hero__stat-label">Pass Threshold</div>
+            <div class="hero__stat-label" data-i18n="hero.statThreshold">Pass Threshold</div>
           </div>
         </div>
       </div>
@@ -66,88 +70,88 @@
     <section class="section" id="exam-cards" aria-labelledby="exam-section-title">
       <div class="container">
         <div class="section__header">
-          <h2 class="section__title" id="exam-section-title">Practice Exams</h2>
-          <p class="section__subtitle">Each exam contains 40 multiple-choice questions with a 60-minute time limit. A score of 65% or higher is required to pass.</p>
+          <h2 class="section__title" id="exam-section-title" data-i18n="exams.title">Practice Exams</h2>
+          <p class="section__subtitle" data-i18n="exams.subtitle">Each exam contains 40 multiple-choice questions with a 60-minute time limit. A score of 65% or higher is required to pass.</p>
         </div>
         <div class="features animate-stagger">
           <div class="feature-card animate-fade-in">
             <div class="feature-card__icon" aria-hidden="true">1</div>
-            <h3 class="feature-card__title">Exam 1 &mdash; Cap.1: Fundamentos</h3>
-            <p class="feature-card__text">40 perguntas exclusivas sobre Cap&iacute;tulo 1: Fundamentos de Teste. Princ&iacute;pios, processo de teste, psicologia e &eacute;tica.</p>
-            <div style="margin-top:var(--space-lg)"><a href="exam1.html" class="btn btn--primary">Start Exam</a></div>
+            <h3 class="feature-card__title" data-i18n="card1.title">Exam 1 &mdash; Ch.1: Fundamentals</h3>
+            <p class="feature-card__text" data-i18n="card1.text">40 exclusive questions on Chapter 1: Fundamentals of Testing. Principles, test process, psychology and ethics.</p>
+            <div style="margin-top:var(--space-lg)"><a href="exam1.html" class="btn btn--primary" data-i18n="exam.start">Start Exam</a></div>
           </div>
           <div class="feature-card animate-fade-in">
             <div class="feature-card__icon" aria-hidden="true">2</div>
-            <h3 class="feature-card__title">Exam 2 &mdash; Cap.2: SDLC</h3>
-            <p class="feature-card__text">40 perguntas exclusivas sobre Cap&iacute;tulo 2: Testes ao Longo do SDLC. N&iacute;veis e tipos de teste, testes de manuten&ccedil;&atilde;o.</p>
-            <div style="margin-top:var(--space-lg)"><a href="exam2.html" class="btn btn--primary">Start Exam</a></div>
+            <h3 class="feature-card__title" data-i18n="card2.title">Exam 2 &mdash; Ch.2: SDLC</h3>
+            <p class="feature-card__text" data-i18n="card2.text">40 exclusive questions on Chapter 2: Testing Throughout the SDLC. Test levels and types, maintenance testing.</p>
+            <div style="margin-top:var(--space-lg)"><a href="exam2.html" class="btn btn--primary" data-i18n="exam.start">Start Exam</a></div>
           </div>
           <div class="feature-card animate-fade-in">
             <div class="feature-card__icon" aria-hidden="true">3</div>
-            <h3 class="feature-card__title">Exam 3 &mdash; Cap.3: Teste Est&aacute;tico</h3>
-            <p class="feature-card__text">40 perguntas exclusivas sobre Cap&iacute;tulo 3: Teste Est&aacute;tico. An&aacute;lise est&aacute;tica, revis&otilde;es, tipos e processo de revis&atilde;o.</p>
-            <div style="margin-top:var(--space-lg)"><a href="exam3.html" class="btn btn--primary">Start Exam</a></div>
+            <h3 class="feature-card__title" data-i18n="card3.title">Exam 3 &mdash; Ch.3: Static Testing</h3>
+            <p class="feature-card__text" data-i18n="card3.text">40 exclusive questions on Chapter 3: Static Testing. Static analysis, reviews, review types and process.</p>
+            <div style="margin-top:var(--space-lg)"><a href="exam3.html" class="btn btn--primary" data-i18n="exam.start">Start Exam</a></div>
           </div>
           <div class="feature-card animate-fade-in">
             <div class="feature-card__icon" aria-hidden="true">4</div>
-            <h3 class="feature-card__title">Exam 4 &mdash; Cap.4: T&eacute;cnicas</h3>
-            <p class="feature-card__text">40 perguntas exclusivas sobre Cap&iacute;tulo 4: T&eacute;cnicas de Teste. Caixa-preta, caixa-branca, baseadas em experi&ecirc;ncia.</p>
-            <div style="margin-top:var(--space-lg)"><a href="exam4.html" class="btn btn--primary">Start Exam</a></div>
+            <h3 class="feature-card__title" data-i18n="card4.title">Exam 4 &mdash; Ch.4: Techniques</h3>
+            <p class="feature-card__text" data-i18n="card4.text">40 exclusive questions on Chapter 4: Test Techniques. Black-box, white-box, experience-based.</p>
+            <div style="margin-top:var(--space-lg)"><a href="exam4.html" class="btn btn--primary" data-i18n="exam.start">Start Exam</a></div>
           </div>
           <div class="feature-card animate-fade-in">
             <div class="feature-card__icon" aria-hidden="true">5</div>
-            <h3 class="feature-card__title">Exam 5 &mdash; Cap.5: Gest&atilde;o</h3>
-            <p class="feature-card__text">40 perguntas exclusivas sobre Cap&iacute;tulo 5: Gest&atilde;o de Testes. Planeamento, estimativa, monitoriza&ccedil;&atilde;o, riscos e defeitos.</p>
-            <div style="margin-top:var(--space-lg)"><a href="exam5.html" class="btn btn--primary">Start Exam</a></div>
+            <h3 class="feature-card__title" data-i18n="card5.title">Exam 5 &mdash; Ch.5: Management</h3>
+            <p class="feature-card__text" data-i18n="card5.text">40 exclusive questions on Chapter 5: Test Management. Planning, estimation, monitoring, risks and defects.</p>
+            <div style="margin-top:var(--space-lg)"><a href="exam5.html" class="btn btn--primary" data-i18n="exam.start">Start Exam</a></div>
           </div>
           <div class="feature-card animate-fade-in">
             <div class="feature-card__icon" aria-hidden="true">6</div>
-            <h3 class="feature-card__title">Exam 6 &mdash; Cap.6: Ferramentas</h3>
-            <p class="feature-card__text">40 perguntas exclusivas sobre Cap&iacute;tulo 6: Suporte Ferramental. Categorias de ferramentas, automatiza&ccedil;&atilde;o, sele&ccedil;&atilde;o e riscos.</p>
-            <div style="margin-top:var(--space-lg)"><a href="exam6.html" class="btn btn--primary">Start Exam</a></div>
+            <h3 class="feature-card__title" data-i18n="card6.title">Exam 6 &mdash; Ch.6: Tools</h3>
+            <p class="feature-card__text" data-i18n="card6.text">40 exclusive questions on Chapter 6: Tool Support. Tool categories, automation, selection and risks.</p>
+            <div style="margin-top:var(--space-lg)"><a href="exam6.html" class="btn btn--primary" data-i18n="exam.start">Start Exam</a></div>
           </div>
-<div class="section__header" style="margin-top:var(--space-xl);grid-column:1/-1;text-align:center"><h2 class="section__title" style="font-size:1.25rem">Exames de Certificacao</h2><p class="section__subtitle">Exames completos com todos os capitulos e ponderacao ISTQB.</p></div>
+<div class="section__header" style="margin-top:var(--space-xl);grid-column:1/-1;text-align:center"><h2 class="section__title" style="font-size:1.25rem" data-i18n="cert.title">Certification Exams</h2><p class="section__subtitle" data-i18n="cert.subtitle">Full exams covering all chapters with ISTQB weighting.</p></div>
           <div class="feature-card animate-fade-in">
             <div class="feature-card__icon" aria-hidden="true">7</div>
-            <h3 class="feature-card__title">Exam 7 &mdash; Comprehensive</h3>
-            <p class="feature-card__text">Exame completo com distribui&ccedil;&atilde;o ISTQB standard: 8 perguntas Cap.1, 6 Cap.2, 3 Cap.3, 10 Cap.4, 8 Cap.5, 5 Cap.6.</p>
-            <div style="margin-top:var(--space-lg)"><a href="exam7.html" class="btn btn--primary">Start Exam</a></div>
+            <h3 class="feature-card__title" data-i18n="card7.title">Exam 7 &mdash; Comprehensive</h3>
+            <p class="feature-card__text" data-i18n="card7.text">Full exam with standard ISTQB distribution: 8 questions Ch.1, 6 Ch.2, 3 Ch.3, 10 Ch.4, 8 Ch.5, 5 Ch.6.</p>
+            <div style="margin-top:var(--space-lg)"><a href="exam7.html" class="btn btn--primary" data-i18n="exam.start">Start Exam</a></div>
           </div>
           <div class="feature-card animate-fade-in">
             <div class="feature-card__icon" aria-hidden="true">8</div>
-            <h3 class="feature-card__title">Exam 8 &mdash; Certification Practice</h3>
-            <p class="feature-card__text">Exame CTFL-style com pondera&ccedil;&atilde;o oficial do syllabus e cen&aacute;rios pr&aacute;ticos de design de testes.</p>
-            <div style="margin-top:var(--space-lg)"><a href="exam8.html" class="btn btn--primary">Start Exam</a></div>
+            <h3 class="feature-card__title" data-i18n="card8.title">Exam 8 &mdash; Certification Practice</h3>
+            <p class="feature-card__text" data-i18n="card8.text">CTFL-style exam with official syllabus weighting and practical test design scenarios.</p>
+            <div style="margin-top:var(--space-lg)"><a href="exam8.html" class="btn btn--primary" data-i18n="exam.start">Start Exam</a></div>
           </div>
           <div class="feature-card animate-fade-in">
             <div class="feature-card__icon" aria-hidden="true">9</div>
-            <h3 class="feature-card__title">Exam 9 &mdash; Extra Practice</h3>
-            <p class="feature-card__text">Exame adicional com perguntas excedentes de todos os cap&iacute;tulos do syllabus.</p>
-            <div style="margin-top:var(--space-lg)"><a href="exam9.html" class="btn btn--primary">Start Exam</a></div>
+            <h3 class="feature-card__title" data-i18n="card9.title">Exam 9 &mdash; Extra Practice</h3>
+            <p class="feature-card__text" data-i18n="card9.text">Extra exam with surplus questions from all syllabus chapters.</p>
+            <div style="margin-top:var(--space-lg)"><a href="exam9.html" class="btn btn--primary" data-i18n="exam.start">Start Exam</a></div>
           </div>
           <div class="feature-card animate-fade-in">
             <div class="feature-card__icon" aria-hidden="true">10</div>
-            <h3 class="feature-card__title">Exam 10 &mdash; ASTQB Sample #3</h3>
-            <p class="feature-card__text">Exame oficial ASTQB Sample Exam #3 (CTFL v4.0.1) — 40 perguntas com respostas e justifica&ccedil;&otilde;es oficiais.</p>
-            <div style="margin-top:var(--space-lg)"><a href="exam10.html" class="btn btn--primary">Start Exam</a></div>
+            <h3 class="feature-card__title" data-i18n="card10.title">Exam 10 &mdash; ASTQB Sample #3</h3>
+            <p class="feature-card__text" data-i18n="card10.text">Official ASTQB Sample Exam #3 (CTFL v4.0.1) — 40 questions with official answers and justifications.</p>
+            <div style="margin-top:var(--space-lg)"><a href="exam10.html" class="btn btn--primary" data-i18n="exam.start">Start Exam</a></div>
           </div>
           <div class="feature-card animate-fade-in">
             <div class="feature-card__icon" aria-hidden="true">11</div>
-            <h3 class="feature-card__title">Exam 11 &mdash; ASTQB Sample #4</h3>
-            <p class="feature-card__text">Exame oficial ASTQB Sample Exam #4 (CTFL v4.0.1) — 40 perguntas com respostas e justifica&ccedil;&otilde;es oficiais.</p>
-            <div style="margin-top:var(--space-lg)"><a href="exam11.html" class="btn btn--primary">Start Exam</a></div>
+            <h3 class="feature-card__title" data-i18n="card11.title">Exam 11 &mdash; ASTQB Sample #4</h3>
+            <p class="feature-card__text" data-i18n="card11.text">Official ASTQB Sample Exam #4 (CTFL v4.0.1) — 40 questions with official answers and justifications.</p>
+            <div style="margin-top:var(--space-lg)"><a href="exam11.html" class="btn btn--primary" data-i18n="exam.start">Start Exam</a></div>
           </div>
           <div class="feature-card animate-fade-in">
             <div class="feature-card__icon" aria-hidden="true">12</div>
-            <h3 class="feature-card__title">Exam 12 &mdash; Claude - Hard level</h3>
-            <p class="feature-card__text">Exame dif&iacute;cil gerado com apoio de IA &mdash; 40 perguntas avan&ccedil;adas de todos os cap&iacute;tulos, alinhadas com o syllabus v4.0.1.</p>
-            <div style="margin-top:var(--space-lg)"><a href="exam12.html" class="btn btn--primary">Start Exam</a></div>
+            <h3 class="feature-card__title" data-i18n="card12.title">Exam 12 &mdash; Claude - Hard level</h3>
+            <p class="feature-card__text" data-i18n="card12.text">Challenging AI-generated exam — 40 advanced questions from all chapters, aligned with syllabus v4.0.1.</p>
+            <div style="margin-top:var(--space-lg)"><a href="exam12.html" class="btn btn--primary" data-i18n="exam.start">Start Exam</a></div>
           </div>
           <div class="feature-card animate-fade-in">
             <div class="feature-card__icon" aria-hidden="true">13</div>
-            <h3 class="feature-card__title">Exam 13 &mdash; Claude - Hard level</h3>
-            <p class="feature-card__text">Exame dif&iacute;cil gerado com apoio de IA &mdash; 40 perguntas avan&ccedil;adas de todos os cap&iacute;tulos, alinhadas com o syllabus v4.0.1.</p>
-            <div style="margin-top:var(--space-lg)"><a href="exam13.html" class="btn btn--primary">Start Exam</a></div>
+            <h3 class="feature-card__title" data-i18n="card13.title">Exam 13 &mdash; Claude - Hard level</h3>
+            <p class="feature-card__text" data-i18n="card13.text">Challenging AI-generated exam — 40 advanced questions from all chapters, aligned with syllabus v4.0.1.</p>
+            <div style="margin-top:var(--space-lg)"><a href="exam13.html" class="btn btn--primary" data-i18n="exam.start">Start Exam</a></div>
           </div>
         </div>
       </div>
@@ -156,8 +160,8 @@
     <section class="section" style="background-color:var(--color-bg-alt)" aria-labelledby="chapter-section-title">
       <div class="container">
         <div class="section__header">
-          <h2 class="section__title" id="chapter-section-title">Syllabus Overview</h2>
-          <p class="section__subtitle">The ISTQB CTFL v4.0.1 syllabus is organized into six chapters. Each chapter contributes a specific weight to the final exam.</p>
+          <h2 class="section__title" id="chapter-section-title" data-i18n="syllabus.title">Syllabus Overview</h2>
+          <p class="section__subtitle" data-i18n="syllabus.subtitle">The ISTQB CTFL v4.0.1 syllabus is organized into six chapters. Each chapter contributes a specific weight to the final exam.</p>
         </div>
         <div class="chapter-grid animate-stagger">
           <div class="chapter-card animate-fade-in">
@@ -165,10 +169,10 @@
               <span class="chapter-card__number">1</span>
               <span class="chapter-card__count">20%</span>
             </div>
-            <h3 class="chapter-card__title">Fundamentals of Testing</h3>
-            <p class="chapter-card__desc">Testing principles, the test process, the psychology of testing, and ethics. Foundation for all testing activities.</p>
+            <h3 class="chapter-card__title" data-i18n="ch1.title">Fundamentals of Testing</h3>
+            <p class="chapter-card__desc" data-i18n="ch1.desc">Testing principles, the test process, the psychology of testing, and ethics. Foundation for all testing activities.</p>
             <div class="chapter-card__meta">
-              <span>8 questions</span>
+              <span data-i18n="ch1.meta">8 questions</span>
               <div class="chapter-card__progress">
                 <div class="chapter-card__progress-bar" style="width:20%"></div>
               </div>
@@ -179,10 +183,10 @@
               <span class="chapter-card__number">2</span>
               <span class="chapter-card__count">15%</span>
             </div>
-            <h3 class="chapter-card__title">Testing Throughout the SDLC</h3>
-            <p class="chapter-card__desc">Test levels, test types, maintenance testing, and the relationship between development and testing activities.</p>
+            <h3 class="chapter-card__title" data-i18n="ch2.title">Testing Throughout the SDLC</h3>
+            <p class="chapter-card__desc" data-i18n="ch2.desc">Test levels, test types, maintenance testing, and the relationship between development and testing activities.</p>
             <div class="chapter-card__meta">
-              <span>6 questions</span>
+              <span data-i18n="ch2.meta">6 questions</span>
               <div class="chapter-card__progress">
                 <div class="chapter-card__progress-bar" style="width:15%"></div>
               </div>
@@ -193,10 +197,10 @@
               <span class="chapter-card__number">3</span>
               <span class="chapter-card__count">8%</span>
             </div>
-            <h3 class="chapter-card__title">Static Testing</h3>
-            <p class="chapter-card__desc">Static analysis, review processes, review types, and the role of reviews in quality assurance.</p>
+            <h3 class="chapter-card__title" data-i18n="ch3.title">Static Testing</h3>
+            <p class="chapter-card__desc" data-i18n="ch3.desc">Static analysis, review processes, review types, and the role of reviews in quality assurance.</p>
             <div class="chapter-card__meta">
-              <span>3 questions</span>
+              <span data-i18n="ch3.meta">3 questions</span>
               <div class="chapter-card__progress">
                 <div class="chapter-card__progress-bar" style="width:8%"></div>
               </div>
@@ -207,10 +211,10 @@
               <span class="chapter-card__number">4</span>
               <span class="chapter-card__count">25%</span>
             </div>
-            <h3 class="chapter-card__title">Test Techniques</h3>
-            <p class="chapter-card__desc">Black-box, white-box, and experience-based test techniques. Equivalence partitioning, BVA, decision tables, and state transition testing.</p>
+            <h3 class="chapter-card__title" data-i18n="ch4.title">Test Techniques</h3>
+            <p class="chapter-card__desc" data-i18n="ch4.desc">Black-box, white-box, and experience-based test techniques. Equivalence partitioning, BVA, decision tables, and state transition testing.</p>
             <div class="chapter-card__meta">
-              <span>10 questions</span>
+              <span data-i18n="ch4.meta">10 questions</span>
               <div class="chapter-card__progress">
                 <div class="chapter-card__progress-bar" style="width:25%"></div>
               </div>
@@ -221,10 +225,10 @@
               <span class="chapter-card__number">5</span>
               <span class="chapter-card__count">20%</span>
             </div>
-            <h3 class="chapter-card__title">Test Management</h3>
-            <p class="chapter-card__desc">Test planning, estimation, monitoring, configuration management, risk management, and defect reporting.</p>
+            <h3 class="chapter-card__title" data-i18n="ch5.title">Test Management</h3>
+            <p class="chapter-card__desc" data-i18n="ch5.desc">Test planning, estimation, monitoring, configuration management, risk management, and defect reporting.</p>
             <div class="chapter-card__meta">
-              <span>8 questions</span>
+              <span data-i18n="ch5.meta">8 questions</span>
               <div class="chapter-card__progress">
                 <div class="chapter-card__progress-bar" style="width:20%"></div>
               </div>
@@ -235,10 +239,10 @@
               <span class="chapter-card__number">6</span>
               <span class="chapter-card__count">12%</span>
             </div>
-            <h3 class="chapter-card__title">Tool Support for Testing</h3>
-            <p class="chapter-card__desc">Test tool categories, benefits and risks of test automation, and considerations for tool selection and deployment.</p>
+            <h3 class="chapter-card__title" data-i18n="ch6.title">Tool Support for Testing</h3>
+            <p class="chapter-card__desc" data-i18n="ch6.desc">Test tool categories, benefits and risks of test automation, and considerations for tool selection and deployment.</p>
             <div class="chapter-card__meta">
-              <span>5 questions</span>
+              <span data-i18n="ch6.meta">5 questions</span>
               <div class="chapter-card__progress">
                 <div class="chapter-card__progress-bar" style="width:12%"></div>
               </div>
@@ -251,13 +255,13 @@
     <section class="section" id="stats-section" aria-labelledby="stats-section-title">
       <div class="container">
         <div class="section__header">
-          <h2 class="section__title" id="stats-section-title">Performance Statistics</h2>
-          <p class="section__subtitle">Your exam history, pass rates, and per-chapter performance are saved locally and displayed below.</p>
+          <h2 class="section__title" id="stats-section-title" data-i18n="perf.title">Performance Statistics</h2>
+          <p class="section__subtitle" data-i18n="perf.subtitle">Your exam history, pass rates, and per-chapter performance are saved locally and displayed below.</p>
         </div>
         <div id="stats-dashboard">
           <div class="empty-state">
             <div class="spinner" style="margin:0 auto var(--space-lg)"></div>
-            <p class="empty-state__text">Loading statistics&hellip;</p>
+            <p class="empty-state__text" data-i18n="perf.loading">Loading statistics&hellip;</p>
           </div>
         </div>
       </div>
@@ -266,57 +270,57 @@
     <section class="section" id="slides-section" style="background-color:var(--color-bg-alt)" aria-labelledby="slides-section-title">
       <div class="container">
         <div class="section__header">
-          <h2 class="section__title" id="slides-section-title">Study Slides</h2>
-          <p class="section__subtitle">Review key concepts from each syllabus chapter with interactive study slides covering all learning objectives.</p>
+          <h2 class="section__title" id="slides-section-title" data-i18n="slides.title">Study Slides</h2>
+          <p class="section__subtitle" data-i18n="slides.subtitle">Review key concepts from each syllabus chapter with interactive study slides covering all learning objectives.</p>
         </div>
         <div class="chapter-grid animate-stagger">
           <div class="chapter-card animate-fade-in">
             <div class="chapter-card__header">
               <span class="chapter-card__number">1</span>
             </div>
-            <h3 class="chapter-card__title">Fundamentals of Testing</h3>
-            <p class="chapter-card__desc">Testing principles, test process, psychology, and ethics.</p>
-            <div style="margin-top:var(--space-md)"><a href="slides/chapter1.html" class="btn btn--secondary btn--sm">View Slides</a></div>
+            <h3 class="chapter-card__title" data-i18n="sl1.title">Fundamentals of Testing</h3>
+            <p class="chapter-card__desc" data-i18n="sl1.desc">Testing principles, test process, psychology, and ethics.</p>
+            <div style="margin-top:var(--space-md)"><a href="slides/chapter1.html" class="btn btn--secondary btn--sm" data-i18n="slides.view">View Slides</a></div>
           </div>
           <div class="chapter-card animate-fade-in">
             <div class="chapter-card__header">
               <span class="chapter-card__number">2</span>
             </div>
-            <h3 class="chapter-card__title">Testing Throughout the SDLC</h3>
-            <p class="chapter-card__desc">Test levels, test types, and maintenance testing.</p>
-            <div style="margin-top:var(--space-md)"><a href="slides/chapter2.html" class="btn btn--secondary btn--sm">View Slides</a></div>
+            <h3 class="chapter-card__title" data-i18n="sl2.title">Testing Throughout the SDLC</h3>
+            <p class="chapter-card__desc" data-i18n="sl2.desc">Test levels, test types, and maintenance testing.</p>
+            <div style="margin-top:var(--space-md)"><a href="slides/chapter2.html" class="btn btn--secondary btn--sm" data-i18n="slides.view">View Slides</a></div>
           </div>
           <div class="chapter-card animate-fade-in">
             <div class="chapter-card__header">
               <span class="chapter-card__number">3</span>
             </div>
-            <h3 class="chapter-card__title">Static Testing</h3>
-            <p class="chapter-card__desc">Static analysis, reviews, and the review process.</p>
-            <div style="margin-top:var(--space-md)"><a href="slides/chapter3.html" class="btn btn--secondary btn--sm">View Slides</a></div>
+            <h3 class="chapter-card__title" data-i18n="sl3.title">Static Testing</h3>
+            <p class="chapter-card__desc" data-i18n="sl3.desc">Static analysis, reviews, and the review process.</p>
+            <div style="margin-top:var(--space-md)"><a href="slides/chapter3.html" class="btn btn--secondary btn--sm" data-i18n="slides.view">View Slides</a></div>
           </div>
           <div class="chapter-card animate-fade-in">
             <div class="chapter-card__header">
               <span class="chapter-card__number">4</span>
             </div>
-            <h3 class="chapter-card__title">Test Techniques</h3>
-            <p class="chapter-card__desc">Black-box, white-box, and experience-based techniques.</p>
-            <div style="margin-top:var(--space-md)"><a href="slides/chapter4.html" class="btn btn--secondary btn--sm">View Slides</a></div>
+            <h3 class="chapter-card__title" data-i18n="sl4.title">Test Techniques</h3>
+            <p class="chapter-card__desc" data-i18n="sl4.desc">Black-box, white-box, and experience-based techniques.</p>
+            <div style="margin-top:var(--space-md)"><a href="slides/chapter4.html" class="btn btn--secondary btn--sm" data-i18n="slides.view">View Slides</a></div>
           </div>
           <div class="chapter-card animate-fade-in">
             <div class="chapter-card__header">
               <span class="chapter-card__number">5</span>
             </div>
-            <h3 class="chapter-card__title">Test Management</h3>
-            <p class="chapter-card__desc">Planning, estimation, risk management, and defect reporting.</p>
-            <div style="margin-top:var(--space-md)"><a href="slides/chapter5.html" class="btn btn--secondary btn--sm">View Slides</a></div>
+            <h3 class="chapter-card__title" data-i18n="sl5.title">Test Management</h3>
+            <p class="chapter-card__desc" data-i18n="sl5.desc">Planning, estimation, risk management, and defect reporting.</p>
+            <div style="margin-top:var(--space-md)"><a href="slides/chapter5.html" class="btn btn--secondary btn--sm" data-i18n="slides.view">View Slides</a></div>
           </div>
           <div class="chapter-card animate-fade-in">
             <div class="chapter-card__header">
               <span class="chapter-card__number">6</span>
             </div>
-            <h3 class="chapter-card__title">Tool Support for Testing</h3>
-            <p class="chapter-card__desc">Test tool categories, benefits, risks, and selection.</p>
-            <div style="margin-top:var(--space-md)"><a href="slides/chapter6.html" class="btn btn--secondary btn--sm">View Slides</a></div>
+            <h3 class="chapter-card__title" data-i18n="sl6.title">Tool Support for Testing</h3>
+            <p class="chapter-card__desc" data-i18n="sl6.desc">Test tool categories, benefits, risks, and selection.</p>
+            <div style="margin-top:var(--space-md)"><a href="slides/chapter6.html" class="btn btn--secondary btn--sm" data-i18n="slides.view">View Slides</a></div>
           </div>
         </div>
       </div>
@@ -326,20 +330,40 @@
   <footer class="footer" role="contentinfo">
     <div class="footer__inner">
       <div class="footer__links">
-        <a href="index.html">Home</a>
-        <a href="#exam-cards">Exams</a>
-        <a href="#stats-dashboard">Statistics</a>
-        <a href="#slides-section">Study Slides</a>
+        <a href="index.html" data-i18n="footer.home">Home</a>
+        <a href="#exam-cards" data-i18n="footer.exams">Exams</a>
+        <a href="#stats-dashboard" data-i18n="footer.stats">Statistics</a>
+        <a href="#slides-section" data-i18n="footer.slides">Study Slides</a>
       </div>
-      <p>&copy; 2026 ISTQB CTFL v4.0.1 Exam Simulator. This is an independent study tool and is not affiliated with the ISTQB.</p>
+      <p data-i18n="footer.copy">&copy; 2026 ISTQB CTFL v4.0.1 Exam Simulator. This is an independent study tool and is not affiliated with the ISTQB.</p>
     </div>
   </footer>
+
+  <button id="back-to-top" class="back-to-top" type="button" aria-label="Back to top" title="Back to top" data-i18n-aria-label="top.aria" data-i18n-title="top.aria">&uarr;</button>
 
   <script src="js/questions.js"></script>
   <script src="js/grading.js"></script>
   <script src="js/statistics.js"></script>
   <script src="js/engine.js"></script>
   <script src="js/slides.js"></script>
+  <script src="js/i18n.js"></script>
+  <script>
+    (function () {
+      if (typeof AppI18n !== 'undefined' && AppI18n.init) AppI18n.init();
+      var topBtn = document.getElementById('back-to-top');
+      if (topBtn) {
+        var onScroll = function () {
+          if (window.scrollY > 400) topBtn.classList.add('back-to-top--visible');
+          else topBtn.classList.remove('back-to-top--visible');
+        };
+        window.addEventListener('scroll', onScroll, { passive: true });
+        onScroll();
+        topBtn.addEventListener('click', function () {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+      }
+    })();
+  </script>
   <script>
     (function () {
       var toggle = document.getElementById('theme-toggle');
