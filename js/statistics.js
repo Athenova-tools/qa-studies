@@ -576,7 +576,9 @@ const ExamStats = (function () {
     });
     wrap.appendChild(exportBtn);
     var importBtn = createEl('button', ['btn', 'btn--secondary', 'btn--sm'], { text: '⤒ Import JSON' });
-    importBtn.addEventListener('click', function () { pickImportFile(); });
+    importBtn.addEventListener('click', function () {
+      ensureQuestionBank(function () { pickImportFile(); });
+    });
     wrap.appendChild(importBtn);
     return wrap;
   }
@@ -748,7 +750,34 @@ const ExamStats = (function () {
      Review Saved Attempt
      ================================================================= */
 
+  /* The question bank (1.3MB) is lazy-loaded on pages that do not
+     include it (landing): dashboard paint needs no questions, only
+     review/import flows do. No-op when already present. */
+  function ensureQuestionBank(cb) {
+    cb = cb || function () {};
+    try {
+      if (typeof window !== 'undefined' && window.questionSets) { cb(); return; }
+    } catch (e) { cb(); return; }
+    try {
+      if (typeof document === 'undefined' || !document.createElement) { cb(); return; }
+      var s = document.createElement('script');
+      s.src = 'js/questions.js';
+      var done = false;
+      s.onload = s.onreadystatechange = function () {
+        if (done) return;
+        var rs = s.readyState;
+        if (!rs || rs === 'loaded' || rs === 'complete') { done = true; cb(); }
+      };
+      s.onerror = function () { if (!done) { done = true; cb(); } };
+      (document.head || document.getElementsByTagName('head')[0] || document.body).appendChild(s);
+    } catch (e) { cb(); }
+  }
+
   function reviewAttempt(id) {
+    ensureQuestionBank(function () { reviewAttemptReady(id); });
+  }
+
+  function reviewAttemptReady(id) {
     keepScreenAwake();
     window.__inReviewMode = true;
     var appEl = document.getElementById('app');
@@ -1283,6 +1312,7 @@ const ExamStats = (function () {
     deleteAttempt: deleteAttempt,
     clearHistory: clearHistory,
     reviewAttempt: reviewAttempt,
+    ensureQuestionBank: ensureQuestionBank,
     getFullResult: getFullResult,
     exportAttempt: exportAttempt,
     exportAllAttempts: exportAllAttempts,

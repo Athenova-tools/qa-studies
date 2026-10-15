@@ -30,7 +30,26 @@ public class MainActivity extends Activity {
     private WebView webView;
     private int insetTopPx = 0;
     private int insetBottomPx = 0;
+    private boolean themeApplied = false;
     private long lastBackPress = 0;
+
+    /* O tema é sempre o do sistema no arranque (a página usa
+       matchMedia, mas a WebView com tema Material.Light reporta
+       sempre light). Aplica-se só à primeira página de cada arranque;
+       o toggle depois vale apenas para a sessão. */
+    private void applySystemTheme() {
+        if (themeApplied || webView == null) return;
+        themeApplied = true;
+        int night = getResources().getConfiguration().uiMode
+                & android.content.res.Configuration.UI_MODE_NIGHT_MASK;
+        final String theme = (night == android.content.res.Configuration.UI_MODE_NIGHT_YES)
+                ? "dark" : "light";
+        webView.evaluateJavascript(
+                "(function(){document.documentElement.setAttribute('data-theme','" + theme + "');"
+                + "var t=document.getElementById('theme-toggle');"
+                + "if(t)t.textContent='" + ("dark".equals(theme) ? "☀" : "☾") + "';})();",
+                null);
+    }
 
     /* Desvia o conteúdo web das system bars: o header fixo desce
        --inset-top e o fundo da página sobe --inset-bottom. */
@@ -132,6 +151,7 @@ public class MainActivity extends Activity {
                 }
                 v.evaluateJavascript(BANNER, null);
                 applyInsetsToPage();
+                applySystemTheme();
             }
         });
         /* Ecrã sempre aceso durante o exame/revisão (como nos vídeos) */

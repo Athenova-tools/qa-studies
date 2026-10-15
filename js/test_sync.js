@@ -731,6 +731,14 @@ async function main() {
     assert(dump.indexOf('undefined') === -1, 'sem "undefined" no cartão da questão');
   });
 
+  /* ---- T18: ensureQuestionBank é no-op síncrono com banco presente ---- */
+  await ok('ensureQuestionBank chama de volta de imediato com banco presente', () => {
+    assert.strictEqual(typeof ES.ensureQuestionBank, 'function', 'helper exposto');
+    let called = 0;
+    ES.ensureQuestionBank(function () { called++; });
+    assert.strictEqual(called, 1, 'callback síncrono quando questionSets existe');
+  });
+
   console.log('');
   console.log(process.exitCode ? 'RESULT: FAILURES' : 'RESULT: ALL ' + passed + ' TESTS PASSED');
 }

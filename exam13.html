@@ -40,16 +40,22 @@
   <script src="js/engine.js"></script>
   <script src="js/slides.js"></script>
   <script>
-    (function () {
+        (function () {
       var toggle = document.getElementById('theme-toggle');
-      var stored = localStorage.getItem('istqb_ctfl_theme') || 'light';
-      document.documentElement.setAttribute('data-theme', stored);
-      toggle.textContent = stored === 'dark' ? '\u2600' : '\u263E';
+      /* Startup always follows the system theme (never persisted);
+         the toggle only switches for the current session. */
+      var systemDark = false;
+      try {
+        systemDark = window.matchMedia &&
+          window.matchMedia('(prefers-color-scheme: dark)').matches;
+      } catch (e) { systemDark = false; }
+      var initial = systemDark ? 'dark' : 'light';
+      document.documentElement.setAttribute('data-theme', initial);
+      toggle.textContent = initial === 'dark' ? '\u2600' : '\u263E';
       toggle.addEventListener('click', function () {
         var current = document.documentElement.getAttribute('data-theme');
         var next = current === 'dark' ? 'light' : 'dark';
         document.documentElement.setAttribute('data-theme', next);
-        localStorage.setItem('istqb_ctfl_theme', next);
         toggle.textContent = next === 'dark' ? '\u2600' : '\u263E';
       });
     })();
