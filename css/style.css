@@ -438,20 +438,10 @@ input, textarea, select {
   background-color: var(--color-surface);
 }
 
-/* ----- APK Download (Android icon, header) ----- */
-.apk-download {
-  display: flex;
+/* ----- APK Download (official Android glyph, hero) ----- */
+.hero__apk-icon {
+  display: inline-flex;
   align-items: center;
-  justify-content: center;
-  width: 40px;
-  height: 40px;
-  border-radius: var(--radius-md);
-  color: var(--color-success);
-  transition: all var(--transition-fast);
-}
-
-.apk-download:hover {
-  background-color: var(--color-bg-alt);
   color: var(--color-success);
 }
 
