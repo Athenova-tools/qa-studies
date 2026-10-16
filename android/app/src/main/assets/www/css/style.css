@@ -569,7 +569,7 @@ input, textarea, select {
   margin-top: var(--space-md) !important;
 }
 
-/* Number badge moved to the bottom-right, after the button */
+/* Number badge pinned bottom-right, on the button row line */
 .feature-card__icon {
   width: 36px;
   height: 36px;
@@ -579,11 +579,30 @@ input, textarea, select {
   align-items: center;
   justify-content: center;
   font-size: 1rem;
-  order: 5;
-  align-self: flex-end;
-  margin: var(--space-sm) 0 0;
+  position: absolute;
+  right: var(--space-md);
+  bottom: var(--space-md);
+  margin: 0;
   color: var(--color-primary);
   flex-shrink: 0;
+}
+
+/* Certification Exams keep the original top-left badge */
+.features > .section__header ~ .feature-card .feature-card__icon {
+  position: static;
+  align-self: flex-start;
+  margin: 0 0 var(--space-md);
+  width: 48px;
+  height: 48px;
+  font-size: 1.25rem;
+}
+
+/* Study Slides cards: number aligned with the View Slides button */
+.chapter-card:has(.btn) .chapter-card__header {
+  position: absolute;
+  right: var(--space-md);
+  bottom: var(--space-md);
+  margin: 0;
 }
 
 .feature-card__title {
