@@ -95,8 +95,7 @@ window.AppI18n = (function () {
       'footer.stats': 'Statistics',
       'footer.slides': 'Study Slides',
       'footer.copy': '© 2026 ISTQB CTFL v4.0.1 Exam Simulator. This is an independent study tool and is not affiliated with the ISTQB.',
-      'top.aria': 'Back to top',
-      'hero.apk': 'Download APK'
+      'top.aria': 'Back to top'
     },
     pt: {
       'nav.skip': 'Saltar para o conteúdo principal',
@@ -183,8 +182,7 @@ window.AppI18n = (function () {
       'footer.stats': 'Estatísticas',
       'footer.slides': 'Slides de Estudo',
       'footer.copy': '© 2026 Simulador de Exames ISTQB CTFL v4.0.1. Esta é uma ferramenta de estudo independente, sem afiliação ao ISTQB.',
-      'top.aria': 'Voltar ao topo',
-      'hero.apk': 'Descarregar APK'
+      'top.aria': 'Voltar ao topo'
     }
   };
 
