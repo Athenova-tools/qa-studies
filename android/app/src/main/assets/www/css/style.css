@@ -3482,6 +3482,10 @@ results-list__title {
     display: block !important;
   }
 
+  .results-item__preview {
+    display: none !important;
+  }
+
   .results-item__options {
     display: flex !important;
   }
@@ -3494,6 +3498,19 @@ results-list__title {
    ============================================================ */
 .header {
   top: var(--inset-top, 0px);
+  isolation: isolate;
+}
+
+/* Opaque band behind the status bar so scrolled content never shows
+   through above the header. */
+.header::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: var(--inset-top, 0px);
+  background-color: var(--color-surface);
 }
 
 body {

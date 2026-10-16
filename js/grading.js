@@ -461,6 +461,9 @@ const ExamGrading = (function () {
       list.querySelectorAll('.results-item__body').forEach(function (el) {
         el.style.display = expanded ? 'none' : 'block';
       });
+      list.querySelectorAll('.results-item__preview').forEach(function (el) {
+        el.style.display = expanded ? 'none' : '';
+      });
       list.querySelectorAll('.results-item__chevron').forEach(function (btn) {
         btn.textContent = expanded ? '\u25BC' : '\u25B2';
         btn.setAttribute('aria-expanded', expanded ? 'false' : 'true');
@@ -570,7 +573,11 @@ const ExamGrading = (function () {
 
       var fullQ = String(d.question || '');
       var previewText = fullQ.length > 90 ? fullQ.slice(0, 90).replace(/\s+\S*$/, '') + '...' : fullQ;
-      headMain.appendChild(createEl('div', 'results-item__preview', { text: previewText }));
+      /* Short preview lives only in the collapsed header — the expanded
+         body shows the full question, so it starts hidden (default: expanded). */
+      var previewEl = createEl('div', 'results-item__preview', { text: previewText });
+      previewEl.style.display = 'none';
+      headMain.appendChild(previewEl);
       header.appendChild(headMain);
 
       var bodyId = 'review-body-' + (++optionsPanelSeq);
@@ -592,6 +599,7 @@ const ExamGrading = (function () {
 
       function setExpanded(expanded) {
         body.style.display = expanded ? 'block' : 'none';
+        previewEl.style.display = expanded ? 'none' : '';
         chevron.textContent = expanded ? '▲' : '▼';
         chevron.title = expanded ? 'Collapse question' : 'Expand question';
         chevron.setAttribute('aria-expanded', expanded ? 'true' : 'false');

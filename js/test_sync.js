@@ -618,6 +618,9 @@ async function main() {
     const bodies = all.filter(e => e.className === 'results-item__body');
     assert.strictEqual(bodies.length, 1, 'corpo do cartão criado');
     assert.strictEqual(bodies[0].style.display, 'block', 'corpo visível por default (expand)');
+    const previews = all.filter(e => e.className === 'results-item__preview');
+    assert.strictEqual(previews.length, 1, 'preview curto no header');
+    assert.strictEqual(previews[0].style.display, 'none', 'preview escondido quando expandido');
     assert.strictEqual(chevrons[0]['aria-controls'], bodies[0].id, 'aria-controls liga ao corpo');
 
     const panels = all.filter(e => e.className === 'results-item__options');
@@ -659,10 +662,12 @@ async function main() {
     /* click no chevron colapsa / volta a expandir */
     chevrons[0].on_click({ stopPropagation: () => {} });
     assert.strictEqual(bodies[0].style.display, 'none', 'click colapsa o cartão');
+    assert.strictEqual(previews[0].style.display, '', 'preview mostra no collapse');
     assert.strictEqual(chevrons[0]['aria-expanded'], 'false', 'aria-expanded passa a false');
     assert.strictEqual(chevrons[0].textContent, '▼', 'ícone passa a ▼');
     chevrons[0].on_click({ stopPropagation: () => {} });
     assert.strictEqual(bodies[0].style.display, 'block', 'segundo click volta a expandir');
+    assert.strictEqual(previews[0].style.display, 'none', 'preview esconde no expand');
     assert.strictEqual(chevrons[0]['aria-expanded'], 'true', 'aria-expanded volta a true');
   });
 

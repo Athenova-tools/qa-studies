@@ -422,6 +422,22 @@ input, textarea, select {
   filter: brightness(1.12);
 }
 
+/* Header stacking: own context + opaque band behind the status bar
+   (inset only set by the Android app; 0px on web). */
+.header {
+  isolation: isolate;
+}
+
+.header::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: var(--inset-top, 0px);
+  background-color: var(--color-surface);
+}
+
 /* ----- Theme Toggle ----- */
 .theme-toggle {
   display: flex;
@@ -2657,6 +2673,10 @@ input, textarea, select {
 
   .results-item__body {
     display: block !important;
+  }
+
+  .results-item__preview {
+    display: none !important;
   }
 
   /* Every answer option is printed, even if the card is collapsed */
