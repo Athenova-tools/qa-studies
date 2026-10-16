@@ -13,7 +13,7 @@ window.AppI18n = (function () {
     en: {
       'nav.skip': 'Skip to main content',
       'nav.theme': 'Toggle dark mode',
-      'hero.subtitle': 'Prepare for the ISTQB Certified Tester Foundation Level certification with realistic practice exams, detailed explanations, study slides, and performance tracking — all offline, zero setup required.',
+      'hero.subtitle': 'Prepare for the ISTQB Certified Tester Foundation Level certification with realistic practice exams,<br>detailed explanations, study slides, and performance tracking — all offline, zero setup required.',
       'hero.androidPill': 'Also available as a native Android app',
       'hero.syncNote': 'Sync your progress: export your results to JSON on one platform and import them on the other — web and mobile always stay in sync.',
       'hero.start': 'Start Practicing',
@@ -103,7 +103,7 @@ window.AppI18n = (function () {
     pt: {
       'nav.skip': 'Saltar para o conteúdo principal',
       'nav.theme': 'Alternar modo escuro',
-      'hero.subtitle': 'Prepara-te para a certificação ISTQB Certified Tester Foundation Level com exames práticos realistas, explicações detalhadas, slides de estudo e acompanhamento de desempenho — tudo offline, sem configuração.',
+      'hero.subtitle': 'Prepara-te para a certificação ISTQB Certified Tester Foundation Level com exames práticos realistas,<br>explicações detalhadas, slides de estudo e acompanhamento de desempenho — tudo offline, sem configuração.',
       'hero.androidPill': 'Também disponível como app nativa Android',
       'hero.syncNote': 'Sincroniza o teu progresso: exporta os teus resultados para JSON numa plataforma e importa-os na outra — web e mobile sempre sincronizados.',
       'hero.start': 'Começar a Praticar',
@@ -205,6 +205,11 @@ window.AppI18n = (function () {
     document.querySelectorAll('[data-i18n]').forEach(function (el) {
       var key = el.getAttribute('data-i18n');
       if (key && dict[key] !== undefined) el.textContent = dict[key];
+    });
+    /* HTML content (own trusted strings only — supports <br> breaks) */
+    document.querySelectorAll('[data-i18n-html]').forEach(function (el) {
+      var key = el.getAttribute('data-i18n-html');
+      if (key && dict[key] !== undefined) el.innerHTML = dict[key];
     });
     document.querySelectorAll('[data-i18n-aria-label]').forEach(function (el) {
       var key = el.getAttribute('data-i18n-aria-label');
