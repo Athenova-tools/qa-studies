@@ -506,7 +506,7 @@ input, textarea, select {
 
 /* ----- Hero Section ----- */
 .hero {
-  padding: calc(var(--header-height) + var(--space-3xl)) 0 var(--space-3xl);
+  padding: calc(var(--header-height) + var(--space-3xl)) 0 var(--space-xl);
   text-align: center;
   background: linear-gradient(180deg, var(--color-primary-light) 0%, var(--color-bg) 100%);
   position: relative;
@@ -603,8 +603,8 @@ input, textarea, select {
   flex-wrap: wrap;
   justify-content: center;
   gap: var(--space-xl);
-  margin-top: var(--space-2xl);
-  padding-top: var(--space-xl);
+  margin-top: var(--space-md);
+  padding-top: var(--space-md);
   border-top: 1px solid var(--color-border);
 }
 
@@ -627,12 +627,12 @@ input, textarea, select {
 
 /* ----- Section ----- */
 .section {
-  padding: var(--space-3xl) 0;
+  padding: var(--space-xl) 0;
 }
 
 .section__header {
   text-align: center;
-  margin-bottom: var(--space-2xl);
+  margin-bottom: var(--space-lg);
 }
 
 .section__title {
@@ -2417,7 +2417,7 @@ input, textarea, select {
   }
 
   .hero {
-    padding: calc(var(--header-height) + var(--space-2xl)) 0 var(--space-2xl);
+    padding: calc(var(--header-height) + var(--space-2xl)) 0 var(--space-lg);
   }
 
   .hero__actions {
@@ -2441,7 +2441,7 @@ input, textarea, select {
   }
 
   .section {
-    padding: var(--space-2xl) 0;
+    padding: var(--space-lg) 0;
   }
 
   .features {
