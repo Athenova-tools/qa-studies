@@ -1315,7 +1315,9 @@ input, textarea, select {
 
 /* ----- Results Page ----- */
 .results {
-  padding: var(--space-2xl) 0;
+  /* Top clears the fixed header so the first content (page title)
+     is never hidden behind it. */
+  padding: calc(var(--header-height) + var(--space-lg)) 0 var(--space-2xl);
 }
 
 .results__card {
@@ -1681,7 +1683,7 @@ input, textarea, select {
 .slides-container {
   max-width: 800px;
   margin: 0 auto;
-  padding: var(--space-xl) 0;
+  padding: calc(var(--header-height) + var(--space-md)) 0 var(--space-xl);
 }
 
 .slides-header {

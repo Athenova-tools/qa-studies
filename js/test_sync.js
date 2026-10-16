@@ -744,6 +744,29 @@ async function main() {
     assert.strictEqual(called, 1, 'callback síncrono quando questionSets existe');
   });
 
+  /* ---- T19: título "Question Review" acima do cartão de score ---- */
+  await ok('Título "Question Review" acima do resumo (não escondido)', () => {
+    const results = {
+      score: 1, total: 40, percentage: 3, passed: false,
+      correctCount: 1, incorrectCount: 2, unansweredCount: 37,
+      timeSpent: '00:12',
+      details: [{
+        index: 0, question: 'Q?',
+        options: { A: '1', B: '2', C: '3', D: '4' },
+        selectedAnswer: null, correctAnswer: 'D', isCorrect: false,
+        flagged: false, note: '',
+        explanation: 'x', optionExplanations: {},
+        chapter: '', section: '', subsection: '',
+        learningObjective: '', kLevel: '', keywords: [],
+        examTip: '', memoryAid: '',
+      }],
+    };
+    const el = EG.generateResultsHTML(results);
+    assert.strictEqual(el.children[0].className, 'results-list', 'primeiro bloco é a moldura do título');
+    assert.strictEqual(el.children[0].children[0].textContent, 'Question Review', 'label "Question Review" primeiro');
+    assert(el.children[1].className.indexOf('results__card') === 0, 'cartão de score depois do título');
+  });
+
   console.log('');
   console.log(process.exitCode ? 'RESULT: FAILURES' : 'RESULT: ALL ' + passed + ' TESTS PASSED');
 }

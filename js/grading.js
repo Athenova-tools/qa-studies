@@ -340,6 +340,12 @@ const ExamGrading = (function () {
   function generateResultsHTML(results) {
     var container = createEl('div', 'results');
 
+    /* ---- Page title first: right after the site header, above the
+       summary card (score / percentage / time) ---- */
+    var titleWrap = createEl('div', 'results-list');
+    titleWrap.appendChild(createEl('div', 'results-list__title', { text: 'Question Review' }));
+    container.appendChild(titleWrap);
+
     /* ---- Summary Card (single line) ---- */
     var card = createEl('div', 'results__card');
 
@@ -416,10 +422,8 @@ const ExamGrading = (function () {
       container.appendChild(planCard);
     }
 
-    /* ---- Question Review List ---- */
+    /* ---- Question Review List (title already shown above the summary) ---- */
     var list = createEl('div', 'results-list');
-    var listTitle = createEl('div', 'results-list__title', { text: 'Question Review' });
-    list.appendChild(listTitle);
 
     /* Filter buttons */
     var filterBar = createEl('div', 'results-filter');

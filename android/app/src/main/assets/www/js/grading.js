@@ -406,11 +406,16 @@ const ExamGrading = (function () {
 
     card.appendChild(grid);
 
-    /* ---- Question Review List ---- */
+    /* ---- Page title first: right after the site header, above the
+       summary card (score / percentage / time) ---- */
+    var titleWrap = createEl('div', 'results-list');
+    titleWrap.appendChild(createEl('div', 'results-list__title', { text: 'Question Review' }));
+    container.appendChild(titleWrap);
+
+    container.appendChild(card);
+
+    /* ---- Question Review List (title already shown above the summary) ---- */
     var list = createEl('div', 'results-list');
-    var listTitle = createEl('div', 'results-list__title', { text: 'Question Review' });
-    list.appendChild(listTitle);
-    list.appendChild(card);
 
     /* ---- Subsections to Study (resumo do que rever) ---- */
     var studyPlan = buildStudyPlan(results);
@@ -444,7 +449,7 @@ const ExamGrading = (function () {
         planGrid.appendChild(row);
       });
       planCard.appendChild(planGrid);
-      list.appendChild(planCard);
+      container.appendChild(planCard);
     }
 
     /* ---- Question Review filter bar ---- */
