@@ -540,7 +540,7 @@ input, textarea, select {
 .hero__content {
   position: relative;
   z-index: 1;
-  max-width: 720px;
+  max-width: 1000px;
   margin: 0 auto;
 }
 
@@ -578,10 +578,9 @@ input, textarea, select {
 .hero__subtitle {
   font-size: clamp(1rem, 2vw, 1.125rem);
   color: var(--color-text-secondary);
-  max-width: 720px;
+  max-width: 1000px;
   margin: 0 auto var(--space-xl);
   line-height: 1.7;
-  text-wrap: balance;
 }
 
 .hero__actions {
