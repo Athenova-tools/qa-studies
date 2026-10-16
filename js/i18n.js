@@ -13,7 +13,8 @@ window.AppI18n = (function () {
     en: {
       'nav.skip': 'Skip to main content',
       'nav.theme': 'Toggle dark mode',
-      'hero.subtitle': 'Prepare for the ISTQB Certified Tester Foundation Level certification with realistic practice exams, detailed explanations, study slides, and performance tracking — all offline, zero setup required.',
+      'hero.subtitle': 'Prepare for the ISTQB Certified Tester Foundation Level certification with realistic practice exams, detailed explanations, study slides, and performance tracking — all offline, zero setup required. Also available as a native Android app, with your progress kept in sync across both platforms.',
+      'hero.syncNote': 'Note: you can consolidate every completed exam by exporting your results to JSON on one platform and importing them on the other — web and mobile always stay in sync.',
       'hero.start': 'Start Practicing',
       'hero.stats': 'View Statistics',
       'hero.study': 'Study Materials',
@@ -101,7 +102,8 @@ window.AppI18n = (function () {
     pt: {
       'nav.skip': 'Saltar para o conteúdo principal',
       'nav.theme': 'Alternar modo escuro',
-      'hero.subtitle': 'Prepara-te para a certificação ISTQB Certified Tester Foundation Level com exames práticos realistas, explicações detalhadas, slides de estudo e acompanhamento de desempenho — tudo offline, sem configuração.',
+      'hero.subtitle': 'Prepara-te para a certificação ISTQB Certified Tester Foundation Level com exames práticos realistas, explicações detalhadas, slides de estudo e acompanhamento de desempenho — tudo offline, sem configuração. Também disponível como app nativa Android, com o teu progresso sincronizado entre ambas as plataformas.',
+      'hero.syncNote': 'Nota: podes consolidar todos os exames realizados exportando os teus resultados para JSON numa plataforma e importando-os na outra — web e mobile sempre sincronizados.',
       'hero.start': 'Começar a Praticar',
       'hero.stats': 'Ver Estatísticas',
       'hero.study': 'Materiais de Estudo',

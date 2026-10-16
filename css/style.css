@@ -445,6 +445,14 @@ input, textarea, select {
   color: var(--color-success);
 }
 
+.hero__note {
+  font-size: 0.8125rem;
+  color: var(--color-text-muted);
+  max-width: 620px;
+  margin: var(--space-md) auto 0;
+  line-height: 1.6;
+}
+
 /* ----- Theme Toggle ----- */
 .theme-toggle {
   display: flex;
