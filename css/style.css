@@ -545,9 +545,10 @@ input, textarea, select {
 .hero__subtitle {
   font-size: clamp(1rem, 2vw, 1.125rem);
   color: var(--color-text-secondary);
-  max-width: 600px;
+  max-width: 720px;
   margin: 0 auto var(--space-xl);
   line-height: 1.7;
+  text-wrap: balance;
 }
 
 .hero__actions {
@@ -556,6 +557,13 @@ input, textarea, select {
   align-items: center;
   justify-content: center;
   gap: var(--space-md);
+}
+
+/* Hero buttons always on a single row (desktop: no wrap) */
+@media (min-width: 769px) {
+  .hero__actions {
+    flex-wrap: nowrap;
+  }
 }
 
 .hero__stats {
@@ -607,6 +615,15 @@ input, textarea, select {
   color: var(--color-text-secondary);
   max-width: 600px;
   margin: 0 auto;
+  text-wrap: balance;
+}
+
+/* Section subtitles on a single line on wide screens */
+@media (min-width: 1200px) {
+  .section__subtitle {
+    max-width: none;
+    white-space: nowrap;
+  }
 }
 
 /* ----- Feature Cards ----- */
@@ -2372,12 +2389,19 @@ input, textarea, select {
   }
 
   .hero__actions {
-    flex-direction: column;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    overflow-x: auto;
     width: 100%;
+    padding-bottom: var(--space-xs);
   }
 
   .hero__actions .btn {
-    width: 100%;
+    width: auto;
+    flex: 0 0 auto;
+    padding: 0.625rem 1rem;
+    font-size: 0.875rem;
   }
 
   .hero__stats {
