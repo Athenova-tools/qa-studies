@@ -1428,14 +1428,14 @@ input, textarea, select {
 .results {
   /* Top clears the fixed header so the first content (page title)
      is never hidden behind it. */
-  padding: calc(var(--header-height) + var(--space-lg)) 0 var(--space-lg);
+  padding: calc(var(--header-height) + var(--space-sm)) 0 var(--space-lg);
 }
 
 .results__card {
   background-color: var(--color-surface);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);
-  padding: var(--space-md);
+  padding: var(--space-sm);
   max-width: 900px;
   margin: 0 auto var(--space-xs);
 }
@@ -1447,9 +1447,8 @@ input, textarea, select {
   gap: var(--space-xs);
   align-items: start;
   justify-content: center;
-  margin: var(--space-lg) auto var(--space-xs);
-  padding-top: var(--space-md);
-  border-top: 1px solid var(--color-border);
+  margin: 0 auto;
+  padding-top: var(--space-xs);
 }
 
 .results__grid-item {
@@ -1487,8 +1486,8 @@ input, textarea, select {
   text-transform: uppercase;
   letter-spacing: 0.05em;
   white-space: nowrap;
-  margin-top: var(--space-md);
-  margin-bottom: var(--space-xs);
+  margin-top: var(--space-xs);
+  margin-bottom: 0;
   grid-column: 1 / 4;
   width: 100%;
 }
@@ -1691,9 +1690,9 @@ input, textarea, select {
   font-size: 1.25rem;
   font-weight: 700;
   color: var(--color-text);
-  margin-bottom: var(--space-lg);
-  margin-top: var(--space-xs);
-  padding-bottom: var(--space-xs);
+  margin-bottom: var(--space-sm);
+  margin-top: 0;
+  padding-bottom: 0;
   border-bottom: 1px solid var(--color-border);
 }
 
