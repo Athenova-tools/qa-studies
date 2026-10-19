@@ -10,7 +10,7 @@ android {
         applicationId = "com.istqb.ctfl"
         minSdk = 24
         targetSdk = 35
-        versionCode = 2
+        versionCode = 3
         versionName = "4.0.1"
     }
 
