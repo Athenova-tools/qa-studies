@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="ISTQB CTFL v4.0.1 Exam Simulator - Practice exams, study slides, and performance statistics for the Certified Tester Foundation Level certification.">
   <title>ISTQB CTFL v4.0.1 Exam Simulator</title>
-  <link rel="stylesheet" href="css/style.css?v=6">
+  <link rel="stylesheet" href="css/style.css?v=7">
 </head>
 <body>
   <a href="#main-content" class="sr-only" data-i18n="nav.skip">Skip to main content</a>
@@ -41,7 +41,10 @@
           Prepare for the ISTQB Certified Tester Foundation Level certification with realistic practice exams,<br>
           detailed explanations, study slides, and performance tracking &mdash; all offline, zero setup required.
         </p>
-        <div class="hero__pill"><span class="hero__pill-icon" aria-hidden="true"><svg viewBox="0 -960 960 960" width="16" height="16" fill="currentColor"><path d="M40-240q9-107 65.5-197T256-580l-74-128q-6-9-3-19t13-15q8-5 18-2t16 12l74 128q86-36 180-36t180 36l74-128q6-9 16-12t18 2q10 5 13 15t-3 19l-74 128q94 53 150.5 143T920-240H40Zm240-110q21 0 35.5-14.5T330-400q0-21-14.5-35.5T280-450q-21 0-35.5 14.5T230-400q0 21 14.5 35.5T280-350Zm400 0q21 0 35.5-14.5T730-400q0-21-14.5-35.5T680-450q-21 0-35.5 14.5T630-400q0 21 14.5 35.5T680-350Z"/></svg></span><span data-i18n="hero.androidPill">Also available as a native Android app</span></div>
+        <div class="hero__pills">
+          <div class="hero__pill"><span class="hero__pill-icon" aria-hidden="true"><svg viewBox="0 -960 960 960" width="16" height="16" fill="currentColor"><path d="M40-240q9-107 65.5-197T256-580l-74-128q-6-9-3-19t13-15q8-5 18-2t16 12l74 128q86-36 180-36t180 36l74-128q6-9 16-12t18 2q10 5 13 15t-3 19l-74 128q94 53 150.5 143T920-240H40Zm240-110q21 0 35.5-14.5T330-400q0-21-14.5-35.5T280-450q-21 0-35.5 14.5T230-400q0 21 14.5 35.5T280-350Zm400 0q21 0 35.5-14.5T730-400q0-21-14.5-35.5T680-450q-21 0-35.5 14.5T630-400q0 21 14.5 35.5T680-350Z"/></svg></span><span data-i18n="hero.androidPill">Also available as a native Android app</span></div>
+          <button type="button" class="hero__donate" id="donate-open" aria-haspopup="dialog" aria-controls="donate-modal" data-i18n-aria-label="donate.openAria" data-i18n-title="donate.openAria" aria-label="Open donation options" title="Open donation options"><span class="hero__donate-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></span><span data-i18n="hero.donatePill">Donate</span></button>
+        </div>
         <div class="hero__actions">
           <a href="#exam-cards" class="btn btn--primary btn--lg" data-i18n="hero.start">Start Practicing</a>
           <a href="#stats-dashboard" class="btn btn--secondary btn--lg" data-i18n="hero.stats">View Statistics</a>
@@ -332,10 +335,35 @@
 
   <button id="back-to-top" class="back-to-top" type="button" aria-label="Back to top" title="Back to top" data-i18n-aria-label="top.aria" data-i18n-title="top.aria">&uarr;</button>
 
+  <div class="donate-modal" id="donate-modal" role="dialog" aria-modal="true" aria-labelledby="donate-title" hidden>
+    <div class="donate-modal__backdrop" data-donate-close></div>
+    <div class="donate-modal__card" tabindex="-1">
+      <button type="button" class="donate-modal__close" data-donate-close aria-label="Close" title="Close" data-i18n-aria-label="donate.closeAria" data-i18n-title="donate.closeAria">&times;</button>
+      <div class="donate-modal__logo" aria-hidden="true">P</div>
+      <h2 class="donate-modal__title" id="donate-title" data-i18n="donate.title">Support the Project</h2>
+      <p class="donate-modal__sub" data-i18n="donate.sub">Free to use, funded by donations. Payments run entirely on PayPal &mdash; we never see card details.</p>
+      <div class="donate-modal__chips" role="radiogroup" aria-label="Donation amounts" data-i18n-aria-label="donate.amountsAria" id="dm-chips">
+        <button type="button" class="donate-chip" role="radio" aria-checked="true" data-a="5">&euro;5</button>
+        <button type="button" class="donate-chip" role="radio" aria-checked="false" data-a="10">&euro;10</button>
+        <button type="button" class="donate-chip" role="radio" aria-checked="false" data-a="25">&euro;25</button>
+        <button type="button" class="donate-chip" role="radio" aria-checked="false" data-a="50">&euro;50</button>
+        <button type="button" class="donate-chip" role="radio" aria-checked="false" data-a="custom" data-i18n="donate.customChip">Custom</button>
+      </div>
+      <div class="donate-modal__custom" id="dm-custom-row" hidden>
+        <label for="dm-custom" data-i18n="donate.customLabel">Your amount (&euro;)</label>
+        <input class="donate-modal__amt" id="dm-custom" type="text" inputmode="decimal" autocomplete="off" placeholder="e.g. 7">
+      </div>
+      <p class="donate-modal__summary" aria-live="polite"><span data-i18n="donate.giving">You&rsquo;re giving</span> <strong id="dm-amount">&euro;5</strong> <span data-i18n="donate.via">via PayPal</span></p>
+      <p class="donate-modal__err" role="alert" id="dm-err" hidden></p>
+      <a class="donate-modal__go" id="dm-go" href="https://paypal.me/Cmmoreira/5EUR" target="_blank" rel="noopener" data-i18n="donate.go">Donate with PayPal</a>
+      <p class="donate-modal__fine" data-i18n="donate.fine">Payments are processed by PayPal. We never see or store your card details.</p>
+    </div>
+  </div>
+
   <script src="js/grading.js?v=2"></script>
   <script src="js/statistics.js?v=2"></script>
   <script src="js/engine.js?v=2"></script>
-  <script src="js/i18n.js?v=3"></script>
+  <script src="js/i18n.js?v=4"></script>
   <script>
     (function () {
       if (typeof AppI18n !== 'undefined' && AppI18n.init) AppI18n.init();
@@ -351,6 +379,137 @@
           window.scrollTo({ top: 0, behavior: 'smooth' });
         });
       }
+    })();
+  </script>
+  <script>
+    (function () {
+      /* ----- Donation modal (web only) — PayPal.me link ----- */
+      var PAYPAL_ME = 'https://paypal.me/Cmmoreira';
+      var MIN_AMOUNT = 1;
+      var modal = document.getElementById('donate-modal');
+      if (!modal) return;
+      var openBtn = document.getElementById('donate-open');
+      var chips = document.getElementById('dm-chips');
+      var customRow = document.getElementById('dm-custom-row');
+      var customInput = document.getElementById('dm-custom');
+      var amountEl = document.getElementById('dm-amount');
+      var errEl = document.getElementById('dm-err');
+      var goEl = document.getElementById('dm-go');
+      var mode = 'preset';
+      var amount = 5;
+      var lastFocus = null;
+
+      function t(key) {
+        if (typeof AppI18n === 'undefined' || !AppI18n.DICT) return '';
+        var dict = AppI18n.DICT[AppI18n.getLang()] || AppI18n.DICT.en;
+        return dict[key] != null ? dict[key] : (AppI18n.DICT.en[key] || '');
+      }
+
+      function parse(raw) {
+        var s = String(raw || '').trim().replace(',', '.');
+        if (!/^\d+(\.\d{1,2})?$/.test(s)) return null;
+        return parseFloat(s);
+      }
+
+      function validate() {
+        if (mode === 'preset') return amount;
+        var raw = customInput.value.trim();
+        if (raw === '') return { err: 'donate.errEmpty' };
+        var v = parse(raw);
+        if (v === null) return { err: 'donate.errInvalid' };
+        if (v <= 0) return { err: 'donate.errZero' };
+        if (v < MIN_AMOUNT) return { err: 'donate.errMin' };
+        return v;
+      }
+
+      function fmt(v) {
+        return v % 1 === 0 ? String(v) : v.toFixed(2);
+      }
+
+      function render() {
+        var res = validate();
+        if (typeof res === 'number') {
+          errEl.hidden = true;
+          amountEl.textContent = '€' + fmt(res);
+          goEl.href = PAYPAL_ME + '/' + fmt(res) + 'EUR';
+          goEl.setAttribute('aria-disabled', 'false');
+          goEl.classList.remove('donate-modal__go--off');
+        } else {
+          errEl.hidden = false;
+          errEl.textContent = t(res.err);
+          amountEl.textContent = '—';
+          goEl.setAttribute('aria-disabled', 'true');
+          goEl.classList.add('donate-modal__go--off');
+        }
+      }
+
+      chips.addEventListener('click', function (e) {
+        var b = e.target.closest('.donate-chip');
+        if (!b) return;
+        chips.querySelectorAll('.donate-chip').forEach(function (c) {
+          c.setAttribute('aria-checked', String(c === b));
+        });
+        if (b.dataset.a === 'custom') {
+          mode = 'custom';
+          customRow.hidden = false;
+          customInput.focus();
+        } else {
+          mode = 'preset';
+          amount = parseFloat(b.dataset.a);
+          customRow.hidden = true;
+        }
+        render();
+      });
+      customInput.addEventListener('input', render);
+
+      goEl.addEventListener('click', function (e) {
+        if (goEl.getAttribute('aria-disabled') === 'true') {
+          e.preventDefault();
+          render();
+          if (mode === 'custom') customInput.focus();
+        }
+      });
+
+      function open() {
+        lastFocus = document.activeElement;
+        modal.hidden = false;
+        document.body.style.overflow = 'hidden';
+        modal.querySelector('.donate-modal__card').focus();
+      }
+
+      function close() {
+        modal.hidden = true;
+        document.body.style.overflow = '';
+        if (lastFocus && lastFocus.focus) lastFocus.focus();
+      }
+
+      openBtn.addEventListener('click', open);
+      modal.querySelectorAll('[data-donate-close]').forEach(function (el) {
+        el.addEventListener('click', close);
+      });
+      document.addEventListener('keydown', function (e) {
+        if (modal.hidden) return;
+        if (e.key === 'Escape') {
+          close();
+        } else if (e.key === 'Tab') {
+          var focusables = modal.querySelectorAll('button, [href], input, [tabindex]:not([tabindex="-1"])');
+          var list = Array.prototype.filter.call(focusables, function (el) {
+            return !el.disabled && el.offsetParent !== null;
+          });
+          if (!list.length) return;
+          var first = list[0];
+          var last = list[list.length - 1];
+          if (e.shiftKey && (document.activeElement === first || document.activeElement.classList.contains('donate-modal__card'))) {
+            e.preventDefault();
+            last.focus();
+          } else if (!e.shiftKey && document.activeElement === last) {
+            e.preventDefault();
+            first.focus();
+          }
+        }
+      });
+
+      render();
     })();
   </script>
   <script>
