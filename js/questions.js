@@ -13540,7 +13540,7 @@ window.questionSets = {
                 "objectives"
             ],
             "examTip": "ASTQB official sample — Identify typical test objectives",
-            "memoryAid": ""
+            "memoryAid": "Early test basis verification = Evaluating work products (static testing objective)"
         },
         {
             "id": "Q1002",
@@ -13577,7 +13577,7 @@ window.questionSets = {
                 "whole"
             ],
             "examTip": "ASTQB official sample — Recall the advantages of the whole team approach",
-            "memoryAid": ""
+            "memoryAid": "Whole Team = everyone uses skills regardless of role for team goals"
         },
         {
             "id": "Q1003",
@@ -13614,7 +13614,7 @@ window.questionSets = {
                 "root"
             ],
             "examTip": "ASTQB official sample — Distinguish between root cause, error, defect, and failure",
-            "memoryAid": ""
+            "memoryAid": "Error (human mistake) may introduce a defect (fault); a defect may cause a failure when executed. A cadeia não é inevitável em todos os casos."
         },
         {
             "id": "Q1004",
@@ -13651,7 +13651,7 @@ window.questionSets = {
                 "principles"
             ],
             "examTip": "ASTQB official sample — Explain the seven testing principles",
-            "memoryAid": ""
+            "memoryAid": "Tests wear out: repeated tests may become less effective at finding new defects; periodically review and vary tests."
         },
         {
             "id": "Q1005",
@@ -13688,7 +13688,7 @@ window.questionSets = {
                 "activities"
             ],
             "examTip": "ASTQB official sample — Explain the different test activities and related tasks",
-            "memoryAid": ""
+            "memoryAid": "Test control = ongoing throughout ALL test activities, not just one phase"
         },
         {
             "id": "Q1006",
@@ -13725,7 +13725,7 @@ window.questionSets = {
                 "activities"
             ],
             "examTip": "ASTQB official sample — Explain the different test activities and related tasks",
-            "memoryAid": ""
+            "memoryAid": "Test monitoring = collecting and analyzing progress data; Test control = taking actions to achieve test objectives."
         },
         {
             "id": "Q1007",
@@ -13762,7 +13762,7 @@ window.questionSets = {
                 "context"
             ],
             "examTip": "ASTQB official sample — Explain the impact of context on the test process",
-            "memoryAid": ""
+            "memoryAid": "Time pressure → use lightweight techniques: exploratory testing, checklist-based testing"
         },
         {
             "id": "Q1008",
@@ -13799,7 +13799,7 @@ window.questionSets = {
                 "drawbacks"
             ],
             "examTip": "ASTQB official sample — Distinguish the benefits and drawbacks of independence of testing",
-            "memoryAid": ""
+            "memoryAid": "Author bias: developers testing own code may miss defects due to confirmation bias"
         },
         {
             "id": "Q1009",
@@ -13836,7 +13836,7 @@ window.questionSets = {
                 "practices"
             ],
             "examTip": "ASTQB official sample — Recall good testing practices that apply to all software development lifecycles",
-            "memoryAid": ""
+            "memoryAid": "Good practice: start testing EARLY in SDLC (static testing, reviews, test design)"
         },
         {
             "id": "Q1010",
@@ -13873,7 +13873,7 @@ window.questionSets = {
                 "test-first"
             ],
             "examTip": "ASTQB official sample — Recall the examples of test-first approaches to development",
-            "memoryAid": ""
+            "memoryAid": "TDD: write a failing test, implement code to pass it, then refactor (Red-Green-Refactor)."
         },
         {
             "id": "Q1011",
@@ -13910,7 +13910,7 @@ window.questionSets = {
                 "levels"
             ],
             "examTip": "ASTQB official sample — Distinguish the different test levels",
-            "memoryAid": ""
+            "memoryAid": "Non-functional tests can be executed at ALL test levels (unit, integration, system, acceptance)"
         },
         {
             "id": "Q1012",
@@ -13947,7 +13947,7 @@ window.questionSets = {
                 "triggers"
             ],
             "examTip": "ASTQB official sample — Summarize maintenance testing and its triggers",
-            "memoryAid": ""
+            "memoryAid": "Decommissioning may require testing data migration or archiving, as well as verifying retirement-related changes."
         },
         {
             "id": "Q1013",
@@ -13984,7 +13984,7 @@ window.questionSets = {
                 "chosen"
             ],
             "examTip": "ASTQB official sample — Explain the impact of the chosen software development lifecycle on testing",
-            "memoryAid": ""
+            "memoryAid": "Iterative lifecycle: testing activities occur within each iteration, not just at the end"
         },
         {
             "id": "Q1014",
@@ -14021,7 +14021,7 @@ window.questionSets = {
                 "example"
             ],
             "examTip": "ASTQB official sample — EExplain shift-left",
-            "memoryAid": ""
+            "memoryAid": "Shift-left moves testing activities earlier in the SDLC; CI/CD pipelines can automate checks when changes are integrated or delivered."
         },
         {
             "id": "Q1015",
@@ -14058,7 +14058,7 @@ window.questionSets = {
                 "assigned"
             ],
             "examTip": "ASTQB official sample — Recall which responsibilities are assigned to the principal roles when performing reviews",
-            "memoryAid": ""
+            "memoryAid": "Formal review roles: Scribe (recorder) documents all open issues and decisions"
         },
         {
             "id": "Q1016",
@@ -14095,7 +14095,7 @@ window.questionSets = {
                 "early"
             ],
             "examTip": "ASTQB official sample — Identify the benefits of early and frequent stakeholder feedback",
-            "memoryAid": ""
+            "memoryAid": "Early stakeholder feedback = reduces rework cost, ensures product meets real needs"
         },
         {
             "id": "Q1017",
@@ -14132,7 +14132,7 @@ window.questionSets = {
                 "static"
             ],
             "examTip": "ASTQB official sample — Explain the value of static testing",
-            "memoryAid": ""
+            "memoryAid": "Static analysis: finds defects early without executing code; cheaper than dynamic testing"
         },
         {
             "id": "Q1018",
@@ -14169,7 +14169,7 @@ window.questionSets = {
                 "review"
             ],
             "examTip": "ASTQB official sample — Summarize the activities of the review process",
-            "memoryAid": ""
+            "memoryAid": "Formal review: exit criteria defined during PLANNING phase, before individual review"
         },
         {
             "id": "Q1019",
@@ -14206,7 +14206,7 @@ window.questionSets = {
                 "white-box"
             ],
             "examTip": "ASTQB official sample — Distinguish black-box, white-box, and experience-based test techniques",
-            "memoryAid": ""
+            "memoryAid": "Black-box test techniques derive tests from the test basis, without requiring knowledge of internal code structure."
         },
         {
             "id": "Q1020",
@@ -14243,7 +14243,7 @@ window.questionSets = {
                 "module"
             ],
             "examTip": "ASTQB official sample — Explain branch testing",
-            "memoryAid": ""
+            "memoryAid": "Branch coverage = (number of executed branches / total branches) × 100%"
         },
         {
             "id": "Q1021",
@@ -14280,7 +14280,7 @@ window.questionSets = {
                 "section"
             ],
             "examTip": "ASTQB official sample — Explain branch testing",
-            "memoryAid": ""
+            "memoryAid": "For a simple IF with one condition and two outcomes, 100% branch coverage requires exercising both the true and false branches."
         },
         {
             "id": "Q1022",
@@ -14317,7 +14317,7 @@ window.questionSets = {
                 "good"
             ],
             "examTip": "ASTQB official sample — Explain exploratory testing",
-            "memoryAid": ""
+            "memoryAid": "Experience-based testing: useful when specifications are missing or incomplete; leverages tester intuition"
         },
         {
             "id": "Q1023",
@@ -14354,7 +14354,7 @@ window.questionSets = {
                 "guessing"
             ],
             "examTip": "ASTQB official sample — Explain error guessing",
-            "memoryAid": ""
+            "memoryAid": "Error guessing: technique based on tester experience to anticipate likely defects in specific areas"
         },
         {
             "id": "Q1024",
@@ -14391,7 +14391,7 @@ window.questionSets = {
                 "user"
             ],
             "examTip": "ASTQB official sample — Explain how to write user stories in collaboration with developers and business representatives",
-            "memoryAid": ""
+            "memoryAid": "3 C's: Card (user story), Conversation (discussion), Confirmation (acceptance criteria/tests)"
         },
         {
             "id": "Q1025",
@@ -14428,7 +14428,7 @@ window.questionSets = {
                 "derive"
             ],
             "examTip": "ASTQB official sample — Use equivalence partitioning to derive test cases",
-            "memoryAid": ""
+            "memoryAid": "Equivalence partitioning: divide data into classes where behavior should be equivalent; test one per partition"
         },
         {
             "id": "Q1026",
@@ -14465,7 +14465,7 @@ window.questionSets = {
                 "analysis"
             ],
             "examTip": "ASTQB official sample — Use boundary value analysis to derive test cases",
-            "memoryAid": ""
+            "memoryAid": "Boundary Value Analysis: test values at edges of partitions (min, min+, max-, max, nominal)"
         },
         {
             "id": "Q1027",
@@ -14502,7 +14502,7 @@ window.questionSets = {
                 "derive"
             ],
             "examTip": "ASTQB official sample — Use decision table testing to derive test cases",
-            "memoryAid": ""
+            "memoryAid": "Decision table: test combinations of conditions and their associated results/actions"
         },
         {
             "id": "Q1028",
@@ -14539,7 +14539,7 @@ window.questionSets = {
                 "derive"
             ],
             "examTip": "ASTQB official sample — Use state transition testing to derive test cases",
-            "memoryAid": ""
+            "memoryAid": "State transition testing: test valid/invalid transitions between system states (e.g., login states)"
         },
         {
             "id": "Q1029",
@@ -14576,7 +14576,7 @@ window.questionSets = {
                 "development"
             ],
             "examTip": "ASTQB official sample — Use acceptance test-driven development (ATDD) to derive test cases",
-            "memoryAid": ""
+            "memoryAid": "ATDD: Acceptance Test-Driven Development; tests written collaboratively before coding, guide development"
         },
         {
             "id": "Q1030",
@@ -14613,7 +14613,7 @@ window.questionSets = {
                 "used"
             ],
             "examTip": "ASTQB official sample — Recall metrics used for testing",
-            "memoryAid": ""
+            "memoryAid": "Test execution metrics (pass/fail counts) gathered during Test Implementation & Execution phase"
         },
         {
             "id": "Q1031",
@@ -14650,7 +14650,7 @@ window.questionSets = {
                 "content"
             ],
             "examTip": "ASTQB official sample — Exemplify the purpose and content of a test plan",
-            "memoryAid": ""
+            "memoryAid": "Test plan: ensures consistent approach; defines objectives, scope, resources, schedule for testing"
         },
         {
             "id": "Q1032",
@@ -14687,7 +14687,7 @@ window.questionSets = {
                 "their"
             ],
             "examTip": "ASTQB official sample — Summarize the testing quadrants and their relationships with test levels and test types",
-            "memoryAid": ""
+            "memoryAid": "Testing Quadrants: Q1 = Technology-facing, supports the team; includes component and component integration tests."
         },
         {
             "id": "Q1033",
@@ -14724,7 +14724,7 @@ window.questionSets = {
                 "risks"
             ],
             "examTip": "ASTQB official sample — Distinguish between project risks and product risks",
-            "memoryAid": ""
+            "memoryAid": "Project risk = threatens project success (schedule, budget, resources); Product risk = threatens product quality"
         },
         {
             "id": "Q1034",
@@ -14761,7 +14761,7 @@ window.questionSets = {
                 "content"
             ],
             "examTip": "ASTQB official sample — Summarize the purposes, content, and audiences for test reports",
-            "memoryAid": ""
+            "memoryAid": "Test Summary Report: explains variances from test plan (what was planned vs actually done)"
         },
         {
             "id": "Q1035",
@@ -14798,7 +14798,7 @@ window.questionSets = {
                 "management"
             ],
             "examTip": "ASTQB official sample — Summarize how configuration management supports testing",
-            "memoryAid": ""
+            "memoryAid": "Configuration Management identifies, controls and tracks configuration items and their versions to support reproducibility and traceability."
         },
         {
             "id": "Q1036",
@@ -14835,7 +14835,7 @@ window.questionSets = {
                 "calculate"
             ],
             "examTip": "ASTQB official sample — Use estimation techniques to calculate the required test effort",
-            "memoryAid": ""
+            "memoryAid": "Planning Poker: team members estimate effort independently, often using Fibonacci-like scales, then discuss differences and re-estimate."
         },
         {
             "id": "Q1037",
@@ -14872,7 +14872,7 @@ window.questionSets = {
                 "prioritization"
             ],
             "examTip": "ASTQB official sample — Apply test case prioritization",
-            "memoryAid": ""
+            "memoryAid": "Risk-based prioritization generally runs higher-risk tests earlier, while considering dependencies and practical constraints."
         },
         {
             "id": "Q1038",
@@ -14909,7 +14909,7 @@ window.questionSets = {
                 "report"
             ],
             "examTip": "ASTQB official sample — Prepare a defect report",
-            "memoryAid": ""
+            "memoryAid": "Good defect report: steps to reproduce, expected vs actual results, severity, environment, version"
         },
         {
             "id": "Q1039",
@@ -14946,7 +14946,7 @@ window.questionSets = {
                 "types"
             ],
             "examTip": "ASTQB official sample — Explain how different types of test tools support testing",
-            "memoryAid": ""
+            "memoryAid": "Static testing tools: static analysis tools, compilers, linters, review tools (no code execution)"
         },
         {
             "id": "Q1040",
@@ -14983,7 +14983,7 @@ window.questionSets = {
                 "risks"
             ],
             "examTip": "ASTQB official sample — Recall the benefits and risks of test automation",
-            "memoryAid": ""
+            "memoryAid": "Test automation benefit: consistent repeatable tests, faster regression, frees testers for exploratory work"
         }
     ],
     "exam11": [
@@ -15022,7 +15022,7 @@ window.questionSets = {
                 "between"
             ],
             "examTip": "ASTQB official sample — Recall the relation between testing and quality assurance",
-            "memoryAid": ""
+            "memoryAid": "Root Cause Analysis: prevents future defects by addressing systemic causes, supports quality assurance"
         },
         {
             "id": "Q1042",
@@ -15059,7 +15059,7 @@ window.questionSets = {
                 "whole"
             ],
             "examTip": "ASTQB official sample — Recall the advantages of the whole team approach",
-            "memoryAid": ""
+            "memoryAid": "Whole team approach: testers collaborate, not bottlenecks; quality shared responsibility"
         },
         {
             "id": "Q1043",
@@ -15096,7 +15096,7 @@ window.questionSets = {
                 "example"
             ],
             "examTip": "ASTQB official sample — Differentiate testing from debugging",
-            "memoryAid": ""
+            "memoryAid": "Debugging: developer finds and fixes root cause of a known defect; testing finds failures first"
         },
         {
             "id": "Q1044",
@@ -15133,7 +15133,7 @@ window.questionSets = {
                 "principles"
             ],
             "examTip": "ASTQB official sample — Explain the seven testing principles",
-            "memoryAid": ""
+            "memoryAid": "Exhaustive testing is generally impossible except in trivial cases; prioritize tests using risk, coverage goals and available resources."
         },
         {
             "id": "Q1045",
@@ -15170,7 +15170,7 @@ window.questionSets = {
                 "maintaining"
             ],
             "examTip": "ASTQB official sample — Explain the value of maintaining traceability",
-            "memoryAid": ""
+            "memoryAid": "Traceability links test basis elements to testware, including test cases; it supports coverage analysis, impact analysis and reporting."
         },
         {
             "id": "Q1046",
@@ -15207,7 +15207,7 @@ window.questionSets = {
                 "roles"
             ],
             "examTip": "ASTQB official sample — Compare the different roles in testing",
-            "memoryAid": ""
+            "memoryAid": "Test plan: written by Test Manager (or Lead Tester) with input from stakeholders"
         },
         {
             "id": "Q1047",
@@ -15244,7 +15244,7 @@ window.questionSets = {
                 "supports"
             ],
             "examTip": "ASTQB official sample — Differentiate the testware that supports the test activities",
-            "memoryAid": ""
+            "memoryAid": "Risk analysis produces: risk items with likelihood, impact, and mitigation/response plans"
         },
         {
             "id": "Q1048",
@@ -15281,7 +15281,7 @@ window.questionSets = {
                 "generic"
             ],
             "examTip": "ASTQB official sample — Give examples of the generic skills required for testing",
-            "memoryAid": ""
+            "memoryAid": "Good testing: test both positive (happy path) AND negative paths, edge cases, error conditions"
         },
         {
             "id": "Q1049",
@@ -15318,7 +15318,7 @@ window.questionSets = {
                 "practices"
             ],
             "examTip": "ASTQB official sample — Recall good testing practices that apply to all software development lifecycles",
-            "memoryAid": ""
+            "memoryAid": "Independent testing can reduce author bias; the appropriate degree of independence depends on context and risk."
         },
         {
             "id": "Q1050",
@@ -15355,7 +15355,7 @@ window.questionSets = {
                 "test-first"
             ],
             "examTip": "ASTQB official sample — Recall the examples of test-first approaches to development",
-            "memoryAid": ""
+            "memoryAid": "BDD (Behavior-Driven Development): requirements captured as test cases (Given-When-Then format)"
         },
         {
             "id": "Q1051",
@@ -15392,7 +15392,7 @@ window.questionSets = {
                 "types"
             ],
             "examTip": "ASTQB official sample — Distinguish the different test types",
-            "memoryAid": ""
+            "memoryAid": "Usability testing evaluates usability, including learnability and ease of use; user satisfaction may also be assessed."
         },
         {
             "id": "Q1052",
@@ -15429,7 +15429,7 @@ window.questionSets = {
                 "regression"
             ],
             "examTip": "ASTQB official sample — Distinguish confirmation testing from regression test",
-            "memoryAid": ""
+            "memoryAid": "Confirmation testing: verify fix works; Regression testing: ensure fix didn't break anything else"
         },
         {
             "id": "Q1053",
@@ -15466,7 +15466,7 @@ window.questionSets = {
                 "used"
             ],
             "examTip": "ASTQB official sample — Explain how retrospectives can be used as a mechanism for process improvement",
-            "memoryAid": ""
+            "memoryAid": "Retrospectives: team reflects on what went well/wrong; identifies process improvements for next iteration"
         },
         {
             "id": "Q1054",
@@ -15503,7 +15503,7 @@ window.questionSets = {
                 "impact"
             ],
             "examTip": "ASTQB official sample — Summarize how DevOps might have an impact on testing",
-            "memoryAid": ""
+            "memoryAid": "DevOps promotes collaboration and fast feedback; test automation and integration into CI/CD pipelines support this approach."
         },
         {
             "id": "Q1055",
@@ -15540,7 +15540,7 @@ window.questionSets = {
                 "work"
             ],
             "examTip": "ASTQB official sample — Recognize types of work products that can be examined by static testing techniques",
-            "memoryAid": ""
+            "memoryAid": "Static testing techniques: reviews, inspections, walkthroughs, static analysis (no code execution)"
         },
         {
             "id": "Q1056",
@@ -15577,7 +15577,7 @@ window.questionSets = {
                 "contribute"
             ],
             "examTip": "ASTQB official sample — Recall the factors that contribute to a successful review",
-            "memoryAid": ""
+            "memoryAid": "Review success: adequate preparation time, clear objectives, right people, supportive culture"
         },
         {
             "id": "Q1057",
@@ -15614,7 +15614,7 @@ window.questionSets = {
                 "static"
             ],
             "examTip": "ASTQB official sample — Compare and contrast static testing and dynamic testing",
-            "memoryAid": ""
+            "memoryAid": "Static testing: no code execution (reviews, analysis); Dynamic testing: execute code (test runs)"
         },
         {
             "id": "Q1058",
@@ -15651,7 +15651,7 @@ window.questionSets = {
                 "different"
             ],
             "examTip": "ASTQB official sample — Compare and contrast the different review types",
-            "memoryAid": ""
+            "memoryAid": "Walkthrough: review led by AUTHOR of work product; less formal than inspection"
         },
         {
             "id": "Q1059",
@@ -15688,7 +15688,7 @@ window.questionSets = {
                 "white-box"
             ],
             "examTip": "ASTQB official sample — Distinguish black-box, white-box, and experience-based test techniques",
-            "memoryAid": ""
+            "memoryAid": "White-box techniques: derive tests from code structure (statement, branch coverage); need code knowledge"
         },
         {
             "id": "Q1060",
@@ -15725,7 +15725,7 @@ window.questionSets = {
                 "determined"
             ],
             "examTip": "ASTQB official sample — Explain statement testing",
-            "memoryAid": ""
+            "memoryAid": "Statement coverage = (executed statements / total executable statements) × 100%"
         },
         {
             "id": "Q1061",
@@ -15762,7 +15762,7 @@ window.questionSets = {
                 "white-box"
             ],
             "examTip": "ASTQB official sample — Explain the value of white-box testing",
-            "memoryAid": ""
+            "memoryAid": "White-box value: can apply static analysis to code even before it's executable; finds structural issues"
         },
         {
             "id": "Q1062",
@@ -15799,7 +15799,7 @@ window.questionSets = {
                 "guessing"
             ],
             "examTip": "ASTQB official sample — Explain error guessing",
-            "memoryAid": ""
+            "memoryAid": "Error guessing = experience-based technique; uses tester intuition to target likely defect areas"
         },
         {
             "id": "Q1063",
@@ -15836,7 +15836,7 @@ window.questionSets = {
                 "conducted"
             ],
             "examTip": "ASTQB official sample — Explain exploratory testing",
-            "memoryAid": ""
+            "memoryAid": "Session-based testing: exploratory testing with time-boxes and test charters; structured exploration"
         },
         {
             "id": "Q1064",
@@ -15873,7 +15873,7 @@ window.questionSets = {
                 "options"
             ],
             "examTip": "ASTQB official sample — Classify the different options for writing acceptance criteria",
-            "memoryAid": ""
+            "memoryAid": "Acceptance criteria formats: Given-When-Then, checklist, rules, examples, decision tables"
         },
         {
             "id": "Q1065",
@@ -15910,7 +15910,7 @@ window.questionSets = {
                 "derive"
             ],
             "examTip": "ASTQB official sample — Use equivalence partitioning to derive test cases",
-            "memoryAid": ""
+            "memoryAid": "Equivalence partitioning: each partition (valid/invalid) needs at least one test case"
         },
         {
             "id": "Q1066",
@@ -15947,7 +15947,7 @@ window.questionSets = {
                 "analysis"
             ],
             "examTip": "ASTQB official sample — Use boundary value analysis to derive test cases",
-            "memoryAid": ""
+            "memoryAid": "3-value BVA tests values just below, at and just above a boundary; 2-value BVA selects the boundary and one adjacent value."
         },
         {
             "id": "Q1067",
@@ -15984,7 +15984,7 @@ window.questionSets = {
                 "derive"
             ],
             "examTip": "ASTQB official sample — Use decision table testing to derive test cases",
-            "memoryAid": ""
+            "memoryAid": "Decision tables represent combinations of conditions and resulting actions; each rule (usually a column) represents a combination."
         },
         {
             "id": "Q1068",
@@ -16021,7 +16021,7 @@ window.questionSets = {
                 "derive"
             ],
             "examTip": "ASTQB official sample — Use state transition testing to derive test cases",
-            "memoryAid": ""
+            "memoryAid": "State transition: model system states + valid/invalid transitions; test both valid and invalid paths"
         },
         {
             "id": "Q1069",
@@ -16058,7 +16058,7 @@ window.questionSets = {
                 "development"
             ],
             "examTip": "ASTQB official sample — Use acceptance test-driven development (ATDD) to derive test cases",
-            "memoryAid": ""
+            "memoryAid": "ATDD tests: written from user perspective; use business-readable language (Given-When-Then)"
         },
         {
             "id": "Q1070",
@@ -16095,7 +16095,7 @@ window.questionSets = {
                 "level"
             ],
             "examTip": "ASTQB official sample — Identify risk level by using risk likelihood and risk impact",
-            "memoryAid": ""
+            "memoryAid": "Risk level = Likelihood × Impact; assess both probability and potential damage"
         },
         {
             "id": "Q1071",
@@ -16132,7 +16132,7 @@ window.questionSets = {
                 "entry"
             ],
             "examTip": "ASTQB official sample — Compare and contrast entry criteria and exit criteria",
-            "memoryAid": ""
+            "memoryAid": "Exit criteria: define when testing can stop (e.g., 95% test cases passed, no critical defects open)"
         },
         {
             "id": "Q1072",
@@ -16169,7 +16169,7 @@ window.questionSets = {
                 "their"
             ],
             "examTip": "ASTQB official sample — Summarize the testing quadrants and their relationships with test levels and test types",
-            "memoryAid": ""
+            "memoryAid": "Testing Quadrants: Q3 = Business-facing, exploratory/usability (critique product)"
         },
         {
             "id": "Q1073",
@@ -16206,7 +16206,7 @@ window.questionSets = {
                 "their"
             ],
             "examTip": "ASTQB official sample — Summarize the testing quadrants and their relationships with test levels and test types",
-            "memoryAid": ""
+            "memoryAid": "Project risk: organizational issues, skill shortages, tight deadlines, scope changes"
         },
         {
             "id": "Q1074",
@@ -16243,7 +16243,7 @@ window.questionSets = {
                 "status"
             ],
             "examTip": "ASTQB official sample — Exemplify how to communicate the status of testing",
-            "memoryAid": ""
+            "memoryAid": "Test status communication: use metrics, dashboards, reports; adapt message to audience (technical vs management)"
         },
         {
             "id": "Q1075",
@@ -16280,7 +16280,7 @@ window.questionSets = {
                 "management"
             ],
             "examTip": "ASTQB official sample — Summarize how configuration management supports testing",
-            "memoryAid": ""
+            "memoryAid": "CM ensures: unique versions, reproducibility, traceability, prevents testing wrong version"
         },
         {
             "id": "Q1076",
@@ -16317,7 +16317,7 @@ window.questionSets = {
                 "calculate"
             ],
             "examTip": "ASTQB official sample — Use estimation techniques to calculate the required test effort",
-            "memoryAid": ""
+            "memoryAid": "Wideband Delphi: experts estimate independently, discuss differences and re-estimate iteratively until estimates converge sufficiently."
         },
         {
             "id": "Q1077",
@@ -16354,7 +16354,7 @@ window.questionSets = {
                 "prioritization"
             ],
             "examTip": "ASTQB official sample — Apply test case prioritization",
-            "memoryAid": ""
+            "memoryAid": "Test prioritization: consider risk, business criticality, dependencies between test cases"
         },
         {
             "id": "Q1078",
@@ -16391,7 +16391,7 @@ window.questionSets = {
                 "prioritization"
             ],
             "examTip": "ASTQB official sample — Apply test case prioritization",
-            "memoryAid": ""
+            "memoryAid": "Defect report: must be specific, factual, reproducible; avoid vague language like 'doesn't work'"
         },
         {
             "id": "Q1079",
@@ -16428,7 +16428,7 @@ window.questionSets = {
                 "types"
             ],
             "examTip": "ASTQB official sample — Explain how different types of test tools support testing",
-            "memoryAid": ""
+            "memoryAid": "Test execution tools: automate test case execution (e.g., Selenium, JUnit); compare actual vs expected"
         },
         {
             "id": "Q1080",
@@ -16465,7 +16465,7 @@ window.questionSets = {
                 "risks"
             ],
             "examTip": "ASTQB official sample — Recall the benefits and risks of test automation",
-            "memoryAid": ""
+            "memoryAid": "Automation risk: high maintenance cost, false sense of security, can't replace human exploration"
         }
     ],
     "exam12": [
