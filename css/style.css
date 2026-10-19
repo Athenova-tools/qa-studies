@@ -506,11 +506,16 @@ input, textarea, select {
 
 /* ----- Hero Section ----- */
 .hero {
-  padding: calc(var(--header-height) + var(--space-3xl)) 0 var(--space-xl);
+  padding: calc(var(--header-height) + var(--space-3xl)) 0 var(--space-md);
   text-align: center;
   background: linear-gradient(180deg, var(--color-primary-light) 0%, var(--color-bg) 100%);
   position: relative;
   overflow: hidden;
+}
+
+/* Tighter gap between hero and the first section */
+.hero + .section {
+  padding-top: var(--space-md);
 }
 
 .hero::before {
@@ -683,9 +688,10 @@ input, textarea, select {
   transform: translateY(-2px);
 }
 
-/* Tighten legacy inline gap above the button row */
+/* Button row sticks to the card bottom so the badge aligns with it */
 .feature-card > div:last-child {
-  margin-top: var(--space-md) !important;
+  margin-top: auto !important;
+  padding-top: var(--space-md);
 }
 
 /* Number badge pinned bottom-right, on the button row line */
@@ -704,16 +710,6 @@ input, textarea, select {
   margin: 0;
   color: var(--color-primary);
   flex-shrink: 0;
-}
-
-/* Certification Exams keep the original top-left badge */
-.features > .section__header ~ .feature-card .feature-card__icon {
-  position: static;
-  align-self: flex-start;
-  margin: 0 0 var(--space-md);
-  width: 48px;
-  height: 48px;
-  font-size: 1.25rem;
 }
 
 /* Study Slides cards: number aligned with the View Slides button */
@@ -763,7 +759,7 @@ input, textarea, select {
 
 .chapter-card__header {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   justify-content: space-between;
   margin: var(--space-sm) 0 0;
   order: 5;
@@ -811,6 +807,7 @@ input, textarea, select {
   gap: var(--space-md);
   font-size: 0.75rem;
   color: var(--color-text-muted);
+  margin-top: auto;
 }
 
 .chapter-card__progress {
