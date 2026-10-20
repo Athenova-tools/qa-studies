@@ -11204,7 +11204,7 @@ window.questionSets = {
         },
         {
             "id": "Q152",
-            "statement": "A medical device monitors patient temperature and triggers an alert if the temperature is outside the normal range of 36.0\\u00b0C to 37.5\\u00b0C inclusive. Using two-value boundary value analysis, which temperature values should be tested?",
+            "statement": "A medical device monitors patient temperature and triggers an alert if the temperature is outside the normal range of 36.0°C to 37.5°C inclusive. Using two-value boundary value analysis, which temperature values should be tested?",
             "options": {
                 "C": "35.9, 36.0, 37.5, 37.6",
                 "D": "36.0, 36.5, 37.0, 37.5",
