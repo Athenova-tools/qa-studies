@@ -21,6 +21,23 @@ window.AppI18n = (function () {
       'hero.statQuestions': 'Total Questions',
       'hero.statChapters': 'Study Chapters',
       'hero.statThreshold': 'Pass Threshold',
+      'hero.donatePill': 'Support the Project — Donate',
+      'donate.openAria': 'Open donation options',
+      'donate.closeAria': 'Close dialog',
+      'donate.title': 'Support the Project',
+      'donate.sub': 'Free to use, funded by donations. Payments run entirely on PayPal — we never see card details.',
+      'donate.amountsAria': 'Donation amounts',
+      'donate.customChip': 'Custom',
+      'donate.customLabel': 'Your amount (€)',
+      'donate.giving': 'You’re giving',
+      'donate.via': 'via PayPal',
+      'donate.go': 'Donate with PayPal',
+      'donate.fine': 'Payments are processed by PayPal. We never see or store your card details.',
+      'donate.feedback': 'Leave a note (suggestions, bugs, etc.) or send feedback by email to <a href="mailto:appspherelab@gmail.com">appspherelab@gmail.com</a>',
+      'donate.errEmpty': 'Enter an amount to continue.',
+      'donate.errInvalid': 'Invalid value — numbers only.',
+      'donate.errZero': 'The amount must be greater than zero.',
+      'donate.errMin': 'Minimum donation is €1.',
       'exams.title': 'Practice Exams',
       'exams.subtitle': 'Each exam contains 40 multiple-choice questions with a 60-minute time limit. A score of 65% or higher is required to pass.',
       'exam.start': 'Start Exam',
@@ -108,6 +125,23 @@ window.AppI18n = (function () {
       'hero.statQuestions': 'Perguntas no Total',
       'hero.statChapters': 'Capítulos de Estudo',
       'hero.statThreshold': 'Nota Mínima',
+      'hero.donatePill': 'Apoia o Projeto — Doar',
+      'donate.openAria': 'Abrir opções de donativo',
+      'donate.closeAria': 'Fechar janela',
+      'donate.title': 'Apoia o Projeto',
+      'donate.sub': 'Uso gratuito, mantido com donativos. Os pagamentos são feitos inteiramente pelo PayPal — nunca vemos dados de cartão.',
+      'donate.amountsAria': 'Montantes de donativo',
+      'donate.customChip': 'Livre',
+      'donate.customLabel': 'O teu valor (€)',
+      'donate.giving': 'Vais doar',
+      'donate.via': 'via PayPal',
+      'donate.go': 'Doar com o PayPal',
+      'donate.fine': 'Os pagamentos são processados pelo PayPal. Nunca vemos nem guardamos dados do teu cartão.',
+      'donate.feedback': 'Deixa uma nota (sugestões, falhas, etc.) ou envia o feedback por email para <a href="mailto:appspherelab@gmail.com">appspherelab@gmail.com</a>',
+      'donate.errEmpty': 'Introduz um montante para continuares.',
+      'donate.errInvalid': 'Valor inválido — apenas números.',
+      'donate.errZero': 'O montante tem de ser superior a zero.',
+      'donate.errMin': 'O montante mínimo é de €1.',
       'exams.title': 'Exames Práticos',
       'exams.subtitle': 'Cada exame contém 40 perguntas de escolha múltipla com limite de 60 minutos. É necessária nota igual ou superior a 65% para aprovar.',
       'exam.start': 'Iniciar Exame',
@@ -199,6 +233,10 @@ window.AppI18n = (function () {
     document.querySelectorAll('[data-i18n]').forEach(function (el) {
       var key = el.getAttribute('data-i18n');
       if (key && dict[key] !== undefined) el.textContent = dict[key];
+    });
+    document.querySelectorAll('[data-i18n-html]').forEach(function (el) {
+      var key = el.getAttribute('data-i18n-html');
+      if (key && dict[key] !== undefined) el.innerHTML = dict[key];
     });
     document.querySelectorAll('[data-i18n-aria-label]').forEach(function (el) {
       var key = el.getAttribute('data-i18n-aria-label');

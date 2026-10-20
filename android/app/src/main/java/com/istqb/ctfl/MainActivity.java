@@ -18,6 +18,7 @@ import android.webkit.ConsoleMessage;
 import android.webkit.JavascriptInterface;
 import android.webkit.ValueCallback;
 import android.webkit.WebChromeClient;
+import android.webkit.WebResourceRequest;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
@@ -142,6 +143,11 @@ public class MainActivity extends Activity {
         webView.addJavascriptInterface(new JsBridge(), "IstqbNative");
         webView.setWebViewClient(new WebViewClient(){
             @Override
+            public boolean shouldOverrideUrlLoading(WebView view, WebResourceRequest request) {
+                return handleExternalUri(request.getUrl());
+            }
+
+            @Override
             public void onPageFinished(WebView v, String u) {
                 super.onPageFinished(v, u);
                 if (clearHistoryOnNextPage) {
@@ -177,6 +183,22 @@ public class MainActivity extends Activity {
         } else {
             registerReceiver(jsReceiver, filter);
         }
+    }
+
+    /* PayPal não permite pagamentos dentro de WebViews: http(s) e mailto
+       saem para a app externa; o resto (file://) fica na WebView. */
+    private boolean handleExternalUri(Uri uri) {
+        if (uri == null) return false;
+        String scheme = uri.getScheme();
+        if ("http".equals(scheme) || "https".equals(scheme) || "mailto".equals(scheme)) {
+            try {
+                startActivity(new Intent(Intent.ACTION_VIEW, uri));
+            } catch (Exception e) {
+                Log.e(TAG, "No activity can open " + uri);
+            }
+            return true;
+        }
+        return false;
     }
 
     /* Results from the file chooser (import) and the save dialog (export) */
