@@ -2,6 +2,18 @@
 <html lang="en" data-theme="light">
 <head>
   <meta charset="UTF-8">
+  <script>
+    /* Apply stored/system theme before CSS paints — avoids light flash on reload (CT logo). */
+    (function () {
+      try {
+        var t = sessionStorage.getItem('istqb_ctfl_theme');
+        if (t !== 'dark' && t !== 'light') {
+          t = (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) ? 'dark' : 'light';
+        }
+        document.documentElement.setAttribute('data-theme', t);
+      } catch (e) {}
+    })();
+  </script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="ISTQB CTFL v4.0.1 Exam Simulator - Practice exams, study slides, and performance statistics for the Certified Tester Foundation Level certification.">
   <title>ISTQB CTFL v4.0.1 Exam Simulator</title>
