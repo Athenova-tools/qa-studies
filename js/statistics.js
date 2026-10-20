@@ -791,33 +791,6 @@ const ExamStats = (function () {
     if (dashboard && appEl.id !== 'stats-dashboard') dashboard.style.display = 'none';
     while (appEl.firstChild) { appEl.removeChild(appEl.firstChild); }
 
-    /* Back to Home + Back to Attempts buttons */
-    var backBar = createEl('div', null, { style: 'padding:var(--space-lg) var(--space-xl);display:flex;gap:var(--space-sm);' });
-    var homeBtn = createEl('button', ['btn', 'btn--secondary', 'btn--sm'], { text: '\u2190 Back to Home' });
-    homeBtn.addEventListener('click', function () {
-      window.location.href = 'index.html';
-    });
-    backBar.appendChild(homeBtn);
-    var backBtn = createEl('button', ['btn', 'btn--secondary', 'btn--sm'], { text: '\u2190 Back to Attempts' });
-    backBtn.addEventListener('click', function () {
-      if (dashboard) {
-        dashboard.style.display = '';
-        renderStatsDashboard();
-      } else {
-        window.location.href = 'index.html?goto=attempts#stats-dashboard';
-      }
-    });
-    backBar.appendChild(backBtn);
-
-    /* Label explaining whyWrong meaning */
-    var label = createEl('div', null, {
-      style: 'margin-top:var(--space-sm);font-size:0.75rem;color:var(--color-text-secondary);',
-      text: 'Por que a opção está incorreta: princípio que a torna errada (não é a explicação da opção em si)'
-    });
-    backBar.appendChild(label);
-
-    appEl.appendChild(backBar);
-
     /* Rebuild per-question details from compact answers when needed
        (attempts saved after the compact-answer change, or imported) */
     if (full && !full.details && full.answers && typeof ExamGrading !== 'undefined' && ExamGrading.rebuildDetails) {

@@ -528,6 +528,28 @@ const ExamGrading = (function () {
 
     list.appendChild(filterBar);
 
+    /* Back to Home | Back to Attempts (small pair, same as review page) */
+    var navRow = createEl('div', null, { style: 'display:flex;flex-wrap:wrap;gap:var(--space-sm);margin:0 0 var(--space-lg);' });
+    var backBtn = createEl('button', ['btn', 'btn--secondary', 'btn--sm'], { text: '← Back to Home' });
+    backBtn.addEventListener('click', function () {
+      window.location.href = 'index.html';
+    });
+    navRow.appendChild(backBtn);
+    var backAttemptsBtn = createEl('button', ['btn', 'btn--secondary', 'btn--sm'], { text: '← Back to Attempts' });
+    backAttemptsBtn.addEventListener('click', function () {
+      var dash = document.getElementById('stats-dashboard');
+      var app = document.getElementById('app');
+      if (dash) {
+        if (app) app.innerHTML = '';
+        dash.style.display = '';
+        if (typeof ExamStats !== 'undefined' && ExamStats.renderStatsDashboard) ExamStats.renderStatsDashboard();
+      } else {
+        window.location.href = 'index.html?goto=attempts#stats-dashboard';
+      }
+    });
+    navRow.appendChild(backAttemptsBtn);
+    list.appendChild(navRow);
+
     results.details.forEach(function (d) {
       var resultType = d.isCorrect ? 'correct' : (d.selectedAnswer === null ? 'unanswered' : 'incorrect');
       var item = createEl('div', 'results-item');

@@ -848,16 +848,6 @@ const ExamEngine = (function () {
       fallback.appendChild(card);
       appEl.appendChild(fallback);
     }
-
-    /* Back to home button — inject into filter bar */
-    var filterBar = appEl.querySelector('.results-filter');
-    if (filterBar) {
-      var backBtn = createEl('button', ['btn', 'btn--sm', 'results-filter__btn'], { text: tr('backHome') });
-      backBtn.addEventListener('click', function () {
-        window.location.href = 'index.html';
-      });
-      filterBar.appendChild(backBtn);
-    }
   }
 
   /* =================================================================
