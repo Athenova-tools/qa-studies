@@ -354,7 +354,7 @@
       </div>
       <p class="donate-modal__summary" aria-live="polite"><span data-i18n="donate.giving">You&rsquo;re giving</span> <strong id="dm-amount">&euro;5</strong> <span data-i18n="donate.via">via PayPal</span></p>
       <p class="donate-modal__err" role="alert" id="dm-err" hidden></p>
-      <a class="donate-modal__go" id="dm-go" href="https://paypal.me/Cmmoreira/5EUR" data-i18n="donate.go">Donate with PayPal</a>
+      <a class="donate-modal__go" id="dm-go" href="https://paypal.me/Cmmoreira/5" data-i18n="donate.go">Donate with PayPal</a>
       <p class="donate-modal__fine" data-i18n="donate.fine">Payments are processed by PayPal. We never see or store your card details.</p>
       <p class="donate-modal__feedback" data-i18n-html="donate.feedback">Leave a note (suggestions, bugs, etc.) or send feedback by email to <a href="mailto:appspherelab@gmail.com">appspherelab@gmail.com</a></p>
     </div>
@@ -422,7 +422,7 @@
         if (typeof res === 'number') {
           errEl.hidden = true;
           amountEl.textContent = '€' + fmt(res);
-          goEl.href = PAYPAL_ME + '/' + fmt(res) + 'EUR';
+          goEl.href = PAYPAL_ME + '/' + fmt(res);
           goEl.setAttribute('aria-disabled', 'false');
           goEl.classList.remove('donate-modal__go--off');
         } else {
