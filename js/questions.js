@@ -3492,25 +3492,25 @@ window.questionSets = {
                 "C": "Inspection",
                 "D": "Technical review"
             },
-            "correctAnswer": "D",
-            "explanation": "Walkthroughs are author-led review meetings that focus on knowledge sharing, gathering suggestions, and improving the work product. Unlike inspections or technical reviews that focus on defect detection, walkthroughs emphasize learning and collaborative improvement.",
-            "correctFeedback": "✅ Correct: Technical reviews focus on defect detection with trained moderators.",
+            "correctAnswer": "B",
+            "explanation": "A walkthrough is an author-led review in which the author guides participants through the work product. Walkthroughs support knowledge sharing, gather feedback, and help identify defects. The emphasis on suggestions and improvement in this scenario is most consistent with a walkthrough.",
+            "correctFeedback": "✅ Correct: A walkthrough is typically author-led and supports knowledge sharing, feedback, and the identification of potential defects.",
             "incorrectFeedback": {
                 "A": "❌ Incorrect: Static analysis is a tool-based technique, not a review meeting.",
-                "B": "❌ Incorrect: Inspections focus on formal defect detection with defined roles and metrics.",
-                "C": "❌ Incorrect: Walkthroughs emphasize knowledge sharing, suggestions, and improvement ideas."
+                "C": "❌ Incorrect: An inspection is a formal review with a defined process and roles, primarily focused on identifying defects. The scenario emphasizes collaborative suggestions and improvement, which is more characteristic of a walkthrough.",
+                "D": "❌ Incorrect: A technical review is a review type focused on evaluating a work product and identifying issues. The author-led, collaborative emphasis on suggestions in this scenario points more strongly to a walkthrough."
             },
             "optionExplanations": {
                 "A": "Static analysis is a tool-based technique, not a review meeting.",
-                "B": "Inspections focus on formal defect detection with defined roles and metrics.",
-                "C": "Walkthroughs emphasize knowledge sharing, suggestions, and improvement ideas.",
-                "D": "Technical reviews focus on defect detection with trained moderators."
+                "B": "A walkthrough is typically author-led and supports knowledge sharing, feedback, and collaborative improvement while identifying potential defects.",
+                "C": "An inspection is a formal review with defined roles and a structured process, primarily focused on defect detection.",
+                "D": "A technical review evaluates a work product to identify issues and achieve technical agreement; the scenario's emphasis on author-led knowledge sharing and suggestions is more characteristic of a walkthrough."
             },
             "chapter": 3,
             "section": "3.2",
-            "subsection": "3.2.1",
-            "learningObjective": "FL-3.2.1",
-            "kLevel": "K1",
+            "subsection": "3.2.4",
+            "learningObjective": "FL-3.2.4",
+            "kLevel": "K2",
             "difficulty": "Medium",
             "keywords": [
                 "walkthrough",
@@ -3977,14 +3977,14 @@ window.questionSets = {
             "explanation": "Static testing examines work products without executing the software. It can identify defects early in the lifecycle, when correcting them is generally less costly, and provides information about work product quality. It complements rather than replaces dynamic testing.",
             "correctFeedback": "✅ Correct: Static testing can detect defects in work products early, often reducing correction costs, and provides quality information without executing the software.",
             "incorrectFeedback": {
-                "B": "❌ Incorrect: Static testing complements dynamic testing. Dynamic testing is needed to evaluate software behavior during execution.",
-                "C": "❌ Incorrect: Static testing can identify defects, but no testing approach guarantees that the delivered system will contain zero defects.",
+                "B": "❌ Incorrect: Static testing complements dynamic testing; it does not replace it. Static testing evaluates work products without executing the software, while dynamic testing evaluates software behavior through execution.",
+                "C": "❌ Incorrect: Static testing can identify defects in work products, but it cannot guarantee that the delivered system will contain zero defects.",
                 "D": "❌ Incorrect: Static testing can provide value across different software development lifecycle models, including Agile."
             },
             "optionExplanations": {
                 "A": "Static testing can detect defects early and evaluate work product quality without executing the software.",
-                "B": "Static testing does not replace dynamic testing, which evaluates software behavior through execution.",
-                "C": "Testing cannot guarantee the absence of all defects.",
+                "B": "Static testing and dynamic testing are complementary approaches. Static testing can identify defects without execution, whereas dynamic testing evaluates the behavior of the executed test object.",
+                "C": "Static testing can reveal defects in work products, but it cannot prove that software is defect-free or guarantee that no failures will occur.",
                 "D": "Static testing can be useful in different lifecycle models and is not limited to safety-critical systems."
             },
             "chapter": 3,
@@ -4310,15 +4310,15 @@ window.questionSets = {
                 "D": "Static testing is only applicable to source code"
             },
             "correctAnswer": "C",
-            "explanation": "Static testing reviews work products (requirements, design documents, code) without executing the software. Dynamic testing executes the software with specific inputs and compares actual results against expected results. Both are essential for comprehensive quality assurance.",
+            "explanation": "Static testing examines work products, such as requirements, design documents, and code, without executing the software. Dynamic testing executes the test object and evaluates its behavior against expected results. The two approaches are complementary and can identify different types of defects.",
             "correctFeedback": "✅ Correct: Static = review without execution; Dynamic = execute with test cases.",
             "incorrectFeedback": {
-                "A": "❌ Incorrect: Static testing does not require compilation; dynamic testing does.",
+                "A": "❌ Incorrect: Static testing does not require software execution or compilation. Dynamic testing requires execution of the test object, but compilation is not a universal requirement for every language or runtime environment.",
                 "B": "❌ Incorrect: Static testing does not execute anything; it involves review and analysis.",
                 "D": "❌ Incorrect: Static testing applies to any work product, including requirements and designs."
             },
             "optionExplanations": {
-                "A": "Static testing does not require compilation; dynamic testing does.",
+                "A": "Static testing examines work products without executing the software. Dynamic testing executes the test object; compilation is not a universal requirement for all software.",
                 "B": "Static testing does not execute anything; it involves review and analysis.",
                 "C": "Static = review without execution; Dynamic = execute with test cases.",
                 "D": "Static testing applies to any work product, including requirements and designs."
@@ -8765,15 +8765,15 @@ window.questionSets = {
             "explanation": "Automated tests follow predefined scripts and are most effective for regression, while manual exploratory testing is better at discovering unexpected behavior and new defects.",
             "correctFeedback": "✅ Correct: Automated tests follow predefined scripts and are most effective for regression, while manual exploratory testing is better at discovering unexpected behavior and new defects.",
             "incorrectFeedback": {
-                "B": "❌ Incorrect: 'Automation always finds more defects than manual testing' is a flaw in a work product that may cause a failure. This scenario requires exploratory, which is experience-based, relying on tester knowledge and simultaneous learning/design/execution.",
-                "C": "❌ Incorrect: 'Automation tools are designed to fix defects, not find them' is a flaw in a work product that may cause a failure. This scenario requires exploratory, which is experience-based, relying on tester knowledge and simultaneous learning/design/execution.",
-                "D": "❌ Incorrect: 'Manual testing cannot find any new defects' is a flaw in a work product that may cause a failure. This scenario requires exploratory, which is experience-based, relying on tester knowledge and simultaneous learning/design/execution."
+                "B": "❌ Incorrect: Automation does not inherently find more defects than manual testing. Its effectiveness depends on the test design, coverage, test objectives, and context.",
+                "C": "❌ Incorrect: Test automation tools support test execution and related activities; they are not designed primarily to fix defects. Defect correction is a separate activity.",
+                "D": "❌ Incorrect: Manual testing can discover new defects, particularly through exploratory testing, where testers learn about the system while designing and executing tests."
             },
             "optionExplanations": {
                 "A": "Automated tests follow predefined scripts and are most effective for regression, while manual exploratory testing is better at discovering unexpected behavior and new defects.",
-                "B": "'Automation always finds more defects than manual testing' is a flaw in a work product that may cause a failure. This scenario requires exploratory, which is experience-based, relying on tester knowledge and simultaneous learning/design/execution.",
-                "C": "'Automation tools are designed to fix defects, not find them' is a flaw in a work product that may cause a failure. This scenario requires exploratory, which is experience-based, relying on tester knowledge and simultaneous learning/design/execution.",
-                "D": "'Manual testing cannot find any new defects' is a flaw in a work product that may cause a failure. This scenario requires exploratory, which is experience-based, relying on tester knowledge and simultaneous learning/design/execution."
+                "B": "Automation does not always find more defects than manual testing. Results depend on test design, coverage, the tool, and the testing context.",
+                "C": "Test automation supports testing activities; it does not automatically correct the defects detected.",
+                "D": "Manual testing, especially exploratory testing, can reveal unexpected behavior and new defects that predefined automated scripts may not detect."
             },
             "chapter": 6,
             "section": "6.2",
@@ -10282,15 +10282,15 @@ window.questionSets = {
             "explanation": "Test management tools enable traceability across the testing lifecycle, linking requirements to test cases, execution results, incidents, and reports.",
             "correctFeedback": "✅ Correct: Test management tools enable traceability across the testing lifecycle, linking requirements to test cases, execution results, incidents, and reports.",
             "incorrectFeedback": {
-                "B": "❌ Incorrect: 'They automatically fix all defects found during testing' is a flaw in a work product that may cause a failure. This scenario requires traceability, which links requirements, tests, and defects for impact analysis and coverage.",
-                "C": "❌ Incorrect: 'They replace the need for a test plan document' is incorrect. Test management tools enable traceability across the testing lifecycle, linking requirements to test cases, execution results, incidents, and reports.",
-                "D": "❌ Incorrect: 'They guarantee 100% test coverage of all requirements' is incorrect. Test management tools enable traceability across the testing lifecycle, linking requirements to test cases, execution results, incidents, and reports."
+                "B": "❌ Incorrect: Test management tools help manage testing information and activities; they do not automatically fix defects. Defects must be investigated and corrected through separate activities.",
+                "C": "❌ Incorrect: Test management tools can support test planning and documentation, but they do not eliminate the need for an appropriate test plan.",
+                "D": "❌ Incorrect: Test management tools can support traceability and coverage reporting, but they cannot guarantee 100% requirements coverage or prove the absence of defects."
             },
             "optionExplanations": {
                 "A": "Test management tools enable traceability across the testing lifecycle, linking requirements to test cases, execution results, incidents, and reports.",
-                "B": "'They automatically fix all defects found during testing' is a flaw in a work product that may cause a failure. This scenario requires traceability, which links requirements, tests, and defects for impact analysis and coverage.",
-                "C": "'They replace the need for a test plan document' is incorrect. Test management tools enable traceability across the testing lifecycle, linking requirements to test cases, execution results, incidents, and reports.",
-                "D": "'They guarantee 100% test coverage of all requirements' is incorrect. Test management tools enable traceability across the testing lifecycle, linking requirements to test cases, execution results, incidents, and reports."
+                "B": "Test management tools do not automatically fix defects. They support the management of testing activities and related information.",
+                "C": "Test management tools can support planning and documentation, but they do not replace the need to plan testing appropriately.",
+                "D": "Test management tools can help measure and report coverage, but they cannot guarantee complete coverage or defect-free software."
             },
             "chapter": 6,
             "section": "6.1",
@@ -13625,15 +13625,15 @@ window.questionSets = {
             "explanation": "A is correct. The developer makes a mistake/error which causes a defect/fault/bug which may cause a failure when the code is dynamically tested or executed. B is incorrect because fault and failure are reversed. C is incorrect because failure and mistake are reversed. D is incorrect because it’s a failure that’s seen during execution, not the defect itself. The failure is a symptom of the defect.",
             "correctFeedback": "✅ Correct: The developer makes a mistake/error which causes a defect/fault/bug which may cause a failure when the code is dynamically tested or executed.",
             "incorrectFeedback": {
-                "B": "❌ Incorrect: fault and failure are reversed",
-                "C": "❌ Incorrect: failure and mistake are reversed",
-                "D": "❌ Incorrect: it’s a failure that’s seen during execution, not the defect itself. The failure is a symptom of the defect"
+                "B": "❌ Incorrect: This option reverses the relationship between a defect and a failure. An error is a human action or decision that produces an incorrect result; it may introduce a defect. A defect may cause a failure when the software is executed.",
+                "C": "❌ Incorrect: This option reverses the causal relationship. A failure is an event in which the software does not perform as expected during execution; it does not normally introduce the developer's mistake or cause the original defect.",
+                "D": "❌ Incorrect: A bug is another term for a defect, not a separate event that is observed during execution. A defect may cause a failure when the software is executed; the failure is the observable manifestation, not the defect itself."
             },
             "optionExplanations": {
-                "A": "The developer makes a mistake/error which causes a defect/fault/bug which may cause a failure when the code is dynamically tested or executed",
-                "B": "fault and failure are reversed",
-                "C": "failure and mistake are reversed",
-                "D": "it’s a failure that’s seen during execution, not the defect itself. The failure is a symptom of the defect"
+                "A": "A human error or mistake may introduce a defect in the software. When the software is executed, that defect may cause a failure. This sequence is possible but not inevitable.",
+                "B": "This option incorrectly states that an error directly results in a failure that is then observed as a fault. A defect or fault is the underlying flaw; a failure is the observable deviation during execution.",
+                "C": "This option reverses the causal relationship by making a failure cause a defect and treating a developer's mistake as something observed during dynamic testing. A mistake is human; a failure is observed during execution.",
+                "D": "This option treats a bug and a defect as separate concepts and suggests that the defect itself is observed during execution. Bug is a synonym for defect; a failure may be observed when a defect is triggered during execution."
             },
             "chapter": 1,
             "section": "1.2",
@@ -13642,12 +13642,14 @@ window.questionSets = {
             "kLevel": "K2",
             "difficulty": "Medium",
             "keywords": [
-                "distinguish",
-                "between",
-                "root"
+                "error",
+                "defect",
+                "failure",
+                "root cause",
+                "dynamic testing"
             ],
             "examTip": "ASTQB official sample — Distinguish between root cause, error, defect, and failure",
-            "memoryAid": "Error (human mistake) may introduce a defect (fault); a defect may cause a failure when executed. A cadeia não é inevitável em todos os casos."
+            "memoryAid": "An error may introduce a defect, and a defect may cause a failure when the software is executed. This sequence is possible, not inevitable."
         },
         {
             "id": "Q1004",
