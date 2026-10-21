@@ -1342,31 +1342,33 @@ window.questionSets = {
                 "D": "Replacing project risk management"
             },
             "correctAnswer": "B",
-            "explanation": "Testing provides information about quality and risk so stakeholders can make informed release decisions; it cannot prove absence of defects.",
-            "correctFeedback": "✅ Correct: Testing provides information about quality and risk so stakeholders can make informed release decisions; it cannot prove absence of defects.",
+            "explanation": "Testing provides stakeholders with information about product quality, defects, and residual risks. This information supports informed decisions about whether to release the product. Testing cannot guarantee customer satisfaction or prove that the product is defect-free.",
+            "correctFeedback": "✅ Correct: Testing provides information about product quality and residual risks, helping stakeholders make informed release decisions.",
             "incorrectFeedback": {
-                "A": "❌ Incorrect: 'Guaranteeing customer satisfaction' is incorrect. Guaranteeing customer satisfaction Testing provides information about quality and risk so stakeholders can make .",
-                "C": "❌ Incorrect: 'Proving the application is defect-free' is a flaw in a work product that may cause a failure. The correct technique here is: Testing provides information about quality and risk so stakeholders can make informed release decisions; it cannot prove absence of defects.",
-                "D": "❌ Incorrect: 'Replacing project risk management' threatens the project's ability to deliver on time, budget, or scope. The correct technique here is: Testing provides information about quality and risk so stakeholders can make informed release decisions; it cannot prove absence of defects."
+                "A": "❌ Incorrect: Testing can provide evidence about product quality and help assess whether requirements are met, but it cannot guarantee customer satisfaction.",
+                "C": "❌ Incorrect: Testing can reveal defects and provide confidence in product quality, but it cannot prove that the application is completely defect-free.",
+                "D": "❌ Incorrect: Testing contributes information that supports risk management, but it does not replace project risk management."
             },
             "optionExplanations": {
-                "A": "'Guaranteeing customer satisfaction' is incorrect. Guaranteeing customer satisfaction Testing provides information about quality and risk so stakeholders can make .",
-                "B": "Testing provides information about quality and risk so stakeholders can make informed release decisions; it cannot prove absence of defects.",
-                "C": "'Proving the application is defect-free' is a flaw in a work product that may cause a failure. The correct technique here is: Testing provides information about quality and risk so stakeholders can make informed release decisions; it cannot prove absence of defects.",
-                "D": "'Replacing project risk management' threatens the project's ability to deliver on time, budget, or scope. The correct technique here is: Testing provides information about quality and risk so stakeholders can make informed release decisions; it cannot prove absence of defects."
+                "A": "Testing can help assess quality and user expectations, but customer satisfaction cannot be guaranteed by testing alone.",
+                "B": "Testing provides information about quality and residual risks to support informed decisions, including release decisions.",
+                "C": "Testing can reveal defects, but exhaustive testing is generally impossible and testing cannot prove the absence of all defects.",
+                "D": "Testing supports risk-related decisions but does not replace the wider project risk management process."
             },
             "chapter": 1,
             "section": "1.1",
             "subsection": "1.1.1",
             "learningObjective": "FL-1.1.1",
             "kLevel": "K1",
-            "difficulty": "Medium",
+            "difficulty": "Easy",
             "keywords": [
                 "testing objectives",
-                "risk information"
+                "residual risk",
+                "decision making",
+                "product quality"
             ],
-            "examTip": "Testing informs decisions; it does not make guarantees.",
-            "memoryAid": "Information, not proof."
+            "examTip": "Testing provides evidence and information for decisions; it does not guarantee quality or prove the absence of defects.",
+            "memoryAid": "Testing informs decisions; stakeholders decide."
         },
         {
             "id": "Q007",
@@ -2710,31 +2712,35 @@ window.questionSets = {
                 "D": "Closing all defect reports"
             },
             "correctAnswer": "B",
-            "explanation": "Early testing in sequential development includes static testing and test analysis of requirements before code exists.",
-            "correctFeedback": "✅ Correct: Early testing in sequential development includes static testing and test analysis of requirements before code exists.",
+            "explanation": "Testing should begin early in the SDLC. During requirements work, testers can perform static testing by reviewing requirements and carry out test analysis to identify initial test conditions before executable code is available.",
+            "correctFeedback": "✅ Correct: Requirements can be reviewed for defects, ambiguity, and testability, while test analysis can identify initial test conditions before implementation begins.",
             "incorrectFeedback": {
-                "A": "❌ Incorrect: 'Replacing acceptance testing with unit testing' validates fitness for use and user needs, often by business stakeholders. The correct technique here is: Early testing in sequential development includes static testing and test analysis of requirements before code exists.",
-                "C": "❌ Incorrect: 'Running performance scripts in production' is incorrect. Early testing in sequential models includes requirements reviews and initial test design. Replacing unit testing, running performance scripts in production, or closing defect reports are not early testing activities.",
-                "D": "❌ Incorrect: 'Closing all defect reports' is a flaw in a work product that may cause a failure. The correct technique here is: Early testing in sequential development includes static testing and test analysis of requirements before code exists."
+                "A": "❌ Incorrect: Unit testing and acceptance testing have different objectives. Unit testing focuses on individual components, while acceptance testing evaluates whether the system meets acceptance needs and criteria.",
+                "C": "❌ Incorrect: Running performance scripts in production is not the early testing activity described. Requirements reviews and test analysis can begin before executable code is available.",
+                "D": "❌ Incorrect: Closing defect reports is part of defect management. It does not replace reviewing requirements or identifying initial test conditions."
             },
             "optionExplanations": {
-                "A": "'Replacing acceptance testing with unit testing' validates fitness for use and user needs, often by business stakeholders. The correct technique here is: Early testing in sequential development includes static testing and test analysis of requirements before code exists.",
-                "B": "Early testing in sequential development includes static testing and test analysis of requirements before code exists.",
-                "C": "'Running performance scripts in production' is incorrect. Early testing in sequential models includes requirements reviews and initial test design. Replacing unit testing, running performance scripts in production, or closing defect reports are not early testing activities.",
-                "D": "'Closing all defect reports' is a flaw in a work product that may cause a failure. The correct technique here is: Early testing in sequential development includes static testing and test analysis of requirements before code exists."
+                "A": "Unit testing and acceptance testing serve different purposes and are not interchangeable.",
+                "B": "Static testing of requirements and test analysis can begin before implementation, supporting early defect detection.",
+                "C": "Performance testing may be planned early, but running performance scripts in production is not the activity described in the question.",
+                "D": "Defect report closure is a defect management activity, not the relevant early testing activity."
             },
             "chapter": 2,
             "section": "2.1",
             "subsection": "2.1.1",
             "learningObjective": "FL-2.1.1",
             "kLevel": "K2",
-            "difficulty": "Medium",
+            "difficulty": "Easy",
             "keywords": [
                 "SDLC",
-                "early testing"
+                "sequential development",
+                "early testing",
+                "static testing",
+                "test analysis",
+                "test conditions"
             ],
-            "examTip": "Testing includes static activities before execution.",
-            "memoryAid": "Test early, even without code."
+            "examTip": "Testing activities can begin before executable code exists. Requirements reviews and test analysis support early defect detection.",
+            "memoryAid": "Review early, analyse early, detect defects early."
         },
         {
             "id": "Q363",
@@ -3180,39 +3186,42 @@ window.questionSets = {
         },
         {
             "id": "Q256",
-            "statement": "A moderator checks that reviewers received the design document and checklist before the meeting. Which review activity is this?",
+            "statement": "A moderator checks that reviewers received the design document and checklist before the review meeting. Which review process activity is this?",
             "options": {
-                "A": "Planning and preparation support",
+                "A": "Review initiation",
                 "B": "Test execution",
                 "C": "Defect fixing",
                 "D": "Tool procurement"
             },
             "correctAnswer": "A",
-            "explanation": "Review preparation includes distributing work products, defining scope, and ensuring participants are ready to review effectively.",
-            "correctFeedback": "✅ Correct: Review preparation includes distributing work products, defining scope, and ensuring participants are ready to review effectively.",
+            "explanation": "Review initiation ensures that participants have access to the work product and supporting materials needed for the review. This helps reviewers prepare to examine the work product effectively.",
+            "correctFeedback": "✅ Correct: Review initiation ensures that reviewers have access to the work product and supporting materials, such as checklists, before the review proceeds.",
             "incorrectFeedback": {
-                "B": "❌ Incorrect: 'Test execution' runs test cases and compares actual vs expected results. The correct technique here is: Review preparation includes distributing work products, defining scope, and ensuring participants are ready to review effectively.",
-                "C": "❌ Incorrect: 'Defect fixing' is a flaw in a work product that may cause a failure. The correct technique here is: Review preparation includes distributing work products, defining scope, and ensuring participants are ready to review effectively.",
-                "D": "❌ Incorrect: 'Tool procurement' is incorrect. Using suitable checklists and focusing on defined review objectives Review preparation includes distributing work products, defining scope, and e."
+                "B": "❌ Incorrect: Test execution involves running test cases and comparing actual results with expected results. The scenario describes an activity in the review process.",
+                "C": "❌ Incorrect: Defect fixing involves correcting defects identified in a work product. The moderator is ensuring that review materials have been distributed.",
+                "D": "❌ Incorrect: Tool procurement involves acquiring tools. Distributing the work product and checklist is part of review initiation."
             },
             "optionExplanations": {
-                "A": "Review preparation includes distributing work products, defining scope, and ensuring participants are ready to review effectively.",
-                "B": "'Test execution' runs test cases and compares actual vs expected results. The correct technique here is: Review preparation includes distributing work products, defining scope, and ensuring participants are ready to review effectively.",
-                "C": "'Defect fixing' is a flaw in a work product that may cause a failure. The correct technique here is: Review preparation includes distributing work products, defining scope, and ensuring participants are ready to review effectively.",
-                "D": "'Tool procurement' is incorrect. Using suitable checklists and focusing on defined review objectives Review preparation includes distributing work products, defining scope, and e."
+                "A": "Review initiation ensures that participants can access the work product and supporting materials required for the review.",
+                "B": "Test execution runs tests and evaluates the results against expected outcomes.",
+                "C": "Defect fixing corrects defects identified during review or testing.",
+                "D": "Tool procurement concerns acquiring tools, not preparing participants for a review."
             },
             "chapter": 3,
             "section": "3.2",
             "subsection": "3.2.1",
             "learningObjective": "FL-3.2.1",
-            "kLevel": "K1",
-            "difficulty": "Medium",
+            "kLevel": "K2",
+            "difficulty": "Easy",
             "keywords": [
                 "review process",
-                "preparation"
+                "review initiation",
+                "work product",
+                "checklist",
+                "static testing"
             ],
-            "examTip": "Review meetings work only if preparation happens first.",
-            "memoryAid": "Prepare before review."
+            "examTip": "Distinguish review initiation, which ensures access to the work product and supporting materials, from individual review, where participants examine the work product.",
+            "memoryAid": "Initiate: distribute materials. Review: examine the work product."
         },
         {
             "id": "Q016",
@@ -3408,31 +3417,33 @@ window.questionSets = {
                 "D": "Avoiding preparation to save time"
             },
             "correctAnswer": "B",
-            "explanation": "Effective reviews use appropriate techniques such as checklists and focus on objectives relevant to the work product.",
-            "correctFeedback": "✅ Correct: Effective reviews use appropriate techniques such as checklists and focus on objectives relevant to the work product.",
+            "explanation": "Effective reviews benefit from clear objectives and appropriate review techniques. A checklist helps reviewers focus on relevant quality characteristics of the work product, such as clear acceptance criteria, business value, and testability.",
+            "correctFeedback": "✅ Correct: A suitable checklist helps reviewers focus on defined review objectives and assess relevant quality characteristics of the work product.",
             "incorrectFeedback": {
-                "A": "❌ Incorrect: 'Limiting reviews to managers only' is incorrect. Performing static testing on early work products Effective reviews use appropriate techniques such as checklists and focus on .",
-                "C": "❌ Incorrect: 'Replacing dynamic testing with reviews' involves executing the software to observe behavior. The correct technique here is: Effective reviews use appropriate techniques such as checklists and focus on objectives relevant to the work product.",
-                "D": "❌ Incorrect: 'Avoiding preparation to save time' is incorrect. Performing static testing on early work products Effective reviews use appropriate techniques such as checklists and focus on ."
+                "A": "❌ Incorrect: Reviews should involve appropriate participants with relevant knowledge and perspectives, rather than being restricted to managers.",
+                "C": "❌ Incorrect: Static testing and dynamic testing are complementary approaches. Reviews do not generally replace testing by executing the software.",
+                "D": "❌ Incorrect: Adequate preparation time is a recognised success factor for reviews. Skipping preparation can reduce review effectiveness."
             },
             "optionExplanations": {
-                "A": "'Limiting reviews to managers only' is incorrect. Performing static testing on early work products Effective reviews use appropriate techniques such as checklists and focus on .",
-                "B": "Effective reviews use appropriate techniques such as checklists and focus on objectives relevant to the work product.",
-                "C": "'Replacing dynamic testing with reviews' involves executing the software to observe behavior. The correct technique here is: Effective reviews use appropriate techniques such as checklists and focus on objectives relevant to the work product.",
-                "D": "'Avoiding preparation to save time' is incorrect. Performing static testing on early work products Effective reviews use appropriate techniques such as checklists and focus on ."
+                "A": "Restricting reviews to managers excludes other participants who may have relevant technical, business, or user knowledge.",
+                "B": "Appropriate checklists and clear review objectives help reviewers systematically assess relevant characteristics of the work product.",
+                "C": "Reviews examine work products without executing the software. Dynamic testing provides complementary evidence by executing the software.",
+                "D": "Reviewers need adequate time to prepare so they can examine the work product effectively."
             },
             "chapter": 3,
             "section": "3.2",
-            "subsection": "3.2.4",
-            "learningObjective": "FL-3.2.4",
-            "kLevel": "K2",
-            "difficulty": "Medium",
+            "subsection": "3.2.5",
+            "learningObjective": "FL-3.2.5",
+            "kLevel": "K1",
+            "difficulty": "Easy",
             "keywords": [
                 "review success factors",
-                "checklists"
+                "checklists",
+                "review objectives",
+                "static testing"
             ],
-            "examTip": "Checklists help reviewers focus.",
-            "memoryAid": "Good checklist, better review."
+            "examTip": "Clear review objectives, suitable techniques, adequate preparation, and appropriate participants contribute to successful reviews.",
+            "memoryAid": "Clear objectives + suitable techniques = more effective reviews."
         },
         {
             "id": "Q065",
@@ -3963,31 +3974,33 @@ window.questionSets = {
                 "D": "It is only useful for safety-critical systems and does not add value in Agile projects"
             },
             "correctAnswer": "A",
-            "explanation": "Static testing adds value across all lifecycle models by detecting defects early (requirements, design) when they are significantly cheaper to fix, and it assesses code quality without execution.",
-            "correctFeedback": "✅ Correct: Static testing adds value across all lifecycle models by detecting defects early (requirements, design) when they are significantly cheaper to fix, and it assesses code quality without execution.",
+            "explanation": "Static testing examines work products without executing the software. It can identify defects early in the lifecycle, when correcting them is generally less costly, and provides information about work product quality. It complements rather than replaces dynamic testing.",
+            "correctFeedback": "✅ Correct: Static testing can detect defects in work products early, often reducing correction costs, and provides quality information without executing the software.",
             "incorrectFeedback": {
-                "B": "❌ Incorrect: 'It replaces the need for all dynamic testing activities' involves executing the software to observe behavior. This scenario requires defect, which is a flaw in a work product that may cause a failure.",
-                "C": "❌ Incorrect: 'It guarantees that the delivered system will have zero defects' is a flaw in a work product that may cause a failure. This scenario requires defect, which is a flaw in a work product that may cause a failure.",
-                "D": "❌ Incorrect: 'It is only useful for safety-critical systems and does not add value in Agile projects' is incorrect. Static testing adds value across all lifecycle models by detecting defects early (requirements, design) when they are significantly cheaper to fix, and it assesses code quality without execution."
+                "B": "❌ Incorrect: Static testing complements dynamic testing. Dynamic testing is needed to evaluate software behavior during execution.",
+                "C": "❌ Incorrect: Static testing can identify defects, but no testing approach guarantees that the delivered system will contain zero defects.",
+                "D": "❌ Incorrect: Static testing can provide value across different software development lifecycle models, including Agile."
             },
             "optionExplanations": {
-                "A": "Static testing adds value across all lifecycle models by detecting defects early (requirements, design) when they are significantly cheaper to fix, and it assesses code quality without execution.",
-                "B": "'It replaces the need for all dynamic testing activities' involves executing the software to observe behavior. This scenario requires defect, which is a flaw in a work product that may cause a failure.",
-                "C": "'It guarantees that the delivered system will have zero defects' is a flaw in a work product that may cause a failure. This scenario requires defect, which is a flaw in a work product that may cause a failure.",
-                "D": "'It is only useful for safety-critical systems and does not add value in Agile projects' is incorrect. Static testing adds value across all lifecycle models by detecting defects early (requirements, design) when they are significantly cheaper to fix, and it assesses code quality without execution."
+                "A": "Static testing can detect defects early and evaluate work product quality without executing the software.",
+                "B": "Static testing does not replace dynamic testing, which evaluates software behavior through execution.",
+                "C": "Testing cannot guarantee the absence of all defects.",
+                "D": "Static testing can be useful in different lifecycle models and is not limited to safety-critical systems."
             },
             "chapter": 3,
             "section": "3.1",
             "subsection": "3.1.3",
             "learningObjective": "FL-3.1.3",
             "kLevel": "K2",
-            "difficulty": "Medium",
+            "difficulty": "Easy",
             "keywords": [
                 "static testing value",
-                "early defect detection"
+                "early defect detection",
+                "work product quality",
+                "cost of defects"
             ],
-            "examTip": "Find defects early, fix them cheaply.",
-            "memoryAid": "Shift-left: find defects early when they cost less to fix."
+            "examTip": "Static testing evaluates work products without executing the software and can identify defects early.",
+            "memoryAid": "Find defects early; correct them before they become more costly."
         },
         {
             "id": "Q317",
@@ -3999,32 +4012,33 @@ window.questionSets = {
                 "B": "Skipping preparation to allow more time for the meeting"
             },
             "correctAnswer": "C",
-            "explanation": "Adequate preparation time is a critical success factor for reviews. Reviewers need sufficient time to study the work product, understand it, and identify potential defects before the meeting. Without preparation, the review meeting is less effective and may miss important defects.",
-            "correctFeedback": "✅ Correct: Sufficient preparation time enables reviewers to find more defects.",
+            "explanation": "Adequate preparation time is a success factor for reviews. Reviewers need time to understand the work product, consider the review objectives and relevant criteria, and identify potential defects before the review meeting.",
+            "correctFeedback": "✅ Correct: Adequate individual preparation helps reviewers identify potential defects and makes the review more effective.",
             "incorrectFeedback": {
-                "A": "❌ Incorrect: Participants should have relevant roles and expertise, not just be numerous.",
-                "B": "❌ Incorrect: Skipping preparation reduces defect detection effectiveness.",
-                "D": "❌ Incorrect: Performance evaluation during reviews destroys trust and openness."
+                "A": "❌ Incorrect: Review participants should be selected based on relevant knowledge, skills, and perspectives rather than simply maximizing attendance.",
+                "B": "❌ Incorrect: Skipping individual preparation can reduce the effectiveness of the review and the identification of potential defects.",
+                "D": "❌ Incorrect: Reviews should focus on the work product and its quality, not on evaluating individual performance."
             },
             "optionExplanations": {
-                "A": "Participants should have relevant roles and expertise, not just be numerous.",
-                "B": "Skipping preparation reduces defect detection effectiveness.",
-                "C": "Sufficient preparation time enables reviewers to find more defects.",
-                "D": "Performance evaluation during reviews destroys trust and openness."
+                "A": "Successful reviews benefit from participants with relevant expertise and appropriate roles, not simply a large number of attendees.",
+                "B": "Preparation helps reviewers understand the work product and identify potential defects before the meeting.",
+                "C": "Adequate preparation time is a recognized success factor for reviews.",
+                "D": "The review should focus on the work product and constructive feedback rather than individual performance evaluation."
             },
             "chapter": 3,
             "section": "3.2",
             "subsection": "3.2.5",
             "learningObjective": "FL-3.2.5",
             "kLevel": "K1",
-            "difficulty": "Medium",
+            "difficulty": "Easy",
             "keywords": [
                 "review success factors",
-                "preparation",
-                "effective reviews"
+                "individual preparation",
+                "effective reviews",
+                "review process"
             ],
-            "examTip": "Good preparation leads to good review results.",
-            "memoryAid": "Prepare well, review well."
+            "examTip": "Reviewers should prepare individually before the review meeting.",
+            "memoryAid": "Prepare individually; review effectively."
         },
         {
             "id": "Q048",
@@ -4110,31 +4124,33 @@ window.questionSets = {
                 "D": "To explain a work product and obtain feedback from participants"
             },
             "correctAnswer": "D",
-            "explanation": "A walkthrough is typically led by the author to share understanding and gather comments or feedback on a work product.",
-            "correctFeedback": "✅ Correct: A walkthrough is typically led by the author to share understanding and gather comments or feedback on a work product.",
+            "explanation": "A walkthrough is typically led by the author, who guides participants through a work product to build shared understanding, gather feedback, and identify anomalies.",
+            "correctFeedback": "✅ Correct: A walkthrough is typically author-led and helps participants understand the work product, provide feedback, and identify potential anomalies.",
             "incorrectFeedback": {
-                "A": "❌ Incorrect: 'To formally measure branch coverage' is a white-box metric for decision outcomes. The correct technique here is: A walkthrough is typically led by the author to share understanding and gather comments or feedback on a work product.",
-                "B": "❌ Incorrect: Executing test cases against the system is dynamic testing — a completely different activity. A walkthrough is a static review technique where the author presents a work product (requirements, design, code) to stakeholders for feedback without executing anything.",
-                "C": "❌ Incorrect: Approving tool procurement is a management decision unrelated to walkthroughs. Tool evaluation follows its own assessment process (needs analysis, proof of concept, pilot), not a walkthrough meeting."
+                "A": "❌ Incorrect: Branch coverage is a white-box testing metric that measures whether decision outcomes have been exercised. It is not the objective of a walkthrough.",
+                "B": "❌ Incorrect: Executing test cases is dynamic testing. A walkthrough is a review technique in which a work product is examined without executing the software.",
+                "C": "❌ Incorrect: Tool procurement is a management activity unrelated to the primary objective of a walkthrough."
             },
             "optionExplanations": {
-                "A": "A walkthrough is typically led by the author to share understanding, gather feedback, and identify potential ambiguities in the work product.",
-                "B": "Executing test cases against the system is dynamic testing. A walkthrough is a static review technique — no software execution occurs.",
-                "C": "Approving tool procurement is a management decision. Tool adoption follows its own lifecycle (needs assessment, evaluation, pilot), not a walkthrough.",
-                "D": "A walkthrough is typically led by the author to share understanding and gather comments or feedback on a work product."
+                "A": "Branch coverage measures the extent to which decision outcomes have been exercised during testing.",
+                "B": "Dynamic testing involves executing software and evaluating its behaviour against expected results.",
+                "C": "Tool procurement concerns acquiring tools and is not a review type.",
+                "D": "A walkthrough is typically author-led and supports shared understanding, feedback, and anomaly identification."
             },
             "chapter": 3,
             "section": "3.2",
-            "subsection": "3.2.3",
-            "learningObjective": "FL-3.2.3",
-            "kLevel": "K1",
+            "subsection": "3.2.4",
+            "learningObjective": "FL-3.2.4",
+            "kLevel": "K2",
             "difficulty": "Easy",
             "keywords": [
                 "walkthrough",
-                "review types"
+                "review types",
+                "static testing",
+                "author-led review"
             ],
-            "examTip": "Walkthroughs are author-led explanation and feedback sessions.",
-            "memoryAid": "Walk through the work product."
+            "examTip": "A walkthrough is typically led by the author. Distinguish it from an inspection, which is more formal and has defined roles and processes.",
+            "memoryAid": "Walkthrough = author explains, participants discuss."
         },
         {
             "id": "Q046",
@@ -4323,7 +4339,7 @@ window.questionSets = {
         },
         {
             "id": "Q370",
-            "statement": "A review team is preparing for a technical review of a design document. Which factor is MOST critical for the success of this review?",
+            "statement": "A review team is preparing for a technical review of a design document. Which action BEST supports the success of the review?",
             "options": {
                 "A": "Each reviewer prepares individually using a defined checklist or focus area before the meeting",
                 "B": "The manager attends to evaluate individual performance",
@@ -4331,31 +4347,33 @@ window.questionSets = {
                 "D": "The review meeting is conducted without distributing the document beforehand to ensure fresh perspectives"
             },
             "correctAnswer": "A",
-            "explanation": "Effective reviews require adequate preparation by reviewers using checklists, defined objectives, and focus areas to identify defects before and during the meeting.",
-            "correctFeedback": "✅ Correct: Effective reviews require adequate preparation by reviewers using checklists, defined objectives, and focus areas to identify defects before and during the meeting.",
+            "explanation": "Adequate individual preparation is an important review success factor. Reviewers should examine the work product before the meeting, using defined objectives, checklists, or focus areas where appropriate. This helps identify anomalies and makes the review more effective.",
+            "correctFeedback": "✅ Correct: Individual preparation using suitable checklists or focus areas helps reviewers systematically examine the work product and identify potential anomalies.",
             "incorrectFeedback": {
-                "B": "❌ Incorrect: 'The manager attends to evaluate individual performance' is incorrect. Effective reviews require adequate preparation by reviewers using checklists, defined objectives, and focus areas to identify defects before and during the meeting.",
-                "C": "❌ Incorrect: 'All defects found during the review are immediately fixed during the meeting' is a flaw in a work product that may cause a failure. The correct technique here is: Effective reviews require adequate preparation by reviewers using checklists, defined objectives, and focus areas to identify defects before and during the meeting.",
-                "D": "❌ Incorrect: 'The review meeting is conducted without distributing the document beforehand to ensure fresh perspectives' is incorrect. Effective reviews require adequate preparation by reviewers using checklists, defined objectives, and focus areas to identify defects before and during the meeting."
+                "B": "❌ Incorrect: Reviews should focus on the quality of the work product rather than evaluating individual performance. This can discourage open communication and constructive feedback.",
+                "C": "❌ Incorrect: The primary purpose of a review is to identify and discuss anomalies. Correcting defects is generally a separate activity.",
+                "D": "❌ Incorrect: Reviewers need access to the work product and adequate preparation time before the meeting to review it effectively."
             },
             "optionExplanations": {
-                "A": "Effective reviews require adequate preparation by reviewers using checklists, defined objectives, and focus areas to identify defects before and during the meeting.",
-                "B": "'The manager attends to evaluate individual performance' is incorrect. Effective reviews require adequate preparation by reviewers using checklists, defined objectives, and focus areas to identify defects before and during the meeting.",
-                "C": "'All defects found during the review are immediately fixed during the meeting' is a flaw in a work product that may cause a failure. The correct technique here is: Effective reviews require adequate preparation by reviewers using checklists, defined objectives, and focus areas to identify defects before and during the meeting.",
-                "D": "'The review meeting is conducted without distributing the document beforehand to ensure fresh perspectives' is incorrect. Effective reviews require adequate preparation by reviewers using checklists, defined objectives, and focus areas to identify defects before and during the meeting."
+                "A": "Individual preparation, supported by suitable checklists or focus areas, is an important factor in successful reviews.",
+                "B": "Evaluating individual performance is not the primary purpose of a review and may undermine constructive participation.",
+                "C": "Reviews identify anomalies; fixing them is generally handled separately.",
+                "D": "Distributing the work product beforehand allows reviewers to prepare and identify potential anomalies."
             },
             "chapter": 3,
             "section": "3.2",
-            "subsection": "3.2.4",
-            "learningObjective": "FL-3.2.4",
-            "kLevel": "K2",
-            "difficulty": "Medium",
+            "subsection": "3.2.5",
+            "learningObjective": "FL-3.2.5",
+            "kLevel": "K1",
+            "difficulty": "Easy",
             "keywords": [
                 "review success factors",
-                "preparation"
+                "individual review",
+                "preparation",
+                "checklists"
             ],
-            "examTip": "Preparation separates effective reviews from ineffective ones.",
-            "memoryAid": "Prepare before you review."
+            "examTip": "Successful reviews require clear objectives, appropriate participants, adequate preparation, and a focus on the work product rather than individuals.",
+            "memoryAid": "Prepare individually; review collaboratively."
         },
         {
             "id": "Q175",
@@ -7708,18 +7726,18 @@ window.questionSets = {
                 "B": "Static analysis tool"
             },
             "correctAnswer": "C",
-            "explanation": "Incident management tools (also called defect management tools) record, track, and manage incidents, defects, and enhancement requests throughout their lifecycle.",
-            "correctFeedback": "✅ Correct: Incident management tools (also called defect management tools) record, track, and manage incidents, defects, and enhancement requests throughout their lifecycle.",
+            "explanation": "Incident management tools record, track, and manage incidents, defects, and enhancement requests throughout their lifecycle, including assignment, resolution, verification, and closure.",
+            "correctFeedback": "✅ Correct: An incident management tool supports the tracking and management of defects throughout their lifecycle, from reporting to closure.",
             "incorrectFeedback": {
-                "A": "❌ Incorrect: 'Performance monitoring tool' is incorrect. Incident management tools help track, manage, and resolve defects throughout their lifecycle. They cover discovery, assignment, fix, verification, and closure - not just bug reporting.",
-                "B": "❌ Incorrect: 'Static analysis tool' analyzes code or work products without execution to find defects. The correct technique here is: Incident management tools (also called defect management tools) record, track, and manage incidents, defects, and enhancement requests throughout their lifecycle.",
-                "D": "❌ Incorrect: 'Test execution tool' runs test cases and compares actual vs expected results. The correct technique here is: Incident management tools (also called defect management tools) record, track, and manage incidents, defects, and enhancement requests throughout their lifecycle."
+                "A": "❌ Incorrect: Performance monitoring tools monitor performance characteristics such as response times and resource utilization.",
+                "B": "❌ Incorrect: Static analysis tools analyze code or other work products without executing the software.",
+                "D": "❌ Incorrect: Test execution tools execute test cases and may compare actual results with expected results."
             },
             "optionExplanations": {
-                "A": "'Performance monitoring tool' is incorrect. Incident management tools help track, manage, and resolve defects throughout their lifecycle. They cover discovery, assignment, fix, verification, and closure - not just bug reporting.",
-                "B": "'Static analysis tool' analyzes code or work products without execution to find defects. The correct technique here is: Incident management tools (also called defect management tools) record, track, and manage incidents, defects, and enhancement requests throughout their lifecycle.",
-                "C": "Incident management tools (also called defect management tools) record, track, and manage incidents, defects, and enhancement requests throughout their lifecycle.",
-                "D": "'Test execution tool' runs test cases and compares actual vs expected results. The correct technique here is: Incident management tools (also called defect management tools) record, track, and manage incidents, defects, and enhancement requests throughout their lifecycle."
+                "A": "Performance monitoring tools monitor performance characteristics such as response times and resource utilization.",
+                "B": "Static analysis tools analyze code or other work products without executing the software.",
+                "C": "Incident management tools record, track, assign, and manage incidents and defects throughout their lifecycle.",
+                "D": "Test execution tools execute test cases and may compare actual results with expected results."
             },
             "chapter": 6,
             "section": "6.1",
@@ -7729,10 +7747,12 @@ window.questionSets = {
             "difficulty": "Easy",
             "keywords": [
                 "incident management tool",
-                "defect tracking"
+                "defect management",
+                "defect tracking",
+                "test tools"
             ],
-            "examTip": "Track defects from discovery to closure.",
-            "memoryAid": "Track incidents."
+            "examTip": "If the tool tracks assignment, resolution status, and closure of defects, think of incident management.",
+            "memoryAid": "Report, assign, track, verify, close."
         },
         {
             "id": "Q385",
@@ -7928,18 +7948,18 @@ window.questionSets = {
                 "D": "Incident management tools"
             },
             "correctAnswer": "A",
-            "explanation": "Database testing tools support testing of database schemas, queries, stored procedures, referential integrity, and data comparisons.",
-            "correctFeedback": "✅ Correct: Database testing tools support testing of database schemas, queries, stored procedures, referential integrity, and data comparisons.",
+            "explanation": "Database testing tools can support the validation of database schemas, queries, stored procedures, referential integrity, and data consistency. They are the best fit for testing database structures and data-related behaviour.",
+            "correctFeedback": "✅ Correct: Database testing tools support the validation of database schemas, queries, stored procedures, referential integrity, and data consistency.",
             "incorrectFeedback": {
-                "B": "❌ Incorrect: 'Performance testing tools' measures response times, throughput, and resource usage under load. The correct technique here is: Database testing tools support testing of database schemas, queries, stored procedures, referential integrity, and data comparisons.",
-                "C": "❌ Incorrect: 'Web browser automation tools' is incorrect. Performance testing tools Database testing tools support testing of database schemas, queries, stored p.",
-                "D": "❌ Incorrect: 'Incident management tools' is incorrect. Performance testing tools Database testing tools support testing of database schemas, queries, stored p."
+                "B": "❌ Incorrect: Performance testing tools assess characteristics such as response time, throughput, scalability, and resource utilisation. They are not the best fit for validating database schemas and referential integrity.",
+                "C": "❌ Incorrect: Web browser automation tools automate interactions with web applications through a browser. They do not primarily support direct validation of database schemas and referential integrity.",
+                "D": "❌ Incorrect: Incident management tools help record, track, prioritise, and manage incidents. They do not primarily validate database structures or data integrity."
             },
             "optionExplanations": {
-                "A": "Database testing tools support testing of database schemas, queries, stored procedures, referential integrity, and data comparisons.",
-                "B": "'Performance testing tools' measures response times, throughput, and resource usage under load. The correct technique here is: Database testing tools support testing of database schemas, queries, stored procedures, referential integrity, and data comparisons.",
-                "C": "'Web browser automation tools' is incorrect. Performance testing tools Database testing tools support testing of database schemas, queries, stored p.",
-                "D": "'Incident management tools' is incorrect. Performance testing tools Database testing tools support testing of database schemas, queries, stored p."
+                "A": "Database testing tools can help validate database schemas, queries, stored procedures, referential integrity, and data consistency.",
+                "B": "Performance testing tools assess response time, throughput, scalability, and resource utilisation under defined workloads.",
+                "C": "Web browser automation tools automate user interactions and checks in browser-based applications.",
+                "D": "Incident management tools support the recording, tracking, prioritisation, and resolution of incidents."
             },
             "chapter": 6,
             "section": "6.1",
@@ -7949,10 +7969,12 @@ window.questionSets = {
             "difficulty": "Easy",
             "keywords": [
                 "database testing",
-                "data integrity"
+                "data integrity",
+                "referential integrity",
+                "test tools"
             ],
-            "examTip": "Database tools validate data and schema.",
-            "memoryAid": "Test the data layer."
+            "examTip": "Match the tool to the testing activity: database testing tools focus on database structures and data; performance testing tools focus on system performance.",
+            "memoryAid": "Database tools = schema, queries, relationships, and data."
         },
         {
             "id": "Q060",
@@ -8037,18 +8059,18 @@ window.questionSets = {
                 "D": "A packet analyzer tool"
             },
             "correctAnswer": "A",
-            "explanation": "ALM platforms integrate test management, incident management, requirements management, and configuration management in a single environment.",
-            "correctFeedback": "✅ Correct: ALM platforms integrate test management, incident management, requirements management, and configuration management in a single environment.",
+            "explanation": "An integrated ALM platform can provide both test management and incident management capabilities within the same environment. The available functionality depends on the specific platform and its modules.",
+            "correctFeedback": "✅ Correct: An integrated ALM platform can support both test management and incident management within the same environment.",
             "incorrectFeedback": {
-                "B": "❌ Incorrect: 'A standalone static analysis tool' analyzes code or work products without execution to find defects. The correct technique here is: ALM platforms integrate test management, incident management, requirements management, and configuration management in a single environment.",
-                "C": "❌ Incorrect: 'A performance monitoring dashboard' is incorrect. A standalone static analysis tool ALM platforms integrate test management, incident management, requirements ma.",
-                "D": "❌ Incorrect: 'A packet analyzer tool' is incorrect. A standalone static analysis tool ALM platforms integrate test management, incident management, requirements ma."
+                "B": "❌ Incorrect: A standalone static analysis tool analyzes code or other work products without executing the software. It does not, by itself, provide both test management and incident management.",
+                "C": "❌ Incorrect: A performance monitoring dashboard focuses on performance metrics such as response times and resource utilization.",
+                "D": "❌ Incorrect: A packet analyzer examines network traffic and packet contents rather than providing test management and incident management capabilities."
             },
             "optionExplanations": {
-                "A": "ALM platforms integrate test management, incident management, requirements management, and configuration management in a single environment.",
-                "B": "'A standalone static analysis tool' analyzes code or work products without execution to find defects. The correct technique here is: ALM platforms integrate test management, incident management, requirements management, and configuration management in a single environment.",
-                "C": "'A performance monitoring dashboard' is incorrect. A standalone static analysis tool ALM platforms integrate test management, incident management, requirements ma.",
-                "D": "'A packet analyzer tool' is incorrect. A standalone static analysis tool ALM platforms integrate test management, incident management, requirements ma."
+                "A": "An integrated ALM platform can combine test management and incident management capabilities, depending on the product and its modules.",
+                "B": "Static analysis tools analyze work products without executing the software; they are not, by themselves, integrated test and incident management platforms.",
+                "C": "Performance monitoring dashboards focus on application or system performance metrics.",
+                "D": "Packet analyzers inspect network packets and traffic to support network troubleshooting and analysis."
             },
             "chapter": 6,
             "section": "6.1",
@@ -8058,10 +8080,12 @@ window.questionSets = {
             "difficulty": "Easy",
             "keywords": [
                 "ALM",
+                "test management",
+                "incident management",
                 "integrated tools"
             ],
-            "examTip": "ALM = all-in-one testing platform.",
-            "memoryAid": "All-in-one platform."
+            "examTip": "An integrated platform can support multiple testing activities; distinguish this from a specialized tool focused on one technical function.",
+            "memoryAid": "One platform, multiple lifecycle capabilities."
         },
         {
             "id": "Q198",
@@ -8111,31 +8135,34 @@ window.questionSets = {
                 "C": "Run only smoke tests forever"
             },
             "correctAnswer": "D",
-            "explanation": "Optimizing test suites by prioritizing tests based on risk, parallelizing execution, removing duplication, and using efficient test design improves pipeline speed without sacrificing coverage.",
-            "correctFeedback": "✅ Correct: Optimizing test suites by prioritizing tests based on risk, parallelizing execution, removing duplication, and using efficient test design improves pipeline speed without sacrificing coverage.",
+            "explanation": "The team should analyze and optimize the regression suite to reduce execution time while maintaining appropriate coverage. Possible measures include identifying inefficient or redundant tests, parallelizing independent tests where feasible, and prioritizing high-risk tests to provide faster feedback. The full regression suite should still run at an appropriate stage.",
+            "correctFeedback": "✅ Correct: Optimizing the regression suite can shorten feedback time while preserving appropriate regression coverage and risk control.",
             "incorrectFeedback": {
-                "A": "❌ Incorrect: 'Cancel all automated regression testing' checks that changes have not broken unchanged functionality. The correct technique here is: Optimizing test suites by prioritizing tests based on risk, parallelizing execution, removing duplication, and using efficient test design improves pipeline speed without sacrificing coverage.",
-                "B": "❌ Incorrect: 'Reduce the CI pipeline frequency to weekly' is incorrect. Optimizing test suites by prioritizing tests based on risk, parallelizing execution, removing duplication, and using efficient test design improves pipeline speed without sacrificing coverage.",
-                "C": "❌ Incorrect: 'Run only smoke tests forever' is incorrect. Optimizing test suites by prioritizing tests based on risk, parallelizing execution, removing duplication, and using efficient test design improves pipeline speed without sacrificing coverage."
+                "A": "❌ Incorrect: Cancelling all automated regression testing removes an important means of detecting unintended effects of changes.",
+                "B": "❌ Incorrect: Running the CI pipeline only weekly delays feedback and increases the time before integration problems are detected.",
+                "C": "❌ Incorrect: Smoke tests check whether the build is stable enough for further testing, but they do not replace the full regression test suite."
             },
             "optionExplanations": {
-                "A": "'Cancel all automated regression testing' checks that changes have not broken unchanged functionality. The correct technique here is: Optimizing test suites by prioritizing tests based on risk, parallelizing execution, removing duplication, and using efficient test design improves pipeline speed without sacrificing coverage.",
-                "B": "'Reduce the CI pipeline frequency to weekly' is incorrect. Optimizing test suites by prioritizing tests based on risk, parallelizing execution, removing duplication, and using efficient test design improves pipeline speed without sacrificing coverage.",
-                "C": "'Run only smoke tests forever' is incorrect. Optimizing test suites by prioritizing tests based on risk, parallelizing execution, removing duplication, and using efficient test design improves pipeline speed without sacrificing coverage.",
-                "D": "Optimizing test suites by prioritizing tests based on risk, parallelizing execution, removing duplication, and using efficient test design improves pipeline speed without sacrificing coverage."
+                "A": "Cancelling all automated regression testing removes an important safeguard against regressions.",
+                "B": "Reducing CI frequency to weekly delays feedback and problem detection.",
+                "C": "Smoke tests provide a limited check of build stability and cannot replace comprehensive regression testing.",
+                "D": "Suite optimization can reduce execution time while maintaining appropriate coverage and risk control."
             },
             "chapter": 6,
             "section": "6.2",
             "subsection": "6.2.1",
             "learningObjective": "FL-6.2.1",
-            "kLevel": "K1",
+            "kLevel": "K2",
             "difficulty": "Medium",
             "keywords": [
                 "test suite optimization",
-                "CI pipeline"
+                "regression testing",
+                "test automation risks",
+                "CI pipeline",
+                "test execution time"
             ],
-            "examTip": "Optimize, parallelize, prioritize.",
-            "memoryAid": "Fast pipeline = fast feedback."
+            "examTip": "Reduce feedback time by optimizing the suite; do not confuse faster feedback with abandoning regression coverage.",
+            "memoryAid": "Optimize, prioritize, parallelize, preserve coverage."
         },
         {
             "id": "Q072",
@@ -8478,31 +8505,33 @@ window.questionSets = {
                 "C": "Reduced need for test design skills"
             },
             "correctAnswer": "D",
-            "explanation": "Record-and-playback tools create scripts that are tightly coupled to the UI or interface structure, leading to high maintenance effort when the application changes.",
-            "correctFeedback": "✅ Correct: Record-and-playback tools create scripts that are tightly coupled to the UI or interface structure, leading to high maintenance effort when the application changes.",
+            "explanation": "Record-and-playback tools can generate automated test scripts that are tightly coupled to the application's UI or interface structure. Frequent changes to the system under test may cause these scripts to fail or require substantial maintenance, increasing maintenance costs.",
+            "correctFeedback": "✅ Correct: Record-and-playback scripts can be fragile when the application's UI or interface structure changes, resulting in increased maintenance effort.",
             "incorrectFeedback": {
-                "A": "❌ Incorrect: 'Complete elimination of manual testing' is incorrect. Record-and-playback tools create scripts that are tightly coupled to the UI or interface structure, leading to high maintenance effort when the application changes.",
-                "B": "❌ Incorrect: 'Automatic generation of perfect test data' is incorrect. Record-and-playback tools create scripts that are tightly coupled to the UI or interface structure, leading to high maintenance effort when the application changes.",
-                "C": "❌ Incorrect: 'Reduced need for test design skills' derives test cases from test conditions and the test basis. The correct technique here is: Record-and-playback tools create scripts that are tightly coupled to the UI or interface structure, leading to high maintenance effort when the application changes."
+                "A": "❌ Incorrect: Test automation does not eliminate the need for manual testing. Some testing activities still require human judgment and exploration.",
+                "B": "❌ Incorrect: Record-and-playback tools do not guarantee the automatic generation of correct or complete test data.",
+                "C": "❌ Incorrect: Test automation still requires test design skills. Recording interactions does not replace the need to design effective tests."
             },
             "optionExplanations": {
-                "A": "'Complete elimination of manual testing' is incorrect. Record-and-playback tools create scripts that are tightly coupled to the UI or interface structure, leading to high maintenance effort when the application changes.",
-                "B": "'Automatic generation of perfect test data' is incorrect. Record-and-playback tools create scripts that are tightly coupled to the UI or interface structure, leading to high maintenance effort when the application changes.",
-                "C": "'Reduced need for test design skills' derives test cases from test conditions and the test basis. The correct technique here is: Record-and-playback tools create scripts that are tightly coupled to the UI or interface structure, leading to high maintenance effort when the application changes.",
-                "D": "Record-and-playback tools create scripts that are tightly coupled to the UI or interface structure, leading to high maintenance effort when the application changes."
+                "A": "Test automation complements manual testing; it does not eliminate it completely.",
+                "B": "Record-and-playback tools do not guarantee the generation of perfect test data.",
+                "C": "Effective test automation still depends on appropriate test design skills.",
+                "D": "Recorded scripts may be tightly coupled to the UI or interface structure and become expensive to maintain when the system changes frequently."
             },
             "chapter": 6,
             "section": "6.2",
             "subsection": "6.2.1",
             "learningObjective": "FL-6.2.1",
-            "kLevel": "K1",
-            "difficulty": "Medium",
+            "kLevel": "K2",
+            "difficulty": "Easy",
             "keywords": [
                 "record-and-playback",
-                "automation risks"
+                "test automation risks",
+                "script maintenance",
+                "test automation"
             ],
-            "examTip": "Record-and-playback scripts are fragile and hard to maintain.",
-            "memoryAid": "Brittle scripts break easily."
+            "examTip": "When a question asks about the risks of record-and-playback, consider script fragility and maintenance effort after application changes.",
+            "memoryAid": "Record once; maintain whenever the application changes."
         },
         {
             "id": "Q359",
@@ -10621,34 +10650,36 @@ window.questionSets = {
                 "A": "Testers are not allowed to execute all planned tests",
                 "B": "Automation tools cannot run tests overnight",
                 "C": "Developers should perform exhaustive testing before system testing",
-                "D": "Input combinations, paths, timing, and data states are usually too numerous to test completely"
+                "D": "Input combinations, execution paths, timing conditions, and data states are usually too numerous to test completely"
             },
             "correctAnswer": "D",
-            "explanation": "The number of possible combinations is normally too large, so testing uses risk, priorities, and techniques to select representative tests.",
-            "correctFeedback": "✅ Correct: The number of possible combinations is normally too large, so testing uses risk, priorities, and techniques to select representative tests.",
+            "explanation": "Exhaustive testing is generally impossible because the number of possible input variations and execution conditions is too large to test completely, except in trivial cases. Testers therefore use test techniques, prioritization, and risk-based testing to select a manageable subset of tests.",
+            "correctFeedback": "✅ Correct: Exhaustive testing is generally impossible because the number of possible input variations and execution conditions is too large. Test techniques, prioritization, and risk-based testing help select a manageable subset of tests.",
             "incorrectFeedback": {
-                "A": "❌ Incorrect: 'Testers are not allowed to execute all planned tests' is incorrect. The number of possible combinations is normally too large, so testing uses risk, priorities, and techniques to select representative tests.",
-                "B": "❌ Incorrect: 'Automation tools cannot run tests overnight' is incorrect. The number of possible combinations is normally too large, so testing uses risk, priorities, and techniques to select representative tests.",
-                "C": "❌ Incorrect: 'Developers should perform exhaustive testing before system testing' testing all combinations is impossible except for trivial systems. The correct technique here is: The number of possible combinations is normally too large, so testing uses risk, priorities, and techniques to select representative tests."
+                "A": "❌ Incorrect: The limitation is not that testers are forbidden from executing planned tests. The number of possible input variations and execution conditions is generally too large to test completely.",
+                "B": "❌ Incorrect: Automation tools can execute tests overnight, but automation does not make it feasible to test every possible input variation and execution condition.",
+                "C": "❌ Incorrect: Exhaustive testing is generally impossible at any testing level except in trivial cases. It is not a responsibility that developers must complete before system testing."
             },
             "optionExplanations": {
-                "A": "'Testers are not allowed to execute all planned tests' is incorrect. The number of possible combinations is normally too large, so testing uses risk, priorities, and techniques to select representative tests.",
-                "B": "'Automation tools cannot run tests overnight' is incorrect. The number of possible combinations is normally too large, so testing uses risk, priorities, and techniques to select representative tests.",
-                "C": "'Developers should perform exhaustive testing before system testing' testing all combinations is impossible except for trivial systems. The correct technique here is: The number of possible combinations is normally too large, so testing uses risk, priorities, and techniques to select representative tests.",
-                "D": "The number of possible combinations is normally too large, so testing uses risk, priorities, and techniques to select representative tests."
+                "A": "The principle concerns the impracticality of testing every possible variation, not restrictions on testers executing planned tests.",
+                "B": "Automation can increase execution speed and repeatability, but it cannot eliminate the potentially enormous number of possible test cases.",
+                "C": "Exhaustive testing is generally impossible at all testing levels except in trivial cases; it is not a prerequisite for system testing.",
+                "D": "The number of possible input variations and execution conditions is generally too large to test completely, so testers use test techniques, prioritization, and risk-based testing to select a subset."
             },
             "chapter": 1,
             "section": "1.3",
             "subsection": "1.3.1",
             "learningObjective": "FL-1.3.1",
             "kLevel": "K2",
-            "difficulty": "Medium",
+            "difficulty": "Easy",
             "keywords": [
                 "exhaustive testing",
-                "test principles"
+                "test principles",
+                "risk-based testing",
+                "test prioritization"
             ],
-            "examTip": "Look for impractical combinations, not lack of effort.",
-            "memoryAid": "Too many combinations."
+            "examTip": "Look for the impractical number of possible test variations, not a lack of effort, tools, or permission.",
+            "memoryAid": "Too many possibilities; select tests using techniques, priorities, and risk."
         },
         {
             "id": "Q303",
@@ -11646,26 +11677,26 @@ window.questionSets = {
         },
         {
             "id": "Q233",
-            "statement": "A team estimates testing by comparing the new release with three similar completed releases. Which estimation approach is used?",
+            "statement": "A team reviews three similar completed releases and establishes that testing typically requires 40% of the combined development and testing effort. For a new release, the estimated combined development and testing effort is 500 person-days. Using estimation based on ratios, what is the estimated testing effort?",
             "options": {
-                "A": "Defect severity estimation only",
-                "B": "Estimation based on ratios or historical data",
-                "C": "Boundary value estimation",
-                "D": "Branch coverage estimation"
+                "A": "100 person-days",
+                "B": "200 person-days",
+                "C": "300 person-days",
+                "D": "400 person-days"
             },
             "correctAnswer": "B",
-            "explanation": "Using data from similar past projects is a recognized basis for test estimation.",
-            "correctFeedback": "✅ Correct: Using data from similar past projects is a recognized basis for test estimation.",
+            "explanation": "Estimation based on ratios uses historical project data to derive a standard ratio for estimating test effort. Here, the testing effort is 40% of the combined development and testing effort: 500 × 0.40 = 200 person-days.",
+            "correctFeedback": "✅ Correct: Estimation based on ratios uses historical data to estimate effort. In this scenario, 40% of 500 person-days is 200 person-days.",
             "incorrectFeedback": {
-                "A": "❌ Incorrect: 'Defect severity estimation only' reflects the impact of a defect on the system or users. The correct technique here is: Using data from similar past projects is a recognized basis for test estimation.",
-                "C": "❌ Incorrect: 'Boundary value estimation' focuses on values at and around the edges of equivalence partitions. The correct technique here is: Using data from similar past projects is a recognized basis for test estimation.",
-                "D": "❌ Incorrect: 'Branch coverage estimation' is a white-box metric for decision outcomes. The correct technique here is: Using data from similar past projects is a recognized basis for test estimation."
+                "A": "❌ Incorrect: 100 person-days represents 20% of the combined effort, not the stated 40%. The correct calculation is 500 × 0.40 = 200 person-days.",
+                "C": "❌ Incorrect: 300 person-days represents 60% of the combined effort. The stated testing ratio is 40%, giving 200 person-days.",
+                "D": "❌ Incorrect: 400 person-days represents 80% of the combined effort. The stated testing ratio is 40%, giving 200 person-days."
             },
             "optionExplanations": {
-                "A": "'Defect severity estimation only' reflects the impact of a defect on the system or users. The correct technique here is: Using data from similar past projects is a recognized basis for test estimation.",
-                "B": "Using data from similar past projects is a recognized basis for test estimation.",
-                "C": "'Boundary value estimation' focuses on values at and around the edges of equivalence partitions. The correct technique here is: Using data from similar past projects is a recognized basis for test estimation.",
-                "D": "'Branch coverage estimation' is a white-box metric for decision outcomes. The correct technique here is: Using data from similar past projects is a recognized basis for test estimation."
+                "A": "500 × 0.20 = 100 person-days, but the stated ratio is 40%.",
+                "B": "500 × 0.40 = 200 person-days.",
+                "C": "500 × 0.60 = 300 person-days, but the stated ratio is 40%.",
+                "D": "500 × 0.80 = 400 person-days, but the stated ratio is 40%."
             },
             "chapter": 5,
             "section": "5.1",
@@ -11675,10 +11706,12 @@ window.questionSets = {
             "difficulty": "Medium",
             "keywords": [
                 "test estimation",
-                "historical data"
+                "estimation based on ratios",
+                "historical data",
+                "test effort"
             ],
-            "examTip": "Past similar work can estimate future effort.",
-            "memoryAid": "History informs estimates."
+            "examTip": "Estimation based on ratios uses historical data to derive a ratio that can be applied to a new project's estimated effort.",
+            "memoryAid": "Historical ratio × current effort = estimated effort."
         },
         {
             "id": "Q118",
