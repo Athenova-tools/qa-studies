@@ -9,6 +9,7 @@
 const fs = require('fs');
 const path = require('path');
 const assert = require('assert');
+const vm = require('vm');
 
 const STATS_FILE = process.argv[2] || path.join(__dirname, 'statistics.js');
 const GRADING_FILE = process.argv[3] || path.join(__dirname, 'grading.js');
@@ -765,6 +766,74 @@ async function main() {
     assert.strictEqual(el.children[0].className, 'results-list', 'primeiro bloco é a moldura do título');
     assert.strictEqual(el.children[0].children[0].textContent, 'Question Review', 'label "Question Review" primeiro');
     assert(el.children[1].className.indexOf('results__card') === 0, 'cartão de score depois do título');
+  });
+
+  /* ---- T20: cada alvo do plano de estudo existe nos slides ---- */
+  await ok('Plano de estudo: subsection aponta para uma secção real dos slides', () => {
+    const load = file => {
+      const ctx = { window: {} };
+      vm.createContext(ctx);
+      vm.runInContext(fs.readFileSync(file, 'utf8'), ctx);
+      return ctx.window;
+    };
+    const sectionIds = new Set();
+    const walk = o => {
+      if (!o || typeof o !== 'object') return;
+      if (typeof o.id === 'string') sectionIds.add(o.id);
+      Object.keys(o).forEach(k => walk(o[k]));
+    };
+    walk(load(path.join(__dirname, 'slides.js')));
+
+    const htmlIds = {};
+    for (let ch = 1; ch <= 6; ch++) {
+      const src = fs.readFileSync(path.join(__dirname, '..', 'slides', 'chapter' + ch + '.html'), 'utf8');
+      const ids = new Set();
+      const re = /^\s*id:\s*"([0-9.]+)",?\s*$/gm;
+      let m;
+      while ((m = re.exec(src)) !== null) ids.add(m[1]);
+      htmlIds[ch] = ids;
+    }
+
+    const bank = load(path.join(__dirname, 'questions.js'));
+    const targets = new Set();
+    Object.keys(bank.questionSets || {}).forEach(set => {
+      (bank.questionSets[set] || []).forEach(q => {
+        targets.add(String(q.subsection || '').split('.').slice(0, 2).join('.'));
+      });
+    });
+    assert(targets.size > 0, 'banco de questões lido');
+
+    const missing = Array.from(targets).filter(t => {
+      const ch = parseInt(String(t).split('.')[0], 10);
+      return !sectionIds.has(t) || !htmlIds[ch] || !htmlIds[ch].has(t);
+    });
+    assert.deepStrictEqual(missing, [], 'subsections sem secção nos slides: ' + missing.join(', '));
+  });
+
+  /* ---- T21: os slides fazem scroll para o #hash depois do render ---- */
+  await ok('Slides: #hash faz scroll depois do render dinâmico', () => {
+    for (let ch = 1; ch <= 6; ch++) {
+      const html = fs.readFileSync(path.join(__dirname, '..', 'slides', 'chapter' + ch + '.html'), 'utf8');
+      const render = html.indexOf('app.innerHTML = h;');
+      const hash = html.indexOf('window.location.hash');
+      assert(render !== -1, 'chapter' + ch + ' renderiza para #app');
+      assert(hash !== -1, 'chapter' + ch + ' não trata o #hash');
+      assert(hash > render, 'chapter' + ch + ' trata o #hash depois de renderizar');
+      assert(html.indexOf('scrollIntoView') > render, 'chapter' + ch + ' usa scrollIntoView');
+    }
+  });
+
+  /* ---- T22: espelho android byte-a-byte igual ao web ---- */
+  await ok('Android: www espelha o web (questions, slides e capítulos)', () => {
+    const files = ['js/questions.js', 'js/slides.js', 'slides/chapter1.html', 'slides/chapter2.html',
+      'slides/chapter3.html', 'slides/chapter4.html', 'slides/chapter5.html', 'slides/chapter6.html'];
+    const androidRoot = path.join(__dirname, '..', 'android', 'app', 'src', 'main', 'assets', 'www');
+    if (!fs.existsSync(androidRoot)) return;
+    files.forEach(f => {
+      const web = fs.readFileSync(path.join(__dirname, '..', f), 'utf8');
+      const mirrored = fs.readFileSync(path.join(androidRoot, f), 'utf8');
+      assert.strictEqual(mirrored, web, f + ' difere no espelho android');
+    });
   });
 
   console.log('');
