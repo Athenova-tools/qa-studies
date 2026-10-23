@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Apoia o Projeto — Donativos via PayPal</title>
+<meta name="description" content="Página de donativos do projeto. Escolhe um montante e continua com segurança através do PayPal.">
+<!--
+  CONFIGURAÇÃO (passos que exigem credenciais do dono do projeto):
+  1. Substituir [PAYPAL_ACCOUNT_EMAIL_OR_MERCHANT_ID] em CONFIG.paypalAccount (obrigatório — sem isto o botão não redireciona).
+  2. Opcional: returnUrl/websiteUrl/contactEmail com URLs públicas reais (PayPal não aceita file:// como retorno).
+  3. Teste sandbox: CONFIG.sandbox = true (conta sandbox em developer.paypal.com).
+  4. Se a conta não tiver "Donate", mudar CONFIG.cmd para '_xclick'.
+  Checklist: montantes pré-definidos · valor livre válido · valores inválidos rejeitados ·
+  redirecionamento real · cancelamento no PayPal · regresso sem confirmação falsa.
+-->
+<style>
+  :root{--bg:#f4f7fb;--card:#fff;--ink:#14202e;--muted:#5c6d80;--line:#e4eaf2;--accent:#1d6fe8;--accent2:#0f55c4;--ok:#0e7a4f;--err:#c02626;--r:14px}
+  *{box-sizing:border-box}
+  body{margin:0;font:16px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;background:var(--bg);color:var(--ink)}
+  a{color:var(--accent)}
+  .wrap{max-width:760px;margin:0 auto;padding:0 18px}
+  .hero{padding:52px 0 34px;text-align:center}
+  .hero .kicker{display:inline-block;font-size:12.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);background:#e8f1fe;border:1px solid #cfe1fb;border-radius:999px;padding:5px 14px}
+  .hero h1{font-size:clamp(26px,5vw,36px);line-height:1.2;margin:16px 0 10px}
+  .hero p{color:var(--muted);max-width:56ch;margin:0 auto 20px}
+  .btn{display:inline-block;border:0;border-radius:10px;background:var(--accent);color:#fff;font:600 16px/1 inherit;padding:14px 26px;cursor:pointer;text-decoration:none}
+  .btn:hover{background:var(--accent2)}
+  .btn:focus-visible,.chip:focus-visible,input:focus-visible{outline:3px solid #8ab6ff;outline-offset:2px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:26px 26px 24px;margin:0 0 20px;box-shadow:0 6px 22px rgba(16,40,80,.05)}
+  .card h2{margin:0 0 6px;font-size:20px}
+  .card .lead{color:var(--muted);margin:0 0 18px;font-size:14.5px}
+  .chips{display:grid;grid-template-columns:repeat(auto-fill,minmax(105px,1fr));gap:10px}
+  .chip{border:1.5px solid var(--line);background:#fbfcfe;border-radius:12px;padding:12px 8px;cursor:pointer;font:600 18px/1.2 inherit;color:var(--ink);transition:.15s}
+  .chip small{display:block;font:500 12px/1.3 inherit;color:var(--muted);margin-top:3px}
+  .chip:hover{border-color:#9cc0f5}
+  .chip[aria-checked="true"]{border-color:var(--accent);background:#eaf2fe;box-shadow:inset 0 0 0 1px var(--accent)}
+  .chip[aria-checked="true"] small{color:var(--accent2)}
+  .custom{margin-top:14px}
+  .custom label{display:block;font-size:13.5px;font-weight:600;color:var(--muted);margin-bottom:6px}
+  .custom input{width:100%;max-width:240px;border:1.5px solid var(--line);border-radius:10px;padding:11px 13px;font:600 16px/1 inherit}
+  .summary{margin:18px 0 0;background:#f2f7ff;border:1px solid #d9e7fd;border-radius:10px;padding:12px 14px;font-size:15px}
+  .summary strong{color:var(--accent2)}
+  .error{margin:10px 0 0;color:var(--err);font-size:14px;font-weight:600}
+  #payBtn{width:100%;margin-top:16px;padding:15px}
+  .why{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}
+  .why div{background:#f8fafc;border:1px solid var(--line);border-radius:10px;padding:14px 15px;font-size:14.5px}
+  .why b{display:block;margin-bottom:4px}
+  .trust li{margin:7px 0;color:var(--muted);font-size:14.5px}
+  .trust li b{color:var(--ink)}
+  .note{font-size:13px;color:var(--muted);margin-top:14px}
+  .thanks{display:none;border:1px solid #bfe6d4;background:#edfaf3;border-radius:var(--r);padding:26px;margin:0 0 20px;text-align:center}
+  .thanks h2{margin:0 0 8px;color:var(--ok);font-size:21px}
+  .thanks p{margin:6px 0;color:#235c45;font-size:15px}
+  .warn{display:none;border:1px solid #f0d9a6;background:#fdf6e6;border-radius:12px;padding:16px 18px;margin:0 0 20px;font-size:14.5px}
+  .warn b{display:block;margin-bottom:6px}
+  .warn code{background:#f3e7c8;border-radius:5px;padding:1px 6px}
+  footer{color:var(--muted);font-size:13px;text-align:center;padding:26px 0 40px}
+  @media (max-width:520px){.card{padding:20px 16px}.chips{grid-template-columns:repeat(2,1fr)}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="hero">
+    <span class="kicker">Donativos</span>
+    <h1>Apoia o Projeto. Ajuda-o a Crescer.</h1>
+    <p>Cada contribuição ajuda-nos a melhorar, manter e expandir este projeto. Escolhe um valor que faça sentido para ti e ajuda-nos a continuar a construir algo valioso.</p>
+    <a class="btn" href="#doar">Apoiar o Projeto</a>
+  </header>
+
+  <div class="warn" id="configWarn" role="alert">
+    <b>Configuração pendente (credencial do dono do projeto)</b>
+    Abre este ficheiro e define o email/merchant ID PayPal em <code>CONFIG.paypalAccount</code> (atualmente <code>[PAYPAL_ACCOUNT_EMAIL_OR_MERCHANT_ID]</code>). O fluxo de pagamento real só fica ativo depois desta substituição.
+  </div>
+
+  <div class="thanks" id="thanksBox" tabindex="-1">
+    <h2 id="thanksTitle">Obrigado por visitar a nossa página de donativos</h2>
+    <p id="thanksText">O pagamento ainda não foi confirmado. Se chegaste aqui a meio de uma doação, confirma o estado na tua conta PayPal ou no recibo recebido por email.</p>
+    <p><a class="btn" id="thanksHome" href="./index.html">Voltar ao início</a></p>
+  </div>
+
+  <section class="card" id="doar" aria-labelledby="giveTitle">
+    <h2 id="giveTitle">Escolhe o teu donativo</h2>
+    <p class="lead">Apenas um montante de cada vez. Pagamento processado exclusivamente pelo PayPal.</p>
+
+    <div class="chips" role="radiogroup" aria-label="Montantes predefinidos" id="chips">
+      <button type="button" class="chip" role="radio" aria-checked="true" data-amount="2">€2 <small>Pequena contribuição</small></button>
+      <button type="button" class="chip" role="radio" aria-checked="false" data-amount="5">€5 <small>Apoiante</small></button>
+      <button type="button" class="chip" role="radio" aria-checked="false" data-amount="10">€10 <small>Colaborador</small></button>
+      <button type="button" class="chip" role="radio" aria-checked="false" data-amount="25">€25 <small>Campeão</small></button>
+      <button type="button" class="chip" role="radio" aria-checked="false" data-amount="50">€50 <small>Apoiante principal</small></button>
+      <button type="button" class="chip" role="radio" aria-checked="false" data-amount="custom">Livre <small>O teu valor</small></button>
+    </div>
+
+    <div class="custom" id="customWrap" hidden>
+      <label for="customAmount">Montante personalizado (€)</label>
+      <input id="customAmount" type="text" inputmode="decimal" autocomplete="off" placeholder="ex.: 15,50">
+    </div>
+
+    <p class="summary" aria-live="polite" id="summary">Vais doar <strong>€2</strong> via PayPal.</p>
+    <p class="error" role="alert" id="error" hidden></p>
+
+    <button class="btn" id="payBtn" type="button">Continuar com o PayPal</button>
+    <p class="note">Serás redirecionado para a interface oficial do PayPal. Este site não recolhe nem guarda dados do teu cartão.</p>
+  </section>
+
+  <section class="card" aria-labelledby="whyTitle">
+    <h2 id="whyTitle">Porque o teu apoio importa</h2>
+    <p class="lead">As doações são voluntárias e sem benefícios associados.</p>
+    <div class="why">
+      <div><b>Novas funcionalidades</b>Desenvolvimento de melhorias pedidas pela comunidade.</div>
+      <div><b>Manutenção</b>Correção de erros e atualizações contínuas.</div>
+      <div><b>Alojamento e infraestrutura</b>Custos de servidores e domínio.</div>
+      <div><b>Ferramentas e recursos</b>Criação de materiais de estudo adicionais.</div>
+    </div>
+  </section>
+
+  <section class="card" aria-labelledby="trustTitle">
+    <h2 id="trustTitle">Confiança e transparência</h2>
+    <ul class="trust">
+      <li><b>Pagamentos processados pelo PayPal</b> — o site não vê, não recolhe e não guarda dados de cartão.</li>
+      <li><b>Doações voluntárias</b> — sem contrapartidas, recompensas ou acesso especial.</li>
+      <li><b>Sem fins fiscais declarados</b> — não afirmamos dedutibilidade fiscal; contacta-nos se precisares de dados formais.</li>
+      <li>Dúvidas: <a id="contactLink" href="#">contacto do projeto</a></li>
+    </ul>
+  </section>
+
+  <footer>
+    <span id="footName">Projeto</span> · página de donativos de exemplo · fluxo PayPal real ativo após configuração da conta
+  </footer>
+</div>
+
+<script>
+(function () {
+  var CONFIG = {
+    projectName: 'O Meu Projeto',
+    paypalAccount: '[PAYPAL_ACCOUNT_EMAIL_OR_MERCHANT_ID]',
+    cmd: '_donate',                 // '_donate' (botão de doação) ou '_xclick' (pagamento simples)
+    sandbox: false,                 // true = developer.paypal.com (sandbox)
+    currency: 'EUR',
+    amounts: [2, 5, 10, 25, 50],
+    minimum: 1,
+    returnUrl: '',                  // ex.: 'https://seudominio.pt/doacoes/' (URL pública; vazio = sem retorno automático)
+    websiteUrl: '',
+    contactEmail: ''
+  };
+
+  var state = { mode: 'preset', amount: 2 };
+  var chips = document.getElementById('chips');
+  var customWrap = document.getElementById('customWrap');
+  var customInput = document.getElementById('customAmount');
+  var summary = document.getElementById('summary');
+  var errorBox = document.getElementById('error');
+  var payBtn = document.getElementById('payBtn');
+
+  function money(n) {
+    return (CONFIG.currency === 'USD' ? '$' : '€') + n.toFixed(2).replace(/\.00$/, '');
+  }
+
+  function parseAmount(raw) {
+    var s = String(raw || '').trim().replace(',', '.');
+    if (!/^\d+(\.\d{1,2})?$/.test(s)) return null;
+    return parseFloat(s);
+  }
+
+  function validate() {
+    if (state.mode === 'preset') return state.amount;
+    var v = parseAmount(customInput.value);
+    if (customInput.value.trim() === '') return { err: 'Introduz um montante para continuares.' };
+    if (v === null) return { err: 'Valor inválido — usa apenas números (ex.: 15 ou 15,50).' };
+    if (v <= 0) return { err: 'O montante tem de ser superior a zero.' };
+    if (v < CONFIG.minimum) return { err: 'O montante mínimo é de ' + money(CONFIG.minimum) + '.' };
+    return v;
+  }
+
+  function render() {
+    var v = validate();
+    var ok = typeof v === 'number';
+    errorBox.hidden = ok;
+    if (!ok) errorBox.textContent = v.err;
+    payBtn.disabled = !ok;
+    payBtn.style.opacity = ok ? '1' : '.55';
+    if (ok) {
+      summary.innerHTML = 'Vais doar <strong>' + money(v) + '</strong> via PayPal.';
+    } else {
+      summary.textContent = 'Montante por confirmar.';
+    }
+  }
+
+  chips.addEventListener('click', function (e) {
+    var b = e.target.closest('.chip');
+    if (!b) return;
+    chips.querySelectorAll('.chip').forEach(function (c) { c.setAttribute('aria-checked', String(c === b)); });
+    if (b.dataset.amount === 'custom') {
+      state.mode = 'custom';
+      customWrap.hidden = false;
+      customInput.focus();
+    } else {
+      state.mode = 'preset';
+      state.amount = parseFloat(b.dataset.amount);
+      customWrap.hidden = true;
+    }
+    render();
+  });
+  customInput.addEventListener('input', render);
+
+  function returnURL(status) {
+    if (!CONFIG.returnUrl || CONFIG.returnUrl.indexOf('[') !== -1) return '';
+    return CONFIG.returnUrl + (CONFIG.returnUrl.indexOf('?') >= 0 ? '&' : '?') + 'status=' + status;
+  }
+
+  function paypalForm(fields) {
+    var action = CONFIG.sandbox
+      ? 'https://www.sandbox.paypal.com/cgi-bin/webscr'
+      : 'https://www.paypal.com/cgi-bin/webscr';
+    var f = document.createElement('form');
+    f.method = 'POST';
+    f.action = action;
+    f.target = '_top';
+    Object.keys(fields).forEach(function (k) {
+      var val = fields[k];
+      if (val === '' || val == null) return;
+      var i = document.createElement('input');
+      i.type = 'hidden';
+      i.name = k;
+      i.value = val;
+      f.appendChild(i);
+    });
+    document.body.appendChild(f);
+    f.submit();
+  }
+
+  payBtn.addEventListener('click', function () {
+    var v = validate();
+    if (typeof v !== 'number') { render(); return; }
+    if (CONFIG.paypalAccount.indexOf('[') !== -1) {
+      var w = document.getElementById('configWarn');
+      w.style.display = 'block';
+      w.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      return;
+    }
+    paypalForm({
+      cmd: CONFIG.cmd,
+      business: CONFIG.paypalAccount,
+      item_name: 'Donativo — ' + CONFIG.projectName,
+      amount: v.toFixed(2),
+      currency_code: CONFIG.currency,
+      no_shipping: 1,
+      no_note: 0,
+      custom: 'donativos-ptPT',
+      return: returnURL('returned'),
+      cancel_return: returnURL('cancelled')
+    });
+  });
+
+  /* Regresso do PayPal — só mostra confirmação com indícios fortes (st + tx) */
+  var q = new URLSearchParams(location.search);
+  var thanks = document.getElementById('thanksBox');
+  if (q.get('status') === 'cancelled' || (q.get('st') || '').indexOf('Cancel') === 0) {
+    document.getElementById('thanksTitle').textContent = 'Pagamento cancelado';
+    document.getElementById('thanksText').textContent = 'Não foi feita nenhuma cobrança. Podes escolher outro montante quando quiseres.';
+    thanks.style.display = 'block';
+  } else if (q.get('st') === 'Completed' && q.get('tx')) {
+    document.getElementById('thanksTitle').textContent = 'Obrigado por apoiar o projeto';
+    document.getElementById('thanksText').textContent =
+      'O PayPal devolveu o estado «Completed» para a transação ' + q.get('tx') +
+      ' (valor ' + q.get('mc_gross') + ' ' + (q.get('mc_currency') || CONFIG.currency) +
+      '). Guarda o recibo enviado por email como confirmação.';
+    thanks.style.display = 'block';
+    thanks.focus();
+  } else if (q.get('status') === 'returned') {
+    thanks.style.display = 'block';
+  }
+
+  document.getElementById('footName').textContent = CONFIG.projectName;
+  if (CONFIG.contactEmail) document.getElementById('contactLink').href = 'mailto:' + CONFIG.contactEmail;
+  if (CONFIG.websiteUrl) document.getElementById('thanksHome').href = CONFIG.websiteUrl;
+  render();
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,207 @@
+
+ISTQB CTFL v4.0.1 — QA SENIOR AUDIT
+CONCRETE UPDATES REQUIRED
+
+Q129 — exam3
+
+Tag: correctAnswer
+Action: Replace "D" with "B".
+
+Tag: explanation
+Action: Replace with:
+"A walkthrough is an author-led review in which the author guides participants through the work product. Walkthroughs support knowledge sharing, gather feedback, and help identify defects. The emphasis on suggestions and improvement in this scenario is most consistent with a walkthrough."
+
+Tag: correctFeedback
+Action: Replace with:
+"Correct: A walkthrough is typically author-led and supports knowledge sharing, feedback, and the identification of potential defects."
+
+Tag: incorrectFeedback.A
+Action: Keep unchanged.
+
+Tag: incorrectFeedback.B
+Action: Remove this entry because B becomes the correct answer.
+
+Tag: incorrectFeedback.C
+Action: Replace with:
+"Incorrect: An inspection is a formal review with a defined process and roles, primarily focused on identifying defects. The scenario emphasizes collaborative suggestions and improvement, which is more characteristic of a walkthrough."
+
+Tag: incorrectFeedback.D
+Action: Replace with:
+"Incorrect: A technical review is a review type focused on evaluating a work product and identifying issues. The author-led, collaborative emphasis on suggestions in this scenario points more strongly to a walkthrough."
+
+Tag: optionExplanations.A
+Action: Keep unchanged.
+
+Tag: optionExplanations.B
+Action: Replace with:
+"A walkthrough is typically author-led and supports knowledge sharing, feedback, and collaborative improvement while identifying potential defects."
+
+Tag: optionExplanations.C
+Action: Replace with:
+"An inspection is a formal review with defined roles and a structured process, primarily focused on defect detection."
+
+Tag: optionExplanations.D
+Action: Replace with:
+"A technical review evaluates a work product to identify issues and achieve technical agreement; the scenario's emphasis on author-led knowledge sharing and suggestions is more characteristic of a walkthrough."
+
+Tag: subsection
+Action: Replace "3.2.1" with "3.2.3".
+
+Tag: learningObjective
+Action: Replace "FL-3.2.1" with "FL-3.2.3".
+
+Tag: kLevel
+Action: Keep "K2".
+
+Q372 — exam3
+
+Tag: incorrectFeedback.B
+Action: Replace with:
+"Incorrect: Static testing complements dynamic testing; it does not replace it. Static testing evaluates work products without executing the software, while dynamic testing evaluates software behavior through execution."
+
+Tag: incorrectFeedback.C
+Action: Replace with:
+"Incorrect: Static testing can identify defects in work products, but it cannot guarantee that the delivered system will contain zero defects."
+
+Tag: optionExplanations.B
+Action: Replace with:
+"Static testing and dynamic testing are complementary approaches. Static testing can identify defects without execution, whereas dynamic testing evaluates the behavior of the executed test object."
+
+Tag: optionExplanations.C
+Action: Replace with:
+"Static testing can reveal defects in work products, but it cannot prove that software is defect-free or guarantee that no failures will occur."
+
+Tag: difficulty
+Action: Replace "Medium" with "Easy".
+
+Q317 — exam3
+
+Tag: difficulty
+Action: Replace "Medium" with "Easy".
+
+Rationale: The question directly tests recognition of a review success factor: adequate preparation time for reviewers. The correct answer and existing learning-objective mapping remain appropriate.
+
+Q388 — exam6
+
+Tag: incorrectFeedback.B
+Action: Replace with:
+"Incorrect: Automation does not inherently find more defects than manual testing. Its effectiveness depends on the test design, coverage, test objectives, and context."
+
+Tag: incorrectFeedback.C
+Action: Replace with:
+"Incorrect: Test automation tools support test execution and related activities; they are not designed primarily to fix defects. Defect correction is a separate activity."
+
+Tag: incorrectFeedback.D
+Action: Replace with:
+"Incorrect: Manual testing can discover new defects, particularly through exploratory testing, where testers learn about the system while designing and executing tests."
+
+Tag: optionExplanations.B
+Action: Replace with:
+"Automation does not always find more defects than manual testing. Results depend on test design, coverage, the tool, and the testing context."
+
+Tag: optionExplanations.C
+Action: Replace with:
+"Test automation supports testing activities; it does not automatically correct the defects detected."
+
+Tag: optionExplanations.D
+Action: Replace with:
+"Manual testing, especially exploratory testing, can reveal unexpected behavior and new defects that predefined automated scripts may not detect."
+
+Tag: kLevel
+Action: Replace "K1" with "K2" only if the intended cognitive demand is to explain why the expectation is unrealistic. The current scenario-based reasoning supports K2.
+
+Tag: difficulty
+Action: Keep "Medium".
+
+Q378 — exam7
+
+Tag: incorrectFeedback.B
+Action: Replace with:
+"Incorrect: Test management tools help manage testing information and activities; they do not automatically fix defects. Defects must be investigated and corrected through separate activities."
+
+Tag: incorrectFeedback.C
+Action: Replace with:
+"Incorrect: Test management tools can support test planning and documentation, but they do not eliminate the need for an appropriate test plan."
+
+Tag: incorrectFeedback.D
+Action: Replace with:
+"Incorrect: Test management tools can support traceability and coverage reporting, but they cannot guarantee 100% requirements coverage or prove the absence of defects."
+
+Tag: optionExplanations.B
+Action: Replace with:
+"Test management tools do not automatically fix defects. They support the management of testing activities and related information."
+
+Tag: optionExplanations.C
+Action: Replace with:
+"Test management tools can support planning and documentation, but they do not replace the need to plan testing appropriately."
+
+Tag: optionExplanations.D
+Action: Replace with:
+"Test management tools can help measure and report coverage, but they cannot guarantee complete coverage or defect-free software."
+
+Q309 — exam3
+
+Tag: incorrectFeedback.A
+Action: Replace with:
+"Incorrect: Static testing does not require software execution or compilation. Dynamic testing requires execution of the test object, but compilation is not a universal requirement for every language or runtime environment."
+
+Tag: optionExplanations.A
+Action: Replace with:
+"Static testing examines work products without executing the software. Dynamic testing executes the test object; compilation is not a universal requirement for all software."
+
+Tag: explanation
+Action: Replace with:
+"Static testing examines work products, such as requirements, design documents, and code, without executing the software. Dynamic testing executes the test object and evaluates its behavior against expected results. The two approaches are complementary and can identify different types of defects."
+
+Q1003 — exam10
+
+Tag: keywords
+Action: Replace the entire array with:
+["error", "defect", "failure", "root cause", "dynamic testing"]
+
+Tag: memoryAid
+Action: Replace with:
+"An error may introduce a defect, and a defect may cause a failure when the software is executed. This sequence is possible, not inevitable."
+
+Tag: incorrectFeedback.B
+Action: Replace with:
+"Incorrect: This option reverses the relationship between a defect and a failure. An error is a human action or decision that produces an incorrect result; it may introduce a defect. A defect may cause a failure when the software is executed."
+
+Tag: incorrectFeedback.C
+Action: Replace with:
+"Incorrect: This option reverses the causal relationship. A failure is an event in which the software does not perform as expected during execution; it does not normally introduce the developer's mistake or cause the original defect."
+
+Tag: incorrectFeedback.D
+Action: Replace with:
+"Incorrect: A bug is another term for a defect, not a separate event that is observed during execution. A defect may cause a failure when the software is executed; the failure is the observable manifestation, not the defect itself."
+
+Tag: optionExplanations.A
+Action: Replace with:
+"A human error or mistake may introduce a defect in the software. When the software is executed, that defect may cause a failure. This sequence is possible but not inevitable."
+
+Tag: optionExplanations.B
+Action: Replace with:
+"This option incorrectly states that an error directly results in a failure that is then observed as a fault. A defect or fault is the underlying flaw; a failure is the observable deviation during execution."
+
+Tag: optionExplanations.C
+Action: Replace with:
+"This option reverses the causal relationship by making a failure cause a defect and treating a developer's mistake as something observed during dynamic testing. A mistake is human; a failure is observed during execution."
+
+Tag: optionExplanations.D
+Action: Replace with:
+"This option treats a bug and a defect as separate concepts and suggests that the defect itself is observed during execution. Bug is a synonym for defect; a failure may be observed when a defect is triggered during execution."
+
+GENERAL FILE VALIDATION
+
+Tag: exam9 question count
+Action: Confirm whether the 45-question count is intentional. Do not remove questions without confirmation.
+
+Tag: all question IDs
+Action: No update required based on the structural check: 525 questions were identified, with 525 unique IDs.
+
+Tag: correctAnswer
+Action: No structural update required based on the check: each correctAnswer value maps to an existing option. This does not establish that every answer is semantically correct.
+
+SCOPE NOTE
+
+These are concrete corrections from the previously identified findings, not a claim that every remaining question has been fully validated against the official CTFL v4.0.1 syllabus. The excluded, previously reviewed IDs are intentionally omitted.

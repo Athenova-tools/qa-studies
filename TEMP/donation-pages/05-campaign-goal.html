@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Campaign — Help Us Reach the Funding Goal via PayPal</title>
+<meta name="description" content="Time-limited fundraising campaign: goal, progress, stretch goals, and PayPal donations.">
+<!--
+  OWNER SETUP:
+  1. CONFIG.paypalAccount = [PAYPAL_ACCOUNT_EMAIL_OR_MERCHANT_ID] -> real account (required).
+  2. CAMPAIGN = single source of truth (title, goal, dates, raised, stretch goals).
+     raisedAmount is a MANUAL, honest value — update it when confirmed donations arrive
+     (for automatic updates: PayPal webhook -> backend -> this config; static demo keeps it manual).
+  3. returnUrl: public https URL (optional). sandbox: CONFIG.sandbox = true.
+-->
+<style>
+  :root{--bg:#0c1220;--ink:#eef2f9;--muted:#9aa8bd;--card:rgba(255,255,255,.055);--line:rgba(255,255,255,.12);--accent:#f59e0b;--accent2:#d97706;--ok:#34d399;--err:#f87171}
+  *{box-sizing:border-box}
+  body{margin:0;background:
+    radial-gradient(1100px 500px at 80% -10%, rgba(245,158,11,.22), transparent 60%),
+    radial-gradient(900px 480px at 10% 10%, rgba(56,189,248,.16), transparent 55%),
+    var(--bg);
+    color:var(--ink);font:16px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif}
+  a{color:var(--accent)}
+  .wrap{max-width:780px;margin:0 auto;padding:0 18px}
+  .hero{padding:50px 0 26px}
+  .tag{display:inline-block;font-size:12px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#0c1220;background:var(--accent);border-radius:999px;padding:5px 13px}
+  .hero h1{font-size:clamp(25px,5vw,34px);line-height:1.22;margin:15px 0 8px}
+  .hero p{color:var(--muted);margin:0 0 4px;max-width:62ch}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:24px;margin:0 0 18px;backdrop-filter:blur(4px)}
+  .card h2{margin:0 0 8px;font-size:19px}
+  .lead{color:var(--muted);margin:0 0 16px;font-size:14.5px}
+  .stats{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;align-items:baseline}
+  .big{font-size:26px;font-weight:800;color:var(--accent)}
+  .big span{font-size:14px;font-weight:600;color:var(--muted)}
+  .pct{font-weight:800;color:var(--ink)}
+  .bar{height:14px;background:rgba(255,255,255,.1);border-radius:999px;overflow:hidden;margin:13px 0 7px}
+  .bar i{display:block;height:100%;background:linear-gradient(90deg,#fbbf24,#f59e0b,#d97706);border-radius:999px;transition:width .5s}
+  .barMeta{display:flex;justify-content:space-between;font-size:13px;color:var(--muted)}
+  .countdown{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:16px}
+  .cd{background:rgba(0,0,0,.28);border:1px solid var(--line);border-radius:12px;text-align:center;padding:10px 4px}
+  .cd b{display:block;font-size:22px;font-variant-numeric:tabular-nums}
+  .cd span{font-size:11.5px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
+  .manual{font-size:12.5px;color:var(--muted);margin-top:10px}
+  .chips{display:grid;grid-template-columns:repeat(auto-fill,minmax(108px,1fr));gap:10px}
+  .chip{border:1.5px solid var(--line);background:rgba(255,255,255,.04);border-radius:12px;padding:12px 8px;cursor:pointer;font:700 18px/1.2 inherit;color:var(--ink)}
+  .chip small{display:block;font:500 12px/1.3 inherit;color:var(--muted);margin-top:3px}
+  .chip:hover{border-color:var(--accent)}
+  .chip[aria-checked="true"]{border-color:var(--accent);background:rgba(245,158,11,.14);box-shadow:inset 0 0 0 1px var(--accent)}
+  .chip:focus-visible,.amt:focus-visible,.btn:focus-visible,.chipHint:focus-visible{outline:3px solid #fcd34d;outline-offset:2px}
+  .custom{margin-top:14px}
+  .custom label{display:block;font-size:13.5px;font-weight:600;color:var(--muted);margin-bottom:6px}
+  .amt{width:100%;max-width:240px;background:rgba(0,0,0,.3);border:1.5px solid var(--line);border-radius:10px;padding:11px 13px;font:700 16px/1 inherit;color:var(--ink)}
+  .summary{margin:17px 0 0;background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.35);border-radius:10px;padding:12px 14px;font-size:15px}
+  .summary b{color:var(--accent)}
+  .error{margin:9px 0 0;color:var(--err);font-size:14px;font-weight:700}
+  .btn{display:inline-block;border:0;border-radius:11px;background:var(--accent);color:#0c1220;font:800 16px/1 inherit;padding:15px 26px;cursor:pointer;text-decoration:none}
+  .btn:hover{background:#fbbf24}
+  #payBtn{width:100%;margin-top:16px}
+  .btn.ghost{background:transparent;border:1.5px solid var(--line);color:var(--ink)}
+  .note{font-size:13px;color:var(--muted);margin-top:13px}
+  .goals{list-style:none;margin:0;padding:0}
+  .goals li{display:flex;gap:12px;align-items:flex-start;padding:11px 0;border-bottom:1px dashed var(--line);font-size:14.5px}
+  .goals li:last-child{border-bottom:0}
+  .goals .mark{flex:0 0 auto;width:22px;height:22px;border-radius:50%;border:2px solid var(--line);display:flex;align-items:center;justify-content:center;font:800 12px/1 inherit;color:#0c1220}
+  .goals li.done .mark{background:var(--ok);border-color:var(--ok)}
+  .goals li.done b{color:var(--ok)}
+  .goals .amt2{margin-left:auto;color:var(--muted);font-weight:700;font-size:13.5px;white-space:nowrap}
+  .cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
+  .cols div{background:rgba(255,255,255,.04);border:1px solid var(--line);border-radius:11px;padding:13px 14px;font-size:14.5px}
+  .cols b{display:block;margin-bottom:3px}
+  details{border-top:1px solid var(--line);padding:11px 0;font-size:14.5px}
+  details:last-of-type{border-bottom:1px solid var(--line)}
+  summary{cursor:pointer;font-weight:700}
+  details p{color:var(--muted);margin:8px 0 2px}
+  .share{display:flex;gap:10px;flex-wrap:wrap}
+  .share a,.share button{font-size:14px;padding:10px 16px}
+  .thanks{display:none;border:1px solid rgba(52,211,153,.5);background:rgba(52,211,153,.1);border-radius:16px;padding:22px;margin:0 0 18px;text-align:center}
+  .thanks h2{margin:0 0 7px;color:var(--ok);font-size:20px}
+  .thanks p{margin:5px 0;color:#b7f3dc;font-size:14.5px}
+  .warn{display:none;border:1px solid rgba(245,158,11,.5);background:rgba(245,158,11,.1);border-radius:13px;padding:15px 17px;margin:0 0 18px;font-size:14.5px}
+  .warn b{display:block;margin-bottom:5px}
+  .warn code{background:rgba(245,158,11,.2);border-radius:5px;padding:1px 6px}
+  .ended{display:none;border:1px solid var(--line);background:rgba(255,255,255,.07);border-radius:13px;padding:16px 18px;margin:0 0 18px;font-size:15px;text-align:center}
+  footer{color:var(--muted);font-size:13px;text-align:center;padding:24px 0 44px}
+  @media (max-width:520px){.card{padding:19px 15px}.chips{grid-template-columns:repeat(2,1fr)}.countdown{gap:7px}.cd b{font-size:18px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="hero">
+    <span class="tag">Campanha</span>
+    <h1 id="campTitle">Loading campaign…</h1>
+    <p id="campText"></p>
+  </header>
+
+  <div class="warn" id="configWarn" role="alert">
+    <b>Setup required (owner credentials)</b>
+    Replace <code>[PAYPAL_ACCOUNT_EMAIL_OR_MERCHANT_ID]</code> in <code>CONFIG.paypalAccount</code>. Progress only reflects the manual <code>CAMPAIGN.raisedAmount</code> — update it from confirmed donations.
+  </div>
+
+  <div class="ended" id="endedBox">This campaign has ended — thank you to everyone who contributed.</div>
+
+  <div class="thanks" id="thanksBox" tabindex="-1">
+    <h2 id="thanksTitle">Thank you for visiting the campaign page</h2>
+    <p id="thanksText">No payment has been confirmed here. Check your PayPal account or receipt email for the transaction state.</p>
+    <p><a class="btn ghost" id="thanksHome" href="./index.html">Back to start</a></p>
+  </div>
+
+  <section class="card" aria-labelledby="progTitle">
+    <h2 id="progTitle">Progress</h2>
+    <div class="stats">
+      <div class="big" id="raisedText">—</div>
+      <div class="pct" id="pctText"></div>
+    </div>
+    <div class="bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="bar"><i id="barFill" style="width:0%"></i></div>
+    <div class="barMeta"><span id="goalText"></span><span id="donorsText"></span></div>
+    <div class="countdown" id="countdown" aria-label="Time remaining">
+      <div class="cd"><b id="cdD">–</b><span>days</span></div>
+      <div class="cd"><b id="cdH">–</b><span>hours</span></div>
+      <div class="cd"><b id="cdM">–</b><span>min</span></div>
+      <div class="cd"><b id="cdS">–</b><span>sec</span></div>
+    </div>
+    <p class="manual" id="manualNote"></p>
+  </section>
+
+  <section class="card" id="give" aria-labelledby="giveTitle">
+    <h2 id="giveTitle">Choose your donation</h2>
+    <p class="lead">Your gift goes to <span id="campInline"></span>. Processed by PayPal; this site stores no card data.</p>
+
+    <div class="chips" role="radiogroup" aria-label="Preset amounts" id="chips">
+      <button type="button" class="chip" role="radio" aria-checked="false" data-amount="5">€5 <small>shares a cost</small></button>
+      <button type="button" class="chip" role="radio" aria-checked="true" data-amount="10">€10 <small>backer</small></button>
+      <button type="button" class="chip" role="radio" aria-checked="false" data-amount="20">€20 <small>contributor</small></button>
+      <button type="button" class="chip" role="radio" aria-checked="false" data-amount="50">€50 <small>champion</small></button>
+      <button type="button" class="chip" role="radio" aria-checked="false" data-amount="100">€100 <small>major backer</small></button>
+      <button type="button" class="chip" role="radio" aria-checked="false" data-amount="custom">Custom <small>your value</small></button>
+    </div>
+    <p class="note" id="nextGoalHint"></p>
+
+    <div class="custom" id="customWrap" hidden>
+      <label for="customAmount">Custom amount (€)</label>
+      <input class="amt" id="customAmount" type="text" inputmode="decimal" autocomplete="off" placeholder="e.g. 35">
+    </div>
+
+    <p class="summary" aria-live="polite" id="summary">You’re giving <strong>€10</strong> to this campaign.</p>
+    <p class="error" role="alert" id="error" hidden></p>
+
+    <button class="btn" id="payBtn" type="button">Donate now</button>
+    <p class="note">You’ll be redirected to PayPal’s official interface. The public progress bar only counts confirmed, recorded donations — never optimistic guesses.</p>
+  </section>
+
+  <section class="card" aria-labelledby="stretchTitle">
+    <h2 id="stretchTitle">Milestones</h2>
+    <ul class="goals" id="goals"></ul>
+  </section>
+
+  <section class="card" aria-labelledby="useTitle">
+    <h2 id="useTitle">Use of funds</h2>
+    <div class="cols" id="useCols"></div>
+  </section>
+
+  <section class="card" aria-labelledby="faqTitle">
+    <h2 id="faqTitle">Trust &amp; FAQ</h2>
+    <details open><summary>Is this secure?</summary><p>Payments are processed entirely by PayPal. This page never collects or stores card details.</p></details>
+    <details><summary>Are donations voluntary? Any rewards?</summary><p>Fully voluntary, with no rewards or perks unless explicitly listed on this page.</p></details>
+    <details><summary>Can I donate monthly?</summary><p id="faqMonthly">Not configured for this campaign — one-time gifts only.</p></details>
+    <details><summary>Tax deductible?</summary><p>No tax-deductible status is claimed for this campaign.</p></details>
+    <details><summary>How is progress updated?</summary><p>Manually from confirmed donations (see timestamp below the bar). Automatic updates require a PayPal webhook and a small backend.</p></details>
+  </section>
+
+  <section class="card" aria-labelledby="shareTitle">
+    <h2 id="shareTitle">Share the campaign</h2>
+    <div class="share">
+      <button class="btn ghost" type="button" id="copyLink">Copy link</button>
+      <a class="btn ghost" id="shareX" target="_blank" rel="noopener" href="#">Share on X</a>
+      <a class="btn ghost" id="shareLi" target="_blank" rel="noopener" href="#">LinkedIn</a>
+      <a class="btn ghost" id="shareMail" href="#">Email</a>
+    </div>
+    <p class="note" id="copyNote" hidden>Link copied ✓</p>
+  </section>
+
+  <footer><span id="footName">Campaign</span> · example fundraising page · real PayPal flow after configuration</footer>
+</div>
+
+<script>
+(function () {
+  var CONFIG = {
+    paypalAccount: '[PAYPAL_ACCOUNT_EMAIL_OR_MERCHANT_ID]',
+    cmd: '_donate',
+    sandbox: false,
+    currency: 'EUR',
+    amounts: [5, 10, 20, 50, 100],
+    minimum: 1,
+    returnUrl: '',
+    websiteUrl: '',
+    contactEmail: ''
+  };
+
+  /* Single source of truth for the campaign (edit + reload). */
+  var CAMPAIGN = {
+    title: 'Help Us Reach €2,000 for v2 Development',
+    text: 'This campaign funds the next major release: reworked exam engine, new study slides, and a faster mobile experience. The goal covers development time and infrastructure through launch.',
+    goal: 2000,
+    raisedAmount: 740,          // MANUAL: update from confirmed donations only
+    donors: 31,                 // optional, manual
+    startDate: '2026-10-01T00:00:00Z',
+    endDate: '2026-11-15T23:59:59Z',
+    updatedAt: '2026-10-18',
+    stretch: [
+      { at: 500, label: 'CI pipeline upgraded' },
+      { at: 1000, label: 'New study slides pack (ch. 1–6)' },
+      { at: 1500, label: 'Accessibility audit + fixes' },
+      { at: 2000, label: 'v2 launch' }
+    ],
+    useOfFunds: [
+      { b: 'Development', t: 'Engine rework, features, QA.' },
+      { b: 'Infrastructure', t: 'Hosting and CI through launch.' },
+      { b: 'Content', t: 'Slides and study material.' },
+      { b: 'Contingency', t: 'Unforeseen costs (if any).' }
+    ]
+  };
+
+  var state = { mode: 'preset', amount: 10 };
+  var ended = Date.now() > Date.parse(CAMPAIGN.endDate);
+
+  function money(n) { return '€' + Number(n).toFixed(2).replace(/\.00$/, ''); }
+  function pct() { return CAMPAIGN.goal > 0 ? Math.min(100, Math.round((CAMPAIGN.raisedAmount / CAMPAIGN.goal) * 100)) : 0; }
+
+  /* --- hero + progress --- */
+  document.getElementById('campTitle').textContent = CAMPAIGN.title;
+  document.getElementById('campText').textContent = CAMPAIGN.text;
+  document.getElementById('campInline').textContent = CAMPAIGN.title;
+  document.getElementById('footName').textContent = CAMPAIGN.title;
+  document.getElementById('raisedText').innerHTML = money(CAMPAIGN.raisedAmount) + ' <span>raised of ' + money(CAMPAIGN.goal) + '</span>';
+  document.getElementById('pctText').textContent = pct() + '%';
+  document.getElementById('goalText').textContent = 'Goal ' + money(CAMPAIGN.goal);
+  document.getElementById('donorsText').textContent = CAMPAIGN.donors + ' donors';
+  document.getElementById('manualNote').textContent = 'Manual progress update: ' + CAMPAIGN.updatedAt + ' (confirmed donations only)';
+  var bar = document.getElementById('bar');
+  bar.setAttribute('aria-valuenow', String(pct()));
+  document.getElementById('barFill').style.width = pct() + '%';
+
+  /* --- countdown --- */
+  function tick() {
+    var diff = Date.parse(CAMPAIGN.endDate) - Date.now();
+    if (diff <= 0) {
+      document.getElementById('cdD').textContent = '0';
+      document.getElementById('cdH').textContent = '0';
+      document.getElementById('cdM').textContent = '0';
+      document.getElementById('cdS').textContent = '0';
+      if (!ended) { ended = true; applyEnded(); }
+      return;
+    }
+    var s = Math.floor(diff / 1000);
+    document.getElementById('cdD').textContent = Math.floor(s / 86400);
+    document.getElementById('cdH').textContent = Math.floor((s % 86400) / 3600);
+    document.getElementById('cdM').textContent = Math.floor((s % 3600) / 60);
+    document.getElementById('cdS').textContent = s % 60;
+  }
+  setInterval(tick, 1000);
+
+  /* --- stretch goals --- */
+  var goalsEl = document.getElementById('goals');
+  CAMPAIGN.stretch.forEach(function (g) {
+    var done = CAMPAIGN.raisedAmount >= g.at;
+    var li = document.createElement('li');
+    if (done) li.className = 'done';
+    li.innerHTML = '<span class="mark" aria-hidden="true">' + (done ? '✓' : '') + '</span>' +
+      '<span><b>' + (done ? 'Unlocked' : 'Locked') + '</b> — ' + g.label + '</span>' +
+      '<span class="amt2">' + money(g.at) + '</span>';
+    goalsEl.appendChild(li);
+  });
+  var next = CAMPAIGN.stretch.filter(function (g) { return CAMPAIGN.raisedAmount < g.at; })[0];
+  document.getElementById('nextGoalHint').textContent = next
+    ? 'Next milestone: ' + next.label + ' at ' + money(next.at) + ' (' + money(next.at - CAMPAIGN.raisedAmount) + ' to go). Suggested: '
+    : 'All milestones unlocked — thank you!';
+
+  /* --- use of funds --- */
+  var useEl = document.getElementById('useCols');
+  CAMPAIGN.useOfFunds.forEach(function (u) {
+    var d = document.createElement('div');
+    d.innerHTML = '<b>' + u.b + '</b>' + u.t;
+    useEl.appendChild(d);
+  });
+
+  /* --- donation selector --- */
+  var chips = document.getElementById('chips');
+  var customWrap = document.getElementById('customWrap');
+  var customInput = document.getElementById('customAmount');
+  var summary = document.getElementById('summary');
+  var errorBox = document.getElementById('error');
+  var payBtn = document.getElementById('payBtn');
+
+  function parseAmount(raw) {
+    var s = String(raw || '').trim().replace(',', '.');
+    if (!/^\d+(\.\d{1,2})?$/.test(s)) return null;
+    return parseFloat(s);
+  }
+  function validate() {
+    if (state.mode === 'preset') return state.amount;
+    var v = parseAmount(customInput.value);
+    if (customInput.value.trim() === '') return { err: 'Enter an amount to continue.' };
+    if (v === null) return { err: 'Invalid value — numbers only (e.g. 35).' };
+    if (v <= 0) return { err: 'The amount must be greater than zero.' };
+    if (v < CONFIG.minimum) return { err: 'Minimum donation is ' + money(CONFIG.minimum) + '.' };
+    return v;
+  }
+  function render() {
+    var v = validate(), ok = typeof v === 'number';
+    errorBox.hidden = ok;
+    if (!ok) errorBox.textContent = v.err;
+    payBtn.disabled = !ok || ended;
+    payBtn.style.opacity = payBtn.disabled ? '.55' : '1';
+    summary.innerHTML = ok
+      ? 'You’re giving <strong>' + money(v) + '</strong> to this campaign.'
+      : 'Amount pending.';
+  }
+  chips.addEventListener('click', function (e) {
+    var b = e.target.closest('.chip');
+    if (!b) return;
+    chips.querySelectorAll('.chip').forEach(function (c) { c.setAttribute('aria-checked', String(c === b)); });
+    if (b.dataset.amount === 'custom') { state.mode = 'custom'; customWrap.hidden = false; customInput.focus(); }
+    else { state.mode = 'preset'; state.amount = parseFloat(b.dataset.amount); customWrap.hidden = true; }
+    render();
+  });
+  customInput.addEventListener('input', render);
+
+  function applyEnded() {
+    document.getElementById('endedBox').style.display = 'block';
+    payBtn.disabled = true;
+    render();
+  }
+
+  /* --- share --- */
+  var shareURL = location.href.split('#')[0].split('?')[0];
+  var shareText = encodeURIComponent(CAMPAIGN.title + ' — support the campaign');
+  var shareURLenc = encodeURIComponent(shareURL);
+  document.getElementById('shareX').href = 'https://twitter.com/intent/tweet?text=' + shareText + '&url=' + shareURLenc;
+  document.getElementById('shareLi').href = 'https://www.linkedin.com/sharing/share-offsite/?url=' + shareURLenc;
+  document.getElementById('shareMail').href = 'mailto:?subject=' + shareText + '&body=' + shareURLenc;
+  document.getElementById('copyLink').addEventListener('click', function () {
+    navigator.clipboard.writeText(shareURL).then(function () {
+      var n = document.getElementById('copyNote');
+      n.hidden = false;
+      setTimeout(function () { n.hidden = true; }, 1800);
+    });
+  });
+
+  /* --- PayPal --- */
+  function returnURL(status) {
+    if (!CONFIG.returnUrl || CONFIG.returnUrl.indexOf('[') !== -1) return '';
+    return CONFIG.returnUrl + (CONFIG.returnUrl.indexOf('?') >= 0 ? '&' : '?') + 'status=' + status;
+  }
+  payBtn.addEventListener('click', function () {
+    var v = validate();
+    if (typeof v !== 'number' || ended) { render(); return; }
+    if (CONFIG.paypalAccount.indexOf('[') !== -1) {
+      var w = document.getElementById('configWarn');
+      w.style.display = 'block';
+      w.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      return;
+    }
+    var action = CONFIG.sandbox
+      ? 'https://www.sandbox.paypal.com/cgi-bin/webscr'
+      : 'https://www.paypal.com/cgi-bin/webscr';
+    var f = document.createElement('form');
+    f.method = 'POST';
+    f.target = '_top';
+    f.action = action;
+    var fields = {
+      cmd: CONFIG.cmd,
+      business: CONFIG.paypalAccount,
+      item_name: 'Campaign — ' + CAMPAIGN.title,
+      amount: v.toFixed(2),
+      currency_code: CONFIG.currency,
+      no_shipping: 1,
+      custom: 'campaign-goal',
+      return: returnURL('returned'),
+      cancel_return: returnURL('cancelled')
+    };
+    Object.keys(fields).forEach(function (k) {
+      if (!fields[k]) return;
+      var i = document.createElement('input');
+      i.type = 'hidden'; i.name = k; i.value = fields[k];
+      f.appendChild(i);
+    });
+    document.body.appendChild(f);
+    f.submit();
+  });
+
+  /* --- return states --- */
+  var q = new URLSearchParams(location.search);
+  var thanks = document.getElementById('thanksBox');
+  if (q.get('status') === 'cancelled' || (q.get('st') || '').indexOf('Cancel') === 0) {
+    document.getElementById('thanksTitle').textContent = 'Payment cancelled';
+    document.getElementById('thanksText').textContent = 'You were not charged. The campaign is still open — you can try again.';
+    thanks.style.display = 'block';
+  } else if (q.get('st') === 'Completed' && q.get('tx')) {
+    document.getElementById('thanksTitle').textContent = 'Thank you — you’re part of this campaign';
+    document.getElementById('thanksText').textContent =
+      'PayPal returned status “Completed” for transaction ' + q.get('tx') +
+      ' (' + q.get('mc_gross') + ' ' + (q.get('mc_currency') || CONFIG.currency) + '). Keep the receipt email as confirmation.';
+    thanks.style.display = 'block';
+    thanks.focus();
+  } else if (q.get('status') === 'returned') {
+    thanks.style.display = 'block';
+  }
+
+  if (CONFIG.websiteUrl) document.getElementById('thanksHome').href = CONFIG.websiteUrl;
+  tick();
+  if (ended) applyEnded();
+  render();
+})();
+</script>
+</body>
+</html>

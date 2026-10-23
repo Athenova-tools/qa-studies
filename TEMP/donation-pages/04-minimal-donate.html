@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Support [PROJECT_NAME] — PayPal Donate</title>
+<meta name="description" content="Minimal, fast donation page. One screen, one purpose: support the project via PayPal.">
+<!--
+  OWNER SETUP — edit DONATION_CONFIG only:
+  paypalAccount: replace [PAYPAL_ACCOUNT_EMAIL_OR_MERCHANT_ID] (required; button is gated without it)
+  sandbox: true to test with developer.paypal.com
+  returnUrl: public https URL so PayPal can return the donor (optional)
+  Checklist: every chip · custom amount · invalid values rejected · real redirect · cancel path · no fake success.
+-->
+<style>
+  :root{--bg:#0f141b;--card:#161d27;--ink:#e8edf4;--muted:#93a1b3;--line:#273141;--accent:#38bdf8;--ink-on:#06121c;--ok:#34d399;--err:#f87171}
+  @media (prefers-color-scheme: light){:root{--bg:#f4f6f9;--card:#fff;--ink:#17202b;--muted:#5f6d7e;--line:#e2e8f0;--ink-on:#fff;--err:#d14343}}
+  *{box-sizing:border-box}
+  body{margin:0;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:28px 16px;background:var(--bg);color:var(--ink);font:16px/1.55 system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif}
+  main{width:100%;max-width:560px;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:34px 30px 28px}
+  .logo{width:44px;height:44px;border-radius:11px;background:var(--accent);color:var(--ink-on);display:flex;align-items:center;justify-content:center;font:800 18px/1 inherit;margin-bottom:16px}
+  h1{font-size:23px;margin:0 0 6px}
+  .sub{color:var(--muted);font-size:14.5px;margin:0 0 22px}
+  .chips{display:flex;flex-wrap:wrap;gap:9px}
+  .chip{flex:1 1 90px;border:1.5px solid var(--line);background:transparent;color:var(--ink);border-radius:999px;min-height:46px;font:700 16px/1 inherit;cursor:pointer}
+  .chip:hover{border-color:var(--accent)}
+  .chip[aria-checked="true"]{background:var(--accent);border-color:var(--accent);color:var(--ink-on)}
+  .chip:focus-visible,.amt:focus-visible,.go:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+  .customrow{margin-top:14px}
+  .customrow label{display:block;font-size:13px;font-weight:600;color:var(--muted);margin-bottom:6px}
+  .amt{width:100%;background:transparent;border:1.5px solid var(--line);border-radius:10px;padding:11px 13px;font:700 16px/1 inherit;color:var(--ink)}
+  .amt::placeholder{color:var(--muted);font-weight:500}
+  .summary{margin:18px 0 0;font-size:15.5px;color:var(--muted)}
+  .summary b{color:var(--accent);font-weight:800}
+  .err{margin:8px 0 0;color:var(--err);font-size:13.5px;font-weight:700}
+  .go{width:100%;margin-top:16px;border:0;border-radius:11px;background:var(--accent);color:var(--ink-on);font:800 16px/1 inherit;padding:15px;cursor:pointer}
+  .go:disabled{opacity:.5;cursor:not-allowed}
+  .fine{margin-top:16px;font-size:12.5px;color:var(--muted);text-align:center}
+  .box{display:none;border:1px solid var(--line);border-radius:12px;padding:16px 18px;margin-bottom:16px;font-size:14.5px}
+  .box b{display:block;margin-bottom:5px}
+  .box code{background:rgba(128,146,170,.18);border-radius:5px;padding:1px 6px}
+  .box.ok{border-color:var(--ok)}.box.ok b{color:var(--ok)}
+  .box.warn{border-color:#e0b45a}.box.warn b{color:#e0b45a}
+  .back{display:inline-block;margin-top:10px;color:var(--accent);font-weight:700;text-decoration:none}
+  @media (max-width:420px){main{padding:26px 18px 22px}.chip{flex-basis:calc(50% - 6px)}}
+</style>
+</head>
+<body>
+<main>
+  <div class="logo" aria-hidden="true" id="logo">P</div>
+  <h1 id="title">Support the Project</h1>
+  <p class="sub">Free to use, funded by donations. Payments run entirely on PayPal — we never see card details.</p>
+
+  <div class="box warn" id="configWarn" role="alert">
+    <b>Configuration required</b>
+    Set <code>paypalAccount</code> inside <code>DONATION_CONFIG</code> in this file (currently <code>[PAYPAL_ACCOUNT_EMAIL_OR_MERCHANT_ID]</code>).
+  </div>
+
+  <div class="box" id="resultBox" tabindex="-1">
+    <b id="resultTitle"></b>
+    <span id="resultText"></span>
+    <a class="back" id="resultBack" href="./index.html">← Back</a>
+  </div>
+
+  <div class="chips" role="radiogroup" aria-label="Donation amounts" id="chips">
+    <button type="button" class="chip" role="radio" aria-checked="true" data-a="5">€5</button>
+    <button type="button" class="chip" role="radio" aria-checked="false" data-a="10">€10</button>
+    <button type="button" class="chip" role="radio" aria-checked="false" data-a="25">€25</button>
+    <button type="button" class="chip" role="radio" aria-checked="false" data-a="50">€50</button>
+    <button type="button" class="chip" role="radio" aria-checked="false" data-a="custom">Custom</button>
+  </div>
+
+  <div class="customrow" id="customRow" hidden>
+    <label for="custom">Your amount (€)</label>
+    <input class="amt" id="custom" type="text" inputmode="decimal" autocomplete="off" placeholder="e.g. 7">
+  </div>
+
+  <p class="summary" aria-live="polite" id="summary">You’re giving <b>€5</b> via PayPal</p>
+  <p class="err" role="alert" id="err" hidden></p>
+  <button class="go" id="go" type="button">Donate with PayPal</button>
+
+  <p class="fine">Payments are processed by PayPal. We never see or store your card details.</p>
+</main>
+
+<script>
+/* ===== SINGLE CONFIGURATION OBJECT ===== */
+var DONATION_CONFIG = {
+  paypalAccount: '[PAYPAL_ACCOUNT_EMAIL_OR_MERCHANT_ID]', // <- required: PayPal email or merchant ID
+  cmd: '_donate',            // '_donate' or '_xclick' (fallback if Donate is unavailable)
+  sandbox: false,            // true = sandbox.paypal.com (developer account)
+  currency: 'EUR',
+  amounts: [5, 10, 25, 50],
+  minimum: 1,
+  projectName: 'My Project',
+  projectInitial: 'P',
+  websiteUrl: '',
+  returnUrl: ''              // public https URL (optional)
+};
+/* ======================================= */
+(function () {
+  var C = DONATION_CONFIG;
+  var mode = 'preset', amount = C.amounts[0];
+  var chips = document.getElementById('chips');
+  var row = document.getElementById('customRow');
+  var input = document.getElementById('custom');
+  var summary = document.getElementById('summary');
+  var err = document.getElementById('err');
+  var go = document.getElementById('go');
+
+  function money(n) { return '€' + Number(n).toFixed(2).replace(/\.00$/, ''); }
+  function parse(raw) {
+    var s = String(raw || '').trim().replace(',', '.');
+    if (!/^\d+(\.\d{1,2})?$/.test(s)) return null;
+    return parseFloat(s);
+  }
+  function validate() {
+    if (mode === 'preset') return amount;
+    var v = parse(input.value);
+    if (input.value.trim() === '') return { err: 'Enter an amount to continue.' };
+    if (v === null) return { err: 'Invalid value — numbers only.' };
+    if (v <= 0) return { err: 'The amount must be greater than zero.' };
+    if (v < C.minimum) return { err: 'Minimum donation is ' + money(C.minimum) + '.' };
+    return v;
+  }
+  function render() {
+    var v = validate(), ok = typeof v === 'number';
+    err.hidden = ok;
+    if (!ok) err.textContent = v.err;
+    go.disabled = !ok;
+    summary.innerHTML = ok ? 'You’re giving <b>' + money(v) + '</b> via PayPal' : 'Amount pending';
+  }
+  chips.addEventListener('click', function (e) {
+    var b = e.target.closest('.chip');
+    if (!b) return;
+    chips.querySelectorAll('.chip').forEach(function (c) { c.setAttribute('aria-checked', String(c === b)); });
+    if (b.dataset.a === 'custom') { mode = 'custom'; row.hidden = false; input.focus(); }
+    else { mode = 'preset'; amount = parseFloat(b.dataset.a); row.hidden = true; }
+    render();
+  });
+  input.addEventListener('input', render);
+
+  function ret(status) {
+    if (!C.returnUrl || C.returnUrl.indexOf('[') !== -1) return '';
+    return C.returnUrl + (C.returnUrl.indexOf('?') >= 0 ? '&' : '?') + 'status=' + status;
+  }
+  go.addEventListener('click', function () {
+    var v = validate();
+    if (typeof v !== 'number') { render(); return; }
+    if (C.paypalAccount.indexOf('[') !== -1) {
+      var w = document.getElementById('configWarn');
+      w.style.display = 'block';
+      w.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      return;
+    }
+    var f = document.createElement('form');
+    f.method = 'POST';
+    f.target = '_top';
+    f.action = C.sandbox ? 'https://www.sandbox.paypal.com/cgi-bin/webscr' : 'https://www.paypal.com/cgi-bin/webscr';
+    var fields = {
+      cmd: C.cmd, business: C.paypalAccount, amount: v.toFixed(2),
+      currency_code: C.currency, item_name: 'Donation — ' + C.projectName,
+      no_shipping: 1, custom: 'minimal-page', return: ret('returned'), cancel_return: ret('cancelled')
+    };
+    Object.keys(fields).forEach(function (k) {
+      if (!fields[k]) return;
+      var i = document.createElement('input');
+      i.type = 'hidden'; i.name = k; i.value = fields[k];
+      f.appendChild(i);
+    });
+    document.body.appendChild(f);
+    f.submit();
+  });
+
+  var q = new URLSearchParams(location.search);
+  var box = document.getElementById('resultBox');
+  function show(cls, title, text) {
+    box.className = 'box ' + cls;
+    box.style.display = 'block';
+    document.getElementById('resultTitle').textContent = title;
+    document.getElementById('resultText').textContent = text;
+    box.focus();
+  }
+  if (q.get('status') === 'cancelled' || (q.get('st') || '').indexOf('Cancel') === 0) {
+    show('warn', 'Payment cancelled', 'You were not charged.');
+  } else if (q.get('st') === 'Completed' && q.get('tx')) {
+    show('ok', 'Thank you for supporting the project',
+      'PayPal returned status “Completed” for transaction ' + q.get('tx') +
+      ' (' + q.get('mc_gross') + ' ' + (q.get('mc_currency') || C.currency) + '). Keep the receipt email as confirmation.');
+  } else if (q.get('status') === 'returned') {
+    show('', 'Thank you for visiting our donation page', 'Open your PayPal account or receipt email to check the transaction state.');
+  }
+
+  document.title = 'Support ' + C.projectName + ' — PayPal Donate';
+  document.getElementById('title').textContent = 'Support ' + C.projectName;
+  document.getElementById('logo').textContent = C.projectInitial;
+  if (C.websiteUrl) document.getElementById('resultBack').href = C.websiteUrl;
+  render();
+})();
+</script>
+</body>
+</html>

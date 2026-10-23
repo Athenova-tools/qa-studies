@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>5 Páginas de Donativos — Exemplos com PayPal</title>
+<style>
+  :root{--bg:#f4f7fb;--ink:#14202e;--muted:#5c6d80;--line:#e4eaf2;--accent:#1d6fe8}
+  *{box-sizing:border-box}
+  body{margin:0;font:16px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;background:var(--bg);color:var(--ink)}
+  .wrap{max-width:860px;margin:0 auto;padding:44px 18px 60px}
+  h1{font-size:27px;margin:0 0 8px}
+  .sub{color:var(--muted);margin:0 0 6px;font-size:15px}
+  .gate{background:#fdf6e6;border:1px solid #f0d9a6;border-radius:12px;padding:14px 16px;font-size:14px;margin:18px 0 26px}
+  .gate b{display:block;margin-bottom:4px}
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:16px}
+  .card{display:block;background:#fff;border:1px solid var(--line);border-radius:14px;padding:20px 20px 16px;text-decoration:none;color:inherit;box-shadow:0 6px 20px rgba(16,40,80,.05);transition:.15s}
+  .card:hover{border-color:var(--accent);transform:translateY(-2px)}
+  .num{display:inline-block;font:800 12px/1 inherit;color:#fff;background:var(--accent);border-radius:999px;padding:4px 10px;margin-bottom:10px}
+  .card h2{font-size:17px;margin:0 0 6px}
+  .card p{color:var(--muted);font-size:13.5px;margin:0 0 10px}
+  .tag{font-size:12px;font-weight:700;color:var(--accent);text-transform:uppercase;letter-spacing:.05em}
+  .foot{color:var(--muted);font-size:13px;margin-top:26px}
+  a.inline{color:var(--accent)}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>5 páginas de donativos — exemplos reais</h1>
+  <p class="sub">Implementações das 5 variações do prompt <em>"Create a Professional Project Donation Page with PayPal Integration"</em>. HTML/CSS/JS puro, sem dependências, abrem por <code>file://</code>.</p>
+
+  <div class="gate">
+    <b>Antes de publicar (passo do dono do projeto)</b>
+    Em cada página, substituir <code>[PAYPAL_ACCOUNT_EMAIL_OR_MERCHANT_ID]</code> pelo email/ID real da conta PayPal (bloco <code>CONFIG</code>/<code>DONATION_CONFIG</code> no fim do ficheiro). Sem isso, o botão mostra o aviso de configuração em vez de redirecionar — a intenção é não simular pagamentos. Sandbox: <code>sandbox: true</code>.
+  </div>
+
+  <div class="grid">
+    <a class="card" href="./01-donativos-ptPT.html">
+      <span class="num">1</span>
+      <h2>Donativos em português (pt-PT)</h2>
+      <p>Hero, montantes €2–€50 + livre, porque o apoio importa, confiança/transparência, estados de regresso do PayPal.</p>
+      <span class="tag">EUR · _donate</span>
+    </a>
+    <a class="card" href="./02-donate-recurring-usd.html">
+      <span class="num">2</span>
+      <h2>One-time + mensal (USD)</h2>
+      <p>Alternador One-time/Monthly, montantes distintos por frequência, subscrições PayPal (<code>a3/t3</code>), cancelamento explicado.</p>
+      <span class="tag">USD · _xclick + _xclick-subscriptions</span>
+    </a>
+    <a class="card" href="./03-opensource-ledger.html">
+      <span class="num">3</span>
+      <h2>Open-source com ledger de transparência</h2>
+      <p>Objetivo + barra de progresso + tabela de custos alimentada por <code>FUNDING_LEDGER</code>, "o que as doações NÃO compram", outras formas de ajudar.</p>
+      <span class="tag">EUR · ledger em JSON</span>
+    </a>
+    <a class="card" href="./04-minimal-donate.html">
+      <span class="num">4</span>
+      <h2>Minimalista single-file</h2>
+      <p>Um ecrã, um cartão, modo claro/escuro, objeto <code>DONATION_CONFIG</code>, alvo &lt; 50 KB. A mais simples de copiar para qualquer site.</p>
+      <span class="tag">EUR · single file</span>
+    </a>
+    <a class="card" href="./05-campaign-goal.html">
+      <span class="num">5</span>
+      <h2>Campanha com meta e prazo</h2>
+      <p>Hero com barra de progresso, countdown real, stretch goals locked/unlocked, FAQ, partilha, estado "campanha terminada".</p>
+      <span class="tag">EUR · progresso manual</span>
+    </a>
+  </div>
+
+  <p class="foot">Os prompts correspondentes estão em <a class="inline" href="../index.html">TEMP/index.html</a> · gerador: <code>TEMP/build_index.py</code></p>
+</div>
+</body>
+</html>

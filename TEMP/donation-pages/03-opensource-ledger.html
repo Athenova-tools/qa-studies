@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fund the Tools You Depend On — Open-Source Funding</title>
+<meta name="description" content="Transparent funding page for an open-source project: goal, cost ledger, and PayPal donations.">
+<!--
+  OWNER SETUP:
+  1. CONFIG.paypalAccount = real PayPal email/merchant ID (required — button is gated).
+  2. LEDGER object below is the single source of truth for goal/breakdown — edit values, reload.
+     Keep values honest: estimates must be marked as such; unknown values use null (renders "—").
+  3. Sandbox: CONFIG.sandbox = true. Standard donate fallback: cmd '_xclick'.
+-->
+<style>
+  :root{--bg:#f6f7f9;--card:#fff;--ink:#18212b;--muted:#5b6a79;--line:#e3e7ec;--accent:#0f766e;--accent2:#0b5d56;--ok:#0e7a4f;--err:#c02626;--mono:ui-monospace,SFMono-Regular,Consolas,monospace;--r:13px}
+  *{box-sizing:border-box}
+  body{margin:0;font:16px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;background:var(--bg);color:var(--ink)}
+  a{color:var(--accent)}
+  .wrap{max-width:820px;margin:0 auto;padding:0 18px}
+  .hero{padding:48px 0 26px}
+  .hero h1{font-size:clamp(25px,4.6vw,33px);margin:0 0 10px}
+  .hero p{color:var(--muted);max-width:64ch;margin:0 0 18px}
+  .hero .links a{margin-right:16px;font-weight:600;font-size:14.5px}
+  .btn{display:inline-block;border:0;border-radius:9px;background:var(--accent);color:#fff;font:600 16px/1 inherit;padding:13px 24px;cursor:pointer;text-decoration:none}
+  .btn:hover{background:var(--accent2)}
+  .btn:focus-visible,.chip:focus-visible,input:focus-visible{outline:3px solid #5eead4;outline-offset:2px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:24px;margin:0 0 18px;box-shadow:0 5px 18px rgba(20,40,60,.05)}
+  .card h2{margin:0 0 6px;font-size:19px}
+  .card h2 .anchor{font:600 13px/1 var(--mono);color:var(--accent);margin-left:8px}
+  .lead{color:var(--muted);margin:0 0 16px;font-size:14.5px}
+  .chips{display:grid;grid-template-columns:repeat(auto-fill,minmax(112px,1fr));gap:10px}
+  .chip{border:1.5px solid var(--line);background:#fafbfb;border-radius:11px;padding:11px 8px;cursor:pointer;font:600 17px/1.2 inherit;color:var(--ink)}
+  .chip small{display:block;font:500 12px/1.3 inherit;color:var(--muted);margin-top:3px}
+  .chip:hover{border-color:#7fc9c1}
+  .chip[aria-checked="true"]{border-color:var(--accent);background:#e9f7f5;box-shadow:inset 0 0 0 1px var(--accent)}
+  .freqline{font-size:13.5px;color:var(--muted);margin:12px 0 0}
+  .custom{margin-top:12px}
+  .custom label{display:block;font-size:13.5px;font-weight:600;color:var(--muted);margin-bottom:6px}
+  .custom input{width:100%;max-width:230px;border:1.5px solid var(--line);border-radius:9px;padding:10px 12px;font:600 16px/1 inherit}
+  .summary{margin:16px 0 0;background:#effaf8;border:1px solid #cdeeea;border-radius:9px;padding:11px 13px;font-size:15px}
+  .summary strong{color:var(--accent2)}
+  .error{margin:9px 0 0;color:var(--err);font-size:14px;font-weight:600}
+  #payBtn{width:100%;margin-top:14px;padding:14px}
+  .note{font-size:13px;color:var(--muted);margin-top:12px}
+  .ledgerHead{display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:6px}
+  .raised{font:700 22px/1 var(--mono);color:var(--accent)}
+  .raised span{font:500 13px/1 system-ui;color:var(--muted)}
+  .bar{height:12px;background:#e7ecea;border-radius:999px;overflow:hidden;margin:12px 0 6px}
+  .bar i{display:block;height:100%;background:linear-gradient(90deg,#14b8a6,#0f766e);border-radius:999px;transition:width .4s}
+  .barMeta{display:flex;justify-content:space-between;font-size:13px;color:var(--muted)}
+  table{width:100%;border-collapse:collapse;margin-top:14px;font-size:14.5px}
+  th,td{text-align:left;padding:9px 8px;border-bottom:1px solid var(--line)}
+  th{font-size:12.5px;text-transform:uppercase;letter-spacing:.05em;color:var(--muted)}
+  td.num,th.num{text-align:right;font-family:var(--mono)}
+  tr.total td{font-weight:700;border-bottom:0}
+  .updated{font-size:12.5px;color:var(--muted);margin-top:10px}
+  .honest li{margin:7px 0;color:var(--muted);font-size:14.5px}
+  .honest li b{color:var(--ink)}
+  .ways a{display:inline-block;margin:0 14px 8px 0;font-weight:600}
+  .thanks{display:none;border:1px solid #bfe6d4;background:#edfaf3;border-radius:var(--r);padding:24px;margin:0 0 18px;text-align:center}
+  .thanks h2{margin:0 0 8px;color:var(--ok);font-size:20px}
+  .thanks p{margin:6px 0;color:#235c45;font-size:15px}
+  .warn{display:none;border:1px solid #f0d9a6;background:#fdf6e6;border-radius:11px;padding:15px 17px;margin:0 0 18px;font-size:14.5px}
+  .warn b{display:block;margin-bottom:6px}
+  .warn code{background:#f3e7c8;border-radius:5px;padding:1px 6px}
+  footer{color:var(--muted);font-size:13px;text-align:center;padding:24px 0 40px}
+  @media (max-width:540px){.card{padding:19px 15px}.chips{grid-template-columns:repeat(2,1fr)}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="hero">
+    <h1>Fund the Tools You Depend On</h1>
+    <p>This project is free to use. Donations pay for hosting, CI, and maintenance time — and this page shows exactly where the money goes, from a single config file in the repository.</p>
+    <div>
+      <a class="btn" href="#doar">Donate via PayPal</a>
+    </div>
+    <p class="links" style="margin-top:14px"><a href="#ledger">View funding transparency ↓</a><a href="#other">Other ways to help</a></p>
+  </header>
+
+  <div class="warn" id="configWarn" role="alert">
+    <b>Setup required (project owner credentials)</b>
+    Replace <code>[PAYPAL_ACCOUNT_EMAIL_OR_MERCHANT_ID]</code> in <code>CONFIG.paypalAccount</code> to activate the real PayPal flow.
+  </div>
+
+  <div class="thanks" id="thanksBox" tabindex="-1">
+    <h2 id="thanksTitle">Thank you for visiting our funding page</h2>
+    <p id="thanksText">No payment has been confirmed here. Verify the transaction in your PayPal account or receipt email.</p>
+    <p><a class="btn" id="thanksHome" href="./index.html">Back to start</a></p>
+  </div>
+
+  <section class="card" id="doar" aria-labelledby="giveTitle">
+    <h2 id="giveTitle">Choose your contribution</h2>
+    <p class="lead">One amount at a time · EUR · processed by PayPal · no card data on this site.</p>
+
+    <div class="chips" role="radiogroup" aria-label="Preset amounts" id="chips">
+      <button type="button" class="chip" role="radio" aria-checked="true" data-amount="3">€3 <small>covers a domain renewal</small></button>
+      <button type="button" class="chip" role="radio" aria-checked="false" data-amount="10">€10 <small>an hour of maintenance</small></button>
+      <button type="button" class="chip" role="radio" aria-checked="false" data-amount="25">€25 <small>CI minutes for a month</small></button>
+      <button type="button" class="chip" role="radio" aria-checked="false" data-amount="50">€50 <small>hosting for a month</small></button>
+      <button type="button" class="chip" role="radio" aria-checked="false" data-amount="100">€100 <small>major contribution</small></button>
+      <button type="button" class="chip" role="radio" aria-checked="false" data-amount="custom">Custom <small>your amount</small></button>
+    </div>
+    <p class="freqline">Impact labels are estimates based on the ledger below — not guarantees of specific spending.</p>
+
+    <div class="custom" id="customWrap" hidden>
+      <label for="customAmount">Custom amount (€)</label>
+      <input id="customAmount" type="text" inputmode="decimal" autocomplete="off" placeholder="e.g. 40">
+    </div>
+
+    <p class="summary" aria-live="polite" id="summary">You’re giving <strong>€3</strong> via PayPal.</p>
+    <p class="error" role="alert" id="error" hidden></p>
+
+    <button class="btn" id="payBtn" type="button">Donate with PayPal</button>
+    <p class="note">You’ll be redirected to PayPal’s official interface. This site never collects card details and never marks a donation as successful on its own.</p>
+  </section>
+
+  <section class="card" id="ledger" aria-labelledby="ledgerTitle">
+    <h2 id="ledgerTitle">Funding transparency <span class="anchor">from FUNDING_LEDGER</span></h2>
+    <div class="ledgerHead">
+      <div class="raised" id="raisedText">—</div>
+      <div class="updated" id="updatedText"></div>
+    </div>
+    <div class="bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="bar"><i id="barFill" style="width:0%"></i></div>
+    <div class="barMeta"><span id="goalText"></span><span id="pctText"></span></div>
+    <table>
+      <thead><tr><th>Cost</th><th class="num">Amount</th><th>Notes</th></tr></thead>
+      <tbody id="ledgerRows"></tbody>
+    </table>
+    <p class="updated">Ledger data lives in <code>FUNDING_LEDGER</code> inside this page’s script — editing it and reloading updates this section. Figures are manual, honest entries (or estimates where marked); nothing is scraped or invented.</p>
+  </section>
+
+  <section class="card" aria-labelledby="notTitle">
+    <h2 id="notTitle">What donations do NOT buy</h2>
+    <ul class="honest">
+      <li><b>No paid support SLAs</b> — donations never buy response-time guarantees.</li>
+      <li><b>No guaranteed features</b> — the roadmap is not for sale.</li>
+      <li><b>No tax-deductible status</b> — unless explicitly published for your jurisdiction.</li>
+      <li><b>No data</b> — we never ask for anything beyond what PayPal itself requires.</li>
+    </ul>
+  </section>
+
+  <section class="card" id="other" aria-labelledby="otherTitle">
+    <h2 id="otherTitle">Other ways to help</h2>
+    <p class="lead">Money is optional. Time and visibility matter just as much.</p>
+    <p class="ways"><a id="repoLink" href="#">★ Star the repository</a><a href="#">Report an issue</a><a href="#">Contribute code</a></p>
+  </section>
+
+  <footer><span id="footName">Project</span> · transparent funding example · real PayPal flow after configuration</footer>
+</div>
+
+<script>
+(function () {
+  var CONFIG = {
+    projectName: 'My Open Project',
+    paypalAccount: '[PAYPAL_ACCOUNT_EMAIL_OR_MERCHANT_ID]',
+    cmd: '_donate',
+    sandbox: false,
+    currency: 'EUR',
+    amounts: [3, 10, 25, 50, 100],
+    minimum: 1,
+    returnUrl: '',
+    repoUrl: '',
+    contactEmail: ''
+  };
+
+  /* Single source of truth for the transparency section (manual, honest entries). */
+  var FUNDING_LEDGER = {
+    goal: 600,
+    raised: 415,
+    updatedAt: '2026-10-12',
+    rows: [
+      { label: 'VPS hosting', amount: 180, note: 'quarterly invoice' },
+      { label: 'Domain + TLS', amount: 24, note: 'annual' },
+      { label: 'CI minutes', amount: 61, note: 'last 90 days' },
+      { label: 'Tooling & licenses', amount: 70, note: 'estimate' },
+      { label: 'Maintenance time', amount: 80, note: 'estimate' }
+    ]
+  };
+
+  var state = { mode: 'preset', amount: CONFIG.amounts[0] };
+  var chips = document.getElementById('chips');
+  var customWrap = document.getElementById('customWrap');
+  var customInput = document.getElementById('customAmount');
+  var summary = document.getElementById('summary');
+  var errorBox = document.getElementById('error');
+  var payBtn = document.getElementById('payBtn');
+
+  function money(n) { return '€' + Number(n).toFixed(2).replace(/\.00$/, ''); }
+
+  function renderLedger() {
+    var L = FUNDING_LEDGER;
+    var pct = L.goal > 0 ? Math.min(100, Math.round((L.raised / L.goal) * 100)) : 0;
+    document.getElementById('raisedText').innerHTML = money(L.raised) + ' <span>raised of ' + money(L.goal) + '</span>';
+    document.getElementById('goalText').textContent = 'Goal ' + money(L.goal);
+    document.getElementById('pctText').textContent = pct + '% funded';
+    document.getElementById('updatedText').textContent = 'Ledger updated ' + L.updatedAt + ' (manual)';
+    var bar = document.getElementById('bar');
+    bar.setAttribute('aria-valuenow', String(pct));
+    bar.setAttribute('aria-valuetext', pct + '% of goal');
+    document.getElementById('barFill').style.width = pct + '%';
+    var tbody = document.getElementById('ledgerRows');
+    tbody.innerHTML = '';
+    var total = 0;
+    L.rows.forEach(function (r) {
+      var tr = document.createElement('tr');
+      tr.innerHTML = '<td>' + r.label + '</td><td class="num">' + (r.amount == null ? '—' : money(r.amount)) + '</td><td>' + (r.note || '') + '</td>';
+      tbody.appendChild(tr);
+      if (r.amount != null) total += r.amount;
+    });
+    var trt = document.createElement('tr');
+    trt.className = 'total';
+    trt.innerHTML = '<td>Accounted</td><td class="num">' + money(total) + '</td><td>' + (total <= L.raised ? 'within raised funds' : 'exceeds raised funds') + '</td>';
+    tbody.appendChild(trt);
+  }
+
+  function parseAmount(raw) {
+    var s = String(raw || '').trim().replace(',', '.');
+    if (!/^\d+(\.\d{1,2})?$/.test(s)) return null;
+    return parseFloat(s);
+  }
+
+  function validate() {
+    if (state.mode === 'preset') return state.amount;
+    var v = parseAmount(customInput.value);
+    if (customInput.value.trim() === '') return { err: 'Enter an amount to continue.' };
+    if (v === null) return { err: 'Invalid value — numbers only (e.g. 40).' };
+    if (v <= 0) return { err: 'The amount must be greater than zero.' };
+    if (v < CONFIG.minimum) return { err: 'Minimum donation is ' + money(CONFIG.minimum) + '.' };
+    return v;
+  }
+
+  function render() {
+    var v = validate();
+    var ok = typeof v === 'number';
+    errorBox.hidden = ok;
+    if (!ok) errorBox.textContent = v.err;
+    payBtn.disabled = !ok;
+    payBtn.style.opacity = ok ? '1' : '.55';
+    summary.innerHTML = ok ? 'You’re giving <strong>' + money(v) + '</strong> via PayPal.' : 'Amount pending.';
+  }
+
+  chips.addEventListener('click', function (e) {
+    var b = e.target.closest('.chip');
+    if (!b) return;
+    chips.querySelectorAll('.chip').forEach(function (c) { c.setAttribute('aria-checked', String(c === b)); });
+    if (b.dataset.amount === 'custom') {
+      state.mode = 'custom';
+      customWrap.hidden = false;
+      customInput.focus();
+    } else {
+      state.mode = 'preset';
+      state.amount = parseFloat(b.dataset.amount);
+      customWrap.hidden = true;
+    }
+    render();
+  });
+  customInput.addEventListener('input', render);
+
+  function returnURL(status) {
+    if (!CONFIG.returnUrl || CONFIG.returnUrl.indexOf('[') !== -1) return '';
+    return CONFIG.returnUrl + (CONFIG.returnUrl.indexOf('?') >= 0 ? '&' : '?') + 'status=' + status;
+  }
+
+  payBtn.addEventListener('click', function () {
+    var v = validate();
+    if (typeof v !== 'number') { render(); return; }
+    if (CONFIG.paypalAccount.indexOf('[') !== -1) {
+      var w = document.getElementById('configWarn');
+      w.style.display = 'block';
+      w.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      return;
+    }
+    var action = CONFIG.sandbox
+      ? 'https://www.sandbox.paypal.com/cgi-bin/webscr'
+      : 'https://www.paypal.com/cgi-bin/webscr';
+    var f = document.createElement('form');
+    f.method = 'POST';
+    f.action = action;
+    f.target = '_top';
+    var fields = {
+      cmd: CONFIG.cmd,
+      business: CONFIG.paypalAccount,
+      item_name: 'Donation — ' + CONFIG.projectName,
+      amount: v.toFixed(2),
+      currency_code: CONFIG.currency,
+      no_shipping: 1,
+      custom: 'opensource-ledger',
+      return: returnURL('returned'),
+      cancel_return: returnURL('cancelled')
+    };
+    Object.keys(fields).forEach(function (k) {
+      if (fields[k] === '' || fields[k] == null) return;
+      var i = document.createElement('input');
+      i.type = 'hidden';
+      i.name = k;
+      i.value = fields[k];
+      f.appendChild(i);
+    });
+    document.body.appendChild(f);
+    f.submit();
+  });
+
+  var q = new URLSearchParams(location.search);
+  var thanks = document.getElementById('thanksBox');
+  if (q.get('status') === 'cancelled' || (q.get('st') || '').indexOf('Cancel') === 0) {
+    document.getElementById('thanksTitle').textContent = 'Payment cancelled';
+    document.getElementById('thanksText').textContent = 'You were not charged. Thank you for considering it.';
+    thanks.style.display = 'block';
+  } else if (q.get('st') === 'Completed' && q.get('tx')) {
+    document.getElementById('thanksTitle').textContent = 'Thank you for keeping this project alive';
+    document.getElementById('thanksText').textContent =
+      'PayPal returned status “Completed” for transaction ' + q.get('tx') +
+      ' (' + q.get('mc_gross') + ' ' + (q.get('mc_currency') || CONFIG.currency) + ').';
+    thanks.style.display = 'block';
+    thanks.focus();
+  } else if (q.get('status') === 'returned') {
+    thanks.style.display = 'block';
+  }
+
+  document.getElementById('footName').textContent = CONFIG.projectName;
+  if (CONFIG.repoUrl) {
+    var repo = document.getElementById('repoLink');
+    repo.href = CONFIG.repoUrl;
+    repo.target = '_blank';
+    repo.rel = 'noopener';
+  }
+  if (CONFIG.contactEmail) document.querySelector('.ways').insertAdjacentHTML('beforeend', ' <a href="mailto:' + CONFIG.contactEmail + '">Contact</a>');
+  if (CONFIG.websiteUrl) document.getElementById('thanksHome').href = CONFIG.websiteUrl;
+  renderLedger();
+  render();
+})();
+</script>
+</body>
+</html>

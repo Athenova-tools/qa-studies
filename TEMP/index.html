@@ -1,0 +1,963 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>5 Exemplos — Prompt de Página de Donativos PayPal</title>
+<style>
+  :root { --bg:#f6f8fb; --card:#fff; --ink:#1b2430; --muted:#5b6b7c; --line:#e3e9f1; --accent:#2563eb; --accent-ink:#fff; }
+  * { box-sizing:border-box; }
+  body { margin:0; font:16px/1.65 system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif; background:var(--bg); color:var(--ink); }
+  header { position:sticky; top:0; z-index:5; background:rgba(255,255,255,.92); backdrop-filter:blur(6px); border-bottom:1px solid var(--line); padding:14px 20px 10px; }
+  header h1 { margin:0 0 4px; font-size:19px; }
+  header .sub { color:var(--muted); font-size:13px; margin-bottom:10px; }
+  nav { display:flex; gap:8px; flex-wrap:wrap; }
+  .tab { border:1px solid var(--line); background:#fff; color:var(--ink); border-radius:999px; padding:7px 14px; font-size:13.5px; font-weight:600; cursor:pointer; }
+  .tab:hover { border-color:var(--accent); color:var(--accent); }
+  .tab.active { background:var(--accent); border-color:var(--accent); color:var(--accent-ink); }
+  main { max-width:920px; margin:24px auto 60px; padding:0 18px; }
+  .panel { display:none; background:var(--card); border:1px solid var(--line); border-radius:14px; padding:26px 30px 20px; box-shadow:0 8px 26px rgba(20,40,80,.06); }
+  .panel.active { display:block; }
+  .panel-head { border-bottom:1px solid var(--line); margin-bottom:18px; padding-bottom:14px; position:relative; }
+  .panel-head h1 { margin:0 0 6px; font-size:21px; line-height:1.35; }
+  .meta { color:var(--muted); font-size:12.5px; }
+  .copy { position:absolute; top:0; right:0; border:1px solid var(--accent); color:var(--accent); background:#fff; border-radius:8px; padding:6px 12px; font-size:13px; font-weight:600; cursor:pointer; }
+  .copy:hover { background:var(--accent); color:#fff; }
+  article h1 { font-size:20px; } article h2 { font-size:17px; margin:26px 0 8px; color:var(--accent); } article h3 { font-size:15.5px; margin:18px 0 6px; }
+  article h4, article h5, article h6 { font-size:14.5px; margin:14px 0 6px; }
+  article p { margin:9px 0; }
+  article ul, article ol { margin:8px 0; padding-left:24px; }
+  article li { margin:4px 0; }
+  article strong { color:#0f172a; }
+  code { background:#eef2f8; border:1px solid var(--line); border-radius:5px; padding:1px 6px; font-size:13.5px; font-family:ui-monospace,Consolas,monospace; }
+  pre { background:#0f172a; color:#e2e8f0; border-radius:10px; padding:14px 16px; overflow:auto; }
+  pre code { background:none; border:none; color:inherit; padding:0; font-size:13px; }
+  footer { text-align:center; color:var(--muted); font-size:12.5px; padding:0 0 30px; }
+  @media (max-width:640px) { .panel { padding:18px 16px; } .copy { position:static; margin-top:8px; } }
+</style>
+</head>
+<body>
+<header>
+  <h1>5 Exemplos — Prompt: Página de Donativos com PayPal</h1>
+  <div class="sub">Variações do mesmo prompt · ficheiros .md em <code>TEMP/</code> · gerado automaticamente</div>
+  <nav id="nav"><button class="tab" data-target="p1">1 · pt-PT</button><button class="tab" data-target="p2">2 · Recorrente USD</button><button class="tab" data-target="p3">3 · Open-Source</button><button class="tab" data-target="p4">4 · Minimalista</button><button class="tab" data-target="p5">5 · Campanha</button></nav>
+</header>
+<main>
+<section id="p1" class="panel"><div class="panel-head"><h1>Prompt — Página de Donativos do Projeto com Integração PayPal (pt-PT)</h1><div class="meta">donation-prompt-1-ptPT.md · 845 palavras</div><button class="copy" data-copy="raw1">Copiar markdown</button></div><article><h2>Prompt — Página de Donativos do Projeto com Integração PayPal (pt-PT)</h2>
+<h3>1. Objetivo do Projeto</h3>
+<p>Criar uma página de donativos moderna, profissional e responsiva, em <strong>português de Portugal</strong>, que permita aos visitantes apoiar financeiramente um projeto digital independente.</p>
+<p>A página deve permitir doações para uma conta PayPal específica, com montantes predefinidos ou valor livre introduzido pelo utilizador.</p>
+<p>Deve transmitir confiança, transparência e agradecimento a qualquer contribuição, independentemente do valor. Nome do projeto: <code>[PROJECT_NAME]</code>.</p>
+<h3>2. Funcionalidade de Donativos</h3>
+<h4>Montantes predefinidos</h4>
+<p>Apresentar opções selecionáveis, por exemplo:</p>
+<ul>
+<li>€2 — Pequena contribuição</li>
+<li>€5 — Apoiante</li>
+<li>€10 — Colaborador do projeto</li>
+<li>€25 — Campeão do projeto</li>
+<li>€50 — Apoiante principal</li>
+<li>Valor livre — introduzir qualquer montante</li>
+</ul>
+<p>Os valores devem ser configuráveis e fáceis de alterar. Apenas um montante predefinido pode estar selecionado de cada vez; escolher "valor livre" ativa o campo de entrada.</p>
+<h4>Valor livre</h4>
+<p>Campo numérico para o montante à escolha do doador:</p>
+<ul>
+<li>Moeda por omissão: <strong>EUR (€)</strong></li>
+<li>Validar antes de redirecionar para o PayPal</li>
+<li>Rejeitar vazio, zero, negativo, não numérico e valores abaixo do mínimo configurável</li>
+<li>Mostrar claramente o montante selecionado antes da saída para o PayPal</li>
+<li><strong>Nunca</strong> cobrar automaticamente nem recolher dados de pagamento no site</li>
+</ul>
+<h4>Integração PayPal</h4>
+<ul>
+<li>Conta PayPal do projeto: <code>[PAYPAL_ACCOUNT_EMAIL_OR_MERCHANT_ID]</code></li>
+<li>Moeda: <code>EUR</code></li>
+<li>Montantes e mínimo: configuráveis</li>
+</ul>
+<p>Usar uma integração oficial suportada (PayPal Donate, se disponível para a conta, ou outra solução oficial do PayPal Checkout que permita definir o montante).</p>
+<p>Fluxo obrigatório:</p>
+<ol>
+<li>Selecionar montante → 2. Mostrar resumo da doação → 3. Redirecionar/abrir a interface oficial do PayPal → 4. O doador conclui ou cancela → 5. Retorno a página de sucesso/cancelamento, quando suportado.</li>
+</ol>
+<p><strong>Proibido:</strong> simular pagamentos bem-sucedidos ou mostrar confirmação antes de o PayPal confirmar. <strong>Proibido:</strong> expor credenciais secretas no frontend. Verificar previamente as capacidades reais da integração escolhida (o link PayPal.me não serve para todos os casos).</p>
+<h3>3. Design da Página</h3>
+<p>Layout limpo, tipografia profissional, espaçamento generoso e identidade visual consistente com o projeto existente (reutilizar o design system atual se existir).</p>
+<h4>A. Hero</h4>
+<p>Título: <strong>"Apoia o Projeto. Ajuda-o a Crescer."</strong></p>
+<p>Texto de apoio: <em>"Cada contribuição ajuda-nos a melhorar, manter e expandir este projeto. Escolhe um valor que faça sentido para ti e ajuda-nos a continuar a construir algo valioso."</em></p>
+<p>CTA primário: <strong>"Apoiar o Projeto"</strong></p>
+<h4>B. Seletor de donativo</h4>
+<p>Cartões/botões visualmente distintos, cada um com montante, descrição curta, estado selecionado claro e interação acessível + campo de valor livre + botão proeminente <strong>"Continuar com o PayPal"</strong>.</p>
+<h4>C. Porque o teu apoio importa</h4>
+<p>Ex.: desenvolvimento de novas funcionalidades, manutenção e melhorias, custos de alojamento, criação de ferramentas adicionais. Só afirmar despesas ou compromissos específicos se forem verdadeiros e aprovados pelo dono do projeto.</p>
+<h4>D. Confiança e transparência</h4>
+<p>Frase curta: os pagamentos são processados pelo PayPal e o site não recolhe nem guarda dados de cartão. Indicar se as doações são voluntárias e se oferecem algum benefício. <strong>Não</strong> afirmar dedutibilidade fiscal sem verificação.</p>
+<h4>E. Agradecimento</h4>
+<p>Estado/página de agradecimento: <em>"Obrigado por apoiar o projeto. A tua contribuição é muito apreciada."</em> — mostrar apenas após confirmação fiável do PayPal; caso contrário usar linguagem neutra (<em>"Obrigado pela visita à nossa página de donativos"</em>). Botão de regresso ao site principal.</p>
+<h3>4. Requisitos Técnicos</h3>
+<ul>
+<li>Responsivo (desktop, tablet, mobile), acessível e navegável por teclado</li>
+<li>Validação e mensagens de erro claras</li>
+<li>Processamento seguro via PayPal; sem armazenamento de dados de cartão</li>
+<li>Sem confirmações falsas; sem recolha desnecessária de dados pessoais</li>
+<li>Título e meta tags SEO-friendly; assets leves e carregamento rápido</li>
+<li>Código reutilizável e manutenível</li>
+<li>Configuração centralizada de conta PayPal, moeda, montantes, nome, logo e URL</li>
+<li>Usar a stack existente do projeto; se for hospedagem estática, implementar a solução estática suportada e documentar qualquer backend mínimo necessário com variáveis de ambiente seguras</li>
+</ul>
+<h3>5. Configuração</h3>
+<ul>
+<li>Nome do projeto: <code>[PROJECT_NAME]</code></li>
+<li>Logo: <code>[LOGO_URL_OR_FILE]</code></li>
+<li>Conta PayPal: <code>[PAYPAL_ACCOUNT_EMAIL_OR_MERCHANT_ID]</code></li>
+<li>Moeda: <code>EUR</code></li>
+<li>Mínimo: <code>[MINIMUM_AMOUNT]</code></li>
+<li>Montantes sugeridos: <code>[2, 5, 10, 25, 50]</code></li>
+<li>URL principal: <code>[PROJECT_WEBSITE_URL]</code></li>
+<li>Contacto: <code>[CONTACT_EMAIL]</code></li>
+<li>Idioma: <strong>pt-PT</strong></li>
+</ul>
+<h3>6. Critérios de Aceitação</h3>
+<ol>
+<li>Todos os montantes predefinidos são selecionáveis</li>
+<li>Valor livre válido é aceite</li>
+<li>Valores inválidos são rejeitados com explicação clara</li>
+<li>Montante e moeda chegam corretamente ao fluxo oficial do PayPal</li>
+<li>A conta designada recebe a doação (sujeito à configuração da conta e conclusão da transação)</li>
+<li>Cancelamento é tratado com elegância</li>
+<li>Pagamentos bem-sucedidos nunca são reportados falsamente</li>
+<li>Página funciona em mobile e desktop</li>
+<li>A conta PayPal muda por configuração, sem redesenho</li>
+<li>Instruções de setup incluem ligação e teste real (sandbox quando suportado)</li>
+</ol>
+<h3>7. Entregáveis</h3>
+<ul>
+<li>Código-fonte completo e funcional</li>
+<li>Página de donativos responsiva</li>
+<li>Integração PayPal real (não maquete visual)</li>
+<li>Instruções de configuração, deploy e testes (sucesso, cancelamento, valores inválidos)</li>
+<li>Lista clara de pré-requisitos/limitações da conta PayPal e de passos que dependem de credenciais ou aprovação do dono do projeto</li>
+</ul>
+<p>Antes de implementar, inspecionar a estrutura existente e reutilizar o design system e a stack atuais sempre que possível.</p></article></section><section id="p2" class="panel"><div class="panel-head"><h1>Prompt — Create a Donation Page with One-Time and Recurring PayPal Giving (USD)</h1><div class="meta">donation-prompt-2-recurring-usd.md · 730 palavras</div><button class="copy" data-copy="raw2">Copiar markdown</button></div><article><h2>Prompt — Create a Donation Page with One-Time and Recurring PayPal Giving (USD)</h2>
+<h3>1. Project Objective</h3>
+<p>Create a modern, responsive donation page for an independent digital project that supports <strong>both one-time donations and recurring monthly giving</strong> through PayPal.</p>
+<p>The page must let visitors choose a preset amount or a custom amount, decide whether to give once or monthly, and complete the payment through PayPal's official flow. Default currency: <strong>USD ($)</strong>.</p>
+<p>The page must communicate trust and transparency, work for an international audience in English, and never claim a payment succeeded before PayPal confirms it.</p>
+<h3>2. Donation Functionality</h3>
+<h4>Giving frequency</h4>
+<p>Two mutually exclusive modes, visually prominent:</p>
+<ul>
+<li><strong>One-time</strong> (default)</li>
+<li><strong>Monthly</strong> — short copy explaining recurring support: <em>"Monthly support lets us plan ahead and keep improving the project."</em></li>
+</ul>
+<p>Changing frequency must not lose the selected amount.</p>
+<h4>Preset amounts (one-time)</h4>
+<ul>
+<li>$3 — Coffee</li>
+<li>$10 — Supporter</li>
+<li>$25 — Contributor</li>
+<li>$50 — Champion</li>
+<li>Custom — any amount</li>
+</ul>
+<h4>Preset amounts (monthly)</h4>
+<ul>
+<li>$2/mo — Supporter</li>
+<li>$5/mo — Sustainer</li>
+<li>$10/mo — Patron</li>
+<li>Custom monthly amount</li>
+</ul>
+<p>All amounts configurable. Selecting "Custom" reveals a numeric input.</p>
+<h4>Custom amount rules</h4>
+<ul>
+<li>Currency: USD by default</li>
+<li>Validate before redirect: reject empty, zero, negative, non-numeric, below configurable minimum</li>
+<li>Show a clear summary: <strong>"$25 one-time"</strong> or <strong>"$5/month"</strong> before redirect</li>
+<li>No card data collected or stored on the site; no automatic charges outside PayPal's own flow</li>
+</ul>
+<h4>PayPal integration</h4>
+<ul>
+<li>Merchant/PayPal account: <code>[PAYPAL_ACCOUNT_EMAIL_OR_MERCHANT_ID]</code></li>
+<li>Use PayPal's official support for recurring billing (Subscriptions/Donations with a plan) and one-time Checkout/Donate. <strong>Verify</strong> which products your account is eligible for; do not assume PayPal.me supports these features.</li>
+<li>Flow: choose amount + frequency → summary → official PayPal interface → complete or cancel → return to success/cancel pages when supported.</li>
+<li>Never simulate success. Never expose secrets in frontend code; if a backend is required, keep credentials in environment variables and implement the minimum secure backend.</li>
+</ul>
+<h3>3. Page Design</h3>
+<p>Modern layout, professional typography, consistent with the existing project's design system (reuse it if present).</p>
+<h4>A. Hero</h4>
+<p>Headline: <strong>"Keep This Project Growing."</strong> Supporting text: <em>"Your donation pays for maintenance, new features, and infrastructure. Give once or make it monthly — every bit helps."</em> CTA: <strong>"Donate with PayPal"</strong></p>
+<h4>B. Donation selector</h4>
+<p>Segmented control: <strong>One-time | Monthly</strong>. Amount cards with amount, friendly label, selected state, accessible interaction. Custom amount field. Live summary line above the CTA showing amount + frequency + currency.</p>
+<h4>C. Where your support goes</h4>
+<p>Configurable list (e.g., maintenance, new features, hosting). Only claims approved by the project owner.</p>
+<h4>D. Trust block</h4>
+<p>Payments processed by PayPal; site never stores card details; donations voluntary; state explicitly whether monthly giving can be cancelled anytime (only if true and supported by the chosen PayPal product).</p>
+<h4>E. Thank-you state</h4>
+<p>Confirmed state: <em>"Thank you for your donation — it really helps."</em> Neutral state otherwise: <em>"Thank you for visiting our donation page."</em> Return-to-site button.</p>
+<h3>4. Technical Requirements</h3>
+<ul>
+<li>Responsive, accessible, keyboard navigable, clear validation errors</li>
+<li>Frequency and amount both passed correctly to PayPal (recurring amounts must create a recurring agreement/plan, not a one-time payment)</li>
+<li>SEO metadata, fast load, lightweight assets, maintainable code</li>
+<li>Centralized config; reuse existing stack; static hosting preferred, backend only if the integration requires it (documented)</li>
+</ul>
+<h3>5. Configuration</h3>
+<ul>
+<li>Project name / logo / website URL / contact: <code>[PROJECT_NAME]</code>, <code>[LOGO_URL_OR_FILE]</code>, <code>[PROJECT_WEBSITE_URL]</code>, <code>[CONTACT_EMAIL]</code></li>
+<li>PayPal account: <code>[PAYPAL_ACCOUNT_EMAIL_OR_MERCHANT_ID]</code></li>
+<li>Currency: <code>USD</code></li>
+<li>One-time amounts: <code>[3, 10, 25, 50]</code></li>
+<li>Monthly amounts: <code>[2, 5, 10]</code></li>
+<li>Minimum donation: <code>[MINIMUM_AMOUNT]</code></li>
+<li>Default language: English</li>
+</ul>
+<h3>6. Acceptance Criteria</h3>
+<ol>
+<li>Every preset amount works in both frequencies</li>
+<li>Custom amounts validate correctly (empty/zero/negative/below minimum rejected with clear messages)</li>
+<li>Summary always shows correct amount + frequency + currency before redirect</li>
+<li>One-time → one-time PayPal payment; monthly → recurring PayPal agreement (verified in sandbox)</li>
+<li>Cancellation handled gracefully; no false success messages</li>
+<li>Works on mobile and desktop</li>
+<li>PayPal account, amounts, and frequencies changeable via configuration only</li>
+<li>Setup guide covers sandbox testing for both payment modes</li>
+</ol>
+<h3>7. Deliverables</h3>
+<ul>
+<li>Complete working source code and responsive page</li>
+<li>Real PayPal integration for one-time <strong>and</strong> recurring flows (no visual mock-ups)</li>
+<li>Configuration, deployment, and testing instructions (success, cancellation, invalid input, recurring cancel)</li>
+<li>List of PayPal account prerequisites/limitations and every step requiring merchant credentials or approval</li>
+</ul></article></section><section id="p3" class="panel"><div class="panel-head"><h1>Prompt — Create a Transparent Funding Page for an Open-Source Project with PayPal</h1><div class="meta">donation-prompt-3-opensource-ledger.md · 614 palavras</div><button class="copy" data-copy="raw3">Copiar markdown</button></div><article><h2>Prompt — Create a Transparent Funding Page for an Open-Source Project with PayPal</h2>
+<h3>1. Project Objective</h3>
+<p>Create a funding page for an <strong>open-source project</strong> that lets users support maintenance and development through PayPal, while publishing a <strong>transparent, honest view of how funds are used</strong>.</p>
+<p>Audience: developers and GitHub users; language: English; currency: EUR by default but configurable. Tone: factual, humble, no marketing hype.</p>
+<p>The page must be honest about what donations do and do not buy (e.g., no promises of delivery dates tied to donations).</p>
+<h3>2. Funding Model</h3>
+<h4>Contribution options</h4>
+<ul>
+<li>Preset amounts: €3, €10, €25, €50, €100 — labels describe impact, not guarantees (e.g., <em>"covers infrastructure for a month"</em> only if verified as accurate)</li>
+<li>Custom amount (validated: not empty/zero/negative/non-numeric; configurable minimum)</li>
+<li>Frequency: one-time (default) and optional monthly via PayPal's supported recurring product, if available for the account</li>
+</ul>
+<h4>Transparency ledger (required)</h4>
+<p>A public section, data-driven from a single config/JSON file, showing:</p>
+<ul>
+<li>Funding goal per period (configurable) and current progress</li>
+<li>Cost breakdown rows (hosting, CI minutes, domains, tooling) with amounts</li>
+<li>"Last updated" date; ability to show as manual entry (no scraping) — values must be marked as estimates unless audited</li>
+</ul>
+<p>Never fabricate numbers: if a field is unknown, render it as "—" or hide it.</p>
+<h4>PayPal integration</h4>
+<ul>
+<li>Account: <code>[PAYPAL_ACCOUNT_EMAIL_OR_MERCHANT_ID]</code></li>
+<li>Official PayPal Donate/Checkout flow with preset amount passing; verify capabilities before choosing the product</li>
+<li>Summary → official PayPal page → complete/cancel → return URLs</li>
+<li>No fake confirmations; no secrets in frontend; minimum secure backend with env vars if required</li>
+</ul>
+<h3>3. Page Sections</h3>
+<h4>A. Hero</h4>
+<p>Headline: <strong>"Fund the Tools You Depend On."</strong> Text: <em>"This project is free to use. Donations pay for hosting, CI, and maintenance time."</em> CTA: <strong>"Donate via PayPal"</strong> + secondary link: <strong>"View funding transparency"</strong> (anchor)</p>
+<h4>B. Donation selector</h4>
+<p>Amount cards + custom input + optional frequency toggle + live summary + "Continue with PayPal". Selected state obvious, accessible, keyboard-friendly.</p>
+<h4>C. Transparency ledger</h4>
+<p>The data-driven table/progress bar described above, with a link to the config source (e.g., the JSON file in the repo).</p>
+<h4>D. What donations do NOT buy</h4>
+<p>Explicit honest block: no paid support SLAs, no guaranteed features, no tax-deductible status unless verified.</p>
+<h4>E. Other ways to help</h4>
+<p>Stars/issues/contributions links — funding is one option among several.</p>
+<h4>F. Thank-you</h4>
+<p>Confirmed: <em>"Thank you for keeping this project alive."</em> Neutral fallback otherwise. Return link to project homepage.</p>
+<h3>4. Technical Requirements</h3>
+<ul>
+<li>Responsive, accessible, SEO-friendly, fast, lightweight</li>
+<li>Progress/ledger data externalized (single config file, documented schema)</li>
+<li>Centralized config: project name, logo, repo URL, PayPal account, currency, amounts, minimum, goal values</li>
+<li>Reuse existing stack/design system; static-hosting friendly</li>
+<li>Validation with clear errors; no payment data on site; no false success states</li>
+</ul>
+<h3>5. Configuration</h3>
+<ul>
+<li><code>[PROJECT_NAME]</code>, <code>[LOGO_URL_OR_FILE]</code>, <code>[PROJECT_WEBSITE_URL]</code>, <code>[REPO_URL]</code>, <code>[CONTACT_EMAIL]</code></li>
+<li>PayPal: <code>[PAYPAL_ACCOUNT_EMAIL_OR_MERCHANT_ID]</code>, currency <code>EUR</code>, amounts <code>[3, 10, 25, 50, 100]</code>, minimum <code>[MINIMUM_AMOUNT]</code></li>
+<li><code>[FUNDING_GOAL]</code>, <code>[FUNDING_BREAKDOWN_JSON]</code>, <code>[LEDGER_UPDATED_AT]</code></li>
+<li>Language: English</li>
+</ul>
+<h3>6. Acceptance Criteria</h3>
+<ol>
+<li>All preset and custom amounts selectable and validated</li>
+<li>Amount + currency reach PayPal correctly; cancellation graceful; no false success</li>
+<li>Ledger renders entirely from config — editing the JSON updates the page without code changes</li>
+<li>No unverifiable claims (tax, SLA, delivery dates) appear anywhere</li>
+<li>Mobile + desktop OK; account changeable via config only</li>
+<li>Setup guide includes sandbox testing and how to update ledger data</li>
+</ol>
+<h3>7. Deliverables</h3>
+<ul>
+<li>Full source code, responsive page, real PayPal integration</li>
+<li>Ledger schema + example config file + update instructions</li>
+<li>Deployment and testing instructions</li>
+<li>Prerequisites/limitations list; clearly flag steps needing merchant credentials or account approval</li>
+</ul>
+<p>Inspect the existing repo first; reuse its design system and stack.</p></article></section><section id="p4" class="panel"><div class="panel-head"><h1>Prompt — Minimal One-Section PayPal Donate Page (Single File, Static Hosting)</h1><div class="meta">donation-prompt-4-minimal-single-file.md · 498 palavras</div><button class="copy" data-copy="raw4">Copiar markdown</button></div><article><h2>Prompt — Minimal One-Section PayPal Donate Page (Single File, Static Hosting)</h2>
+<h3>1. Project Objective</h3>
+<p>Build a <strong>minimal, single-section donation page</strong> that ships as <strong>one static HTML file</strong> (inline CSS/JS or one CSS + one JS file), ready for GitHub Pages or any static host, integrating PayPal for donations to <code>[PAYPAL_ACCOUNT_EMAIL_OR_MERCHANT_ID]</code>.</p>
+<p>Design philosophy: one screen, zero clutter, loads instantly, works without JavaScript beyond the donation interaction. English, EUR default.</p>
+<h3>2. Donation Functionality (scope-limited on purpose)</h3>
+<p>Exactly this interaction, nothing more:</p>
+<ol>
+<li>Row of amount chips: <strong>€5 · €10 · €25 · €50</strong> + <strong>Custom</strong> (single-select, one active at a time)</li>
+<li>Custom chip reveals a compact number input</li>
+<li>Summary line: <code>You're giving €10 via PayPal</code></li>
+<li>Button: <strong>Donate with PayPal</strong> → official PayPal payment flow with the chosen amount</li>
+<li>Return link/button on success and cancel landing states (PayPal return URLs if the chosen product supports them)</li>
+</ol>
+<p>Rules:</p>
+<ul>
+<li>Validate: reject empty/zero/negative/non-numeric; configurable minimum (default €1)</li>
+<li>Show chosen amount before redirect; no card data on the page; no fake success screens</li>
+<li>Configuration object at the top of the JS file:</li>
+</ul>
+<pre><code>
+  const DONATION_CONFIG = {
+
+    paypalAccount: &#x27;[PAYPAL_ACCOUNT_EMAIL_OR_MERCHANT_ID]&#x27;,
+
+    currency: &#x27;EUR&#x27;,
+
+    amounts: [5, 10, 25, 50],
+
+    minimum: 1,
+
+    projectName: &#x27;[PROJECT_NAME]&#x27;,
+
+    websiteUrl: &#x27;[PROJECT_WEBSITE_URL]&#x27;
+
+  };
+
+</code></pre>
+<ul>
+<li>Use an official PayPal-supported mechanism for passing a dynamic amount (PayPal Donate button with hosted button id, or PayPal.me with amount if your verification shows it supports it, or a PayPal Checkout JS integration). <strong>Verify first</strong>; document which one was chosen and why in the README section of the file comments.</li>
+</ul>
+<h3>3. Visual Spec (compact)</h3>
+<ul>
+<li>Max-width ~560px card, centered, generous padding, system font stack or the project's existing font</li>
+<li>Headline: <strong>"Support [PROJECT_NAME]"</strong></li>
+<li>One supporting sentence; no long sections, no accordion, no images beyond optional 40px logo</li>
+<li>Chips: pill buttons with clear selected state (border/fill), <code>:focus-visible</code> ring, min touch target 44px</li>
+<li>Amount chips as radio semantics (<code>role="radiogroup"</code> / <code>aria-checked</code>) for accessibility</li>
+<li>Footer line: <em>"Payments are processed by PayPal. We never see your card details."</em></li>
+<li>Light + dark mode via <code>prefers-color-scheme</code>, respecting the host site's palette tokens if present</li>
+</ul>
+<h3>4. Technical Requirements</h3>
+<ul>
+<li>Static-hosting compatible (GitHub Pages): no backend unless strictly required — if required, provide the minimum secure implementation with env vars</li>
+<li>No frameworks; vanilla HTML/CSS/JS; total page weight target &lt; 50 KB excluding PayPal scripts</li>
+<li>Accessible (keyboard, ARIA, contrast), responsive from 320px up</li>
+<li>SEO: title, meta description, Open Graph basics</li>
+<li>Centralized <code>DONATION_CONFIG</code>; changing the PayPal account or amounts = editing one object</li>
+</ul>
+<h3>5. Deliverables</h3>
+<ul>
+<li>Single-page source file(s)</li>
+<li>Inline configuration instructions as comments at the top of the file</li>
+<li>Short testing checklist: each preset chip, custom valid amount, invalid amounts, PayPal redirect, cancel path</li>
+<li>Notes on PayPal prerequisites (which integration used, sandbox steps, account flags needed)</li>
+</ul>
+<p>Do not deliver a mock-up: the Donate button must trigger the real PayPal flow. Flag any step that needs merchant credentials or account configuration by the owner.</p></article></section><section id="p5" class="panel"><div class="panel-head"><h1>Prompt — Time-Limited Fundraising Campaign Page with Goal Progress and PayPal</h1><div class="meta">donation-prompt-5-campaign-goal.md · 729 palavras</div><button class="copy" data-copy="raw5">Copiar markdown</button></div><article><h2>Prompt — Time-Limited Fundraising Campaign Page with Goal Progress and PayPal</h2>
+<h3>1. Project Objective</h3>
+<p>Create a <strong>campaign-style donation page</strong> for a time-limited fundraising effort of an independent digital project: a visible goal, a deadline, live progress display, and PayPal as the payment rail.</p>
+<p>The campaign must feel urgent but honest: progress numbers come from real confirmed donations (or explicitly marked manual updates), never invented. English, EUR default, international audience.</p>
+<h3>2. Campaign Model</h3>
+<h4>Campaign configuration (single source of truth)</h4>
+<ul>
+<li>Campaign title: <code>[CAMPAIGN_TITLE]</code> (e.g., <em>"Help Us Reach €2,000 for v2 Development"</em>)</li>
+<li>Goal amount: <code>[GOAL_AMOUNT]</code> EUR</li>
+<li>Start date / end date: <code>[START_DATE]</code>, <code>[END_DATE]</code></li>
+<li>Current raised: <code>[RAISED_AMOUNT]</code> + <code>updatedAt</code> timestamp (manual or via backend webhook — no client-side fabrication)</li>
+<li>Stretch goals list: optional tiers unlocked at higher totals</li>
+</ul>
+<h4>Donation options</h4>
+<ul>
+<li>Preset amounts tuned to the campaign: €5, €10, €20, €50, €100 (configurable) + custom amount</li>
+<li>Custom validation: empty/zero/negative/non-numeric rejected with clear messages; configurable minimum</li>
+<li>Optional "Give to the next stretch goal" hint chip that preselects a suggested amount (must remain editable)</li>
+</ul>
+<h4>PayPal integration</h4>
+<ul>
+<li>Account: <code>[PAYPAL_ACCOUNT_EMAIL_OR_MERCHANT_ID]</code>, currency <code>EUR</code></li>
+<li>Official PayPal Donate/Checkout integration that passes the selected amount; verify product capabilities first (PayPal.me alone is not assumed sufficient)</li>
+<li>Flow: select amount → campaign summary modal/page (<em>"Your €20 donation to [CAMPAIGN_TITLE]"</em>) → official PayPal → complete/cancel → return to campaign with neutral thank-you unless PayPal confirms</li>
+<li>Success must NOT increment the public progress bar optimistically; only confirmed/recorded donations count (document how updates happen: webhook to backend, or manual update)</li>
+<li>No secrets in frontend; minimum secure backend if webhooks are used</li>
+</ul>
+<h3>3. Page Sections</h3>
+<h4>A. Hero + progress</h4>
+<ul>
+<li>Campaign title, one-paragraph goal statement</li>
+<li><strong>Progress bar</strong>: <code>€X raised of €Y</code> with percentage, plus donors count if available and time remaining (live countdown from <code>END_DATE</code>, hidden after it ends)</li>
+<li>CTA: <strong>"Donate now"</strong> (smooth-scrolls to selector)</li>
+<li>Ended state: bar frozen, CTA replaced by <em>"This campaign has ended — thank you!"</em></li>
+</ul>
+<h4>B. Donation selector</h4>
+<p>Amount cards + custom input + live summary + <strong>"Continue with PayPal"</strong>. Accessible single-select, clear selected state.</p>
+<h4>C. Stretch goals / milestones</h4>
+<p>List of milestones with unlocked/locked states tied to <code>RAISED_AMOUNT</code> (config data only; honest labels).</p>
+<h4>D. Use of funds</h4>
+<p>Configurable breakdown of what the goal funds; only owner-approved claims.</p>
+<h4>E. Trust + FAQ</h4>
+<p>PayPal processes payments; site stores no card data; voluntary donations; no rewards unless configured; no tax claims without verification; FAQ items: can I give monthly? (answer per chosen PayPal product), refunds/cancellation.</p>
+<h4>F. Share block</h4>
+<p>Copy-link button + share intents (X/LinkedIn/Email) using <code>PROJECT_WEBSITE_URL</code> and campaign title — static, no third-party trackers.</p>
+<h4>G. Thank-you</h4>
+<p>Confirmed: <em>"Thank you — you're part of this campaign."</em> Neutral: <em>"Thank you for visiting the campaign page."</em> Return button.</p>
+<h3>4. Technical Requirements</h3>
+<ul>
+<li>Responsive, accessible (progress bar with <code>role="progressbar"</code> + aria values, keyboard support), SEO with campaign OG image meta</li>
+<li>All campaign values from one config file/object; ended state automatic from dates</li>
+<li>Lightweight: no chart libraries; CSS progress bar; vanilla countdown</li>
+<li>Reuse existing project stack/design system; static-friendly; backend only for payment confirmation webhooks if implemented</li>
+<li>Clear validation errors; no fake confirmations; no card data storage</li>
+</ul>
+<h3>5. Configuration</h3>
+<ul>
+<li><code>[CAMPAIGN_TITLE]</code>, <code>[GOAL_AMOUNT]</code>, <code>[START_DATE]</code>, <code>[END_DATE]</code>, <code>[RAISED_AMOUNT]</code>, <code>[STRETCH_GOALS_JSON]</code></li>
+<li>PayPal: <code>[PAYPAL_ACCOUNT_EMAIL_OR_MERCHANT_ID]</code>, currency <code>EUR</code>, amounts <code>[5, 10, 20, 50, 100]</code>, minimum <code>[MINIMUM_AMOUNT]</code></li>
+<li><code>[PROJECT_NAME]</code>, <code>[LOGO_URL_OR_FILE]</code>, <code>[PROJECT_WEBSITE_URL]</code>, <code>[CONTACT_EMAIL]</code></li>
+<li>Language: English</li>
+</ul>
+<h3>6. Acceptance Criteria</h3>
+<ol>
+<li>All preset/custom amounts selectable and validated with clear errors</li>
+<li>Selected amount + currency reach PayPal correctly; cancel handled gracefully; no false success</li>
+<li>Progress bar renders only from config/confirmed data; editing config updates the page</li>
+<li>Countdown and ended state behave correctly (CTA disabled after <code>END_DATE</code>)</li>
+<li>Stretch goal states derive automatically from raised amount</li>
+<li>Mobile + desktop OK; PayPal account/goal/dates changeable via configuration</li>
+<li>Setup guide covers sandbox testing and how to update <code>RAISED_AMOUNT</code> (webhook or manual)</li>
+</ol>
+<h3>7. Deliverables</h3>
+<ul>
+<li>Complete source code, responsive campaign page, real PayPal integration</li>
+<li>Config schema + example file, countdown/progress logic, ended-state behavior</li>
+<li>Deployment + testing instructions (success, cancel, invalid amounts, post-deadline behavior)</li>
+<li>PayPal prerequisites/limitations; explicit list of steps needing merchant credentials, webhooks setup, or owner approval</li>
+</ul>
+<p>Inspect the existing project first and reuse its design system and technology stack whenever possible. Do not ship a visual mock-up of the payment flow.</p></article></section>
+</main>
+<footer>Para reverter: edita os .md e gera de novo este index.html</footer>
+<script type="text/plain" id="raw1"># Prompt — Página de Donativos do Projeto com Integração PayPal (pt-PT)
+
+## 1. Objetivo do Projeto
+
+Criar uma página de donativos moderna, profissional e responsiva, em **português de Portugal**, que permita aos visitantes apoiar financeiramente um projeto digital independente.
+
+A página deve permitir doações para uma conta PayPal específica, com montantes predefinidos ou valor livre introduzido pelo utilizador.
+
+Deve transmitir confiança, transparência e agradecimento a qualquer contribuição, independentemente do valor. Nome do projeto: `[PROJECT_NAME]`.
+
+## 2. Funcionalidade de Donativos
+
+### Montantes predefinidos
+
+Apresentar opções selecionáveis, por exemplo:
+
+- €2 — Pequena contribuição
+- €5 — Apoiante
+- €10 — Colaborador do projeto
+- €25 — Campeão do projeto
+- €50 — Apoiante principal
+- Valor livre — introduzir qualquer montante
+
+Os valores devem ser configuráveis e fáceis de alterar. Apenas um montante predefinido pode estar selecionado de cada vez; escolher &quot;valor livre&quot; ativa o campo de entrada.
+
+### Valor livre
+
+Campo numérico para o montante à escolha do doador:
+
+- Moeda por omissão: **EUR (€)**
+- Validar antes de redirecionar para o PayPal
+- Rejeitar vazio, zero, negativo, não numérico e valores abaixo do mínimo configurável
+- Mostrar claramente o montante selecionado antes da saída para o PayPal
+- **Nunca** cobrar automaticamente nem recolher dados de pagamento no site
+
+### Integração PayPal
+
+- Conta PayPal do projeto: `[PAYPAL_ACCOUNT_EMAIL_OR_MERCHANT_ID]`
+- Moeda: `EUR`
+- Montantes e mínimo: configuráveis
+
+Usar uma integração oficial suportada (PayPal Donate, se disponível para a conta, ou outra solução oficial do PayPal Checkout que permita definir o montante).
+
+Fluxo obrigatório:
+
+1. Selecionar montante → 2. Mostrar resumo da doação → 3. Redirecionar/abrir a interface oficial do PayPal → 4. O doador conclui ou cancela → 5. Retorno a página de sucesso/cancelamento, quando suportado.
+
+**Proibido:** simular pagamentos bem-sucedidos ou mostrar confirmação antes de o PayPal confirmar. **Proibido:** expor credenciais secretas no frontend. Verificar previamente as capacidades reais da integração escolhida (o link PayPal.me não serve para todos os casos).
+
+## 3. Design da Página
+
+Layout limpo, tipografia profissional, espaçamento generoso e identidade visual consistente com o projeto existente (reutilizar o design system atual se existir).
+
+### A. Hero
+
+Título: **&quot;Apoia o Projeto. Ajuda-o a Crescer.&quot;**
+
+Texto de apoio: *&quot;Cada contribuição ajuda-nos a melhorar, manter e expandir este projeto. Escolhe um valor que faça sentido para ti e ajuda-nos a continuar a construir algo valioso.&quot;*
+
+CTA primário: **&quot;Apoiar o Projeto&quot;**
+
+### B. Seletor de donativo
+
+Cartões/botões visualmente distintos, cada um com montante, descrição curta, estado selecionado claro e interação acessível + campo de valor livre + botão proeminente **&quot;Continuar com o PayPal&quot;**.
+
+### C. Porque o teu apoio importa
+
+Ex.: desenvolvimento de novas funcionalidades, manutenção e melhorias, custos de alojamento, criação de ferramentas adicionais. Só afirmar despesas ou compromissos específicos se forem verdadeiros e aprovados pelo dono do projeto.
+
+### D. Confiança e transparência
+
+Frase curta: os pagamentos são processados pelo PayPal e o site não recolhe nem guarda dados de cartão. Indicar se as doações são voluntárias e se oferecem algum benefício. **Não** afirmar dedutibilidade fiscal sem verificação.
+
+### E. Agradecimento
+
+Estado/página de agradecimento: *&quot;Obrigado por apoiar o projeto. A tua contribuição é muito apreciada.&quot;* — mostrar apenas após confirmação fiável do PayPal; caso contrário usar linguagem neutra (*&quot;Obrigado pela visita à nossa página de donativos&quot;*). Botão de regresso ao site principal.
+
+## 4. Requisitos Técnicos
+
+- Responsivo (desktop, tablet, mobile), acessível e navegável por teclado
+- Validação e mensagens de erro claras
+- Processamento seguro via PayPal; sem armazenamento de dados de cartão
+- Sem confirmações falsas; sem recolha desnecessária de dados pessoais
+- Título e meta tags SEO-friendly; assets leves e carregamento rápido
+- Código reutilizável e manutenível
+- Configuração centralizada de conta PayPal, moeda, montantes, nome, logo e URL
+- Usar a stack existente do projeto; se for hospedagem estática, implementar a solução estática suportada e documentar qualquer backend mínimo necessário com variáveis de ambiente seguras
+
+## 5. Configuração
+
+- Nome do projeto: `[PROJECT_NAME]`
+- Logo: `[LOGO_URL_OR_FILE]`
+- Conta PayPal: `[PAYPAL_ACCOUNT_EMAIL_OR_MERCHANT_ID]`
+- Moeda: `EUR`
+- Mínimo: `[MINIMUM_AMOUNT]`
+- Montantes sugeridos: `[2, 5, 10, 25, 50]`
+- URL principal: `[PROJECT_WEBSITE_URL]`
+- Contacto: `[CONTACT_EMAIL]`
+- Idioma: **pt-PT**
+
+## 6. Critérios de Aceitação
+
+1. Todos os montantes predefinidos são selecionáveis
+2. Valor livre válido é aceite
+3. Valores inválidos são rejeitados com explicação clara
+4. Montante e moeda chegam corretamente ao fluxo oficial do PayPal
+5. A conta designada recebe a doação (sujeito à configuração da conta e conclusão da transação)
+6. Cancelamento é tratado com elegância
+7. Pagamentos bem-sucedidos nunca são reportados falsamente
+8. Página funciona em mobile e desktop
+9. A conta PayPal muda por configuração, sem redesenho
+10. Instruções de setup incluem ligação e teste real (sandbox quando suportado)
+
+## 7. Entregáveis
+
+- Código-fonte completo e funcional
+- Página de donativos responsiva
+- Integração PayPal real (não maquete visual)
+- Instruções de configuração, deploy e testes (sucesso, cancelamento, valores inválidos)
+- Lista clara de pré-requisitos/limitações da conta PayPal e de passos que dependem de credenciais ou aprovação do dono do projeto
+
+Antes de implementar, inspecionar a estrutura existente e reutilizar o design system e a stack atuais sempre que possível.
+</script><script type="text/plain" id="raw2"># Prompt — Create a Donation Page with One-Time and Recurring PayPal Giving (USD)
+
+## 1. Project Objective
+
+Create a modern, responsive donation page for an independent digital project that supports **both one-time donations and recurring monthly giving** through PayPal.
+
+The page must let visitors choose a preset amount or a custom amount, decide whether to give once or monthly, and complete the payment through PayPal&#x27;s official flow. Default currency: **USD ($)**.
+
+The page must communicate trust and transparency, work for an international audience in English, and never claim a payment succeeded before PayPal confirms it.
+
+## 2. Donation Functionality
+
+### Giving frequency
+
+Two mutually exclusive modes, visually prominent:
+
+- **One-time** (default)
+- **Monthly** — short copy explaining recurring support: *&quot;Monthly support lets us plan ahead and keep improving the project.&quot;*
+
+Changing frequency must not lose the selected amount.
+
+### Preset amounts (one-time)
+
+- $3 — Coffee
+- $10 — Supporter
+- $25 — Contributor
+- $50 — Champion
+- Custom — any amount
+
+### Preset amounts (monthly)
+
+- $2/mo — Supporter
+- $5/mo — Sustainer
+- $10/mo — Patron
+- Custom monthly amount
+
+All amounts configurable. Selecting &quot;Custom&quot; reveals a numeric input.
+
+### Custom amount rules
+
+- Currency: USD by default
+- Validate before redirect: reject empty, zero, negative, non-numeric, below configurable minimum
+- Show a clear summary: **&quot;$25 one-time&quot;** or **&quot;$5/month&quot;** before redirect
+- No card data collected or stored on the site; no automatic charges outside PayPal&#x27;s own flow
+
+### PayPal integration
+
+- Merchant/PayPal account: `[PAYPAL_ACCOUNT_EMAIL_OR_MERCHANT_ID]`
+- Use PayPal&#x27;s official support for recurring billing (Subscriptions/Donations with a plan) and one-time Checkout/Donate. **Verify** which products your account is eligible for; do not assume PayPal.me supports these features.
+- Flow: choose amount + frequency → summary → official PayPal interface → complete or cancel → return to success/cancel pages when supported.
+- Never simulate success. Never expose secrets in frontend code; if a backend is required, keep credentials in environment variables and implement the minimum secure backend.
+
+## 3. Page Design
+
+Modern layout, professional typography, consistent with the existing project&#x27;s design system (reuse it if present).
+
+### A. Hero
+
+Headline: **&quot;Keep This Project Growing.&quot;**
+Supporting text: *&quot;Your donation pays for maintenance, new features, and infrastructure. Give once or make it monthly — every bit helps.&quot;*
+CTA: **&quot;Donate with PayPal&quot;**
+
+### B. Donation selector
+
+Segmented control: **One-time | Monthly**. Amount cards with amount, friendly label, selected state, accessible interaction. Custom amount field. Live summary line above the CTA showing amount + frequency + currency.
+
+### C. Where your support goes
+
+Configurable list (e.g., maintenance, new features, hosting). Only claims approved by the project owner.
+
+### D. Trust block
+
+Payments processed by PayPal; site never stores card details; donations voluntary; state explicitly whether monthly giving can be cancelled anytime (only if true and supported by the chosen PayPal product).
+
+### E. Thank-you state
+
+Confirmed state: *&quot;Thank you for your donation — it really helps.&quot;* Neutral state otherwise: *&quot;Thank you for visiting our donation page.&quot;* Return-to-site button.
+
+## 4. Technical Requirements
+
+- Responsive, accessible, keyboard navigable, clear validation errors
+- Frequency and amount both passed correctly to PayPal (recurring amounts must create a recurring agreement/plan, not a one-time payment)
+- SEO metadata, fast load, lightweight assets, maintainable code
+- Centralized config; reuse existing stack; static hosting preferred, backend only if the integration requires it (documented)
+
+## 5. Configuration
+
+- Project name / logo / website URL / contact: `[PROJECT_NAME]`, `[LOGO_URL_OR_FILE]`, `[PROJECT_WEBSITE_URL]`, `[CONTACT_EMAIL]`
+- PayPal account: `[PAYPAL_ACCOUNT_EMAIL_OR_MERCHANT_ID]`
+- Currency: `USD`
+- One-time amounts: `[3, 10, 25, 50]`
+- Monthly amounts: `[2, 5, 10]`
+- Minimum donation: `[MINIMUM_AMOUNT]`
+- Default language: English
+
+## 6. Acceptance Criteria
+
+1. Every preset amount works in both frequencies
+2. Custom amounts validate correctly (empty/zero/negative/below minimum rejected with clear messages)
+3. Summary always shows correct amount + frequency + currency before redirect
+4. One-time → one-time PayPal payment; monthly → recurring PayPal agreement (verified in sandbox)
+5. Cancellation handled gracefully; no false success messages
+6. Works on mobile and desktop
+7. PayPal account, amounts, and frequencies changeable via configuration only
+8. Setup guide covers sandbox testing for both payment modes
+
+## 7. Deliverables
+
+- Complete working source code and responsive page
+- Real PayPal integration for one-time **and** recurring flows (no visual mock-ups)
+- Configuration, deployment, and testing instructions (success, cancellation, invalid input, recurring cancel)
+- List of PayPal account prerequisites/limitations and every step requiring merchant credentials or approval
+</script><script type="text/plain" id="raw3"># Prompt — Create a Transparent Funding Page for an Open-Source Project with PayPal
+
+## 1. Project Objective
+
+Create a funding page for an **open-source project** that lets users support maintenance and development through PayPal, while publishing a **transparent, honest view of how funds are used**.
+
+Audience: developers and GitHub users; language: English; currency: EUR by default but configurable. Tone: factual, humble, no marketing hype.
+
+The page must be honest about what donations do and do not buy (e.g., no promises of delivery dates tied to donations).
+
+## 2. Funding Model
+
+### Contribution options
+
+- Preset amounts: €3, €10, €25, €50, €100 — labels describe impact, not guarantees (e.g., *&quot;covers infrastructure for a month&quot;* only if verified as accurate)
+- Custom amount (validated: not empty/zero/negative/non-numeric; configurable minimum)
+- Frequency: one-time (default) and optional monthly via PayPal&#x27;s supported recurring product, if available for the account
+
+### Transparency ledger (required)
+
+A public section, data-driven from a single config/JSON file, showing:
+
+- Funding goal per period (configurable) and current progress
+- Cost breakdown rows (hosting, CI minutes, domains, tooling) with amounts
+- &quot;Last updated&quot; date; ability to show as manual entry (no scraping) — values must be marked as estimates unless audited
+
+Never fabricate numbers: if a field is unknown, render it as &quot;—&quot; or hide it.
+
+### PayPal integration
+
+- Account: `[PAYPAL_ACCOUNT_EMAIL_OR_MERCHANT_ID]`
+- Official PayPal Donate/Checkout flow with preset amount passing; verify capabilities before choosing the product
+- Summary → official PayPal page → complete/cancel → return URLs
+- No fake confirmations; no secrets in frontend; minimum secure backend with env vars if required
+
+## 3. Page Sections
+
+### A. Hero
+
+Headline: **&quot;Fund the Tools You Depend On.&quot;**
+Text: *&quot;This project is free to use. Donations pay for hosting, CI, and maintenance time.&quot;*
+CTA: **&quot;Donate via PayPal&quot;** + secondary link: **&quot;View funding transparency&quot;** (anchor)
+
+### B. Donation selector
+
+Amount cards + custom input + optional frequency toggle + live summary + &quot;Continue with PayPal&quot;. Selected state obvious, accessible, keyboard-friendly.
+
+### C. Transparency ledger
+
+The data-driven table/progress bar described above, with a link to the config source (e.g., the JSON file in the repo).
+
+### D. What donations do NOT buy
+
+Explicit honest block: no paid support SLAs, no guaranteed features, no tax-deductible status unless verified.
+
+### E. Other ways to help
+
+Stars/issues/contributions links — funding is one option among several.
+
+### F. Thank-you
+
+Confirmed: *&quot;Thank you for keeping this project alive.&quot;* Neutral fallback otherwise. Return link to project homepage.
+
+## 4. Technical Requirements
+
+- Responsive, accessible, SEO-friendly, fast, lightweight
+- Progress/ledger data externalized (single config file, documented schema)
+- Centralized config: project name, logo, repo URL, PayPal account, currency, amounts, minimum, goal values
+- Reuse existing stack/design system; static-hosting friendly
+- Validation with clear errors; no payment data on site; no false success states
+
+## 5. Configuration
+
+- `[PROJECT_NAME]`, `[LOGO_URL_OR_FILE]`, `[PROJECT_WEBSITE_URL]`, `[REPO_URL]`, `[CONTACT_EMAIL]`
+- PayPal: `[PAYPAL_ACCOUNT_EMAIL_OR_MERCHANT_ID]`, currency `EUR`, amounts `[3, 10, 25, 50, 100]`, minimum `[MINIMUM_AMOUNT]`
+- `[FUNDING_GOAL]`, `[FUNDING_BREAKDOWN_JSON]`, `[LEDGER_UPDATED_AT]`
+- Language: English
+
+## 6. Acceptance Criteria
+
+1. All preset and custom amounts selectable and validated
+2. Amount + currency reach PayPal correctly; cancellation graceful; no false success
+3. Ledger renders entirely from config — editing the JSON updates the page without code changes
+4. No unverifiable claims (tax, SLA, delivery dates) appear anywhere
+5. Mobile + desktop OK; account changeable via config only
+6. Setup guide includes sandbox testing and how to update ledger data
+
+## 7. Deliverables
+
+- Full source code, responsive page, real PayPal integration
+- Ledger schema + example config file + update instructions
+- Deployment and testing instructions
+- Prerequisites/limitations list; clearly flag steps needing merchant credentials or account approval
+
+Inspect the existing repo first; reuse its design system and stack.
+</script><script type="text/plain" id="raw4"># Prompt — Minimal One-Section PayPal Donate Page (Single File, Static Hosting)
+
+## 1. Project Objective
+
+Build a **minimal, single-section donation page** that ships as **one static HTML file** (inline CSS/JS or one CSS + one JS file), ready for GitHub Pages or any static host, integrating PayPal for donations to `[PAYPAL_ACCOUNT_EMAIL_OR_MERCHANT_ID]`.
+
+Design philosophy: one screen, zero clutter, loads instantly, works without JavaScript beyond the donation interaction. English, EUR default.
+
+## 2. Donation Functionality (scope-limited on purpose)
+
+Exactly this interaction, nothing more:
+
+1. Row of amount chips: **€5 · €10 · €25 · €50** + **Custom** (single-select, one active at a time)
+2. Custom chip reveals a compact number input
+3. Summary line: `You&#x27;re giving €10 via PayPal`
+4. Button: **Donate with PayPal** → official PayPal payment flow with the chosen amount
+5. Return link/button on success and cancel landing states (PayPal return URLs if the chosen product supports them)
+
+Rules:
+
+- Validate: reject empty/zero/negative/non-numeric; configurable minimum (default €1)
+- Show chosen amount before redirect; no card data on the page; no fake success screens
+- Configuration object at the top of the JS file:
+  ```js
+  const DONATION_CONFIG = {
+    paypalAccount: &#x27;[PAYPAL_ACCOUNT_EMAIL_OR_MERCHANT_ID]&#x27;,
+    currency: &#x27;EUR&#x27;,
+    amounts: [5, 10, 25, 50],
+    minimum: 1,
+    projectName: &#x27;[PROJECT_NAME]&#x27;,
+    websiteUrl: &#x27;[PROJECT_WEBSITE_URL]&#x27;
+  };
+  ```
+- Use an official PayPal-supported mechanism for passing a dynamic amount (PayPal Donate button with hosted button id, or PayPal.me with amount if your verification shows it supports it, or a PayPal Checkout JS integration). **Verify first**; document which one was chosen and why in the README section of the file comments.
+
+## 3. Visual Spec (compact)
+
+- Max-width ~560px card, centered, generous padding, system font stack or the project&#x27;s existing font
+- Headline: **&quot;Support [PROJECT_NAME]&quot;**
+- One supporting sentence; no long sections, no accordion, no images beyond optional 40px logo
+- Chips: pill buttons with clear selected state (border/fill), `:focus-visible` ring, min touch target 44px
+- Amount chips as radio semantics (`role=&quot;radiogroup&quot;` / `aria-checked`) for accessibility
+- Footer line: *&quot;Payments are processed by PayPal. We never see your card details.&quot;*
+- Light + dark mode via `prefers-color-scheme`, respecting the host site&#x27;s palette tokens if present
+
+## 4. Technical Requirements
+
+- Static-hosting compatible (GitHub Pages): no backend unless strictly required — if required, provide the minimum secure implementation with env vars
+- No frameworks; vanilla HTML/CSS/JS; total page weight target &lt; 50 KB excluding PayPal scripts
+- Accessible (keyboard, ARIA, contrast), responsive from 320px up
+- SEO: title, meta description, Open Graph basics
+- Centralized `DONATION_CONFIG`; changing the PayPal account or amounts = editing one object
+
+## 5. Deliverables
+
+- Single-page source file(s)
+- Inline configuration instructions as comments at the top of the file
+- Short testing checklist: each preset chip, custom valid amount, invalid amounts, PayPal redirect, cancel path
+- Notes on PayPal prerequisites (which integration used, sandbox steps, account flags needed)
+
+Do not deliver a mock-up: the Donate button must trigger the real PayPal flow. Flag any step that needs merchant credentials or account configuration by the owner.
+</script><script type="text/plain" id="raw5"># Prompt — Time-Limited Fundraising Campaign Page with Goal Progress and PayPal
+
+## 1. Project Objective
+
+Create a **campaign-style donation page** for a time-limited fundraising effort of an independent digital project: a visible goal, a deadline, live progress display, and PayPal as the payment rail.
+
+The campaign must feel urgent but honest: progress numbers come from real confirmed donations (or explicitly marked manual updates), never invented. English, EUR default, international audience.
+
+## 2. Campaign Model
+
+### Campaign configuration (single source of truth)
+
+- Campaign title: `[CAMPAIGN_TITLE]` (e.g., *&quot;Help Us Reach €2,000 for v2 Development&quot;*)
+- Goal amount: `[GOAL_AMOUNT]` EUR
+- Start date / end date: `[START_DATE]`, `[END_DATE]`
+- Current raised: `[RAISED_AMOUNT]` + `updatedAt` timestamp (manual or via backend webhook — no client-side fabrication)
+- Stretch goals list: optional tiers unlocked at higher totals
+
+### Donation options
+
+- Preset amounts tuned to the campaign: €5, €10, €20, €50, €100 (configurable) + custom amount
+- Custom validation: empty/zero/negative/non-numeric rejected with clear messages; configurable minimum
+- Optional &quot;Give to the next stretch goal&quot; hint chip that preselects a suggested amount (must remain editable)
+
+### PayPal integration
+
+- Account: `[PAYPAL_ACCOUNT_EMAIL_OR_MERCHANT_ID]`, currency `EUR`
+- Official PayPal Donate/Checkout integration that passes the selected amount; verify product capabilities first (PayPal.me alone is not assumed sufficient)
+- Flow: select amount → campaign summary modal/page (*&quot;Your €20 donation to [CAMPAIGN_TITLE]&quot;*) → official PayPal → complete/cancel → return to campaign with neutral thank-you unless PayPal confirms
+- Success must NOT increment the public progress bar optimistically; only confirmed/recorded donations count (document how updates happen: webhook to backend, or manual update)
+- No secrets in frontend; minimum secure backend if webhooks are used
+
+## 3. Page Sections
+
+### A. Hero + progress
+
+- Campaign title, one-paragraph goal statement
+- **Progress bar**: `€X raised of €Y` with percentage, plus donors count if available and time remaining (live countdown from `END_DATE`, hidden after it ends)
+- CTA: **&quot;Donate now&quot;** (smooth-scrolls to selector)
+- Ended state: bar frozen, CTA replaced by *&quot;This campaign has ended — thank you!&quot;*
+
+### B. Donation selector
+
+Amount cards + custom input + live summary + **&quot;Continue with PayPal&quot;**. Accessible single-select, clear selected state.
+
+### C. Stretch goals / milestones
+
+List of milestones with unlocked/locked states tied to `RAISED_AMOUNT` (config data only; honest labels).
+
+### D. Use of funds
+
+Configurable breakdown of what the goal funds; only owner-approved claims.
+
+### E. Trust + FAQ
+
+PayPal processes payments; site stores no card data; voluntary donations; no rewards unless configured; no tax claims without verification; FAQ items: can I give monthly? (answer per chosen PayPal product), refunds/cancellation.
+
+### F. Share block
+
+Copy-link button + share intents (X/LinkedIn/Email) using `PROJECT_WEBSITE_URL` and campaign title — static, no third-party trackers.
+
+### G. Thank-you
+
+Confirmed: *&quot;Thank you — you&#x27;re part of this campaign.&quot;* Neutral: *&quot;Thank you for visiting the campaign page.&quot;* Return button.
+
+## 4. Technical Requirements
+
+- Responsive, accessible (progress bar with `role=&quot;progressbar&quot;` + aria values, keyboard support), SEO with campaign OG image meta
+- All campaign values from one config file/object; ended state automatic from dates
+- Lightweight: no chart libraries; CSS progress bar; vanilla countdown
+- Reuse existing project stack/design system; static-friendly; backend only for payment confirmation webhooks if implemented
+- Clear validation errors; no fake confirmations; no card data storage
+
+## 5. Configuration
+
+- `[CAMPAIGN_TITLE]`, `[GOAL_AMOUNT]`, `[START_DATE]`, `[END_DATE]`, `[RAISED_AMOUNT]`, `[STRETCH_GOALS_JSON]`
+- PayPal: `[PAYPAL_ACCOUNT_EMAIL_OR_MERCHANT_ID]`, currency `EUR`, amounts `[5, 10, 20, 50, 100]`, minimum `[MINIMUM_AMOUNT]`
+- `[PROJECT_NAME]`, `[LOGO_URL_OR_FILE]`, `[PROJECT_WEBSITE_URL]`, `[CONTACT_EMAIL]`
+- Language: English
+
+## 6. Acceptance Criteria
+
+1. All preset/custom amounts selectable and validated with clear errors
+2. Selected amount + currency reach PayPal correctly; cancel handled gracefully; no false success
+3. Progress bar renders only from config/confirmed data; editing config updates the page
+4. Countdown and ended state behave correctly (CTA disabled after `END_DATE`)
+5. Stretch goal states derive automatically from raised amount
+6. Mobile + desktop OK; PayPal account/goal/dates changeable via configuration
+7. Setup guide covers sandbox testing and how to update `RAISED_AMOUNT` (webhook or manual)
+
+## 7. Deliverables
+
+- Complete source code, responsive campaign page, real PayPal integration
+- Config schema + example file, countdown/progress logic, ended-state behavior
+- Deployment + testing instructions (success, cancel, invalid amounts, post-deadline behavior)
+- PayPal prerequisites/limitations; explicit list of steps needing merchant credentials, webhooks setup, or owner approval
+
+Inspect the existing project first and reuse its design system and technology stack whenever possible. Do not ship a visual mock-up of the payment flow.
+</script>
+<script>
+(function () {
+  function show(id) {
+    document.querySelectorAll('.panel').forEach(function (p) { p.classList.toggle('active', p.id === id); });
+    document.querySelectorAll('.tab').forEach(function (t) { t.classList.toggle('active', t.dataset.target === id); });
+    history.replaceState(null, '', '#' + id);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+  document.querySelectorAll('.tab').forEach(function (t) {
+    t.addEventListener('click', function () { show(t.dataset.target); });
+  });
+  document.querySelectorAll('.copy').forEach(function (b) {
+    b.addEventListener('click', function () {
+      var raw = document.getElementById(b.dataset.copy).textContent;
+      navigator.clipboard.writeText(raw).then(function () {
+        b.textContent = 'Copiado ✓';
+        setTimeout(function () { b.textContent = 'Copiar markdown'; }, 1500);
+      });
+    });
+  });
+  var start = (location.hash || '#p1').slice(1);
+  show(document.getElementById(start) ? start : 'p1');
+})();
+</script>
+</body>
+</html>
