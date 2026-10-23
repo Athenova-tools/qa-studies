@@ -10,7 +10,7 @@ window.questionSets = {
                 "D": "Archiving testware and evaluating the test process for lessons learned"
             },
             "correctAnswer": "D",
-            "explanation": "Test completion activities include archiving testware, handing over test artifacts to maintenance teams, evaluating the test process, documenting lessons learned, and closing defect reports. This marks the formal end of the testing effort for a given test level or project.",
+            "explanation": "Test completion consolidates results, archives reusable testware, hands over relevant artifacts, records lessons learned, and reports unresolved defects and remaining risks. Testing may finish at a milestone while some defects remain open; closing every defect report is not a prerequisite.",
             "correctFeedback": "✅ Correct: Archiving, evaluation, and lessons learned are key test completion activities.",
             "incorrectFeedback": {
                 "A": "❌ Incorrect: Code completion is a development activity.",
@@ -79,13 +79,13 @@ window.questionSets = {
             "statement": "A developer claims that 'debugging is just another name for testing.' Which response best clarifies the distinction?",
             "options": {
                 "A": "Both activities share the same goal of finding defects",
-                "B": "Testing reveals failures; debugging identifies and removes the root causes of those failures",
+                "B": "Testing can reveal failures or directly identify defects; debugging investigates and removes defects.",
                 "C": "Debugging is performed only after a system is released",
                 "D": "Testing is always automated while debugging is always manual"
             },
             "correctAnswer": "B",
-            "explanation": "Testing is a systematic process of revealing failures through observation. Debugging is a development activity focused on locating the root cause of a known failure and removing the defect. They are complementary but distinct activities with different objectives and performers.",
-            "correctFeedback": "✅ Correct: Testing reveals failures through systematic execution; debugging traces the failure to its root cause and removes the defect.",
+            "explanation": "Testing evaluates work products and discovers defects. Dynamic testing can expose failures; static testing can find defects directly without execution. Debugging diagnoses and removes the defects responsible for observed failures, or removes defects found directly by static testing.",
+            "correctFeedback": "✅ Correct: Testing and debugging are distinct: testing evaluates quality and discovers defects or failures; debugging investigates and removes defects.",
             "incorrectFeedback": {
                 "A": "❌ Incorrect: Testing finds failures to uncover defects; debugging fixes known defects. They are not the same.",
                 "C": "❌ Incorrect: Debugging can occur at any point in the lifecycle when a defect is identified, not just after release.",
@@ -93,7 +93,7 @@ window.questionSets = {
             },
             "optionExplanations": {
                 "A": "Testing finds failures to uncover defects; debugging fixes known defects. They are not the same.",
-                "B": "Testing reveals failures through systematic execution; debugging traces the failure to its root cause and removes the defect.",
+                "B": "Testing and debugging are distinct: testing evaluates quality and discovers defects or failures; debugging investigates and removes defects.",
                 "C": "Debugging can occur at any point in the lifecycle when a defect is identified, not just after release.",
                 "D": "Both testing and debugging can be performed manually or with tool support."
             },
@@ -113,7 +113,7 @@ window.questionSets = {
         },
         {
             "id": "Q288",
-            "statement": "After a production incident where customer data was lost, the team traces the problem to an inadequate backup process design. The inadequate backup design is the:",
+            "statement": "After customer data is lost in production, investigators find a defect in the backup design. Further root cause analysis shows that the organization had no process for reviewing backup and recovery requirements. In this scenario, the missing review process is the:",
             "options": {
                 "A": "Defect",
                 "B": "Failure",
@@ -121,17 +121,17 @@ window.questionSets = {
                 "D": "Error"
             },
             "correctAnswer": "C",
-            "explanation": "The inadequate backup process design is the root cause — the fundamental reason that allowed a defect to be introduced. It is the underlying condition that, if addressed, would prevent recurrence. The defect is the specific flaw present in the work product (e.g., missing backup logic), and the failure is the observable data loss.",
-            "correctFeedback": "✅ Correct: The root cause is the fundamental reason the problem occurred.",
+            "explanation": "The missing requirements-review process is the identified root cause that allowed the backup design defect to be introduced. The design flaw is a defect, and the data loss is a failure.",
+            "correctFeedback": "✅ Correct: The missing review process is the identified root cause behind the backup design defect.",
             "incorrectFeedback": {
-                "A": "❌ Incorrect: The defect is the specific flaw (e.g., missing backup code); the root cause is why that flaw was introduced.",
+                "A": "❌ Incorrect: The backup design flaw is the defect; the missing review process is the underlying cause specified in the question.",
                 "B": "❌ Incorrect: The failure is the observable data loss, not the underlying reason.",
                 "D": "❌ Incorrect: The error would be the specific human mistake, which may have been caused by this root cause."
             },
             "optionExplanations": {
-                "A": "The defect is the specific flaw (e.g., missing backup code); the root cause is why that flaw was introduced.",
+                "A": "The backup design flaw is the defect; the missing review process is the underlying cause specified in the question.",
                 "B": "The failure is the observable data loss, not the underlying reason.",
-                "C": "The root cause is the fundamental reason the problem occurred.",
+                "C": "The missing review process is the identified root cause behind the backup design defect.",
                 "D": "The error would be the specific human mistake, which may have been caused by this root cause."
             },
             "chapter": 1,
@@ -141,8 +141,9 @@ window.questionSets = {
             "kLevel": "K2",
             "difficulty": "Hard",
             "keywords": [
-                "root cause analysis",
-                "defect prevention",
+                "root cause",
+                "defect",
+                "failure",
                 "process improvement"
             ],
             "examTip": "Root cause is the deepest underlying reason.",
@@ -199,12 +200,12 @@ window.questionSets = {
             "correctFeedback": "✅ Correct: Testing exposed the failure; debugging found and fixed the null pointer.",
             "incorrectFeedback": {
                 "A": "❌ Incorrect: Testing came first (the test triggered the failure), not debugging.",
-                "B": "❌ Incorrect: Root cause analysis is part of debugging, not a prior activity.",
+                "B": "❌ Incorrect: The first activity described is test execution. A separate root cause analysis activity is not described.",
                 "C": "❌ Incorrect: Configuration management is unrelated to finding and fixing the defect."
             },
             "optionExplanations": {
                 "A": "Testing came first (the test triggered the failure), not debugging.",
-                "B": "Root cause analysis is part of debugging, not a prior activity.",
+                "B": "The first activity described is test execution. A separate root cause analysis activity is not described.",
                 "C": "Configuration management is unrelated to finding and fixing the defect.",
                 "D": "Testing exposed the failure; debugging found and fixed the null pointer."
             },
@@ -219,7 +220,7 @@ window.questionSets = {
                 "debugging",
                 "defect lifecycle"
             ],
-            "examTip": "Testing must happen before debugging can start.",
+            "examTip": "In this scenario, test execution exposes a failure and debugging diagnoses and fixes its cause.",
             "memoryAid": "Test first, debug second."
         },
         {
@@ -247,8 +248,8 @@ window.questionSets = {
             },
             "chapter": 1,
             "section": "1.2",
-            "subsection": "1.2.1",
-            "learningObjective": "FL-1.2.1",
+            "subsection": "1.2.3",
+            "learningObjective": "FL-1.2.3",
             "kLevel": "K2",
             "difficulty": "Medium",
             "keywords": [
@@ -269,7 +270,7 @@ window.questionSets = {
                 "D": "To move all test cases to the next project"
             },
             "correctAnswer": "B",
-            "explanation": "Test closure activities formally conclude the testing effort. This includes finalizing and archiving test artifacts, handing over testware to maintenance teams, analyzing lessons learned, documenting project knowledge, finalizing completion reports, closing all defect reports appropriately, and ensuring reusable testware is handed over to interested parties.",
+            "explanation": "Test completion includes consolidating results, archiving and handing over reusable testware, reporting unresolved defects and risks, and identifying lessons learned. Open defects can be handed over for subsequent resolution; they do not all have to be closed.",
             "correctFeedback": "✅ Correct: Archiving, lessons learned, and formal closure are the goals of test completion.",
             "incorrectFeedback": {
                 "A": "❌ Incorrect: Defect reports should be resolved (fixed, deferred, or rejected), not just closed.",
@@ -320,10 +321,10 @@ window.questionSets = {
                 "D": "An error is a human mistake that introduced the defect; it is not what the tester observed."
             },
             "chapter": 1,
-            "section": "1.1",
-            "subsection": "1.1.1",
-            "learningObjective": "FL-1.1.1",
-            "kLevel": "K1",
+            "section": "1.2",
+            "subsection": "1.2.3",
+            "learningObjective": "FL-1.2.3",
+            "kLevel": "K2",
             "difficulty": "Easy",
             "keywords": [
                 "failure",
@@ -359,7 +360,7 @@ window.questionSets = {
             },
             "chapter": 1,
             "section": "1.3",
-            "subsection": "1.3.1",
+            "subsection": "1.3",
             "learningObjective": "FL-1.3.1",
             "kLevel": "K2",
             "difficulty": "Medium",
@@ -410,16 +411,16 @@ window.questionSets = {
         },
         {
             "id": "Q287",
-            "statement": "A system shows an incorrect result after processing a transaction. Investigation reveals that an inadequate design decision led to an incorrect implementation in the code. Which statement correctly distinguishes the root cause from the defect?",
+            "statement": "A system produces an incorrect transaction result. Investigation finds an incorrect calculation in the code. Root cause analysis establishes that inadequate domain training caused the developer to misunderstand the business rule. Which statement correctly distinguishes the identified root cause from the defect?",
             "options": {
                 "A": "The root cause is the incorrect result; the defect is the inadequate design decision",
                 "B": "The root cause is the failure observed by the user",
                 "C": "There is no difference between root cause and defect in this scenario",
-                "D": "The root cause is the inadequate design decision; the defect is the incorrect implementation"
+                "D": "The root cause is inadequate domain training; the defect is the incorrect calculation in the code."
             },
             "correctAnswer": "D",
-            "explanation": "The root cause is the fundamental reason the defect exists (the inadequate design decision). The defect is the specific flaw in the work product (the incorrect implementation). Understanding the root cause helps prevent similar defects in the future, while the defect itself is what needs fixing.",
-            "correctFeedback": "✅ Correct: The inadequate design decision (root cause) led to the incorrect implementation (defect).",
+            "explanation": "Inadequate domain training is the identified underlying cause; misunderstanding the rule is the human error; the incorrect calculation in the code is the defect; and the incorrect transaction result is the failure.",
+            "correctFeedback": "✅ Correct: The specified root cause is inadequate domain training, while the code contains the resulting calculation defect.",
             "incorrectFeedback": {
                 "A": "❌ Incorrect: The incorrect result is a failure, not a root cause.",
                 "B": "❌ Incorrect: The root cause is the reason behind the defect, not the observable failure.",
@@ -429,7 +430,7 @@ window.questionSets = {
                 "A": "The incorrect result is a failure, not a root cause.",
                 "B": "The root cause is the reason behind the defect, not the observable failure.",
                 "C": "Root cause and defect are related but distinct concepts.",
-                "D": "The inadequate design decision (root cause) led to the incorrect implementation (defect)."
+                "D": "The specified root cause is inadequate domain training, while the code contains the resulting calculation defect."
             },
             "chapter": 1,
             "section": "1.2",
@@ -508,15 +509,15 @@ window.questionSets = {
             },
             "chapter": 1,
             "section": "1.5",
-            "subsection": "1.5.1",
-            "learningObjective": "FL-1.5.1",
+            "subsection": "1.5.3",
+            "learningObjective": "FL-1.5.3",
             "kLevel": "K2",
             "difficulty": "Medium",
             "keywords": [
                 "independence",
                 "drawbacks"
             ],
-            "examTip": "Independence = objectivity UP but collaboration DOWN.",
+            "examTip": "Independence can improve objectivity but may cause isolation or communication difficulties; collaboration must be maintained.",
             "memoryAid": "Independence needs collaboration."
         },
         {
@@ -606,19 +607,19 @@ window.questionSets = {
             "explanation": "One of the seven fundamental testing principles is 'Early testing saves time and money.' Testing activities should start as early as possible in the SDLC to find defects when they are least expensive to fix.",
             "correctFeedback": "✅ Correct: The principle of early testing states that testing should begin as early as possible.",
             "incorrectFeedback": {
-                "A": "❌ Incorrect: Exhaustive testing is impossible; no amount of testing can find all defects.",
+                "A": "❌ Incorrect: Testing cannot guarantee that all defects will be found, and exhaustive testing is infeasible except in trivial cases.",
                 "C": "❌ Incorrect: Automation supports but does not replace manual testing.",
                 "D": "❌ Incorrect: This contradicts the 'early testing' principle."
             },
             "optionExplanations": {
-                "A": "Exhaustive testing is impossible; no amount of testing can find all defects.",
+                "A": "Testing cannot guarantee that all defects will be found, and exhaustive testing is infeasible except in trivial cases.",
                 "B": "The principle of early testing states that testing should begin as early as possible.",
                 "C": "Automation supports but does not replace manual testing.",
                 "D": "This contradicts the 'early testing' principle."
             },
             "chapter": 1,
             "section": "1.3",
-            "subsection": "1.3.1",
+            "subsection": "1.3",
             "learningObjective": "FL-1.3.1",
             "kLevel": "K2",
             "difficulty": "Medium",
@@ -692,7 +693,7 @@ window.questionSets = {
             },
             "chapter": 1,
             "section": "1.3",
-            "subsection": "1.3.1",
+            "subsection": "1.3",
             "learningObjective": "FL-1.3.1",
             "kLevel": "K2",
             "difficulty": "Medium",
@@ -727,10 +728,10 @@ window.questionSets = {
                 "D": "A defect (fault) is the underlying imperfection in the work product that causes the failure when executed."
             },
             "chapter": 1,
-            "section": "1.1",
-            "subsection": "1.1.1",
-            "learningObjective": "FL-1.1.1",
-            "kLevel": "K1",
+            "section": "1.2",
+            "subsection": "1.2.3",
+            "learningObjective": "FL-1.2.3",
+            "kLevel": "K2",
             "difficulty": "Easy",
             "keywords": [
                 "failure",
@@ -765,8 +766,8 @@ window.questionSets = {
             },
             "chapter": 1,
             "section": "1.5",
-            "subsection": "1.5.1",
-            "learningObjective": "FL-1.5.1",
+            "subsection": "1.5.3",
+            "learningObjective": "FL-1.5.3",
             "kLevel": "K2",
             "difficulty": "Easy",
             "keywords": [
@@ -801,8 +802,8 @@ window.questionSets = {
             },
             "chapter": 1,
             "section": "1.4",
-            "subsection": "1.4.2",
-            "learningObjective": "FL-1.4.2",
+            "subsection": "1.4.3",
+            "learningObjective": "FL-1.4.3",
             "kLevel": "K2",
             "difficulty": "Medium",
             "keywords": [
@@ -812,7 +813,7 @@ window.questionSets = {
                 "test scripts"
             ],
             "examTip": "Testware = all testing artifacts: plans, cases, scripts, data, logs, reports.",
-            "memoryAid": "Testware = everything testers create."
+            "memoryAid": "Testware = work products created for testing, such as plans, cases, data, scripts, logs, and reports."
         },
         {
             "id": "Q286",
@@ -916,8 +917,8 @@ window.questionSets = {
             },
             "chapter": 1,
             "section": "1.4",
-            "subsection": "1.4.2",
-            "learningObjective": "FL-1.4.2",
+            "subsection": "1.4.1",
+            "learningObjective": "FL-1.4.1",
             "kLevel": "K2",
             "difficulty": "Medium",
             "keywords": [
@@ -953,7 +954,7 @@ window.questionSets = {
             },
             "chapter": 1,
             "section": "1.3",
-            "subsection": "1.3.1",
+            "subsection": "1.3",
             "learningObjective": "FL-1.3.1",
             "kLevel": "K2",
             "difficulty": "Medium",
@@ -1027,8 +1028,8 @@ window.questionSets = {
             },
             "chapter": 1,
             "section": "1.4",
-            "subsection": "1.4.2",
-            "learningObjective": "FL-1.4.2",
+            "subsection": "1.4.3",
+            "learningObjective": "FL-1.4.3",
             "kLevel": "K2",
             "difficulty": "Easy",
             "keywords": [
@@ -1063,7 +1064,7 @@ window.questionSets = {
             },
             "chapter": 1,
             "section": "1.3",
-            "subsection": "1.3.1",
+            "subsection": "1.3",
             "learningObjective": "FL-1.3.1",
             "kLevel": "K2",
             "difficulty": "Medium",
@@ -1076,7 +1077,7 @@ window.questionSets = {
         },
         {
             "id": "Q144",
-            "statement": "A project manager states that 'running all possible combinations of inputs will guarantee the software is defect-free.' Which testing principle contradicts this statement?",
+            "statement": "A project manager insists that the team must execute every possible combination of inputs and preconditions for a large, non-trivial application before release. Which principle most directly explains why this plan is impractical?",
             "options": {
                 "A": "Defect clustering",
                 "B": "Exhaustive testing is impossible",
@@ -1099,7 +1100,7 @@ window.questionSets = {
             },
             "chapter": 1,
             "section": "1.3",
-            "subsection": "1.3.1",
+            "subsection": "1.3",
             "learningObjective": "FL-1.3.1",
             "kLevel": "K2",
             "difficulty": "Medium",
@@ -1113,7 +1114,7 @@ window.questionSets = {
         },
         {
             "id": "Q167",
-            "statement": "Which of the following is the correct sequence of test activities in the ISTQB test process?",
+            "statement": "Which option lists the main test activities in a typical logical arrangement, recognizing that they may overlap or repeat and that monitoring and control continue throughout?",
             "options": {
                 "A": "Test design, test analysis, test planning, test execution, test monitoring",
                 "B": "Test analysis, test design, test planning, test execution, test completion",
@@ -1122,7 +1123,7 @@ window.questionSets = {
             },
             "correctAnswer": "D",
             "explanation": "The ISTQB test process consists of seven logically related activities: test planning (defining objectives and approach), test monitoring and control (tracking progress), test analysis (analyzing test basis), test design (designing test cases), test implementation (creating test data and scripts), test execution (running tests), and test completion (archiving and lessons learned). These activities are not always executed strictly one after another — some may run in parallel, be iterative, or repeat as needed.",
-            "correctFeedback": "✅ Correct: The ISTQB test process includes all seven activities in this logical order: planning, monitoring and control, analysis, design, implementation, execution, and completion.",
+            "correctFeedback": "✅ Correct: These are the main activity groups. They are not a mandatory sequence: activities can overlap or repeat, and monitoring and control apply throughout.",
             "incorrectFeedback": {
                 "A": "❌ Incorrect: Test planning must precede test analysis.",
                 "B": "❌ Incorrect: Test planning comes before design and analysis.",
@@ -1132,7 +1133,7 @@ window.questionSets = {
                 "A": "Test planning must precede test analysis.",
                 "B": "Test planning comes before design and analysis.",
                 "C": "Test execution comes after design and implementation, not before.",
-                "D": "The ISTQB test process includes all seven activities in this logical order: planning, monitoring and control, analysis, design, implementation, execution, and completion."
+                "D": "These are the main activity groups. They are not a mandatory sequence: activities can overlap or repeat, and monitoring and control apply throughout."
             },
             "chapter": 1,
             "section": "1.4",
@@ -1173,9 +1174,9 @@ window.questionSets = {
             },
             "chapter": 1,
             "section": "1.5",
-            "subsection": "1.5.2",
-            "learningObjective": "FL-1.5.2",
-            "kLevel": "K1",
+            "subsection": "1.5.1",
+            "learningObjective": "FL-1.5.1",
+            "kLevel": "K2",
             "difficulty": "Medium",
             "keywords": [
                 "tester skills",
@@ -1247,8 +1248,8 @@ window.questionSets = {
             },
             "chapter": 1,
             "section": "1.4",
-            "subsection": "1.4.2",
-            "learningObjective": "FL-1.4.2",
+            "subsection": "1.4.3",
+            "learningObjective": "FL-1.4.3",
             "kLevel": "K2",
             "difficulty": "Medium",
             "keywords": [
@@ -1446,7 +1447,7 @@ window.questionSets = {
         },
         {
             "id": "Q284",
-            "statement": "A company implements code reviews, standards compliance checks, and process audits to reduce the number of defects introduced during development. These activities are examples of:",
+            "statement": "A company audits development and testing processes, checks adherence to agreed process standards, and improves those processes to prevent defects. These activities are examples of:",
             "options": {
                 "A": "Quality assurance",
                 "B": "Quality control",
@@ -1454,15 +1455,15 @@ window.questionSets = {
                 "D": "Configuration management"
             },
             "correctAnswer": "A",
-            "explanation": "Code reviews, standards compliance, and process audits are QA activities because they focus on process adherence and defect prevention. QA aims to build quality into the process, reducing the likelihood of defects being introduced in the first place.",
-            "correctFeedback": "✅ Correct: QA encompasses process-focused activities like code reviews and audits to prevent defects.",
+            "explanation": "Quality assurance is process-oriented and preventive. Process audits and process improvement support QA. A code review that evaluates a particular work product is static testing and therefore a form of quality control.",
+            "correctFeedback": "✅ Correct: Process audits, process compliance checks, and process improvements are quality assurance activities.",
             "incorrectFeedback": {
                 "B": "❌ Incorrect: Quality control is product-focused defect detection, not process improvement.",
                 "C": "❌ Incorrect: System testing is a specific test level, not a process improvement activity.",
                 "D": "❌ Incorrect: Configuration management controls versions and artifacts, not process quality."
             },
             "optionExplanations": {
-                "A": "QA encompasses process-focused activities like code reviews and audits to prevent defects.",
+                "A": "Process audits, process compliance checks, and process improvements are quality assurance activities.",
                 "B": "Quality control is product-focused defect detection, not process improvement.",
                 "C": "System testing is a specific test level, not a process improvement activity.",
                 "D": "Configuration management controls versions and artifacts, not process quality."
@@ -1478,7 +1479,7 @@ window.questionSets = {
                 "process improvement",
                 "defect prevention"
             ],
-            "examTip": "QA = process audits, standards, and reviews to prevent defects.",
+            "examTip": "QA evaluates and improves processes; reviews of specific work products are static testing and quality control.",
             "memoryAid": "QA prevents; QC detects."
         }
     ],
@@ -1493,22 +1494,22 @@ window.questionSets = {
                 "D": "Static testing only, since no code changes are needed"
             },
             "correctAnswer": "A",
-            "explanation": "Maintenance testing after an enhancement should include impact analysis to determine the scope of regression testing, then execute confirmation and regression tests as needed.",
-            "correctFeedback": "✅ Correct: Maintenance testing after an enhancement should include impact analysis to determine the scope of regression testing, then execute confirmation and regression tests as needed.",
+            "explanation": "Maintenance testing evaluates changes to an operational system and checks for adverse consequences through regression testing. Impact analysis helps determine scope. Testing a new feature or a migration is not confirmation testing unless it verifies the successful correction of a specific defect.",
+            "correctFeedback": "✅ Correct: Maintenance testing evaluates the change and uses regression testing to check for adverse effects. Confirmation testing applies when a defect has been fixed.",
             "incorrectFeedback": {
                 "B": "❌ Incorrect: 'Only confirmation testing of the new account type' (retesting) verifies that a specific defect has been fixed. This scenario requires maintenance testing, which tests changes to an operational system (enhancements, fixes, migrations).",
                 "C": "❌ Incorrect: 'Full regression of all existing functionality without impact analysis' is incorrect. Maintenance testing after an enhancement should include impact analysis to determine the appropriate scope of testing.",
                 "D": "❌ Incorrect: 'Static testing only, since no code changes are needed' examines work products without executing software (reviews, static analysis). This scenario requires maintenance testing, which tests changes to an operational system (enhancements, fixes, migrations)."
             },
             "optionExplanations": {
-                "A": "Maintenance testing after an enhancement should include impact analysis to determine the scope of regression testing, then execute confirmation and regression tests as needed.",
+                "A": "Maintenance testing evaluates the change and uses regression testing to check for adverse effects. Confirmation testing applies when a defect has been fixed.",
                 "B": "'Only confirmation testing of the new account type' (retesting) verifies that a specific defect has been fixed. This scenario requires maintenance testing, which tests changes to an operational system (enhancements, fixes, migrations).",
                 "C": "'Full regression of all existing functionality without impact analysis' is incorrect. Maintenance testing after an enhancement should include impact analysis to determine the appropriate scope of testing.",
                 "D": "'Static testing only, since no code changes are needed' examines work products without executing software (reviews, static analysis). This scenario requires maintenance testing, which tests changes to an operational system (enhancements, fixes, migrations)."
             },
             "chapter": 2,
             "section": "2.3",
-            "subsection": "2.3.1",
+            "subsection": "2.3",
             "learningObjective": "FL-2.3.1",
             "kLevel": "K2",
             "difficulty": "Medium",
@@ -1517,7 +1518,7 @@ window.questionSets = {
                 "impact analysis",
                 "regression"
             ],
-            "examTip": "Change the system, test the impact.",
+            "examTip": "Test the operational change and its possible side effects; confirmation testing specifically verifies a defect fix.",
             "memoryAid": "Change drives testing."
         },
         {
@@ -1530,8 +1531,8 @@ window.questionSets = {
                 "C": "Maintenance testing with regression testing of affected areas"
             },
             "correctAnswer": "C",
-            "explanation": "Maintenance testing is required when changes are made to an existing system. The addition of encryption is a change that requires both confirmation testing (verifying the encryption works) and regression testing (ensuring existing functionality is not broken).",
-            "correctFeedback": "✅ Correct: Maintenance testing with regression testing ensures the change works without breaking existing features.",
+            "explanation": "Maintenance testing evaluates changes to an operational system and checks for adverse consequences through regression testing. Impact analysis helps determine scope. Testing a new feature or a migration is not confirmation testing unless it verifies the successful correction of a specific defect.",
+            "correctFeedback": "✅ Correct: Maintenance testing evaluates the change and uses regression testing to check for adverse effects. Confirmation testing applies when a defect has been fixed.",
             "incorrectFeedback": {
                 "A": "❌ Incorrect: Unit testing alone does not cover integration and system-level impacts.",
                 "B": "❌ Incorrect: Testing is always needed when changes are introduced to a system.",
@@ -1540,12 +1541,12 @@ window.questionSets = {
             "optionExplanations": {
                 "A": "Unit testing alone does not cover integration and system-level impacts.",
                 "B": "Testing is always needed when changes are introduced to a system.",
-                "C": "Maintenance testing with regression testing ensures the change works without breaking existing features.",
+                "C": "Maintenance testing evaluates the change and uses regression testing to check for adverse effects. Confirmation testing applies when a defect has been fixed.",
                 "D": "Acceptance testing alone may not catch technical regressions."
             },
             "chapter": 2,
             "section": "2.3",
-            "subsection": "2.3.1",
+            "subsection": "2.3",
             "learningObjective": "FL-2.3.1",
             "kLevel": "K2",
             "difficulty": "Medium",
@@ -1554,8 +1555,8 @@ window.questionSets = {
                 "regression testing",
                 "impact analysis"
             ],
-            "examTip": "Any change to a production system requires maintenance testing = confirmation + regression.",
-            "memoryAid": "Change = confirm the change + check nothing else broke."
+            "examTip": "Test the operational change and its possible side effects; confirmation testing specifically verifies a defect fix.",
+            "memoryAid": "Maintenance = evaluate the change and check for regressions; confirmation = verify a defect fix."
         },
         {
             "id": "Q045",
@@ -1567,7 +1568,7 @@ window.questionSets = {
                 "D": "Acceptance testing is the same as system testing"
             },
             "correctAnswer": "B",
-            "explanation": "Acceptance testing is the final test level, performed by or on behalf of users, to determine whether the system is ready for deployment and use. It focuses on validating that the system meets business needs and user requirements.",
+            "explanation": "Acceptance testing focuses on validation and readiness for deployment: does the system meet user and business needs? Intended users should ideally perform it. Test levels may overlap; acceptance testing need not be a single final phase.",
             "correctFeedback": "✅ Correct: Acceptance testing validates business requirements and fitness for use.",
             "incorrectFeedback": {
                 "A": "❌ Incorrect: Acceptance testing involves users or customers, not typically developers.",
@@ -1633,25 +1634,25 @@ window.questionSets = {
         },
         {
             "id": "Q147",
-            "statement": "In which development lifecycle model are testing activities typically performed after each increment, with each increment adding new functionality?",
+            "statement": "Which development approach repeatedly develops and tests increments, with each increment adding functionality and regression testing checking the accumulated product?",
             "options": {
                 "A": "V-model",
                 "B": "Waterfall model",
-                "C": "Iterative development model",
+                "C": "Iterative and incremental development",
                 "D": "Big-bang model"
             },
             "correctAnswer": "C",
-            "explanation": "In iterative development models (including Agile), development occurs in increments or iterations, with each iteration producing a potentially shippable product increment. Testing is performed within each iteration to verify the newly added functionality and perform regression testing.",
-            "correctFeedback": "✅ Correct: Iterative models test each increment, building functionality progressively.",
+            "explanation": "Incremental development adds functionality in increments; iterative development refines the product through repeated cycles. In an approach combining them, testing occurs within each iteration and regression testing checks the accumulated functionality.",
+            "correctFeedback": "✅ Correct: The scenario combines repeated iterations with functionality added in increments.",
             "incorrectFeedback": {
                 "A": "❌ Incorrect: The V-model pairs development and test phases but testing is not incremental.",
-                "B": "❌ Incorrect: Waterfall performs testing as a single phase after development.",
+                "B": "❌ Incorrect: A sequential waterfall lifecycle is not the repeated increment-based approach described; static testing can nevertheless begin early in waterfall.",
                 "D": "❌ Incorrect: Big-bang is an integration approach, not a development lifecycle model."
             },
             "optionExplanations": {
                 "A": "The V-model pairs development and test phases but testing is not incremental.",
-                "B": "Waterfall performs testing as a single phase after development.",
-                "C": "Iterative models test each increment, building functionality progressively.",
+                "B": "A sequential waterfall lifecycle is not the repeated increment-based approach described; static testing can nevertheless begin early in waterfall.",
+                "C": "The scenario combines repeated iterations with functionality added in increments.",
                 "D": "Big-bang is an integration approach, not a development lifecycle model."
             },
             "chapter": 2,
@@ -1730,9 +1731,9 @@ window.questionSets = {
             },
             "chapter": 2,
             "section": "2.1",
-            "subsection": "2.1.2",
-            "learningObjective": "FL-2.1.2",
-            "kLevel": "K1",
+            "subsection": "2.1.1",
+            "learningObjective": "FL-2.1.1",
+            "kLevel": "K2",
             "difficulty": "Medium",
             "keywords": [
                 "iterative development",
@@ -1803,7 +1804,7 @@ window.questionSets = {
             },
             "chapter": 2,
             "section": "2.3",
-            "subsection": "2.3.1",
+            "subsection": "2.3",
             "learningObjective": "FL-2.3.1",
             "kLevel": "K2",
             "difficulty": "Medium",
@@ -1863,21 +1864,21 @@ window.questionSets = {
             "explanation": "Iterative and incremental models include repeated testing throughout development, with regression testing needed as new increments affect existing behavior.",
             "correctFeedback": "✅ Correct: Iterative and incremental models include repeated testing throughout development, with regression testing needed as new increments affect existing behavior.",
             "incorrectFeedback": {
-                "A": "❌ Incorrect: 'Static testing cannot be used' examines work products without executing software (reviews, static analysis). This scenario requires regression testing, which checks that changes have not broken unchanged functionality.",
-                "B": "❌ Incorrect: 'Only acceptance testing is allowed' validates fitness for use and user needs, often by business stakeholders. This scenario requires regression testing, which checks that changes have not broken unchanged functionality.",
+                "A": "❌ Incorrect: Static testing is applicable in iterative development, including reviews of user stories and code.",
+                "B": "❌ Incorrect: Multiple test levels and types can be used in each iteration; testing is not restricted to acceptance.",
                 "D": "❌ Incorrect: 'Testing is postponed until all increments are complete' is incorrect. Iterative models include testing in each iteration with increasing regression testing. Static testing is used; acceptance testing occurs in iterations; testing is not postponed until the end."
             },
             "optionExplanations": {
-                "A": "'Static testing cannot be used' examines work products without executing software (reviews, static analysis). This scenario requires regression testing, which checks that changes have not broken unchanged functionality.",
-                "B": "'Only acceptance testing is allowed' validates fitness for use and user needs, often by business stakeholders. This scenario requires regression testing, which checks that changes have not broken unchanged functionality.",
+                "A": "Static testing is applicable in iterative development, including reviews of user stories and code.",
+                "B": "Multiple test levels and types can be used in each iteration; testing is not restricted to acceptance.",
                 "C": "Iterative and incremental models include repeated testing throughout development, with regression testing needed as new increments affect existing behavior.",
                 "D": "'Testing is postponed until all increments are complete' is incorrect. Iterative models include testing in each iteration with increasing regression testing. Static testing is used; acceptance testing occurs in iterations; testing is not postponed until the end."
             },
             "chapter": 2,
             "section": "2.1",
-            "subsection": "2.1.2",
-            "learningObjective": "FL-2.1.2",
-            "kLevel": "K1",
+            "subsection": "2.1.1",
+            "learningObjective": "FL-2.1.1",
+            "kLevel": "K2",
             "difficulty": "Medium",
             "keywords": [
                 "iterative development",
@@ -1927,13 +1928,13 @@ window.questionSets = {
             "id": "Q125",
             "statement": "In an iterative development model, how does the testing approach differ from a sequential model?",
             "options": {
-                "C": "Testing is integrated throughout each iteration rather than performed as a single phase at the end",
+                "C": "Testing is integrated within each iteration, whereas sequential models typically execute dynamic tests later while allowing reviews and test analysis/design to start early",
                 "D": "Testing is not needed in iterative models because changes are small",
                 "A": "Testing is only performed at the end of all iterations",
                 "B": "Testing is performed only by developers in iterative models"
             },
             "correctAnswer": "C",
-            "explanation": "In iterative models (such as Agile), testing is integrated into each iteration. Testers collaborate with developers throughout each iteration, writing and executing tests continuously. This contrasts with sequential models where testing is a distinct phase that occurs after development.",
+            "explanation": "Iterative development integrates testing within repeated cycles. Sequential models commonly execute dynamic tests later, but static testing, test planning, analysis, and design should begin early rather than waiting for all development to finish.",
             "correctFeedback": "✅ Correct: Iterative models integrate testing throughout each iteration for continuous feedback.",
             "incorrectFeedback": {
                 "A": "❌ Incorrect: Testing occurs within each iteration, not at the end of all iterations.",
@@ -1957,8 +1958,8 @@ window.questionSets = {
                 "Agile testing",
                 "continuous testing"
             ],
-            "examTip": "Iterative = testing in every iteration. Sequential = testing as a later phase.",
-            "memoryAid": "Iterative = test as you build. Sequential = build then test."
+            "examTip": "Sequential does not mean all testing waits for code; distinguish early static/design activities from later dynamic execution.",
+            "memoryAid": "Both models test early; iterative models repeat development and testing in cycles."
         },
         {
             "id": "Q044",
@@ -1967,21 +1968,21 @@ window.questionSets = {
                 "A": "Functional testing, performance testing, and security testing",
                 "B": "Manual testing and automated testing",
                 "C": "Black-box testing, white-box testing, and experience-based testing",
-                "D": "Component testing, integration testing, system testing, and acceptance testing"
+                "D": "Component testing, component integration testing, system testing, system integration testing, and acceptance testing"
             },
             "correctAnswer": "D",
-            "explanation": "Test levels are groups of testing activities organized and managed together based on the development lifecycle phase. The four main test levels are component (unit), integration, system, and acceptance testing.",
-            "correctFeedback": "✅ Correct: Component, integration, system, and acceptance are the standard test levels.",
+            "explanation": "CTFL v4.0.1 distinguishes five test levels: component, component integration, system, system integration, and acceptance testing. Each groups test activities with related objectives, test objects, test bases, and responsibilities; levels may overlap.",
+            "correctFeedback": "✅ Correct: The five levels are component, component integration, system, system integration, and acceptance testing.",
             "incorrectFeedback": {
-                "A": "❌ Incorrect: These are categories of test techniques, not test levels.",
-                "B": "❌ Incorrect: These are examples of test types, not test levels.",
-                "C": "❌ Incorrect: These are modes of execution, not test levels."
+                "A": "❌ Incorrect: These are examples of test types, not test levels.",
+                "B": "❌ Incorrect: These are modes of execution, not test levels.",
+                "C": "❌ Incorrect: These are categories of test techniques, not test levels."
             },
             "optionExplanations": {
-                "A": "These are categories of test techniques, not test levels.",
-                "B": "These are examples of test types, not test levels.",
-                "C": "These are modes of execution, not test levels.",
-                "D": "Component, integration, system, and acceptance are the standard test levels."
+                "A": "These are examples of test types, not test levels.",
+                "B": "These are modes of execution, not test levels.",
+                "C": "These are categories of test techniques, not test levels.",
+                "D": "The five levels are component, component integration, system, system integration, and acceptance testing."
             },
             "chapter": 2,
             "section": "2.2",
@@ -1991,13 +1992,14 @@ window.questionSets = {
             "difficulty": "Medium",
             "keywords": [
                 "test levels",
-                "component",
-                "integration",
-                "system",
-                "acceptance"
+                "component testing",
+                "component integration testing",
+                "system testing",
+                "system integration testing",
+                "acceptance testing"
             ],
-            "examTip": "Test levels = phases of testing (CISA). Test types = what you test (functional/non-functional).",
-            "memoryAid": "CISA: Component, Integration, System, Acceptance."
+            "examTip": "Separate component integration testing from system integration testing when listing the five CTFL v4.0.1 test levels.",
+            "memoryAid": "Component -> component integration -> system -> system integration -> acceptance; not a mandatory execution sequence."
         },
         {
             "id": "Q170",
@@ -2041,21 +2043,21 @@ window.questionSets = {
             "statement": "In a sequential development model, when is system testing typically performed?",
             "options": {
                 "A": "Before component testing begins",
-                "B": "After integration testing is complete and the entire system is integrated",
+                "B": "After component and component integration testing have produced a sufficiently integrated system",
                 "C": "After the system is deployed to production",
                 "D": "During the requirements phase"
             },
             "correctAnswer": "B",
-            "explanation": "In a sequential development model (e.g., waterfall or V-model), system testing is performed after integration testing is complete. At this point, the entire system has been assembled, and testing verifies the complete system against its specified requirements.",
-            "correctFeedback": "✅ Correct: System testing follows integration testing and verifies the complete integrated system.",
+            "explanation": "In a typical sequential lifecycle, system test execution follows component and component integration testing. System integration testing addresses interfaces with external systems and is a distinct level; the word integration alone should not imply both levels must precede system testing.",
+            "correctFeedback": "✅ Correct: System test execution typically follows component and component integration testing once the complete system is available.",
             "incorrectFeedback": {
-                "A": "❌ Incorrect: Component testing precedes integration, which precedes system testing.",
+                "A": "❌ Incorrect: Component testing normally starts before system test execution in the sequential scenario.",
                 "C": "❌ Incorrect: System testing occurs before deployment to production.",
                 "D": "❌ Incorrect: Requirements phase is when test planning begins, not system test execution."
             },
             "optionExplanations": {
-                "A": "Component testing precedes integration, which precedes system testing.",
-                "B": "System testing follows integration testing and verifies the complete integrated system.",
+                "A": "Component testing normally starts before system test execution in the sequential scenario.",
+                "B": "System test execution typically follows component and component integration testing once the complete system is available.",
                 "C": "System testing occurs before deployment to production.",
                 "D": "Requirements phase is when test planning begins, not system test execution."
             },
@@ -2070,8 +2072,8 @@ window.questionSets = {
                 "system testing",
                 "V-model"
             ],
-            "examTip": "In sequential lifecycles: Component → Integration → System → Acceptance.",
-            "memoryAid": "CISA order: Component, Integration, System, Acceptance."
+            "examTip": "Distinguish component integration from system integration; system test planning can begin before executable code exists.",
+            "memoryAid": "Component integration connects internal components; system integration connects systems."
         },
         {
             "id": "Q090",
@@ -2151,28 +2153,28 @@ window.questionSets = {
             "id": "Q127",
             "statement": "A system receives a major update that changes the underlying database schema and adds new REST APIs. Which combination of testing is most appropriate for maintenance of this system?",
             "options": {
-                "A": "Confirmation testing of the new APIs and database changes, plus regression testing of existing functionality",
+                "A": "Testing the new APIs and database changes against their requirements, plus regression testing of existing functionality",
                 "B": "Only regression testing of existing functionality with no testing of new features",
                 "C": "Only testing the new APIs with no regression testing",
                 "D": "No testing is needed if the development team is experienced"
             },
             "correctAnswer": "A",
-            "explanation": "Maintenance testing requires both confirmation testing of the changes (new APIs and database changes work correctly) and regression testing (existing functionality is not broken by the changes). Both aspects are essential for a comprehensive maintenance testing approach.",
-            "correctFeedback": "✅ Correct: Regression testing is needed because database changes can affect existing functionality.",
+            "explanation": "Maintenance testing evaluates changes to an operational system and checks for adverse consequences through regression testing. Impact analysis helps determine scope. Testing a new feature or a migration is not confirmation testing unless it verifies the successful correction of a specific defect.",
+            "correctFeedback": "✅ Correct: Maintenance testing evaluates the change and uses regression testing to check for adverse effects. Confirmation testing applies when a defect has been fixed.",
             "incorrectFeedback": {
-                "B": "❌ Incorrect: Both confirmation of changes and regression of existing areas are essential.",
+                "B": "❌ Incorrect: Regression testing alone does not evaluate whether the new APIs and database changes meet their requirements.",
                 "C": "❌ Incorrect: New changes must be confirmed to work correctly.",
                 "D": "❌ Incorrect: Experience does not eliminate the need for testing."
             },
             "optionExplanations": {
-                "A": "Regression testing is needed because database changes can affect existing functionality.",
-                "B": "Both confirmation of changes and regression of existing areas are essential.",
+                "A": "Maintenance testing evaluates the change and uses regression testing to check for adverse effects. Confirmation testing applies when a defect has been fixed.",
+                "B": "Regression testing alone does not evaluate whether the new APIs and database changes meet their requirements.",
                 "C": "New changes must be confirmed to work correctly.",
                 "D": "Experience does not eliminate the need for testing."
             },
             "chapter": 2,
             "section": "2.3",
-            "subsection": "2.3.1",
+            "subsection": "2.3",
             "learningObjective": "FL-2.3.1",
             "kLevel": "K2",
             "difficulty": "Medium",
@@ -2181,7 +2183,7 @@ window.questionSets = {
                 "confirmation testing",
                 "regression testing"
             ],
-            "examTip": "Maintenance testing = confirm the change + check nothing else broke.",
+            "examTip": "Test the operational change and its possible side effects; confirmation testing specifically verifies a defect fix.",
             "memoryAid": "Maintenance = new stuff works + old stuff still works."
         },
         {
@@ -2245,9 +2247,9 @@ window.questionSets = {
             },
             "chapter": 2,
             "section": "2.1",
-            "subsection": "2.1.2",
-            "learningObjective": "FL-2.1.2",
-            "kLevel": "K1",
+            "subsection": "2.1.1",
+            "learningObjective": "FL-2.1.1",
+            "kLevel": "K2",
             "difficulty": "Easy",
             "keywords": [
                 "SDLC adaptation",
@@ -2282,7 +2284,7 @@ window.questionSets = {
             },
             "chapter": 2,
             "section": "2.3",
-            "subsection": "2.3.1",
+            "subsection": "2.3",
             "learningObjective": "FL-2.3.1",
             "kLevel": "K2",
             "difficulty": "Medium",
@@ -2307,15 +2309,15 @@ window.questionSets = {
             "explanation": "Functional tests address behavior against functional requirements; non-functional tests address quality characteristics such as performance, usability, reliability, and security.",
             "correctFeedback": "✅ Correct: Functional tests address behavior against functional requirements; non-functional tests address quality characteristics such as performance, usability, reliability, and security.",
             "incorrectFeedback": {
-                "A": "❌ Incorrect: 'Functional testing is only done at acceptance level' evaluates what the system does (features, behaviors, business rules). This scenario requires functional testing, which evaluates what the system does (features, behaviors, business rules).",
-                "B": "❌ Incorrect: 'Non-functional testing cannot reveal failures' evaluates what the system does (features, behaviors, business rules). This scenario requires functional testing, which evaluates what the system does (features, behaviors, business rules).",
-                "D": "❌ Incorrect: 'Functional testing is always manual; non-functional testing is always automated' evaluates what the system does (features, behaviors, business rules). This scenario requires functional testing, which evaluates what the system does (features, behaviors, business rules)."
+                "A": "❌ Incorrect: Functional testing can be performed at every test level, not only acceptance.",
+                "B": "❌ Incorrect: Non-functional testing can reveal failures such as unacceptable response times or recovery behavior.",
+                "D": "❌ Incorrect: Both functional and non-functional testing can involve manual or automated tests."
             },
             "optionExplanations": {
-                "A": "'Functional testing is only done at acceptance level' evaluates what the system does (features, behaviors, business rules). This scenario requires functional testing, which evaluates what the system does (features, behaviors, business rules).",
-                "B": "'Non-functional testing cannot reveal failures' evaluates what the system does (features, behaviors, business rules). This scenario requires functional testing, which evaluates what the system does (features, behaviors, business rules).",
+                "A": "Functional testing can be performed at every test level, not only acceptance.",
+                "B": "Non-functional testing can reveal failures such as unacceptable response times or recovery behavior.",
                 "C": "Functional tests address behavior against functional requirements; non-functional tests address quality characteristics such as performance, usability, reliability, and security.",
-                "D": "'Functional testing is always manual; non-functional testing is always automated' evaluates what the system does (features, behaviors, business rules). This scenario requires functional testing, which evaluates what the system does (features, behaviors, business rules)."
+                "D": "Both functional and non-functional testing can involve manual or automated tests."
             },
             "chapter": 2,
             "section": "2.2",
@@ -2341,7 +2343,7 @@ window.questionSets = {
                 "D": "Functional, non-functional, and white-box testing can be performed at any test level"
             },
             "correctAnswer": "D",
-            "explanation": "According to the ISTQB syllabus, all test types (functional, non-functional, white-box) can be performed at any test level (component, integration, system, acceptance). For example, performance testing (non-functional) can be done at component level for critical algorithms or at system level for end-to-end scenarios.",
+            "explanation": "Functional, non-functional, black-box, and white-box testing can all be applied at the five CTFL test levels, with a different focus at each level. The question lists three of these types; applicability is not restricted to one level.",
             "correctFeedback": "✅ Correct: All test types are applicable at every test level.",
             "incorrectFeedback": {
                 "A": "❌ Incorrect: Functional tests apply at component, integration, and acceptance levels as well.",
@@ -2355,9 +2357,9 @@ window.questionSets = {
                 "D": "All test types are applicable at every test level."
             },
             "chapter": 2,
-            "section": "2.3",
-            "subsection": "2.3.1",
-            "learningObjective": "FL-2.3.1",
+            "section": "2.2",
+            "subsection": "2.2.2",
+            "learningObjective": "FL-2.2.2",
             "kLevel": "K2",
             "difficulty": "Easy",
             "keywords": [
@@ -2432,7 +2434,7 @@ window.questionSets = {
             },
             "chapter": 2,
             "section": "2.3",
-            "subsection": "2.3.1",
+            "subsection": "2.3",
             "learningObjective": "FL-2.3.1",
             "kLevel": "K2",
             "difficulty": "Medium",
@@ -2506,7 +2508,7 @@ window.questionSets = {
             },
             "chapter": 2,
             "section": "2.3",
-            "subsection": "2.3.1",
+            "subsection": "2.3",
             "learningObjective": "FL-2.3.1",
             "kLevel": "K2",
             "difficulty": "Medium",
@@ -2524,7 +2526,7 @@ window.questionSets = {
             "statement": "Which of the following is a functional test type?",
             "options": {
                 "A": "Assessing the maintainability of the source code",
-                "B": "Checking how the system behaves when network connectivity is lost",
+                "B": "Measuring the proportion of service availability maintained during network interruptions",
                 "C": "Measuring the response time of a web page under heavy load",
                 "D": "Verifying that a login form correctly authenticates valid users"
             },
@@ -2533,13 +2535,13 @@ window.questionSets = {
             "correctFeedback": "✅ Correct: Functional testing verifies that the system performs its specified functions correctly.",
             "incorrectFeedback": {
                 "A": "❌ Incorrect: Maintainability assessment is a non-functional test type.",
-                "B": "❌ Incorrect: Performance testing is a non-functional test type.",
-                "C": "❌ Incorrect: Reliability or resilience testing is non-functional."
+                "B": "❌ Incorrect: Availability is a reliability-related non-functional quality characteristic.",
+                "C": "❌ Incorrect: Performance testing is a non-functional test type."
             },
             "optionExplanations": {
                 "A": "Maintainability assessment is a non-functional test type.",
-                "B": "Performance testing is a non-functional test type.",
-                "C": "Reliability or resilience testing is non-functional.",
+                "B": "Availability is a reliability-related non-functional quality characteristic.",
+                "C": "Performance testing is a non-functional test type.",
                 "D": "Functional testing verifies that the system performs its specified functions correctly."
             },
             "chapter": 2,
@@ -2581,7 +2583,7 @@ window.questionSets = {
             },
             "chapter": 2,
             "section": "2.3",
-            "subsection": "2.3.1",
+            "subsection": "2.3",
             "learningObjective": "FL-2.3.1",
             "kLevel": "K2",
             "difficulty": "Medium",
@@ -2744,7 +2746,7 @@ window.questionSets = {
         },
         {
             "id": "Q363",
-            "statement": "A company updates its tax calculation module to comply with new legislation. The team tests the updated code and also checks that existing payroll reports remain correct. What types of testing are being performed?",
+            "statement": "A company fixes a reported defect in its tax calculation module. The team reruns tests that exposed the defect to verify the correction, then runs existing payroll report tests to check for adverse side effects. What types of testing are being performed?",
             "options": {
                 "A": "Confirmation testing and regression testing",
                 "B": "Only component testing",
@@ -2776,7 +2778,7 @@ window.questionSets = {
                 "regression testing"
             ],
             "examTip": "Fix = confirm. Side effects = regress.",
-            "memoryAid": "Confirm + regress after each change."
+            "memoryAid": "Verify a defect fix = confirmation; check adverse effects of a change = regression."
         },
         {
             "id": "Q010",
@@ -2912,7 +2914,7 @@ window.questionSets = {
             },
             "chapter": 2,
             "section": "2.3",
-            "subsection": "2.3.1",
+            "subsection": "2.3",
             "learningObjective": "FL-2.3.1",
             "kLevel": "K2",
             "difficulty": "Medium",
@@ -3015,14 +3017,14 @@ window.questionSets = {
             "correctFeedback": "✅ Correct: Static testing on early work products prevents defects from propagating.",
             "incorrectFeedback": {
                 "A": "❌ Incorrect: Automation helps execution but does not address requirement defects.",
-                "B": "❌ Incorrect: More testers executing tests would still find defects later rather than earlier.",
-                "D": "❌ Incorrect: More dynamic testing would find these defects later, at higher cost."
+                "B": "❌ Incorrect: More dynamic testing would find these defects later, at higher cost.",
+                "D": "❌ Incorrect: More testers executing tests would still find defects later rather than earlier."
             },
             "optionExplanations": {
                 "A": "Automation helps execution but does not address requirement defects.",
-                "B": "More testers executing tests would still find defects later rather than earlier.",
+                "B": "More dynamic testing would find these defects later, at higher cost.",
                 "C": "Static testing on early work products prevents defects from propagating.",
-                "D": "More dynamic testing would find these defects later, at higher cost."
+                "D": "More testers executing tests would still find defects later rather than earlier."
             },
             "chapter": 3,
             "section": "3.1",
@@ -3099,9 +3101,9 @@ window.questionSets = {
             },
             "chapter": 3,
             "section": "3.1",
-            "subsection": "3.1.1",
-            "learningObjective": "FL-3.1.1",
-            "kLevel": "K1",
+            "subsection": "3.1.3",
+            "learningObjective": "FL-3.1.3",
+            "kLevel": "K2",
             "difficulty": "Easy",
             "keywords": [
                 "static testing",
@@ -3136,9 +3138,9 @@ window.questionSets = {
             },
             "chapter": 3,
             "section": "3.1",
-            "subsection": "3.1.1",
-            "learningObjective": "FL-3.1.1",
-            "kLevel": "K1",
+            "subsection": "3.1.2",
+            "learningObjective": "FL-3.1.2",
+            "kLevel": "K2",
             "difficulty": "Easy",
             "keywords": [
                 "static testing",
@@ -3209,8 +3211,8 @@ window.questionSets = {
             },
             "chapter": 3,
             "section": "3.2",
-            "subsection": "3.2.1",
-            "learningObjective": "FL-3.2.1",
+            "subsection": "3.2.2",
+            "learningObjective": "FL-3.2.2",
             "kLevel": "K2",
             "difficulty": "Easy",
             "keywords": [
@@ -3274,21 +3276,21 @@ window.questionSets = {
             "explanation": "The scribe records review information, including identified anomalies, decisions, and action items.",
             "correctFeedback": "✅ Correct: The scribe records review information, including identified anomalies, decisions, and action items.",
             "incorrectFeedback": {
-                "B": "❌ Incorrect: The author creates the work product being reviewed, presents it, and answers questions — but does NOT record the meeting minutes or anomalies. The author's focus is on their work product, not on documentation during the review.",
-                "C": "❌ Incorrect: The manager is typically a stakeholder who receives review outputs but is not directly responsible for recording anomalies during the review meeting. Recording is a dedicated review role.",
-                "D": "❌ Incorrect: The moderator (review leader) facilitates the meeting, manages the process, and makes go/no-go decisions. They do not perform the scribe role because they must focus on leading the review effectively."
+                "B": "❌ Incorrect: The author creates and fixes the work product. Recording review information is the scribe role; roles may sometimes be combined, but an inspection author cannot be the scribe.",
+                "C": "❌ Incorrect: The manager provides review resources. Recording anomalies and decisions is the scribe role.",
+                "D": "❌ Incorrect: The moderator facilitates the meeting; recording review information is the scribe role. These roles are distinct, though permissible role combinations depend on context."
             },
             "optionExplanations": {
                 "A": "The scribe records review information, including identified anomalies, decisions, and action items.",
-                "B": "The author creates the work product and may present/answer questions — they do not record the review findings.",
-                "C": "The manager is a stakeholder who receives outputs, not the person who records anomalies during the review meeting.",
-                "D": "The moderator leads and facilitates the review process — they do not simultaneously perform the scribe's recording duties."
+                "B": "The author creates and fixes the work product. Recording review information is the scribe role; roles may sometimes be combined, but an inspection author cannot be the scribe.",
+                "C": "The manager provides review resources. Recording anomalies and decisions is the scribe role.",
+                "D": "The moderator facilitates the meeting; recording review information is the scribe role. These roles are distinct, though permissible role combinations depend on context."
             },
             "chapter": 3,
             "section": "3.2",
-            "subsection": "3.2.2",
-            "learningObjective": "FL-3.2.2",
-            "kLevel": "K2",
+            "subsection": "3.2.3",
+            "learningObjective": "FL-3.2.3",
+            "kLevel": "K1",
             "difficulty": "Easy",
             "keywords": [
                 "review roles",
@@ -3322,9 +3324,9 @@ window.questionSets = {
             },
             "chapter": 3,
             "section": "3.2",
-            "subsection": "3.2.2",
-            "learningObjective": "FL-3.2.2",
-            "kLevel": "K2",
+            "subsection": "3.2.3",
+            "learningObjective": "FL-3.2.3",
+            "kLevel": "K1",
             "difficulty": "Easy",
             "keywords": [
                 "review roles",
@@ -3332,20 +3334,20 @@ window.questionSets = {
                 "defect fixing"
             ],
             "examTip": "The author fixes their own work product defects.",
-            "memoryAid": "Author finds and fixes."
+            "memoryAid": "Author creates and fixes; reviewers identify anomalies."
         },
         {
             "id": "Q311",
-            "statement": "In a formal review, which role is responsible for deciding whether to proceed to the next review phase and for ensuring that review objectives are met?",
+            "statement": "In a review, which role takes overall responsibility, including deciding who participates and organizing when and where the review takes place?",
             "options": {
                 "A": "Scribe",
-                "B": "Moderator (review leader)",
+                "B": "Review leader",
                 "C": "Author",
                 "D": "Reviewer"
             },
             "correctAnswer": "B",
-            "explanation": "The moderator (or review leader) is responsible for the overall success of the review, including deciding on readiness to proceed, managing the review meeting, and ensuring objectives are achieved. The moderator plans the review, coordinates activities, and makes go/no-go decisions.",
-            "correctFeedback": "✅ Correct: The moderator manages the review process and decides on phase transitions.",
+            "explanation": "The review leader has overall responsibility for organizing the review. The moderator, also called the facilitator, supports effective review meetings. These are distinct roles, although one person may hold more than one role where appropriate.",
+            "correctFeedback": "✅ Correct: The review leader has overall responsibility and organizes participants, timing, and location.",
             "incorrectFeedback": {
                 "A": "❌ Incorrect: The scribe records defects and decisions but does not lead the review.",
                 "C": "❌ Incorrect: The author creates the work product and may answer questions.",
@@ -3353,23 +3355,23 @@ window.questionSets = {
             },
             "optionExplanations": {
                 "A": "The scribe records defects and decisions but does not lead the review.",
-                "B": "The moderator manages the review process and decides on phase transitions.",
+                "B": "The review leader has overall responsibility and organizes participants, timing, and location.",
                 "C": "The author creates the work product and may answer questions.",
                 "D": "Reviewers examine the work product and identify potential defects."
             },
             "chapter": 3,
             "section": "3.2",
-            "subsection": "3.2.2",
-            "learningObjective": "FL-3.2.2",
-            "kLevel": "K2",
+            "subsection": "3.2.3",
+            "learningObjective": "FL-3.2.3",
+            "kLevel": "K1",
             "difficulty": "Easy",
             "keywords": [
                 "review roles",
                 "moderator",
                 "review leader"
             ],
-            "examTip": "Moderator leads the review process and makes decisions.",
-            "memoryAid": "Moderator = review leader."
+            "examTip": "Review leader organizes the review; moderator facilitates the meeting.",
+            "memoryAid": "Leader = overall responsibility; moderator = effective meeting."
         },
         {
             "id": "Q214",
@@ -3384,21 +3386,21 @@ window.questionSets = {
             "explanation": "Static testing examines work products without executing software and is well suited to finding ambiguity, inconsistency, omissions, and standards violations.",
             "correctFeedback": "✅ Correct: Static testing examines work products without executing software and is well suited to finding ambiguity, inconsistency, omissions, and standards violations.",
             "incorrectFeedback": {
-                "A": "❌ Incorrect: 'A timeout caused by production network latency' is incorrect. Static testing examines work products without executing software and is well .",
-                "B": "❌ Incorrect: 'A race condition visible only under load' is incorrect. Static testing examines work products without executing software and is well .",
-                "D": "❌ Incorrect: 'A memory leak occurring after six hours of runtime' is incorrect. Static testing examines work products without executing software and is well ."
+                "A": "❌ Incorrect: The scenario requires observing runtime network behavior; the inconsistent requirement term can be identified directly in a document review.",
+                "B": "❌ Incorrect: The option explicitly describes behavior observable only under load, unlike a directly reviewable requirement inconsistency.",
+                "D": "❌ Incorrect: The stated symptom is observed after hours of execution; inconsistent requirement terminology can be found without execution."
             },
             "optionExplanations": {
-                "A": "'A timeout caused by production network latency' is incorrect. Static testing examines work products without executing software and is well .",
-                "B": "'A race condition visible only under load' is incorrect. Static testing examines work products without executing software and is well .",
+                "A": "The scenario requires observing runtime network behavior; the inconsistent requirement term can be identified directly in a document review.",
+                "B": "The option explicitly describes behavior observable only under load, unlike a directly reviewable requirement inconsistency.",
                 "C": "Static testing examines work products without executing software and is well suited to finding ambiguity, inconsistency, omissions, and standards violations.",
-                "D": "'A memory leak occurring after six hours of runtime' is incorrect. Static testing examines work products without executing software and is well ."
+                "D": "The stated symptom is observed after hours of execution; inconsistent requirement terminology can be found without execution."
             },
             "chapter": 3,
             "section": "3.1",
-            "subsection": "3.1.1",
-            "learningObjective": "FL-3.1.1",
-            "kLevel": "K1",
+            "subsection": "3.1.3",
+            "learningObjective": "FL-3.1.3",
+            "kLevel": "K2",
             "difficulty": "Medium",
             "keywords": [
                 "static testing",
@@ -3470,9 +3472,9 @@ window.questionSets = {
             },
             "chapter": 3,
             "section": "3.2",
-            "subsection": "3.2.1",
-            "learningObjective": "FL-3.2.1",
-            "kLevel": "K1",
+            "subsection": "3.2.4",
+            "learningObjective": "FL-3.2.4",
+            "kLevel": "K2",
             "difficulty": "Medium",
             "keywords": [
                 "inspection",
@@ -3530,24 +3532,24 @@ window.questionSets = {
                 "D": "To replace dynamic testing of the requirements"
             },
             "correctAnswer": "A",
-            "explanation": "A walkthrough is an informal review led by the author to share knowledge, gather feedback, and identify issues such as ambiguities, inconsistencies, and omissions.",
-            "correctFeedback": "✅ Correct: A walkthrough is an informal review led by the author to share knowledge, gather feedback, and identify issues such as ambiguities, inconsistencies, and omissions.",
+            "explanation": "A walkthrough is led by the author and can support knowledge sharing, feedback, quality evaluation, consensus, and anomaly detection. Individual preparation is optional. It is a distinct review type, not merely another name for informal review.",
+            "correctFeedback": "✅ Correct: The author-led walkthrough supports shared understanding, feedback, and identifying ambiguities.",
             "incorrectFeedback": {
-                "B": "❌ Incorrect: Formal approval is NOT the purpose of a walkthrough. Walkthroughs are informal and focus on sharing understanding and gathering feedback. Formal approval typically occurs through more rigorous review types such as technical reviews or inspections, or through separate management sign-off.",
+                "B": "❌ Incorrect: Formal release approval is not the primary objective described; the scenario emphasizes shared understanding and feedback.",
                 "C": "❌ Incorrect: Measuring the author's presentation skills is not a review objective at all. Reviews evaluate the work product, not the people. Using a review for performance evaluation destroys psychological safety and trust.",
                 "D": "❌ Incorrect: A walkthrough is a static review technique — it does not execute software and therefore cannot replace dynamic testing. Reviews and dynamic testing are complementary, finding different defect types at different stages."
             },
             "optionExplanations": {
-                "A": "A walkthrough is an informal review led by the author to share knowledge, gather feedback, and identify issues such as ambiguities, inconsistencies, and omissions.",
-                "B": "Formal approval is not the purpose of a walkthrough. Walkthroughs are informal; formal approval belongs to more rigorous review types or separate management sign-off.",
+                "A": "The author-led walkthrough supports shared understanding, feedback, and identifying ambiguities.",
+                "B": "Formal release approval is not the primary objective described; the scenario emphasizes shared understanding and feedback.",
                 "C": "Reviews evaluate the work product, not the people. Measuring presentation skills is not a review objective and would harm psychological safety.",
                 "D": "A walkthrough is a static review technique — it does not execute software and cannot replace dynamic testing. They are complementary."
             },
             "chapter": 3,
             "section": "3.2",
-            "subsection": "3.2.3",
-            "learningObjective": "FL-3.2.3",
-            "kLevel": "K1",
+            "subsection": "3.2.4",
+            "learningObjective": "FL-3.2.4",
+            "kLevel": "K2",
             "difficulty": "Easy",
             "keywords": [
                 "walkthrough",
@@ -3580,9 +3582,9 @@ window.questionSets = {
                 "D": "There is no evidence the requirement is technically impossible."
             },
             "chapter": 3,
-            "section": "3.2",
-            "subsection": "3.2.4",
-            "learningObjective": "FL-3.2.4",
+            "section": "3.1",
+            "subsection": "3.1.3",
+            "learningObjective": "FL-3.1.3",
             "kLevel": "K2",
             "difficulty": "Hard",
             "keywords": [
@@ -3599,29 +3601,29 @@ window.questionSets = {
             "statement": "What is the primary difference between a walkthrough and a technical review?",
             "options": {
                 "A": "A walkthrough requires detailed preparation by all participants",
-                "B": "A walkthrough is led by the author and focuses on knowledge sharing; a technical review is led by a trained moderator and focuses on finding defects",
+                "B": "A walkthrough is led by the author; a technical review is led by a moderator and uses technically qualified reviewers to reach technical consensus and decisions.",
                 "C": "A technical review does not involve the author",
                 "D": "A walkthrough is formal; a technical review is informal"
             },
             "correctAnswer": "B",
-            "explanation": "A walkthrough is an informal review led by the author to share knowledge and gather feedback. A technical review is a more formal review led by a trained moderator, with defined roles and a focus on defect detection.",
-            "correctFeedback": "✅ Correct: Walkthroughs are author-led and informal; technical reviews are moderator-led and formal.",
+            "explanation": "A walkthrough is author-led and can educate participants, gather ideas, evaluate quality, and detect anomalies. A technical review is moderator-led and uses technically qualified reviewers to reach consensus and make technical decisions. Both may identify anomalies; a walkthrough is not simply synonymous with an informal review.",
+            "correctFeedback": "✅ Correct: Leadership and technical decision-making distinguish these review types: author-led walkthrough versus moderator-led technical review.",
             "incorrectFeedback": {
-                "A": "❌ Incorrect: Walkthroughs require less formal preparation than technical reviews.",
+                "A": "❌ Incorrect: Individual preparation may occur before a walkthrough but is not required.",
                 "C": "❌ Incorrect: The author typically participates in all review types.",
-                "D": "❌ Incorrect: Walkthroughs are informal; technical reviews are more formal."
+                "D": "❌ Incorrect: This reverses and oversimplifies formality. Inspection is the most formal review type; a walkthrough is not defined solely by being informal."
             },
             "optionExplanations": {
-                "A": "Walkthroughs require less formal preparation than technical reviews.",
-                "B": "Walkthroughs are author-led and informal; technical reviews are moderator-led and formal.",
+                "A": "Individual preparation may occur before a walkthrough but is not required.",
+                "B": "Leadership and technical decision-making distinguish these review types: author-led walkthrough versus moderator-led technical review.",
                 "C": "The author typically participates in all review types.",
-                "D": "Walkthroughs are informal; technical reviews are more formal."
+                "D": "This reverses and oversimplifies formality. Inspection is the most formal review type; a walkthrough is not defined solely by being informal."
             },
             "chapter": 3,
             "section": "3.2",
-            "subsection": "3.2.1",
-            "learningObjective": "FL-3.2.1",
-            "kLevel": "K1",
+            "subsection": "3.2.4",
+            "learningObjective": "FL-3.2.4",
+            "kLevel": "K2",
             "difficulty": "Medium",
             "keywords": [
                 "walkthrough",
@@ -3629,8 +3631,8 @@ window.questionSets = {
                 "review types",
                 "static testing"
             ],
-            "examTip": "Informal walkthrough (author-led) vs formal technical review (moderator-led).",
-            "memoryAid": "Walkthrough = walk in the park (informal); Technical review = serious business (formal)."
+            "examTip": "Walkthrough: author-led. Technical review: moderator-led, technically qualified participants, technical consensus.",
+            "memoryAid": "Author walks through; technical reviewers reach technical agreement."
         },
         {
             "id": "Q371",
@@ -3645,21 +3647,21 @@ window.questionSets = {
             "explanation": "The key distinction is execution: static testing (reviews, static analysis) does not involve executing the software, while dynamic testing runs the software and observes its behavior.",
             "correctFeedback": "✅ Correct: The key distinction is execution: static testing (reviews, static analysis) does not involve executing the software, while dynamic testing runs the software and observes its behavior.",
             "incorrectFeedback": {
-                "B": "❌ Incorrect: 'Static testing is only performed on requirements; dynamic testing is only performed on code' involves executing the software to observe behavior. This scenario requires dynamic testing, which involves executing the software to observe behavior.",
-                "C": "❌ Incorrect: 'Static testing finds functional defects; dynamic testing finds only non-functional defects' involves executing the software to observe behavior. This scenario requires dynamic testing, which involves executing the software to observe behavior.",
-                "D": "❌ Incorrect: 'Static testing requires automated tools; dynamic testing can only be performed manually' involves executing the software to observe behavior. This scenario requires dynamic testing, which involves executing the software to observe behavior."
+                "B": "❌ Incorrect: Static testing can examine code and many other work products; it is not limited to requirements.",
+                "C": "❌ Incorrect: Both approaches can address functional and non-functional characteristics; execution is the distinguishing feature.",
+                "D": "❌ Incorrect: Reviews may be manual, static analysis is commonly tool-supported, and dynamic testing may be manual or automated."
             },
             "optionExplanations": {
                 "A": "The key distinction is execution: static testing (reviews, static analysis) does not involve executing the software, while dynamic testing runs the software and observes its behavior.",
-                "B": "'Static testing is only performed on requirements; dynamic testing is only performed on code' involves executing the software to observe behavior. This scenario requires dynamic testing, which involves executing the software to observe behavior.",
-                "C": "'Static testing finds functional defects; dynamic testing finds only non-functional defects' involves executing the software to observe behavior. This scenario requires dynamic testing, which involves executing the software to observe behavior.",
-                "D": "'Static testing requires automated tools; dynamic testing can only be performed manually' involves executing the software to observe behavior. This scenario requires dynamic testing, which involves executing the software to observe behavior."
+                "B": "Static testing can examine code and many other work products; it is not limited to requirements.",
+                "C": "Both approaches can address functional and non-functional characteristics; execution is the distinguishing feature.",
+                "D": "Reviews may be manual, static analysis is commonly tool-supported, and dynamic testing may be manual or automated."
             },
             "chapter": 3,
             "section": "3.1",
-            "subsection": "3.1.1",
-            "learningObjective": "FL-3.1.1",
-            "kLevel": "K1",
+            "subsection": "3.1.3",
+            "learningObjective": "FL-3.1.3",
+            "kLevel": "K2",
             "difficulty": "Easy",
             "keywords": [
                 "static testing",
@@ -3682,12 +3684,12 @@ window.questionSets = {
             "correctFeedback": "✅ Correct: Static = no execution review; Dynamic = execution-based testing.",
             "incorrectFeedback": {
                 "A": "❌ Incorrect: Both review and system test could be black-box, but the key difference is execution vs. non-execution.",
-                "B": "❌ Incorrect: Both functional and non-functional testing are dynamic.",
+                "B": "❌ Incorrect: Functional and non-functional characteristics may be evaluated through static or dynamic testing where appropriate; the scenario distinguishes examination without execution from executing software.",
                 "C": "❌ Incorrect: Component testing tests individual units; integration tests interfaces."
             },
             "optionExplanations": {
                 "A": "Both review and system test could be black-box, but the key difference is execution vs. non-execution.",
-                "B": "Both functional and non-functional testing are dynamic.",
+                "B": "Functional and non-functional characteristics may be evaluated through static or dynamic testing where appropriate; the scenario distinguishes examination without execution from executing software.",
                 "C": "Component testing tests individual units; integration tests interfaces.",
                 "D": "Static = no execution review; Dynamic = execution-based testing."
             },
@@ -3730,9 +3732,9 @@ window.questionSets = {
             },
             "chapter": 3,
             "section": "3.2",
-            "subsection": "3.2.3",
-            "learningObjective": "FL-3.2.3",
-            "kLevel": "K1",
+            "subsection": "3.2.4",
+            "learningObjective": "FL-3.2.4",
+            "kLevel": "K2",
             "difficulty": "Medium",
             "keywords": [
                 "walkthrough",
@@ -3746,37 +3748,37 @@ window.questionSets = {
             "id": "Q369",
             "statement": "Which of the following review activities occurs AFTER the review meeting?",
             "options": {
-                "A": "Follow-up and fixing of identified defects",
+                "A": "Fixing and reporting, including following up corrective actions and reporting review results",
                 "B": "Preparation by individual reviewers",
                 "C": "Selection of reviewers and scheduling",
                 "D": "Kick-off and distribution of work products"
             },
             "correctAnswer": "A",
-            "explanation": "The follow-up phase occurs after the review meeting, where the author addresses identified defects, the moderator checks that corrections are made, and the review is formally closed.",
-            "correctFeedback": "✅ Correct: The follow-up phase occurs after the review meeting, where the author addresses identified defects, the moderator checks that corrections are made, and the review is formally closed.",
+            "explanation": "After communication and analysis, fixing and reporting follows up corrective actions, supports acceptance when exit criteria are met, and reports review results. The syllabus does not define a separate mandatory follow-up phase owned exclusively by the moderator.",
+            "correctFeedback": "✅ Correct: Fixing and reporting follows communication and analysis in the generic review process.",
             "incorrectFeedback": {
-                "B": "❌ Incorrect: 'Preparation by individual reviewers' is incorrect. A walkthrough is typically led by the author to share understanding and gather comments or feedback on a work product. To formally measure branch coverage (option A): The follow-up phase occurs after the review meeting, where the author addresses identified defects, the moderator checks that corrections are made, and the review is formally closed.; To execute test cases against the system (option B); To approve tool procurement (option C).",
-                "C": "❌ Incorrect: 'Selection of reviewers and scheduling' is incorrect. A walkthrough is typically led by the author to share understanding and gather comments or feedback on a work product. To formally measure branch coverage (option A): The follow-up phase occurs after the review meeting, where the author addresses identified defects, the moderator checks that corrections are made, and the review is formally closed.; To execute test cases against the system (option B); To approve tool procurement (option C).",
-                "D": "❌ Incorrect: 'Kick-off and distribution of work products' is incorrect. A walkthrough is typically led by the author to share understanding and gather comments or feedback on a work product. To formally measure branch coverage (option A): The follow-up phase occurs after the review meeting, where the author addresses identified defects, the moderator checks that corrections are made, and the review is formally closed.; To execute test cases against the system (option B); To approve tool procurement (option C)."
+                "B": "❌ Incorrect: Individual review occurs before the meeting used for communication and analysis.",
+                "C": "❌ Incorrect: Selecting reviewers and scheduling belong to review planning and organization.",
+                "D": "❌ Incorrect: Distribution of the work product and preparation of participants belong to review initiation."
             },
             "optionExplanations": {
-                "A": "The follow-up phase occurs after the review meeting, where the author addresses identified defects, the moderator checks that corrections are made, and the review is formally closed.",
-                "B": "'Preparation by individual reviewers' is incorrect. A walkthrough is typically led by the author to share understanding and gather comments or feedback on a work product. To formally measure branch coverage (option A): The follow-up phase occurs after the review meeting, where the author addresses identified defects, the moderator checks that corrections are made, and the review is formally closed.; To execute test cases against the system (option B); To approve tool procurement (option C).",
-                "C": "'Selection of reviewers and scheduling' is incorrect. A walkthrough is typically led by the author to share understanding and gather comments or feedback on a work product. To formally measure branch coverage (option A): The follow-up phase occurs after the review meeting, where the author addresses identified defects, the moderator checks that corrections are made, and the review is formally closed.; To execute test cases against the system (option B); To approve tool procurement (option C).",
-                "D": "'Kick-off and distribution of work products' is incorrect. A walkthrough is typically led by the author to share understanding and gather comments or feedback on a work product. To formally measure branch coverage (option A): The follow-up phase occurs after the review meeting, where the author addresses identified defects, the moderator checks that corrections are made, and the review is formally closed.; To execute test cases against the system (option B); To approve tool procurement (option C)."
+                "A": "Fixing and reporting follows communication and analysis in the generic review process.",
+                "B": "Individual review occurs before the meeting used for communication and analysis.",
+                "C": "Selecting reviewers and scheduling belong to review planning and organization.",
+                "D": "Distribution of the work product and preparation of participants belong to review initiation."
             },
             "chapter": 3,
             "section": "3.2",
-            "subsection": "3.2.1",
-            "learningObjective": "FL-3.2.1",
-            "kLevel": "K1",
+            "subsection": "3.2.2",
+            "learningObjective": "FL-3.2.2",
+            "kLevel": "K2",
             "difficulty": "Easy",
             "keywords": [
                 "review process",
                 "follow-up"
             ],
-            "examTip": "After the meeting comes fixing and follow-up.",
-            "memoryAid": "Fix and confirm."
+            "examTip": "Generic activities: planning, review initiation, individual review, communication and analysis, fixing and reporting.",
+            "memoryAid": "Plan -> initiate -> review individually -> discuss/analyze -> fix/report."
         },
         {
             "id": "Q257",
@@ -3803,9 +3805,9 @@ window.questionSets = {
             },
             "chapter": 3,
             "section": "3.2",
-            "subsection": "3.2.4",
-            "learningObjective": "FL-3.2.4",
-            "kLevel": "K2",
+            "subsection": "3.2.5",
+            "learningObjective": "FL-3.2.5",
+            "kLevel": "K1",
             "difficulty": "Medium",
             "keywords": [
                 "review success",
@@ -3838,9 +3840,9 @@ window.questionSets = {
                 "D": "The story is incomplete without describing alternative/error flows for email delivery and link expiration."
             },
             "chapter": 3,
-            "section": "3.2",
-            "subsection": "3.2.4",
-            "learningObjective": "FL-3.2.4",
+            "section": "3.1",
+            "subsection": "3.1.3",
+            "learningObjective": "FL-3.1.3",
             "kLevel": "K2",
             "difficulty": "Hard",
             "keywords": [
@@ -3952,9 +3954,9 @@ window.questionSets = {
             },
             "chapter": 3,
             "section": "3.2",
-            "subsection": "3.2.1",
-            "learningObjective": "FL-3.2.1",
-            "kLevel": "K1",
+            "subsection": "3.2.4",
+            "learningObjective": "FL-3.2.4",
+            "kLevel": "K2",
             "difficulty": "Medium",
             "keywords": [
                 "informal review",
@@ -3989,8 +3991,8 @@ window.questionSets = {
             },
             "chapter": 3,
             "section": "3.1",
-            "subsection": "3.1.3",
-            "learningObjective": "FL-3.1.3",
+            "subsection": "3.1.2",
+            "learningObjective": "FL-3.1.2",
             "kLevel": "K2",
             "difficulty": "Easy",
             "keywords": [
@@ -4050,8 +4052,8 @@ window.questionSets = {
                 "D": "Scribe"
             },
             "correctAnswer": "B",
-            "explanation": "The moderator (also called the review leader) is responsible for planning the review, leading the review meeting, ensuring the process is followed, mediating discussions, and ensuring the review achieves its objectives.",
-            "correctFeedback": "✅ Correct: The moderator leads and manages the review process.",
+            "explanation": "The moderator, also called the facilitator, supports an effective review meeting through mediation, time management, and a safe environment for discussion. The review leader has overall responsibility for organizing the review; these roles are not synonyms.",
+            "correctFeedback": "✅ Correct: The moderator facilitates the meeting, manages time and discussion, and helps participants contribute safely.",
             "incorrectFeedback": {
                 "A": "❌ Incorrect: Reviewers examine the work product and identify defects.",
                 "C": "❌ Incorrect: The author created the work product and participates as a reviewer of their own work.",
@@ -4059,14 +4061,14 @@ window.questionSets = {
             },
             "optionExplanations": {
                 "A": "Reviewers examine the work product and identify defects.",
-                "B": "The moderator leads and manages the review process.",
+                "B": "The moderator facilitates the meeting, manages time and discussion, and helps participants contribute safely.",
                 "C": "The author created the work product and participates as a reviewer of their own work.",
                 "D": "The scribe documents defects and decisions during the review."
             },
             "chapter": 3,
             "section": "3.2",
-            "subsection": "3.2.1",
-            "learningObjective": "FL-3.2.1",
+            "subsection": "3.2.3",
+            "learningObjective": "FL-3.2.3",
             "kLevel": "K1",
             "difficulty": "Medium",
             "keywords": [
@@ -4074,7 +4076,7 @@ window.questionSets = {
                 "review roles",
                 "review roles"
             ],
-            "examTip": "Moderator = the leader/manager of the review. Author = the creator. Reviewer = the inspector. Scribe = the recorder.",
+            "examTip": "Moderator = facilitator, not a synonym for review leader. Review leader = overall organization.",
             "memoryAid": "MARS: Moderator, Author, Reviewer, Scribe."
         },
         {
@@ -4102,9 +4104,9 @@ window.questionSets = {
             },
             "chapter": 3,
             "section": "3.1",
-            "subsection": "3.1.1",
-            "learningObjective": "FL-3.1.1",
-            "kLevel": "K1",
+            "subsection": "3.1.2",
+            "learningObjective": "FL-3.1.2",
+            "kLevel": "K2",
             "difficulty": "Easy",
             "keywords": [
                 "static testing",
@@ -4163,23 +4165,23 @@ window.questionSets = {
             },
             "correctAnswer": "B",
             "explanation": "When a significant defect is found during a review that prevents meaningful continuation, the moderator may suspend or adjourn the review. The author fixes the defect, and the review is rescheduled. This prevents wasting participants' time reviewing a known-problematic document.",
-            "correctFeedback": "✅ Correct: Continuing ignores the major issue and wastes effort.",
+            "correctFeedback": "✅ Correct: Suspending the review is appropriate for major defects that affect reviewability.",
             "incorrectFeedback": {
                 "A": "❌ Incorrect: Approval cannot happen with unresolved major defects.",
-                "C": "❌ Incorrect: Suspending the review is appropriate for major defects that affect reviewability.",
-                "D": "❌ Incorrect: Fixing during the review disrupts the process and is not standard practice."
+                "C": "❌ Incorrect: Fixing during the review disrupts the process and is not standard practice.",
+                "D": "❌ Incorrect: Continuing ignores the major issue and wastes effort."
             },
             "optionExplanations": {
                 "A": "Approval cannot happen with unresolved major defects.",
-                "B": "Continuing ignores the major issue and wastes effort.",
-                "C": "Suspending the review is appropriate for major defects that affect reviewability.",
-                "D": "Fixing during the review disrupts the process and is not standard practice."
+                "B": "Suspending the review is appropriate for major defects that affect reviewability.",
+                "C": "Fixing during the review disrupts the process and is not standard practice.",
+                "D": "Continuing ignores the major issue and wastes effort."
             },
             "chapter": 3,
             "section": "3.2",
-            "subsection": "3.2.1",
-            "learningObjective": "FL-3.2.1",
-            "kLevel": "K1",
+            "subsection": "3.2.2",
+            "learningObjective": "FL-3.2.2",
+            "kLevel": "K2",
             "difficulty": "Medium",
             "keywords": [
                 "formal review",
@@ -4214,9 +4216,9 @@ window.questionSets = {
             },
             "chapter": 3,
             "section": "3.2",
-            "subsection": "3.2.3",
-            "learningObjective": "FL-3.2.3",
-            "kLevel": "K1",
+            "subsection": "3.2.4",
+            "learningObjective": "FL-3.2.4",
+            "kLevel": "K2",
             "difficulty": "Easy",
             "keywords": [
                 "inspection",
@@ -4288,9 +4290,9 @@ window.questionSets = {
             },
             "chapter": 3,
             "section": "3.2",
-            "subsection": "3.2.3",
-            "learningObjective": "FL-3.2.3",
-            "kLevel": "K1",
+            "subsection": "3.2.4",
+            "learningObjective": "FL-3.2.4",
+            "kLevel": "K2",
             "difficulty": "Medium",
             "keywords": [
                 "review types",
@@ -4377,16 +4379,16 @@ window.questionSets = {
         },
         {
             "id": "Q175",
-            "statement": "What is the correct sequence of phases in a formal review process?",
+            "statement": "Which option gives the five activities of the generic review process in CTFL v4.0.1 in their logical order?",
             "options": {
                 "A": "Review meeting, Individual preparation, Planning, Rework, Follow-up",
-                "B": "Planning, Kick-off, Individual preparation, Review meeting, Rework, Follow-up",
+                "B": "Planning, review initiation, individual review, communication and analysis, fixing and reporting",
                 "C": "Planning, Review meeting, Kick-off, Individual preparation, Rework",
                 "D": "Individual preparation, Planning, Kick-off, Review meeting, Follow-up, Rework"
             },
             "correctAnswer": "B",
-            "explanation": "The formal review process follows these phases: 1) Planning (defining scope, selecting participants), 2) Kick-off (communicating logistics), 3) Individual preparation (each reviewer examines the work product), 4) Review meeting (discussing defects), 5) Rework (author fixes defects), 6) Follow-up (verifying fixes).",
-            "correctFeedback": "✅ Correct: Planning, Kick-off, Individual preparation, Review meeting, Rework, Follow-up is the correct order.",
+            "explanation": "CTFL v4.0.1 groups the generic review process into five activities: planning, review initiation, individual review, communication and analysis, and fixing and reporting. Kick-off, rework, and follow-up are not three separate activity names in this version.",
+            "correctFeedback": "✅ Correct: These are the five generic review activities in CTFL v4.0.1 in their logical order.",
             "incorrectFeedback": {
                 "A": "❌ Incorrect: Planning must come before the review meeting.",
                 "C": "❌ Incorrect: Individual preparation occurs before the review meeting.",
@@ -4394,23 +4396,23 @@ window.questionSets = {
             },
             "optionExplanations": {
                 "A": "Planning must come before the review meeting.",
-                "B": "Planning, Kick-off, Individual preparation, Review meeting, Rework, Follow-up is the correct order.",
+                "B": "These are the five generic review activities in CTFL v4.0.1 in their logical order.",
                 "C": "Individual preparation occurs before the review meeting.",
                 "D": "Planning must come first, and follow-up after rework."
             },
             "chapter": 3,
             "section": "3.2",
-            "subsection": "3.2.1",
-            "learningObjective": "FL-3.2.1",
-            "kLevel": "K1",
+            "subsection": "3.2.2",
+            "learningObjective": "FL-3.2.2",
+            "kLevel": "K2",
             "difficulty": "Medium",
             "keywords": [
                 "formal review",
                 "review process",
                 "phases"
             ],
-            "examTip": "Formal review phases: Plan, Kick-off, Prepare, Meeting, Rework, Follow-up.",
-            "memoryAid": "PKPMRF: Plan, Kick-off, Prepare, Meeting, Rework, Follow-up."
+            "examTip": "Generic activities: planning, review initiation, individual review, communication and analysis, fixing and reporting.",
+            "memoryAid": "Plan -> initiate -> review individually -> discuss/analyze -> fix/report."
         },
         {
             "id": "Q047",
@@ -4501,17 +4503,17 @@ window.questionSets = {
             },
             "correctAnswer": "A",
             "explanation": "Even during exploratory testing, any defect found should be properly documented and reported. The tester should record the steps to reproduce, expected versus actual behavior, and environment details. Findings from exploratory testing are valuable and should not be ignored.",
-            "correctFeedback": "✅ Correct: Waiting for someone else to find it wastes time and allows the defect to persist.",
+            "correctFeedback": "✅ Correct: All defects found during testing, regardless of technique, should be reported.",
             "incorrectFeedback": {
                 "B": "❌ Incorrect: Defects found during exploratory testing are valid and should be documented.",
-                "C": "❌ Incorrect: All defects found during testing, regardless of technique, should be reported.",
-                "D": "❌ Incorrect: Fixing code is a developer responsibility, not the tester's role."
+                "C": "❌ Incorrect: Fixing code is a developer responsibility, not the tester's role.",
+                "D": "❌ Incorrect: Waiting for someone else to find it wastes time and allows the defect to persist."
             },
             "optionExplanations": {
-                "A": "Waiting for someone else to find it wastes time and allows the defect to persist.",
+                "A": "All defects found during testing, regardless of technique, should be reported.",
                 "B": "Defects found during exploratory testing are valid and should be documented.",
-                "C": "All defects found during testing, regardless of technique, should be reported.",
-                "D": "Fixing code is a developer responsibility, not the tester's role."
+                "C": "Fixing code is a developer responsibility, not the tester's role.",
+                "D": "Waiting for someone else to find it wastes time and allows the defect to persist."
             },
             "chapter": 4,
             "section": "4.4",
@@ -4561,8 +4563,8 @@ window.questionSets = {
                 "white-box",
                 "test cases"
             ],
-            "examTip": "For statement coverage, ensure every executable line runs at least once.",
-            "memoryAid": "Statement coverage = every line executed at least once."
+            "examTip": "For statement coverage, ensure every executable statement runs at least once.",
+            "memoryAid": "Statement coverage = every executable statement executed at least once."
         },
         {
             "id": "Q187",
@@ -4603,7 +4605,7 @@ window.questionSets = {
         },
         {
             "id": "Q100",
-            "statement": "A system accepts transaction amounts from $0.01 to $9,999.99 inclusive. Using 2-value boundary value analysis, what is the minimum set of values that must be tested?",
+            "statement": "A system accepts transaction amounts from $0.01 to $9,999.99 inclusive. Using 2-value boundary value analysis, what is the minimum set of values that must be tested? Monetary inputs use increments of $0.01.",
             "options": {
                 "A": "$0.01, $0.02, $9,999.98, $9,999.99",
                 "B": "$0.01, $100.00, $5,000.00, $9,999.99",
@@ -4635,7 +4637,7 @@ window.questionSets = {
                 "BVA",
                 "monetary values"
             ],
-            "examTip": "2-value BVA: test min, max, min-1, max+1.",
+            "examTip": "For a currency increment of $0.01, use min-$0.01, min, max, and max+$0.01 for this valid interval and its two invalid neighbors.",
             "memoryAid": "BVA 2-value = both sides of each boundary."
         },
         {
@@ -4710,8 +4712,8 @@ window.questionSets = {
                 "white-box",
                 "coverage"
             ],
-            "examTip": "Statement coverage = every line of code executed at least once.",
-            "memoryAid": "Statement = lines of code; Branch = decisions (if/else)."
+            "examTip": "Statement coverage = every executable statement executed at least once.",
+            "memoryAid": "Statement = executable statements; Branch = decisions (if/else)."
         },
         {
             "id": "Q024",
@@ -4753,7 +4755,7 @@ window.questionSets = {
         },
         {
             "id": "Q180",
-            "statement": "A ticketing system for a museum offers discounted entry for visitors aged 6-17 ($5) and seniors aged 65+ ($8). Standard tickets ($12) apply to ages 18-64. Children under 6 enter free. Using three-value boundary value analysis, which set of ages should be tested for the boundary between free entry and children's tickets?",
+            "statement": "A ticketing system for a museum offers discounted entry for visitors aged 6-17 ($5) and seniors aged 65+ ($8). Standard tickets ($12) apply to ages 18-64. Children under 6 enter free. Using three-value boundary value analysis, which set of ages should be tested for the specifically identified boundary value of age 6? Assume ages are whole years.",
             "options": {
                 "B": "5, 6, 7",
                 "C": "4, 5, 6",
@@ -4905,30 +4907,30 @@ window.questionSets = {
             "id": "Q325",
             "statement": "A user story for an ATM withdrawal has this acceptance criterion: \"When the requested amount exceeds the available balance, the system displays an insufficient funds message and returns the card without dispensing cash.\" Which set of test cases is derived correctly from this acceptance criterion?",
             "options": {
-                "A": "One test case that requests $100 from an account with a $500 balance, and one test case that requests $500 from an account with a $200 balance and observes the insufficient funds message",
+                "A": "Request $500 from an account with a $200 available balance; verify the insufficient-funds message, return of the card, and that no cash is dispensed.",
                 "B": "One test case that inserts a card, enters a wrong PIN three times and observes a lockout message",
                 "C": "One test case that inserts a card, enters a correct PIN, requests $100 and receives cash",
                 "D": "One test case that inserts a card and cancels the transaction immediately"
             },
             "correctAnswer": "A",
-            "explanation": "Acceptance criteria describe both positive and negative scenarios, and the tests derived from them must cover those scenarios. This criterion describes a negative scenario: the requested amount exceeds the available balance, so the system must display the insufficient funds message and return the card without dispensing cash. The matching test therefore needs an amount above the balance and must assert both the message and the absence of cash. Including a positive test in the same set is good practice because acceptance criteria normally describe both positive and negative scenarios. Options B, C and D describe scenarios that are not defined by this acceptance criterion.",
-            "correctFeedback": "✅ Correct: the test that requests more than the available balance directly exercises the negative scenario, and the withdrawal below the balance covers the positive case.",
+            "explanation": "The criterion describes insufficient funds. The derived test must exceed the balance and check all three specified outcomes: the message, the returned card, and no cash dispensed. A successful withdrawal is not derived from this negative criterion alone; it needs its own specified expected behavior.",
+            "correctFeedback": "✅ Correct: This test triggers insufficient funds and verifies all three required outcomes: message, card returned, and no cash dispensed.",
             "incorrectFeedback": {
                 "B": "❌ Incorrect: A wrong-PIN lockout scenario is not part of this acceptance criterion, so it must not go beyond the story.",
                 "C": "❌ Incorrect: Withdrawing below the balance does not exercise the behaviour this acceptance criterion describes, so it is not a test derived from it.",
                 "D": "❌ Incorrect: Cancelling immediately is not covered by this acceptance criterion, so it must not go beyond the story."
             },
             "optionExplanations": {
-                "A": "The test that requests more than the available balance directly exercises the negative scenario, and the withdrawal below the balance covers the positive case.",
+                "A": "This test triggers insufficient funds and verifies all three required outcomes: message, card returned, and no cash dispensed.",
                 "B": "A wrong-PIN lockout scenario is not part of this acceptance criterion, so it must not go beyond the story.",
                 "C": "Withdrawing below the balance does not exercise the behaviour this acceptance criterion describes, so it is not a test derived from it.",
                 "D": "Cancelling immediately is not covered by this acceptance criterion, so it must not go beyond the story."
             },
             "chapter": 4,
             "section": "4.5",
-            "subsection": "4.5.2",
-            "learningObjective": "FL-4.5.2",
-            "kLevel": "K2",
+            "subsection": "4.5.3",
+            "learningObjective": "FL-4.5.3",
+            "kLevel": "K3",
             "difficulty": "Hard",
             "keywords": [
                 "acceptance criteria",
@@ -4936,7 +4938,7 @@ window.questionSets = {
                 "negative scenario",
                 "user story"
             ],
-            "examTip": "Acceptance criteria are the test conditions for a user story. Tests must cover the described scenarios and must not go beyond the story.",
+            "examTip": "Derive the test from the stated acceptance criterion and verify every specified outcome.",
             "memoryAid": "Acceptance criteria = test conditions. Positive and negative scenarios both count."
         },
         {
@@ -5001,7 +5003,7 @@ window.questionSets = {
             },
             "chapter": 4,
             "section": "4.1",
-            "subsection": "4.1.1",
+            "subsection": "4.1",
             "learningObjective": "FL-4.1.1",
             "kLevel": "K2",
             "difficulty": "Medium",
@@ -5025,21 +5027,21 @@ window.questionSets = {
             },
             "correctAnswer": "A",
             "explanation": "Black-box techniques (equivalence partitioning, boundary value analysis, decision table testing, state transition testing) are based on specifications without code knowledge. White-box techniques (statement testing, branch testing) are based on internal code structure.",
-            "correctFeedback": "✅ Correct: This reverses the categories incorrectly.",
+            "correctFeedback": "✅ Correct: Correct categorization of black-box and white-box techniques.",
             "incorrectFeedback": {
                 "B": "❌ Incorrect: Exploratory testing, error guessing, and checklist-based testing are experience-based, a separate category.",
-                "C": "❌ Incorrect: Correct categorization of black-box and white-box techniques.",
-                "D": "❌ Incorrect: Equivalence partitioning is black-box, not white-box."
+                "C": "❌ Incorrect: Equivalence partitioning is black-box, not white-box.",
+                "D": "❌ Incorrect: This reverses the categories incorrectly."
             },
             "optionExplanations": {
-                "A": "This reverses the categories incorrectly.",
+                "A": "Correct categorization of black-box and white-box techniques.",
                 "B": "Exploratory testing, error guessing, and checklist-based testing are experience-based, a separate category.",
-                "C": "Correct categorization of black-box and white-box techniques.",
-                "D": "Equivalence partitioning is black-box, not white-box."
+                "C": "Equivalence partitioning is black-box, not white-box.",
+                "D": "This reverses the categories incorrectly."
             },
             "chapter": 4,
             "section": "4.1",
-            "subsection": "4.1.1",
+            "subsection": "4.1",
             "learningObjective": "FL-4.1.1",
             "kLevel": "K2",
             "difficulty": "Medium",
@@ -5099,7 +5101,7 @@ window.questionSets = {
                 "D": "Error guessing (experience-based)"
             },
             "correctAnswer": "C",
-            "explanation": "For safety-critical systems, structural coverage of the code is often mandatory (e.g., DO-178C for aviation requires specific coverage levels). White-box techniques like statement testing and branch testing ensure that the code structure is thoroughly exercised, providing confidence that no code path remains untested.",
+            "explanation": "Statement and branch testing systematically exercise code structure. Branch coverage is stronger than statement coverage, but even 100% branch coverage does not imply that every execution path has been tested or that all defects have been found.",
             "correctFeedback": "✅ Correct: White-box techniques are essential when thorough structural coverage is required.",
             "incorrectFeedback": {
                 "A": "❌ Incorrect: EP does not measure or guarantee code structure coverage.",
@@ -5124,8 +5126,8 @@ window.questionSets = {
                 "statement coverage",
                 "statement coverage"
             ],
-            "examTip": "Safety-critical often requires white-box techniques to meet coverage mandates.",
-            "memoryAid": "Safety-critical = you must know every code path is tested."
+            "examTip": "Use white-box techniques for structural coverage, while distinguishing branches from complete paths.",
+            "memoryAid": "White-box coverage exercises structure; branch coverage does not guarantee all-path coverage."
         },
         {
             "id": "Q077",
@@ -5138,17 +5140,17 @@ window.questionSets = {
             },
             "correctAnswer": "A",
             "explanation": "A state represents a condition or situation of the system during its lifecycle (e.g., 'Logged In'). A transition is a change from one state to another, triggered by an event (e.g., 'Logout' triggers transition from 'Logged In' to 'Logged Out').",
-            "correctFeedback": "✅ Correct: This is a circular description that does not clarify the distinction.",
+            "correctFeedback": "✅ Correct: States are conditions; transitions are movements between states triggered by events.",
             "incorrectFeedback": {
-                "B": "❌ Incorrect: They are distinct concepts in state transition diagrams.",
-                "C": "❌ Incorrect: This reverses the definitions.",
-                "D": "❌ Incorrect: States are conditions; transitions are movements between states triggered by events."
+                "B": "❌ Incorrect: This reverses the definitions.",
+                "C": "❌ Incorrect: They are distinct concepts in state transition diagrams.",
+                "D": "❌ Incorrect: This is a circular description that does not clarify the distinction."
             },
             "optionExplanations": {
-                "A": "This is a circular description that does not clarify the distinction.",
-                "B": "They are distinct concepts in state transition diagrams.",
-                "C": "This reverses the definitions.",
-                "D": "States are conditions; transitions are movements between states triggered by events."
+                "A": "States are conditions; transitions are movements between states triggered by events.",
+                "B": "This reverses the definitions.",
+                "C": "They are distinct concepts in state transition diagrams.",
+                "D": "This is a circular description that does not clarify the distinction."
             },
             "chapter": 4,
             "section": "4.2",
@@ -5240,7 +5242,7 @@ window.questionSets = {
         },
         {
             "id": "Q182",
-            "statement": "An order processing system has states: New, Verified, Shipped, Delivered, Cancelled. From the Verified state, which of the following transitions is most likely valid?",
+            "statement": "An order model permits these transitions only: New -> Verified, New -> Cancelled, Verified -> Shipped, Verified -> Cancelled, and Shipped -> Delivered. Which listed transition is valid from Verified?",
             "options": {
                 "A": "Verified to New",
                 "B": "Verified to Shipped",
@@ -5248,18 +5250,18 @@ window.questionSets = {
                 "D": "Shipped to Cancelled"
             },
             "correctAnswer": "B",
-            "explanation": "In an order processing system, a verified order can be shipped. The typical flow is: New -> Verified -> Shipped -> Delivered. Cancellation is usually only possible from New or Verified states, not after shipping.",
-            "correctFeedback": "✅ Correct: A verified order can proceed to being shipped, which is the next logical state.",
+            "explanation": "The supplied model explicitly allows Verified -> Shipped. Verified -> New and Verified -> Delivered are not listed, and Shipped -> Cancelled neither starts at Verified nor appears in the model.",
+            "correctFeedback": "✅ Correct: Verified -> Shipped is explicitly permitted.",
             "incorrectFeedback": {
-                "A": "❌ Incorrect: Going back to New from Verified would not make sense in a forward-flowing process.",
-                "C": "❌ Incorrect: Delivered can only be reached after Shipped.",
-                "D": "❌ Incorrect: Cancelling after shipping is typically not allowed in standard order processing."
+                "A": "❌ Incorrect: Verified -> New is not a permitted transition in the supplied model.",
+                "C": "❌ Incorrect: Verified -> Delivered is not a permitted direct transition.",
+                "D": "❌ Incorrect: This transition starts at Shipped, not Verified, and is not permitted by the model."
             },
             "optionExplanations": {
-                "A": "Going back to New from Verified would not make sense in a forward-flowing process.",
-                "B": "A verified order can proceed to being shipped, which is the next logical state.",
-                "C": "Delivered can only be reached after Shipped.",
-                "D": "Cancelling after shipping is typically not allowed in standard order processing."
+                "A": "Verified -> New is not a permitted transition in the supplied model.",
+                "B": "Verified -> Shipped is explicitly permitted.",
+                "C": "Verified -> Delivered is not a permitted direct transition.",
+                "D": "This transition starts at Shipped, not Verified, and is not permitted by the model."
             },
             "chapter": 4,
             "section": "4.2",
@@ -5451,7 +5453,7 @@ window.questionSets = {
             "section": "4.2",
             "subsection": "4.2.4",
             "learningObjective": "FL-4.2.4",
-            "kLevel": "K2",
+            "kLevel": "K3",
             "difficulty": "Hard",
             "keywords": [
                 "state transition testing",
@@ -5472,7 +5474,7 @@ window.questionSets = {
                 "D": "3"
             },
             "correctAnswer": "C",
-            "explanation": "With 3 conditions (Age >= 25, Previous Claims, Sports Car), a complete decision table requires 2^3 = 8 test cases (one per combination of condition values). The surcharge rule (OR of any condition) means surcharge = yes in 7 out of 8 cases (only no surcharge when all conditions are false).",
+            "explanation": "The three Boolean conditions produce 2^3 = 8 combinations. With the conditions defined as Age >= 25, Previous Claims, and Sports Car, no surcharge applies only to (True, False, False); the other seven combinations incur a surcharge.",
             "correctFeedback": "✅ Correct: 8 combinations are needed for 3 binary conditions.",
             "incorrectFeedback": {
                 "A": "❌ Incorrect: 4 is 2^2, but there are 3 conditions requiring 2^3 = 8.",
@@ -5698,13 +5700,13 @@ window.questionSets = {
             "correctFeedback": "✅ Correct: A checklist of common vulnerabilities guides the test design.",
             "incorrectFeedback": {
                 "B": "❌ Incorrect: State transition testing models system states and transitions.",
-                "C": "❌ Incorrect: Exploratory testing is unstructured and adaptive.",
+                "C": "❌ Incorrect: Exploratory testing combines learning, design, and execution; it can be structured using charters and time-boxed sessions.",
                 "D": "❌ Incorrect: Equivalence partitioning divides input data into partitions."
             },
             "optionExplanations": {
                 "A": "A checklist of common vulnerabilities guides the test design.",
                 "B": "State transition testing models system states and transitions.",
-                "C": "Exploratory testing is unstructured and adaptive.",
+                "C": "Exploratory testing combines learning, design, and execution; it can be structured using charters and time-boxed sessions.",
                 "D": "Equivalence partitioning divides input data into partitions."
             },
             "chapter": 4,
@@ -5723,7 +5725,7 @@ window.questionSets = {
         },
         {
             "id": "Q051",
-            "statement": "A system calculates shipping costs based on weight. If weight <= 1kg, shipping is $5. If 1kg < weight <= 5kg, shipping is $10. If 5kg < weight <= 10kg, shipping is $15. If weight > 10kg, shipping is $20. Using equivalence partitioning, how many valid partitions exist?",
+            "statement": "A system accepts positive parcel weights and calculates shipping costs based on weight. If weight <= 1kg, shipping is $5. If 1kg < weight <= 5kg, shipping is $10. If 5kg < weight <= 10kg, shipping is $15. If weight > 10kg, shipping is $20. Using equivalence partitioning, how many valid partitions exist?",
             "options": {
                 "A": "2",
                 "B": "3",
@@ -5768,7 +5770,7 @@ window.questionSets = {
                 "D": "The turnstile breaks"
             },
             "correctAnswer": "B",
-            "explanation": "According to the state transition model, when the turnstile is in the Locked state and a push occurs, the transition is not defined (or is self-looping), meaning the turnstile remains in Locked. Only inserting a coin in Locked causes a transition to Unlocked.",
+            "explanation": "The specification explicitly says that pushing while Locked leaves the turnstile Locked. This is a defined no-state-change behavior; an unspecified or invalid transition must not automatically be assumed to be ignored.",
             "correctFeedback": "✅ Correct: In the Locked state, pushing does not cause a state change; the turnstile stays Locked.",
             "incorrectFeedback": {
                 "A": "❌ Incorrect: A transition to Unlocked requires inserting a coin, not pushing.",
@@ -5792,8 +5794,8 @@ window.questionSets = {
                 "turnstile",
                 "invalid transition"
             ],
-            "examTip": "When an event has no defined transition in a state, the system typically ignores it or remains in the same state.",
-            "memoryAid": "No transition defined = stay where you are."
+            "examTip": "Use the specified event response. A self-transition is defined behavior, not the same as an unspecified transition.",
+            "memoryAid": "Specified Locked + push = remain Locked."
         },
         {
             "id": "Q226",
@@ -5833,7 +5835,7 @@ window.questionSets = {
         },
         {
             "id": "Q263",
-            "statement": "For a delivery fee rule, orders below $50 pay a fee, orders $50 and above ship free. Which boundary values are most useful for two-value BVA?",
+            "statement": "For a delivery fee rule, orders below $50 pay a fee, orders $50 and above ship free. Which boundary values are most useful for two-value BVA? Order totals use increments of $0.01.",
             "options": {
                 "A": "1.00 and 2.00",
                 "B": "25.00 and 75.00",
@@ -5906,7 +5908,7 @@ window.questionSets = {
         },
         {
             "id": "Q131",
-            "statement": "A patient monitoring system displays alerts based on vital signs. The rules are:\\n- If heart rate > 120 AND blood pressure > 180, alert 'CRITICAL'\\n- If heart rate > 120 OR blood pressure > 180, alert 'WARNING'\\n- Otherwise, alert 'NORMAL'\\n\\nUsing a decision table approach, how many unique combinations of conditions exist for the two boolean inputs (heart rate > 120, blood pressure > 180)?",
+            "statement": "A patient monitoring system displays alerts based on vital signs. The rules are:\\n- If heart rate > 120 AND blood pressure > 180, alert 'CRITICAL'\\n- Otherwise, if heart rate > 120 OR blood pressure > 180, alert 'WARNING'\\n- Otherwise, alert 'NORMAL'\\n\\nUsing a decision table approach, how many unique combinations of conditions exist for the two boolean inputs (heart rate > 120, blood pressure > 180)?",
             "options": {
                 "A": "4",
                 "B": "2",
@@ -5968,10 +5970,10 @@ window.questionSets = {
                 "D": "Risk-based testing allocates more effort to high-risk areas."
             },
             "chapter": 5,
-            "section": "5.5",
-            "subsection": "5.5.1",
-            "learningObjective": "FL-5.5.1",
-            "kLevel": "K3",
+            "section": "5.2",
+            "subsection": "5.2.3",
+            "learningObjective": "FL-5.2.3",
+            "kLevel": "K2",
             "difficulty": "Medium",
             "keywords": [
                 "risk analysis",
@@ -6005,11 +6007,11 @@ window.questionSets = {
                 "C": "Deleting the blocked tests removes the record and any future ability to track and resolve the blocker.",
                 "D": "Stopping status reporting removes visibility for stakeholders and prevents timely corrective action."
             },
-            "chapter": 5,
-            "section": "5.3",
-            "subsection": "5.3.1",
-            "learningObjective": "FL-5.3.1",
-            "kLevel": "K1",
+            "chapter": 1,
+            "section": "1.4",
+            "subsection": "1.4.1",
+            "learningObjective": "FL-1.4.1",
+            "kLevel": "K2",
             "difficulty": "Medium",
             "keywords": [
                 "test control",
@@ -6080,9 +6082,9 @@ window.questionSets = {
             },
             "chapter": 5,
             "section": "5.3",
-            "subsection": "5.3.1",
-            "learningObjective": "FL-5.3.1",
-            "kLevel": "K1",
+            "subsection": "5.3.2",
+            "learningObjective": "FL-5.3.2",
+            "kLevel": "K2",
             "difficulty": "Easy",
             "keywords": [
                 "test completion report",
@@ -6117,8 +6119,8 @@ window.questionSets = {
             },
             "chapter": 5,
             "section": "5.2",
-            "subsection": "5.2.2",
-            "learningObjective": "FL-5.2.2",
+            "subsection": "5.2.3",
+            "learningObjective": "FL-5.2.3",
             "kLevel": "K2",
             "difficulty": "Medium",
             "keywords": [
@@ -6143,19 +6145,19 @@ window.questionSets = {
             "explanation": "Severity reflects the impact of the defect on the component or system; a minor spelling issue typically has low severity.",
             "correctFeedback": "✅ Correct: Severity reflects the impact of the defect on the component or system; a minor spelling issue typically has low severity.",
             "incorrectFeedback": {
-                "B": "❌ Incorrect: 'High severity' reflects the impact of a defect on the system or users. This scenario requires severity, which reflects the impact of a defect on the system or users.",
-                "C": "❌ Incorrect: 'Critical severity' reflects the impact of a defect on the system or users. This scenario requires severity, which reflects the impact of a defect on the system or users.",
-                "D": "❌ Incorrect: 'Severity cannot be assigned' reflects the impact of a defect on the system or users. This scenario requires severity, which reflects the impact of a defect on the system or users."
+                "B": "❌ Incorrect: The stated limited impact of a minor spelling error does not justify high severity.",
+                "C": "❌ Incorrect: Critical severity is not supported by the limited impact in the scenario.",
+                "D": "❌ Incorrect: The supplied impact information permits a low-severity classification."
             },
             "optionExplanations": {
                 "A": "Severity reflects the impact of the defect on the component or system; a minor spelling issue typically has low severity.",
-                "B": "'High severity' reflects the impact of a defect on the system or users. This scenario requires severity, which reflects the impact of a defect on the system or users.",
-                "C": "'Critical severity' reflects the impact of a defect on the system or users. This scenario requires severity, which reflects the impact of a defect on the system or users.",
-                "D": "'Severity cannot be assigned' reflects the impact of a defect on the system or users. This scenario requires severity, which reflects the impact of a defect on the system or users."
+                "B": "The stated limited impact of a minor spelling error does not justify high severity.",
+                "C": "Critical severity is not supported by the limited impact in the scenario.",
+                "D": "The supplied impact information permits a low-severity classification."
             },
             "chapter": 5,
             "section": "5.5",
-            "subsection": "5.5.1",
+            "subsection": "5.5",
             "learningObjective": "FL-5.5.1",
             "kLevel": "K3",
             "difficulty": "Medium",
@@ -6191,7 +6193,7 @@ window.questionSets = {
             },
             "chapter": 5,
             "section": "5.5",
-            "subsection": "5.5.1",
+            "subsection": "5.5",
             "learningObjective": "FL-5.5.1",
             "kLevel": "K3",
             "difficulty": "Medium",
@@ -6227,7 +6229,7 @@ window.questionSets = {
             },
             "chapter": 5,
             "section": "5.5",
-            "subsection": "5.5.1",
+            "subsection": "5.5",
             "learningObjective": "FL-5.5.1",
             "kLevel": "K3",
             "difficulty": "Medium",
@@ -6262,10 +6264,10 @@ window.questionSets = {
                 "D": "The development budget is a project management artifact."
             },
             "chapter": 5,
-            "section": "5.2",
-            "subsection": "5.2.1",
-            "learningObjective": "FL-5.2.1",
-            "kLevel": "K1",
+            "section": "5.1",
+            "subsection": "5.1.1",
+            "learningObjective": "FL-5.1.1",
+            "kLevel": "K2",
             "difficulty": "Medium",
             "keywords": [
                 "test plan",
@@ -6301,7 +6303,7 @@ window.questionSets = {
             },
             "chapter": 5,
             "section": "5.4",
-            "subsection": "5.4.1",
+            "subsection": "5.4",
             "learningObjective": "FL-5.4.1",
             "kLevel": "K2",
             "difficulty": "Medium",
@@ -6337,10 +6339,10 @@ window.questionSets = {
                 "D": "Quality risk is another term for product risk."
             },
             "chapter": 5,
-            "section": "5.5",
-            "subsection": "5.5.1",
-            "learningObjective": "FL-5.5.1",
-            "kLevel": "K3",
+            "section": "5.2",
+            "subsection": "5.2.2",
+            "learningObjective": "FL-5.2.2",
+            "kLevel": "K2",
             "difficulty": "Medium",
             "keywords": [
                 "project risk",
@@ -6374,10 +6376,10 @@ window.questionSets = {
                 "D": "Missing Payment (P1) would leave a critical risk unaddressed."
             },
             "chapter": 5,
-            "section": "5.2",
-            "subsection": "5.2.4",
-            "learningObjective": "FL-5.2.4",
-            "kLevel": "K2",
+            "section": "5.1",
+            "subsection": "5.1.5",
+            "learningObjective": "FL-5.1.5",
+            "kLevel": "K3",
             "difficulty": "Hard",
             "keywords": [
                 "prioritization",
@@ -6386,7 +6388,7 @@ window.questionSets = {
                 "risk-based"
             ],
             "examTip": "Schedule by priority, respect dependencies, fill remaining capacity.",
-            "memoryAid": "Priority first, dependency second."
+            "memoryAid": "Respect dependencies; prioritize among the tests that can execute."
         },
         {
             "id": "Q352",
@@ -6412,10 +6414,10 @@ window.questionSets = {
                 "D": "Risk analysis informs regression testing; it does not replace it."
             },
             "chapter": 5,
-            "section": "5.5",
-            "subsection": "5.5.1",
-            "learningObjective": "FL-5.5.1",
-            "kLevel": "K3",
+            "section": "5.2",
+            "subsection": "5.2.3",
+            "learningObjective": "FL-5.2.3",
+            "kLevel": "K2",
             "difficulty": "Medium",
             "keywords": [
                 "risk analysis",
@@ -6449,10 +6451,10 @@ window.questionSets = {
                 "D": "Expert judgment works well with incomplete information by relying on past experience."
             },
             "chapter": 5,
-            "section": "5.2",
-            "subsection": "5.2.1",
-            "learningObjective": "FL-5.2.1",
-            "kLevel": "K1",
+            "section": "5.1",
+            "subsection": "5.1.4",
+            "learningObjective": "FL-5.1.4",
+            "kLevel": "K3",
             "difficulty": "Medium",
             "keywords": [
                 "estimation",
@@ -6487,7 +6489,7 @@ window.questionSets = {
             },
             "chapter": 5,
             "section": "5.5",
-            "subsection": "5.5.1",
+            "subsection": "5.5",
             "learningObjective": "FL-5.5.1",
             "kLevel": "K3",
             "difficulty": "Medium",
@@ -6501,7 +6503,7 @@ window.questionSets = {
         },
         {
             "id": "Q138",
-            "statement": "A defect is reported as 'High severity' because it causes the application to crash when a specific report is generated. However, the report is only used by one client once per quarter. What priority should this defect likely receive?",
+            "statement": "A report crashes the application and is classified as high severity. It is rarely used, an effective workaround exists, and stakeholders confirm there is no immediate operational, contractual, or regulatory need for a fix. Which priority is most appropriate?",
             "options": {
                 "A": "Low priority because the business impact is limited despite the high technical severity",
                 "B": "High priority because any crash is unacceptable",
@@ -6512,19 +6514,19 @@ window.questionSets = {
             "explanation": "Priority reflects business urgency and impact. While the technical severity is high (crash), the business impact is limited (one client, quarterly use). Therefore, the priority would likely be lower than a defect that crashes a core feature used daily by all clients.",
             "correctFeedback": "✅ Correct: Priority considers business context, not just technical impact.",
             "incorrectFeedback": {
-                "B": "❌ Incorrect: Every defect should be prioritized to guide resolution timing.",
+                "B": "❌ Incorrect: Priority considers business impact; limited usage means lower urgency to fix.",
                 "C": "❌ Incorrect: Severity and priority can differ based on business context.",
-                "D": "❌ Incorrect: Priority considers business impact; limited usage means lower urgency to fix."
+                "D": "❌ Incorrect: Every defect should be prioritized to guide resolution timing."
             },
             "optionExplanations": {
                 "A": "Priority considers business context, not just technical impact.",
-                "B": "Every defect should be prioritized to guide resolution timing.",
+                "B": "Priority considers business impact; limited usage means lower urgency to fix.",
                 "C": "Severity and priority can differ based on business context.",
-                "D": "Priority considers business impact; limited usage means lower urgency to fix."
+                "D": "Every defect should be prioritized to guide resolution timing."
             },
             "chapter": 5,
             "section": "5.5",
-            "subsection": "5.5.1",
+            "subsection": "5.5",
             "learningObjective": "FL-5.5.1",
             "kLevel": "K3",
             "difficulty": "Medium",
@@ -6534,7 +6536,7 @@ window.questionSets = {
                 "defect triage"
             ],
             "examTip": "Severity = technical impact; Priority = business urgency. A severe crash can be low priority if rarely used.",
-            "memoryAid": "High severity crash + low usage = low priority."
+            "memoryAid": "Low urgency must be justified by business context and mitigations, not usage frequency alone."
         },
         {
             "id": "Q350",
@@ -6550,20 +6552,20 @@ window.questionSets = {
             "correctFeedback": "✅ Correct: Potential defects in a module due to complexity and history is a product risk.",
             "incorrectFeedback": {
                 "A": "❌ Incorrect: The risk is about defect potential, not schedule impact.",
-                "B": "❌ Incorrect: Organizational risks involve company-level factors.",
-                "C": "❌ Incorrect: Budget is a project risk, not the primary concern here."
+                "B": "❌ Incorrect: Budget is a project risk, not the primary concern here.",
+                "C": "❌ Incorrect: Organizational risks involve company-level factors."
             },
             "optionExplanations": {
                 "A": "The risk is about defect potential, not schedule impact.",
-                "B": "Organizational risks involve company-level factors.",
-                "C": "Budget is a project risk, not the primary concern here.",
+                "B": "Budget is a project risk, not the primary concern here.",
+                "C": "Organizational risks involve company-level factors.",
                 "D": "Potential defects in a module due to complexity and history is a product risk."
             },
             "chapter": 5,
-            "section": "5.5",
-            "subsection": "5.5.1",
-            "learningObjective": "FL-5.5.1",
-            "kLevel": "K3",
+            "section": "5.2",
+            "subsection": "5.2.2",
+            "learningObjective": "FL-5.2.2",
+            "kLevel": "K2",
             "difficulty": "Medium",
             "keywords": [
                 "product risk",
@@ -6598,9 +6600,9 @@ window.questionSets = {
             },
             "chapter": 5,
             "section": "5.3",
-            "subsection": "5.3.1",
-            "learningObjective": "FL-5.3.1",
-            "kLevel": "K1",
+            "subsection": "5.3.2",
+            "learningObjective": "FL-5.3.2",
+            "kLevel": "K2",
             "difficulty": "Easy",
             "keywords": [
                 "test progress",
@@ -6623,21 +6625,21 @@ window.questionSets = {
             "explanation": "A traceability matrix maps the relationship between requirements and test cases. It helps assess test coverage, identify the impact of requirement changes, provide evidence that all requirements are tested, and support reporting.",
             "correctFeedback": "✅ Correct: Traceability matrices link requirements to test cases for coverage and impact analysis.",
             "incorrectFeedback": {
-                "A": "❌ Incorrect: Test cases still need to be documented; the matrix links them to requirements.",
-                "B": "❌ Incorrect: Tester assignment is a resourcing activity, not the purpose of traceability.",
-                "D": "❌ Incorrect: Budget calculation is a separate activity."
+                "A": "❌ Incorrect: Tester assignment is a resourcing activity, not the purpose of traceability.",
+                "B": "❌ Incorrect: Budget calculation is a separate activity.",
+                "D": "❌ Incorrect: Test cases still need to be documented; the matrix links them to requirements."
             },
             "optionExplanations": {
-                "A": "Test cases still need to be documented; the matrix links them to requirements.",
-                "B": "Tester assignment is a resourcing activity, not the purpose of traceability.",
+                "A": "Tester assignment is a resourcing activity, not the purpose of traceability.",
+                "B": "Budget calculation is a separate activity.",
                 "C": "Traceability matrices link requirements to test cases for coverage and impact analysis.",
-                "D": "Budget calculation is a separate activity."
+                "D": "Test cases still need to be documented; the matrix links them to requirements."
             },
-            "chapter": 5,
-            "section": "5.3",
-            "subsection": "5.3.1",
-            "learningObjective": "FL-5.3.1",
-            "kLevel": "K1",
+            "chapter": 1,
+            "section": "1.4",
+            "subsection": "1.4.4",
+            "learningObjective": "FL-1.4.4",
+            "kLevel": "K2",
             "difficulty": "Easy",
             "keywords": [
                 "traceability matrix",
@@ -6660,19 +6662,19 @@ window.questionSets = {
             "explanation": "After verifying that a defect fix works correctly, the tester should update the defect report status to indicate that the fix has been confirmed and the defect can be closed. This provides a clear audit trail of the defect's lifecycle from discovery through resolution and verification.",
             "correctFeedback": "✅ Correct: Updating the status to verified/closed provides proper tracking and audit trail.",
             "incorrectFeedback": {
-                "A": "❌ Incorrect: Defect reports should be preserved for historical analysis and process improvement.",
-                "C": "❌ Incorrect: Reopening would be incorrect since the fix has been confirmed.",
-                "D": "❌ Incorrect: The report must be formally updated to reflect the verification result."
+                "A": "❌ Incorrect: Reopening would be incorrect since the fix has been confirmed.",
+                "C": "❌ Incorrect: The report must be formally updated to reflect the verification result.",
+                "D": "❌ Incorrect: Defect reports should be preserved for historical analysis and process improvement."
             },
             "optionExplanations": {
-                "A": "Defect reports should be preserved for historical analysis and process improvement.",
+                "A": "Reopening would be incorrect since the fix has been confirmed.",
                 "B": "Updating the status to verified/closed provides proper tracking and audit trail.",
-                "C": "Reopening would be incorrect since the fix has been confirmed.",
-                "D": "The report must be formally updated to reflect the verification result."
+                "C": "The report must be formally updated to reflect the verification result.",
+                "D": "Defect reports should be preserved for historical analysis and process improvement."
             },
             "chapter": 5,
             "section": "5.5",
-            "subsection": "5.5.1",
+            "subsection": "5.5",
             "learningObjective": "FL-5.5.1",
             "kLevel": "K3",
             "difficulty": "Medium",
@@ -6707,10 +6709,10 @@ window.questionSets = {
                 "C": "Decentralized has testers embedded in and reporting to individual project teams.",
                 "D": "A central test department with a test manager allocating resources is centralized."
             },
-            "chapter": 5,
-            "section": "5.1",
-            "subsection": "5.1.1",
-            "learningObjective": "FL-5.1.1",
+            "chapter": 1,
+            "section": "1.4",
+            "subsection": "1.4.5",
+            "learningObjective": "FL-1.4.5",
             "kLevel": "K2",
             "difficulty": "Medium",
             "keywords": [
@@ -6731,23 +6733,23 @@ window.questionSets = {
                 "D": "The test environment is being set up"
             },
             "correctAnswer": "A",
-            "explanation": "Entry criteria define the conditions that must be met before testing can begin. Quantitative criteria such as 'unit tests passed with specific coverage' are objective and measurable. Vague criteria like 'testers are tired' or informal approvals are not valid entry criteria.",
+            "explanation": "Entry criteria describe preconditions for starting an activity, including resource and testware availability and the initial quality of the test object. Prior-level coverage and defect thresholds can be entry criteria for a later level. Approval formalities depend on the agreed process.",
             "correctFeedback": "✅ Correct: Measurable coverage and defect status are objective entry criteria.",
             "incorrectFeedback": {
                 "B": "❌ Incorrect: Subjective states are not valid entry criteria.",
-                "C": "❌ Incorrect: Approvals should be formal and documented.",
+                "C": "❌ Incorrect: Test-plan approval may be an agreed entry criterion, but this option alone does not establish the readiness of the system and supporting test resources.",
                 "D": "❌ Incorrect: The environment must be ready, not being set up."
             },
             "optionExplanations": {
                 "A": "Measurable coverage and defect status are objective entry criteria.",
                 "B": "Subjective states are not valid entry criteria.",
-                "C": "Approvals should be formal and documented.",
+                "C": "Test-plan approval may be an agreed entry criterion, but this option alone does not establish the readiness of the system and supporting test resources.",
                 "D": "The environment must be ready, not being set up."
             },
             "chapter": 5,
-            "section": "5.2",
-            "subsection": "5.2.3",
-            "learningObjective": "FL-5.2.3",
+            "section": "5.1",
+            "subsection": "5.1.3",
+            "learningObjective": "FL-5.1.3",
             "kLevel": "K2",
             "difficulty": "Medium",
             "keywords": [
@@ -6762,38 +6764,38 @@ window.questionSets = {
             "id": "Q115",
             "statement": "Which of the following describes the correct sequence of risk management activities?",
             "options": {
-                "C": "Risk identification, risk analysis, risk mitigation, risk monitoring",
+                "C": "Risk identification, risk assessment, risk mitigation, risk monitoring",
                 "D": "Risk mitigation, risk identification, risk analysis, risk monitoring",
                 "A": "Risk monitoring, risk identification, risk analysis, risk mitigation",
                 "B": "Risk analysis, risk identification, risk monitoring, risk mitigation"
             },
             "correctAnswer": "C",
-            "explanation": "Risk management follows this sequence: 1) Risk identification (find potential risks), 2) Risk analysis (assess likelihood and impact), 3) Risk mitigation (plan and implement actions to address risks), 4) Risk monitoring (track risks and mitigation effectiveness throughout the project).",
-            "correctFeedback": "✅ Correct: Analysis cannot occur before identification.",
+            "explanation": "Risk analysis includes identifying and assessing risks; risk control includes mitigation and monitoring. These activities are revisited as information changes. Identification normally precedes assessment of that risk, and monitoring tracks risks and the effectiveness of responses.",
+            "correctFeedback": "✅ Correct: Identify and assess risks, then plan and monitor appropriate mitigation; revisit the activities as risks change.",
             "incorrectFeedback": {
-                "A": "❌ Incorrect: Monitoring occurs after mitigation is implemented.",
-                "B": "❌ Incorrect: Mitigation before identification is impossible.",
-                "D": "❌ Incorrect: Identify → Analyze → Mitigate → Monitor is the correct sequence."
+                "A": "❌ Incorrect: This begins mitigation and monitoring before identifying and assessing the risks to be addressed.",
+                "B": "❌ Incorrect: This starts mitigation before the risks are identified and assessed.",
+                "D": "❌ Incorrect: Assessment requires identified risks; the stated order reverses that relationship."
             },
             "optionExplanations": {
-                "A": "Monitoring occurs after mitigation is implemented.",
-                "B": "Mitigation before identification is impossible.",
-                "C": "Analysis cannot occur before identification.",
-                "D": "Identify → Analyze → Mitigate → Monitor is the correct sequence."
+                "A": "This begins mitigation and monitoring before identifying and assessing the risks to be addressed.",
+                "B": "This starts mitigation before the risks are identified and assessed.",
+                "C": "Identify and assess risks, then plan and monitor appropriate mitigation; revisit the activities as risks change.",
+                "D": "Assessment requires identified risks; the stated order reverses that relationship."
             },
             "chapter": 5,
-            "section": "5.5",
-            "subsection": "5.5.1",
-            "learningObjective": "FL-5.5.1",
-            "kLevel": "K3",
+            "section": "5.2",
+            "subsection": "5.2.4",
+            "learningObjective": "FL-5.2.4",
+            "kLevel": "K2",
             "difficulty": "Easy",
             "keywords": [
                 "risk management",
                 "risk process",
                 "sequence"
             ],
-            "examTip": "Risk management: Identify, Analyze, Mitigate, Monitor.",
-            "memoryAid": "I A M M: Identify, Analyze, Mitigate, Monitor."
+            "examTip": "Risk analysis = identification + assessment; risk control = mitigation + monitoring.",
+            "memoryAid": "Identify, assess, mitigate, monitor; iterate when risk information changes."
         },
         {
             "id": "Q031",
@@ -6809,20 +6811,20 @@ window.questionSets = {
             "correctFeedback": "✅ Correct: Product risks are quality-related risks inherent in the software product.",
             "incorrectFeedback": {
                 "A": "❌ Incorrect: Business risk is a type of project risk related to business impact.",
-                "C": "❌ Incorrect: Project risks involve schedule, budget, resources, and organizational factors.",
-                "D": "❌ Incorrect: Schedule risk is a type of project risk related to timelines."
+                "C": "❌ Incorrect: Schedule risk is a type of project risk related to timelines.",
+                "D": "❌ Incorrect: Project risks involve schedule, budget, resources, and organizational factors."
             },
             "optionExplanations": {
                 "A": "Business risk is a type of project risk related to business impact.",
                 "B": "Product risks are quality-related risks inherent in the software product.",
-                "C": "Project risks involve schedule, budget, resources, and organizational factors.",
-                "D": "Schedule risk is a type of project risk related to timelines."
+                "C": "Schedule risk is a type of project risk related to timelines.",
+                "D": "Project risks involve schedule, budget, resources, and organizational factors."
             },
             "chapter": 5,
-            "section": "5.5",
-            "subsection": "5.5.1",
-            "learningObjective": "FL-5.5.1",
-            "kLevel": "K3",
+            "section": "5.2",
+            "subsection": "5.2.2",
+            "learningObjective": "FL-5.2.2",
+            "kLevel": "K2",
             "difficulty": "Easy",
             "keywords": [
                 "product risk",
@@ -6834,7 +6836,7 @@ window.questionSets = {
         },
         {
             "id": "Q032",
-            "statement": "A defect report should typically include which of the following?",
+            "statement": "Which option contains the core description and reproduction information needed to investigate a reported failure?",
             "options": {
                 "A": "A clear description of the defect, steps to reproduce, and expected vs actual results",
                 "B": "The test case ID and the name of the tester who found it",
@@ -6857,7 +6859,7 @@ window.questionSets = {
             },
             "chapter": 5,
             "section": "5.5",
-            "subsection": "5.5.1",
+            "subsection": "5.5",
             "learningObjective": "FL-5.5.1",
             "kLevel": "K3",
             "difficulty": "Medium",
@@ -6871,7 +6873,7 @@ window.questionSets = {
         },
         {
             "id": "Q271",
-            "statement": "Which exit criterion is objective and testable?",
+            "statement": "Which option specifies measurable product-quality and test-result thresholds for completing testing?",
             "options": {
                 "A": "Everyone feels testing is enough",
                 "B": "The team is tired",
@@ -6884,19 +6886,19 @@ window.questionSets = {
             "incorrectFeedback": {
                 "A": "❌ Incorrect: 'Everyone feels testing is enough' is subjective and opinion-based. Feelings vary between people and cannot be objectively verified. Good exit criteria must be measurable, agreed upon before testing starts, and independently verifiable.",
                 "B": "❌ Incorrect: 'The team is tired' is a human factors observation, not a test completion criterion. Team fatigue indicates a management or scheduling issue, not an objective measure of testing completeness or product quality.",
-                "C": "❌ Incorrect: 'The release date has arrived' is a calendar event, not evidence of test completion. The date arriving tells you nothing about defect status, coverage achieved, or quality levels — you may release on time with an untested, buggy product."
+                "C": "❌ Incorrect: A release date is measurable but does not specify product-quality or test-result thresholds. Time exhaustion can be an exit criterion when stakeholders review and accept the remaining risk."
             },
             "optionExplanations": {
                 "A": "'Everyone feels testing is enough' is subjective and opinion-based. Good exit criteria must be objectively measurable.",
                 "B": "'The team is tired' is a human factors observation, not an objective measure of testing completeness or product quality.",
-                "C": "'The release date has arrived' is a calendar milestone, not evidence of test completion. It tells you nothing about defect status or coverage achieved.",
+                "C": "A release date is measurable but does not specify product-quality or test-result thresholds. Time exhaustion can be an exit criterion when stakeholders review and accept the remaining risk.",
                 "D": "Exit criteria should be measurable, such as defect status, coverage, and pass rates. 'No unresolved critical defects and at least 95% of high-priority tests passed' is objective and verifiable."
             },
             "chapter": 5,
             "section": "5.1",
-            "subsection": "5.1.2",
-            "learningObjective": "FL-5.1.2",
-            "kLevel": "K1",
+            "subsection": "5.1.3",
+            "learningObjective": "FL-5.1.3",
+            "kLevel": "K2",
             "difficulty": "Medium",
             "keywords": [
                 "exit criteria",
@@ -6956,18 +6958,18 @@ window.questionSets = {
             "correctFeedback": "✅ Correct: Defect management is a systematic process for tracking defects throughout their lifecycle.",
             "incorrectFeedback": {
                 "A": "❌ Incorrect: Defect management focuses on resolution, not blame.",
-                "B": "❌ Incorrect: Punishment is not a goal of defect management.",
-                "D": "❌ Incorrect: Defects are prioritized and resolved based on severity and resources."
+                "B": "❌ Incorrect: Defects are prioritized and resolved based on severity and resources.",
+                "D": "❌ Incorrect: Punishment is not a goal of defect management."
             },
             "optionExplanations": {
                 "A": "Defect management focuses on resolution, not blame.",
-                "B": "Punishment is not a goal of defect management.",
+                "B": "Defects are prioritized and resolved based on severity and resources.",
                 "C": "Defect management is a systematic process for tracking defects throughout their lifecycle.",
-                "D": "Defects are prioritized and resolved based on severity and resources."
+                "D": "Punishment is not a goal of defect management."
             },
             "chapter": 5,
             "section": "5.5",
-            "subsection": "5.5.1",
+            "subsection": "5.5",
             "learningObjective": "FL-5.5.1",
             "kLevel": "K3",
             "difficulty": "Medium",
@@ -6989,23 +6991,23 @@ window.questionSets = {
                 "D": "All planned tests have been executed, no critical defects remain open, and achieved coverage meets the defined targets"
             },
             "correctAnswer": "D",
-            "explanation": "Exit criteria are measurable conditions that must be met to conclude a test phase. They typically include completion of planned tests, achievement of coverage targets, and resolution of defects at defined severity levels. Subjective feelings or budget consumption are not valid exit criteria.",
+            "explanation": "Execution status, coverage, and unresolved-defect thresholds are typical exit criteria. Running out of time or budget can also justify ending testing if stakeholders review and accept the residual risk; spending a budget is not itself evidence of adequate quality.",
             "correctFeedback": "✅ Correct: Execution completion, defect status, and coverage targets are objective exit criteria.",
             "incorrectFeedback": {
                 "A": "❌ Incorrect: Feelings are subjective and not measurable.",
                 "B": "❌ Incorrect: Test case review is an entry criterion, not exit.",
-                "C": "❌ Incorrect: Budget consumption does not indicate testing completeness."
+                "C": "❌ Incorrect: Budget exhaustion can be an exit condition if stakeholders accept the remaining risk, but this option provides no such acceptance or quality assessment."
             },
             "optionExplanations": {
                 "A": "Feelings are subjective and not measurable.",
                 "B": "Test case review is an entry criterion, not exit.",
-                "C": "Budget consumption does not indicate testing completeness.",
+                "C": "Budget exhaustion can be an exit condition if stakeholders accept the remaining risk, but this option provides no such acceptance or quality assessment.",
                 "D": "Execution completion, defect status, and coverage targets are objective exit criteria."
             },
             "chapter": 5,
-            "section": "5.2",
-            "subsection": "5.2.3",
-            "learningObjective": "FL-5.2.3",
+            "section": "5.1",
+            "subsection": "5.1.3",
+            "learningObjective": "FL-5.1.3",
             "kLevel": "K2",
             "difficulty": "Medium",
             "keywords": [
@@ -7039,10 +7041,10 @@ window.questionSets = {
                 "C": "'Office location to employee badge number' is incorrect. Traceability links requirements, tests, and defects bidirectionally. It helps assess change impact and provide quality information; it does not replace test execution or defect reporting.",
                 "D": "'Tool vendor to invoice color' is incorrect. Traceability links requirements, tests, and defects bidirectionally. It helps assess change impact and provide quality information; it does not replace test execution or defect reporting."
             },
-            "chapter": 5,
-            "section": "5.4",
-            "subsection": "5.4.1",
-            "learningObjective": "FL-5.4.1",
+            "chapter": 1,
+            "section": "1.4",
+            "subsection": "1.4.4",
+            "learningObjective": "FL-1.4.4",
             "kLevel": "K2",
             "difficulty": "Medium",
             "keywords": [
@@ -7054,32 +7056,32 @@ window.questionSets = {
         },
         {
             "id": "Q342",
-            "statement": "A test suite has these test cases with dependencies: T1 (no deps), T2 (needs T1), T3 (needs T1), T4 (needs T2 and T3), T5 (no deps). If the team can execute only 3 test cases, which set maximizes coverage of the dependency chain?",
+            "statement": "A test suite has dependencies: T1 (none), T2 (requires T1), T3 (requires T1), T4 (requires both T2 and T3), and T5 (none). Only three tests can run. Which listed ordered set runs the greatest number of prerequisites needed for T4 while respecting every dependency?",
             "options": {
                 "A": "T1, T2, T3",
                 "B": "T1, T5, T2",
                 "C": "T1, T2, T4",
                 "D": "T5, T1, T2"
             },
-            "correctAnswer": "C",
-            "explanation": "To maximize dependency coverage: T1 enables both T2 and T3. T2 enables T4. With 3 slots: T1 -> T2 -> T4 exercises the longest chain. T5 is independent and should be included if capacity allows, but T1, T2, T4 exercises more dependency relationships.",
-            "correctFeedback": "✅ Correct: T1 -> T2 -> T4 exercises the full dependency chain to the final test.",
+            "correctAnswer": "A",
+            "explanation": "T1, T2, T3 is valid and completes all three prerequisite tests for T4. T1, T2, T4 is invalid because T3 has not run. The alternatives containing T5 complete fewer prerequisites for T4.",
+            "correctFeedback": "✅ Correct: T1, T2, T3 respects dependencies and completes all prerequisites for T4.",
             "incorrectFeedback": {
-                "A": "❌ Incorrect: T1, T2, T3 covers dependencies but does not reach the final dependent test T4.",
-                "B": "❌ Incorrect: T5 consumes a slot that could be used for the chain.",
-                "D": "❌ Incorrect: T5 wastes the limited capacity on an independent test."
+                "B": "❌ Incorrect: This is executable but spends one slot on T5 and omits prerequisite T3.",
+                "C": "❌ Incorrect: T4 requires both T2 and T3; T3 has not run, so this order is invalid.",
+                "D": "❌ Incorrect: This is executable but spends one slot on T5 and omits prerequisite T3."
             },
             "optionExplanations": {
-                "A": "T1, T2, T3 covers dependencies but does not reach the final dependent test T4.",
-                "B": "T5 consumes a slot that could be used for the chain.",
-                "C": "T1 -> T2 -> T4 exercises the full dependency chain to the final test.",
-                "D": "T5 wastes the limited capacity on an independent test."
+                "A": "T1, T2, T3 respects dependencies and completes all prerequisites for T4.",
+                "B": "This is executable but spends one slot on T5 and omits prerequisite T3.",
+                "C": "T4 requires both T2 and T3; T3 has not run, so this order is invalid.",
+                "D": "This is executable but spends one slot on T5 and omits prerequisite T3."
             },
             "chapter": 5,
-            "section": "5.2",
-            "subsection": "5.2.4",
-            "learningObjective": "FL-5.2.4",
-            "kLevel": "K2",
+            "section": "5.1",
+            "subsection": "5.1.5",
+            "learningObjective": "FL-5.1.5",
+            "kLevel": "K3",
             "difficulty": "Hard",
             "keywords": [
                 "dependencies",
@@ -7087,8 +7089,8 @@ window.questionSets = {
                 "test scheduling",
                 "chain coverage"
             ],
-            "examTip": "With limited slots, target the longest dependency chain.",
-            "memoryAid": "Chain tests give more coverage per slot."
+            "examTip": "A dependent test can run only after all its prerequisites have completed.",
+            "memoryAid": "Both T2 AND T3 must run before T4."
         },
         {
             "id": "Q189",
@@ -7103,15 +7105,15 @@ window.questionSets = {
             "explanation": "A test strategy defines the overall testing approach, including test levels, test types, techniques, and resource requirements at an organizational or program level. It provides high-level guidance, while test plans provide detail for specific projects or iterations.",
             "correctFeedback": "✅ Correct: The test strategy sets the high-level testing approach and objectives.",
             "incorrectFeedback": {
-                "B": "❌ Incorrect: Test cases are detailed in test plans and test specifications.",
-                "C": "❌ Incorrect: Resource assignment is typically done in test plans.",
-                "D": "❌ Incorrect: Test plans provide project-specific detail that complements the strategy."
+                "B": "❌ Incorrect: Test plans provide project-specific detail that complements the strategy.",
+                "C": "❌ Incorrect: Test cases are detailed in test plans and test specifications.",
+                "D": "❌ Incorrect: Resource assignment is typically done in test plans."
             },
             "optionExplanations": {
                 "A": "The test strategy sets the high-level testing approach and objectives.",
-                "B": "Test cases are detailed in test plans and test specifications.",
-                "C": "Resource assignment is typically done in test plans.",
-                "D": "Test plans provide project-specific detail that complements the strategy."
+                "B": "Test plans provide project-specific detail that complements the strategy.",
+                "C": "Test cases are detailed in test plans and test specifications.",
+                "D": "Resource assignment is typically done in test plans."
             },
             "chapter": 5,
             "section": "5.1",
@@ -7187,11 +7189,11 @@ window.questionSets = {
                 "C": "Measuring progress is test monitoring, which precedes control.",
                 "D": "Archiving artifacts is a test completion activity."
             },
-            "chapter": 5,
-            "section": "5.3",
-            "subsection": "5.3.1",
-            "learningObjective": "FL-5.3.1",
-            "kLevel": "K1",
+            "chapter": 1,
+            "section": "1.4",
+            "subsection": "1.4.1",
+            "learningObjective": "FL-1.4.1",
+            "kLevel": "K2",
             "difficulty": "Easy",
             "keywords": [
                 "test control",
@@ -7224,11 +7226,11 @@ window.questionSets = {
                 "C": "Ignoring the situation is unprofessional and risky.",
                 "D": "Transparent reporting and proposing options demonstrates proper test management."
             },
-            "chapter": 5,
-            "section": "5.3",
-            "subsection": "5.3.1",
-            "learningObjective": "FL-5.3.1",
-            "kLevel": "K1",
+            "chapter": 1,
+            "section": "1.4",
+            "subsection": "1.4.1",
+            "learningObjective": "FL-1.4.1",
+            "kLevel": "K2",
             "difficulty": "Easy",
             "keywords": [
                 "test monitoring",
@@ -7248,7 +7250,7 @@ window.questionSets = {
                 "D": "The search function may return incorrect results"
             },
             "correctAnswer": "B",
-            "explanation": "Project risks are management-related risks that could affect the project's success. Test environment availability is a project risk because it relates to resources and infrastructure needed for testing. Product risks (B, C, D) are related to the quality of the software itself.",
+            "explanation": "Project risks are management-related risks that could affect the project's success. Test environment availability is a project risk because it relates to resources and infrastructure needed for testing. Product risks (A, C, D) are related to the quality of the software itself.",
             "correctFeedback": "✅ Correct: Test environment availability is a project risk (resource/organizational).",
             "incorrectFeedback": {
                 "A": "❌ Incorrect: Performance issues are product risks related to non-functional quality.",
@@ -7262,10 +7264,10 @@ window.questionSets = {
                 "D": "Incorrect results are product risks related to functional correctness."
             },
             "chapter": 5,
-            "section": "5.5",
-            "subsection": "5.5.1",
-            "learningObjective": "FL-5.5.1",
-            "kLevel": "K3",
+            "section": "5.2",
+            "subsection": "5.2.2",
+            "learningObjective": "FL-5.2.2",
+            "kLevel": "K2",
             "difficulty": "Easy",
             "keywords": [
                 "project risk",
@@ -7336,10 +7338,10 @@ window.questionSets = {
                 "D": "Test environment availability is a project risk."
             },
             "chapter": 5,
-            "section": "5.5",
-            "subsection": "5.5.1",
-            "learningObjective": "FL-5.5.1",
-            "kLevel": "K3",
+            "section": "5.2",
+            "subsection": "5.2.3",
+            "learningObjective": "FL-5.2.3",
+            "kLevel": "K2",
             "difficulty": "Easy",
             "keywords": [
                 "product risk",
@@ -7374,7 +7376,7 @@ window.questionSets = {
             },
             "chapter": 5,
             "section": "5.4",
-            "subsection": "5.4.1",
+            "subsection": "5.4",
             "learningObjective": "FL-5.4.1",
             "kLevel": "K2",
             "difficulty": "Medium",
@@ -7410,10 +7412,10 @@ window.questionSets = {
                 "D": "Metrics-based uses historical data, not expert consensus."
             },
             "chapter": 5,
-            "section": "5.2",
-            "subsection": "5.2.1",
-            "learningObjective": "FL-5.2.1",
-            "kLevel": "K1",
+            "section": "5.1",
+            "subsection": "5.1.4",
+            "learningObjective": "FL-5.1.4",
+            "kLevel": "K3",
             "difficulty": "Medium",
             "keywords": [
                 "Delphi technique",
@@ -7440,17 +7442,17 @@ window.questionSets = {
             "incorrectFeedback": {
                 "A": "❌ Incorrect: Execution speed is not the MAIN advantage of model-based testing tools. While test execution may be automated, the primary value proposition is automatic test CASE GENERATION from system behavior models, not raw execution speed compared to other tool types.",
                 "B": "❌ Incorrect: Model-based testing does NOT eliminate the need for requirements documentation. In fact, good requirements are the foundation for building accurate system models. Models are derived from requirements — they do not replace them.",
-                "C": "❌ Incorrect: No testing tool or technique can guarantee defect-free software. Testing provides information about quality and risk but cannot prove the absence of defects. This is a fundamental testing principle known as the absence-of-errors fallacy."
+                "C": "❌ Incorrect: Testing shows the presence of defects, not their absence (principle 1). The absence-of-defects fallacy is the separate principle about meeting real user needs."
             },
             "optionExplanations": {
                 "A": "Raw execution speed is not the main advantage of model-based testing. Its primary value is automatic test case generation from system behavior models.",
                 "B": "Model-based testing does not eliminate requirements documentation. Good requirements are the foundation for building accurate system models.",
-                "C": "No testing tool or technique can guarantee defect-free software. Testing provides quality information but cannot prove absence of defects (absence-of-errors fallacy).",
+                "C": "Testing shows the presence of defects, not their absence (principle 1). The absence-of-defects fallacy is the separate principle about meeting real user needs.",
                 "D": "Model-based testing tools derive test cases from models of system behavior, which can improve coverage and reduce time spent on manual test design."
             },
             "chapter": 6,
             "section": "6.1",
-            "subsection": "6.1.1",
+            "subsection": "6.1",
             "learningObjective": "FL-6.1.1",
             "kLevel": "K2",
             "difficulty": "Medium",
@@ -7486,7 +7488,7 @@ window.questionSets = {
             },
             "chapter": 6,
             "section": "6.2",
-            "subsection": "6.2.1",
+            "subsection": "6.2",
             "learningObjective": "FL-6.2.1",
             "kLevel": "K1",
             "difficulty": "Medium",
@@ -7510,19 +7512,19 @@ window.questionSets = {
             "explanation": "Inadequate training leads to poor script design, inefficient use, high maintenance costs, and low adoption rates, undermining the ROI of the tool investment.",
             "correctFeedback": "✅ Correct: Inadequate training leads to poor script design, inefficient use, high maintenance costs, and low adoption rates, undermining the ROI of the tool investment.",
             "incorrectFeedback": {
-                "A": "❌ Incorrect: 'The tool will be too easy to use' is incorrect. Model-based testing uses models to generate test cases automatically. It does not execute tests faster than any other tool; it requires model creation; it works for both functional and non-functional testing.",
-                "C": "❌ Incorrect: 'The tool will automatically improve test quality' is incorrect. Model-based testing uses models to generate test cases automatically. It does not execute tests faster than any other tool; it requires model creation; it works for both functional and non-functional testing.",
-                "D": "❌ Incorrect: 'The team will stop doing any manual testing' is incorrect. Model-based testing uses models to generate test cases automatically. It does not execute tests faster than any other tool; it requires model creation; it works for both functional and non-functional testing."
+                "A": "❌ Incorrect: Ease of use is not the principal risk of inadequate training.",
+                "C": "❌ Incorrect: A tool does not automatically improve test quality; effective use requires skills and suitable practices.",
+                "D": "❌ Incorrect: Insufficient training does not imply that all manual testing will stop. The likely problems are poor adoption, poor scripts, and maintenance cost."
             },
             "optionExplanations": {
-                "A": "'The tool will be too easy to use' is incorrect. Model-based testing uses models to generate test cases automatically. It does not execute tests faster than any other tool; it requires model creation; it works for both functional and non-functional testing.",
+                "A": "Ease of use is not the principal risk of inadequate training.",
                 "B": "Inadequate training leads to poor script design, inefficient use, high maintenance costs, and low adoption rates, undermining the ROI of the tool investment.",
-                "C": "'The tool will automatically improve test quality' is incorrect. Model-based testing uses models to generate test cases automatically. It does not execute tests faster than any other tool; it requires model creation; it works for both functional and non-functional testing.",
-                "D": "'The team will stop doing any manual testing' is incorrect. Model-based testing uses models to generate test cases automatically. It does not execute tests faster than any other tool; it requires model creation; it works for both functional and non-functional testing."
+                "C": "A tool does not automatically improve test quality; effective use requires skills and suitable practices.",
+                "D": "Insufficient training does not imply that all manual testing will stop. The likely problems are poor adoption, poor scripts, and maintenance cost."
             },
             "chapter": 6,
             "section": "6.2",
-            "subsection": "6.2.1",
+            "subsection": "6.2",
             "learningObjective": "FL-6.2.1",
             "kLevel": "K1",
             "difficulty": "Medium",
@@ -7543,8 +7545,8 @@ window.questionSets = {
                 "D": "Automated tests never need maintenance"
             },
             "correctAnswer": "C",
-            "explanation": "A common risk of test automation is unrealistic expectations. Automation does not find many new defects (it mostly checks for regressions), requires significant initial investment, and needs ongoing maintenance. Mismanaged expectations can lead to disillusionment with automation.",
-            "correctFeedback": "✅ Correct: Expecting automation to find many new defects is unrealistic; it primarily checks for regressions.",
+            "explanation": "Unrealistic expectations of automation benefits are a risk. Automation can reveal new defects as well as regressions; results depend on the design, data, coverage, and context. It also requires investment and maintenance, so benefits must be assessed rather than assumed.",
+            "correctFeedback": "✅ Correct: Expecting a tool by itself to deliver a large number of new defects, independent of test design and context, is unrealistic.",
             "incorrectFeedback": {
                 "A": "❌ Incorrect: Automation requires upfront investment before benefits are realized.",
                 "B": "❌ Incorrect: Skilled testers are needed to design, implement, and maintain automated tests.",
@@ -7553,12 +7555,12 @@ window.questionSets = {
             "optionExplanations": {
                 "A": "Automation requires upfront investment before benefits are realized.",
                 "B": "Skilled testers are needed to design, implement, and maintain automated tests.",
-                "C": "Expecting automation to find many new defects is unrealistic; it primarily checks for regressions.",
+                "C": "Expecting a tool by itself to deliver a large number of new defects, independent of test design and context, is unrealistic.",
                 "D": "Automated tests require significant maintenance effort as the application evolves."
             },
             "chapter": 6,
             "section": "6.2",
-            "subsection": "6.2.1",
+            "subsection": "6.2",
             "learningObjective": "FL-6.2.1",
             "kLevel": "K1",
             "difficulty": "Easy",
@@ -7595,7 +7597,7 @@ window.questionSets = {
             },
             "chapter": 6,
             "section": "6.1",
-            "subsection": "6.1.1",
+            "subsection": "6.1",
             "learningObjective": "FL-6.1.1",
             "kLevel": "K2",
             "difficulty": "Easy",
@@ -7631,7 +7633,7 @@ window.questionSets = {
             },
             "chapter": 6,
             "section": "6.2",
-            "subsection": "6.2.1",
+            "subsection": "6.2",
             "learningObjective": "FL-6.2.1",
             "kLevel": "K1",
             "difficulty": "Medium",
@@ -7667,7 +7669,7 @@ window.questionSets = {
             },
             "chapter": 6,
             "section": "6.2",
-            "subsection": "6.2.1",
+            "subsection": "6.2",
             "learningObjective": "FL-6.2.1",
             "kLevel": "K1",
             "difficulty": "Easy",
@@ -7704,7 +7706,7 @@ window.questionSets = {
             },
             "chapter": 6,
             "section": "6.1",
-            "subsection": "6.1.1",
+            "subsection": "6.1",
             "learningObjective": "FL-6.1.1",
             "kLevel": "K2",
             "difficulty": "Medium",
@@ -7741,7 +7743,7 @@ window.questionSets = {
             },
             "chapter": 6,
             "section": "6.1",
-            "subsection": "6.1.1",
+            "subsection": "6.1",
             "learningObjective": "FL-6.1.1",
             "kLevel": "K2",
             "difficulty": "Easy",
@@ -7779,7 +7781,7 @@ window.questionSets = {
             },
             "chapter": 6,
             "section": "6.1",
-            "subsection": "6.1.1",
+            "subsection": "6.1",
             "learningObjective": "FL-6.1.1",
             "kLevel": "K2",
             "difficulty": "Easy",
@@ -7815,7 +7817,7 @@ window.questionSets = {
             },
             "chapter": 6,
             "section": "6.1",
-            "subsection": "6.1.1",
+            "subsection": "6.1",
             "learningObjective": "FL-6.1.1",
             "kLevel": "K2",
             "difficulty": "Medium",
@@ -7853,7 +7855,7 @@ window.questionSets = {
             },
             "chapter": 6,
             "section": "6.1",
-            "subsection": "6.1.1",
+            "subsection": "6.1",
             "learningObjective": "FL-6.1.1",
             "kLevel": "K2",
             "difficulty": "Medium",
@@ -7890,7 +7892,7 @@ window.questionSets = {
             },
             "chapter": 6,
             "section": "6.2",
-            "subsection": "6.2.1",
+            "subsection": "6.2",
             "learningObjective": "FL-6.2.1",
             "kLevel": "K1",
             "difficulty": "Easy",
@@ -7926,7 +7928,7 @@ window.questionSets = {
             },
             "chapter": 6,
             "section": "6.1",
-            "subsection": "6.1.1",
+            "subsection": "6.1",
             "learningObjective": "FL-6.1.1",
             "kLevel": "K2",
             "difficulty": "Medium",
@@ -7963,7 +7965,7 @@ window.questionSets = {
             },
             "chapter": 6,
             "section": "6.1",
-            "subsection": "6.1.1",
+            "subsection": "6.1",
             "learningObjective": "FL-6.1.1",
             "kLevel": "K2",
             "difficulty": "Easy",
@@ -8001,7 +8003,7 @@ window.questionSets = {
             },
             "chapter": 6,
             "section": "6.1",
-            "subsection": "6.1.1",
+            "subsection": "6.1",
             "learningObjective": "FL-6.1.1",
             "kLevel": "K2",
             "difficulty": "Medium",
@@ -8038,7 +8040,7 @@ window.questionSets = {
             },
             "chapter": 6,
             "section": "6.2",
-            "subsection": "6.2.1",
+            "subsection": "6.2",
             "learningObjective": "FL-6.2.1",
             "kLevel": "K1",
             "difficulty": "Easy",
@@ -8074,7 +8076,7 @@ window.questionSets = {
             },
             "chapter": 6,
             "section": "6.1",
-            "subsection": "6.1.1",
+            "subsection": "6.1",
             "learningObjective": "FL-6.1.1",
             "kLevel": "K2",
             "difficulty": "Easy",
@@ -8112,7 +8114,7 @@ window.questionSets = {
             },
             "chapter": 6,
             "section": "6.1",
-            "subsection": "6.1.1",
+            "subsection": "6.1",
             "learningObjective": "FL-6.1.1",
             "kLevel": "K2",
             "difficulty": "Medium",
@@ -8150,9 +8152,9 @@ window.questionSets = {
             },
             "chapter": 6,
             "section": "6.2",
-            "subsection": "6.2.1",
+            "subsection": "6.2",
             "learningObjective": "FL-6.2.1",
-            "kLevel": "K2",
+            "kLevel": "K1",
             "difficulty": "Medium",
             "keywords": [
                 "test suite optimization",
@@ -8189,7 +8191,7 @@ window.questionSets = {
             },
             "chapter": 6,
             "section": "6.1",
-            "subsection": "6.1.1",
+            "subsection": "6.1",
             "learningObjective": "FL-6.1.1",
             "kLevel": "K2",
             "difficulty": "Medium",
@@ -8208,11 +8210,11 @@ window.questionSets = {
                 "A": "Test data management integrated with production",
                 "B": "Manual test execution with manual reporting",
                 "C": "Static analysis integrated with the build process",
-                "D": "Continuous integration and automated regression testing"
+                "D": "Scheduled automated test execution with automated results reporting"
             },
             "correctAnswer": "D",
-            "explanation": "Running automated tests every night with automated reporting is a classic continuous integration practice. The tests are executed automatically on a schedule (nightly build), and results are communicated to the team without manual intervention.",
-            "correctFeedback": "✅ Correct: Nightly automated test execution with reporting is a CI and regression testing practice.",
+            "explanation": "The described evidence establishes scheduled automated execution and reporting. It does not establish continuous integration unless code changes are integrated and built with appropriate checks; a nightly schedule alone is not sufficient evidence of CI.",
+            "correctFeedback": "✅ Correct: A predefined suite runs automatically on a schedule and reports its results.",
             "incorrectFeedback": {
                 "A": "❌ Incorrect: This involves test execution, not test data management.",
                 "B": "❌ Incorrect: This scenario is automated, not manual.",
@@ -8222,11 +8224,11 @@ window.questionSets = {
                 "A": "This involves test execution, not test data management.",
                 "B": "This scenario is automated, not manual.",
                 "C": "Static analysis does not involve test execution or runtime behavior.",
-                "D": "Nightly automated test execution with reporting is a CI and regression testing practice."
+                "D": "A predefined suite runs automatically on a schedule and reports its results."
             },
             "chapter": 6,
             "section": "6.1",
-            "subsection": "6.1.1",
+            "subsection": "6.1",
             "learningObjective": "FL-6.1.1",
             "kLevel": "K2",
             "difficulty": "Medium",
@@ -8235,8 +8237,8 @@ window.questionSets = {
                 "automated testing",
                 "nightly build"
             ],
-            "examTip": "Automated night runs + email reporting = CI regression testing.",
-            "memoryAid": "Nightly automation = CI + regression testing."
+            "examTip": "Nightly automated tests do not by themselves establish continuous integration.",
+            "memoryAid": "Scheduled run + automatic report = scheduled test automation."
         },
         {
             "id": "Q360",
@@ -8263,7 +8265,7 @@ window.questionSets = {
             },
             "chapter": 6,
             "section": "6.2",
-            "subsection": "6.2.1",
+            "subsection": "6.2",
             "learningObjective": "FL-6.2.1",
             "kLevel": "K1",
             "difficulty": "Easy",
@@ -8300,7 +8302,7 @@ window.questionSets = {
             },
             "chapter": 6,
             "section": "6.2",
-            "subsection": "6.2.1",
+            "subsection": "6.2",
             "learningObjective": "FL-6.2.1",
             "kLevel": "K1",
             "difficulty": "Medium",
@@ -8336,7 +8338,7 @@ window.questionSets = {
             },
             "chapter": 6,
             "section": "6.1",
-            "subsection": "6.1.1",
+            "subsection": "6.1",
             "learningObjective": "FL-6.1.1",
             "kLevel": "K2",
             "difficulty": "Easy",
@@ -8373,7 +8375,7 @@ window.questionSets = {
             },
             "chapter": 6,
             "section": "6.2",
-            "subsection": "6.2.1",
+            "subsection": "6.2",
             "learningObjective": "FL-6.2.1",
             "kLevel": "K1",
             "difficulty": "Easy",
@@ -8411,7 +8413,7 @@ window.questionSets = {
             },
             "chapter": 6,
             "section": "6.2",
-            "subsection": "6.2.1",
+            "subsection": "6.2",
             "learningObjective": "FL-6.2.1",
             "kLevel": "K1",
             "difficulty": "Easy",
@@ -8448,7 +8450,7 @@ window.questionSets = {
             },
             "chapter": 6,
             "section": "6.2",
-            "subsection": "6.2.1",
+            "subsection": "6.2",
             "learningObjective": "FL-6.2.1",
             "kLevel": "K1",
             "difficulty": "Easy",
@@ -8484,7 +8486,7 @@ window.questionSets = {
             },
             "chapter": 6,
             "section": "6.1",
-            "subsection": "6.1.1",
+            "subsection": "6.1",
             "learningObjective": "FL-6.1.1",
             "kLevel": "K2",
             "difficulty": "Easy",
@@ -8520,9 +8522,9 @@ window.questionSets = {
             },
             "chapter": 6,
             "section": "6.2",
-            "subsection": "6.2.1",
+            "subsection": "6.2",
             "learningObjective": "FL-6.2.1",
-            "kLevel": "K2",
+            "kLevel": "K1",
             "difficulty": "Easy",
             "keywords": [
                 "record-and-playback",
@@ -8558,7 +8560,7 @@ window.questionSets = {
             },
             "chapter": 6,
             "section": "6.2",
-            "subsection": "6.2.1",
+            "subsection": "6.2",
             "learningObjective": "FL-6.2.1",
             "kLevel": "K1",
             "difficulty": "Easy",
@@ -8595,7 +8597,7 @@ window.questionSets = {
             },
             "chapter": 6,
             "section": "6.1",
-            "subsection": "6.1.1",
+            "subsection": "6.1",
             "learningObjective": "FL-6.1.1",
             "kLevel": "K2",
             "difficulty": "Medium",
@@ -8630,10 +8632,10 @@ window.questionSets = {
                 "D": "Automation finds defects that tests are designed to find; it cannot guarantee finding all."
             },
             "chapter": 6,
-            "section": "6.1",
-            "subsection": "6.1.1",
-            "learningObjective": "FL-6.1.1",
-            "kLevel": "K2",
+            "section": "6.2",
+            "subsection": "6.2",
+            "learningObjective": "FL-6.2.1",
+            "kLevel": "K1",
             "difficulty": "Easy",
             "keywords": [
                 "test automation benefits",
@@ -8668,7 +8670,7 @@ window.questionSets = {
             },
             "chapter": 6,
             "section": "6.2",
-            "subsection": "6.2.1",
+            "subsection": "6.2",
             "learningObjective": "FL-6.2.1",
             "kLevel": "K1",
             "difficulty": "Medium",
@@ -8704,7 +8706,7 @@ window.questionSets = {
             },
             "chapter": 6,
             "section": "6.2",
-            "subsection": "6.2.1",
+            "subsection": "6.2",
             "learningObjective": "FL-6.2.1",
             "kLevel": "K1",
             "difficulty": "Easy",
@@ -8740,7 +8742,7 @@ window.questionSets = {
             },
             "chapter": 6,
             "section": "6.1",
-            "subsection": "6.1.1",
+            "subsection": "6.1",
             "learningObjective": "FL-6.1.1",
             "kLevel": "K2",
             "difficulty": "Easy",
@@ -8754,30 +8756,30 @@ window.questionSets = {
         },
         {
             "id": "Q388",
-            "statement": "A manager expects test automation to find the same proportion of new defects as manual testing. Why is this expectation unrealistic?",
+            "statement": "A manager expects purchasing a test automation tool alone to guarantee the same new-defect detection rate as skilled exploratory testing. Why is this expectation unrealistic?",
             "options": {
-                "A": "Automation is best at regression checking, not discovering new defects, while manual testing excels at exploratory and ad-hoc testing",
+                "A": "Defect detection depends on test design, coverage, data, and context; automation does not by itself guarantee a particular detection rate or replace human exploration.",
                 "B": "Automation always finds more defects than manual testing",
                 "C": "Automation tools are designed to fix defects, not find them",
                 "D": "Manual testing cannot find any new defects"
             },
             "correctAnswer": "A",
-            "explanation": "Automated tests follow predefined scripts and are most effective for regression, while manual exploratory testing is better at discovering unexpected behavior and new defects.",
-            "correctFeedback": "✅ Correct: Automated tests follow predefined scripts and are most effective for regression, while manual exploratory testing is better at discovering unexpected behavior and new defects.",
+            "explanation": "Automation can reveal new defects and regressions, but the detection rate depends on what is tested and how. Purchasing a tool alone does not guarantee parity with exploratory testing or eliminate the need for human judgment.",
+            "correctFeedback": "✅ Correct: Automation does not guarantee a detection rate; outcomes depend on the tests, data, coverage, and context.",
             "incorrectFeedback": {
                 "B": "❌ Incorrect: Automation does not inherently find more defects than manual testing. Its effectiveness depends on the test design, coverage, test objectives, and context.",
                 "C": "❌ Incorrect: Test automation tools support test execution and related activities; they are not designed primarily to fix defects. Defect correction is a separate activity.",
                 "D": "❌ Incorrect: Manual testing can discover new defects, particularly through exploratory testing, where testers learn about the system while designing and executing tests."
             },
             "optionExplanations": {
-                "A": "Automated tests follow predefined scripts and are most effective for regression, while manual exploratory testing is better at discovering unexpected behavior and new defects.",
+                "A": "Automation does not guarantee a detection rate; outcomes depend on the tests, data, coverage, and context.",
                 "B": "Automation does not always find more defects than manual testing. Results depend on test design, coverage, the tool, and the testing context.",
                 "C": "Test automation supports testing activities; it does not automatically correct the defects detected.",
                 "D": "Manual testing, especially exploratory testing, can reveal unexpected behavior and new defects that predefined automated scripts may not detect."
             },
             "chapter": 6,
             "section": "6.2",
-            "subsection": "6.2.1",
+            "subsection": "6.2",
             "learningObjective": "FL-6.2.1",
             "kLevel": "K1",
             "difficulty": "Medium",
@@ -8785,8 +8787,8 @@ window.questionSets = {
                 "automation limitations",
                 "exploratory testing"
             ],
-            "examTip": "Automation checks; humans discover.",
-            "memoryAid": "Automate regression, explore for new bugs."
+            "examTip": "Avoid universal claims that automation cannot find new defects or always finds more than manual testing.",
+            "memoryAid": "Tools support testing; test design and context drive defect detection."
         },
         {
             "id": "Q120",
@@ -8813,7 +8815,7 @@ window.questionSets = {
             },
             "chapter": 6,
             "section": "6.2",
-            "subsection": "6.2.1",
+            "subsection": "6.2",
             "learningObjective": "FL-6.2.1",
             "kLevel": "K1",
             "difficulty": "Easy",
@@ -8850,7 +8852,7 @@ window.questionSets = {
             },
             "chapter": 6,
             "section": "6.1",
-            "subsection": "6.1.1",
+            "subsection": "6.1",
             "learningObjective": "FL-6.1.1",
             "kLevel": "K2",
             "difficulty": "Easy",
@@ -8885,10 +8887,10 @@ window.questionSets = {
                 "D": "Nightly runs catch regressions early, accelerating feedback."
             },
             "chapter": 6,
-            "section": "6.1",
-            "subsection": "6.1.1",
-            "learningObjective": "FL-6.1.1",
-            "kLevel": "K2",
+            "section": "6.2",
+            "subsection": "6.2",
+            "learningObjective": "FL-6.2.1",
+            "kLevel": "K1",
             "difficulty": "Easy",
             "keywords": [
                 "test automation",
@@ -8911,7 +8913,7 @@ window.questionSets = {
             },
             "correctAnswer": "B",
             "explanation": "Defect clustering is the principle that defects tend to concentrate in a small number of modules or areas within a system. This observation helps test teams focus their testing efforts on high-risk areas.",
-            "correctFeedback": "✅ Correct: Defect clustering reflects the Pareto principle applied to testing: 80% of defects found in 20% of modules.",
+            "correctFeedback": "✅ Correct: Defects often cluster in a small number of components. An exact 80/20 split is not required.",
             "incorrectFeedback": {
                 "A": "❌ Incorrect: Pesticide paradox concerns tests losing effectiveness when repeated.",
                 "C": "❌ Incorrect: Absence-of-errors fallacy means no defects found does not mean the system meets needs.",
@@ -8919,13 +8921,13 @@ window.questionSets = {
             },
             "optionExplanations": {
                 "A": "Pesticide paradox concerns tests losing effectiveness when repeated.",
-                "B": "Defect clustering reflects the Pareto principle applied to testing: 80% of defects found in 20% of modules.",
+                "B": "Defects often cluster in a small number of components. An exact 80/20 split is not required.",
                 "C": "Absence-of-errors fallacy means no defects found does not mean the system meets needs.",
                 "D": "Exhaustive testing impossibility is about not being able to test everything."
             },
             "chapter": 1,
             "section": "1.3",
-            "subsection": "1.3.1",
+            "subsection": "1.3",
             "learningObjective": "FL-1.3.1",
             "kLevel": "K2",
             "difficulty": "Medium",
@@ -8935,7 +8937,7 @@ window.questionSets = {
                 "Pareto"
             ],
             "examTip": "Defect clustering = most bugs are in a few places. Focus testing there.",
-            "memoryAid": "Defect clustering = the 80/20 rule: 80% of defects in 20% of modules."
+            "memoryAid": "A small number of components often contain most defects; 80/20 is a heuristic, not a fixed law."
         },
         {
             "id": "Q228",
@@ -8998,7 +9000,7 @@ window.questionSets = {
             },
             "chapter": 1,
             "section": "1.3",
-            "subsection": "1.3.1",
+            "subsection": "1.3",
             "learningObjective": "FL-1.3.1",
             "kLevel": "K2",
             "difficulty": "Medium",
@@ -9019,13 +9021,13 @@ window.questionSets = {
                 "D": "Environment configuration does not affect testing",
                 "A": "Exhaustive testing is possible in production"
             },
-            "correctAnswer": "D",
+            "correctAnswer": "C",
             "explanation": "Different environments can produce different results due to variations in configuration, data, network settings, and other factors. This illustrates that testing is context dependent - the environment is part of the testing context that can affect outcomes.",
-            "correctFeedback": "✅ Correct: Environment configuration significantly affects test results.",
+            "correctFeedback": "✅ Correct: Environment differences demonstrate that testing context (including environment) matters.",
             "incorrectFeedback": {
                 "A": "❌ Incorrect: Exhaustive testing is impossible in any environment.",
                 "B": "❌ Incorrect: Test environments often differ from production in scale, data, and configuration.",
-                "C": "❌ Incorrect: Environment differences demonstrate that testing context (including environment) matters."
+                "D": "❌ Incorrect: Environment configuration significantly affects test results."
             },
             "optionExplanations": {
                 "A": "Exhaustive testing is impossible in any environment.",
@@ -9035,7 +9037,7 @@ window.questionSets = {
             },
             "chapter": 1,
             "section": "1.3",
-            "subsection": "1.3.1",
+            "subsection": "1.3",
             "learningObjective": "FL-1.3.1",
             "kLevel": "K2",
             "difficulty": "Medium",
@@ -9049,7 +9051,7 @@ window.questionSets = {
         },
         {
             "id": "Q154",
-            "statement": "In a state transition diagram for an elevator system, the states are: Idle, MovingUp, MovingDown, DoorOpen. Which of the following transitions is most likely invalid?",
+            "statement": "An elevator model has states Idle (doors closed), MovingUp, MovingDown, and DoorOpen. Its specified transitions include Idle -> MovingUp, MovingUp -> Idle, MovingDown -> Idle, DoorOpen -> Idle, and Idle -> DoorOpen. The elevator must return from DoorOpen to Idle before moving. Which listed direct transition is invalid?",
             "options": {
                 "A": "From DoorOpen directly to MovingUp",
                 "B": "From Idle to MovingUp",
@@ -9057,17 +9059,17 @@ window.questionSets = {
                 "D": "From MovingDown to Idle"
             },
             "correctAnswer": "A",
-            "explanation": "A transition from DoorOpen directly to MovingUp is typically invalid because the doors must be closed before the elevator can move. The correct sequence would be DoorOpen to DoorClosed (or Idle) first, then to MovingUp. Safety rules require doors to be closed before movement.",
+            "explanation": "DoorOpen -> MovingUp is not permitted by the specified model. The elevator must first return to Idle with its doors closed. The other listed transitions are explicitly allowed.",
             "correctFeedback": "✅ Correct: Doors must be closed before the elevator can move; DoorOpen to MovingUp skips this safety step.",
             "incorrectFeedback": {
-                "B": "❌ Incorrect: MovingUp can transition to Idle when the elevator stops at a floor with no requests.",
-                "C": "❌ Incorrect: From Idle, the elevator can start moving up when called.",
+                "B": "❌ Incorrect: From Idle, the elevator can start moving up when called.",
+                "C": "❌ Incorrect: MovingUp can transition to Idle when the elevator stops at a floor with no requests.",
                 "D": "❌ Incorrect: MovingDown can transition to Idle when the elevator reaches the lowest floor or stops."
             },
             "optionExplanations": {
                 "A": "Doors must be closed before the elevator can move; DoorOpen to MovingUp skips this safety step.",
-                "B": "MovingUp can transition to Idle when the elevator stops at a floor with no requests.",
-                "C": "From Idle, the elevator can start moving up when called.",
+                "B": "From Idle, the elevator can start moving up when called.",
+                "C": "MovingUp can transition to Idle when the elevator stops at a floor with no requests.",
                 "D": "MovingDown can transition to Idle when the elevator reaches the lowest floor or stops."
             },
             "chapter": 4,
@@ -9256,7 +9258,7 @@ window.questionSets = {
             },
             "chapter": 1,
             "section": "1.3",
-            "subsection": "1.3.1",
+            "subsection": "1.3",
             "learningObjective": "FL-1.3.1",
             "kLevel": "K2",
             "difficulty": "Medium",
@@ -9293,9 +9295,9 @@ window.questionSets = {
             },
             "chapter": 3,
             "section": "3.2",
-            "subsection": "3.2.1",
-            "learningObjective": "FL-3.2.1",
-            "kLevel": "K1",
+            "subsection": "3.2.2",
+            "learningObjective": "FL-3.2.2",
+            "kLevel": "K2",
             "difficulty": "Medium",
             "keywords": [
                 "review process",
@@ -9303,7 +9305,7 @@ window.questionSets = {
                 "preparation"
             ],
             "examTip": "Individual preparation is where most defects are found in formal reviews.",
-            "memoryAid": "Review phases: Plan, Kick-off, Prepare, Meeting, Rework, Follow-up."
+            "memoryAid": "Plan -> initiate -> review individually -> discuss/analyze -> fix/report."
         },
         {
             "id": "Q108",
@@ -9430,21 +9432,21 @@ window.questionSets = {
             "explanation": "A risk-based approach is a recognized good practice in testing. It helps optimize the use of limited resources by focusing testing effort on areas with the highest product risks, ensuring the most critical functionality is tested thoroughly.",
             "correctFeedback": "✅ Correct: Risk-based prioritization is a key good practice in testing.",
             "incorrectFeedback": {
-                "A": "❌ Incorrect: Automation is not appropriate for all test levels (e.g., exploratory testing).",
+                "A": "❌ Incorrect: Automation can be applied at all test levels, but exclusive reliance on automation can omit activities needing human judgment. Exploratory testing is a technique, not a test level.",
                 "C": "❌ Incorrect: Delaying testing violates the early testing principle.",
                 "D": "❌ Incorrect: Equal priority ignores risk differences and wastes resources."
             },
             "optionExplanations": {
-                "A": "Automation is not appropriate for all test levels (e.g., exploratory testing).",
+                "A": "Automation can be applied at all test levels, but exclusive reliance on automation can omit activities needing human judgment. Exploratory testing is a technique, not a test level.",
                 "B": "Risk-based prioritization is a key good practice in testing.",
                 "C": "Delaying testing violates the early testing principle.",
                 "D": "Equal priority ignores risk differences and wastes resources."
             },
-            "chapter": 1,
-            "section": "1.5",
-            "subsection": "1.5.2",
-            "learningObjective": "FL-1.5.2",
-            "kLevel": "K1",
+            "chapter": 5,
+            "section": "5.2",
+            "subsection": "5.2.3",
+            "learningObjective": "FL-5.2.3",
+            "kLevel": "K2",
             "difficulty": "Easy",
             "keywords": [
                 "good practices",
@@ -9464,7 +9466,7 @@ window.questionSets = {
                 "D": "Statement coverage and branch coverage are two names for the same metric"
             },
             "correctAnswer": "C",
-            "explanation": "In statement testing the coverage items are the executable statements, and coverage is the number of statements exercised divided by the total number of executable statements. In branch testing a branch is a transfer of control between two nodes, and conditional branches typically correspond to the true or false outcome of an if-then decision, a switch/case outcome, or a decision to exit or continue in a loop. Branch coverage therefore requires each such outcome to be exercised. Branch coverage subsumes statement coverage: any set of test cases achieving 100% branch coverage also achieves 100% statement coverage, but not the other way round. Older syllabi used the term decision coverage for what v4.0.1 calls branch coverage.",
+            "explanation": "In statement testing the coverage items are the executable statements, and coverage is the number of statements exercised divided by the total number of executable statements. In branch testing a branch is a transfer of control between two nodes, and conditional branches typically correspond to the true or false outcome of an if-then decision, a switch/case outcome, or a decision to exit or continue in a loop. Branch coverage therefore requires each such outcome to be exercised. Branch coverage subsumes statement coverage: any set of test cases achieving 100% branch coverage also achieves 100% statement coverage, but not the other way round. Branch coverage includes conditional and unconditional transfers of control; do not define it exclusively as decision coverage.",
             "correctFeedback": "✅ Correct: branch coverage requires every branch, including both outcomes of each decision, whereas statement coverage requires only that every executable statement runs.",
             "incorrectFeedback": {
                 "A": "❌ Incorrect: This reverses both definitions — statement coverage counts statements, branch coverage counts branches.",
@@ -9489,12 +9491,12 @@ window.questionSets = {
                 "branch testing",
                 "coverage items"
             ],
-            "examTip": "CTFL v4.0 uses \"branch testing\" and \"branch coverage\". Older materials say \"decision testing\" and \"decision coverage\" for the same idea.",
+            "examTip": "CTFL v4.0.1 branch coverage includes conditional and unconditional branches; decision outcomes are not the entire definition.",
             "memoryAid": "Branches > statements. Branch coverage subsumes statement coverage."
         },
         {
             "id": "Q020",
-            "statement": "A ticket pricing function partitions customers by age: Children (0-12) at $5, Adults (13-64) at $10, and Seniors (65-120) at $7. These three partitions are the only ones defined by the specification. Using two-value boundary value analysis, which is the minimum set of age values to test?",
+            "statement": "A ticket pricing function partitions customers by age: Children (0-12) at $5, Adults (13-64) at $10, and Seniors (65-120) at $7. The input domain is restricted to whole-year ages 0-120; values outside that domain cannot be supplied. These three partitions exhaust that domain. Using two-value boundary value analysis, which is the minimum set of age values to test?",
             "options": {
                 "A": "0, 1, 12, 13, 64, 65, 120, 121",
                 "B": "12, 13, 64, 65",
@@ -9544,21 +9546,21 @@ window.questionSets = {
             "explanation": "Monitoring gathers status information; control uses that information to guide corrective actions and reprioritization.",
             "correctFeedback": "✅ Correct: Monitoring gathers status information; control uses that information to guide corrective actions and keep testing aligned with objectives.",
             "incorrectFeedback": {
-                "A": "❌ Incorrect: 'Monitoring focuses on defect fixing; control focuses on test execution' gathers status information about test progress and execution. This scenario requires monitoring, which gathers status information about test progress and execution.",
-                "B": "❌ Incorrect: 'Monitoring reports to stakeholders; control only concerns the test team' gathers status information about test progress and execution. This scenario requires monitoring, which gathers status information about test progress and execution.",
-                "D": "❌ Incorrect: 'Monitoring is done by developers; control is done by testers' gathers status information about test progress and execution. This scenario requires monitoring, which gathers status information about test progress and execution."
+                "A": "❌ Incorrect: Static analysis examines work products without execution; it does not describe comparing test progress with the plan and reprioritizing.",
+                "B": "❌ Incorrect: Selecting a tool is different from monitoring progress and taking corrective action.",
+                "D": "❌ Incorrect: Test completion consolidates results and archives testware; this scenario concerns ongoing monitoring and control."
             },
             "optionExplanations": {
-                "A": "'Monitoring focuses on defect fixing; control focuses on test execution' gathers status information about test progress and execution. This scenario requires monitoring, which gathers status information about test progress and execution.",
-                "B": "'Monitoring reports to stakeholders; control only concerns the test team' gathers status information about test progress and execution. This scenario requires monitoring, which gathers status information about test progress and execution.",
+                "A": "Static analysis examines work products without execution; it does not describe comparing test progress with the plan and reprioritizing.",
+                "B": "Selecting a tool is different from monitoring progress and taking corrective action.",
                 "C": "Monitoring gathers status information; control uses that information to guide corrective actions and keep testing aligned with objectives.",
-                "D": "'Monitoring is done by developers; control is done by testers' gathers status information about test progress and execution. This scenario requires monitoring, which gathers status information about test progress and execution."
+                "D": "Test completion consolidates results and archives testware; this scenario concerns ongoing monitoring and control."
             },
-            "chapter": 5,
-            "section": "5.3",
-            "subsection": "5.3.1",
-            "learningObjective": "FL-5.3.1",
-            "kLevel": "K1",
+            "chapter": 1,
+            "section": "1.4",
+            "subsection": "1.4.1",
+            "learningObjective": "FL-1.4.1",
+            "kLevel": "K2",
             "difficulty": "Medium",
             "keywords": [
                 "monitoring",
@@ -9571,28 +9573,28 @@ window.questionSets = {
             "id": "Q093",
             "statement": "A legacy payroll system is being migrated to a new platform. The business logic remains the same, but the database and user interface are completely replaced. Which testing approach is most appropriate?",
             "options": {
-                "B": "Maintenance testing including confirmation testing of changes and regression testing of unaffected areas",
+                "B": "Maintenance testing that evaluates the migration, new database and UI, and checks for regressions in existing functionality",
                 "C": "Only testing the new user interface",
                 "D": "Performing only exploratory testing on the new system",
                 "A": "Skipping testing because the business logic is unchanged"
             },
             "correctAnswer": "B",
-            "explanation": "Maintenance testing is required when changes are made to an existing system. Even though the business logic is unchanged, the new database and UI introduce risks. Confirmation testing verifies the changes work correctly, and regression testing ensures the unchanged business logic still functions properly.",
-            "correctFeedback": "✅ Correct: Confirmation testing of changes plus regression testing provides comprehensive coverage for maintenance releases.",
+            "explanation": "Maintenance testing evaluates changes to an operational system and checks for adverse consequences through regression testing. Impact analysis helps determine scope. Testing a new feature or a migration is not confirmation testing unless it verifies the successful correction of a specific defect.",
+            "correctFeedback": "✅ Correct: Maintenance testing evaluates the change and uses regression testing to check for adverse effects. Confirmation testing applies when a defect has been fixed.",
             "incorrectFeedback": {
-                "A": "❌ Incorrect: Testing only the UI ignores potential issues with the database migration affecting business logic.",
-                "C": "❌ Incorrect: Changes to database and UI can introduce defects that affect seemingly unchanged functionality.",
-                "D": "❌ Incorrect: Exploratory testing alone lacks systematic coverage of the changes."
+                "A": "❌ Incorrect: Unchanged business logic does not remove migration risks. The new platform, database, and UI require testing.",
+                "C": "❌ Incorrect: Testing only the UI overlooks database, migration, and wider regression risks.",
+                "D": "❌ Incorrect: Exploratory testing is useful, but relying on it alone does not provide the planned migration and regression coverage."
             },
             "optionExplanations": {
-                "A": "Testing only the UI ignores potential issues with the database migration affecting business logic.",
-                "B": "Confirmation testing of changes plus regression testing provides comprehensive coverage for maintenance releases.",
-                "C": "Changes to database and UI can introduce defects that affect seemingly unchanged functionality.",
-                "D": "Exploratory testing alone lacks systematic coverage of the changes."
+                "A": "Unchanged business logic does not remove migration risks. The new platform, database, and UI require testing.",
+                "B": "Maintenance testing evaluates the change and uses regression testing to check for adverse effects. Confirmation testing applies when a defect has been fixed.",
+                "C": "Testing only the UI overlooks database, migration, and wider regression risks.",
+                "D": "Exploratory testing is useful, but relying on it alone does not provide the planned migration and regression coverage."
             },
             "chapter": 2,
             "section": "2.3",
-            "subsection": "2.3.1",
+            "subsection": "2.3",
             "learningObjective": "FL-2.3.1",
             "kLevel": "K2",
             "difficulty": "Medium",
@@ -9601,7 +9603,7 @@ window.questionSets = {
                 "regression testing",
                 "migration"
             ],
-            "examTip": "Any change (even to infrastructure) needs confirmation + regression testing.",
+            "examTip": "Test the operational change and its possible side effects; confirmation testing specifically verifies a defect fix.",
             "memoryAid": "Migration = big change = thorough maintenance testing."
         },
         {
@@ -9614,7 +9616,7 @@ window.questionSets = {
                 "C": "Only maintenance testing is needed in this scenario"
             },
             "correctAnswer": "D",
-            "explanation": "Stable requirements and regulatory documentation needs favor a sequential model where phases are completed with documented outputs before proceeding. Agile iterative approaches may be less suitable when requirements are well understood up front and formal documentation is critical.",
+            "explanation": "Stable requirements and agreed phase gates may make a sequential approach suitable. Regulatory documentation requirements do not automatically rule out Agile; the lifecycle should be tailored to the product, risks, and organizational context.",
             "correctFeedback": "✅ Correct: Sequential models work well with stable requirements and formal documentation needs.",
             "incorrectFeedback": {
                 "A": "❌ Incorrect: Agile is not mandatory; the model should fit the context.",
@@ -9629,17 +9631,17 @@ window.questionSets = {
             },
             "chapter": 2,
             "section": "2.1",
-            "subsection": "2.1.2",
-            "learningObjective": "FL-2.1.2",
-            "kLevel": "K1",
+            "subsection": "2.1.1",
+            "learningObjective": "FL-2.1.1",
+            "kLevel": "K2",
             "difficulty": "Easy",
             "keywords": [
                 "sequential model",
                 "regulatory",
                 "stable requirements"
             ],
-            "examTip": "Stable requirements + regulation = sequential model fits.",
-            "memoryAid": "Regulation favors phase gates."
+            "examTip": "Choose the SDLC for the full context; regulation alone does not mandate a sequential model.",
+            "memoryAid": "Stable requirements may suit sequential development; regulated Agile is also possible."
         },
         {
             "id": "Q268",
@@ -9683,12 +9685,12 @@ window.questionSets = {
             "options": {
                 "A": "The test approach and techniques to be used",
                 "B": "The resource and schedule requirements",
-                "C": "The personal contact information of every team member",
+                "C": "Every team member's private home address and personal bank details",
                 "D": "The test scope and objectives"
             },
             "correctAnswer": "C",
-            "explanation": "A test plan includes scope, objectives, approach, techniques, resources, schedule, risks, and deliverables. While team member roles may be mentioned, personal contact information is not a standard component of a test plan.",
-            "correctFeedback": "✅ Correct: Personal contact details are not part of a professional test plan.",
+            "explanation": "A test plan describes scope, objectives, approach, resources, schedules, risks, and communication arrangements. Relevant stakeholder contact details may be included; private home addresses and bank details are not test-plan content.",
+            "correctFeedback": "✅ Correct: Private home addresses and bank details are irrelevant to test planning; appropriate work contact details may be included.",
             "incorrectFeedback": {
                 "A": "❌ Incorrect: Test approach and techniques are key planning decisions.",
                 "B": "❌ Incorrect: Resource and schedule management are essential planning elements.",
@@ -9697,14 +9699,14 @@ window.questionSets = {
             "optionExplanations": {
                 "A": "Test approach and techniques are key planning decisions.",
                 "B": "Resource and schedule management are essential planning elements.",
-                "C": "Personal contact details are not part of a professional test plan.",
+                "C": "Private home addresses and bank details are irrelevant to test planning; appropriate work contact details may be included.",
                 "D": "Scope and objectives are fundamental to test planning."
             },
             "chapter": 5,
-            "section": "5.2",
-            "subsection": "5.2.1",
-            "learningObjective": "FL-5.2.1",
-            "kLevel": "K1",
+            "section": "5.1",
+            "subsection": "5.1.1",
+            "learningObjective": "FL-5.1.1",
+            "kLevel": "K2",
             "difficulty": "Medium",
             "keywords": [
                 "test plan",
@@ -9728,14 +9730,14 @@ window.questionSets = {
             "correctFeedback": "✅ Correct: Agile testers are integrated team members who collaborate continuously.",
             "incorrectFeedback": {
                 "A": "❌ Incorrect: Late testing violates Agile principles of early and continuous testing.",
-                "C": "❌ Incorrect: Agile testers actively participate in all team activities.",
-                "D": "❌ Incorrect: Agile testers are hands-on with testing, not just managing tools."
+                "C": "❌ Incorrect: Agile testers are hands-on with testing, not just managing tools.",
+                "D": "❌ Incorrect: Agile testers actively participate in all team activities."
             },
             "optionExplanations": {
                 "A": "Late testing violates Agile principles of early and continuous testing.",
                 "B": "Agile testers are integrated team members who collaborate continuously.",
-                "C": "Agile testers actively participate in all team activities.",
-                "D": "Agile testers are hands-on with testing, not just managing tools."
+                "C": "Agile testers are hands-on with testing, not just managing tools.",
+                "D": "Agile testers actively participate in all team activities."
             },
             "chapter": 2,
             "section": "2.1",
@@ -9776,7 +9778,7 @@ window.questionSets = {
             },
             "chapter": 2,
             "section": "2.3",
-            "subsection": "2.3.1",
+            "subsection": "2.3",
             "learningObjective": "FL-2.3.1",
             "kLevel": "K2",
             "difficulty": "Medium",
@@ -9813,8 +9815,8 @@ window.questionSets = {
             },
             "chapter": 2,
             "section": "2.2",
-            "subsection": "2.2.1",
-            "learningObjective": "FL-2.2.1",
+            "subsection": "2.2.2",
+            "learningObjective": "FL-2.2.2",
             "kLevel": "K2",
             "difficulty": "Medium",
             "keywords": [
@@ -9851,7 +9853,7 @@ window.questionSets = {
             },
             "chapter": 5,
             "section": "5.4",
-            "subsection": "5.4.1",
+            "subsection": "5.4",
             "learningObjective": "FL-5.4.1",
             "kLevel": "K2",
             "difficulty": "Medium",
@@ -9902,32 +9904,32 @@ window.questionSets = {
         },
         {
             "id": "Q193",
-            "statement": "A test manager is conducting a risk analysis and identifies that the login module has a high likelihood of security defects but a low business impact because the system is for internal use only. How should the risk level be determined?",
+            "statement": "A team uses a quantitative risk model in which risk likelihood and impact have numeric values. Which formula combines these factors to calculate risk level?",
             "options": {
                 "A": "Risk level = likelihood + impact",
                 "B": "Risk level = likelihood x impact",
                 "C": "Risk level is always high if likelihood is high",
                 "D": "Risk level = impact divided by likelihood"
             },
-            "correctAnswer": "C",
-            "explanation": "Risk level is typically calculated as the product of likelihood (probability of failure) and impact (consequence of failure). In this case, high likelihood combined with low impact would result in a medium risk level, guiding how much testing effort to allocate.",
-            "correctFeedback": "✅ Correct: Risk is computed as product, not sum.",
+            "correctAnswer": "B",
+            "explanation": "Risk level uses likelihood and impact. Under a quantitative multiplication model, risk level = likelihood x impact, so B is correct. Qualitative labels alone do not establish a particular result such as medium; the scoring method or matrix must be defined.",
+            "correctFeedback": "✅ Correct: Risk = Likelihood x Impact is the standard risk calculation formula.",
             "incorrectFeedback": {
-                "A": "❌ Incorrect: Risk considers both likelihood and impact, not likelihood alone.",
-                "B": "❌ Incorrect: Division does not reflect the combined effect of likelihood and impact.",
-                "D": "❌ Incorrect: Risk = Likelihood x Impact is the standard risk calculation formula."
+                "A": "❌ Incorrect: Risk is computed as product, not sum.",
+                "C": "❌ Incorrect: Risk considers both likelihood and impact, not likelihood alone.",
+                "D": "❌ Incorrect: Division does not reflect the combined effect of likelihood and impact."
             },
             "optionExplanations": {
-                "A": "Risk considers both likelihood and impact, not likelihood alone.",
-                "B": "Division does not reflect the combined effect of likelihood and impact.",
-                "C": "Risk is computed as product, not sum.",
-                "D": "Risk = Likelihood x Impact is the standard risk calculation formula."
+                "A": "Risk is computed as product, not sum.",
+                "B": "Risk = Likelihood x Impact is the standard risk calculation formula.",
+                "C": "Risk considers both likelihood and impact, not likelihood alone.",
+                "D": "Division does not reflect the combined effect of likelihood and impact."
             },
             "chapter": 5,
-            "section": "5.5",
-            "subsection": "5.5.1",
-            "learningObjective": "FL-5.5.1",
-            "kLevel": "K3",
+            "section": "5.2",
+            "subsection": "5.2.1",
+            "learningObjective": "FL-5.2.1",
+            "kLevel": "K1",
             "difficulty": "Easy",
             "keywords": [
                 "risk analysis",
@@ -9951,21 +9953,21 @@ window.questionSets = {
             "explanation": "Test monitoring involves collecting and tracking metrics to measure progress against the test plan. Test control involves taking corrective actions when monitoring reveals significant deviations from the plan. They are complementary activities.",
             "correctFeedback": "✅ Correct: Monitor = track; Control = act on what you tracked.",
             "incorrectFeedback": {
-                "B": "❌ Incorrect: This reverses the definitions of monitoring and control.",
-                "C": "❌ Incorrect: They are distinct but related activities in the test process.",
+                "B": "❌ Incorrect: They are distinct but related activities in the test process.",
+                "C": "❌ Incorrect: This reverses the definitions of monitoring and control.",
                 "D": "❌ Incorrect: Both testers and managers participate in both activities."
             },
             "optionExplanations": {
                 "A": "Monitor = track; Control = act on what you tracked.",
-                "B": "This reverses the definitions of monitoring and control.",
-                "C": "They are distinct but related activities in the test process.",
+                "B": "They are distinct but related activities in the test process.",
+                "C": "This reverses the definitions of monitoring and control.",
                 "D": "Both testers and managers participate in both activities."
             },
-            "chapter": 5,
-            "section": "5.3",
-            "subsection": "5.3.1",
-            "learningObjective": "FL-5.3.1",
-            "kLevel": "K1",
+            "chapter": 1,
+            "section": "1.4",
+            "subsection": "1.4.1",
+            "learningObjective": "FL-1.4.1",
+            "kLevel": "K2",
             "difficulty": "Easy",
             "keywords": [
                 "test monitoring",
@@ -9986,23 +9988,23 @@ window.questionSets = {
             },
             "correctAnswer": "C",
             "explanation": "For high-risk projects, a more thorough and documented approach is appropriate. This includes detailed test planning, structured test techniques, comprehensive test case design, rigorous execution, and thorough defect tracking to mitigate the high risks.",
-            "correctFeedback": "✅ Correct: Skipping testing is never appropriate, especially for high-risk projects.",
+            "correctFeedback": "✅ Correct: High-risk projects demand thorough, well-documented, and structured testing.",
             "incorrectFeedback": {
                 "A": "❌ Incorrect: Exploratory testing is valuable but may not provide sufficient coverage alone for high risks.",
-                "B": "❌ Incorrect: High-risk projects demand thorough, well-documented, and structured testing.",
+                "B": "❌ Incorrect: Skipping testing is never appropriate, especially for high-risk projects.",
                 "D": "❌ Incorrect: Focusing only on simple features ignores the areas most likely to fail."
             },
             "optionExplanations": {
                 "A": "Exploratory testing is valuable but may not provide sufficient coverage alone for high risks.",
-                "B": "High-risk projects demand thorough, well-documented, and structured testing.",
-                "C": "Skipping testing is never appropriate, especially for high-risk projects.",
+                "B": "Skipping testing is never appropriate, especially for high-risk projects.",
+                "C": "High-risk projects demand thorough, well-documented, and structured testing.",
                 "D": "Focusing only on simple features ignores the areas most likely to fail."
             },
             "chapter": 5,
-            "section": "5.5",
-            "subsection": "5.5.1",
-            "learningObjective": "FL-5.5.1",
-            "kLevel": "K3",
+            "section": "5.2",
+            "subsection": "5.2.3",
+            "learningObjective": "FL-5.2.3",
+            "kLevel": "K2",
             "difficulty": "Easy",
             "keywords": [
                 "risk-based testing",
@@ -10099,21 +10101,21 @@ window.questionSets = {
             "explanation": "Product risks concern possible quality problems in the product; project risks threaten project objectives such as budget, schedule, skills, and environments.",
             "correctFeedback": "✅ Correct: Product risks concern possible quality problems in the product; project risks threaten project objectives such as budget, schedule, skills, and environments.",
             "incorrectFeedback": {
-                "A": "❌ Incorrect: 'Project risk is found only after release' threatens the project's ability to deliver on time, budget, or scope. This scenario requires product risk, which concerns possible quality problems in the product itself.",
-                "B": "❌ Incorrect: 'Product risk cannot influence testing' concerns possible quality problems in the product itself. This scenario requires product risk, which concerns possible quality problems in the product itself.",
-                "D": "❌ Incorrect: 'Product risk is always lower than project risk' concerns possible quality problems in the product itself. This scenario requires product risk, which concerns possible quality problems in the product itself."
+                "A": "❌ Incorrect: Project risks can be identified before or during development, not only after release.",
+                "B": "❌ Incorrect: Product risks influence scope, techniques, coverage, and priorities.",
+                "D": "❌ Incorrect: Neither class of risk is inherently lower; evaluate the likelihood and impact of each risk."
             },
             "optionExplanations": {
-                "A": "'Project risk is found only after release' threatens the project's ability to deliver on time, budget, or scope. This scenario requires product risk, which concerns possible quality problems in the product itself.",
-                "B": "'Product risk cannot influence testing' concerns possible quality problems in the product itself. This scenario requires product risk, which concerns possible quality problems in the product itself.",
+                "A": "Project risks can be identified before or during development, not only after release.",
+                "B": "Product risks influence scope, techniques, coverage, and priorities.",
                 "C": "Product risks concern possible quality problems in the product; project risks threaten project objectives such as budget, schedule, skills, and environments.",
-                "D": "'Product risk is always lower than project risk' concerns possible quality problems in the product itself. This scenario requires product risk, which concerns possible quality problems in the product itself."
+                "D": "Neither class of risk is inherently lower; evaluate the likelihood and impact of each risk."
             },
             "chapter": 5,
             "section": "5.2",
-            "subsection": "5.2.1",
-            "learningObjective": "FL-5.2.1",
-            "kLevel": "K1",
+            "subsection": "5.2.2",
+            "learningObjective": "FL-5.2.2",
+            "kLevel": "K2",
             "difficulty": "Easy",
             "keywords": [
                 "product risk",
@@ -10147,7 +10149,7 @@ window.questionSets = {
             },
             "chapter": 6,
             "section": "6.2",
-            "subsection": "6.2.1",
+            "subsection": "6.2",
             "learningObjective": "FL-6.2.1",
             "kLevel": "K1",
             "difficulty": "Medium",
@@ -10171,19 +10173,19 @@ window.questionSets = {
             "explanation": "Automated tests and scripts can become costly to maintain as interfaces, workflows, or data change.",
             "correctFeedback": "✅ Correct: Automated tests and scripts can become costly to maintain as interfaces, workflows, or data change over time.",
             "incorrectFeedback": {
-                "A": "❌ Incorrect: 'Automated tests never need maintenance once created' follow predefined scripts and can become costly to maintain as the system changes. This scenario requires automated tests, which follow predefined scripts and can become costly to maintain as the system changes.",
-                "B": "❌ Incorrect: 'Automated tests are always cheaper than manual testing' follow predefined scripts and can become costly to maintain as the system changes. This scenario requires automated tests, which follow predefined scripts and can become costly to maintain as the system changes.",
-                "C": "❌ Incorrect: 'Automated tests find more new defects than manual exploratory testing' follow predefined scripts and can become costly to maintain as the system changes. This scenario requires automated tests, which follow predefined scripts and can become costly to maintain as the system changes."
+                "A": "❌ Incorrect: Automation still requires test design; it does not remove that activity.",
+                "B": "❌ Incorrect: Automation does not guarantee a greater number of new defects than human testing.",
+                "C": "❌ Incorrect: Automation does not guarantee complete coverage; coverage depends on the selected tests and criteria."
             },
             "optionExplanations": {
-                "A": "'Automated tests never need maintenance once created' follow predefined scripts and can become costly to maintain as the system changes. This scenario requires automated tests, which follow predefined scripts and can become costly to maintain as the system changes.",
-                "B": "'Automated tests are always cheaper than manual testing' follow predefined scripts and can become costly to maintain as the system changes. This scenario requires automated tests, which follow predefined scripts and can become costly to maintain as the system changes.",
-                "C": "'Automated tests find more new defects than manual exploratory testing' follow predefined scripts and can become costly to maintain as the system changes. This scenario requires automated tests, which follow predefined scripts and can become costly to maintain as the system changes.",
+                "A": "Automation still requires test design; it does not remove that activity.",
+                "B": "Automation does not guarantee a greater number of new defects than human testing.",
+                "C": "Automation does not guarantee complete coverage; coverage depends on the selected tests and criteria.",
                 "D": "Automated tests and scripts can become costly to maintain as interfaces, workflows, or data change over time."
             },
             "chapter": 6,
             "section": "6.2",
-            "subsection": "6.2.1",
+            "subsection": "6.2",
             "learningObjective": "FL-6.2.1",
             "kLevel": "K1",
             "difficulty": "Easy",
@@ -10204,17 +10206,17 @@ window.questionSets = {
                 "D": "3"
             },
             "correctAnswer": "D",
-            "explanation": "There are three branch outcomes to cover: the outer IF (a > 5) true/false, and the inner IF (b < 10) true/false (only reachable when the outer condition is true). Test 1 (a > 5, b < 10) covers outer-true + inner-true. Test 2 (a > 5, b >= 10) covers outer-true + inner-false. Test 3 (a <= 5) covers outer-false. The inner branches cannot be reached when the outer condition is false, so these 3 test cases are the minimum needed for 100% branch coverage.",
+            "explanation": "The two IF decisions have four decision outcomes: outer true/false and inner true/false. Three runs are required: (a=6,b=5) covers outer true and inner true; (a=6,b=10) covers outer true and inner false; (a=5,b=5) covers outer false. The inner decision is not reached in the third run.",
             "correctFeedback": "✅ Correct: Three test cases cover: outer true + inner true, outer true + inner false, and outer false.",
             "incorrectFeedback": {
                 "A": "❌ Incorrect: Four would also work but is not the minimum.",
                 "B": "❌ Incorrect: One test case covers only one path through the nested conditions.",
-                "C": "❌ Incorrect: Two test cases cannot cover all three branch outcomes."
+                "C": "❌ Incorrect: Two runs cannot cover the outer false outcome and both outcomes of the inner decision. Three runs are needed for all four decision outcomes."
             },
             "optionExplanations": {
                 "A": "Four would also work but is not the minimum.",
                 "B": "One test case covers only one path through the nested conditions.",
-                "C": "Two test cases cannot cover all three branch outcomes.",
+                "C": "Two runs cannot cover the outer false outcome and both outcomes of the inner decision. Three runs are needed for all four decision outcomes.",
                 "D": "Three test cases cover: outer true + inner true, outer true + inner false, and outer false."
             },
             "chapter": 4,
@@ -10256,7 +10258,7 @@ window.questionSets = {
             },
             "chapter": 6,
             "section": "6.2",
-            "subsection": "6.2.1",
+            "subsection": "6.2",
             "learningObjective": "FL-6.2.1",
             "kLevel": "K1",
             "difficulty": "Easy",
@@ -10266,8 +10268,8 @@ window.questionSets = {
                 "maintenance",
                 "cost-benefit"
             ],
-            "examTip": "Automation ROI = (savings from automation) - (cost of creation + cost of maintenance).",
-            "memoryAid": "ROI = benefits - costs; if negative, rethink automation strategy."
+            "examTip": "ROI = (monetized benefits - total costs) / total costs, usually expressed as a percentage over a defined period.",
+            "memoryAid": "Net benefit = benefits - costs; ROI relates that net benefit to costs."
         },
         {
             "id": "Q378",
@@ -10294,7 +10296,7 @@ window.questionSets = {
             },
             "chapter": 6,
             "section": "6.1",
-            "subsection": "6.1.1",
+            "subsection": "6.1",
             "learningObjective": "FL-6.1.1",
             "kLevel": "K2",
             "difficulty": "Easy",
@@ -10314,11 +10316,11 @@ window.questionSets = {
                 "C": "Identifying test resources and schedules",
                 "D": "Determining test approaches and techniques"
             },
-            "correctAnswer": "B",
+            "correctAnswer": "A",
             "explanation": "Writing production code is a development activity, not a test planning activity. Test planning involves defining objectives, scope, resources, schedule, approach (strategy), techniques, and risk assessments.",
-            "correctFeedback": "✅ Correct: Test objectives and scope are fundamental to test planning.",
+            "correctFeedback": "✅ Correct: Production code development is outside the scope of test planning.",
             "incorrectFeedback": {
-                "A": "❌ Incorrect: Production code development is outside the scope of test planning.",
+                "B": "❌ Incorrect: Test objectives and scope are fundamental to test planning.",
                 "C": "❌ Incorrect: Resource and schedule identification is part of test planning.",
                 "D": "❌ Incorrect: Test approach and technique selection are key planning decisions."
             },
@@ -10329,10 +10331,10 @@ window.questionSets = {
                 "D": "Test approach and technique selection are key planning decisions."
             },
             "chapter": 5,
-            "section": "5.2",
-            "subsection": "5.2.1",
-            "learningObjective": "FL-5.2.1",
-            "kLevel": "K1",
+            "section": "5.1",
+            "subsection": "5.1.1",
+            "learningObjective": "FL-5.1.1",
+            "kLevel": "K2",
             "difficulty": "Medium",
             "keywords": [
                 "test planning",
@@ -10352,23 +10354,23 @@ window.questionSets = {
                 "C": "Record-and-playback tools are too expensive",
                 "D": "Record-and-playback tools cannot record any interactions"
             },
-            "correctAnswer": "D",
-            "explanation": "Record-and-playback tools create tests by recording user interactions. These tests capture low-level details (like screen coordinates and exact timing), making them very fragile. Any UI change can break the tests, requiring complete re-recording. This results in high maintenance costs.",
-            "correctFeedback": "✅ Correct: They can record interactions, but the recordings are often too specific and fragile.",
+            "correctAnswer": "B",
+            "explanation": "Recorded scripts may be tightly coupled to UI details and therefore become fragile when the application changes. Maintenance or refactoring may be required. The impact depends on the tool and script design; every UI change does not necessarily require recording the entire suite again.",
+            "correctFeedback": "✅ Correct: Fragility and high maintenance are the primary risks of record-and-playback approaches.",
             "incorrectFeedback": {
                 "A": "❌ Incorrect: Even without programming, the maintenance challenge remains.",
-                "B": "❌ Incorrect: Cost is not the primary issue; maintenance effort is.",
-                "C": "❌ Incorrect: Fragility and high maintenance are the primary risks of record-and-playback approaches."
+                "C": "❌ Incorrect: Cost is not the primary issue; maintenance effort is.",
+                "D": "❌ Incorrect: They can record interactions, but the recordings are often too specific and fragile."
             },
             "optionExplanations": {
                 "A": "Even without programming, the maintenance challenge remains.",
-                "B": "Cost is not the primary issue; maintenance effort is.",
-                "C": "Fragility and high maintenance are the primary risks of record-and-playback approaches.",
+                "B": "Fragility and high maintenance are the primary risks of record-and-playback approaches.",
+                "C": "Cost is not the primary issue; maintenance effort is.",
                 "D": "They can record interactions, but the recordings are often too specific and fragile."
             },
             "chapter": 6,
             "section": "6.2",
-            "subsection": "6.2.1",
+            "subsection": "6.2",
             "learningObjective": "FL-6.2.1",
             "kLevel": "K1",
             "difficulty": "Easy",
@@ -10445,7 +10447,7 @@ window.questionSets = {
             },
             "chapter": 1,
             "section": "1.3",
-            "subsection": "1.3.1",
+            "subsection": "1.3",
             "learningObjective": "FL-1.3.1",
             "kLevel": "K2",
             "difficulty": "Medium",
@@ -10471,12 +10473,12 @@ window.questionSets = {
             "correctFeedback": "✅ Correct: Test logs are produced during execution and document results.",
             "incorrectFeedback": {
                 "A": "❌ Incorrect: The project schedule is a planning work product.",
-                "B": "❌ Incorrect: Test case specifications are created during implementation.",
+                "B": "❌ Incorrect: Detailed test cases are primarily produced during test design; execution produces logs and results.",
                 "D": "❌ Incorrect: The test strategy is a planning work product."
             },
             "optionExplanations": {
                 "A": "The project schedule is a planning work product.",
-                "B": "Test case specifications are created during implementation.",
+                "B": "Detailed test cases are primarily produced during test design; execution produces logs and results.",
                 "C": "Test logs are produced during execution and document results.",
                 "D": "The test strategy is a planning work product."
             },
@@ -10534,26 +10536,26 @@ window.questionSets = {
         },
         {
             "id": "Q367",
-            "statement": "In a formal review, who is responsible for deciding whether identified defects are severe enough to require rework before the review can close?",
+            "statement": "During communication and analysis in a formal review, who discusses the identified anomalies and decides their status, ownership, required actions, and necessary follow-up?",
             "options": {
-                "A": "The moderator, based on review entry and exit criteria",
+                "A": "The review participants, using the agreed review objectives and criteria",
                 "B": "The author, since they wrote the document",
                 "C": "The manager, who approves the final budget",
                 "D": "The scribe, who records the defects"
             },
             "correctAnswer": "A",
-            "explanation": "The moderator leads the review meeting and, based on the review plan and entry/exit criteria, determines when the review is complete and whether follow-up action is needed.",
-            "correctFeedback": "✅ Correct: The moderator leads the review meeting and, based on entry/exit criteria, determines when the review is complete and whether follow-up action is needed.",
+            "explanation": "During communication and analysis, participants analyze anomalies, agree on their status and ownership, and decide the actions and follow-up needed. The moderator facilitates the discussion; the syllabus does not assign every technical or closure decision exclusively to the moderator.",
+            "correctFeedback": "✅ Correct: Review participants analyze anomalies and agree on required actions and follow-up.",
             "incorrectFeedback": {
-                "B": "❌ Incorrect: The author wrote the document but is not responsible for deciding defect severity or review closure.",
-                "C": "❌ Incorrect: The manager handles budgets and resources, not the technical review closure decision.",
-                "D": "❌ Incorrect: The scribe records defects but does not decide their severity or whether rework is required."
+                "B": "❌ Incorrect: The author contributes and fixes defects, but does not make all review decisions unilaterally.",
+                "C": "❌ Incorrect: The manager provides resources; budget approval is not the anomaly-analysis activity.",
+                "D": "❌ Incorrect: The scribe records decisions and anomalies rather than deciding every action."
             },
             "optionExplanations": {
-                "A": "The moderator leads the review meeting and, based on entry/exit criteria, determines when the review is complete and whether follow-up action is needed.",
-                "B": "The author wrote the document but is not responsible for deciding defect severity or review closure.",
-                "C": "The manager handles budgets and resources, not the technical review closure decision.",
-                "D": "The scribe records defects but does not decide their severity or whether rework is required."
+                "A": "Review participants analyze anomalies and agree on required actions and follow-up.",
+                "B": "The author contributes and fixes defects, but does not make all review decisions unilaterally.",
+                "C": "The manager provides resources; budget approval is not the anomaly-analysis activity.",
+                "D": "The scribe records decisions and anomalies rather than deciding every action."
             },
             "chapter": 3,
             "section": "3.2",
@@ -10566,8 +10568,8 @@ window.questionSets = {
                 "moderator",
                 "review process"
             ],
-            "examTip": "Moderator manages the review process.",
-            "memoryAid": "Moderator leads the review."
+            "examTip": "Communication and analysis = discuss anomalies and agree on status, ownership, actions, and follow-up.",
+            "memoryAid": "Participants decide; moderator facilitates; scribe records."
         },
         {
             "id": "Q121",
@@ -10603,7 +10605,7 @@ window.questionSets = {
                 "test monitoring",
                 "test control"
             ],
-            "examTip": "Six test activities: Planning, Monitoring & Control, Analysis, Design, Implementation, Execution, Completion.",
+            "examTip": "Seven main activity groups: Planning, Monitoring & Control, Analysis, Design, Implementation, Execution, Completion.",
             "memoryAid": "PMaADIEC: Plan, Monitor, Analysis, Design, Implement, Execute, Complete."
         },
         {
@@ -10631,8 +10633,8 @@ window.questionSets = {
             },
             "chapter": 1,
             "section": "1.4",
-            "subsection": "1.4.2",
-            "learningObjective": "FL-1.4.2",
+            "subsection": "1.4.3",
+            "learningObjective": "FL-1.4.3",
             "kLevel": "K2",
             "difficulty": "Medium",
             "keywords": [
@@ -10668,7 +10670,7 @@ window.questionSets = {
             },
             "chapter": 1,
             "section": "1.3",
-            "subsection": "1.3.1",
+            "subsection": "1.3",
             "learningObjective": "FL-1.3.1",
             "kLevel": "K2",
             "difficulty": "Easy",
@@ -10706,7 +10708,7 @@ window.questionSets = {
             },
             "chapter": 2,
             "section": "2.3",
-            "subsection": "2.3.1",
+            "subsection": "2.3",
             "learningObjective": "FL-2.3.1",
             "kLevel": "K2",
             "difficulty": "Medium",
@@ -10780,7 +10782,7 @@ window.questionSets = {
             },
             "chapter": 2,
             "section": "2.3",
-            "subsection": "2.3.1",
+            "subsection": "2.3",
             "learningObjective": "FL-2.3.1",
             "kLevel": "K2",
             "difficulty": "Medium",
@@ -10806,18 +10808,18 @@ window.questionSets = {
             "incorrectFeedback": {
                 "A": "❌ Incorrect: They are distinct concepts at different abstraction levels.",
                 "B": "❌ Incorrect: This reverses the hierarchy; test cases are derived from test conditions.",
-                "C": "❌ Incorrect: Test cases are documented as part of test implementation, not requirements."
+                "C": "❌ Incorrect: Test conditions are derived during analysis and detailed test cases during design; neither artifact is defined by the document locations asserted here."
             },
             "optionExplanations": {
                 "A": "They are distinct concepts at different abstraction levels.",
                 "B": "This reverses the hierarchy; test cases are derived from test conditions.",
-                "C": "Test cases are documented as part of test implementation, not requirements.",
+                "C": "Test conditions are derived during analysis and detailed test cases during design; neither artifact is defined by the document locations asserted here.",
                 "D": "Test conditions identify what to test; test cases define how to test it with specific data."
             },
             "chapter": 1,
             "section": "1.4",
-            "subsection": "1.4.2",
-            "learningObjective": "FL-1.4.2",
+            "subsection": "1.4.3",
+            "learningObjective": "FL-1.4.3",
             "kLevel": "K2",
             "difficulty": "Medium",
             "keywords": [
@@ -10888,9 +10890,9 @@ window.questionSets = {
                 "D": "Confirmation testing verifies fixes; regression testing checks for unintended side effects."
             },
             "chapter": 2,
-            "section": "2.3",
-            "subsection": "2.3.1",
-            "learningObjective": "FL-2.3.1",
+            "section": "2.2",
+            "subsection": "2.2.3",
+            "learningObjective": "FL-2.2.3",
             "kLevel": "K2",
             "difficulty": "Medium",
             "keywords": [
@@ -10903,10 +10905,10 @@ window.questionSets = {
         },
         {
             "id": "Q302",
-            "statement": "After fixing a defect in the payment calculation module, the team re-runs all existing test cases for that module plus selected tests across related modules. Which statements are true?",
+            "statement": "After fixing a payment calculation defect, the team reruns the tests that previously exposed that defect to confirm its correction. It then runs other payment tests and selected tests in related modules to check for adverse side effects. Which statement is correct?",
             "options": {
                 "A": "Both activities are confirmation testing",
-                "B": "Re-running payment tests is confirmation testing; running tests on related modules is regression testing",
+                "B": "The tests verifying the specific defect fix are confirmation testing; the tests checking for adverse side effects are regression testing.",
                 "C": "Running tests on related modules is confirmation testing",
                 "D": "Both activities are regression testing"
             },
@@ -10925,9 +10927,9 @@ window.questionSets = {
                 "D": "Verifying the specific fix is confirmation, not regression testing."
             },
             "chapter": 2,
-            "section": "2.3",
-            "subsection": "2.3.1",
-            "learningObjective": "FL-2.3.1",
+            "section": "2.2",
+            "subsection": "2.2.3",
+            "learningObjective": "FL-2.2.3",
             "kLevel": "K2",
             "difficulty": "Medium",
             "keywords": [
@@ -10935,31 +10937,31 @@ window.questionSets = {
                 "regression testing",
                 "defect verification"
             ],
-            "examTip": "Confirmation = check fix; Regression = check neighbors.",
-            "memoryAid": "Fix = confirm; Surrounding = regress."
+            "examTip": "Distinguish the testing purpose, not the module: regression testing can include the changed component.",
+            "memoryAid": "Confirmation checks the fix; regression checks adverse consequences anywhere affected."
         },
         {
             "id": "Q266",
-            "statement": "Which set best represents valid boundary-focused tests for a date field allowing days 1 through 31 inclusive using three-value BVA?",
+            "statement": "A numeric field accepts integer values 1 through 31 inclusive. All lower integers and all higher integers are rejected, forming two invalid partitions. Which set is the minimum required for 100% three-value boundary value analysis coverage across all three partitions?",
             "options": {
                 "A": "2, 3, 4, 5",
                 "B": "10, 20, 30, 40",
-                "C": "0, 1, 2, 30, 31, 32",
+                "C": "-1, 0, 1, 2, 30, 31, 32, 33",
                 "D": "1, 15, 31"
             },
             "correctAnswer": "C",
-            "explanation": "Three-value BVA includes below, on, and above each boundary: 0,1,2 and 30,31,32.",
-            "correctFeedback": "✅ Correct: Three-value BVA includes below, on, and above each boundary: 0,1,2 and 30,31,32.",
+            "explanation": "The finite boundary values of the three partitions are 0, 1, 31, and 32. Three-value BVA exercises each boundary value and both immediate neighbors. Removing duplicates gives -1, 0, 1, 2, 30, 31, 32, 33. Testing only around the valid minimum and maximum omits the outer neighbors of the invalid partitions.",
+            "correctFeedback": "✅ Correct: The complete set is -1, 0, 1, 2, 30, 31, 32, 33.",
             "incorrectFeedback": {
-                "A": "❌ Incorrect: '2, 3, 4, 5' is incorrect. Three-value BVA includes below, on, and above each boundary: 0,1,2 and 30,31,32.",
-                "B": "❌ Incorrect: '10, 20, 30, 40' is incorrect. Three-value BVA includes below, on, and above each boundary: 0,1,2 and 30,31,32.",
-                "D": "❌ Incorrect: '1, 15, 31' is incorrect. Three-value BVA includes below, on, and above each boundary: 0,1,2 and 30,31,32."
+                "A": "❌ Incorrect: This set omits required boundary values or neighbors. The complete three-value BVA set is -1, 0, 1, 2, 30, 31, 32, 33.",
+                "B": "❌ Incorrect: This set omits required boundary values or neighbors. The complete three-value BVA set is -1, 0, 1, 2, 30, 31, 32, 33.",
+                "D": "❌ Incorrect: This set omits required boundary values or neighbors. The complete three-value BVA set is -1, 0, 1, 2, 30, 31, 32, 33."
             },
             "optionExplanations": {
-                "A": "'2, 3, 4, 5' is incorrect. Three-value BVA includes below, on, and above each boundary: 0,1,2 and 30,31,32.",
-                "B": "'10, 20, 30, 40' is incorrect. Three-value BVA includes below, on, and above each boundary: 0,1,2 and 30,31,32.",
-                "C": "Three-value BVA includes below, on, and above each boundary: 0,1,2 and 30,31,32.",
-                "D": "'1, 15, 31' is incorrect. Three-value BVA includes below, on, and above each boundary: 0,1,2 and 30,31,32."
+                "A": "This set omits required boundary values or neighbors. The complete three-value BVA set is -1, 0, 1, 2, 30, 31, 32, 33.",
+                "B": "This set omits required boundary values or neighbors. The complete three-value BVA set is -1, 0, 1, 2, 30, 31, 32, 33.",
+                "C": "The complete set is -1, 0, 1, 2, 30, 31, 32, 33.",
+                "D": "This set omits required boundary values or neighbors. The complete three-value BVA set is -1, 0, 1, 2, 30, 31, 32, 33."
             },
             "chapter": 4,
             "section": "4.2",
@@ -10971,8 +10973,8 @@ window.questionSets = {
                 "boundary value analysis",
                 "date field"
             ],
-            "examTip": "Below, on, and above both limits.",
-            "memoryAid": "Three around each edge."
+            "examTip": "Identify the boundary values of every partition, including invalid partitions, then add both neighbors and remove duplicates.",
+            "memoryAid": "3-value BVA = every identified partition boundary plus both neighbors."
         },
         {
             "id": "Q126",
@@ -11183,11 +11185,11 @@ window.questionSets = {
                 "C": "Alphabetical order is an arbitrary criterion with no logical connection to technique effectiveness or suitability.",
                 "D": "Interface color is a cosmetic attribute completely unrelated to test technique selection, which depends on objectives, risks, and the test basis."
             },
-            "chapter": 5,
-            "section": "5.5",
-            "subsection": "5.5.1",
-            "learningObjective": "FL-5.5.1",
-            "kLevel": "K3",
+            "chapter": 1,
+            "section": "1.4",
+            "subsection": "1.4.2",
+            "learningObjective": "FL-1.4.2",
+            "kLevel": "K2",
             "difficulty": "Medium",
             "keywords": [
                 "technique selection",
@@ -11205,25 +11207,25 @@ window.questionSets = {
                 "D": "Walkthrough",
                 "A": "Technical review"
             },
-            "correctAnswer": "B",
+            "correctAnswer": "C",
             "explanation": "Inspections are the most formal type of review. They follow a well-defined process with trained participants, defined roles, formal entry and exit criteria, data collection, and process improvement feedback. Inspections have the highest level of rigor.",
-            "correctFeedback": "✅ Correct: Walkthroughs are author-led, informal, and focus on knowledge sharing.",
+            "correctFeedback": "✅ Correct: Inspections have the highest formality with strict entry/exit criteria and defined roles.",
             "incorrectFeedback": {
                 "A": "❌ Incorrect: Technical reviews are formal but less rigorous than inspections.",
-                "C": "❌ Incorrect: Informal reviews are the least formal, often done as pair reviews without documented process.",
-                "D": "❌ Incorrect: Inspections have the highest formality with strict entry/exit criteria and defined roles."
+                "B": "❌ Incorrect: Informal reviews are the least formal, often done as pair reviews without documented process.",
+                "D": "❌ Incorrect: A walkthrough is author-led and may build understanding and find anomalies; inspection is the most formal review type."
             },
             "optionExplanations": {
                 "A": "Technical reviews are formal but less rigorous than inspections.",
-                "B": "Walkthroughs are author-led, informal, and focus on knowledge sharing.",
-                "C": "Informal reviews are the least formal, often done as pair reviews without documented process.",
-                "D": "Inspections have the highest formality with strict entry/exit criteria and defined roles."
+                "B": "Informal reviews are the least formal, often done as pair reviews without documented process.",
+                "C": "Inspections have the highest formality with strict entry/exit criteria and defined roles.",
+                "D": "A walkthrough is author-led and may build understanding and find anomalies; inspection is the most formal review type."
             },
             "chapter": 3,
             "section": "3.2",
-            "subsection": "3.2.1",
-            "learningObjective": "FL-3.2.1",
-            "kLevel": "K1",
+            "subsection": "3.2.4",
+            "learningObjective": "FL-3.2.4",
+            "kLevel": "K2",
             "difficulty": "Medium",
             "keywords": [
                 "inspection",
@@ -11235,7 +11237,7 @@ window.questionSets = {
         },
         {
             "id": "Q152",
-            "statement": "A medical device monitors patient temperature and triggers an alert if the temperature is outside the normal range of 36.0°C to 37.5°C inclusive. Using two-value boundary value analysis, which temperature values should be tested?",
+            "statement": "A medical device monitors patient temperature and triggers an alert if the temperature is outside the normal range of 36.0°C to 37.5°C inclusive. Using two-value boundary value analysis, which temperature values should be tested? Temperatures are represented in increments of 0.1 degrees Celsius.",
             "options": {
                 "C": "35.9, 36.0, 37.5, 37.6",
                 "D": "36.0, 36.5, 37.0, 37.5",
@@ -11268,8 +11270,8 @@ window.questionSets = {
                 "medical device",
                 "temperature"
             ],
-            "examTip": "2-value BVA = min-1, min, max, max+1 for each boundary.",
-            "memoryAid": "BVA: just below, at, just above each boundary."
+            "examTip": "Use the specified 0.1-degree increment: 35.9, 36.0, 37.5, 37.6.",
+            "memoryAid": "2-value BVA = adjacent values across each partition boundary."
         },
         {
             "id": "Q324",
@@ -11321,19 +11323,19 @@ window.questionSets = {
             "explanation": "Tool selection should consider technical compatibility, organizational fit, skill requirements, vendor support, and total cost of ownership, not just market share or price.",
             "correctFeedback": "✅ Correct: Tool selection should consider technical compatibility, organizational fit, skill requirements, vendor support, and total cost of ownership, not just market share or price.",
             "incorrectFeedback": {
-                "B": "❌ Incorrect: 'The tool's ability to make testing unnecessary' is incorrect. The tools cannot measure response times (option B); Performance tools only work on desktop applications (option C); Performance testing does not require any planning (option D).",
-                "C": "❌ Incorrect: 'The vendor's market share alone, regardless of technical fit' is incorrect. The tools cannot measure response times (option B); Performance tools only work on desktop applications (option C); Performance testing does not require any planning (option D).",
-                "D": "❌ Incorrect: 'The tool's price being the lowest available' is incorrect. The tools cannot measure response times (option B); Performance tools only work on desktop applications (option C); Performance testing does not require any planning (option D)."
+                "B": "❌ Incorrect: A testing tool supports testing rather than making it unnecessary.",
+                "C": "❌ Incorrect: Vendor popularity alone does not establish technical or organizational fit.",
+                "D": "❌ Incorrect: Purchase price alone ignores integration, support, training, and maintenance costs."
             },
             "optionExplanations": {
                 "A": "Tool selection should consider technical compatibility, organizational fit, skill requirements, vendor support, and total cost of ownership, not just market share or price.",
-                "B": "'The tool's ability to make testing unnecessary' is incorrect. The tools cannot measure response times (option B); Performance tools only work on desktop applications (option C); Performance testing does not require any planning (option D).",
-                "C": "'The vendor's market share alone, regardless of technical fit' is incorrect. The tools cannot measure response times (option B); Performance tools only work on desktop applications (option C); Performance testing does not require any planning (option D).",
-                "D": "'The tool's price being the lowest available' is incorrect. The tools cannot measure response times (option B); Performance tools only work on desktop applications (option C); Performance testing does not require any planning (option D)."
+                "B": "A testing tool supports testing rather than making it unnecessary.",
+                "C": "Vendor popularity alone does not establish technical or organizational fit.",
+                "D": "Purchase price alone ignores integration, support, training, and maintenance costs."
             },
             "chapter": 6,
             "section": "6.2",
-            "subsection": "6.2.1",
+            "subsection": "6.2",
             "learningObjective": "FL-6.2.1",
             "kLevel": "K1",
             "difficulty": "Medium",
@@ -11445,7 +11447,7 @@ window.questionSets = {
             "section": "4.2",
             "subsection": "4.2.4",
             "learningObjective": "FL-4.2.4",
-            "kLevel": "K2",
+            "kLevel": "K3",
             "difficulty": "Medium",
             "keywords": [
                 "state transition testing",
@@ -11465,25 +11467,25 @@ window.questionSets = {
                 "C": "To list all the features that will not be tested",
                 "D": "To identify the test environment requirements"
             },
-            "correctAnswer": "D",
+            "correctAnswer": "A",
             "explanation": "Exit criteria define the conditions that must be achieved to conclude a specific test level or set of tests. Examples include achieving a certain percentage of test case pass rate, meeting coverage targets, or resolving critical defects. They help make objective completion decisions.",
-            "correctFeedback": "✅ Correct: Environment requirements are part of test planning but separate from exit criteria.",
+            "correctFeedback": "✅ Correct: Exit criteria specify measurable conditions for completing testing.",
             "incorrectFeedback": {
-                "A": "❌ Incorrect: Entry criteria define what must be in place before testing begins.",
-                "B": "❌ Incorrect: Exit criteria specify measurable conditions for completing testing.",
-                "C": "❌ Incorrect: Features not tested are described in the test scope or risk analysis."
+                "B": "❌ Incorrect: Entry criteria define what must be in place before testing begins.",
+                "C": "❌ Incorrect: Features not tested are described in the test scope or risk analysis.",
+                "D": "❌ Incorrect: Environment requirements are part of test planning but separate from exit criteria."
             },
             "optionExplanations": {
-                "A": "Entry criteria define what must be in place before testing begins.",
-                "B": "Exit criteria specify measurable conditions for completing testing.",
+                "A": "Exit criteria specify measurable conditions for completing testing.",
+                "B": "Entry criteria define what must be in place before testing begins.",
                 "C": "Features not tested are described in the test scope or risk analysis.",
                 "D": "Environment requirements are part of test planning but separate from exit criteria."
             },
             "chapter": 5,
-            "section": "5.2",
-            "subsection": "5.2.1",
-            "learningObjective": "FL-5.2.1",
-            "kLevel": "K1",
+            "section": "5.1",
+            "subsection": "5.1.3",
+            "learningObjective": "FL-5.1.3",
+            "kLevel": "K2",
             "difficulty": "Medium",
             "keywords": [
                 "exit criteria",
@@ -11518,7 +11520,7 @@ window.questionSets = {
             },
             "chapter": 6,
             "section": "6.2",
-            "subsection": "6.2.1",
+            "subsection": "6.2",
             "learningObjective": "FL-6.2.1",
             "kLevel": "K1",
             "difficulty": "Medium",
@@ -11590,7 +11592,7 @@ window.questionSets = {
             },
             "chapter": 4,
             "section": "4.1",
-            "subsection": "4.1.1",
+            "subsection": "4.1",
             "learningObjective": "FL-4.1.1",
             "kLevel": "K2",
             "difficulty": "Medium",
@@ -11627,7 +11629,7 @@ window.questionSets = {
             },
             "chapter": 6,
             "section": "6.1",
-            "subsection": "6.1.1",
+            "subsection": "6.1",
             "learningObjective": "FL-6.1.1",
             "kLevel": "K2",
             "difficulty": "Easy",
@@ -11652,12 +11654,12 @@ window.questionSets = {
             "correctFeedback": "✅ Correct: Product risk level depends on likelihood and impact, and both dimensions should influence testing priorities.",
             "incorrectFeedback": {
                 "A": "❌ Incorrect: Ignoring a risk solely because likelihood is low violates the principle that risk = likelihood × impact. A high-impact risk, even with low likelihood, can cause catastrophic consequences if it occurs. It must be considered in test prioritization, not ignored.",
-                "B": "❌ Incorrect: Testing high-impact risks only after low-impact ones reverses sound risk-based testing principles. Higher impact means greater potential harm to stakeholders or business value — these should generally receive testing attention before low-impact items, not after.",
+                "B": "❌ Incorrect: Do not order risks by impact alone. Their combined likelihood and impact, plus dependencies and constraints, determine priority.",
                 "C": "❌ Incorrect: Risks are not automatically transferred to development. Risk-based testing uses testing strategies to mitigate risks (e.g., more thorough testing, earlier testing, different techniques). Transfer is a risk management option, not an automatic response in risk-based testing."
             },
             "optionExplanations": {
                 "A": "Ignoring a risk solely because likelihood is low is wrong. Risk = likelihood × impact, and high impact means severe consequences even if rare.",
-                "B": "Testing high-impact risks only after low-impact ones reverses sound risk-based principles. Higher potential harm should generally receive earlier attention.",
+                "B": "Do not order risks by impact alone. Their combined likelihood and impact, plus dependencies and constraints, determine priority.",
                 "C": "Risks are not automatically transferred to development. Risk-based testing mitigates risks through appropriate testing strategies; transfer is a separate risk management option.",
                 "D": "Product risk level depends on likelihood and impact, and both dimensions should influence testing priorities."
             },
@@ -11738,7 +11740,7 @@ window.questionSets = {
             },
             "chapter": 6,
             "section": "6.1",
-            "subsection": "6.1.1",
+            "subsection": "6.1",
             "learningObjective": "FL-6.1.1",
             "kLevel": "K2",
             "difficulty": "Medium",
@@ -11764,14 +11766,14 @@ window.questionSets = {
             "correctFeedback": "✅ Correct: Checklists provide structured, systematic coverage of key test items.",
             "incorrectFeedback": {
                 "A": "❌ Incorrect: Checklists are manually created, not automatically generated.",
-                "B": "❌ Incorrect: Code coverage is a white-box measurement, not related to checklists.",
-                "D": "❌ Incorrect: No test technique guarantees finding more defects than others."
+                "B": "❌ Incorrect: No test technique guarantees finding more defects than others.",
+                "D": "❌ Incorrect: Code coverage is a white-box measurement, not related to checklists."
             },
             "optionExplanations": {
                 "A": "Checklists are manually created, not automatically generated.",
-                "B": "Code coverage is a white-box measurement, not related to checklists.",
+                "B": "No test technique guarantees finding more defects than others.",
                 "C": "Checklists provide structured, systematic coverage of key test items.",
-                "D": "No test technique guarantees finding more defects than others."
+                "D": "Code coverage is a white-box measurement, not related to checklists."
             },
             "chapter": 4,
             "section": "4.4",
@@ -11811,10 +11813,10 @@ window.questionSets = {
                 "D": "Tools support quality improvement but cannot guarantee it."
             },
             "chapter": 6,
-            "section": "6.1",
-            "subsection": "6.1.1",
-            "learningObjective": "FL-6.1.1",
-            "kLevel": "K2",
+            "section": "6.2",
+            "subsection": "6.2",
+            "learningObjective": "FL-6.2.1",
+            "kLevel": "K1",
             "difficulty": "Medium",
             "keywords": [
                 "test tools",
@@ -11914,15 +11916,15 @@ window.questionSets = {
             "explanation": "Test completion includes collecting and archiving testware, reporting completion information, and recording lessons learned.",
             "correctFeedback": "✅ Correct: Test completion includes collecting and archiving testware, reporting completion information, and recording lessons learned.",
             "incorrectFeedback": {
-                "A": "❌ Incorrect: 'Approving the product budget' is incorrect. Approving the product budget Code compilation is a development activity, not a testing activity.; Creating the first test charter Software deployment is an operational activity after testing.; Compiling the application Test analysis and design is a core test activity where test conditions and test cases are defined.",
-                "C": "❌ Incorrect: 'Creating the first test charter' is incorrect. Approving the product budget Code compilation is a development activity, not a testing activity.; Creating the first test charter Software deployment is an operational activity after testing.; Compiling the application Test analysis and design is a core test activity where test conditions and test cases are defined.",
-                "D": "❌ Incorrect: 'Compiling the application' is incorrect. Approving the product budget Code compilation is a development activity, not a testing activity.; Creating the first test charter Software deployment is an operational activity after testing.; Compiling the application Test analysis and design is a core test activity where test conditions and test cases are defined."
+                "A": "❌ Incorrect: Approving the product budget is a project or business management activity.",
+                "C": "❌ Incorrect: Creating an initial test charter prepares and guides exploratory testing; it is not archiving or completion.",
+                "D": "❌ Incorrect: Compiling the application is a development/build activity, not test completion."
             },
             "optionExplanations": {
-                "A": "'Approving the product budget' is incorrect. Approving the product budget Code compilation is a development activity, not a testing activity.; Creating the first test charter Software deployment is an operational activity after testing.; Compiling the application Test analysis and design is a core test activity where test conditions and test cases are defined.",
+                "A": "Approving the product budget is a project or business management activity.",
                 "B": "Test completion includes collecting and archiving testware, reporting completion information, and recording lessons learned.",
-                "C": "'Creating the first test charter' is incorrect. Approving the product budget Code compilation is a development activity, not a testing activity.; Creating the first test charter Software deployment is an operational activity after testing.; Compiling the application Test analysis and design is a core test activity where test conditions and test cases are defined.",
-                "D": "'Compiling the application' is incorrect. Approving the product budget Code compilation is a development activity, not a testing activity.; Creating the first test charter Software deployment is an operational activity after testing.; Compiling the application Test analysis and design is a core test activity where test conditions and test cases are defined."
+                "C": "Creating an initial test charter prepares and guides exploratory testing; it is not archiving or completion.",
+                "D": "Compiling the application is a development/build activity, not test completion."
             },
             "chapter": 1,
             "section": "1.4",
@@ -11962,8 +11964,8 @@ window.questionSets = {
             },
             "chapter": 1,
             "section": "1.5",
-            "subsection": "1.5.1",
-            "learningObjective": "FL-1.5.1",
+            "subsection": "1.5.3",
+            "learningObjective": "FL-1.5.3",
             "kLevel": "K2",
             "difficulty": "Easy",
             "keywords": [
@@ -11999,9 +12001,9 @@ window.questionSets = {
             },
             "chapter": 1,
             "section": "1.2",
-            "subsection": "1.2.1",
-            "learningObjective": "FL-1.2.1",
-            "kLevel": "K2",
+            "subsection": "1.2.2",
+            "learningObjective": "FL-1.2.2",
+            "kLevel": "K1",
             "difficulty": "Medium",
             "keywords": [
                 "quality assurance",
@@ -12018,22 +12020,22 @@ window.questionSets = {
             "options": {
                 "A": "Debugging and testing are the same activity with different names",
                 "B": "Testing is done after debugging is complete",
-                "C": "Testing finds defects; debugging locates and fixes the cause of those defects",
+                "C": "Testing can reveal failures or directly find defects; debugging investigates and removes defects.",
                 "D": "Debugging is performed by testers; testing is performed by developers"
             },
             "correctAnswer": "C",
-            "explanation": "Testing is the process of finding defects through systematic execution of test cases. Debugging is the development activity that identifies the root cause of a known defect and fixes it. These are distinct activities with different goals.",
-            "correctFeedback": "✅ Correct: Testing reveals failures; debugging analyzes root causes and removes defects.",
+            "explanation": "Testing evaluates work products and discovers defects. Dynamic testing can expose failures; static testing can find defects directly without execution. Debugging diagnoses and removes the defects responsible for observed failures, or removes defects found directly by static testing.",
+            "correctFeedback": "✅ Correct: Testing and debugging are distinct: testing evaluates quality and discovers defects or failures; debugging investigates and removes defects.",
             "incorrectFeedback": {
                 "A": "❌ Incorrect: They are fundamentally different activities with different objectives.",
                 "B": "❌ Incorrect: Testing often triggers the need for debugging, but they can overlap in time.",
-                "D": "❌ Incorrect: Developers debug; testers test. These roles are distinct."
+                "D": "❌ Incorrect: Developers also perform testing. The activities are distinguished by purpose, not by an exclusive assignment to developers or testers."
             },
             "optionExplanations": {
                 "A": "They are fundamentally different activities with different objectives.",
                 "B": "Testing often triggers the need for debugging, but they can overlap in time.",
-                "C": "Testing reveals failures; debugging analyzes root causes and removes defects.",
-                "D": "Developers debug; testers test. These roles are distinct."
+                "C": "Testing and debugging are distinct: testing evaluates quality and discovers defects or failures; debugging investigates and removes defects.",
+                "D": "Developers also perform testing. The activities are distinguished by purpose, not by an exclusive assignment to developers or testers."
             },
             "chapter": 1,
             "section": "1.1",
@@ -12056,11 +12058,11 @@ window.questionSets = {
                 "A": "Code compilation",
                 "B": "Requirements gathering",
                 "C": "Software deployment",
-                "D": "Test analysis and design"
+                "D": "Test analysis and test design"
             },
             "correctAnswer": "D",
-            "explanation": "The test process includes six main activities: test planning, test monitoring and control, test analysis, test design, test implementation, test execution, and test completion. Test analysis and design is the activity where test conditions are identified and test cases are designed.",
-            "correctFeedback": "✅ Correct: Test analysis and design is a core test activity where test conditions and test cases are defined.",
+            "explanation": "The seven main activity groups are test planning, test monitoring and control, test analysis, test design, test implementation, test execution, and test completion. Test analysis identifies what to test; test design elaborates test conditions into test cases.",
+            "correctFeedback": "✅ Correct: Test analysis and test design are two distinct activity groups within the test process.",
             "incorrectFeedback": {
                 "A": "❌ Incorrect: Code compilation is a development activity, not a testing activity.",
                 "B": "❌ Incorrect: Requirements gathering is part of the requirements engineering process.",
@@ -12070,7 +12072,7 @@ window.questionSets = {
                 "A": "Code compilation is a development activity, not a testing activity.",
                 "B": "Requirements gathering is part of the requirements engineering process.",
                 "C": "Software deployment is an operational activity after testing.",
-                "D": "Test analysis and design is a core test activity where test conditions and test cases are defined."
+                "D": "Test analysis and test design are two distinct activity groups within the test process."
             },
             "chapter": 1,
             "section": "1.4",
@@ -12084,7 +12086,7 @@ window.questionSets = {
                 "test analysis",
                 "test design"
             ],
-            "examTip": "Remember the six test activities: Planning, Monitoring & Control, Analysis, Design, Implementation, Execution, Completion.",
+            "examTip": "Remember the seven main activity groups: Planning, Monitoring & Control, Analysis, Design, Implementation, Execution, Completion.",
             "memoryAid": "PMaADIEC: Plan, Monitor, Analysis, Design, Implement, Execute, Complete."
         },
         {
@@ -12097,7 +12099,7 @@ window.questionSets = {
                 "D": "6"
             },
             "correctAnswer": "B",
-            "explanation": "There are 2 conditions (Account Locked: yes/no; Credentials Valid: yes/no). A complete decision table requires 2^2 = 4 test cases. The collapsed table has 3 unique outcomes (rule 1 applies regardless of credentials), but the table still has 4 rows to cover all combinations.",
+            "explanation": "Two Boolean conditions produce four columns in the full decision table. The two locked-account columns can be merged because credentials do not affect the action, leaving three rules in the minimized table. There are only two distinct actions: grant access or deny access.",
             "correctFeedback": "✅ Correct: Two conditions = 2^2 = 4 test cases.",
             "incorrectFeedback": {
                 "A": "❌ Incorrect: 2 does not cover all condition combinations.",
@@ -12123,7 +12125,7 @@ window.questionSets = {
                 "test design"
             ],
             "examTip": "Two binary conditions = 4 test cases.",
-            "memoryAid": "2 conditions = 4 rows."
+            "memoryAid": "Two Boolean conditions = four full-table columns; minimization may reduce the rule count."
         },
         {
             "id": "Q296",
@@ -12150,9 +12152,9 @@ window.questionSets = {
             },
             "chapter": 1,
             "section": "1.5",
-            "subsection": "1.5.2",
-            "learningObjective": "FL-1.5.2",
-            "kLevel": "K1",
+            "subsection": "1.5.1",
+            "learningObjective": "FL-1.5.1",
+            "kLevel": "K2",
             "difficulty": "Medium",
             "keywords": [
                 "critical thinking",
@@ -12213,20 +12215,20 @@ window.questionSets = {
             "explanation": "Independence in testing means the testing activities are performed by people who are not the authors of the work product being tested. Different levels of independence exist, from testing by the developer's colleague to testing by an external organization.",
             "correctFeedback": "✅ Correct: Independence means the tester is separate from the developer of the item being tested.",
             "incorrectFeedback": {
-                "A": "❌ Incorrect: This is the opposite of independence.",
-                "B": "❌ Incorrect: Automation is a separate concept from independence.",
+                "A": "❌ Incorrect: Automation is a separate concept from independence.",
+                "B": "❌ Incorrect: This is the opposite of independence.",
                 "C": "❌ Incorrect: Independence is about who tests, not about documentation."
             },
             "optionExplanations": {
-                "A": "This is the opposite of independence.",
-                "B": "Automation is a separate concept from independence.",
+                "A": "Automation is a separate concept from independence.",
+                "B": "This is the opposite of independence.",
                 "C": "Independence is about who tests, not about documentation.",
                 "D": "Independence means the tester is separate from the developer of the item being tested."
             },
             "chapter": 1,
             "section": "1.5",
-            "subsection": "1.5.1",
-            "learningObjective": "FL-1.5.1",
+            "subsection": "1.5.3",
+            "learningObjective": "FL-1.5.3",
             "kLevel": "K2",
             "difficulty": "Easy",
             "keywords": [
@@ -12262,8 +12264,8 @@ window.questionSets = {
             },
             "chapter": 1,
             "section": "1.4",
-            "subsection": "1.4.2",
-            "learningObjective": "FL-1.4.2",
+            "subsection": "1.4.1",
+            "learningObjective": "FL-1.4.1",
             "kLevel": "K2",
             "difficulty": "Medium",
             "keywords": [
@@ -12289,13 +12291,13 @@ window.questionSets = {
             "incorrectFeedback": {
                 "A": "❌ Incorrect: Four test cases are more than the minimum needed; two are enough for full statement coverage.",
                 "B": "❌ Incorrect: A single test case cannot satisfy both temperature > 100 and temperature < 0 at the same time, so it cannot execute both conditional PRINT statements.",
-                "D": "❌ Incorrect: Three test cases would also achieve statement coverage, but the third case (neither condition true) is not required here — it would only be needed for full branch/decision coverage of both IF statements, not for the statement coverage asked about."
+                "D": "❌ Incorrect: Three tests are unnecessary. Temperatures 150 and -10 cover every statement and both outcomes of each IF decision."
             },
             "optionExplanations": {
                 "A": "Four test cases are more than the minimum needed; two are enough for full statement coverage.",
                 "B": "A single test case cannot satisfy both temperature > 100 and temperature < 0 at the same time, so it cannot execute both conditional PRINT statements.",
                 "C": "Two test cases are enough: one with temperature > 100 (covers the DANGER print and soundAlarm()) and one with temperature < 0 (covers the WARNING print). The unconditional final print ('Temperature reading complete.') is covered by either test, since it sits outside both IF blocks.",
-                "D": "Three test cases would also achieve statement coverage, but the third case (neither condition true) is not required here — it would only be needed for full branch/decision coverage of both IF statements, not for the statement coverage asked about."
+                "D": "Three tests are unnecessary. Temperatures 150 and -10 cover every statement and both outcomes of each IF decision."
             },
             "chapter": 4,
             "section": "4.3",
@@ -12308,8 +12310,8 @@ window.questionSets = {
                 "white-box",
                 "test cases"
             ],
-            "examTip": "For independent if statements, you may need a test case where neither condition is true to cover statements after both.",
-            "memoryAid": "Statement coverage = every line of code executed at least once."
+            "examTip": "An unconditional statement after the IF blocks executes in every run; it does not need an extra test where neither IF condition holds.",
+            "memoryAid": "Statement coverage = every executable statement executed at least once."
         },
         {
             "id": "Q123",
@@ -12336,8 +12338,8 @@ window.questionSets = {
             },
             "chapter": 1,
             "section": "1.4",
-            "subsection": "1.4.2",
-            "learningObjective": "FL-1.4.2",
+            "subsection": "1.4.3",
+            "learningObjective": "FL-1.4.3",
             "kLevel": "K2",
             "difficulty": "Medium",
             "keywords": [
@@ -12350,7 +12352,7 @@ window.questionSets = {
         },
         {
             "id": "Q142",
-            "statement": "After investigating a series of failures in a banking application, the team determines that all failures trace back to incorrect handling of decimal rounding in currency calculations. What is this an example of?",
+            "statement": "After investigating repeated rounding defects in a banking application, the team establishes that the underlying reason is a missing organizational standard for currency precision. They update that standard to reduce recurrence. What activity is this?",
             "options": {
                 "A": "Failure clustering",
                 "B": "Debugging",
@@ -12358,24 +12360,24 @@ window.questionSets = {
                 "D": "Root cause analysis"
             },
             "correctAnswer": "D",
-            "explanation": "Root cause analysis (RCA) is the process of identifying the underlying cause of defects or failures. In this case, the team traced multiple failures back to a single root cause (incorrect decimal rounding), which allows them to fix the fundamental problem rather than treating individual symptoms.",
-            "correctFeedback": "✅ Correct: Failure clustering describes a pattern of failures, not the analysis of their cause.",
+            "explanation": "The team investigates why similar defects recur and addresses the missing precision standard. This is root cause analysis; locating and fixing the individual code defects would be debugging.",
+            "correctFeedback": "✅ Correct: Identifying and addressing the missing organizational precision standard is root cause analysis.",
             "incorrectFeedback": {
-                "A": "❌ Incorrect: RCA identifies the fundamental reason behind one or more defects to enable permanent correction.",
-                "B": "❌ Incorrect: Debugging focuses on locating and fixing one specific defect.",
+                "A": "❌ Incorrect: Failure clustering describes a pattern of failures, not the analysis of their cause.",
+                "B": "❌ Incorrect: Debugging locates and removes defects; the scenario specifically investigates and addresses the systemic reason that similar defects recur.",
                 "C": "❌ Incorrect: Dynamic analysis involves executing code to analyze behavior."
             },
             "optionExplanations": {
-                "A": "RCA identifies the fundamental reason behind one or more defects to enable permanent correction.",
-                "B": "Debugging focuses on locating and fixing one specific defect.",
+                "A": "Failure clustering describes a pattern of failures, not the analysis of their cause.",
+                "B": "Debugging locates and removes defects; the scenario specifically investigates and addresses the systemic reason that similar defects recur.",
                 "C": "Dynamic analysis involves executing code to analyze behavior.",
-                "D": "Failure clustering describes a pattern of failures, not the analysis of their cause."
+                "D": "Identifying and addressing the missing organizational precision standard is root cause analysis."
             },
             "chapter": 1,
-            "section": "1.1",
-            "subsection": "1.1.1",
-            "learningObjective": "FL-1.1.1",
-            "kLevel": "K1",
+            "section": "1.2",
+            "subsection": "1.2.3",
+            "learningObjective": "FL-1.2.3",
+            "kLevel": "K2",
             "difficulty": "Easy",
             "keywords": [
                 "root cause analysis",
@@ -12431,12 +12433,12 @@ window.questionSets = {
                 "C": "Testing context is irrelevant to test design",
                 "D": "Testing should always be done in the production environment"
             },
-            "correctAnswer": "C",
+            "correctAnswer": "B",
             "explanation": "The context dependency principle states that testing is performed differently in different contexts. For example, testing for a safety-critical medical system is vastly different from testing an e-commerce website. The approach depends on risks, regulations, and application type.",
-            "correctFeedback": "✅ Correct: Each project context demands a tailored testing approach.",
+            "correctFeedback": "✅ Correct: Context drives the testing approach - no single approach fits all situations.",
             "incorrectFeedback": {
                 "A": "❌ Incorrect: Context is fundamental to determining what and how to test.",
-                "B": "❌ Incorrect: Context drives the testing approach - no single approach fits all situations.",
+                "C": "❌ Incorrect: Each project context demands a tailored testing approach.",
                 "D": "❌ Incorrect: Most testing should be done in a controlled test environment."
             },
             "optionExplanations": {
@@ -12447,7 +12449,7 @@ window.questionSets = {
             },
             "chapter": 1,
             "section": "1.3",
-            "subsection": "1.3.1",
+            "subsection": "1.3",
             "learningObjective": "FL-1.3.1",
             "kLevel": "K2",
             "difficulty": "Medium",
@@ -12484,8 +12486,8 @@ window.questionSets = {
             },
             "chapter": 1,
             "section": "1.4",
-            "subsection": "1.4.2",
-            "learningObjective": "FL-1.4.2",
+            "subsection": "1.4.3",
+            "learningObjective": "FL-1.4.3",
             "kLevel": "K2",
             "difficulty": "Medium",
             "keywords": [
@@ -12521,7 +12523,7 @@ window.questionSets = {
             },
             "chapter": 1,
             "section": "1.3",
-            "subsection": "1.3.1",
+            "subsection": "1.3",
             "learningObjective": "FL-1.3.1",
             "kLevel": "K2",
             "difficulty": "Easy",
@@ -12567,7 +12569,7 @@ window.questionSets = {
                 "coverage"
             ],
             "examTip": "100% statement coverage does not mean all defects are found — coverage measures code execution, not defect detection.",
-            "memoryAid": "100% statement coverage executes all lines but doesn't find all defects."
+            "memoryAid": "100% statement coverage executes all executable statements but doesn't find all defects."
         },
         {
             "id": "Q019",
@@ -12684,26 +12686,26 @@ window.questionSets = {
         },
         {
             "id": "Q319",
-            "statement": "A system accepts an integer discount percentage between 0 and 50 inclusive. Using three-value boundary value analysis, which set of inputs should be tested?",
+            "statement": "A numeric field accepts integer values 0 through 50 inclusive. All lower integers and all higher integers are rejected, forming two invalid partitions. Which set is the minimum required for 100% three-value boundary value analysis coverage across all three partitions?",
             "options": {
                 "A": "0, 25, 50",
-                "B": "-1, 0, 1, 49, 50, 51",
+                "B": "-2, -1, 0, 1, 49, 50, 51, 52",
                 "C": "0, 50",
                 "D": "-1, 0, 50, 51"
             },
             "correctAnswer": "B",
-            "explanation": "Three-value BVA tests the values just below, at, and just above each boundary. For the boundary at 0 (lower limit): -1, 0, 1. For the boundary at 50 (upper limit): 49, 50, 51. This gives the full set: -1, 0, 1, 49, 50, 51.",
-            "correctFeedback": "✅ Correct: -1, 0, 1 cover the lower boundary; 49, 50, 51 cover the upper boundary.",
+            "explanation": "The finite boundary values of the three partitions are -1, 0, 50, and 51. Three-value BVA exercises each boundary value and both immediate neighbors. Removing duplicates gives -2, -1, 0, 1, 49, 50, 51, 52. Testing only around the valid minimum and maximum omits the outer neighbors of the invalid partitions.",
+            "correctFeedback": "✅ Correct: The complete set is -2, -1, 0, 1, 49, 50, 51, 52.",
             "incorrectFeedback": {
-                "A": "❌ Incorrect: 0 and 50 are boundary values but missing the values just outside.",
-                "C": "❌ Incorrect: Only two values miss the adjacent boundary values needed for BVA.",
-                "D": "❌ Incorrect: Missing 1 and 49 which are just above/below the boundaries respectively."
+                "A": "❌ Incorrect: This set omits required boundary values or neighbors. The complete three-value BVA set is -2, -1, 0, 1, 49, 50, 51, 52.",
+                "C": "❌ Incorrect: This set omits required boundary values or neighbors. The complete three-value BVA set is -2, -1, 0, 1, 49, 50, 51, 52.",
+                "D": "❌ Incorrect: This set omits required boundary values or neighbors. The complete three-value BVA set is -2, -1, 0, 1, 49, 50, 51, 52."
             },
             "optionExplanations": {
-                "A": "0 and 50 are boundary values but missing the values just outside.",
-                "B": "-1, 0, 1 cover the lower boundary; 49, 50, 51 cover the upper boundary.",
-                "C": "Only two values miss the adjacent boundary values needed for BVA.",
-                "D": "Missing 1 and 49 which are just above/below the boundaries respectively."
+                "A": "This set omits required boundary values or neighbors. The complete three-value BVA set is -2, -1, 0, 1, 49, 50, 51, 52.",
+                "B": "The complete set is -2, -1, 0, 1, 49, 50, 51, 52.",
+                "C": "This set omits required boundary values or neighbors. The complete three-value BVA set is -2, -1, 0, 1, 49, 50, 51, 52.",
+                "D": "This set omits required boundary values or neighbors. The complete three-value BVA set is -2, -1, 0, 1, 49, 50, 51, 52."
             },
             "chapter": 4,
             "section": "4.2",
@@ -12716,8 +12718,8 @@ window.questionSets = {
                 "three-value BVA",
                 "integer range"
             ],
-            "examTip": "Three-value BVA: below, on, above each boundary.",
-            "memoryAid": "BVA = 3 around each edge."
+            "examTip": "Identify the boundary values of every partition, including invalid partitions, then add both neighbors and remove duplicates.",
+            "memoryAid": "3-value BVA = every identified partition boundary plus both neighbors."
         },
         {
             "id": "Q107",
@@ -12765,11 +12767,11 @@ window.questionSets = {
                 "B": "Defects are detected earlier when they are less expensive to fix",
                 "C": "Testing can be completely avoided"
             },
-            "correctAnswer": "A",
-            "explanation": "Early tester involvement (the 'early testing' principle) allows defects to be found in requirements, design, and early code stages. The cost of fixing a defect increases exponentially the later it is found, so early detection saves significant time and money.",
-            "correctFeedback": "✅ Correct: Unit testing by developers remains important regardless of tester involvement.",
+            "correctAnswer": "B",
+            "explanation": "Early tester involvement helps reveal requirement and design defects before they propagate. Earlier correction generally reduces rework, time, and cost. The syllabus does not prescribe a universal exponential cost curve.",
+            "correctFeedback": "✅ Correct: Early defect detection significantly reduces the cost of fixing defects.",
             "incorrectFeedback": {
-                "B": "❌ Incorrect: Early defect detection significantly reduces the cost of fixing defects.",
+                "A": "❌ Incorrect: Unit testing by developers remains important regardless of tester involvement.",
                 "C": "❌ Incorrect: Testing cannot be avoided; early testing complements later testing activities.",
                 "D": "❌ Incorrect: Developers write production code; testers focus on quality activities."
             },
@@ -12795,7 +12797,7 @@ window.questionSets = {
         },
         {
             "id": "Q078",
-            "statement": "A team is using a tool that measures the percentage of decision outcomes exercised during testing. What type of coverage is being measured?",
+            "statement": "A team uses a tool that measures the percentage of all conditional and unconditional branches exercised in a control-flow graph. What coverage is being measured?",
             "options": {
                 "A": "State coverage",
                 "B": "Branch coverage",
@@ -12803,8 +12805,8 @@ window.questionSets = {
                 "D": "Requirement coverage"
             },
             "correctAnswer": "B",
-            "explanation": "Branch coverage (also called decision coverage) measures the percentage of decision outcomes (true/false branches) that have been exercised during testing. It is a white-box coverage metric that ensures each possible decision outcome has been tested.",
-            "correctFeedback": "✅ Correct: Branch coverage = percentage of decision outcomes (true/false) exercised.",
+            "explanation": "Branch coverage is the percentage of branches exercised out of all branches in the control-flow model. Decision outcomes are conditional branches, but branch coverage also includes unconditional branches. If a tool reports only decision outcomes, it is reporting decision coverage rather than necessarily the complete CTFL branch metric.",
+            "correctFeedback": "✅ Correct: Branch coverage = exercised branches / total branches x 100%, including conditional and unconditional branches.",
             "incorrectFeedback": {
                 "A": "❌ Incorrect: State coverage = percentage of states visited in a state machine.",
                 "C": "❌ Incorrect: Statement coverage = percentage of executable statements executed.",
@@ -12812,7 +12814,7 @@ window.questionSets = {
             },
             "optionExplanations": {
                 "A": "State coverage = percentage of states visited in a state machine.",
-                "B": "Branch coverage = percentage of decision outcomes (true/false) exercised.",
+                "B": "Branch coverage = exercised branches / total branches x 100%, including conditional and unconditional branches.",
                 "C": "Statement coverage = percentage of executable statements executed.",
                 "D": "Requirement coverage = percentage of requirements tested."
             },
@@ -12827,31 +12829,31 @@ window.questionSets = {
                 "decision coverage",
                 "white-box"
             ],
-            "examTip": "Branch coverage = decision outcomes (yes/no of each if statement).",
-            "memoryAid": "Branch = both sides of the fork in the road."
+            "examTip": "Branches include conditional and unconditional transfers of control.",
+            "memoryAid": "Branch coverage counts covered control-flow edges."
         },
         {
             "id": "Q219",
-            "statement": "A password length rule allows 8 to 20 characters inclusive. Which values best support three-value boundary value analysis?",
+            "statement": "A numeric field accepts integer values 8 through 20 inclusive. All lower integers and all higher integers are rejected, forming two invalid partitions. Which set is the minimum required for 100% three-value boundary value analysis coverage across all three partitions?",
             "options": {
                 "A": "8, 14, 20",
                 "B": "1, 2, 3, 4, 5, 6",
                 "C": "0, 10, 30, 40",
-                "D": "7, 8, 9, 19, 20, 21"
+                "D": "6, 7, 8, 9, 19, 20, 21, 22"
             },
             "correctAnswer": "D",
-            "explanation": "Three-value BVA uses below, on, and above each boundary: 7, 8, 9 around the lower boundary and 19, 20, 21 around the upper boundary.",
-            "correctFeedback": "✅ Correct: Three-value BVA uses below, on, and above each boundary: 7, 8, 9 around the lower boundary and 19, 20, 21 around the upper boundary.",
+            "explanation": "The finite boundary values of the three partitions are 7, 8, 20, and 21. Three-value BVA exercises each boundary value and both immediate neighbors. Removing duplicates gives 6, 7, 8, 9, 19, 20, 21, 22. Testing only around the valid minimum and maximum omits the outer neighbors of the invalid partitions.",
+            "correctFeedback": "✅ Correct: The complete set is 6, 7, 8, 9, 19, 20, 21, 22.",
             "incorrectFeedback": {
-                "A": "❌ Incorrect: 8, 14, and 20 include boundary values but miss the 'below' and 'above' values required by three-value BVA. Three-value BVA requires below-on-above for EACH boundary, not just the boundary values themselves. 14 is a midpoint, not a boundary-adjacent value.",
-                "B": "❌ Incorrect: 1 through 6 are all well below the lower boundary and fall within a single invalid partition. Testing multiple values from the same partition does not exercise the boundary structure at all — this is neither equivalence partitioning nor BVA.",
-                "C": "❌ Incorrect: 0, 10, 30, and 40 are arbitrary values that do not follow the three-value BVA pattern. While 0 is below the lower boundary and 30/40 are above the upper boundary, these values are not immediately adjacent to the boundaries (7, 8, 9 and 19, 20, 21), which is what three-value BVA requires."
+                "A": "❌ Incorrect: This set omits required boundary values or neighbors. The complete three-value BVA set is 6, 7, 8, 9, 19, 20, 21, 22.",
+                "B": "❌ Incorrect: This set omits required boundary values or neighbors. The complete three-value BVA set is 6, 7, 8, 9, 19, 20, 21, 22.",
+                "C": "❌ Incorrect: This set omits required boundary values or neighbors. The complete three-value BVA set is 6, 7, 8, 9, 19, 20, 21, 22."
             },
             "optionExplanations": {
-                "A": "8, 14, 20 include boundaries but miss the below/above values required by three-value BVA. 14 is a midpoint, not boundary-adjacent.",
-                "B": "Values 1-6 are all from the same invalid partition below the range. Testing multiple values from one partition does not exercise boundaries.",
-                "C": "0, 10, 30, 40 are arbitrary values not immediately adjacent to the boundaries. Three-value BVA requires values immediately below, on, and above each boundary.",
-                "D": "Three-value BVA uses below, on, and above each boundary: 7, 8, 9 around the lower boundary and 19, 20, 21 around the upper boundary."
+                "A": "This set omits required boundary values or neighbors. The complete three-value BVA set is 6, 7, 8, 9, 19, 20, 21, 22.",
+                "B": "This set omits required boundary values or neighbors. The complete three-value BVA set is 6, 7, 8, 9, 19, 20, 21, 22.",
+                "C": "This set omits required boundary values or neighbors. The complete three-value BVA set is 6, 7, 8, 9, 19, 20, 21, 22.",
+                "D": "The complete set is 6, 7, 8, 9, 19, 20, 21, 22."
             },
             "chapter": 4,
             "section": "4.2",
@@ -12863,8 +12865,8 @@ window.questionSets = {
                 "boundary value analysis",
                 "three-value BVA"
             ],
-            "examTip": "Below, on, above each boundary.",
-            "memoryAid": "BOA at both ends."
+            "examTip": "Identify the boundary values of every partition, including invalid partitions, then add both neighbors and remove duplicates.",
+            "memoryAid": "3-value BVA = every identified partition boundary plus both neighbors."
         },
         {
             "id": "Q162",
@@ -12890,10 +12892,10 @@ window.questionSets = {
                 "D": "The failure occurs after execution, not before the defect."
             },
             "chapter": 1,
-            "section": "1.1",
-            "subsection": "1.1.1",
-            "learningObjective": "FL-1.1.1",
-            "kLevel": "K1",
+            "section": "1.2",
+            "subsection": "1.2.3",
+            "learningObjective": "FL-1.2.3",
+            "kLevel": "K2",
             "difficulty": "Easy",
             "keywords": [
                 "error",
@@ -12946,21 +12948,21 @@ window.questionSets = {
             "id": "Q999",
             "statement": "According to CTFL v4.0.1, which statement about the test pyramid is correct?",
             "options": {
-                "A": "It is a model that suggests the relative number of tests at each test level, with the majority of automated tests at the lower levels and more manual tests towards acceptance",
+                "A": "It represents many small, isolated, fast tests at lower layers and fewer larger, less isolated, slower end-to-end tests at higher layers, supporting automation and effort allocation.",
                 "B": "It requires that every test level has exactly the same number of tests",
                 "C": "It describes the order in which test levels must be executed in a sequential lifecycle",
                 "D": "It ranks test techniques by defect-detection effectiveness"
             },
             "correctAnswer": "A",
-            "explanation": "The test pyramid is a model suggesting the relative amount of testing at each test level. It shows that the majority of tests should be automated and written at the lower levels, such as component and component integration testing, because these tests are fast to run and failures are easier to diagnose there. Higher levels, in particular acceptance testing, are typically fewer and more often manual because they are harder to automate and depend on business representatives. The pyramid expresses relative proportions, not exact counts, and it does not dictate execution order.",
-            "correctFeedback": "✅ Correct: the pyramid expresses the relative number of tests per level — many fast automated tests low down, fewer and more manual tests towards acceptance.",
+            "explanation": "The test pyramid groups tests by granularity, isolation, and execution time. Lower layers usually contain many small, fast tests; higher layers contain fewer larger, slower end-to-end tests. Layer names can vary. The pyramid does not prescribe that upper layers are manual or that acceptance tests cannot be automated.",
+            "correctFeedback": "✅ Correct: The pyramid balances many small, fast tests with fewer large, slower tests; it does not classify the top as necessarily manual.",
             "incorrectFeedback": {
                 "B": "❌ Incorrect: The pyramid expresses relative proportions, not equal numbers of tests at every level.",
                 "C": "❌ Incorrect: The pyramid does not prescribe an execution order for test levels; test levels are often executed iteratively.",
                 "D": "❌ Incorrect: The pyramid is about test levels and automation, not a ranking of test techniques."
             },
             "optionExplanations": {
-                "A": "The pyramid expresses the relative number of tests per level — many fast automated tests low down, fewer and more manual tests towards acceptance.",
+                "A": "The pyramid balances many small, fast tests with fewer large, slower tests; it does not classify the top as necessarily manual.",
                 "B": "The pyramid expresses relative proportions, not equal numbers of tests at every level.",
                 "C": "The pyramid does not prescribe an execution order for test levels; test levels are often executed iteratively.",
                 "D": "The pyramid is about test levels and automation, not a ranking of test techniques."
@@ -12976,8 +12978,8 @@ window.questionSets = {
                 "test levels",
                 "test automation"
             ],
-            "examTip": "Pyramid = wide base of fast automated tests at the lower levels, narrow top of mostly manual acceptance tests.",
-            "memoryAid": "Wide base, narrow top. Lower levels: many and automated. Upper levels: few and manual."
+            "examTip": "Pyramid layers concern granularity, isolation, and speed, not a mandatory manual-versus-automated division.",
+            "memoryAid": "Many small fast tests below; fewer large slower tests above."
         },
         {
             "id": "Q258",
@@ -13025,7 +13027,7 @@ window.questionSets = {
                 "D": "No additional test case is needed"
             },
             "correctAnswer": "A",
-            "explanation": "The code contains three executable statements: print(\"Positive\"), print(\"Non-positive\") and print(\"Done\"). With x = 5 the true outcome of the condition is taken, so print(\"Positive\") and print(\"Done\") execute while print(\"Non-positive\") does not. That is 2 of 3 statements, or 66.7% statement coverage, and only the true outcome of the single decision is exercised, giving 50% branch coverage. Reaching 100% branch coverage requires taking the false outcome as well, which means a value where x > 0 is false. x = -1 satisfies that condition and executes the else branch. Note that x = 10 also fails the condition x > 0, but 10 is a positive value so it takes the true branch and adds nothing, and re-running x = 5 adds nothing either.",
+            "explanation": "The code contains three executable statements: print(\"Positive\"), print(\"Non-positive\") and print(\"Done\"). With x = 5 the true outcome of the condition is taken, so print(\"Positive\") and print(\"Done\") execute while print(\"Non-positive\") does not. That is 2 of 3 statements, or 66.7% statement coverage, and only the true outcome of the single decision is exercised, giving 50% branch coverage. Reaching 100% branch coverage requires taking the false outcome as well, which means a value where x > 0 is false. x = -1 satisfies that condition and executes the else branch. The value x = 10 satisfies x > 0, so it takes the true branch and adds nothing, and re-running x = 5 adds nothing either.",
             "correctFeedback": "✅ Correct: x = -1 makes the condition x > 0 false, so the else branch executes and both branch outcomes are covered.",
             "incorrectFeedback": {
                 "B": "❌ Incorrect: x = 10 satisfies x > 0, so it takes the same true branch as x = 5 and adds no new branch outcome.",
@@ -13051,7 +13053,7 @@ window.questionSets = {
                 "branch testing"
             ],
             "examTip": "Branch coverage counts decision outcomes, not lines. Reading x > 0 literally matters: any positive value takes the same branch.",
-            "memoryAid": "Statement coverage = lines reached. Branch coverage = every if-taken / if-not-taken outcome."
+            "memoryAid": "Statement coverage = executable statements exercised. Branch coverage = every if-taken / if-not-taken outcome."
         },
         {
             "id": "Q181",
@@ -13094,21 +13096,21 @@ window.questionSets = {
             "id": "Q998",
             "statement": "A team is deciding how to relate testing quadrants to test levels and test types. Which statement about the testing quadrants is correct?",
             "options": {
-                "A": "The quadrants characterise tests by the level and type feedback they provide, combining functional and non-functional testing with the business-facing or developer-facing perspective",
+                "A": "The quadrants combine business-facing versus technology-facing tests with tests that support the team versus tests that critique the product.",
                 "B": "The quadrants prescribe that all business-facing tests must be executed before any developer-facing tests",
                 "C": "The quadrants define which test techniques must be used at each test level",
                 "D": "The quadrants require every quadrant to contain the same number of test cases"
             },
             "correctAnswer": "A",
-            "explanation": "The testing quadrants characterise tests along two dimensions: the perspective they support, business-facing or developer-facing, and whether they are used to give feedback on functional or non-functional aspects of the product. Combining these dimensions gives four quadrants, such as the business-facing functional quadrant that supports acceptance-oriented testing and the developer-facing functional quadrant used at the lower test levels. The quadrants help choose an appropriate balance of tests and clarify the purpose of each group of tests; they do not prescribe execution order, do not dictate test techniques, and do not require equal numbers of tests in each quadrant.",
-            "correctFeedback": "✅ Correct: the quadrants combine a business-facing or developer-facing perspective with functional or non-functional testing to characterise the feedback each group provides.",
+            "explanation": "The axes are business-facing versus technology-facing, and supporting the team versus critiquing the product. Q1 is technology-facing/support; Q2 business-facing/support; Q3 business-facing/critique; Q4 technology-facing/critique. Functional versus non-functional is not an axis, and quadrant numbering does not prescribe execution order.",
+            "correctFeedback": "✅ Correct: The two axes are business versus technology facing, and supporting the team versus critiquing the product.",
             "incorrectFeedback": {
                 "B": "❌ Incorrect: The quadrants do not prescribe an execution order between quadrants.",
                 "C": "❌ Incorrect: The quadrants are about perspectives and feedback, not about which test techniques to apply.",
                 "D": "❌ Incorrect: Nothing requires the quadrants to contain the same number of test cases."
             },
             "optionExplanations": {
-                "A": "The quadrants combine a business-facing or developer-facing perspective with functional or non-functional testing to characterise the feedback each group provides.",
+                "A": "The two axes are business versus technology facing, and supporting the team versus critiquing the product.",
                 "B": "The quadrants do not prescribe an execution order between quadrants.",
                 "C": "The quadrants are about perspectives and feedback, not about which test techniques to apply.",
                 "D": "Nothing requires the quadrants to contain the same number of test cases."
@@ -13121,13 +13123,13 @@ window.questionSets = {
             "difficulty": "Medium",
             "keywords": [
                 "testing quadrants",
-                "test levels",
-                "test types",
                 "business-facing",
-                "developer-facing"
+                "technology-facing",
+                "support the team",
+                "critique the product"
             ],
-            "examTip": "Quadrants = perspective (business-facing / developer-facing) × focus (functional / non-functional).",
-            "memoryAid": "Two axes, four quadrants. They guide the mix of tests, not their order."
+            "examTip": "Q1: technology/support; Q2: business/support; Q3: business/critique; Q4: technology/critique.",
+            "memoryAid": "Perspective x purpose, not functional x non-functional."
         },
         {
             "id": "Q103",
@@ -13153,9 +13155,9 @@ window.questionSets = {
                 "D": "Equivalence partitioning is a black-box technique based on specifications."
             },
             "chapter": 4,
-            "section": "4.3",
-            "subsection": "4.3.1",
-            "learningObjective": "FL-4.3.1",
+            "section": "4.1",
+            "subsection": "4.1",
+            "learningObjective": "FL-4.1.1",
             "kLevel": "K2",
             "difficulty": "Medium",
             "keywords": [
@@ -13216,13 +13218,13 @@ window.questionSets = {
             "explanation": "Equivalence partitioning selects representative values from each partition expected to be treated similarly.",
             "correctFeedback": "✅ Correct: Equivalence partitioning selects representative values from each partition expected to be treated similarly.",
             "incorrectFeedback": {
-                "B": "❌ Incorrect: 11, 12, 17, and 18 are all boundary values between partitions, not representatives from within each partition. Equivalence partitioning selects values that are TYPICAL of each partition (midpoints or representative values), not the boundaries between them. Boundary-focused selection is BVA, not pure equivalence partitioning.",
+                "B": "❌ Incorrect: 11 covers child, 12 and 17 both cover youth, and 18 covers adult; senior is missing. Boundary values are valid EP representatives when they belong to the partition.",
                 "C": "❌ Incorrect: 0, 1, 2, and 3 are all from the same single partition (child fare, ages 0-11). Selecting multiple values from one partition does not achieve coverage of all four partitions.",
                 "D": "❌ Incorrect: 64, 65, 66, and 67 are clustered around the boundary between adult fare (18-64) and senior fare (65+). They cover only two of the four partitions and do not include any representatives from the child or youth fare partitions."
             },
             "optionExplanations": {
                 "A": "Equivalence partitioning selects representative values from each partition expected to be treated similarly: 5 (child), 15 (youth), 40 (adult), 70 (senior).",
-                "B": "These are boundary values between partitions, not representatives from within each partition. Boundary-focused selection is BVA, not pure equivalence partitioning.",
+                "B": "11 covers child, 12 and 17 both cover youth, and 18 covers adult; senior is missing. Boundary values are valid EP representatives when they belong to the partition.",
                 "C": "All four values are from the same single partition (child fare). This does not cover all four partitions.",
                 "D": "These values cluster around the adult/senior boundary, covering only two of the four partitions. Child and youth partitions are missing."
             },
@@ -13338,10 +13340,10 @@ window.questionSets = {
                 "D": "Multiplying test cases by a factor is a different technique."
             },
             "chapter": 5,
-            "section": "5.3",
-            "subsection": "5.3.1",
-            "learningObjective": "FL-5.3.1",
-            "kLevel": "K1",
+            "section": "5.1",
+            "subsection": "5.1.4",
+            "learningObjective": "FL-5.1.4",
+            "kLevel": "K3",
             "difficulty": "Medium",
             "keywords": [
                 "three-point estimation",
@@ -13427,7 +13429,7 @@ window.questionSets = {
         },
         {
             "id": "Q995",
-            "statement": "A defect is found in a rarely used reporting feature that causes incorrect totals. The customer is not expecting a release for another six months. What is the most appropriate classification for this defect?",
+            "statement": "A reporting defect produces materially incorrect totals, which the agreed severity scale classifies as high impact. The feature is disabled in production, a verified workaround exists, and stakeholders accept fixing it in a later planned release. Which classification fits this context?",
             "options": {
                 "A": "High severity, high priority",
                 "B": "Low severity, high priority",
@@ -13435,7 +13437,7 @@ window.questionSets = {
                 "D": "Low severity, low priority"
             },
             "correctAnswer": "C",
-            "explanation": "High severity because the defect affects data accuracy. Low priority because the feature is rarely used and the next release is six months away.",
+            "explanation": "The agreed severity scale classifies the incorrect totals as high severity. Low priority is justified by the feature being disabled, a verified workaround, and stakeholder acceptance of a later fix; rarity or a distant release date alone would not establish low urgency.",
             "correctFeedback": "✅ Correct: Correct - high severity (significant impact) and low priority (not urgent).",
             "incorrectFeedback": {
                 "A": "❌ Incorrect: The priority is low because there is no urgent need to fix.",
@@ -13450,7 +13452,7 @@ window.questionSets = {
             },
             "chapter": 5,
             "section": "5.5",
-            "subsection": "5.5.1",
+            "subsection": "5.5",
             "learningObjective": "FL-5.5.1",
             "kLevel": "K3",
             "difficulty": "Medium",
@@ -13486,9 +13488,9 @@ window.questionSets = {
                 "D": "Statement testing is a white-box (structure-based) technique."
             },
             "chapter": 4,
-            "section": "4.4",
-            "subsection": "4.4.2",
-            "learningObjective": "FL-4.4.2",
+            "section": "4.1",
+            "subsection": "4.1",
+            "learningObjective": "FL-4.1.1",
             "kLevel": "K2",
             "difficulty": "Medium",
             "keywords": [
@@ -13524,7 +13526,7 @@ window.questionSets = {
             },
             "chapter": 5,
             "section": "5.5",
-            "subsection": "5.5.1",
+            "subsection": "5.5",
             "learningObjective": "FL-5.5.1",
             "kLevel": "K3",
             "difficulty": "Easy",
@@ -13548,15 +13550,15 @@ window.questionSets = {
                 "D": "Providing information for decision making"
             },
             "correctAnswer": "C",
-            "explanation": "C is correct per the syllabus. The other three are achieved primarily by doing dynamic testing. This is a bit tricky because you are very likely to find defects while doing this analysis and this may lead to either gaining or destroying confidence and needing to supply information to the decision makers. What is occurring here is an evaluation of the work product, in this case the requirements.",
-            "correctFeedback": "✅ Correct: per the syllabus. The other three are achieved primarily by doing dynamic testing. This is a bit tricky because you are very likely to find defects while doing this analysis and th.",
+            "explanation": "The action described is evaluating the test basis, which is a work product. Static testing can also find defects, build confidence, and provide information for decisions; these objectives are not reserved primarily or exclusively for dynamic testing.",
+            "correctFeedback": "✅ Correct: Verifying the test basis directly evaluates a work product; the activity may also contribute to other test objectives.",
             "incorrectFeedback": {
                 "A": "❌ Incorrect: This option is not the correct answer (see the official explanation).",
                 "B": "❌ Incorrect: This option is not the correct answer (see the official explanation).",
                 "D": "❌ Incorrect: This option is not the correct answer (see the official explanation)."
             },
             "optionExplanations": {
-                "C": "per the syllabus. The other three are achieved primarily by doing dynamic testing. This is a bit tricky because you are very likely to find defects while doing this analysis and this may lead to either gaining or destroying confidence and needing to supply information to the decision makers. What is occurring here is an evaluation of the work product, in this case the requirements",
+                "C": "Verifying the test basis directly evaluates a work product; the activity may also contribute to other test objectives.",
                 "A": "This option is not the correct answer (see the official explanation).",
                 "B": "This option is not the correct answer (see the official explanation).",
                 "D": "This option is not the correct answer (see the official explanation)."
@@ -13572,7 +13574,7 @@ window.questionSets = {
                 "typical",
                 "objectives"
             ],
-            "examTip": "ASTQB official sample — Identify typical test objectives",
+            "examTip": "Identify typical test objectives",
             "memoryAid": "Early test basis verification = Evaluating work products (static testing objective)"
         },
         {
@@ -13661,22 +13663,22 @@ window.questionSets = {
                 "D": "Running the same tests repeatedly will reduce the chance of finding new failures"
             },
             "correctAnswer": "D",
-            "explanation": "D is correct. As tests are run repeatedly, the tests become less effective. A is not correct because dynamic testing should be used and helps to alleviate tests wearing out. B is not correct. The same tests do wear out. C is not correct because testing should be context dependent.",
+            "explanation": "Repeated unchanged tests may become less effective at finding new defects. Review and vary tests and test data where needed, while retaining useful regression checks. Merely executing dynamic tests does not resolve this issue if the same tests remain unchanged.",
             "correctFeedback": "✅ Correct: As tests are run repeatedly, the tests become less effective.",
             "incorrectFeedback": {
-                "A": "❌ Incorrect: dynamic testing should be used and helps to alleviate tests wearing out",
+                "A": "❌ Incorrect: Dynamic testing can reveal failures, but repeating unchanged dynamic tests can also suffer from tests wearing out.",
                 "B": "❌ Incorrect: The same tests do wear out",
                 "C": "❌ Incorrect: testing should be context dependent"
             },
             "optionExplanations": {
                 "D": "As tests are run repeatedly, the tests become less effective",
-                "A": "dynamic testing should be used and helps to alleviate tests wearing out",
+                "A": "Dynamic testing can reveal failures, but repeating unchanged dynamic tests can also suffer from tests wearing out.",
                 "B": "The same tests do wear out",
                 "C": "testing should be context dependent"
             },
             "chapter": 1,
             "section": "1.3",
-            "subsection": "1.3.1",
+            "subsection": "1.3",
             "learningObjective": "FL-1.3.1",
             "kLevel": "K2",
             "difficulty": "Medium",
@@ -13685,7 +13687,7 @@ window.questionSets = {
                 "seven",
                 "principles"
             ],
-            "examTip": "ASTQB official sample — Explain the seven testing principles",
+            "examTip": "Explain the seven testing principles",
             "memoryAid": "Tests wear out: repeated tests may become less effective at finding new defects; periodically review and vary tests."
         },
         {
@@ -13875,26 +13877,26 @@ window.questionSets = {
         },
         {
             "id": "Q1010",
-            "statement": "When coding is directed by the test cases, what development approach is being used?",
+            "statement": "Which test-first approach uses fine-grained automated tests to drive coding through a failing-test, minimal-passing-code, and refactoring cycle?",
             "options": {
                 "A": "TDD",
                 "B": "BDD",
                 "C": "ATDD",
-                "D": "TBD"
+                "D": "DDD"
             },
             "correctAnswer": "A",
             "explanation": "A is correct. This is an example of test-driven development.",
             "correctFeedback": "✅ Correct: This is an example of test-driven development.",
             "incorrectFeedback": {
-                "B": "❌ Incorrect: This option is not the correct answer (see the official explanation).",
-                "C": "❌ Incorrect: This option is not the correct answer (see the official explanation).",
-                "D": "❌ Incorrect: This option is not the correct answer (see the official explanation)."
+                "B": "❌ Incorrect: Behavior-driven development does define test cases in a simple natural-language form, but its focus is expressing stakeholder-visible behavior, not driving the code through a fine-grained failing-test, minimal-passing-code, refactoring cycle.",
+                "C": "❌ Incorrect: Acceptance test-driven development derives tests from the acceptance criteria before the user story is implemented; it does not define the fine-grained cycle used to shape the code itself.",
+                "D": "❌ Incorrect: Domain-driven design is a modeling approach for complex domains that is listed among development methods and Agile practices, not among the test-first approaches; it does not direct coding through tests."
             },
             "optionExplanations": {
                 "A": "This is an example of test-driven development",
-                "B": "This option is not the correct answer (see the official explanation).",
-                "C": "This option is not the correct answer (see the official explanation).",
-                "D": "This option is not the correct answer (see the official explanation)."
+                "B": "Behavior-driven development does define test cases in a simple natural-language form, but its focus is expressing stakeholder-visible behavior, not driving the code through a fine-grained failing-test, minimal-passing-code, refactoring cycle.",
+                "C": "Acceptance test-driven development derives tests from the acceptance criteria before the user story is implemented; it does not define the fine-grained cycle used to shape the code itself.",
+                "D": "Domain-driven design is a modeling approach for complex domains that is listed among development methods and Agile practices, not among the test-first approaches; it does not direct coding through tests."
             },
             "chapter": 2,
             "section": "2.1",
@@ -13907,7 +13909,7 @@ window.questionSets = {
                 "examples",
                 "test-first"
             ],
-            "examTip": "ASTQB official sample — Recall the examples of test-first approaches to development",
+            "examTip": "Recall the examples of test-first approaches to development",
             "memoryAid": "TDD: write a failing test, implement code to pass it, then refactor (Red-Green-Refactor)."
         },
         {
@@ -13917,26 +13919,26 @@ window.questionSets = {
                 "A": "Unit and integration only",
                 "B": "System testing only",
                 "C": "Integration, system and acceptance only",
-                "D": "Unit, integration, system and acceptance only"
+                "D": "All five levels: component, component integration, system, system integration, and acceptance testing"
             },
             "correctAnswer": "D",
-            "explanation": "D is correct. Non-functional tests can and should be executed at all levels of testing.",
-            "correctFeedback": "✅ Correct: Non-functional tests can and should be executed at all levels of testing.",
+            "explanation": "Non-functional testing can be performed at all five CTFL test levels. The appropriate characteristics, scope, and environment depend on the objectives and context at each level.",
+            "correctFeedback": "✅ Correct: Non-functional testing is applicable at all five levels, with an appropriate focus at each.",
             "incorrectFeedback": {
                 "A": "❌ Incorrect: This option is not the correct answer (see the official explanation).",
                 "B": "❌ Incorrect: This option is not the correct answer (see the official explanation).",
                 "C": "❌ Incorrect: This option is not the correct answer (see the official explanation)."
             },
             "optionExplanations": {
-                "D": "Non-functional tests can and should be executed at all levels of testing",
+                "D": "Non-functional testing is applicable at all five levels, with an appropriate focus at each.",
                 "A": "This option is not the correct answer (see the official explanation).",
                 "B": "This option is not the correct answer (see the official explanation).",
                 "C": "This option is not the correct answer (see the official explanation)."
             },
             "chapter": 2,
             "section": "2.2",
-            "subsection": "2.2.1",
-            "learningObjective": "FL-2.2.1",
+            "subsection": "2.2.2",
+            "learningObjective": "FL-2.2.2",
             "kLevel": "K2",
             "difficulty": "Medium",
             "keywords": [
@@ -13944,8 +13946,8 @@ window.questionSets = {
                 "different",
                 "levels"
             ],
-            "examTip": "ASTQB official sample — Distinguish the different test levels",
-            "memoryAid": "Non-functional tests can be executed at ALL test levels (unit, integration, system, acceptance)"
+            "examTip": "Distinguish the different test levels",
+            "memoryAid": "Non-functional testing can apply at component, component integration, system, system integration, and acceptance levels."
         },
         {
             "id": "Q1012",
@@ -13957,22 +13959,22 @@ window.questionSets = {
                 "D": "Patch testing"
             },
             "correctAnswer": "C",
-            "explanation": "C is correct, per syllabus. Data migration to another system or data migration to an archival system may be needed. A is incorrect. This can be a trigger for maintenance testing, but it is not an actual type of testing. B is incorrect because this is more appropriate for current systems, not the system being retired. D is incorrect because this is of no use for a system being retired.",
+            "explanation": "Decommissioning can require testing data migration or archiving and retrieval. Retirement is a trigger for maintenance testing. Regression testing may also be appropriate for affected connected systems, but data migration testing is the option directly addressing the transfer or archiving of data.",
             "correctFeedback": "✅ Correct: , per syllabus. Data migration to another system or data migration to an archival system may be needed.",
             "incorrectFeedback": {
                 "A": "❌ Incorrect: This can be a trigger for maintenance testing, but it is not an actual type of testing",
-                "B": "❌ Incorrect: this is more appropriate for current systems, not the system being retired",
+                "B": "❌ Incorrect: Regression testing may be relevant to affected systems, but it is not the specific test activity for moving or archiving the retiring system data.",
                 "D": "❌ Incorrect: this is of no use for a system being retired"
             },
             "optionExplanations": {
                 "C": ", per syllabus. Data migration to another system or data migration to an archival system may be needed",
                 "A": "This can be a trigger for maintenance testing, but it is not an actual type of testing",
-                "B": "this is more appropriate for current systems, not the system being retired",
+                "B": "Regression testing may be relevant to affected systems, but it is not the specific test activity for moving or archiving the retiring system data.",
                 "D": "this is of no use for a system being retired"
             },
             "chapter": 2,
             "section": "2.3",
-            "subsection": "2.3.1",
+            "subsection": "2.3",
             "learningObjective": "FL-2.3.1",
             "kLevel": "K2",
             "difficulty": "Medium",
@@ -13981,7 +13983,7 @@ window.questionSets = {
                 "maintenance",
                 "triggers"
             ],
-            "examTip": "ASTQB official sample — Summarize maintenance testing and its triggers",
+            "examTip": "Summarize maintenance testing and its triggers",
             "memoryAid": "Decommissioning may require testing data migration or archiving, as well as verifying retirement-related changes."
         },
         {
@@ -13994,31 +13996,31 @@ window.questionSets = {
                 "D": "For every testing activity, metrics should be recorded and posted to a metrics dashboard for all stakeholders"
             },
             "correctAnswer": "A",
-            "explanation": "A is correct. For any lifecycle model, this is a correct statement. B is not correct because some testing activities may not produce documentation, such as reviews. C is not correct because test cases are not always written, particularly in an Agile lifecycle (which is an iterative lifecycle) where only exploratory testing might be used. D is not correct because not all testing activities produce metrics (such as test case creation, reviews, etc.) and, even if they did, not all stakeholders would be interested in those metrics.",
+            "explanation": "A corresponding testing activity for each development activity is a good practice across SDLC models. Documentation and metrics are tailored to context; reviews and test design can produce both work products and metrics. Agile does not imply that only exploratory testing is performed.",
             "correctFeedback": "✅ Correct: For any lifecycle model, this is a correct statement.",
             "incorrectFeedback": {
-                "B": "❌ Incorrect: some testing activities may not produce documentation, such as reviews",
-                "C": "❌ Incorrect: test cases are not always written, particularly in an Agile lifecycle (which is an iterative lifecycle) where only exploratory testing might be used",
-                "D": "❌ Incorrect: not all testing activities produce metrics (such as test case creation, reviews, etc.) and, even if they did, not all stakeholders would be interested in those metrics"
+                "B": "❌ Incorrect: Documentation is tailored to the activity and context; a mandatory universal documentation rule is not the lifecycle practice being tested.",
+                "C": "❌ Incorrect: Testing also corresponds to development activities that do not produce code, such as requirements and design.",
+                "D": "❌ Incorrect: Metrics and their audiences are selected for information needs; not every activity needs a dashboard visible to every stakeholder."
             },
             "optionExplanations": {
                 "A": "For any lifecycle model, this is a correct statement",
-                "B": "some testing activities may not produce documentation, such as reviews",
-                "C": "test cases are not always written, particularly in an Agile lifecycle (which is an iterative lifecycle) where only exploratory testing might be used",
-                "D": "not all testing activities produce metrics (such as test case creation, reviews, etc.) and, even if they did, not all stakeholders would be interested in those metrics"
+                "B": "Documentation is tailored to the activity and context; a mandatory universal documentation rule is not the lifecycle practice being tested.",
+                "C": "Testing also corresponds to development activities that do not produce code, such as requirements and design.",
+                "D": "Metrics and their audiences are selected for information needs; not every activity needs a dashboard visible to every stakeholder."
             },
             "chapter": 2,
             "section": "2.1",
-            "subsection": "2.1.1",
-            "learningObjective": "FL-2.1.1",
-            "kLevel": "K2",
+            "subsection": "2.1.2",
+            "learningObjective": "FL-2.1.2",
+            "kLevel": "K1",
             "difficulty": "Medium",
             "keywords": [
                 "explain",
                 "impact",
                 "chosen"
             ],
-            "examTip": "ASTQB official sample — Explain the impact of the chosen software development lifecycle on testing",
+            "examTip": "Explain the impact of the chosen software development lifecycle on testing",
             "memoryAid": "Iterative lifecycle: testing activities occur within each iteration, not just at the end"
         },
         {
@@ -14055,7 +14057,7 @@ window.questionSets = {
                 "shift-left",
                 "example"
             ],
-            "examTip": "ASTQB official sample — EExplain shift-left",
+            "examTip": "Explain shift left: integrate appropriate testing activities earlier in the lifecycle.",
             "memoryAid": "Shift-left moves testing activities earlier in the SDLC; CI/CD pipelines can automate checks when changes are integrated or delivered."
         },
         {
@@ -14208,7 +14210,7 @@ window.questionSets = {
         },
         {
             "id": "Q1019",
-            "statement": "Which of the following test techniques uses the requirements specifications as a test basis?",
+            "statement": "Which category of techniques is defined by deriving tests from specified behavior without reference to the internal structure of the test object?",
             "options": {
                 "A": "Structure-based",
                 "B": "Black-box",
@@ -14216,22 +14218,22 @@ window.questionSets = {
                 "D": "Exploratory"
             },
             "correctAnswer": "B",
-            "explanation": "B is correct, per syllabus. Black-box testing is based off the requirements documents. A and C are incorrect because these use the structure of the software as the test basis. D is incorrect because exploratory testing is often done when there is no specification, thus giving the tester the opportunity to learn about the software while testing.",
+            "explanation": "Black-box techniques derive tests from specified behavior without using internal structure. Exploratory testing may use requirements too, but its defining characteristic is concurrent learning, test design, and execution informed by experience.",
             "correctFeedback": "✅ Correct: , per syllabus. Black-box testing is based off the requirements documents. A and C are incorrect because these use the structure of the software as the test basis.",
             "incorrectFeedback": {
                 "A": "❌ Incorrect: This option is not the correct answer (see the official explanation).",
                 "C": "❌ Incorrect: This option is not the correct answer (see the official explanation).",
-                "D": "❌ Incorrect: exploratory testing is often done when there is no specification, thus giving the tester the opportunity to learn about the software while testing"
+                "D": "❌ Incorrect: Exploratory testing combines learning, design, and execution and may use specifications; it is classified as experience-based rather than specification-based."
             },
             "optionExplanations": {
                 "B": ", per syllabus. Black-box testing is based off the requirements documents. A and C are incorrect because these use the structure of the software as the test basis",
                 "A": "This option is not the correct answer (see the official explanation).",
                 "C": "This option is not the correct answer (see the official explanation).",
-                "D": "exploratory testing is often done when there is no specification, thus giving the tester the opportunity to learn about the software while testing"
+                "D": "Exploratory testing combines learning, design, and execution and may use specifications; it is classified as experience-based rather than specification-based."
             },
             "chapter": 4,
             "section": "4.1",
-            "subsection": "4.1.1",
+            "subsection": "4.1",
             "learningObjective": "FL-4.1.1",
             "kLevel": "K2",
             "difficulty": "Medium",
@@ -14240,7 +14242,7 @@ window.questionSets = {
                 "black-box",
                 "white-box"
             ],
-            "examTip": "ASTQB official sample — Distinguish black-box, white-box, and experience-based test techniques",
+            "examTip": "Distinguish black-box, white-box, and experience-based test techniques",
             "memoryAid": "Black-box test techniques derive tests from the test basis, without requiring knowledge of internal code structure."
         },
         {
@@ -14282,7 +14284,7 @@ window.questionSets = {
         },
         {
             "id": "Q1021",
-            "statement": "If you have a section of code that has one simple IF statement, how many tests will be needed to achieve 100% branch coverage?",
+            "statement": "A code fragment contains one IF decision, evaluated once in each test case, with both its true and false outcomes feasible. What is the minimum number of test cases needed to exercise both outcomes for 100% branch coverage?",
             "options": {
                 "A": "1",
                 "B": "2",
@@ -14290,7 +14292,7 @@ window.questionSets = {
                 "D": "Unknown with this information"
             },
             "correctAnswer": "B",
-            "explanation": "B is correct. A simple IF statement will be composed of If ... then ... else end if. There are two branch outcomes, one for the result of the If being true and one for it being false. Since 100% branch coverage requires at least one test case for each branch outcome, two tests are needed. A and C are incorrect because these are the wrong numbers of tests. D would be correct if this weren’t defined as a simple if statement because a complex if statement could include more than two outcomes.",
+            "explanation": "Two tests are needed because the decision is evaluated once per test and has two feasible outcomes. One test covers true and the other false. A compound Boolean expression can still have only two decision outcomes; the number of subconditions is a separate issue.",
             "correctFeedback": "✅ Correct: A simple IF statement will be composed of If ... then ... else end if. There are two branch outcomes, one for the result of the If being true and one for it being false. Since 100%.",
             "incorrectFeedback": {
                 "A": "❌ Incorrect: One test case can only exercise one outcome of the decision (either true or false), leaving the other branch unexercised. This gives at most 50% branch coverage, not 100%.",
@@ -14314,7 +14316,7 @@ window.questionSets = {
                 "branch",
                 "section"
             ],
-            "examTip": "ASTQB official sample — Explain branch testing",
+            "examTip": "Explain branch testing",
             "memoryAid": "For a simple IF with one condition and two outcomes, 100% branch coverage requires exercising both the true and false branches."
         },
         {
@@ -14341,9 +14343,9 @@ window.questionSets = {
                 "D": "There is not much tool support for these techniques and automation is not usually a goal because the effectiveness depends on the experience of the tester"
             },
             "chapter": 4,
-            "section": "4.4",
-            "subsection": "4.4.2",
-            "learningObjective": "FL-4.4.2",
+            "section": "4.1",
+            "subsection": "4.1",
+            "learningObjective": "FL-4.1.1",
             "kLevel": "K2",
             "difficulty": "Medium",
             "keywords": [
@@ -14351,7 +14353,7 @@ window.questionSets = {
                 "exploratory",
                 "good"
             ],
-            "examTip": "ASTQB official sample — Explain exploratory testing",
+            "examTip": "Explain exploratory testing",
             "memoryAid": "Experience-based testing: useful when specifications are missing or incomplete; leverages tester intuition"
         },
         {
@@ -14430,7 +14432,7 @@ window.questionSets = {
         },
         {
             "id": "Q1025",
-            "statement": "You are testing a machine that scores exam papers and assigns grades. Based on the score achieved the grades are as follows: 1-49 = F, 50-59 = D-, 60-69 = D, 70-79 = C, 80-89 = B, 90-100=A If you apply equivalence partitioning, how many test cases will you need to achieve minimum test coverage?",
+            "statement": "You are testing a machine that scores exam papers and assigns grades. Based on the score achieved the grades are as follows: 1-49 = F, 50-59 = D-, 60-69 = D, 70-79 = C, 80-89 = B, 90-100=A Scores are integers. Values below 1 and above 100 are rejected as two separate invalid partitions. If you apply equivalence partitioning, how many test cases will you need to achieve minimum test coverage?",
             "options": {
                 "A": "6",
                 "B": "8",
@@ -14462,12 +14464,12 @@ window.questionSets = {
                 "partitioning",
                 "derive"
             ],
-            "examTip": "ASTQB official sample — Use equivalence partitioning to derive test cases",
+            "examTip": "Use equivalence partitioning to derive test cases",
             "memoryAid": "Equivalence partitioning: divide data into classes where behavior should be equivalent; test one per partition"
         },
         {
             "id": "Q1026",
-            "statement": "You are testing a thermostat for a heating/air conditioning system. You have been given the following requirements: • When the temperature is below 70 degrees, turn on the heating system • When the temperature is above 75 degrees, turn on the air conditioning system • When the temperature is between 70 and 75 degrees, inclusive, turn on fan only Which of the following is the minimum set of test temperature values to achieve 100% two-value boundary value analysis coverage?",
+            "statement": "You are testing a thermostat for a heating/air conditioning system. You have been given the following requirements: • When the temperature is below 70 degrees, turn on the heating system • When the temperature is above 75 degrees, turn on the air conditioning system • When the temperature is between 70 and 75 degrees, inclusive, turn on fan only Which of the following is the minimum set of test temperature values to achieve 100% two-value boundary value analysis coverage? Temperatures are integers.",
             "options": {
                 "A": "70, 75",
                 "B": "65, 72, 80",
@@ -14499,8 +14501,8 @@ window.questionSets = {
                 "value",
                 "analysis"
             ],
-            "examTip": "ASTQB official sample — Use boundary value analysis to derive test cases",
-            "memoryAid": "Boundary Value Analysis: test values at edges of partitions (min, min+, max-, max, nominal)"
+            "examTip": "Use boundary value analysis to derive test cases",
+            "memoryAid": "2-value BVA: each boundary value and its closest neighbor in the adjacent partition; here 69, 70, 75, 76."
         },
         {
             "id": "Q1027",
@@ -14508,22 +14510,22 @@ window.questionSets = {
             "options": {
                 "A": "7",
                 "B": "13",
-                "C": "15",
+                "C": "Cannot be determined from the supplied information",
                 "D": "18"
             },
             "correctAnswer": "C",
-            "explanation": "C is correct. Building the full decision table from the listed conditions (Valid cash, Valid credit card, Valid debit card, Valid pin, Bank accepts, Valid Selection, Item in Stock) and results (Reject Cash, Reject Card, Error Message, Return Cash, Refund Card, Sell Item) yields 15 valid test rules.",
-            "correctFeedback": "✅ Correct: Building the full decision table from the listed conditions (Valid cash, Valid credit card, Valid debit card, Valid pin, Bank accepts, Valid Selection, Item in Stock) and results (.",
+            "explanation": "The file supplies names of conditions and actions but no rules linking their combinations to actions, no feasibility constraints, and no decision table. These labels alone cannot establish a minimum of 15 tests. Seven independent Boolean conditions would have 128 combinations before feasibility analysis or minimization, but independence is not established here.",
+            "correctFeedback": "✅ Correct: The condition-to-action rules and feasibility constraints are missing; the minimum cannot be determined.",
             "incorrectFeedback": {
-                "A": "❌ Incorrect: This option is not the correct answer (see the official explanation).",
-                "B": "❌ Incorrect: This option is not the correct answer (see the official explanation).",
-                "D": "❌ Incorrect: This option is not the correct answer (see the official explanation)."
+                "A": "❌ Incorrect: Seven is the number of condition labels, not a justified number of decision rules.",
+                "B": "❌ Incorrect: No supplied rule table or constraints justify 13 tests.",
+                "D": "❌ Incorrect: No supplied rule table or constraints justify 18 tests."
             },
             "optionExplanations": {
-                "C": "Building the full decision table from the listed conditions (Valid cash, Valid credit card, Valid debit card, Valid pin, Bank accepts, Valid Selection, Item in Stock) and results (Reject Cash, Reject Card, Error Message, Return Cash, Refund Card, Sell Item) yields 15 valid test rules",
-                "A": "This option is not the correct answer (see the official explanation).",
-                "B": "This option is not the correct answer (see the official explanation).",
-                "D": "This option is not the correct answer (see the official explanation)."
+                "C": "The condition-to-action rules and feasibility constraints are missing; the minimum cannot be determined.",
+                "A": "Seven is the number of condition labels, not a justified number of decision rules.",
+                "B": "No supplied rule table or constraints justify 13 tests.",
+                "D": "No supplied rule table or constraints justify 18 tests."
             },
             "chapter": 4,
             "section": "4.2",
@@ -14536,31 +14538,31 @@ window.questionSets = {
                 "table",
                 "derive"
             ],
-            "examTip": "ASTQB official sample — Use decision table testing to derive test cases",
-            "memoryAid": "Decision table: test combinations of conditions and their associated results/actions"
+            "examTip": "Do not infer a decision-table test count from a list of condition and action names alone.",
+            "memoryAid": "Need rules and feasibility constraints before counting required tests."
         },
         {
             "id": "Q1028",
-            "statement": "You have been given the following requirement: A user must log in to the system with a valid username and password. If they fail to enter the correct combination three times, they will receive an error and will have to wait 10 minutes before trying again. The test terminates when the user successfully logs in. How many test cases are needed to provide 100% valid transitions coverage?",
+            "statement": "A login model has states A0 (zero failed attempts), A1 (one), A2 (two), Locked, and Home. Each test starts in A0 and ends on reaching Home. Wrong credentials cause A0 -> A1, A1 -> A2, and A2 -> Locked. Waiting ten minutes causes Locked -> A0. Correct credentials cause A0 -> Home, A1 -> Home, or A2 -> Home. How many tests are minimally needed for 100% valid transitions coverage?",
             "options": {
-                "A": "1",
+                "A": "3",
                 "B": "2",
                 "C": "4",
                 "D": "5"
             },
             "correctAnswer": "A",
-            "explanation": "a is correct. Per the diagram below, only one test is needed: Login, Fail, Fail, Fail =3, Wait, Login, Home. If you were required to exit after the Wait, a second test would be required but the question doesn’t indicate that an exit is required.",
-            "correctFeedback": "✅ Correct: Per the diagram below, only one test is needed: Login, Fail, Fail, Fail =3, Wait, Login, Home. If you were required to exit after the Wait, a second test would be required but the .",
+            "explanation": "Three transitions lead to the terminal state Home, so at least three tests are required. Test 1: A0 -> A1 -> A2 -> Locked -> A0 -> Home. Test 2: A0 -> A1 -> Home. Test 3: A0 -> A1 -> A2 -> Home. Together they cover all seven valid transitions.",
+            "correctFeedback": "✅ Correct: Three tests cover all seven transitions, including the three distinct success transitions into terminal Home.",
             "incorrectFeedback": {
-                "B": "❌ Incorrect: This option is not the correct answer (see the official explanation).",
-                "C": "❌ Incorrect: This option is not the correct answer (see the official explanation).",
-                "D": "❌ Incorrect: This option is not the correct answer (see the official explanation)."
+                "B": "❌ Incorrect: Two tests can exercise at most two of the three transitions into terminal Home.",
+                "C": "❌ Incorrect: Four tests can suffice but are not minimal; three are sufficient.",
+                "D": "❌ Incorrect: Five tests exceed the minimum of three."
             },
             "optionExplanations": {
-                "A": "Per the diagram below, only one test is needed: Login, Fail, Fail, Fail =3, Wait, Login, Home. If you were required to exit after the Wait, a second test would be required but the question doesn’t indicate that an exit is required",
-                "B": "This option is not the correct answer (see the official explanation).",
-                "C": "This option is not the correct answer (see the official explanation).",
-                "D": "This option is not the correct answer (see the official explanation)."
+                "A": "Three tests cover all seven transitions, including the three distinct success transitions into terminal Home.",
+                "B": "Two tests can exercise at most two of the three transitions into terminal Home.",
+                "C": "Four tests can suffice but are not minimal; three are sufficient.",
+                "D": "Five tests exceed the minimum of three."
             },
             "chapter": 4,
             "section": "4.2",
@@ -14573,8 +14575,8 @@ window.questionSets = {
                 "transition",
                 "derive"
             ],
-            "examTip": "ASTQB official sample — Use state transition testing to derive test cases",
-            "memoryAid": "State transition testing: test valid/invalid transitions between system states (e.g., login states)"
+            "examTip": "When a test terminates at success, different transitions into that terminal state require separate test cases.",
+            "memoryAid": "Three terminal success transitions = at least three tests in this model."
         },
         {
             "id": "Q1029",
@@ -14648,7 +14650,7 @@ window.questionSets = {
                 "used"
             ],
             "examTip": "ASTQB official sample — Recall metrics used for testing",
-            "memoryAid": "Test execution metrics (pass/fail counts) gathered during Test Implementation & Execution phase"
+            "memoryAid": "Execution produces pass/fail results; monitoring collects and analyzes progress metrics from those results."
         },
         {
             "id": "Q1031",
@@ -14823,7 +14825,7 @@ window.questionSets = {
             },
             "chapter": 5,
             "section": "5.4",
-            "subsection": "5.4.1",
+            "subsection": "5.4",
             "learningObjective": "FL-5.4.1",
             "kLevel": "K2",
             "difficulty": "Medium",
@@ -14882,18 +14884,18 @@ window.questionSets = {
                 "D": "6, 1, 3, 2, 4, 5"
             },
             "correctAnswer": "A",
-            "explanation": "A is correct because it addresses the highest risk and fastest tests first. It runs a fast medium test before a slow and more dependent high-risk test because this will give feedback to the developers more quickly.",
-            "correctFeedback": "✅ Correct: because it addresses the highest risk and fastest tests first. It runs a fast medium test before a slow and more dependent high-risk test because this will give feedback to the dev.",
+            "explanation": "A is the only listed sequence that respects all prerequisites: 2 before 4 and 6; 4 before 5; 6 before 1; and 1 before 3. It also reaches high-risk Test 4 early. Dependencies and durations must be considered alongside risk; choosing the next highest-risk label alone is not sufficient.",
+            "correctFeedback": "✅ Correct: This is the only listed order that respects every dependency and allows early execution of high-risk Test 4.",
             "incorrectFeedback": {
-                "B": "❌ Incorrect: This option is not the correct answer (see the official explanation).",
-                "C": "❌ Incorrect: This option is not the correct answer (see the official explanation).",
-                "D": "❌ Incorrect: This option is not the correct answer (see the official explanation)."
+                "B": "❌ Incorrect: Test 4 cannot run before its prerequisite Test 2.",
+                "C": "❌ Incorrect: Test 5 cannot run before its prerequisite Test 4.",
+                "D": "❌ Incorrect: Test 6 cannot run before its prerequisite Test 2."
             },
             "optionExplanations": {
-                "A": "because it addresses the highest risk and fastest tests first. It runs a fast medium test before a slow and more dependent high-risk test because this will give feedback to the developers more quickly",
-                "B": "This option is not the correct answer (see the official explanation).",
-                "C": "This option is not the correct answer (see the official explanation).",
-                "D": "This option is not the correct answer (see the official explanation)."
+                "A": "This is the only listed order that respects every dependency and allows early execution of high-risk Test 4.",
+                "B": "Test 4 cannot run before its prerequisite Test 2.",
+                "C": "Test 5 cannot run before its prerequisite Test 4.",
+                "D": "Test 6 cannot run before its prerequisite Test 2."
             },
             "chapter": 5,
             "section": "5.1",
@@ -14906,12 +14908,12 @@ window.questionSets = {
                 "case",
                 "prioritization"
             ],
-            "examTip": "ASTQB official sample — Apply test case prioritization",
+            "examTip": "Apply test case prioritization",
             "memoryAid": "Risk-based prioritization generally runs higher-risk tests earlier, while considering dependencies and practical constraints."
         },
         {
             "id": "Q1038",
-            "statement": "You have been testing software that will be used to track credit card purchases. You have found a defect that causes the system to crash, but only if a person has made and voided 10 purchases in a row. What is the proper priority and severity rating for this defect?",
+            "statement": "You have been testing software that will be used to track credit card purchases. You have found a defect that causes the system to crash, but only if a person has made and voided 10 purchases in a row. The agreed severity scale classifies the crash as high impact. Operations confirms that this sequence cannot occur in current production workflows, a safe workaround exists, and stakeholders accept a later fix. Which priority and severity rating fits these facts?",
             "options": {
                 "A": "Priority high, severity high",
                 "B": "Priority high, severity low",
@@ -14919,22 +14921,22 @@ window.questionSets = {
                 "D": "Priority low, severity high"
             },
             "correctAnswer": "D",
-            "explanation": "D is correct. This is not likely to happen, so the urgency to fix it is low but it does crash the system so the impact to the system is high so the severity should be high.",
-            "correctFeedback": "✅ Correct: This is not likely to happen, so the urgency to fix it is low but it does crash the system so the impact to the system is high so the severity should be high.",
+            "explanation": "The crash is high severity under the stated scale. Low priority follows from the explicit operational mitigation and stakeholder decision, not merely from a rare trigger.",
+            "correctFeedback": "✅ Correct: High severity reflects the agreed crash impact; low priority reflects the mitigated current exposure and accepted later fix.",
             "incorrectFeedback": {
                 "A": "❌ Incorrect: This option is not the correct answer (see the official explanation).",
                 "B": "❌ Incorrect: This option is not the correct answer (see the official explanation).",
                 "C": "❌ Incorrect: This option is not the correct answer (see the official explanation)."
             },
             "optionExplanations": {
-                "D": "This is not likely to happen, so the urgency to fix it is low but it does crash the system so the impact to the system is high so the severity should be high",
+                "D": "High severity reflects the agreed crash impact; low priority reflects the mitigated current exposure and accepted later fix.",
                 "A": "This option is not the correct answer (see the official explanation).",
                 "B": "This option is not the correct answer (see the official explanation).",
                 "C": "This option is not the correct answer (see the official explanation)."
             },
             "chapter": 5,
             "section": "5.5",
-            "subsection": "5.5.1",
+            "subsection": "5.5",
             "learningObjective": "FL-5.5.1",
             "kLevel": "K3",
             "difficulty": "Hard",
@@ -14943,7 +14945,7 @@ window.questionSets = {
                 "defect",
                 "report"
             ],
-            "examTip": "ASTQB official sample — Prepare a defect report",
+            "examTip": "Prepare a defect report",
             "memoryAid": "Good defect report: steps to reproduce, expected vs actual results, severity, environment, version"
         },
         {
@@ -14971,7 +14973,7 @@ window.questionSets = {
             },
             "chapter": 6,
             "section": "6.1",
-            "subsection": "6.1.1",
+            "subsection": "6.1",
             "learningObjective": "FL-6.1.1",
             "kLevel": "K2",
             "difficulty": "Medium",
@@ -14998,17 +15000,17 @@ window.questionSets = {
             "incorrectFeedback": {
                 "B": "❌ Incorrect: manual testing isn’t obsolete, it can concentrate on new areas",
                 "C": "❌ Incorrect: return on investment (ROI) can be tricky to calculate as it has to be based on equivalent manual test effort",
-                "D": "❌ Incorrect: This option is not the correct answer (see the official explanation)."
+                "D": "❌ Incorrect: Creating and maintaining automation can require substantial implementation effort; faster execution does not imply faster implementation."
             },
             "optionExplanations": {
                 "A": "Test execution should be faster with automation than with manual testing, once the test cases have been developed. Developing automation takes more time than writing manual test cases (usually) so",
                 "B": "manual testing isn’t obsolete, it can concentrate on new areas",
                 "C": "return on investment (ROI) can be tricky to calculate as it has to be based on equivalent manual test effort",
-                "D": "This option is not the correct answer (see the official explanation)."
+                "D": "Creating and maintaining automation can require substantial implementation effort; faster execution does not imply faster implementation."
             },
             "chapter": 6,
             "section": "6.2",
-            "subsection": "6.2.1",
+            "subsection": "6.2",
             "learningObjective": "FL-6.2.1",
             "kLevel": "K1",
             "difficulty": "Easy",
@@ -15035,15 +15037,15 @@ window.questionSets = {
             "explanation": "A is correct. Root cause analysis can determine common causes of issues. Addressing these common causes by process improvement can increase quality. B is incorrect because root cause analysis will not make the developers code faster, better maybe, not faster. C is incorrect because root causes generally are not good things that should be transferred between teams. D is not correct because it will not improve funding.",
             "correctFeedback": "✅ Correct: Root cause analysis can determine common causes of issues. Addressing these common causes by process improvement can increase quality.",
             "incorrectFeedback": {
-                "B": "❌ Incorrect: root cause analysis will not make the developers code faster, better maybe, not faster",
+                "B": "❌ Incorrect: Process improvements may affect productivity, but prescribing faster coding is not the QA contribution illustrated by root cause analysis.",
                 "C": "❌ Incorrect: root causes generally are not good things that should be transferred between teams",
-                "D": "❌ Incorrect: it will not improve funding"
+                "D": "❌ Incorrect: Root cause analysis may inform investment decisions, but its direct QA contribution is addressing recurring causes through process improvement."
             },
             "optionExplanations": {
                 "A": "Root cause analysis can determine common causes of issues. Addressing these common causes by process improvement can increase quality",
-                "B": "root cause analysis will not make the developers code faster, better maybe, not faster",
+                "B": "Process improvements may affect productivity, but prescribing faster coding is not the QA contribution illustrated by root cause analysis.",
                 "C": "root causes generally are not good things that should be transferred between teams",
-                "D": "it will not improve funding"
+                "D": "Root cause analysis may inform investment decisions, but its direct QA contribution is addressing recurring causes through process improvement."
             },
             "chapter": 1,
             "section": "1.2",
@@ -15131,7 +15133,7 @@ window.questionSets = {
                 "example"
             ],
             "examTip": "ASTQB official sample — Differentiate testing from debugging",
-            "memoryAid": "Debugging: developer finds and fixes root cause of a known defect; testing finds failures first"
+            "memoryAid": "Debugging investigates and removes defects; static testing may find defects without first producing a failure."
         },
         {
             "id": "Q1044",
@@ -15158,7 +15160,7 @@ window.questionSets = {
             },
             "chapter": 1,
             "section": "1.3",
-            "subsection": "1.3.1",
+            "subsection": "1.3",
             "learningObjective": "FL-1.3.1",
             "kLevel": "K2",
             "difficulty": "Medium",
@@ -15353,30 +15355,30 @@ window.questionSets = {
                 "practices"
             ],
             "examTip": "ASTQB official sample — Recall good testing practices that apply to all software development lifecycles",
-            "memoryAid": "Independent testing can reduce author bias; the appropriate degree of independence depends on context and risk."
+            "memoryAid": "Each test level should have specific objectives so levels complement one another."
         },
         {
             "id": "Q1050",
-            "statement": "Which development approach captures the requirements in a simple test case format?",
+            "statement": "Which development approach describes expected behavior in a natural-language Given/When/Then format that stakeholders can understand and that can be translated into executable tests?",
             "options": {
                 "A": "TDD",
                 "B": "BDD",
                 "C": "ATDD",
-                "D": "TBD"
+                "D": "DDD"
             },
             "correctAnswer": "B",
             "explanation": "B is correct. Behavior-driven development uses the given/when/then format to define the test cases. Those are then used as the requirements to develop the code.",
             "correctFeedback": "✅ Correct: Behavior-driven development uses the given/when/then format to define the test cases. Those are then used as the requirements to develop the code.",
             "incorrectFeedback": {
-                "A": "❌ Incorrect: This option is not the correct answer (see the official explanation).",
-                "C": "❌ Incorrect: This option is not the correct answer (see the official explanation).",
-                "D": "❌ Incorrect: This option is not the correct answer (see the official explanation)."
+                "A": "❌ Incorrect: Test-driven development writes fine-grained automated tests first in order to drive the code, but it does not describe expected behavior in a natural-language form that stakeholders read.",
+                "C": "❌ Incorrect: Acceptance test-driven development derives tests from the acceptance criteria with customers, developers and testers; the Given/When/Then format is characteristic of behavior-driven development, not of ATDD.",
+                "D": "❌ Incorrect: Domain-driven design is a modeling approach for complex domains, not a test-first approach, and it does not express behavior as Given/When/Then scenarios."
             },
             "optionExplanations": {
                 "B": "Behavior-driven development uses the given/when/then format to define the test cases. Those are then used as the requirements to develop the code",
-                "A": "This option is not the correct answer (see the official explanation).",
-                "C": "This option is not the correct answer (see the official explanation).",
-                "D": "This option is not the correct answer (see the official explanation)."
+                "A": "Test-driven development writes fine-grained automated tests first in order to drive the code, but it does not describe expected behavior in a natural-language form that stakeholders read.",
+                "C": "Acceptance test-driven development derives tests from the acceptance criteria with customers, developers and testers; the Given/When/Then format is characteristic of behavior-driven development, not of ATDD.",
+                "D": "Domain-driven design is a modeling approach for complex domains, not a test-first approach, and it does not express behavior as Given/When/Then scenarios."
             },
             "chapter": 2,
             "section": "2.1",
@@ -15389,7 +15391,7 @@ window.questionSets = {
                 "examples",
                 "test-first"
             ],
-            "examTip": "ASTQB official sample — Recall the examples of test-first approaches to development",
+            "examTip": "Recall the examples of test-first approaches to development",
             "memoryAid": "BDD (Behavior-Driven Development): requirements captured as test cases (Given-When-Then format)"
         },
         {
@@ -15476,17 +15478,17 @@ window.questionSets = {
                 "D": "Why changes were not made earlier in the project"
             },
             "correctAnswer": "A",
-            "explanation": "A is correct. It’s great to gather the information, but in order for change to really be made, it has to be planned for implementation in future sprints/releases/projects. B is not correct because retrospectives are not about blaming. C is not part of a retrospective, although this information may be gathered by the project manager. D is also tending toward blaming but is something that should be considered as it may impact the ability to implement future changes.",
-            "correctFeedback": "✅ Correct: It’s great to gather the information, but in order for change to really be made, it has to be planned for implementation in future sprints/releases/projects.",
+            "explanation": "A retrospective should produce actionable improvements with responsibility and an implementation timeframe. Discussing wasted effort or costs can be useful; it is not categorically excluded from retrospectives. The best answer here is planning when the accepted improvements will be implemented.",
+            "correctFeedback": "✅ Correct: Agree when the accepted changes will be implemented, and assign responsibility so the improvements lead to action.",
             "incorrectFeedback": {
-                "B": "❌ Incorrect: retrospectives are not about blaming. C is not part of a retrospective, although this information may be gathered by the project manager. D is also tending toward blaming but is something that should be considered as it may impact the ability to implement future changes",
-                "C": "❌ Incorrect: This option is not the correct answer (see the official explanation).",
+                "B": "❌ Incorrect: Blaming individuals undermines learning; focus on causes and improvements.",
+                "C": "❌ Incorrect: Cost and wasted effort can be discussed, but the missing step is implementing the accepted improvements.",
                 "D": "❌ Incorrect: This option is not the correct answer (see the official explanation)."
             },
             "optionExplanations": {
-                "A": "It’s great to gather the information, but in order for change to really be made, it has to be planned for implementation in future sprints/releases/projects",
-                "B": "retrospectives are not about blaming. C is not part of a retrospective, although this information may be gathered by the project manager. D is also tending toward blaming but is something that should be considered as it may impact the ability to implement future changes",
-                "C": "This option is not the correct answer (see the official explanation).",
+                "A": "Agree when the accepted changes will be implemented, and assign responsibility so the improvements lead to action.",
+                "B": "Blaming individuals undermines learning; focus on causes and improvements.",
+                "C": "Cost and wasted effort can be discussed, but the missing step is implementing the accepted improvements.",
                 "D": "This option is not the correct answer (see the official explanation)."
             },
             "chapter": 2,
@@ -15500,7 +15502,7 @@ window.questionSets = {
                 "retrospectives",
                 "used"
             ],
-            "examTip": "ASTQB official sample — Explain how retrospectives can be used as a mechanism for process improvement",
+            "examTip": "Explain how retrospectives can be used as a mechanism for process improvement",
             "memoryAid": "Retrospectives: team reflects on what went well/wrong; identifies process improvements for next iteration"
         },
         {
@@ -15713,7 +15715,7 @@ window.questionSets = {
             },
             "chapter": 4,
             "section": "4.1",
-            "subsection": "4.1.1",
+            "subsection": "4.1",
             "learningObjective": "FL-4.1.1",
             "kLevel": "K2",
             "difficulty": "Medium",
@@ -15772,15 +15774,15 @@ window.questionSets = {
                 "D": "Factor-based"
             },
             "correctAnswer": "B",
-            "explanation": "B is correct. You have code that can be structurally reviewed for items such as the proper handling of branching. A and C are not correct because nothing can be executed yet. D is not correct because it’s not a type of testing.",
-            "correctFeedback": "✅ Correct: You have code that can be structurally reviewed for items such as the proper handling of branching. A and C are not correct because nothing can be executed yet.",
+            "explanation": "White-box testing uses internal structure and can include structural review or analysis before executable code exists. The absence of executable code does not prevent black-box test design from specifications or experience-based reasoning; the supplied code makes structural analysis the best fit here.",
+            "correctFeedback": "✅ Correct: The available code can be structurally reviewed before it can run; white-box techniques use internal structure.",
             "incorrectFeedback": {
                 "A": "❌ Incorrect: This option is not the correct answer (see the official explanation).",
                 "C": "❌ Incorrect: This option is not the correct answer (see the official explanation).",
                 "D": "❌ Incorrect: it’s not a type of testing"
             },
             "optionExplanations": {
-                "B": "You have code that can be structurally reviewed for items such as the proper handling of branching. A and C are not correct because nothing can be executed yet",
+                "B": "The available code can be structurally reviewed before it can run; white-box techniques use internal structure.",
                 "A": "This option is not the correct answer (see the official explanation).",
                 "C": "This option is not the correct answer (see the official explanation).",
                 "D": "it’s not a type of testing"
@@ -15796,7 +15798,7 @@ window.questionSets = {
                 "value",
                 "white-box"
             ],
-            "examTip": "ASTQB official sample — Explain the value of white-box testing",
+            "examTip": "Explain the value of white-box testing",
             "memoryAid": "White-box value: can apply static analysis to code even before it's executable; finds structural issues"
         },
         {
@@ -15846,16 +15848,16 @@ window.questionSets = {
                 "D": "Formal chartering"
             },
             "correctAnswer": "B",
-            "explanation": "B is correct. This is often called session-based testing and may use session sheets. A is not correct. Exploratory doesn’t usually comply to schedules but rather allows the tester to explore and learn about the software. Coverage is difficult to assess which is one of the reasons it is difficult to match the time spent to the amount accomplished. C is not correct. This may be one of the forms of risk-based testing, but it is not entirely RBT. D is not correct as this is not actually a testing term.",
+            "explanation": "Time-boxed exploratory sessions guided by charters are session-based testing. Sessions can be scheduled, and notes or session sheets support debriefing, progress reporting, and coverage assessment.",
             "correctFeedback": "✅ Correct: This is often called session-based testing and may use session sheets.",
             "incorrectFeedback": {
-                "A": "❌ Incorrect: Exploratory doesn’t usually comply to schedules but rather allows the tester to explore and learn about the software. Coverage is difficult to assess which is one of the reasons it is difficult to match the time spent to the amount accomplished",
+                "A": "❌ Incorrect: A schedule alone does not define the technique; charters and time-boxed exploratory sessions make it session-based testing.",
                 "C": "❌ Incorrect: This may be one of the forms of risk-based testing, but it is not entirely RBT",
                 "D": "❌ Incorrect: this is not actually a testing term"
             },
             "optionExplanations": {
                 "B": "This is often called session-based testing and may use session sheets",
-                "A": "Exploratory doesn’t usually comply to schedules but rather allows the tester to explore and learn about the software. Coverage is difficult to assess which is one of the reasons it is difficult to match the time spent to the amount accomplished",
+                "A": "A schedule alone does not define the technique; charters and time-boxed exploratory sessions make it session-based testing.",
                 "C": "This may be one of the forms of risk-based testing, but it is not entirely RBT",
                 "D": "this is not actually a testing term"
             },
@@ -15870,7 +15872,7 @@ window.questionSets = {
                 "exploratory",
                 "conducted"
             ],
-            "examTip": "ASTQB official sample — Explain exploratory testing",
+            "examTip": "Explain exploratory testing",
             "memoryAid": "Session-based testing: exploratory testing with time-boxes and test charters; structured exploration"
         },
         {
@@ -15912,7 +15914,7 @@ window.questionSets = {
         },
         {
             "id": "Q1065",
-            "statement": "You are testing a banking application that allows a customer to withdraw 20, 100 or 500 dollars in a single transaction. The values are chosen from a drop-down list and no other values may be entered. How many equivalence partitions need to be tested to achieve 100% equivalence partition coverage?",
+            "statement": "A withdrawal interface starts with no amount selected. It permits selecting only $20, $100, or $500; each selection produces the corresponding distinct withdrawal, while submitting with no selection is rejected. Treat each distinct amount outcome and the no-selection rejection as a separate equivalence partition. How many partitions must be exercised for 100% EP coverage?",
             "options": {
                 "A": "1",
                 "B": "2",
@@ -15944,12 +15946,12 @@ window.questionSets = {
                 "partitioning",
                 "derive"
             ],
-            "examTip": "ASTQB official sample — Use equivalence partitioning to derive test cases",
+            "examTip": "Use equivalence partitioning to derive test cases",
             "memoryAid": "Equivalence partitioning: each partition (valid/invalid) needs at least one test case"
         },
         {
             "id": "Q1066",
-            "statement": "You are testing a scale system that determines shipping rates for a regional web-based auto parts distributor. Due to regulations, shipments cannot exceed 100 lbs. You want to include boundary value analysis as part of your black-box test design. How many tests will you need to execute to achieve 100% two- value boundary value analysis? Weight 0 to 10 lbs. 11 to 25 lbs. 26 to 50 lbs. 51 lbs. to 100 Shipping Cost $5.00 $7.50 $12.00 $17.00",
+            "statement": "You are testing a scale system that determines shipping rates for a regional web-based auto parts distributor. Due to regulations, shipments cannot exceed 100 lbs. You want to include boundary value analysis as part of your black-box test design. How many tests will you need to execute to achieve 100% two- value boundary value analysis? Weight 0 to 10 lbs. 11 to 25 lbs. 26 to 50 lbs. 51 lbs. to 100 Shipping Cost $5.00 $7.50 $12.00 $17.00 Weights are whole-number pounds, and negative weights are rejected.",
             "options": {
                 "A": "4",
                 "B": "8",
@@ -15981,8 +15983,8 @@ window.questionSets = {
                 "value",
                 "analysis"
             ],
-            "examTip": "ASTQB official sample — Use boundary value analysis to derive test cases",
-            "memoryAid": "3-value BVA tests values just below, at and just above a boundary; 2-value BVA selects the boundary and one adjacent value."
+            "examTip": "Use boundary value analysis to derive test cases",
+            "memoryAid": "2-value BVA: -1, 0, 10, 11, 25, 26, 50, 51, 100, 101 for the specified integer-weight partitions."
         },
         {
             "id": "Q1067",
@@ -16023,7 +16025,7 @@ window.questionSets = {
         },
         {
             "id": "Q1068",
-            "statement": "You are testing an e-commerce transaction that has the following states and transitions: 1. Login (invalid) > Login 2. Login > Search 3. Search > Search 4. Search > Shopping Cart 5. Shopping Cart > Search 6. Shopping Cart > Checkout 7. Checkout > Search 8. Checkout > Logout For a state diagram, how many transitions should be shown?",
+            "statement": "You are testing an e-commerce transaction that has the following states and transitions: 1. Login (invalid credentials) > Login 2. Login > Search 3. Search > Search 4. Search > Shopping Cart 5. Shopping Cart > Search 6. Shopping Cart > Checkout 7. Checkout > Search 8. Checkout > Logout For a state diagram, how many transitions should be shown?",
             "options": {
                 "A": "4",
                 "B": "6",
@@ -16031,18 +16033,18 @@ window.questionSets = {
                 "D": "16"
             },
             "correctAnswer": "C",
-            "explanation": "C is correct. There are 8 transitions that should be shown in the state diagram as explained in the question. A is not correct as this is only checking one transition from each state. B is not correct because this is probably excluding login > login and search > search. D is not correct because it is checking the invalid transitions as well and those would be included in a state table, not a state diagram. These are: Login (invalid) > Login Login > Search Login > Shopping Cart (invalid transition) Login > Checkout (invalid transition) Search > Login (invalid transition) Search > Search Search > Shopping Cart Search > Checkout (invalid transition) Shopping Cart > Login (invalid transition) Shopping Cart > Search Shopping Cart > Shopping Cart (invalid transition) Shopping Cart > Checkout Checkout > Login (invalid transition) Checkout > Search Checkout > Shopping Cart (invalid transition) Checkout > Logout",
+            "explanation": "The supplied list defines eight valid transitions, including the Login -> Login and Search -> Search self-transitions. Invalid credentials are an input that causes a valid modeled transition; they do not make that transition invalid. A state table describes event/state combinations, not simply every possible pair of states.",
             "correctFeedback": "✅ Correct: There are 8 transitions that should be shown in the state diagram as explained in the question.",
             "incorrectFeedback": {
                 "A": "❌ Incorrect: this is only checking one transition from each state",
                 "B": "❌ Incorrect: this is probably excluding login > login and search > search",
-                "D": "❌ Incorrect: it is checking the invalid transitions as well and those would be included in a state table, not a state diagram. These are: Login (invalid) > Login Login > Search Login > Shopping Cart (invalid transition) Login > Checkout (invalid transition) Search > Login (invalid transition) Search > Search Search > Shopping Cart Search > Checkout (invalid transition) Shopping Cart > Login (invalid transition) Shopping Cart > Search Shopping Cart > Shopping Cart (invalid transition) Shopping Cart > Checkout Checkout > Login (invalid transition) Checkout > Search Checkout > Shopping Cart (invalid transition) Checkout > Logout"
+                "D": "❌ Incorrect: Sixteen is not justified by the supplied model. Invalid transitions depend on state/event combinations and cannot be counted by adding arbitrary state pairs."
             },
             "optionExplanations": {
                 "C": "There are 8 transitions that should be shown in the state diagram as explained in the question",
                 "A": "this is only checking one transition from each state",
                 "B": "this is probably excluding login > login and search > search",
-                "D": "it is checking the invalid transitions as well and those would be included in a state table, not a state diagram. These are: Login (invalid) > Login Login > Search Login > Shopping Cart (invalid transition) Login > Checkout (invalid transition) Search > Login (invalid transition) Search > Search Search > Shopping Cart Search > Checkout (invalid transition) Shopping Cart > Login (invalid transition) Shopping Cart > Search Shopping Cart > Shopping Cart (invalid transition) Shopping Cart > Checkout Checkout > Login (invalid transition) Checkout > Search Checkout > Shopping Cart (invalid transition) Checkout > Logout"
+                "D": "Sixteen is not justified by the supplied model. Invalid transitions depend on state/event combinations and cannot be counted by adding arbitrary state pairs."
             },
             "chapter": 4,
             "section": "4.2",
@@ -16055,7 +16057,7 @@ window.questionSets = {
                 "transition",
                 "derive"
             ],
-            "examTip": "ASTQB official sample — Use state transition testing to derive test cases",
+            "examTip": "Use state transition testing to derive test cases",
             "memoryAid": "State transition: model system states + valid/invalid transitions; test both valid and invalid paths"
         },
         {
@@ -16230,9 +16232,9 @@ window.questionSets = {
                 "C": "This option is not the correct answer (see the official explanation)."
             },
             "chapter": 5,
-            "section": "5.1",
-            "subsection": "5.1.7",
-            "learningObjective": "FL-5.1.7",
+            "section": "5.2",
+            "subsection": "5.2.2",
+            "learningObjective": "FL-5.2.2",
             "kLevel": "K2",
             "difficulty": "Medium",
             "keywords": [
@@ -16240,7 +16242,7 @@ window.questionSets = {
                 "quadrants",
                 "their"
             ],
-            "examTip": "ASTQB official sample — Summarize the testing quadrants and their relationships with test levels and test types",
+            "examTip": "Project risks affect delivery, resources, or schedules; product risks affect product quality.",
             "memoryAid": "Project risk: organizational issues, skill shortages, tight deadlines, scope changes"
         },
         {
@@ -16282,7 +16284,7 @@ window.questionSets = {
         },
         {
             "id": "Q1075",
-            "statement": "You are working on a project that is releasing software to the test team in iterations. In iteration 3 you identified a failure. The developer found and fixed the defect and released the fix in iteration 4. You confirmed the fix and closed the defect report. You are now testing iteration 7 and the failure has occurred again. You have talked to the developer and he doesn’t know how or when the failure came back and has asked you to investigate. How can configuration management help you gather more information on this failure?",
+            "statement": "You are working on a project that is releasing software to the test team in iterations. In iteration 3 you identified a failure. The developer found and fixed the defect and released the fix in iteration 4. You confirmed the fix and closed the defect report. You are now testing iteration 7 and the failure has occurred again. You have talked to the developer and he doesn’t know how or when the failure came back and has asked you to investigate. Which configuration-management capability most directly lets you reproduce the failure on intermediate builds and identify the first affected iteration?",
             "options": {
                 "A": "You can see what changed in iteration 4 to fix the problem",
                 "B": "You can reload and retest iterations 5 and 6 to see where the problem was re-introduced",
@@ -16290,22 +16292,22 @@ window.questionSets = {
                 "D": "You can improve the regression testing to ensure the failure is caught earlier"
             },
             "correctAnswer": "B",
-            "explanation": "B is correct. Because you have configuration management, you should be able to obtain and reinstall the code from iterations 5 and 6 and see where the problem was re-introduced. A is not correct as that would have helped with the initial confirmation test and maybe regression testing, but it doesn’t help with the current problem. C is the responsibility of the developer. D is a good idea but won’t help with the current situation.",
+            "explanation": "Configuration management supports retrieving and reconstructing earlier versions. Testing iterations 5 and 6 directly helps locate when the failure reappeared. Inspecting version changes can also help investigation and is not reserved exclusively for developers, but it is less direct for the requested reproduction across builds.",
             "correctFeedback": "✅ Correct: Because you have configuration management, you should be able to obtain and reinstall the code from iterations 5 and 6 and see where the problem was re-introduced.",
             "incorrectFeedback": {
-                "A": "❌ Incorrect: that would have helped with the initial confirmation test and maybe regression testing, but it doesn’t help with the current problem. C is the responsibility of the developer. D is a good idea but won’t help with the current situation",
-                "C": "❌ Incorrect: This option is not the correct answer (see the official explanation).",
+                "A": "❌ Incorrect: Inspecting the original fix can help, but does not directly establish which intermediate build first reintroduced the failure.",
+                "C": "❌ Incorrect: Change history can help testers as well as developers; reinstalling intermediate builds is the direct way to reproduce and locate the first affected iteration here.",
                 "D": "❌ Incorrect: This option is not the correct answer (see the official explanation)."
             },
             "optionExplanations": {
                 "B": "Because you have configuration management, you should be able to obtain and reinstall the code from iterations 5 and 6 and see where the problem was re-introduced",
-                "A": "that would have helped with the initial confirmation test and maybe regression testing, but it doesn’t help with the current problem. C is the responsibility of the developer. D is a good idea but won’t help with the current situation",
-                "C": "This option is not the correct answer (see the official explanation).",
+                "A": "Inspecting the original fix can help, but does not directly establish which intermediate build first reintroduced the failure.",
+                "C": "Change history can help testers as well as developers; reinstalling intermediate builds is the direct way to reproduce and locate the first affected iteration here.",
                 "D": "This option is not the correct answer (see the official explanation)."
             },
             "chapter": 5,
             "section": "5.4",
-            "subsection": "5.4.1",
+            "subsection": "5.4",
             "learningObjective": "FL-5.4.1",
             "kLevel": "K2",
             "difficulty": "Medium",
@@ -16314,7 +16316,7 @@ window.questionSets = {
                 "configuration",
                 "management"
             ],
-            "examTip": "ASTQB official sample — Summarize how configuration management supports testing",
+            "examTip": "Summarize how configuration management supports testing",
             "memoryAid": "CM ensures: unique versions, reproducibility, traceability, prevents testing wrong version"
         },
         {
@@ -16352,11 +16354,11 @@ window.questionSets = {
                 "calculate"
             ],
             "examTip": "ASTQB official sample — Use estimation techniques to calculate the required test effort",
-            "memoryAid": "Wideband Delphi: experts estimate independently, discuss differences and re-estimate iteratively until estimates converge sufficiently."
+            "memoryAid": "Three-point estimate E = (O + 4M + P)/6; estimated SD = (P - O)/6."
         },
         {
             "id": "Q1077",
-            "statement": "Consider the following test cases that are used to test an accounting system. Test 1: Purchase Item, no dependency, priority 2; Test 2: Receive Invoice, depends on Test 1, priority 3; Test 3: Receive Goods, depends on Test 1, priority 2; Test 4: Send Payment, depends on Test 2, priority 3; Test 5: Report Payments, depends on Test 4, priority 1. Given this information, what is the proper order in which to execute these test cases?",
+            "statement": "Consider the following test cases that are used to test an accounting system. Test 1: Purchase Item, no dependency, priority 2; Test 2: Receive Invoice, depends on Test 1, priority 3; Test 3: Receive Goods, depends on Test 1, priority 2; Test 4: Send Payment, depends on Test 2, priority 3; Test 5: Report Payments, depends on Test 4, priority 1. Priority 1 is highest. Run Test 5 as early as dependencies allow, with sequential execution. Given this information, what is the proper order in which to execute these test cases?",
             "options": {
                 "A": "5, 1, 3, 2, 4",
                 "B": "1, 2, 4, 5, 3",
@@ -16369,13 +16371,13 @@ window.questionSets = {
             "incorrectFeedback": {
                 "A": "❌ Incorrect: 5 cannot be run first",
                 "C": "❌ Incorrect: it does not run 5 as soon as possible; it defers it until after 3 is run",
-                "D": "❌ Incorrect: 3 can’t be run first as it requires 1 and 2"
+                "D": "❌ Incorrect: Test 3 requires Test 1; starting with Test 3 violates that dependency. The scenario does not state that Test 3 also requires Test 2."
             },
             "optionExplanations": {
                 "B": "The goal is to run the highest priority tests as soon as possible. Dependency has to be considered in order for the tests to actually be executed. In order to get the highest priority test run as soon as possible, the correct order is as follows: test 1 has to go first since everything else is dependent on it. Then we need to do 2 so we can do 4 and 5 (the highest priority test) and then 3 is last because 5 is not dependent on it",
                 "A": "5 cannot be run first",
                 "C": "it does not run 5 as soon as possible; it defers it until after 3 is run",
-                "D": "3 can’t be run first as it requires 1 and 2"
+                "D": "Test 3 requires Test 1; starting with Test 3 violates that dependency. The scenario does not state that Test 3 also requires Test 2."
             },
             "chapter": 5,
             "section": "5.1",
@@ -16388,7 +16390,7 @@ window.questionSets = {
                 "case",
                 "prioritization"
             ],
-            "examTip": "ASTQB official sample — Apply test case prioritization",
+            "examTip": "Apply test case prioritization",
             "memoryAid": "Test prioritization: consider risk, business criticality, dependencies between test cases"
         },
         {
@@ -16415,9 +16417,9 @@ window.questionSets = {
                 "C": "the screen shot should indicate column 1 that is wrong"
             },
             "chapter": 5,
-            "section": "5.1",
-            "subsection": "5.1.5",
-            "learningObjective": "FL-5.1.5",
+            "section": "5.5",
+            "subsection": "5.5",
+            "learningObjective": "FL-5.5.1",
             "kLevel": "K3",
             "difficulty": "Hard",
             "keywords": [
@@ -16425,7 +16427,7 @@ window.questionSets = {
                 "case",
                 "prioritization"
             ],
-            "examTip": "ASTQB official sample — Apply test case prioritization",
+            "examTip": "A reproducible defect report needs expected results as well as actual results, steps, data, and environment.",
             "memoryAid": "Defect report: must be specific, factual, reproducible; avoid vague language like 'doesn't work'"
         },
         {
@@ -16453,7 +16455,7 @@ window.questionSets = {
             },
             "chapter": 6,
             "section": "6.1",
-            "subsection": "6.1.1",
+            "subsection": "6.1",
             "learningObjective": "FL-6.1.1",
             "kLevel": "K2",
             "difficulty": "Medium",
@@ -16490,7 +16492,7 @@ window.questionSets = {
             },
             "chapter": 6,
             "section": "6.2",
-            "subsection": "6.2.1",
+            "subsection": "6.2",
             "learningObjective": "FL-6.2.1",
             "kLevel": "K1",
             "difficulty": "Easy",
@@ -16719,7 +16721,7 @@ window.questionSets = {
             },
             "chapter": 1,
             "section": "1.3",
-            "subsection": "1.3.1",
+            "subsection": "1.3",
             "learningObjective": "FL-1.3.1",
             "kLevel": "K2",
             "difficulty": "Hard",
@@ -16833,9 +16835,9 @@ window.questionSets = {
             },
             "chapter": 2,
             "section": "2.1",
-            "subsection": "2.1.1",
-            "learningObjective": "FL-2.1.1",
-            "kLevel": "K2",
+            "subsection": "2.1.2",
+            "learningObjective": "FL-2.1.2",
+            "kLevel": "K1",
             "difficulty": "Hard",
             "keywords": [
                 "SDLC",
@@ -17038,7 +17040,7 @@ window.questionSets = {
         },
         {
             "id": "Q1095",
-            "statement": "Which of the following work products can be evaluated using static testing techniques?",
+            "statement": "Which option lists development work products that can be reviewed before executable application code is available?",
             "options": {
                 "A": "Executable compiled C# binaries during stress testing.",
                 "B": "Real-time network packet logs generated during dynamic penetration testing.",
@@ -17046,18 +17048,18 @@ window.questionSets = {
                 "D": "Database CPU utilization graphs captured during live operational monitoring."
             },
             "correctAnswer": "C",
-            "explanation": "Static testing evaluates work products without executing code. Almost any non-executable or executable work product (requirements, design docs, code, testware, user stories, contracts) can be reviewed statically.",
+            "explanation": "Requirements, stories, architecture, and source code can all be reviewed without executing the software. Recorded logs and graphs are also reviewable work products; their origin during dynamic testing does not make later static review impossible.",
             "correctFeedback": "✅ Correct: Requirements, user stories, architecture models, code, and test cases are classic work products for static testing.",
             "incorrectFeedback": {
                 "A": "❌ Incorrect: Compiled binaries executed under load are tested dynamically.",
-                "B": "❌ Incorrect: Network packet logs captured during execution are artifacts of dynamic testing.",
-                "D": "❌ Incorrect: Live CPU monitoring is dynamic operational monitoring."
+                "B": "❌ Incorrect: Captured runtime logs can later be reviewed statically, but obtaining these logs from this application requires execution and is not the early development work-product set requested.",
+                "D": "❌ Incorrect: Recorded monitoring graphs can later be reviewed, but obtaining live operational measurements requires a running system."
             },
             "optionExplanations": {
                 "A": "Compiled binaries executed under load are tested dynamically.",
-                "B": "Network packet logs captured during execution are artifacts of dynamic testing.",
+                "B": "Captured runtime logs can later be reviewed statically, but obtaining these logs from this application requires execution and is not the early development work-product set requested.",
                 "C": "Requirements, user stories, architecture models, code, and test cases are classic work products for static testing.",
-                "D": "Live CPU monitoring is dynamic operational monitoring."
+                "D": "Recorded monitoring graphs can later be reviewed, but obtaining live operational measurements requires a running system."
             },
             "chapter": 3,
             "section": "3.1",
@@ -17084,7 +17086,7 @@ window.questionSets = {
                 "D": "Defects found early via static testing are significantly cheaper to fix, and inconsistencies in requirements can be detected before they are implemented in code."
             },
             "correctAnswer": "D",
-            "explanation": "Static testing detects defects directly in requirement and design documents before coding begins. Fixing a requirement defect early costs up to 100x less than fixing a failure discovered during production dynamic testing.",
+            "explanation": "Static reviews can identify requirement and design defects before implementation and prevent costly rework. The relative saving depends on context; CTFL v4.0.1 does not state a universal numerical multiplier such as 100x.",
             "correctFeedback": "✅ Correct: Early static detection prevents defect propagation into code, drastically reducing rework costs and finding flaws that dynamic testing cannot easily catch (e.g., requirement ambiguities).",
             "incorrectFeedback": {
                 "A": "❌ Incorrect: Measuring memory usage under load requires dynamic execution.",
@@ -17213,7 +17215,7 @@ window.questionSets = {
             },
             "chapter": 4,
             "section": "4.1",
-            "subsection": "4.1.1",
+            "subsection": "4.1",
             "learningObjective": "FL-4.1.1",
             "kLevel": "K2",
             "difficulty": "Hard",
@@ -17228,7 +17230,7 @@ window.questionSets = {
         },
         {
             "id": "Q1100",
-            "statement": "A mortgage application evaluates credit scores between 300 and 850 (inclusive). Scores below 300 or above 850 are rejected as invalid inputs. Applying 2-value Boundary Value Analysis (BVA), which set of test inputs represents the exact boundary values for the valid score range?",
+            "statement": "A mortgage application evaluates credit scores between 300 and 850 (inclusive). Scores below 300 or above 850 are rejected as invalid inputs. Applying 2-value Boundary Value Analysis (BVA), which set of test inputs represents the exact boundary values for the valid score range? Credit scores are integers.",
             "options": {
                 "A": "0, 300, 575, 850, 1000",
                 "B": "300, 301, 849, 850",
@@ -17307,23 +17309,23 @@ window.questionSets = {
             "statement": "A smart thermostat system has three states: OFF, HEATING, and COOLING. The valid transitions are:\n- OFF -> HEATING (when temp < setpoint)\n- HEATING -> OFF (when temp >= setpoint)\n- OFF -> COOLING (when temp > setpoint)\n- COOLING -> OFF (when temp <= setpoint)\nWhat is the minimum number of test cases required to achieve 100% Valid Transitions (0-switch) coverage?",
             "options": {
                 "A": "3 test cases",
-                "B": "2 test cases",
+                "B": "1 test case",
                 "C": "4 test cases",
                 "D": "6 test cases"
             },
             "correctAnswer": "B",
-            "explanation": "Valid Transitions (0-switch) coverage requires executing every valid single transition at least once. Sequence 1: OFF -> HEATING -> OFF (covers OFF->HEATING and HEATING->OFF). Sequence 2: OFF -> COOLING -> OFF (covers OFF->COOLING and COOLING->OFF). Total = 2 test cases.",
-            "correctFeedback": "✅ Correct: Sequence 1 (OFF -> HEATING -> OFF) covers 2 transitions. Sequence 2 (OFF -> COOLING -> OFF) covers 2 transitions. Total 2 test cases cover all 4 valid transitions.",
+            "explanation": "One test case can cover all four transitions: OFF -> HEATING -> OFF -> COOLING -> OFF. No rule requires a test to stop when it first returns to OFF, so splitting this sequence into two tests is unnecessary.",
+            "correctFeedback": "✅ Correct: One test can execute OFF -> HEATING -> OFF -> COOLING -> OFF, covering all four transitions.",
             "incorrectFeedback": {
-                "A": "❌ Incorrect: 3 test cases is redundant if transitions are chained.",
-                "C": "❌ Incorrect: 4 test cases would execute each transition in a separate single-step test, but chaining allows doing it in 2 test cases.",
-                "D": "❌ Incorrect: 6 test cases is excessive."
+                "A": "❌ Incorrect: Three tests may cover the model, but one connected sequence is sufficient.",
+                "C": "❌ Incorrect: Four separate tests are unnecessary because transitions can be chained in one test.",
+                "D": "❌ Incorrect: Six tests exceed the minimum of one."
             },
             "optionExplanations": {
-                "A": "3 test cases is redundant if transitions are chained.",
-                "B": "Sequence 1 (OFF -> HEATING -> OFF) covers 2 transitions. Sequence 2 (OFF -> COOLING -> OFF) covers 2 transitions. Total 2 test cases cover all 4 valid transitions.",
-                "C": "4 test cases would execute each transition in a separate single-step test, but chaining allows doing it in 2 test cases.",
-                "D": "6 test cases is excessive."
+                "A": "Three tests may cover the model, but one connected sequence is sufficient.",
+                "B": "One test can execute OFF -> HEATING -> OFF -> COOLING -> OFF, covering all four transitions.",
+                "C": "Four separate tests are unnecessary because transitions can be chained in one test.",
+                "D": "Six tests exceed the minimum of one."
             },
             "chapter": 4,
             "section": "4.2",
@@ -17342,7 +17344,7 @@ window.questionSets = {
         },
         {
             "id": "Q1103",
-            "statement": "Consider a discount function: if amount > 100, discount = 10; if is_student, discount += 5. What is the minimum number of test cases required to achieve 100% Statement Coverage and 100% Branch Coverage respectively?",
+            "statement": "Consider a discount function: initialize discount = 0; if amount > 100, discount = 10; if is_student, discount += 5. What is the minimum number of test cases required to achieve 100% Statement Coverage and 100% Branch Coverage respectively?",
             "options": {
                 "A": "Statement Coverage: 1; Branch Coverage: 4",
                 "B": "Statement Coverage: 2; Branch Coverage: 2",
@@ -17353,12 +17355,12 @@ window.questionSets = {
             "explanation": "For Statement Coverage: 1 test case with amount = 150 (amount > 100 is True) and is_student = True (is_student is True) executes all statements (100% statement coverage).\nFor Branch Coverage: We must test True and False outcomes for BOTH independent IF statements. Test 1 (150, True) covers True/True branches. Test 2 (50, False) covers False/False branches. Thus 2 test cases achieve 100% branch coverage.",
             "correctFeedback": "✅ Correct: 1 test case (amount=150, is_student=True) hits every line for Statement Coverage. 2 test cases (150, True and 50, False) cover all True and False branch outcomes.",
             "incorrectFeedback": {
-                "A": "❌ Incorrect: 4 test cases cover all combinations (condition coverage), but branch coverage only requires 2 test cases here.",
+                "A": "❌ Incorrect: Four tests cover all combinations of the two independent decision outcomes. This is stronger than needed here; branch coverage needs only two tests. It is not the definition of condition coverage.",
                 "B": "❌ Incorrect: Statement coverage only requires 1 test case here because both IF blocks are executed when inputs are True.",
                 "D": "❌ Incorrect: 2 test cases suffice for branch coverage."
             },
             "optionExplanations": {
-                "A": "4 test cases cover all combinations (condition coverage), but branch coverage only requires 2 test cases here.",
+                "A": "Four tests cover all combinations of the two independent decision outcomes. This is stronger than needed here; branch coverage needs only two tests. It is not the definition of condition coverage.",
                 "B": "Statement coverage only requires 1 test case here because both IF blocks are executed when inputs are True.",
                 "C": "1 test case (amount=150, is_student=True) hits every line for Statement Coverage. 2 test cases (150, True and 50, False) cover all True and False branch outcomes.",
                 "D": "2 test cases suffice for branch coverage."
@@ -17375,8 +17377,8 @@ window.questionSets = {
                 "white-box",
                 "minimum test cases"
             ],
-            "examTip": "Statement coverage requires executing all lines (1 test case here). Branch coverage requires executing True and False for each decision (2 test cases here).",
-            "memoryAid": "Statement = Hit all lines; Branch = Hit all True & False decision branches."
+            "examTip": "Statement coverage requires executing all executable statements (1 test case here). Branch coverage requires executing True and False for each decision (2 test cases here).",
+            "memoryAid": "Statement = Hit all executable statements; Branch = Hit all True & False decision branches."
         },
         {
             "id": "Q1104",
@@ -17430,13 +17432,13 @@ window.questionSets = {
             "correctFeedback": "✅ Correct: Exploratory testing relies on tester experience, knowledge, and active learning, making it ideal when documentation is absent or obsolete.",
             "incorrectFeedback": {
                 "B": "❌ Incorrect: Decision tables require explicit formal business rules/specifications as a test basis.",
-                "C": "❌ Incorrect: Statement testing requires source code access and white-box coverage tools.",
+                "C": "❌ Incorrect: Statement testing uses internal structure and may measure structural coverage, but the scenario favors learning about undocumented behavior through exploration. Tool support is useful, not a universal prerequisite.",
                 "D": "❌ Incorrect: BVA requires structured boundary definitions from specifications."
             },
             "optionExplanations": {
                 "A": "Exploratory testing relies on tester experience, knowledge, and active learning, making it ideal when documentation is absent or obsolete.",
                 "B": "Decision tables require explicit formal business rules/specifications as a test basis.",
-                "C": "Statement testing requires source code access and white-box coverage tools.",
+                "C": "Statement testing uses internal structure and may measure structural coverage, but the scenario favors learning about undocumented behavior through exploration. Tool support is useful, not a universal prerequisite.",
                 "D": "BVA requires structured boundary definitions from specifications."
             },
             "chapter": 4,
@@ -17459,13 +17461,13 @@ window.questionSets = {
             "statement": "An Agile team is reviewing a user story during backlog refinement: 'As a mobile user, I want to transfer money quickly so that I can pay friends.' The tester points out that 'quickly' is ambiguous and untestable. Which technique/concept is the tester applying to improve the story before development?",
             "options": {
                 "A": "Error Guessing",
-                "B": "Writing Acceptance Criteria using the INVEST criteria and Definition of Ready (DoR)",
+                "B": "Collaboratively refining the user story so it is testable, applying the Testable characteristic of INVEST",
                 "C": "3-point Boundary Value Analysis",
                 "D": "Branch Testing"
             },
             "correctAnswer": "B",
-            "explanation": "In collaboration-based approaches (such as User Story refinement), acceptance criteria must be specific, testable, and unambiguous (e.g., meeting the 'Testable' attribute in INVEST).",
-            "correctFeedback": "✅ Correct: Ensuring user stories have testable, unambiguous acceptance criteria (e.g. specifying response time < 2 seconds) is part of collaboration-based test design and DoR.",
+            "explanation": "INVEST describes characteristics of good user stories. Here the tester helps make the story testable by replacing an ambiguous performance expectation with measurable acceptance criteria. A Definition of Ready can support readiness decisions, but the scenario does not establish that a DoR was applied.",
+            "correctFeedback": "✅ Correct: The tester applies the Testable characteristic of INVEST by making the expected behavior measurable.",
             "incorrectFeedback": {
                 "A": "❌ Incorrect: Error guessing is an experience-based dynamic testing technique used to anticipate defects.",
                 "C": "❌ Incorrect: BVA is a black-box design technique applied to numerical partitions.",
@@ -17473,7 +17475,7 @@ window.questionSets = {
             },
             "optionExplanations": {
                 "A": "Error guessing is an experience-based dynamic testing technique used to anticipate defects.",
-                "B": "Ensuring user stories have testable, unambiguous acceptance criteria (e.g. specifying response time < 2 seconds) is part of collaboration-based test design and DoR.",
+                "B": "The tester applies the Testable characteristic of INVEST by making the expected behavior measurable.",
                 "C": "BVA is a black-box design technique applied to numerical partitions.",
                 "D": "Branch testing is a white-box technique applied to code."
             },
@@ -17494,7 +17496,7 @@ window.questionSets = {
         },
         {
             "id": "Q1107",
-            "statement": "Which format is standard for expressing acceptance criteria in Acceptance Test-Driven Development (ATDD) and Behavior-Driven Development (BDD)?",
+            "statement": "Which option uses the scenario-oriented Given/When/Then format commonly used with BDD and also usable for acceptance criteria in ATDD?",
             "options": {
                 "A": "IF <condition> THEN <action> ELSE <error>",
                 "B": "TEST <inputs> EXPECT <outputs> COVERAGE <percentage>",
@@ -17502,8 +17504,8 @@ window.questionSets = {
                 "D": "USER <role> WANTS <feature> SO THAT <benefit>"
             },
             "correctAnswer": "C",
-            "explanation": "BDD and ATDD use the Given-When-Then format (Gherkin syntax) to express acceptance criteria clearly in a shared language understood by business stakeholders, developers, and testers.",
-            "correctFeedback": "✅ Correct: Given (precondition) - When (action) - Then (expected result) is the universal BDD/ATDD scenario format.",
+            "explanation": "Given/When/Then expresses context, an action or event, and the expected outcome. It is a scenario-oriented format. ATDD is not restricted to it; rules-oriented formats, such as tables or checklists, can also express acceptance criteria.",
+            "correctFeedback": "✅ Correct: This is the scenario-oriented Given/When/Then format; it is common but not mandatory for every ATDD acceptance test.",
             "incorrectFeedback": {
                 "A": "❌ Incorrect: This is traditional pseudo-code logic.",
                 "B": "❌ Incorrect: This is non-standard test case notation.",
@@ -17512,7 +17514,7 @@ window.questionSets = {
             "optionExplanations": {
                 "A": "This is traditional pseudo-code logic.",
                 "B": "This is non-standard test case notation.",
-                "C": "Given (precondition) - When (action) - Then (expected result) is the universal BDD/ATDD scenario format.",
+                "C": "This is the scenario-oriented Given/When/Then format; it is common but not mandatory for every ATDD acceptance test.",
                 "D": "This is the User Story template (Role-Feature-Benefit), not the acceptance criteria format."
             },
             "chapter": 4,
@@ -17646,7 +17648,7 @@ window.questionSets = {
         },
         {
             "id": "Q1111",
-            "statement": "In Risk-Based Testing (RBT), how are risk level scores traditionally calculated to prioritize test cases?",
+            "statement": "When a team uses the quantitative multiplication approach to risk assessment, how is risk level calculated?",
             "options": {
                 "A": "Risk Level = Test Execution Cost x Lines of Code",
                 "B": "Risk Level = Number of Defects / Sprint Velocity",
@@ -17655,7 +17657,7 @@ window.questionSets = {
             },
             "correctAnswer": "C",
             "explanation": "Risk level is determined by assessing Risk Likelihood (the probability that a risk event will occur) and Risk Impact (the severity of effect if it occurs): Risk = Likelihood x Impact.",
-            "correctFeedback": "✅ Correct: Risk level is universally computed as Likelihood multiplied by Impact.",
+            "correctFeedback": "✅ Correct: The quantitative approach multiplies likelihood by impact. Qualitative approaches may instead use a risk matrix.",
             "incorrectFeedback": {
                 "A": "❌ Incorrect: Execution cost and lines of code do not define risk level.",
                 "B": "❌ Incorrect: Defect count divided by velocity is a project progress metric.",
@@ -17664,7 +17666,7 @@ window.questionSets = {
             "optionExplanations": {
                 "A": "Execution cost and lines of code do not define risk level.",
                 "B": "Defect count divided by velocity is a project progress metric.",
-                "C": "Risk level is universally computed as Likelihood multiplied by Impact.",
+                "C": "The quantitative approach multiplies likelihood by impact. Qualitative approaches may instead use a risk matrix.",
                 "D": "Coverage percentages measure thoroughness, not risk level."
             },
             "chapter": 5,
@@ -17743,11 +17745,11 @@ window.questionSets = {
                 "C": "Calculating defect density is a monitoring activity.",
                 "D": "Generating a chart is a monitoring/reporting activity."
             },
-            "chapter": 5,
-            "section": "5.3",
-            "subsection": "5.3.1",
-            "learningObjective": "FL-5.3.1",
-            "kLevel": "K1",
+            "chapter": 1,
+            "section": "1.4",
+            "subsection": "1.4.1",
+            "learningObjective": "FL-1.4.1",
+            "kLevel": "K2",
             "difficulty": "Hard",
             "keywords": [
                 "test control",
@@ -17760,7 +17762,7 @@ window.questionSets = {
         },
         {
             "id": "Q1114",
-            "statement": "Which item is a standard criterion used to define 'Entry Criteria' in a test plan?",
+            "statement": "Which option directly specifies the availability of resources and test items as entry criteria for starting test execution?",
             "options": {
                 "A": "Achieving 85% branch coverage on the core subsystem.",
                 "B": "Availability of a verified test environment, test data, and testable code builds.",
@@ -17771,14 +17773,14 @@ window.questionSets = {
             "explanation": "Entry criteria define the preconditions necessary to begin testing activities at a given test level (e.g., test environment ready, test data available, testable code build delivered). Exit criteria define when to stop.",
             "correctFeedback": "✅ Correct: Environment availability, test data readiness, and code delivery are classic entry criteria.",
             "incorrectFeedback": {
-                "A": "❌ Incorrect: Coverage targets are exit criteria.",
-                "C": "❌ Incorrect: Defect resolution targets are exit criteria.",
+                "A": "❌ Incorrect: A prior-level coverage threshold may be an entry criterion for a later level; this option does not identify the level or prerequisite relationship.",
+                "C": "❌ Incorrect: A prior-level defect threshold may be an entry criterion for a later level. The clearest readiness example given is the available environment, data, and build.",
                 "D": "❌ Incorrect: Issuing summary reports is a test completion activity after exit criteria are met."
             },
             "optionExplanations": {
-                "A": "Coverage targets are exit criteria.",
+                "A": "A prior-level coverage threshold may be an entry criterion for a later level; this option does not identify the level or prerequisite relationship.",
                 "B": "Environment availability, test data readiness, and code delivery are classic entry criteria.",
-                "C": "Defect resolution targets are exit criteria.",
+                "C": "A prior-level defect threshold may be an entry criterion for a later level. The clearest readiness example given is the available environment, data, and build.",
                 "D": "Issuing summary reports is a test completion activity after exit criteria are met."
             },
             "chapter": 5,
@@ -17841,11 +17843,11 @@ window.questionSets = {
                 "A": "By automatically calculating the risk likelihood for new user stories.",
                 "B": "By assigning defect priority levels based on business impact.",
                 "C": "By running automated unit tests on developer workstations prior to code check-in.",
-                "D": "By ensuring unique identification and version control of all test items, testware, environments, and builds, allowing exact reproducibility of test results."
+                "D": "By uniquely identifying and controlling versions of test items, testware, environments, and builds so tested configurations can be reconstructed"
             },
             "correctAnswer": "D",
             "explanation": "Configuration Management ensures unique identification, version control, and traceability of test items, code builds, test documentation, and environment scripts, ensuring tests can be reproduced reliably.",
-            "correctFeedback": "✅ Correct: Configuration management controls versions of software builds and testware, guaranteeing test reproducibility.",
+            "correctFeedback": "✅ Correct: Configuration management supports reconstructing the tested configuration; it does not guarantee identical outcomes for nondeterministic behavior.",
             "incorrectFeedback": {
                 "A": "❌ Incorrect: Risk likelihood calculation is part of risk management.",
                 "B": "❌ Incorrect: Defect priority assignment is part of defect management.",
@@ -17855,11 +17857,11 @@ window.questionSets = {
                 "A": "Risk likelihood calculation is part of risk management.",
                 "B": "Defect priority assignment is part of defect management.",
                 "C": "Automated test execution is part of continuous integration / test execution tools.",
-                "D": "Configuration management controls versions of software builds and testware, guaranteeing test reproducibility."
+                "D": "Configuration management supports reconstructing the tested configuration; it does not guarantee identical outcomes for nondeterministic behavior."
             },
             "chapter": 5,
             "section": "5.4",
-            "subsection": "5.4.1",
+            "subsection": "5.4",
             "learningObjective": "FL-5.4.1",
             "kLevel": "K2",
             "difficulty": "Hard",
@@ -17897,7 +17899,7 @@ window.questionSets = {
             },
             "chapter": 5,
             "section": "5.5",
-            "subsection": "5.5.1",
+            "subsection": "5.5",
             "learningObjective": "FL-5.5.1",
             "kLevel": "K3",
             "difficulty": "Hard",
@@ -17912,7 +17914,7 @@ window.questionSets = {
         },
         {
             "id": "Q1118",
-            "statement": "When prioritizing test execution, which strategy ensures that critical defects are identified early while keeping overall testing efficient?",
+            "statement": "When prioritizing test execution, which strategy aims to identify critical defects early while keeping overall testing efficient?",
             "options": {
                 "A": "Running tests in alphabetical order of test case titles.",
                 "B": "Prioritizing tests based on risk level, testing highest risk features and highest business value functions first.",
@@ -17920,8 +17922,8 @@ window.questionSets = {
                 "D": "Executing automated tests strictly in the order they were committed to the repository."
             },
             "correctAnswer": "B",
-            "explanation": "Risk-based prioritization runs tests covering high-risk, high-impact features first, ensuring major defects are discovered as early as possible when remediation cost is lower.",
-            "correctFeedback": "✅ Correct: Risk and business-value prioritization ensures high-exposure areas are tested first.",
+            "explanation": "Risk-based prioritization gives earlier attention to high-risk areas, subject to dependencies and available resources. It increases the opportunity to find critical defects early but cannot guarantee that those defects will be found.",
+            "correctFeedback": "✅ Correct: Prioritize by assessed risk and relevant business importance, while respecting dependencies and resource constraints; discovery is not guaranteed.",
             "incorrectFeedback": {
                 "A": "❌ Incorrect: Title alphabetical order is completely arbitrary.",
                 "C": "❌ Incorrect: Functional core capabilities usually need validation before detailed non-functional testing.",
@@ -17929,7 +17931,7 @@ window.questionSets = {
             },
             "optionExplanations": {
                 "A": "Title alphabetical order is completely arbitrary.",
-                "B": "Risk and business-value prioritization ensures high-exposure areas are tested first.",
+                "B": "Prioritize by assessed risk and relevant business importance, while respecting dependencies and resource constraints; discovery is not guaranteed.",
                 "C": "Functional core capabilities usually need validation before detailed non-functional testing.",
                 "D": "Commit order does not reflect risk or business priority."
             },
@@ -17973,7 +17975,7 @@ window.questionSets = {
             },
             "chapter": 6,
             "section": "6.1",
-            "subsection": "6.1.1",
+            "subsection": "6.1",
             "learningObjective": "FL-6.1.1",
             "kLevel": "K2",
             "difficulty": "Hard",
@@ -18011,7 +18013,7 @@ window.questionSets = {
             },
             "chapter": 6,
             "section": "6.2",
-            "subsection": "6.2.1",
+            "subsection": "6.2",
             "learningObjective": "FL-6.2.1",
             "kLevel": "K1",
             "difficulty": "Hard",
@@ -18127,7 +18129,7 @@ window.questionSets = {
             },
             "chapter": 1,
             "section": "1.3",
-            "subsection": "1.3.1",
+            "subsection": "1.3",
             "learningObjective": "FL-1.3.1",
             "kLevel": "K2",
             "difficulty": "Hard",
@@ -18264,8 +18266,8 @@ window.questionSets = {
                 "D": "Independent testing eliminates all project risks."
             },
             "correctAnswer": "C",
-            "explanation": "Independence reduces cognitive bias. Authors often struggle to find defects in their own work because of confirmation bias. Independent testers bring a fresh, unbiased evaluation perspective.",
-            "correctFeedback": "✅ Correct: Independence overcomes author confirmation bias and provides an objective evaluation.",
+            "explanation": "Independent testers can bring different cognitive biases and recognize different defects or challenge assumptions overlooked by authors. They are not free of bias, and independence does not remove the need for collaboration.",
+            "correctFeedback": "✅ Correct: Different perspectives can reduce author bias and reveal different defects; independent testers are not completely unbiased.",
             "incorrectFeedback": {
                 "A": "❌ Incorrect: Independent testers rely heavily on requirements and specifications.",
                 "B": "❌ Incorrect: Testing cannot prevent developers from making coding syntax errors.",
@@ -18274,7 +18276,7 @@ window.questionSets = {
             "optionExplanations": {
                 "A": "Independent testers rely heavily on requirements and specifications.",
                 "B": "Testing cannot prevent developers from making coding syntax errors.",
-                "C": "Independence overcomes author confirmation bias and provides an objective evaluation.",
+                "C": "Different perspectives can reduce author bias and reveal different defects; independent testers are not completely unbiased.",
                 "D": "Testing mitigates product risk but cannot eliminate all project risks."
             },
             "chapter": 1,
@@ -18289,7 +18291,7 @@ window.questionSets = {
                 "confirmation bias",
                 "objectivity"
             ],
-            "examTip": "Independent testing overcomes author confirmation bias and brings objective evaluation.",
+            "examTip": "Independence brings different biases and perspectives; it does not eliminate all bias.",
             "memoryAid": "Fresh eyes find hidden bugs."
         },
         {
@@ -18302,8 +18304,8 @@ window.questionSets = {
                 "D": "Principle 5 - Tests wear out"
             },
             "correctAnswer": "D",
-            "explanation": "Principle 5 (Tests wear out, historically known as the Pesticide Paradox) states that if the same tests are repeated over and over, eventually the same set of test cases will no longer find any new defects. Tests must be regularly reviewed and modified.",
-            "correctFeedback": "✅ Correct: Pesticide Paradox: Repeating identical tests eventually yields zero new defect findings; test suites must evolve.",
+            "explanation": "Repeated unchanged tests can become less effective at finding new defects. Review and vary tests and test data as appropriate, especially when features change. Repeating stable tests can still be valuable for regression detection; eventual zero findings is not an inevitable law.",
+            "correctFeedback": "✅ Correct: Tests wear out: unchanged tests may lose effectiveness at detecting new defects, while remaining useful for regression checks.",
             "incorrectFeedback": {
                 "A": "❌ Incorrect: Principle 1 concerns proving defect presence.",
                 "B": "❌ Incorrect: Principle 2 concerns input combinations.",
@@ -18313,11 +18315,11 @@ window.questionSets = {
                 "A": "Principle 1 concerns proving defect presence.",
                 "B": "Principle 2 concerns input combinations.",
                 "C": "Principle 6 concerns domain context.",
-                "D": "Pesticide Paradox: Repeating identical tests eventually yields zero new defect findings; test suites must evolve."
+                "D": "Tests wear out: unchanged tests may lose effectiveness at detecting new defects, while remaining useful for regression checks."
             },
             "chapter": 1,
             "section": "1.3",
-            "subsection": "1.3.1",
+            "subsection": "1.3",
             "learningObjective": "FL-1.3.1",
             "kLevel": "K2",
             "difficulty": "Hard",
@@ -18327,7 +18329,7 @@ window.questionSets = {
                 "regression suite",
                 "test evolution"
             ],
-            "examTip": "Pesticide Paradox = Running identical tests repeatedly eventually stops finding new bugs.",
+            "examTip": "Tests wear out is the CTFL v4.0.1 name; review tests and data while retaining valuable regression checks.",
             "memoryAid": "Evolve tests like pesticides against mutating bugs."
         },
         {
@@ -18469,8 +18471,8 @@ window.questionSets = {
             },
             "chapter": 2,
             "section": "2.2",
-            "subsection": "2.2.2",
-            "learningObjective": "FL-2.2.2",
+            "subsection": "2.2.1",
+            "learningObjective": "FL-2.2.1",
             "kLevel": "K2",
             "difficulty": "Hard",
             "keywords": [
@@ -18507,7 +18509,7 @@ window.questionSets = {
             },
             "chapter": 2,
             "section": "2.3",
-            "subsection": "2.3.1",
+            "subsection": "2.3",
             "learningObjective": "FL-2.3.1",
             "kLevel": "K2",
             "difficulty": "Hard",
@@ -18545,7 +18547,7 @@ window.questionSets = {
             },
             "chapter": 2,
             "section": "2.3",
-            "subsection": "2.3.1",
+            "subsection": "2.3",
             "learningObjective": "FL-2.3.1",
             "kLevel": "K2",
             "difficulty": "Hard",
@@ -18606,17 +18608,17 @@ window.questionSets = {
                 "D": "Inconsistencies, ambiguities, or contradictions in business requirement specifications."
             },
             "correctAnswer": "D",
-            "explanation": "Static reviews easily detect requirement flaws, ambiguities, contradictions, standards violations, and unmaintainable code before execution. Memory leaks, thread concurrency, and performance issues require dynamic execution.",
+            "explanation": "Static reviews are well suited to finding requirement inconsistencies and ambiguities directly. Runtime observation is useful for performance, concurrency, and resource symptoms, but reviews and static analysis can also detect some underlying concurrency or resource-management defects.",
             "correctFeedback": "✅ Correct: Ambiguities and contradictions in requirement specs are classic defects found via static reviews.",
             "incorrectFeedback": {
-                "A": "❌ Incorrect: Memory leaks require dynamic load execution.",
+                "A": "❌ Incorrect: A long-running memory-leak symptom is observed dynamically, though its underlying resource-management defect may sometimes be detected statically.",
                 "B": "❌ Incorrect: Network bottlenecks require dynamic performance execution.",
-                "C": "❌ Incorrect: Thread race conditions are dynamic execution issues."
+                "C": "❌ Incorrect: Concurrency symptoms are often investigated dynamically; some race-condition defects can also be identified by static analysis or review."
             },
             "optionExplanations": {
-                "A": "Memory leaks require dynamic load execution.",
+                "A": "A long-running memory-leak symptom is observed dynamically, though its underlying resource-management defect may sometimes be detected statically.",
                 "B": "Network bottlenecks require dynamic performance execution.",
-                "C": "Thread race conditions are dynamic execution issues.",
+                "C": "Concurrency symptoms are often investigated dynamically; some race-condition defects can also be identified by static analysis or review.",
                 "D": "Ambiguities and contradictions in requirement specs are classic defects found via static reviews."
             },
             "chapter": 3,
@@ -18647,13 +18649,13 @@ window.questionSets = {
             "explanation": "A Walkthrough is led by the author. Key objectives include learning, understanding, gathering feedback, and finding defects using scenario walkthroughs.",
             "correctFeedback": "✅ Correct: Walkthrough = Led by author, scenario-based, focuses on feedback and learning.",
             "incorrectFeedback": {
-                "B": "❌ Incorrect: Informal reviews have no structured meeting.",
+                "B": "❌ Incorrect: An informal review does not require a defined process or formal documented output, but may include discussion or a meeting. The explicit author-led walkthrough is the stronger match.",
                 "C": "❌ Incorrect: Inspection = Led by trained moderator, strict metrics, entry/exit criteria.",
                 "D": "❌ Incorrect: Static analysis = Tool-driven evaluation of code."
             },
             "optionExplanations": {
                 "A": "Walkthrough = Led by author, scenario-based, focuses on feedback and learning.",
-                "B": "Informal reviews have no structured meeting.",
+                "B": "An informal review does not require a defined process or formal documented output, but may include discussion or a meeting. The explicit author-led walkthrough is the stronger match.",
                 "C": "Inspection = Led by trained moderator, strict metrics, entry/exit criteria.",
                 "D": "Static analysis = Tool-driven evaluation of code."
             },
@@ -18723,15 +18725,15 @@ window.questionSets = {
             "explanation": "There are 3 valid equivalence partitions: 1) Age < 12, 2) 12 <= Age <= 64, 3) Age >= 65. Choosing one representative from each: 8 (<12), 30 (12-64), and 70 (65+) covers all 3 valid partitions with 3 test cases.",
             "correctFeedback": "✅ Correct: 8 (Child), 30 (Standard), 70 (Senior) represents each of the 3 valid age partitions.",
             "incorrectFeedback": {
-                "A": "❌ Incorrect: 5, 12, 8 are price outputs, not age inputs.",
-                "B": "❌ Incorrect: 11, 12, 64, 65 are boundary values, which represent BVA rather than minimal EP coverage.",
-                "D": "❌ Incorrect: 0 is a boundary value, not the minimal set of representatives."
+                "A": "❌ Incorrect: As age inputs, 5 and 8 both cover child and 12 covers standard; senior is missing.",
+                "B": "❌ Incorrect: This set covers all three valid partitions, but contains four values rather than the minimum of three; boundary values can be EP representatives.",
+                "D": "❌ Incorrect: This set covers the partitions but uses four values, including two senior values; it is not minimal."
             },
             "optionExplanations": {
-                "A": "5, 12, 8 are price outputs, not age inputs.",
-                "B": "11, 12, 64, 65 are boundary values, which represent BVA rather than minimal EP coverage.",
+                "A": "As age inputs, 5 and 8 both cover child and 12 covers standard; senior is missing.",
+                "B": "This set covers all three valid partitions, but contains four values rather than the minimum of three; boundary values can be EP representatives.",
                 "C": "8 (Child), 30 (Standard), 70 (Senior) represents each of the 3 valid age partitions.",
-                "D": "0 is a boundary value, not the minimal set of representatives."
+                "D": "This set covers the partitions but uses four values, including two senior values; it is not minimal."
             },
             "chapter": 4,
             "section": "4.2",
@@ -18788,7 +18790,7 @@ window.questionSets = {
         },
         {
             "id": "Q1141",
-            "statement": "A decision table has 4 binary (Yes/No) conditions. Two rules are found to produce identical actions and are collapsed during simplification, eliminating 1 redundant rule. How many rules remain in the simplified decision table?",
+            "statement": "A full decision table has four independent Boolean conditions and all 16 combinations are feasible. Two columns differ in exactly one condition, produce the same actions, and are merged by marking that condition irrelevant. No other columns are removed or merged. How many columns remain?",
             "options": {
                 "A": "15 rules",
                 "B": "16 rules",
@@ -18902,7 +18904,7 @@ window.questionSets = {
         },
         {
             "id": "Q1144",
-            "statement": "A developer runs 2 test cases on a method with 4 decision branches and achieves 75% Branch Coverage. How many decision branch outcomes were exercised by the test cases?",
+            "statement": "A method has four independent IF decisions, each with a true and a false outcome. Coverage is measured over these eight decision outcomes. A suite achieves 75% coverage of them. How many distinct decision outcomes did it exercise?",
             "options": {
                 "A": "3 branch outcomes",
                 "B": "4 branch outcomes",
@@ -18910,7 +18912,7 @@ window.questionSets = {
                 "D": "6 branch outcomes"
             },
             "correctAnswer": "D",
-            "explanation": "A method with 4 decision branches (e.g., 4 IF statements) has 4 x 2 = 8 total branch outcomes (True and False for each). 75% coverage of 8 branch outcomes = 0.75 x 8 = 6 branch outcomes exercised.",
+            "explanation": "The stem defines four IF decisions and eight decision outcomes. Exercising 75% of these eight outcomes means 0.75 x 8 = 6 outcomes. Four branches would mean four coverage items, not eight; decisions and branches must not be used interchangeably.",
             "correctFeedback": "✅ Correct: 4 decisions = 8 total outcomes. 75% of 8 = 6 branch outcomes exercised.",
             "incorrectFeedback": {
                 "A": "❌ Incorrect: 3 would be 37.5% coverage.",
@@ -18935,7 +18937,7 @@ window.questionSets = {
                 "coverage math",
                 "white-box"
             ],
-            "examTip": "Total Branch Outcomes = Number of Decisions x 2. Exercised = Total x Coverage %.",
+            "examTip": "Count the stated coverage items: four binary decisions have eight decision outcomes; 75% of eight is six.",
             "memoryAid": "4 decisions = 8 outcomes; 75% of 8 = 6."
         },
         {
@@ -18963,7 +18965,7 @@ window.questionSets = {
             },
             "chapter": 4,
             "section": "4.1",
-            "subsection": "4.1.1",
+            "subsection": "4.1",
             "learningObjective": "FL-4.1.1",
             "kLevel": "K2",
             "difficulty": "Hard",
@@ -18989,12 +18991,12 @@ window.questionSets = {
             "explanation": "Checklist-based testing is an experience-based technique where the tester uses a high-level list of items (checklist) to be checked, guided by experience and historical defect patterns.",
             "correctFeedback": "✅ Correct: Using a structured list of known items/pitfalls to guide test execution is Checklist-based Testing.",
             "incorrectFeedback": {
-                "A": "❌ Incorrect: Exploratory testing uses test charters without pre-defined checklists.",
+                "A": "❌ Incorrect: Exploratory testing combines learning, design, and execution and may use charters or checklists. Here the defining feature is executing tests guided by a predefined checklist.",
                 "C": "❌ Incorrect: Equivalence partitioning uses input ranges.",
                 "D": "❌ Incorrect: Branch testing uses code structure."
             },
             "optionExplanations": {
-                "A": "Exploratory testing uses test charters without pre-defined checklists.",
+                "A": "Exploratory testing combines learning, design, and execution and may use charters or checklists. Here the defining feature is executing tests guided by a predefined checklist.",
                 "B": "Using a structured list of known items/pitfalls to guide test execution is Checklist-based Testing.",
                 "C": "Equivalence partitioning uses input ranges.",
                 "D": "Branch testing uses code structure."
@@ -19092,7 +19094,7 @@ window.questionSets = {
         },
         {
             "id": "Q1149",
-            "statement": "An e-wallet application allows money transfers between $1.00 and $500.00 per transaction. Applying 3-value Boundary Value Analysis (BVA), which set of values represents the boundary test set for the upper limit ($500.00)?",
+            "statement": "An e-wallet application allows money transfers between $1.00 and $500.00 per transaction. Applying 3-value Boundary Value Analysis (BVA), which set of values represents the boundary test set for the upper limit ($500.00)? Transfer amounts use increments of $0.01.",
             "options": {
                 "A": "$499.99, $500.00, $500.01",
                 "B": "$500.00, $500.01, $500.02",
@@ -19100,15 +19102,15 @@ window.questionSets = {
                 "D": "$0.99, $1.00, $500.00"
             },
             "correctAnswer": "A",
-            "explanation": "For upper boundary $500.00 with 2-decimal precision: boundary-1 ($499.99), boundary ($500.00), boundary+1 ($500.01).",
-            "correctFeedback": "✅ Correct: $499.99 (B-1), $500.00 (B), $500.01 (B+1) forms the 3-value BVA triplet for upper boundary $500.00.",
+            "explanation": "With a $0.01 input increment, the specifically identified upper valid boundary $500.00 and its two neighbors are $499.99, $500.00, and $500.01. This is the triplet for that boundary value, not a claim of full coverage of every partition boundary.",
+            "correctFeedback": "✅ Correct: The triplet is B-$0.01, B, B+$0.01: $499.99, $500.00, $500.01.",
             "incorrectFeedback": {
                 "B": "❌ Incorrect: Omits lower neighbor $499.99.",
                 "C": "❌ Incorrect: Uses $1 increments instead of smallest currency unit ($0.01).",
                 "D": "❌ Incorrect: Mixes lower limit $1.00."
             },
             "optionExplanations": {
-                "A": "$499.99 (B-1), $500.00 (B), $500.01 (B+1) forms the 3-value BVA triplet for upper boundary $500.00.",
+                "A": "The triplet is B-$0.01, B, B+$0.01: $499.99, $500.00, $500.01.",
                 "B": "Omits lower neighbor $499.99.",
                 "C": "Uses $1 increments instead of smallest currency unit ($0.01).",
                 "D": "Mixes lower limit $1.00."
@@ -19133,13 +19135,13 @@ window.questionSets = {
             "statement": "Which of the following describes a Product Risk in software development?",
             "options": {
                 "A": "The development team lacks experience with the newly selected cloud framework.",
-                "B": "The software calculated incorrect compound interest rates on customer savings accounts.",
+                "B": "The software may calculate incorrect compound interest on customer savings accounts.",
                 "C": "The third-party API licensing cost increased by 20%.",
                 "D": "The delivery schedule was delayed due to public holidays."
             },
             "correctAnswer": "B",
             "explanation": "Product risk relates to quality flaws in the software deliverable (e.g., incorrect financial calculations, security vulnerabilities, poor performance). Staff experience, licensing costs, and schedule delays are project risks.",
-            "correctFeedback": "✅ Correct: Incorrect interest calculation is a direct flaw in software quality (Product Risk).",
+            "correctFeedback": "✅ Correct: The possibility of incorrect interest calculations is a product risk because it threatens financial correctness.",
             "incorrectFeedback": {
                 "A": "❌ Incorrect: Team experience is a project risk.",
                 "C": "❌ Incorrect: Licensing cost is a project risk.",
@@ -19147,7 +19149,7 @@ window.questionSets = {
             },
             "optionExplanations": {
                 "A": "Team experience is a project risk.",
-                "B": "Incorrect interest calculation is a direct flaw in software quality (Product Risk).",
+                "B": "The possibility of incorrect interest calculations is a product risk because it threatens financial correctness.",
                 "C": "Licensing cost is a project risk.",
                 "D": "Schedule delay is a project risk."
             },
@@ -19293,14 +19295,14 @@ window.questionSets = {
             "explanation": "Wideband Delphi is an expert-based technique where experts provide independent estimates anonymously, discuss differences, and iterate until reaching consensus.",
             "correctFeedback": "✅ Correct: Wideband Delphi uses expert consensus gathered anonymously and iterated.",
             "incorrectFeedback": {
-                "A": "❌ Incorrect: Formula-based estimation is metrics-based (e.g. Function Point Analysis).",
-                "C": "❌ Incorrect: Finance departments do not provide technical testing effort estimates.",
+                "A": "❌ Incorrect: This option describes a metrics-based calculation, not iterative expert consensus. Use of a formula alone does not make an estimation technique metrics-based; three-point estimation is expert-based.",
+                "C": "❌ Incorrect: The technique uses relevant experts; assigning estimates exclusively to finance omits the required testing and domain perspectives.",
                 "D": "❌ Incorrect: CPU cycles do not measure human testing effort."
             },
             "optionExplanations": {
-                "A": "Formula-based estimation is metrics-based (e.g. Function Point Analysis).",
+                "A": "This option describes a metrics-based calculation, not iterative expert consensus. Use of a formula alone does not make an estimation technique metrics-based; three-point estimation is expert-based.",
                 "B": "Wideband Delphi uses expert consensus gathered anonymously and iterated.",
-                "C": "Finance departments do not provide technical testing effort estimates.",
+                "C": "The technique uses relevant experts; assigning estimates exclusively to finance omits the required testing and domain perspectives.",
                 "D": "CPU cycles do not measure human testing effort."
             },
             "chapter": 5,
@@ -19343,7 +19345,7 @@ window.questionSets = {
             },
             "chapter": 5,
             "section": "5.5",
-            "subsection": "5.5.1",
+            "subsection": "5.5",
             "learningObjective": "FL-5.5.1",
             "kLevel": "K3",
             "difficulty": "Hard",
@@ -19381,7 +19383,7 @@ window.questionSets = {
             },
             "chapter": 5,
             "section": "5.5",
-            "subsection": "5.5.1",
+            "subsection": "5.5",
             "learningObjective": "FL-5.5.1",
             "kLevel": "K3",
             "difficulty": "Hard",
@@ -19495,7 +19497,7 @@ window.questionSets = {
             },
             "chapter": 6,
             "section": "6.1",
-            "subsection": "6.1.1",
+            "subsection": "6.1",
             "learningObjective": "FL-6.1.1",
             "kLevel": "K2",
             "difficulty": "Hard",
@@ -19533,7 +19535,7 @@ window.questionSets = {
             },
             "chapter": 6,
             "section": "6.2",
-            "subsection": "6.2.1",
+            "subsection": "6.2",
             "learningObjective": "FL-6.2.1",
             "kLevel": "K1",
             "difficulty": "Hard",
