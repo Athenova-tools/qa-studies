@@ -60,7 +60,6 @@ const VALID_DIFF = ['Easy', 'Medium', 'Hard'];
 
 const ids = [];
 const idsSeen = new Set();
-const stmtSeen = new Map();
 let total = 0;
 const keyDist = {};
 const loCount = {};
@@ -74,6 +73,9 @@ for (const setName of Object.keys(bank)) {
     fail(`Set "${setName}" is not an array`);
     continue;
   }
+  /* Scoped to one exam: a session must not repeat a stem, but reusing a stem
+     across exams with different options is an accepted bank pattern. */
+  const stmtSeen = new Map();
   for (const q of list) {
     total++;
     const where = `${q.id || '<no id>'} (${setName})`;
@@ -154,8 +156,12 @@ for (const setName of Object.keys(bank)) {
     }
     loCount[q.learningObjective] = (loCount[q.learningObjective] || 0) + 1;
 
-    /* learningObjective must match the subsection it claims. */
-    if (q.learningObjective !== 'FL-' + q.subsection) {
+    /* learningObjective must match the subsection it claims.
+       subsection holds the manual heading (e.g. "1.3", "6.2"); the LO may be
+       deeper than that heading (e.g. FL-1.3.1), so membership is a prefix
+       match. Exact equality stays valid for the legacy 3-level form. */
+    if (q.learningObjective !== 'FL-' + q.subsection &&
+        !q.learningObjective.startsWith('FL-' + q.subsection + '.')) {
       fail(`${where}: learningObjective "${q.learningObjective}" does not match subsection "${q.subsection}"`);
     }
 
@@ -164,7 +170,7 @@ for (const setName of Object.keys(bank)) {
       fail(`${where}: placeholder text found`);
     }
 
-    /* Statements must be unique across the bank. */
+    /* Statements must be unique within the exam. */
     const normStmt = (q.statement || '').trim().toLowerCase().replace(/\s+/g, ' ');
     if (normStmt.length > 12 && stmtSeen.has(normStmt)) {
       fail(`${where}: duplicate statement text (also ${stmtSeen.get(normStmt)})`);
