@@ -821,6 +821,11 @@ async function main() {
       assert(hash > render, 'chapter' + ch + ' trata o #hash depois de renderizar');
       assert(html.indexOf('scrollIntoView') > render, 'chapter' + ch + ' usa scrollIntoView');
     }
+    ['css/style.css', 'android/app/src/main/assets/www/css/style.css'].forEach(f => {
+      const css = fs.readFileSync(path.join(__dirname, '..', f), 'utf8');
+      assert(/\.flashcard\s*\{[^}]*scroll-margin-top:/.test(css),
+        f + ' sem scroll-margin-top em .flashcard (secção tapada pelo header fixo)');
+    });
   });
 
   /* ---- T22: espelho android byte-a-byte igual ao web ---- */
