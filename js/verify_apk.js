@@ -168,13 +168,14 @@ const skip = (label, why) => console.log(`  SKIP  ${label}  (${why})`);
        durante a propagação depois do workflow de deploy terminar. */
     let siteBuf = null;
     let lastErr = null;
-    for (let i = 0; i < 6; i++) {
+    const siteAttempts = 12; /* 12 x 15s = 180s de orçamento p/ o deploy do Pages */
+    for (let i = 0; i < siteAttempts; i++) {
       try {
         siteBuf = await fetchWithRetries(SITE_URL, { bust: true });
         lastErr = null;
         if (sha256(siteBuf) === releaseSha) break;
       } catch (e) { lastErr = e; }
-      if (i < 5) await new Promise(r => setTimeout(r, 15000));
+      if (i < siteAttempts - 1) await new Promise(r => setTimeout(r, 15000));
     }
     if (!siteBuf) {
       check(false, 'site (Pages) responde e é byte-idêntico à release', String(lastErr && lastErr.message || lastErr));

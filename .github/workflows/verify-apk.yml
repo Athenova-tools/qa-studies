@@ -1,17 +1,17 @@
 name: verify-apk
 
 # Garante que o APK servido pela Pages é byte-idêntico ao asset da release.
-# Corre depois de cada deploy do Pages (workflow automática) ou à mão.
+# O workflow_run para "pages build and deployment" NÃO dispara (workflow
+# automática), por isso o gatilho é o push (o deploy do Pages segue-se-lhe)
+# e o disparo manual; os retries internos do script absorvem a janela do
+# deploy (o site ainda a servir conteúdo velho).
 on:
   workflow_dispatch:
-  workflow_run:
-    workflows: ["pages build and deployment"]
-    types: [completed]
+  push:
     branches: [main]
 
 jobs:
   verify:
-    if: ${{ github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success' }}
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
