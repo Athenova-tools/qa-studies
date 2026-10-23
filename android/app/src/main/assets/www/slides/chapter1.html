@@ -324,6 +324,15 @@ data.sections.forEach(function(sec, idx) {
 
 app.innerHTML = h;
 
+/* Section ids are rendered above; jump to the one in the URL fragment. */
+if (window.location && window.location.hash) {
+    var anchorEl = document.getElementById(window.location.hash.slice(1));
+    if (anchorEl && anchorEl.scrollIntoView) {
+        anchorEl.scrollIntoView();
+        window.scrollBy(0, -70);
+    }
+}
+
 document.addEventListener('click', function(e) {
     var el = e.target.closest('.flashcard__keyterm');
     if (!el) return;

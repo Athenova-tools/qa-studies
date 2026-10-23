@@ -233,6 +233,51 @@ var slidesData = { chapter4: {
                     { id: "4.3", reason: "Experience-based complements white-box techniques" },
                     { id: "1.5", reason: "Tester skills directly impact experience-based testing effectiveness" }
                 ]
+            },
+            {
+                id: "4.5",
+                title: "Collaboration-based Test Approaches",
+                kLevel: "K2, K3",
+                concepts: [
+                    "Collaboration-based approaches focus on defect avoidance through collaboration and communication, while sections 4.2 to 4.4 focus on defect detection.",
+                    "A user story represents a feature that will be valuable to a user or purchaser of a system or software.",
+                    "The 3 C's of a user story: Card (the medium describing the story), Conversation (how the software will be used) and Confirmation (the acceptance criteria).",
+                    "Common user story format: \"As a [role], I want [goal], so that I can [resulting business value]\", followed by the acceptance criteria.",
+                    "Collaborative authorship uses techniques such as brainstorming and mind mapping, taking into account the business, development and testing perspectives.",
+                    "Good user stories should be INVEST: Independent, Negotiable, Valuable, Estimable, Small and Testable.",
+                    "If a stakeholder does not know how to test a user story, the story may be unclear or not valuable, or the stakeholder may just need help in testing it.",
+                    "Acceptance criteria are the conditions that an implementation of a user story must meet to be accepted by stakeholders.",
+                    "Acceptance criteria are the test conditions that should be exercised by the tests, and are usually the result of the Conversation.",
+                    "Acceptance criteria define the scope of the user story, reach consensus among stakeholders, describe positive and negative scenarios, serve as the basis for acceptance testing and allow accurate planning and estimation.",
+                    "Two most common formats for acceptance criteria: scenario-oriented (Given/When/Then, as used in BDD) and rule-oriented (verification list or tabulated input-output mapping).",
+                    "ATDD is a test-first approach: test cases are created before implementing the user story, by team members with different perspectives such as customers, developers and testers.",
+                    "ATDD starts with a specification workshop where the user story and its acceptance criteria are analysed, discussed and written; incompleteness, ambiguities and defects are resolved there.",
+                    "ATDD test cases are examples of how the software works: positive tests first, then negative testing, then non-functional quality characteristics."
+                ],
+                keyTerms: [
+                    "User Story: A representation of a feature that will be valuable to a user or purchaser of a system or software",
+                    "3 C's: Card, Conversation and Confirmation - the three critical aspects of a user story",
+                    "INVEST: Independent, Negotiable, Valuable, Estimable, Small and Testable - qualities of good user stories",
+                    "Acceptance Criteria: The conditions that an implementation of a user story must meet to be accepted by stakeholders",
+                    "Scenario-Oriented Format: Acceptance criteria written in Given/When/Then form, as used in BDD",
+                    "Rule-Oriented Format: Acceptance criteria written as a verification list or a tabulated input-output mapping",
+                    "ATDD: Acceptance Test-driven Development - a test-first approach that derives test cases from acceptance criteria before implementation",
+                    "Specification Workshop: A team session in which the user story and its acceptance criteria are analysed, discussed and written"
+                ],
+                examTips: [
+                    "K2: know the 3 C's, INVEST and the two acceptance-criteria formats; K3: derive test cases from acceptance criteria using ATDD.",
+                    "Mapping: Card, Conversation (which produces the acceptance criteria) and Confirmation (the acceptance criteria themselves).",
+                    "Common trap: 'acceptance criteria are only for the developers' - FALSE. They are the test conditions stakeholders use to accept the story.",
+                    "ATDD derives tests from acceptance criteria as part of the system design process; TDD directs the coding through test cases. Do not swap them.",
+                    "The user story itself is not an acceptance criterion: the criteria are the conditions the implementation of the story must meet."
+                ],
+                memoryAid: "3 C's = Card, Conversation, Confirmation. INVEST = qualities of the story. ATDD = Acceptance criteria first, then the code (test-first).",
+                linkedTo: [
+                    { id: "4.1", reason: "Collaboration-based approaches complement the systematic techniques of sections 4.2-4.4" },
+                    { id: "4.4", reason: "Experience-based techniques also rely on collaboration during test design" },
+                    { id: "2.1", reason: "TDD, ATDD and BDD are described as test-first approaches in section 2.1.3" },
+                    { id: "1.5", reason: "Collaboration requires the business, development and testing perspectives" }
+                ]
             }
         ]
     } };
@@ -284,6 +329,15 @@ data.sections.forEach(function(sec, idx) {
 });
 
 app.innerHTML = h;
+
+/* Section ids are rendered above; jump to the one in the URL fragment. */
+if (window.location && window.location.hash) {
+    var anchorEl = document.getElementById(window.location.hash.slice(1));
+    if (anchorEl && anchorEl.scrollIntoView) {
+        anchorEl.scrollIntoView();
+        window.scrollBy(0, -70);
+    }
+}
 
 document.addEventListener('click', function(e) {
     var el = e.target.closest('.flashcard__keyterm');
