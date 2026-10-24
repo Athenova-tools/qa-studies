@@ -1,10 +1,9 @@
 name: verify-apk
 
-# Garante que o APK servido pela Pages é byte-idêntico ao asset da release.
-# O workflow_run para "pages build and deployment" NÃO dispara (workflow
-# automática), por isso o gatilho é o push (o deploy do Pages segue-se-lhe)
-# e o disparo manual; os retries internos do script absorvem a janela do
-# deploy (o site ainda a servir conteúdo velho).
+# Garante que o APK servido pela Pages e o asset da release são byte-idênticos
+# ao APK de referência versionado no commit. O push dispara antes do deploy;
+# retries do script aguardam que release e Pages alcancem o artefacto esperado.
+# workflow_run para a Pages automática não dispara; mantém-se também dispatch.
 on:
   workflow_dispatch:
   push:

@@ -30,6 +30,7 @@ const RELEASE_URL = process.env.APK_RELEASE_URL ||
 const SITE_URL = process.env.APK_SITE_URL ||
   'https://athenova-tools.github.io/qa-studies/android/app/src/main/assets/www/APK/app-debug.apk';
 const LOCAL_APK = path.join(__dirname, '..', 'android', 'app', 'build', 'outputs', 'apk', 'debug', 'app-debug.apk');
+const COMMITTED_APK = path.join(__dirname, '..', 'android', 'app', 'src', 'main', 'assets', 'www', 'APK', 'app-debug.apk');
 
 const UA = 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36';
 const sha256 = buf => crypto.createHash('sha256').update(buf).digest('hex');
@@ -158,32 +159,46 @@ const skip = (label, why) => console.log(`  SKIP  ${label}  (${why})`);
   const ci = mode === '--ci';
 
   console.log(`Verificador de APK  (repo ${REPO}${ci ? ', modo CI' : ''})`);
-  const release = await fetchWithRetries(RELEASE_URL, { attempts: ci ? 6 : 1, delayMs: ci ? 15000 : 0 });
-  const releaseSha = sha256(release);
-  console.log(`\nRelease : ${short(releaseSha)}  ${(release.length / 1e6).toFixed(3)} MB  ${RELEASE_URL}`);
+  let release = null;
+  let releaseSha = null;
+  if (!ci) {
+    release = await fetchWithRetries(RELEASE_URL);
+    releaseSha = sha256(release);
+    console.log(`\nRelease : ${short(releaseSha)}  ${(release.length / 1e6).toFixed(3)} MB  ${RELEASE_URL}`);
+  }
 
   /* 1. release vs site (byte-a-byte) — a garantia central */
   if (ci) {
-    /* Retry também em DIVERGÊNCIA: o Pages pode ainda servir conteúdo velho
-       durante a propagação depois do workflow de deploy terminar. */
+    /* O APK versionado no commit é a referência esperada. Recarrega release
+       e site em cada tentativa: depois de um push a release e o deploy podem
+       ainda estar em actualização; igualdade entre os dois artefactos velhos
+       não deve passar como sucesso para o commit novo. */
+    if (!fs.existsSync(COMMITTED_APK)) throw new Error('APK de referência versionado não encontrado: ' + COMMITTED_APK);
+    const expectedSha = sha256(fs.readFileSync(COMMITTED_APK));
+    console.log(`\nCommit  : ${short(expectedSha)}  (${path.relative(process.cwd(), COMMITTED_APK)})`);
+    let releaseBuf = null;
     let siteBuf = null;
-    let lastErr = null;
+    let lastError = null;
     const siteAttempts = 12; /* 12 x 15s = 180s de orçamento p/ o deploy do Pages */
     for (let i = 0; i < siteAttempts; i++) {
       try {
+        releaseBuf = await fetchBuffer(RELEASE_URL);
         siteBuf = await fetchWithRetries(SITE_URL, { bust: true });
-        lastErr = null;
-        if (sha256(siteBuf) === releaseSha) break;
-      } catch (e) { lastErr = e; }
+        if (sha256(releaseBuf) === expectedSha && sha256(siteBuf) === expectedSha) break;
+      } catch (e) { lastError = e; }
       if (i < siteAttempts - 1) await new Promise(r => setTimeout(r, 15000));
     }
-    if (!siteBuf) {
-      check(false, 'site (Pages) responde e é byte-idêntico à release', String(lastErr && lastErr.message || lastErr));
-    } else {
+    if (releaseBuf) {
+      releaseSha = sha256(releaseBuf);
+      console.log(`Release : ${short(releaseSha)}  ${(releaseBuf.length / 1e6).toFixed(3)} MB  ${RELEASE_URL}`);
+      check(releaseSha === expectedSha, 'release é byte-idêntica ao APK de referência do commit', `release=${short(releaseSha)} commit=${short(expectedSha)}`);
+    } else check(false, 'release é byte-idêntica ao APK de referência do commit', String(lastError && lastError.message || 'sem resposta'));
+    if (siteBuf) {
       const siteSha = sha256(siteBuf);
-      console.log(`Site    : ${short(siteSha)}  ${(siteBuf.length / 1e6).toFixed(3)} MB`);
-      check(siteSha === releaseSha, 'site (Pages) é byte-idêntico à release', `site=${short(siteSha)} release=${short(releaseSha)}`);
-    }
+      console.log(`Site    : ${short(siteSha)}  ${(siteBuf.length / 1e6).toFixed(3)} MB  ${SITE_URL}`);
+      check(siteSha === expectedSha, 'site (Pages) é byte-idêntico ao APK de referência do commit', `site=${short(siteSha)} commit=${short(expectedSha)}`);
+      if (releaseSha) check(siteSha === releaseSha, 'site é byte-idêntico à release', `site=${short(siteSha)} release=${short(releaseSha)}`);
+    } else check(false, 'site (Pages) é byte-idêntico ao APK de referência do commit', String(lastError && lastError.message || 'sem resposta'));
   } else {
     try {
       const site = await fetchWithRetries(SITE_URL);
