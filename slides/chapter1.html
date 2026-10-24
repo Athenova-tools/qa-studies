@@ -167,7 +167,7 @@ var slidesData = { chapter1: {
                     "Principle 2 — Exhaustive testing is impossible: Testing everything (all combinations of inputs and preconditions) is not feasible except in trivial cases.",
                     "Principle 3 — Early testing saves time and money: Testing activities should start as early as possible in the SDLC.",
                     "Principle 4 — Defect clustering: A small number of modules typically contains most of the defects found during testing (Pareto principle).",
-                    "Principle 5 — Pesticide paradox: If the same tests are repeated, they eventually stop finding new defects; test cases must be updated.",
+                    "Principle 5 — Tests wear out: Repeating unchanged tests tends to find fewer new defects. Modify existing tests and design new ones to discover different defects.",
                     "Principle 6 — Testing is context dependent: Testing is done differently in different contexts (e.g., safety-critical vs e-commerce).",
                     "Principle 7 — Absence-of-errors fallacy: Finding and fixing defects does not help if the system built is unusable or does not meet user needs.",
                     "These principles apply across all development lifecycles, test levels, and test types."
@@ -175,7 +175,7 @@ var slidesData = { chapter1: {
                 keyTerms: [
                     "Exhaustive Testing: The impractical attempt to test all possible inputs, preconditions, and combinations",
                     "Defect Clustering: The tendency for defects to concentrate in a small number of modules",
-                    "Pesticide Paradox: The phenomenon where repeated use of the same tests becomes ineffective at finding new defects",
+                    "Tests wear out: The phenomenon where repeated use of unchanged tests becomes less effective at finding new defects",
                     "Context Dependency: The principle that testing approach varies based on the application domain and risk profile",
                     "Absence-of-Errors Fallacy: The mistaken belief that a system with no known defects is necessarily ready for release",
                     "Early Testing: The practice of involving testing from the beginning of the SDLC",
@@ -184,11 +184,11 @@ var slidesData = { chapter1: {
                 examTips: [
                     "ALL seven principles are frequently tested — memorize them by number and by name.",
                     "Common trap: 'Exhaustive testing is possible with automated tools' — FALSE. No tool can test every combination.",
-                    "The pesticide paradox is often tested with scenario questions: 'team runs same tests repeatedly, no new bugs found.'",
+                    "Tests wear out is often tested with scenarios where a team repeatedly runs unchanged tests and finds fewer new defects.",
                     "The absence-of-errors fallacy: a system that works perfectly but doesn't meet user needs is still a failure.",
                     "K1: List and recognize all 7 principles. K2: Apply each principle to a given scenario."
                 ],
-                memoryAid: "7 Principles mnemonic: 'E.E.D.P.C.A' — Early, Exhaustive impossible, Defect clustering, Pesticide paradox, Context dependent, Absence-of-errors fallacy. Or: 'Every Elephant Does Poop, Causing Awful smells.'",
+                memoryAid: "7 principles (in syllabus order): Presence, Exhaustive impossible, Early, Defect clustering, Tests wear out, Context-dependent, Absence-of-defects fallacy. Mnemonic: P-E-E-D-T-C-A (Presence, Exhaustive, Early, Defects, Tests, Context, Absence).",
                 linkedTo: [
                     { id: "1.1", reason: "Principles guide how testing is performed" },
                     { id: "1.2", reason: "Principles explain why we cannot find all defects" },

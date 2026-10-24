@@ -108,7 +108,7 @@ window.questionSets = {
                 "debugging",
                 "defects"
             ],
-            "examTip": "Testing finds failures; debugging fixes the root cause.",
+            "examTip": "Dynamic testing can reveal failures; static testing can find defects without execution; debugging investigates and removes defects.",
             "memoryAid": "Testing = detective; Debugging = surgeon."
         },
         {
@@ -221,7 +221,7 @@ window.questionSets = {
                 "defect lifecycle"
             ],
             "examTip": "In this scenario, test execution exposes a failure and debugging diagnoses and fixes its cause.",
-            "memoryAid": "Test first, debug second."
+            "memoryAid": "In THIS scenario: test execution exposes the failure, then debugging fixes the defect."
         },
         {
             "id": "Q163",
@@ -262,7 +262,7 @@ window.questionSets = {
         },
         {
             "id": "Q070",
-            "statement": "What is the purpose of test closure activities?",
+            "statement": "What is the purpose of test completion activities?",
             "options": {
                 "A": "To close all defect reports without fixing them",
                 "B": "To ensure all test artifacts are archived, lessons are learned, and testing is formally completed",
@@ -271,7 +271,7 @@ window.questionSets = {
             },
             "correctAnswer": "B",
             "explanation": "Test completion includes consolidating results, archiving and handing over reusable testware, reporting unresolved defects and risks, and identifying lessons learned. Open defects can be handed over for subsequent resolution; they do not all have to be closed.",
-            "correctFeedback": "✅ Correct: Archiving, lessons learned, and formal closure are the goals of test completion.",
+            "correctFeedback": "✅ Correct: Archiving testware, consolidating lessons learned and handing over outstanding items are test completion activities.",
             "incorrectFeedback": {
                 "A": "❌ Incorrect: Defect reports should be resolved (fixed, deferred, or rejected), not just closed.",
                 "C": "❌ Incorrect: Test closure is about completing the work, not disbanding the team.",
@@ -279,7 +279,7 @@ window.questionSets = {
             },
             "optionExplanations": {
                 "A": "Defect reports should be resolved (fixed, deferred, or rejected), not just closed.",
-                "B": "Archiving, lessons learned, and formal closure are the goals of test completion.",
+                "B": "Archiving reusable testware, consolidating lessons learned and handing over outstanding risks occur in test completion.",
                 "C": "Test closure is about completing the work, not disbanding the team.",
                 "D": "Artifacts are archived, not necessarily moved to other projects."
             },
@@ -290,12 +290,12 @@ window.questionSets = {
             "kLevel": "K2",
             "difficulty": "Medium",
             "keywords": [
-                "test closure",
                 "test completion",
+                "testware",
                 "lessons learned"
             ],
-            "examTip": "Test closure = archive, evaluate, learn, and formally complete.",
-            "memoryAid": "Closure = clean up, then close the book."
+            "examTip": "Test completion consolidates experience, testware and relevant information at project milestones; remaining defects and risks can be handed over.",
+            "memoryAid": "Completion = archive, report, learn and hand over."
         },
         {
             "id": "Q141",
@@ -341,22 +341,22 @@ window.questionSets = {
             "options": {
                 "A": "Defect clustering",
                 "B": "Early testing",
-                "C": "Absence-of-errors fallacy",
-                "D": "Pesticide paradox"
+                "C": "Absence-of-defects fallacy",
+                "D": "Tests wear out"
             },
             "correctAnswer": "C",
-            "explanation": "The absence-of-errors fallacy states that finding and fixing defects does not guarantee that the system meets user needs. Even a system with no defects can be unusable or fail to satisfy customer requirements.",
-            "correctFeedback": "✅ Correct: A defect-free system can still fail to meet stakeholder needs or business requirements.",
+            "explanation": "The absence-of-defects fallacy states that a product with few or no detected defects may still fail to meet user needs and business objectives. A defect count or a passed test suite alone does not establish fitness for use.",
+            "correctFeedback": "✅ Correct: The absence-of-defects fallacy applies when a system is technically correct but does not satisfy business or user needs.",
             "incorrectFeedback": {
                 "A": "❌ Incorrect: Defect clustering means most defects are found in a small number of modules.",
                 "B": "❌ Incorrect: Early testing is about starting testing activities early in the lifecycle.",
-                "D": "❌ Incorrect: The pesticide paradox concerns tests becoming ineffective over time."
+                "D": "❌ Incorrect: Tests wear out concerns unchanged test suites losing effectiveness, not unmet user needs."
             },
             "optionExplanations": {
                 "A": "Defect clustering means most defects are found in a small number of modules.",
                 "B": "Early testing is about starting testing activities early in the lifecycle.",
-                "C": "A defect-free system can still fail to meet stakeholder needs or business requirements.",
-                "D": "The pesticide paradox concerns tests becoming ineffective over time."
+                "C": "A technically correct product may still fail to meet user needs: the absence-of-defects fallacy.",
+                "D": "Tests wear out describes the declining effectiveness of repeatedly executing unchanged tests."
             },
             "chapter": 1,
             "section": "1.3",
@@ -365,12 +365,12 @@ window.questionSets = {
             "kLevel": "K2",
             "difficulty": "Medium",
             "keywords": [
-                "absence-of-errors fallacy",
+                "absence-of-defects fallacy",
                 "testing principles",
                 "user needs"
             ],
-            "examTip": "If the system works but nobody wants it, think absence-of-errors fallacy.",
-            "memoryAid": "Zero defects can still mean zero value."
+            "examTip": "If the system passes tests but does not satisfy users, identify the absence-of-defects fallacy.",
+            "memoryAid": "No detected defects does not imply business value."
         },
         {
             "id": "Q124",
@@ -458,7 +458,7 @@ window.questionSets = {
             },
             "correctAnswer": "A",
             "explanation": "Test execution revealed a failure (incorrect total). The developer then debugged the code to find and fix the underlying defect. Testing and debugging are complementary but distinct activities.",
-            "correctFeedback": "✅ Correct: Test execution revealed a failure; debugging locates the root cause and fixes the defect.",
+            "correctFeedback": "✅ Correct: Test execution exposed the incorrect invoice total; debugging located and corrected the underlying calculation defect.",
             "incorrectFeedback": {
                 "B": "❌ Incorrect: Test planning occurs before execution; code inspection is a static technique.",
                 "C": "❌ Incorrect: No requirements review occurred in this scenario.",
@@ -481,7 +481,7 @@ window.questionSets = {
                 "debugging",
                 "root cause analysis"
             ],
-            "examTip": "Testing reveals failures; debugging locates root causes and fixes defects.",
+            "examTip": "Testing reveals failures; debugging reproduces, diagnoses and fixes defects.",
             "memoryAid": "Testing = find failure; Debugging = find cause and fix."
         },
         {
@@ -682,12 +682,12 @@ window.questionSets = {
             "correctFeedback": "✅ Correct: Finding defects early in requirements or user stories usually reduces rework cost compared with finding them after implementation.",
             "incorrectFeedback": {
                 "A": "❌ Incorrect: Exhaustive testing is impossible, regardless of when testing starts.",
-                "B": "❌ Incorrect: Absence-of-errors fallacy means zero defects do not guarantee user satisfaction.",
+                "B": "❌ Incorrect: Absence-of-defects fallacy means zero defects do not guarantee user satisfaction.",
                 "C": "❌ Incorrect: Automation supports but does not replace reviews or other manual activities."
             },
             "optionExplanations": {
                 "A": "Exhaustive testing is impossible, regardless of when testing starts.",
-                "B": "Absence-of-errors fallacy means zero defects do not guarantee user satisfaction.",
+                "B": "Absence-of-defects fallacy means zero defects do not guarantee user satisfaction.",
                 "C": "Automation supports but does not replace reviews or other manual activities.",
                 "D": "Finding defects early in requirements or user stories usually reduces rework cost compared with finding them after implementation."
             },
@@ -850,7 +850,7 @@ window.questionSets = {
                 "observable behavior",
                 "code flaw"
             ],
-            "examTip": "Observed bug = failure; code bug = defect.",
+            "examTip": "Observed incorrect behavior during execution = failure; imperfection in a work product = defect.",
             "memoryAid": "I see failure; code has defect."
         },
         {
@@ -934,7 +934,7 @@ window.questionSets = {
             "statement": "Most serious incidents in production come from the billing import component. Which principle does this illustrate?",
             "options": {
                 "A": "Defect clustering",
-                "B": "Pesticide paradox",
+                "B": "Tests wear out",
                 "C": "Exhaustive testing",
                 "D": "Context independence"
             },
@@ -942,13 +942,13 @@ window.questionSets = {
             "explanation": "Defect clustering means a small number of components often contain most defects or failures.",
             "correctFeedback": "✅ Correct: Defect clustering means a small number of components often contain most defects or failures.",
             "incorrectFeedback": {
-                "B": "❌ Incorrect: Pesticide paradox means the same tests stop finding new defects over time.",
+                "B": "❌ Incorrect: Tests wear out means the same tests stop finding new defects over time.",
                 "C": "❌ Incorrect: Exhaustive testing means testing all possible combinations, which is impossible.",
                 "D": "❌ Incorrect: Context independence is not a real testing principle; testing approaches depend on context."
             },
             "optionExplanations": {
                 "A": "Defect clustering means a small number of components often contain most defects or failures.",
-                "B": "Pesticide paradox means the same tests stop finding new defects over time.",
+                "B": "Tests wear out means the same tests stop finding new defects over time.",
                 "C": "Exhaustive testing means testing all possible combinations, which is impossible.",
                 "D": "Context independence is not a real testing principle; testing approaches depend on context."
             },
@@ -1043,22 +1043,22 @@ window.questionSets = {
             "id": "Q208",
             "statement": "A product has passed every specified requirement test but users cannot complete their most important task efficiently. Which principle is illustrated?",
             "options": {
-                "A": "Absence-of-errors is a fallacy",
+                "A": "Absence-of-defects fallacy",
                 "B": "Exhaustive testing is possible",
                 "C": "Defect clustering",
                 "D": "Early testing is unnecessary"
             },
             "correctAnswer": "A",
-            "explanation": "A system that meets specifications may still fail user needs, so low defect counts do not alone prove fitness for use.",
-            "correctFeedback": "✅ Correct: A system that meets specifications may still fail user needs, so low defect counts do not alone prove fitness for use.",
+            "explanation": "The absence-of-defects fallacy means that verifying stated requirements and finding few defects does not guarantee the product satisfies user needs or achieves business objectives.",
+            "correctFeedback": "✅ Correct: Satisfying documented requirements does not necessarily satisfy actual user needs.",
             "incorrectFeedback": {
-                "B": "❌ Incorrect: Exhaustive testing is impossible; this example illustrates the absence-of-errors fallacy, not exhaustive testing.",
+                "B": "❌ Incorrect: Exhaustive testing is impossible; this example illustrates the absence-of-defects fallacy, not exhaustive testing.",
                 "C": "❌ Incorrect: Defect clustering means most defects are found in a small number of modules.",
                 "D": "❌ Incorrect: Early testing is valuable; this scenario does not suggest otherwise."
             },
             "optionExplanations": {
-                "A": "A system that meets specifications may still fail user needs, so low defect counts do not alone prove fitness for use.",
-                "B": "Exhaustive testing is impossible; this example illustrates the absence-of-errors fallacy, not exhaustive testing.",
+                "A": "The absence-of-defects fallacy: low defect counts do not ensure the product provides value.",
+                "B": "Exhaustive testing is impossible; this example illustrates the absence-of-defects fallacy, not exhaustive testing.",
                 "C": "Defect clustering means most defects are found in a small number of modules.",
                 "D": "Early testing is valuable; this scenario does not suggest otherwise."
             },
@@ -1069,11 +1069,11 @@ window.questionSets = {
             "kLevel": "K2",
             "difficulty": "Medium",
             "keywords": [
-                "absence-of-errors fallacy",
+                "absence-of-defects fallacy",
                 "validation"
             ],
-            "examTip": "Passing tests does not equal useful product.",
-            "memoryAid": "No known bugs can still be wrong."
+            "examTip": "Validated user needs matter, not just a passing requirements test suite.",
+            "memoryAid": "No defects found ≠ useful product."
         },
         {
             "id": "Q144",
@@ -1082,7 +1082,7 @@ window.questionSets = {
                 "A": "Defect clustering",
                 "B": "Exhaustive testing is impossible",
                 "C": "Testing shows the presence of defects, not their absence",
-                "D": "Pesticide paradox"
+                "D": "Tests wear out"
             },
             "correctAnswer": "B",
             "explanation": "The principle 'Exhaustive testing is impossible' states that testing all possible combinations of inputs and preconditions is not feasible except for trivial systems. Therefore, risk analysis and prioritization are used to focus testing efforts on the most important areas.",
@@ -1090,13 +1090,13 @@ window.questionSets = {
             "incorrectFeedback": {
                 "A": "❌ Incorrect: Defect clustering refers to defects concentrating in specific modules.",
                 "C": "❌ Incorrect: This principle means absence of failures does not prove the software is defect-free.",
-                "D": "❌ Incorrect: Pesticide paradox relates to tests becoming ineffective when repeated."
+                "D": "❌ Incorrect: Tests wear out relates to tests becoming ineffective when repeated."
             },
             "optionExplanations": {
                 "A": "Defect clustering refers to defects concentrating in specific modules.",
                 "B": "Exhaustive testing is impractical; risk-based prioritization is necessary.",
                 "C": "This principle means absence of failures does not prove the software is defect-free.",
-                "D": "Pesticide paradox relates to tests becoming ineffective when repeated."
+                "D": "Tests wear out relates to tests becoming ineffective when repeated."
             },
             "chapter": 1,
             "section": "1.3",
@@ -3841,8 +3841,8 @@ window.questionSets = {
             },
             "chapter": 3,
             "section": "3.1",
-            "subsection": "3.1.3",
-            "learningObjective": "FL-3.1.3",
+            "subsection": "3.1.2",
+            "learningObjective": "FL-3.1.2",
             "kLevel": "K2",
             "difficulty": "Hard",
             "keywords": [
@@ -5131,26 +5131,26 @@ window.questionSets = {
         },
         {
             "id": "Q077",
-            "statement": "In a state transition model, what is the difference between a state and a transition?",
+            "statement": "A security door has two states, Locked and Unlocked. A valid badge changes Locked to Unlocked; closing the door changes Unlocked to Locked. Starting in Locked, which event sequence covers BOTH valid transitions?",
             "options": {
-                "A": "A state is a condition of the system at a given time; a transition is a movement from one state to another triggered by an event",
-                "B": "A state is a change; a transition is a condition",
-                "C": "There is no difference; both terms describe the same concept",
-                "D": "A state occurs between transitions; a transition occurs after a state"
+                "A": "Valid badge, then close the door",
+                "B": "Close the door only",
+                "C": "Valid badge only",
+                "D": "Close the door, then close the door again"
             },
             "correctAnswer": "A",
-            "explanation": "A state represents a condition or situation of the system during its lifecycle (e.g., 'Logged In'). A transition is a change from one state to another, triggered by an event (e.g., 'Logout' triggers transition from 'Logged In' to 'Logged Out').",
-            "correctFeedback": "✅ Correct: States are conditions; transitions are movements between states triggered by events.",
+            "explanation": "The sequence Locked --badge--> Unlocked --close--> Locked exercises both valid transitions. The other sequences do not traverse both modeled edges.",
+            "correctFeedback": "✅ Correct: The sequence Locked --badge--> Unlocked --close--> Locked exercises both valid transitions. The other sequences do not traverse both modeled edges.",
             "incorrectFeedback": {
-                "B": "❌ Incorrect: This reverses the definitions.",
-                "C": "❌ Incorrect: They are distinct concepts in state transition diagrams.",
-                "D": "❌ Incorrect: This is a circular description that does not clarify the distinction."
+                "B": "❌ Incorrect: Closing while already Locked does not exercise the badge transition.",
+                "C": "❌ Incorrect: Using the badge exercises only Locked to Unlocked.",
+                "D": "❌ Incorrect: Two close events from Locked do not exercise the modeled transitions."
             },
             "optionExplanations": {
-                "A": "States are conditions; transitions are movements between states triggered by events.",
-                "B": "This reverses the definitions.",
-                "C": "They are distinct concepts in state transition diagrams.",
-                "D": "This is a circular description that does not clarify the distinction."
+                "A": "Correct: The sequence Locked --badge--> Unlocked --close--> Locked exercises both valid transitions. The other sequences do not traverse both modeled edges.",
+                "B": "Closing while already Locked does not exercise the badge transition.",
+                "C": "Using the badge exercises only Locked to Unlocked.",
+                "D": "Two close events from Locked do not exercise the modeled transitions."
             },
             "chapter": 4,
             "section": "4.2",
@@ -5159,35 +5159,35 @@ window.questionSets = {
             "kLevel": "K3",
             "difficulty": "Medium",
             "keywords": [
-                "state transition",
-                "states",
-                "transitions"
+                "state transition testing",
+                "valid transitions",
+                "test sequences"
             ],
-            "examTip": "States = where you are; Transitions = how you get somewhere else.",
-            "memoryAid": "State = noun; Transition = verb."
+            "examTip": "Identify the starting state and list the sequence of events needed to traverse every required edge.",
+            "memoryAid": "Badge unlocks; close relocks."
         },
         {
             "id": "Q049",
-            "statement": "A test design technique that systematically tests combinations of input conditions is called:",
+            "statement": "A discount is granted only when a customer is a member AND the basket value is at least $100. Both conditions are Boolean and all combinations are feasible. Which set of test cases achieves full decision-table coverage?",
             "options": {
-                "A": "Error guessing",
-                "B": "Decision table testing",
-                "C": "Equivalence partitioning",
-                "D": "Statement testing"
+                "A": "Member/eligible basket only",
+                "B": "Member/basket >= $100; Member/basket < $100; Non-member/basket >= $100; Non-member/basket < $100",
+                "C": "Member/basket >= $100 and Non-member/basket < $100 only",
+                "D": "One test for each customer category, ignoring the basket condition"
             },
             "correctAnswer": "B",
-            "explanation": "Decision table testing is a black-box technique that systematically tests combinations of inputs (conditions) to determine the corresponding outputs (actions). It is especially useful for testing business logic with multiple conditions.",
-            "correctFeedback": "✅ Correct: Decision tables handle combinations of conditions and their corresponding actions.",
+            "explanation": "The two independent Boolean conditions produce four feasible rules. Decision table testing needs one test per feasible condition combination, with the discount applied only for member AND basket >= $100.",
+            "correctFeedback": "✅ Correct: The two independent Boolean conditions produce four feasible rules. Decision table testing needs one test per feasible condition combination, with the discount applied only for member AND basket >= $100.",
             "incorrectFeedback": {
-                "A": "❌ Incorrect: Error guessing is an experience-based technique.",
-                "C": "❌ Incorrect: Equivalence partitioning divides inputs into classes, not combinations.",
-                "D": "❌ Incorrect: Statement testing is a white-box technique for code coverage."
+                "A": "❌ Incorrect: One favorable combination covers only one of the four rules.",
+                "C": "❌ Incorrect: Two tests miss the other two feasible combinations.",
+                "D": "❌ Incorrect: The basket condition must be varied as well as membership."
             },
             "optionExplanations": {
-                "A": "Error guessing is an experience-based technique.",
-                "B": "Decision tables handle combinations of conditions and their corresponding actions.",
-                "C": "Equivalence partitioning divides inputs into classes, not combinations.",
-                "D": "Statement testing is a white-box technique for code coverage."
+                "A": "One favorable combination covers only one of the four rules.",
+                "B": "Correct: The two independent Boolean conditions produce four feasible rules. Decision table testing needs one test per feasible condition combination, with the discount applied only for member AND basket >= $100.",
+                "C": "Two tests miss the other two feasible combinations.",
+                "D": "The basket condition must be varied as well as membership."
             },
             "chapter": 4,
             "section": "4.2",
@@ -5196,12 +5196,12 @@ window.questionSets = {
             "kLevel": "K3",
             "difficulty": "Medium",
             "keywords": [
-                "decision table",
-                "black-box",
-                "condition combinations"
+                "decision table testing",
+                "conditions",
+                "test rules"
             ],
-            "examTip": "Combinations of conditions = decision table testing.",
-            "memoryAid": "Decision table = grid of conditions and actions."
+            "examTip": "For two feasible Boolean conditions, derive and test all four rules (unless valid minimization is justified).",
+            "memoryAid": "2 independent true/false conditions -> 4 decision rules."
         },
         {
             "id": "Q323",
@@ -5389,26 +5389,26 @@ window.questionSets = {
         },
         {
             "id": "Q227",
-            "statement": "In a specification workshop for an acceptance test-driven development (ATDD) approach, what is the primary purpose of the workshop?",
+            "statement": "During ATDD, an accepted user story says: \"A customer cannot withdraw more than the available ATM balance.\" The account has $200 available. Which acceptance test BEST verifies this rule before implementation?",
             "options": {
-                "A": "To analyse, discuss and write the user story and its acceptance criteria, resolving ambiguities and defects before test cases are created",
-                "B": "To execute all automated regression tests before coding begins",
-                "C": "To estimate the total test effort for the release",
-                "D": "To hand the finished feature over to the maintenance team"
+                "A": "Request $250; expect rejection, no cash dispensed and unchanged balance",
+                "B": "Request $50; expect cash dispensed and the balance reduced",
+                "C": "Check only the ATM screen color",
+                "D": "Measure CPU usage while the ATM is idle"
             },
             "correctAnswer": "A",
-            "explanation": "ATDD is a test-first approach in which test cases are created prior to implementing the user story, by team members with different perspectives such as customers, developers and testers. The first step is a specification workshop where the user story and, if not yet defined, its acceptance criteria are analysed, discussed and written by the team members. Incompleteness, ambiguities or defects in the user story are resolved during this process. The next step is to create the test cases, based on the acceptance criteria, which can then serve as examples of how the software works and become executable requirements when captured in a format supported by an automation framework.",
-            "correctFeedback": "✅ Correct: the specification workshop analyses and writes the story and acceptance criteria and resolves ambiguities before the test cases are created.",
+            "explanation": "The proposed pre-implementation acceptance test directly tests the negative rule: a withdrawal exceeding the $200 balance must be rejected without dispensing cash or changing the balance.",
+            "correctFeedback": "✅ Correct: The proposed pre-implementation acceptance test directly tests the negative rule: a withdrawal exceeding the $200 balance must be rejected without dispensing cash or changing the balance.",
             "incorrectFeedback": {
-                "B": "❌ Incorrect: Regression testing happens later, once there is something to regress against. ATDD starts with the specification workshop.",
-                "C": "❌ Incorrect: Effort estimation is a test management activity, not the purpose of the ATDD specification workshop.",
-                "D": "❌ Incorrect: Handover to maintenance is part of test completion, not of ATDD."
+                "B": "❌ Incorrect: This covers a normal withdrawal but not the specified overdraw rule.",
+                "C": "❌ Incorrect: Visual appearance does not exercise the withdrawal acceptance criterion.",
+                "D": "❌ Incorrect: CPU usage does not verify the relevant business rule."
             },
             "optionExplanations": {
-                "A": "The specification workshop analyses and writes the story and acceptance criteria and resolves ambiguities before the test cases are created.",
-                "B": "Regression testing happens later, once there is something to regress against. ATDD starts with the specification workshop.",
-                "C": "Effort estimation is a test management activity, not the purpose of the ATDD specification workshop.",
-                "D": "Handover to maintenance is part of test completion, not of ATDD."
+                "A": "Correct: The proposed pre-implementation acceptance test directly tests the negative rule: a withdrawal exceeding the $200 balance must be rejected without dispensing cash or changing the balance.",
+                "B": "This covers a normal withdrawal but not the specified overdraw rule.",
+                "C": "Visual appearance does not exercise the withdrawal acceptance criterion.",
+                "D": "CPU usage does not verify the relevant business rule."
             },
             "chapter": 4,
             "section": "4.5",
@@ -5418,36 +5418,34 @@ window.questionSets = {
             "difficulty": "Hard",
             "keywords": [
                 "ATDD",
-                "acceptance test-driven development",
-                "specification workshop",
                 "acceptance criteria",
-                "executable requirements"
+                "acceptance test cases"
             ],
-            "examTip": "ATDD order: specification workshop, then create test cases from acceptance criteria, usually positive first, then negative, then non-functional.",
-            "memoryAid": "Workshop first, tests second, code last. Tests become executable requirements."
+            "examTip": "ATDD acceptance examples should include explicit preconditions, stimulus and expected outcomes.",
+            "memoryAid": "Balance $200; request $250 -> reject, unchanged balance."
         },
         {
             "id": "Q052",
-            "statement": "A ticket vending machine is modelled with the states Idle, SelectingTicket, ProcessingPayment, DispensingTicket and OutOfService. The model defines valid transitions including ProcessingPayment to DispensingTicket when payment succeeds, and ProcessingPayment back to SelectingTicket when payment fails. What is required to achieve 100% valid transitions coverage?",
+            "statement": "A vending-machine state model has these five valid transitions: Idle -> Selecting (choose); Selecting -> Payment (confirm); Payment -> Dispensing (success); Payment -> Selecting (failure); Dispensing -> Idle (finish). Each test starts in Idle. Which test sequence covers ALL five valid transitions in one test?",
             "options": {
-                "A": "Test cases must collectively exercise every valid transition in the model at least once; a single test case may cover several transitions",
-                "B": "Each state must be visited by its own dedicated test case",
-                "C": "The number of test cases must be exactly equal to the number of transitions in the model",
-                "D": "All invalid transitions shown in the state table must also be executed"
+                "A": "choose, confirm, failure, confirm, success, finish",
+                "B": "choose, confirm, success, finish",
+                "C": "choose, confirm, failure",
+                "D": "confirm, success, finish"
             },
             "correctAnswer": "A",
-            "explanation": "In valid transitions coverage (also called 0-switch coverage) the coverage items are the individual valid transitions, and 100% coverage means test cases exercise all of them. A test case is a sequence of events that produces a sequence of state changes, so one test case usually covers several transitions; it is the set of test cases that must cover every valid transition. Visiting every state is all states coverage, which is weaker. Attempting invalid transitions is required for all transitions coverage, not for valid transitions coverage. The number of test cases is not fixed by the number of transitions, because transitions can be combined into longer paths.",
-            "correctFeedback": "✅ Correct: 100% valid transitions coverage means every valid transition is exercised at least once across the test cases.",
+            "explanation": "The sequence exercises Idle->Selecting, Selecting->Payment, Payment->Selecting, Selecting->Payment again, Payment->Dispensing and Dispensing->Idle, covering all five distinct valid transitions.",
+            "correctFeedback": "✅ Correct: The sequence exercises Idle->Selecting, Selecting->Payment, Payment->Selecting, Selecting->Payment again, Payment->Dispensing and Dispensing->Idle, covering all five distinct valid transitions.",
             "incorrectFeedback": {
-                "B": "❌ Incorrect: Visiting every state is all states coverage, which is a weaker criterion than valid transitions coverage.",
-                "C": "❌ Incorrect: The number of test cases is not fixed by the number of transitions, since a single test case can traverse several transitions.",
-                "D": "❌ Incorrect: Attempting invalid transitions is required for all transitions coverage, not for valid transitions coverage."
+                "B": "❌ Incorrect: It omits the Payment->Selecting failure transition.",
+                "C": "❌ Incorrect: It omits the successful dispense path and return to Idle.",
+                "D": "❌ Incorrect: Confirm is not a valid initial event from Idle and no full route is covered."
             },
             "optionExplanations": {
-                "A": "100% valid transitions coverage means every valid transition is exercised at least once across the test cases.",
-                "B": "Visiting every state is all states coverage, which is a weaker criterion than valid transitions coverage.",
-                "C": "The number of test cases is not fixed by the number of transitions, since a single test case can traverse several transitions.",
-                "D": "Attempting invalid transitions is required for all transitions coverage, not for valid transitions coverage."
+                "A": "Correct: The sequence exercises Idle->Selecting, Selecting->Payment, Payment->Selecting, Selecting->Payment again, Payment->Dispensing and Dispensing->Idle, covering all five distinct valid transitions.",
+                "B": "It omits the Payment->Selecting failure transition.",
+                "C": "It omits the successful dispense path and return to Idle.",
+                "D": "Confirm is not a valid initial event from Idle and no full route is covered."
             },
             "chapter": 4,
             "section": "4.2",
@@ -5457,12 +5455,11 @@ window.questionSets = {
             "difficulty": "Hard",
             "keywords": [
                 "state transition testing",
-                "valid transitions coverage",
-                "coverage items",
-                "state table"
+                "valid transitions",
+                "test sequences"
             ],
-            "examTip": "Three criteria: all states, valid transitions, all transitions. Only \"all transitions\" requires attempting invalid transitions.",
-            "memoryAid": "Valid transitions = walk every valid arrow. All transitions = walk the invalid arrows too."
+            "examTip": "Enumerate the valid edges and choose a feasible sequence that exercises each one.",
+            "memoryAid": "Choose -> pay -> fail -> pay -> succeed -> finish."
         },
         {
             "id": "Q321",
@@ -5540,26 +5537,26 @@ window.questionSets = {
         },
         {
             "id": "Q222",
-            "statement": "For a login feature, three failed attempts lock the account; a successful login before that resets the count. Which technique best models this behavior?",
+            "statement": "A login account is initially at FailedAttempts=0. After each wrong password the count increases by one; at the third wrong attempt it enters Locked. A correct password entered before lock moves to LoggedIn. Which event sequence is required to test the lock transition?",
             "options": {
-                "A": "Statement testing",
-                "B": "Pairwise testing",
-                "C": "State transition testing",
-                "D": "Equivalence partitioning"
+                "A": "Correct password on the first attempt",
+                "B": "Wrong password, then correct password",
+                "C": "Wrong password, wrong password, wrong password",
+                "D": "Correct password, then logout"
             },
             "correctAnswer": "C",
-            "explanation": "State transition testing is suitable when behavior depends on current state and events, such as failed-attempt counts and lockout.",
-            "correctFeedback": "✅ Correct: State transition testing is suitable when behavior depends on current state and events, such as failed-attempt counts and lockout.",
+            "explanation": "From an initial count of zero, three consecutive incorrect passwords traverse the failed-attempt states and cause the transition to Locked.",
+            "correctFeedback": "✅ Correct: From an initial count of zero, three consecutive incorrect passwords traverse the failed-attempt states and cause the transition to Locked.",
             "incorrectFeedback": {
-                "A": "❌ Incorrect: 'Statement testing' is a white-box technique covering executable statements in code. This scenario requires state transition, which focuses on system states and transitions between them based on events.",
-                "B": "❌ Incorrect: 'Pairwise testing' reduces combinations by covering all pairs of input values. This scenario requires state transition, which focuses on system states and transitions between them based on events.",
-                "D": "❌ Incorrect: 'Equivalence partitioning' divides inputs into classes expected to behave similarly. This scenario requires state transition, which focuses on system states and transitions between them based on events."
+                "A": "❌ Incorrect: A first-attempt success transitions to LoggedIn, not Locked.",
+                "B": "❌ Incorrect: A successful login before the third failure does not reach Locked.",
+                "D": "❌ Incorrect: A successful login and logout never reaches Locked."
             },
             "optionExplanations": {
-                "A": "'Statement testing' is a white-box technique covering executable statements in code. This scenario requires state transition, which focuses on system states and transitions between them based on events.",
-                "B": "'Pairwise testing' reduces combinations by covering all pairs of input values. This scenario requires state transition, which focuses on system states and transitions between them based on events.",
-                "C": "State transition testing is suitable when behavior depends on current state and events, such as failed-attempt counts and lockout.",
-                "D": "'Equivalence partitioning' divides inputs into classes expected to behave similarly. This scenario requires state transition, which focuses on system states and transitions between them based on events."
+                "A": "A first-attempt success transitions to LoggedIn, not Locked.",
+                "B": "A successful login before the third failure does not reach Locked.",
+                "C": "Correct: From an initial count of zero, three consecutive incorrect passwords traverse the failed-attempt states and cause the transition to Locked.",
+                "D": "A successful login and logout never reaches Locked."
             },
             "chapter": 4,
             "section": "4.2",
@@ -5568,34 +5565,35 @@ window.questionSets = {
             "kLevel": "K3",
             "difficulty": "Medium",
             "keywords": [
-                "state transition",
-                "login"
+                "state transition testing",
+                "valid transitions",
+                "test sequences"
             ],
-            "examTip": "If history changes behavior, think states.",
-            "memoryAid": "Events move states."
+            "examTip": "For state-transition tests, list the required event sequence, including counters and guards.",
+            "memoryAid": "0 failures -> 1 -> 2 -> Locked on third wrong password."
         },
         {
             "id": "Q267",
-            "statement": "A team wants to apply acceptance test-driven development (ATDD) to a user story that has business rules with several interacting conditions. Which test design approach does the syllabus recommend be applied during test design in ATDD?",
+            "statement": "In an ATDD workshop, a team defines this acceptance rule: premium customers get free delivery ONLY when the order total is at least $100. Customer type and order total are independent Boolean partitions. Which set of acceptance tests covers all business-rule combinations?",
             "options": {
-                "A": "Only exploratory testing, since the business rules are still unclear",
-                "B": "The test techniques described in sections 4.2, 4.3 and 4.4, such as decision table testing, to design the acceptance test cases",
-                "C": "Only branch coverage of the production code, because ATDD is a white-box technique",
-                "D": "Only exploratory testing, since ATDD does not produce test cases"
+                "A": "Premium, $150 only",
+                "B": "Premium/$150; Premium/$50; Regular/$150; Regular/$50",
+                "C": "Premium/$150 and Regular/$50 only",
+                "D": "Regular/$150 only"
             },
             "correctAnswer": "B",
-            "explanation": "During test design in ATDD, the test techniques described in sections 4.2, 4.3 and 4.4 may be applied. For a story whose business rules involve several interacting conditions, decision table testing is the natural fit, because its coverage items are the columns containing feasible combinations of conditions and it provides a systematic way to identify combinations that might otherwise be overlooked. ATDD is not restricted to a single technique, and it is not a white-box technique: its test cases are based on the acceptance criteria and become executable requirements.",
-            "correctFeedback": "✅ Correct: the test techniques from sections 4.2, 4.3 and 4.4 — here decision table testing — may be applied when designing ATDD test cases.",
+            "explanation": "ATDD derives tests from acceptance criteria before implementation. Applying decision-table reasoning to the two Boolean conditions produces four feasible combinations, and each should have an expected delivery-fee result.",
+            "correctFeedback": "✅ Correct: ATDD derives tests from acceptance criteria before implementation. Applying decision-table reasoning to the two Boolean conditions produces four feasible combinations, and each should have an expected delivery-fee result.",
             "incorrectFeedback": {
-                "A": "❌ Incorrect: ATDD produces test cases before implementation, and exploratory testing alone would not systematically cover the business rules.",
-                "C": "❌ Incorrect: ATDD is driven by acceptance criteria, not by code structure, so branch coverage of production code is not its basis.",
-                "D": "❌ Incorrect: ATDD explicitly creates test cases prior to implementing the user story."
+                "A": "❌ Incorrect: It covers only the free-delivery case.",
+                "C": "❌ Incorrect: It skips the two mixed-condition rules.",
+                "D": "❌ Incorrect: One regular-customer case does not cover the acceptance rule."
             },
             "optionExplanations": {
-                "A": "ATDD produces test cases before implementation, and exploratory testing alone would not systematically cover the business rules.",
-                "B": "The test techniques from sections 4.2, 4.3 and 4.4 — here decision table testing — may be applied when designing ATDD test cases.",
-                "C": "ATDD is driven by acceptance criteria, not by code structure, so branch coverage of production code is not its basis.",
-                "D": "ATDD explicitly creates test cases prior to implementing the user story."
+                "A": "It covers only the free-delivery case.",
+                "B": "Correct: ATDD derives tests from acceptance criteria before implementation. Applying decision-table reasoning to the two Boolean conditions produces four feasible combinations, and each should have an expected delivery-fee result.",
+                "C": "It skips the two mixed-condition rules.",
+                "D": "One regular-customer case does not cover the acceptance rule."
             },
             "chapter": 4,
             "section": "4.5",
@@ -5605,35 +5603,34 @@ window.questionSets = {
             "difficulty": "Hard",
             "keywords": [
                 "ATDD",
-                "decision table testing",
-                "test design",
-                "acceptance criteria"
+                "acceptance criteria",
+                "acceptance test cases"
             ],
-            "examTip": "ATDD does not replace the standard techniques — during test design you may still apply EP, BVA, decision tables, white-box or experience-based techniques.",
-            "memoryAid": "ATDD = when to write tests (before code). Techniques = how to design them."
+            "examTip": "In ATDD, derive concrete positive and negative acceptance examples from the business rule.",
+            "memoryAid": "ATDD + 2 Boolean acceptance conditions -> 4 examples."
         },
         {
             "id": "Q178",
-            "statement": "Which test technique is most appropriate for testing a system with well-defined business rules involving multiple conditions that produce specific actions?",
+            "statement": "A bank activates an extra verification step when (international transfer = Yes) AND (amount over $5,000 = Yes). Both Boolean inputs are independent. Which test-data set covers every feasible decision rule?",
             "options": {
-                "A": "Decision table testing",
-                "B": "Error guessing",
-                "C": "Statement testing",
-                "D": "Checklist-based testing"
+                "A": "(Yes,Yes), (Yes,No), (No,Yes), (No,No)",
+                "B": "(Yes,Yes) only",
+                "C": "(Yes,Yes) and (No,No)",
+                "D": "(Yes,No), (No,Yes) only"
             },
             "correctAnswer": "A",
-            "explanation": "Decision table testing is ideal for systems with defined business rules where combinations of conditions determine specific actions. It systematically covers all combinations of condition values and their corresponding expected actions, making it perfect for complex business logic.",
-            "correctFeedback": "✅ Correct: Decision table testing systematically covers condition combinations and expected actions.",
+            "explanation": "The complete two-condition decision table has four feasible rules: TT triggers extra verification; TF, FT and FF do not. All four must be exercised for 100% rule coverage.",
+            "correctFeedback": "✅ Correct: The complete two-condition decision table has four feasible rules: TT triggers extra verification; TF, FT and FF do not. All four must be exercised for 100% rule coverage.",
             "incorrectFeedback": {
-                "B": "❌ Incorrect: Error guessing is experience-based and less systematic.",
-                "C": "❌ Incorrect: Statement testing is a white-box technique focused on code coverage.",
-                "D": "❌ Incorrect: Checklist-based testing follows predefined lists without combinatorial analysis."
+                "B": "❌ Incorrect: It exercises only the one rule that triggers verification.",
+                "C": "❌ Incorrect: The mixed conditions TF and FT remain untested.",
+                "D": "❌ Incorrect: The all-true and all-false combinations remain untested."
             },
             "optionExplanations": {
-                "A": "Decision table testing systematically covers condition combinations and expected actions.",
-                "B": "Error guessing is experience-based and less systematic.",
-                "C": "Statement testing is a white-box technique focused on code coverage.",
-                "D": "Checklist-based testing follows predefined lists without combinatorial analysis."
+                "A": "Correct: The complete two-condition decision table has four feasible rules: TT triggers extra verification; TF, FT and FF do not. All four must be exercised for 100% rule coverage.",
+                "B": "It exercises only the one rule that triggers verification.",
+                "C": "The mixed conditions TF and FT remain untested.",
+                "D": "The all-true and all-false combinations remain untested."
             },
             "chapter": 4,
             "section": "4.2",
@@ -5642,12 +5639,12 @@ window.questionSets = {
             "kLevel": "K3",
             "difficulty": "Medium",
             "keywords": [
-                "decision table",
-                "business rules",
-                "test technique selection"
+                "decision table testing",
+                "conditions",
+                "test rules"
             ],
-            "examTip": "Business rules with multiple conditions = decision table testing.",
-            "memoryAid": "Business rules + conditions = decision table."
+            "examTip": "Decision tables cover combinations and their corresponding actions.",
+            "memoryAid": "TT, TF, FT, FF = four rules."
         },
         {
             "id": "Q320",
@@ -6134,98 +6131,26 @@ window.questionSets = {
         },
         {
             "id": "Q236",
-            "statement": "A defect causes a rare spelling error on an internal page. It is easy to fix but has little business impact. Which severity is most appropriate?",
+            "statement": "During a test, a rarely used internal page displays \"recieve\" instead of \"receive\". The agreed impact scale classifies spelling defects as low severity. Which defect-report entry is MOST appropriate?",
             "options": {
-                "A": "Low severity",
-                "B": "High severity",
-                "C": "Critical severity",
-                "D": "Severity cannot be assigned"
+                "A": "Low severity; title \"Misspelling on internal status page\"; include page/build, expected \"receive\", actual \"recieve\", and screenshot",
+                "B": "Critical severity; write only \"UI broken\"",
+                "C": "Do not record any defect because it is cosmetic",
+                "D": "High severity; blame the page author"
             },
             "correctAnswer": "A",
-            "explanation": "Severity reflects the impact of the defect on the component or system; a minor spelling issue typically has low severity.",
-            "correctFeedback": "✅ Correct: Severity reflects the impact of the defect on the component or system; a minor spelling issue typically has low severity.",
+            "explanation": "The organization-defined severity is low. The candidate report records an objective title, environment and expected-versus-actual text with supporting evidence.",
+            "correctFeedback": "✅ Correct: The organization-defined severity is low. The candidate report records an objective title, environment and expected-versus-actual text with supporting evidence.",
             "incorrectFeedback": {
-                "B": "❌ Incorrect: The stated limited impact of a minor spelling error does not justify high severity.",
-                "C": "❌ Incorrect: Critical severity is not supported by the limited impact in the scenario.",
-                "D": "❌ Incorrect: The supplied impact information permits a low-severity classification."
+                "B": "❌ Incorrect: The severity contradicts the agreed impact scale and reproduction detail is missing.",
+                "C": "❌ Incorrect: Low-severity defects may still be recorded and managed.",
+                "D": "❌ Incorrect: Blaming an individual is not an appropriate defect-report field."
             },
             "optionExplanations": {
-                "A": "Severity reflects the impact of the defect on the component or system; a minor spelling issue typically has low severity.",
-                "B": "The stated limited impact of a minor spelling error does not justify high severity.",
-                "C": "Critical severity is not supported by the limited impact in the scenario.",
-                "D": "The supplied impact information permits a low-severity classification."
-            },
-            "chapter": 5,
-            "section": "5.5",
-            "subsection": "5.5",
-            "learningObjective": "FL-5.5.1",
-            "kLevel": "K3",
-            "difficulty": "Medium",
-            "keywords": [
-                "defect severity",
-                "impact"
-            ],
-            "examTip": "Severity is technical/business impact, not fix effort.",
-            "memoryAid": "Minor impact, low severity."
-        },
-        {
-            "id": "Q234",
-            "statement": "Which defect report information is most useful for reproducing a failure?",
-            "options": {
-                "A": "The project budget code",
-                "B": "A statement that the system is bad",
-                "C": "Exact steps, test data, environment, actual result, and expected result",
-                "D": "The tester's preferred fix"
-            },
-            "correctAnswer": "C",
-            "explanation": "Useful defect reports include enough objective information for investigation and reproduction, including steps, data, environment, actual, and expected results.",
-            "correctFeedback": "✅ Correct: Useful defect reports include enough objective information for investigation and reproduction, including steps, data, environment, actual, and expected results.",
-            "incorrectFeedback": {
-                "A": "❌ Incorrect: The project budget code is a project management artifact completely unrelated to defect reproduction. A developer investigating a failure does not need budget codes — they need technical details about what happened, under what conditions, and how to reproduce it.",
-                "B": "❌ Incorrect: A subjective statement like 'the system is bad' provides no actionable information. It does not describe what specifically failed, under what conditions, or what the expected behavior should be. Vague reports cannot be investigated or reproduced effectively.",
-                "D": "❌ Incorrect: The tester's preferred fix is not useful for reproduction. The developer needs to understand the failure first, not how the tester thinks it should be fixed. Moreover, prescribing the fix may bias the investigation and prevent proper root cause analysis."
-            },
-            "optionExplanations": {
-                "A": "The project budget code is a project management artifact unrelated to defect reproduction. Technical investigation requires failure details, not budget information.",
-                "B": "A vague subjective statement provides no actionable information. Reproducible defect reports require specific, objective details.",
-                "C": "Useful defect reports include enough objective information for investigation and reproduction, including steps, data, environment, actual result, and expected result.",
-                "D": "The tester's preferred fix is not relevant for reproduction. Understanding the failure itself must come before considering any solution."
-            },
-            "chapter": 5,
-            "section": "5.5",
-            "subsection": "5.5",
-            "learningObjective": "FL-5.5.1",
-            "kLevel": "K3",
-            "difficulty": "Medium",
-            "keywords": [
-                "defect report",
-                "reproducibility"
-            ],
-            "examTip": "Reproduction needs steps, data, and environment.",
-            "memoryAid": "Make the failure repeatable."
-        },
-        {
-            "id": "Q275",
-            "statement": "A defect report says only 'checkout broken'. What is the main problem with this report?",
-            "options": {
-                "A": "It has too many reproduction steps",
-                "B": "It includes the expected result",
-                "C": "It identifies the environment too precisely",
-                "D": "It lacks objective details needed to reproduce and investigate the failure"
-            },
-            "correctAnswer": "D",
-            "explanation": "A useful defect report must include clear summary, steps, data, environment, actual result, expected result, and other investigation information.",
-            "correctFeedback": "✅ Correct: A useful defect report must include clear summary, steps, data, environment, actual result, expected result, and other investigation information.",
-            "incorrectFeedback": {
-                "A": "❌ Incorrect: The report 'checkout broken' has NO reproduction steps at all — it is the opposite of having too many. A good defect report needs clear, concise steps to reproduce the failure, not zero steps.",
-                "B": "❌ Incorrect: This report does NOT include the expected result — in fact, it includes almost nothing. The expected result is one of the critical missing pieces, along with actual result, steps, data, and environment details.",
-                "C": "❌ Incorrect: This report does NOT identify the environment at all — precisely or otherwise. Environment details (OS, browser, version, build, configuration) are essential for reproduction and are completely absent here."
-            },
-            "optionExplanations": {
-                "A": "The report has zero reproduction steps, not too many. Good defect reports need clear, specific steps to reproduce.",
-                "B": "The report does NOT include the expected result — this is one of the critical missing pieces of information.",
-                "C": "The report does NOT identify the environment at all. Environment details are essential for reproducibility and are completely absent.",
-                "D": "A useful defect report must include clear summary, steps, data, environment, actual result, expected result, and other investigation information. This report lacks all objective details."
+                "A": "Correct: The organization-defined severity is low. The candidate report records an objective title, environment and expected-versus-actual text with supporting evidence.",
+                "B": "The severity contradicts the agreed impact scale and reproduction detail is missing.",
+                "C": "Low-severity defects may still be recorded and managed.",
+                "D": "Blaming an individual is not an appropriate defect-report field."
             },
             "chapter": 5,
             "section": "5.5",
@@ -6235,10 +6160,85 @@ window.questionSets = {
             "difficulty": "Medium",
             "keywords": [
                 "defect reporting",
-                "quality"
+                "reproducibility",
+                "actual vs expected results"
             ],
-            "examTip": "Defect reports must be actionable.",
-            "memoryAid": "Vague reports slow fixes."
+            "examTip": "Apply the severity rubric and include reproducible facts even for a minor issue.",
+            "memoryAid": "Expected receive, actual recieve, severity low."
+        },
+        {
+            "id": "Q234",
+            "statement": "An API endpoint returns HTTP 500 when a request contains an empty account ID. Which defect-report entry BEST enables reproduction?",
+            "options": {
+                "A": "API fails sometimes",
+                "B": "Please inspect the backend urgently",
+                "C": "Endpoint POST /transfers, build 5.0; payload accountId=\"\"; Steps: submit payload; Expected: validation error; Actual: HTTP 500; attach request ID and response log",
+                "D": "Developer should rewrite the API"
+            },
+            "correctAnswer": "C",
+            "explanation": "Option C includes precise endpoint/build, input payload, steps, expected and actual result and logs. These are the concrete fields needed to reproduce and investigate the anomaly.",
+            "correctFeedback": "✅ Correct: Option C includes precise endpoint/build, input payload, steps, expected and actual result and logs. These are the concrete fields needed to reproduce and investigate the anomaly.",
+            "incorrectFeedback": {
+                "A": "❌ Incorrect: It lacks the triggering input and precise failure.",
+                "B": "❌ Incorrect: Urgency alone cannot reproduce the failure.",
+                "D": "❌ Incorrect: A proposed implementation change is not an objective defect description."
+            },
+            "optionExplanations": {
+                "A": "It lacks the triggering input and precise failure.",
+                "B": "Urgency alone cannot reproduce the failure.",
+                "C": "Correct: Option C includes precise endpoint/build, input payload, steps, expected and actual result and logs. These are the concrete fields needed to reproduce and investigate the anomaly.",
+                "D": "A proposed implementation change is not an objective defect description."
+            },
+            "chapter": 5,
+            "section": "5.5",
+            "subsection": "5.5",
+            "learningObjective": "FL-5.5.1",
+            "kLevel": "K3",
+            "difficulty": "Medium",
+            "keywords": [
+                "defect reporting",
+                "reproducibility",
+                "actual vs expected results"
+            ],
+            "examTip": "For API defects, include request payload, endpoint, version and evidence.",
+            "memoryAid": "POST + invalid ID -> expected validation; actual 500."
+        },
+        {
+            "id": "Q275",
+            "statement": "A checkout defect report contains only the title \"Checkout broken\". The tester observed that applying two coupons made the total negative on build 6.1. Which replacement description is BEST?",
+            "options": {
+                "A": "Checkout is very bad and the developer should fix the design",
+                "B": "Problems may occur during shopping",
+                "C": "The developer used the wrong algorithm",
+                "D": "Build 6.1: add two eligible coupons at checkout; Expected: total >= $0 per pricing rule; Actual: total = -$5; attach cart items, coupon codes and screenshot"
+            },
+            "correctAnswer": "D",
+            "explanation": "Option D replaces the vague report with a reproducible scenario, specific build, triggering data, expected and observed results and evidence.",
+            "correctFeedback": "✅ Correct: Option D replaces the vague report with a reproducible scenario, specific build, triggering data, expected and observed results and evidence.",
+            "incorrectFeedback": {
+                "A": "❌ Incorrect: This is subjective and lacks a testable failure description.",
+                "B": "❌ Incorrect: It does not identify the circumstances or observed result.",
+                "C": "❌ Incorrect: It guesses the implementation root cause without evidence."
+            },
+            "optionExplanations": {
+                "A": "This is subjective and lacks a testable failure description.",
+                "B": "It does not identify the circumstances or observed result.",
+                "C": "It guesses the implementation root cause without evidence.",
+                "D": "Correct: Option D replaces the vague report with a reproducible scenario, specific build, triggering data, expected and observed results and evidence."
+            },
+            "chapter": 5,
+            "section": "5.5",
+            "subsection": "5.5",
+            "learningObjective": "FL-5.5.1",
+            "kLevel": "K3",
+            "difficulty": "Medium",
+            "keywords": [
+                "defect reporting",
+                "reproducibility",
+                "actual vs expected results"
+            ],
+            "examTip": "Write observable actual/expected behavior and exact triggering input, not assumptions about code.",
+            "memoryAid": "Coupon codes + negative total + version + screenshot."
         },
         {
             "id": "Q110",
@@ -6429,26 +6429,26 @@ window.questionSets = {
         },
         {
             "id": "Q136",
-            "statement": "A test manager needs to estimate testing effort for a project with incomplete requirements. Which estimation technique would be most appropriate in this situation?",
+            "statement": "A test effort estimate has optimistic=8 person-days, most likely=10 person-days and pessimistic=18 person-days. What is the three-point weighted estimate, rounded to one decimal?",
             "options": {
-                "A": "Work breakdown structure with detailed task decomposition",
-                "B": "Metrics-based estimation using function points",
-                "C": "Parametric estimation using lines of code",
-                "D": "Expert judgment based on similar past projects"
+                "A": "12.0 person-days",
+                "B": "10.0 person-days",
+                "C": "10.7 person-days",
+                "D": "11.0 person-days"
             },
             "correctAnswer": "D",
-            "explanation": "When requirements are incomplete, expert judgment is often the most appropriate estimation technique. Experts with experience in similar projects can provide reasonable estimates even with limited information, using their domain knowledge and experience with analogous situations.",
-            "correctFeedback": "✅ Correct: Expert judgment works well with incomplete information by relying on past experience.",
+            "explanation": "Using the three-point weighted estimate, E=(optimistic + 4×most likely + pessimistic)/6 = (8+4×10+18)/6 = 11.0 person-days.",
+            "correctFeedback": "✅ Correct: Using the three-point weighted estimate, E=(optimistic + 4×most likely + pessimistic)/6 = (8+4×10+18)/6 = 11.0 person-days.",
             "incorrectFeedback": {
-                "A": "❌ Incorrect: WBS requires detailed task decomposition that needs more complete requirements.",
-                "B": "❌ Incorrect: Function point analysis requires reasonably stable requirements.",
-                "C": "❌ Incorrect: Lines of code estimation is not typically used for test effort estimation."
+                "A": "❌ Incorrect: (8+4×10+18)/6 = 11.0, not 12.0 person-days.",
+                "B": "❌ Incorrect: The most likely value alone is not the weighted estimate.",
+                "C": "❌ Incorrect: 66/6 equals 11.0, not 10.7 person-days."
             },
             "optionExplanations": {
-                "A": "WBS requires detailed task decomposition that needs more complete requirements.",
-                "B": "Function point analysis requires reasonably stable requirements.",
-                "C": "Lines of code estimation is not typically used for test effort estimation.",
-                "D": "Expert judgment works well with incomplete information by relying on past experience."
+                "A": "The weighted total is 66, not 72.",
+                "B": "The most likely value alone is not the weighted estimate.",
+                "C": "The correct weighted result is 11.0 rather than 10.7 person-days.",
+                "D": "Using the three-point weighted estimate, E=(optimistic + 4×most likely + pessimistic)/6 = (8+4×10+18)/6 = 11.0 person-days."
             },
             "chapter": 5,
             "section": "5.1",
@@ -6457,35 +6457,35 @@ window.questionSets = {
             "kLevel": "K3",
             "difficulty": "Medium",
             "keywords": [
-                "estimation",
-                "expert judgment",
-                "incomplete requirements"
+                "three-point estimation",
+                "optimistic most likely pessimistic",
+                "weighted effort estimate"
             ],
-            "examTip": "When details are scarce, rely on expert judgment and analogy-based estimation.",
-            "memoryAid": "No details = ask the experts."
+            "examTip": "The intended calculation is E=(a+4m+b)/6.",
+            "memoryAid": "8 + 40 + 18 = 66; /6 = 11."
         },
         {
             "id": "Q192",
-            "statement": "In a defect management workflow, what typically happens immediately after a defect is discovered and reported?",
+            "statement": "A tester observes that an Android checkout crashes after selecting Pay with an expired card. Which initial defect report BEST supports triage and resolution?",
             "options": {
-                "A": "The release is immediately canceled",
-                "B": "The defect is triaged to assess severity, priority, and assign ownership",
-                "C": "The test case that found the defect is deleted",
-                "D": "The defect is automatically fixed by the system"
+                "A": "Urgent: checkout bad",
+                "B": "Build 8.1/Android 15; steps: open checkout, select expired test card, tap Pay; expected: declined-card message; actual: app crashes; attach log",
+                "C": "The programmer needs to review their work",
+                "D": "Mark the defect Fixed before logging details"
             },
             "correctAnswer": "B",
-            "explanation": "After a defect is reported, it enters a triage or assessment phase where the defect is reviewed to determine its severity, priority, and the appropriate action (fix, defer, reject). It is then assigned to the appropriate person for resolution.",
-            "correctFeedback": "✅ Correct: Triage assesses the defect's impact and determines next steps.",
+            "explanation": "Option B supplies the information required to log and classify the anomaly: environment/build, reproduction steps, expected and actual results and evidence.",
+            "correctFeedback": "✅ Correct: Option B supplies the information required to log and classify the anomaly: environment/build, reproduction steps, expected and actual results and evidence.",
             "incorrectFeedback": {
-                "A": "❌ Incorrect: Canceling a release is an extreme measure taken only for critical issues.",
-                "C": "❌ Incorrect: Test cases are valuable artifacts and should not be deleted because they found defects.",
-                "D": "❌ Incorrect: Defects require human intervention to fix."
+                "A": "❌ Incorrect: The report lacks specifics to reproduce and triage.",
+                "C": "❌ Incorrect: It assigns blame and omits the failure details.",
+                "D": "❌ Incorrect: A new report should not be prematurely marked fixed."
             },
             "optionExplanations": {
-                "A": "Canceling a release is an extreme measure taken only for critical issues.",
-                "B": "Triage assesses the defect's impact and determines next steps.",
-                "C": "Test cases are valuable artifacts and should not be deleted because they found defects.",
-                "D": "Defects require human intervention to fix."
+                "A": "The report lacks specifics to reproduce and triage.",
+                "B": "Correct: Option B supplies the information required to log and classify the anomaly: environment/build, reproduction steps, expected and actual results and evidence.",
+                "C": "It assigns blame and omits the failure details.",
+                "D": "A new report should not be prematurely marked fixed."
             },
             "chapter": 5,
             "section": "5.5",
@@ -6494,12 +6494,12 @@ window.questionSets = {
             "kLevel": "K3",
             "difficulty": "Medium",
             "keywords": [
-                "defect management",
-                "triage",
-                "workflow"
+                "defect reporting",
+                "reproducibility",
+                "actual vs expected results"
             ],
-            "examTip": "Defect workflow: Discover -> Report -> Triage -> Assign -> Fix -> Verify -> Close.",
-            "memoryAid": "Defect lifecycle: Report, Assess, Assign, Fix, Verify, Close."
+            "examTip": "The report should enable reproduction and classification without guessing root causes.",
+            "memoryAid": "Expired test card -> expected decline, actual crash; include build."
         },
         {
             "id": "Q138",
@@ -6909,26 +6909,26 @@ window.questionSets = {
         },
         {
             "id": "Q345",
-            "statement": "A test manager estimates the testing effort for a new project by analyzing the effort spent on similar projects in the past, adjusting for differences in complexity and scope. Which estimation technique is being used?",
+            "statement": "A metrics-based model indicates testing typically represents 25% of the TOTAL combined development and testing effort. If a new project requires 300 development person-days, how many testing person-days should be estimated?",
             "options": {
-                "A": "Expert-based estimation using Delphi technique",
-                "B": "Metrics-based estimation using historical project data",
-                "C": "Work breakdown structure estimation",
-                "D": "Expert judgment of a single person"
+                "A": "75 person-days",
+                "B": "100 person-days",
+                "C": "125 person-days",
+                "D": "300 person-days"
             },
             "correctAnswer": "B",
-            "explanation": "Metrics-based estimation uses historical data from previous projects (e.g., defects per function point, test hours per requirement) to project effort for new projects. This technique relies on quantitative data rather than subjective judgment.",
-            "correctFeedback": "✅ Correct: Using historical project data is metrics-based estimation.",
+            "explanation": "Let T be test effort. T/(300+T)=0.25, so T=75+0.25T, hence 0.75T=75 and T=100 person-days.",
+            "correctFeedback": "✅ Correct: Let T be test effort. T/(300+T)=0.25, so T=75+0.25T, hence 0.75T=75 and T=100 person-days.",
             "incorrectFeedback": {
-                "A": "❌ Incorrect: Delphi uses expert consensus, not historical data.",
-                "C": "❌ Incorrect: WBS decomposes work but the estimation basis is the technique.",
-                "D": "❌ Incorrect: A single expert would rely on personal judgment, not data."
+                "A": "❌ Incorrect: 75 is 25% of development effort, not 25% of the combined effort.",
+                "C": "❌ Incorrect: 125 does not satisfy 125/(300+125)=0.25.",
+                "D": "❌ Incorrect: 300 would mean testing is half the combined effort."
             },
             "optionExplanations": {
-                "A": "Delphi uses expert consensus, not historical data.",
-                "B": "Using historical project data is metrics-based estimation.",
-                "C": "WBS decomposes work but the estimation basis is the technique.",
-                "D": "A single expert would rely on personal judgment, not data."
+                "A": "75 is 25% of development effort, not 25% of the combined effort.",
+                "B": "Correct: Let T be test effort. T/(300+T)=0.25, so T=75+0.25T, hence 0.75T=75 and T=100 person-days.",
+                "C": "125 does not satisfy 125/(300+125)=0.25.",
+                "D": "300 would mean testing is half the combined effort."
             },
             "chapter": 5,
             "section": "5.1",
@@ -6937,35 +6937,35 @@ window.questionSets = {
             "kLevel": "K3",
             "difficulty": "Medium",
             "keywords": [
-                "estimation techniques",
-                "metrics-based",
-                "historical data"
+                "test effort estimation",
+                "applied estimation",
+                "project metrics"
             ],
-            "examTip": "Metrics-based = past data drives future estimates.",
-            "memoryAid": "Past data predicts future effort."
+            "examTip": "Pay attention to whether the percentage is of development effort or total combined effort.",
+            "memoryAid": "T/(D+T)=25%; D=300 -> T=100."
         },
         {
             "id": "Q076",
-            "statement": "What is the primary purpose of a defect management process?",
+            "statement": "During system testing, tapping Pay twice causes two charges but only one receipt. Which proposed defect report BEST supports investigation?",
             "options": {
-                "A": "To assign blame for each defect found",
-                "B": "To eliminate all defects from the software immediately",
-                "C": "To provide a systematic way to track and manage defects from discovery to resolution",
-                "D": "To punish developers who introduce defects"
+                "A": "Payment is broken; fix quickly",
+                "B": "The tester thinks developers made a careless error",
+                "C": "Title: Duplicate charge on double tap; Build 4.2, Android 15; Steps: open checkout, tap Pay twice; Expected: one charge and one receipt; Actual: two charges and one receipt; attach transaction IDs",
+                "D": "Checkout looked odd yesterday"
             },
             "correctAnswer": "C",
-            "explanation": "The defect management process provides a structured workflow for recording, tracking, prioritizing, assigning, resolving, and verifying defects. It ensures defects are properly managed and provides data for process improvement.",
-            "correctFeedback": "✅ Correct: Defect management is a systematic process for tracking defects throughout their lifecycle.",
+            "explanation": "A useful defect report identifies the test object/build, reproduction steps and data, expected and actual results and supporting evidence. Option C supplies actionable information for investigation.",
+            "correctFeedback": "✅ Correct: A useful defect report identifies the test object/build, reproduction steps and data, expected and actual results and supporting evidence. Option C supplies actionable information for investigation.",
             "incorrectFeedback": {
-                "A": "❌ Incorrect: Defect management focuses on resolution, not blame.",
-                "B": "❌ Incorrect: Defects are prioritized and resolved based on severity and resources.",
-                "D": "❌ Incorrect: Punishment is not a goal of defect management."
+                "A": "❌ Incorrect: It gives no environment, steps or observed versus expected results.",
+                "B": "❌ Incorrect: Blame is not an objective reproduction description.",
+                "D": "❌ Incorrect: It is vague and contains no reproducible evidence."
             },
             "optionExplanations": {
-                "A": "Defect management focuses on resolution, not blame.",
-                "B": "Defects are prioritized and resolved based on severity and resources.",
-                "C": "Defect management is a systematic process for tracking defects throughout their lifecycle.",
-                "D": "Punishment is not a goal of defect management."
+                "A": "It gives no environment, steps or observed versus expected results.",
+                "B": "Blame is not an objective reproduction description.",
+                "C": "Correct: A useful defect report identifies the test object/build, reproduction steps and data, expected and actual results and supporting evidence. Option C supplies actionable information for investigation.",
+                "D": "It is vague and contains no reproducible evidence."
             },
             "chapter": 5,
             "section": "5.5",
@@ -6974,12 +6974,12 @@ window.questionSets = {
             "kLevel": "K3",
             "difficulty": "Medium",
             "keywords": [
-                "defect management",
-                "defect lifecycle",
-                "tracking"
+                "defect reporting",
+                "reproducibility",
+                "actual vs expected results"
             ],
-            "examTip": "Defect management = systematic tracking and resolution, not blame.",
-            "memoryAid": "Defect management = find, track, fix, verify, learn."
+            "examTip": "Prepare a report with build/context, reproduction, expected vs actual and evidence.",
+            "memoryAid": "Double tap -> one expected charge; two actual charges; include IDs."
         },
         {
             "id": "Q340",
@@ -7279,26 +7279,26 @@ window.questionSets = {
         },
         {
             "id": "Q346",
-            "statement": "Which is a key difference between metrics-based estimation and expert-based estimation?",
+            "statement": "In comparable projects, development required 300 person-days and testing required 200 person-days. If the same metrics-based development-to-test ratio applies to a new project estimated at 450 development person-days, what is the test-effort estimate?",
             "options": {
-                "A": "Expert-based estimation is always more accurate than metrics-based",
-                "B": "Metrics-based estimation relies on subjective judgment; expert-based relies on data",
-                "C": "Expert-based estimation requires historical data; metrics-based does not",
-                "D": "Metrics-based estimation uses quantitative data from past projects; expert-based relies on the experience and intuition of knowledgeable individuals"
+                "A": "150 person-days",
+                "B": "225 person-days",
+                "C": "450 person-days",
+                "D": "300 person-days"
             },
             "correctAnswer": "D",
-            "explanation": "Metrics-based estimation is data-driven, using measurements from past projects. Expert-based estimation relies on the experience, knowledge, and intuition of domain experts. Both have strengths and weaknesses; they are often used together for more reliable estimates.",
-            "correctFeedback": "✅ Correct: Metrics = data; Expert = judgment. They are complementary approaches.",
+            "explanation": "The historic development-to-test ratio is 300:200, or 3:2. The predicted test effort is 450×(2/3)=300 person-days.",
+            "correctFeedback": "✅ Correct: The historic development-to-test ratio is 300:200, or 3:2. The predicted test effort is 450×(2/3)=300 person-days.",
             "incorrectFeedback": {
-                "A": "❌ Incorrect: Neither is always more accurate; context determines which is more appropriate.",
-                "B": "❌ Incorrect: This reverses the definitions of both techniques.",
-                "C": "❌ Incorrect: Expert-based does not require historical data; metrics-based does."
+                "A": "❌ Incorrect: This uses one third rather than two thirds of the development effort.",
+                "B": "❌ Incorrect: This uses one half of development effort, not the historic 2/3 ratio.",
+                "C": "❌ Incorrect: This assumes equal development and testing effort."
             },
             "optionExplanations": {
-                "A": "Neither is always more accurate; context determines which is more appropriate.",
-                "B": "This reverses the definitions of both techniques.",
-                "C": "Expert-based does not require historical data; metrics-based does.",
-                "D": "Metrics = data; Expert = judgment. They are complementary approaches."
+                "A": "This uses one third rather than two thirds of the development effort.",
+                "B": "This uses one half of development effort, not the historic 2/3 ratio.",
+                "C": "This assumes equal development and testing effort.",
+                "D": "Correct: The historic development-to-test ratio is 300:200, or 3:2. The predicted test effort is 450×(2/3)=300 person-days."
             },
             "chapter": 5,
             "section": "5.1",
@@ -7307,12 +7307,12 @@ window.questionSets = {
             "kLevel": "K3",
             "difficulty": "Medium",
             "keywords": [
-                "metrics-based",
-                "expert-based",
-                "estimation comparison"
+                "metrics-based estimation",
+                "development-to-test ratio",
+                "test effort"
             ],
-            "examTip": "Metrics = data points; Expert = human judgment.",
-            "memoryAid": "Data vs. Intuition."
+            "examTip": "Ratio-based estimation: scale historical testing/development effort to the new development forecast.",
+            "memoryAid": "Historic dev:test 3:2; new dev 450 -> test 300."
         },
         {
             "id": "Q194",
@@ -7390,26 +7390,26 @@ window.questionSets = {
         },
         {
             "id": "Q196",
-            "statement": "A test manager is estimating effort for a new project and decides to ask three experienced test managers to provide independent estimates, then discuss them to reach consensus. Which estimation technique is this?",
+            "statement": "In Planning Poker, three specialists estimate a user story at 5, 8 and 13 points. After a discussion and a second private vote, all three estimate 8 points. Which value should be recorded for the story?",
             "options": {
-                "A": "Delphi technique (or Wideband Delphi)",
-                "B": "Work breakdown structure",
-                "C": "Expert judgment by a single person",
-                "D": "Metrics-based estimation"
+                "A": "8 points, because it is the agreed consensus",
+                "B": "13 points, because it was initially the highest",
+                "C": "5 points, because it was initially the lowest",
+                "D": "26 points, the sum of their first estimates"
             },
             "correctAnswer": "A",
-            "explanation": "The Delphi technique (Wideband Delphi) involves multiple experts providing independent estimates anonymously, followed by discussion and re-estimation until consensus is reached. This reduces bias from any single expert and produces more reliable estimates.",
-            "correctFeedback": "✅ Correct: Delphi uses multiple independent experts with iterative consensus-building.",
+            "explanation": "Planning Poker is a consensus-based variant of Wideband Delphi. After further discussion and re-estimation the agreed second-round estimate of 8 is recorded.",
+            "correctFeedback": "✅ Correct: Planning Poker is a consensus-based variant of Wideband Delphi. After further discussion and re-estimation the agreed second-round estimate of 8 is recorded.",
             "incorrectFeedback": {
-                "B": "❌ Incorrect: WBS decomposes work into smaller components for estimation.",
-                "C": "❌ Incorrect: This involves multiple experts, not just one.",
-                "D": "❌ Incorrect: Metrics-based uses historical data, not expert consensus."
+                "B": "❌ Incorrect: The highest first-round value is not the consensus.",
+                "C": "❌ Incorrect: The lowest first-round value is not the consensus.",
+                "D": "❌ Incorrect: Planning Poker does not add individual votes."
             },
             "optionExplanations": {
-                "A": "Delphi uses multiple independent experts with iterative consensus-building.",
-                "B": "WBS decomposes work into smaller components for estimation.",
-                "C": "This involves multiple experts, not just one.",
-                "D": "Metrics-based uses historical data, not expert consensus."
+                "A": "Correct: Planning Poker is a consensus-based variant of Wideband Delphi. After further discussion and re-estimation the agreed second-round estimate of 8 is recorded.",
+                "B": "The highest first-round value is not the consensus.",
+                "C": "The lowest first-round value is not the consensus.",
+                "D": "Planning Poker does not add individual votes."
             },
             "chapter": 5,
             "section": "5.1",
@@ -7418,12 +7418,12 @@ window.questionSets = {
             "kLevel": "K3",
             "difficulty": "Medium",
             "keywords": [
-                "Delphi technique",
-                "estimation",
-                "expert consensus"
+                "Planning Poker",
+                "consensus estimation",
+                "agile estimation"
             ],
-            "examTip": "Delphi = multiple experts, anonymous estimates, consensus through iteration.",
-            "memoryAid": "Delphi = many experts, one estimate."
+            "examTip": "For consensus techniques, identify the final agreed estimate after discussion, not the first-round range.",
+            "memoryAid": "5/8/13 -> discussion -> 8/8/8 -> 8 points."
         }
     ],
     "exam6": [
@@ -7646,26 +7646,26 @@ window.questionSets = {
         },
         {
             "id": "Q358",
-            "statement": "What is a primary objective of conducting a pilot project for a test tool?",
+            "statement": "A team assumes that adopting test automation has no ongoing cost once the tool is purchased. What is a recognized risk of this assumption?",
             "options": {
-                "B": "To learn how the tool works in practice, assess costs and benefits, and gather information for a wider rollout decision",
-                "C": "To immediately replace all existing manual testing",
-                "D": "To train all employees on the tool simultaneously",
-                "A": "To make a final purchase commitment without further evaluation"
+                "A": "Automation completely eliminates the need for human judgment",
+                "B": "The effort required to introduce the tool and maintain scripts will be underestimated",
+                "C": "Automation prevents repeated execution of regression tests",
+                "D": "Coverage information can never be measured automatically"
             },
             "correctAnswer": "B",
-            "explanation": "The pilot project evaluates the tool against defined criteria, assesses its fit with existing processes, measures actual benefits and costs, identifies training and infrastructure needs, and provides data for a go/no-go decision on wider deployment.",
-            "correctFeedback": "✅ Correct: Pilots evaluate real-world fit, costs, benefits, and inform rollout decisions.",
+            "explanation": "CTFL 6.2 lists inaccurate estimations of introduction effort, maintenance costs and process changes among the risks of test automation.",
+            "correctFeedback": "✅ Correct: CTFL 6.2 lists inaccurate estimations of introduction effort, maintenance costs and process changes among the risks of test automation.",
             "incorrectFeedback": {
-                "A": "❌ Incorrect: The pilot informs the purchase decision; it is not a commitment.",
-                "C": "❌ Incorrect: Pilots are limited in scope; full replacement is evaluated after pilot.",
-                "D": "❌ Incorrect: Training is part of the pilot, not the primary objective."
+                "A": "❌ Incorrect: This is another misconception but not the estimation risk described.",
+                "C": "❌ Incorrect: Automation supports repeated execution rather than preventing it.",
+                "D": "❌ Incorrect: Objective coverage measurement is a potential benefit."
             },
             "optionExplanations": {
-                "A": "The pilot informs the purchase decision; it is not a commitment.",
-                "B": "Pilots evaluate real-world fit, costs, benefits, and inform rollout decisions.",
-                "C": "Pilots are limited in scope; full replacement is evaluated after pilot.",
-                "D": "Training is part of the pilot, not the primary objective."
+                "A": "This is another misconception but not the estimation risk described.",
+                "B": "Correct: CTFL 6.2 lists inaccurate estimations of introduction effort, maintenance costs and process changes among the risks of test automation.",
+                "C": "Automation supports repeated execution rather than preventing it.",
+                "D": "Objective coverage measurement is a potential benefit."
             },
             "chapter": 6,
             "section": "6.2",
@@ -7674,12 +7674,12 @@ window.questionSets = {
             "kLevel": "K1",
             "difficulty": "Easy",
             "keywords": [
-                "pilot project objectives",
-                "tool evaluation",
-                "rollout decision"
+                "test automation",
+                "benefits",
+                "risks"
             ],
-            "examTip": "Pilot = evaluation data for rollout decision.",
-            "memoryAid": "Pilot informs decisions."
+            "examTip": "Automation has introduction, training and maintenance costs.",
+            "memoryAid": "Tool purchase ≠ zero maintenance effort."
         },
         {
             "id": "Q040",
@@ -8017,26 +8017,26 @@ window.questionSets = {
         },
         {
             "id": "Q381",
-            "statement": "A team plans to introduce a new test management tool. What approach is MOST likely to lead to successful adoption?",
+            "statement": "A team automates regression testing and finds that adapting the manual test process and training testers require substantial effort. Which conclusion is MOST consistent with CTFL?",
             "options": {
-                "C": "Assess current processes, define requirements, run a pilot project, train users, and roll out incrementally",
-                "D": "Roll the tool out to the entire organization immediately",
-                "A": "Let each tester decide independently whether to use the tool",
-                "B": "Hire external consultants to use the tool without internal involvement"
+                "A": "Automation is free after purchasing a license",
+                "B": "Automation removes all need to adapt existing test processes",
+                "C": "Tool introduction, training and maintenance require effort and should be estimated",
+                "D": "Test automation always replaces every manual test"
             },
             "correctAnswer": "C",
-            "explanation": "Incremental introduction with needs assessment, pilot, training, and phased rollout gives the best chance of successful tool adoption and ROI.",
-            "correctFeedback": "✅ Correct: Incremental introduction with needs assessment, pilot, training, and phased rollout gives the best chance of successful tool adoption and ROI.",
+            "explanation": "The syllabus explains that acquiring a tool does not guarantee lasting benefits and mentions the introduction, training and maintenance effort required for automation.",
+            "correctFeedback": "✅ Correct: The syllabus explains that acquiring a tool does not guarantee lasting benefits and mentions the introduction, training and maintenance effort required for automation.",
             "incorrectFeedback": {
-                "A": "❌ Incorrect: Letting each tester decide independently creates inconsistency and prevents organized adoption.",
-                "B": "❌ Incorrect: Hiring external consultants without internal involvement ensures no internal ownership or knowledge transfer.",
-                "D": "❌ Incorrect: Rolling out immediately to the entire organization causes confusion, resistance, and wasted resources without proper preparation."
+                "A": "❌ Incorrect: The license is not the only cost of automation.",
+                "B": "❌ Incorrect: Existing processes may need changes.",
+                "D": "❌ Incorrect: Manual testing may remain more appropriate for some scenarios."
             },
             "optionExplanations": {
-                "A": "Letting each tester decide independently creates inconsistency and prevents organized adoption.",
-                "B": "Hiring external consultants without internal involvement ensures no internal ownership or knowledge transfer.",
-                "C": "Incremental introduction with needs assessment, pilot, training, and phased rollout gives the best chance of successful tool adoption and ROI.",
-                "D": "Rolling out immediately to the entire organization causes confusion, resistance, and wasted resources without proper preparation."
+                "A": "The license is not the only cost of automation.",
+                "B": "Existing processes may need changes.",
+                "C": "Correct: The syllabus explains that acquiring a tool does not guarantee lasting benefits and mentions the introduction, training and maintenance effort required for automation.",
+                "D": "Manual testing may remain more appropriate for some scenarios."
             },
             "chapter": 6,
             "section": "6.2",
@@ -8045,11 +8045,12 @@ window.questionSets = {
             "kLevel": "K1",
             "difficulty": "Easy",
             "keywords": [
-                "tool introduction",
-                "pilot project"
+                "test automation",
+                "benefits",
+                "risks"
             ],
-            "examTip": "Pilot, learn, train, then expand.",
-            "memoryAid": "Small start, big finish."
+            "examTip": "Budget for introduction, training and maintenance when assessing automation.",
+            "memoryAid": "Automation benefit requires ongoing investment."
         },
         {
             "id": "Q391",
@@ -8168,26 +8169,26 @@ window.questionSets = {
         },
         {
             "id": "Q072",
-            "statement": "An organization is introducing a test automation tool for regression testing. What should be done first?",
+            "statement": "A regression automation tool is being proposed for a platform it cannot connect to. Which risk from CTFL section 6.2 is most relevant?",
             "options": {
-                "A": "Automate all existing manual test cases in one week",
-                "B": "Conduct a pilot project to evaluate the tool's fit with the organization's processes and technology",
-                "C": "Replace all manual testers with the automation tool",
-                "D": "Purchase the most popular tool on the market immediately"
+                "A": "Faster feedback from reduced execution time",
+                "B": "Automation-tool incompatibility with the development platform",
+                "C": "Reduced human error through repeatability",
+                "D": "More time to design deeper tests"
             },
             "correctAnswer": "B",
-            "explanation": "Before committing to a test tool, a pilot project should be conducted to assess how well the tool works with the organization's technology stack, processes, and team skills. This helps identify issues early and verify that the tool provides the expected benefits.",
-            "correctFeedback": "✅ Correct: A pilot project validates the tool's fit and reduces adoption risks.",
+            "explanation": "CTFL lists an automation tool that is not compatible with the development platform as a specific risk.",
+            "correctFeedback": "✅ Correct: CTFL lists an automation tool that is not compatible with the development platform as a specific risk.",
             "incorrectFeedback": {
-                "A": "❌ Incorrect: Automating all tests immediately without evaluation is risky.",
-                "C": "❌ Incorrect: Automation complements manual testing, does not replace testers.",
-                "D": "❌ Incorrect: Popularity does not guarantee suitability for the specific context."
+                "A": "❌ Incorrect: This is a potential benefit, not the compatibility risk.",
+                "C": "❌ Incorrect: This is another potential automation benefit.",
+                "D": "❌ Incorrect: Freeing tester time is a benefit and does not address incompatibility."
             },
             "optionExplanations": {
-                "A": "Automating all tests immediately without evaluation is risky.",
-                "B": "A pilot project validates the tool's fit and reduces adoption risks.",
-                "C": "Automation complements manual testing, does not replace testers.",
-                "D": "Popularity does not guarantee suitability for the specific context."
+                "A": "This is a potential benefit, not the compatibility risk.",
+                "B": "Correct: CTFL lists an automation tool that is not compatible with the development platform as a specific risk.",
+                "C": "This is another potential automation benefit.",
+                "D": "Freeing tester time is a benefit and does not address incompatibility."
             },
             "chapter": 6,
             "section": "6.1",
@@ -8200,8 +8201,8 @@ window.questionSets = {
                 "pilot project",
                 "automation adoption"
             ],
-            "examTip": "Always pilot a new tool before full adoption. Proof of concept first.",
-            "memoryAid": "Pilot before you pilot (implement)."
+            "examTip": "Platform compatibility is a named automation risk in CTFL 6.2.",
+            "memoryAid": "Tool incompatible with platform = automation risk."
         },
         {
             "id": "Q139",
@@ -8242,26 +8243,26 @@ window.questionSets = {
         },
         {
             "id": "Q360",
-            "statement": "An organization introduces a test management tool but does not define guidelines for how test cases should be structured, named, or organized in the tool. What risk does this create?",
+            "statement": "An automated regression suite replays tests consistently but the team assumes that the automated checks guarantee no remaining defects. Which risk is illustrated?",
             "options": {
-                "A": "The tool will automatically correct any organizational issues",
-                "B": "The tool will become self-documenting over time",
-                "C": "Inconsistent usage leading to difficulty in finding, reusing, and reporting on test cases",
-                "D": "The tool will prevent any test execution"
+                "A": "Automation makes manual testing logically impossible",
+                "B": "Automated execution cannot be repeated",
+                "C": "Unrealistic expectations about automation benefits and overreliance on tools",
+                "D": "Automation tools necessarily detect every omission in requirements"
             },
             "correctAnswer": "C",
-            "explanation": "Without standards and guidelines for tool usage, teams may adopt inconsistent practices that undermine the tool's value. Naming conventions, folder structures, field usage, and workflow definitions should be agreed upon to ensure the tool supports rather than hinders testing activities.",
-            "correctFeedback": "✅ Correct: Inconsistent usage reduces the tool's value for finding and reporting.",
+            "explanation": "CTFL 6.2 lists unrealistic expectations of tools and excessive reliance on automation instead of human critical thinking among the risks.",
+            "correctFeedback": "✅ Correct: CTFL 6.2 lists unrealistic expectations of tools and excessive reliance on automation instead of human critical thinking among the risks.",
             "incorrectFeedback": {
-                "A": "❌ Incorrect: Tools do not automatically correct organizational or naming issues.",
-                "B": "❌ Incorrect: Tools require deliberate organization; they do not self-document.",
-                "D": "❌ Incorrect: The tool's test management functions are separate from execution."
+                "A": "❌ Incorrect: Manual testing remains possible and often valuable.",
+                "B": "❌ Incorrect: Repeatable execution is an automation benefit.",
+                "D": "❌ Incorrect: Automated execution cannot guarantee finding every omission."
             },
             "optionExplanations": {
-                "A": "Tools do not automatically correct organizational or naming issues.",
-                "B": "Tools require deliberate organization; they do not self-document.",
-                "C": "Inconsistent usage reduces the tool's value for finding and reporting.",
-                "D": "The tool's test management functions are separate from execution."
+                "A": "Manual testing remains possible and often valuable.",
+                "B": "Repeatable execution is an automation benefit.",
+                "C": "Correct: CTFL 6.2 lists unrealistic expectations of tools and excessive reliance on automation instead of human critical thinking among the risks.",
+                "D": "Automated execution cannot guarantee finding every omission."
             },
             "chapter": 6,
             "section": "6.2",
@@ -8270,35 +8271,35 @@ window.questionSets = {
             "kLevel": "K1",
             "difficulty": "Easy",
             "keywords": [
-                "tool deployment",
-                "standards",
-                "consistency"
+                "test automation",
+                "benefits",
+                "risks"
             ],
-            "examTip": "Standards ensure consistent and effective tool use.",
-            "memoryAid": "Standards prevent chaos."
+            "examTip": "Tools execute designed checks; they do not replace critical judgment.",
+            "memoryAid": "Overreliance + unrealistic expectations = automation risk."
         },
         {
             "id": "Q240",
-            "statement": "A team is piloting a new tool with a small representative project before organization-wide rollout. What good practice is this?",
+            "statement": "A team automates regression test execution. What is a direct benefit stated in CTFL section 6.2?",
             "options": {
-                "A": "Introducing a tool incrementally after evaluating fit",
-                "B": "Skipping training to reduce cost",
-                "C": "Replacing all existing processes immediately",
-                "D": "Selecting tools only by vendor popularity"
+                "A": "Faster execution of repetitive tests and earlier feedback",
+                "B": "Elimination of all testing risks",
+                "C": "Guaranteed removal of every defect",
+                "D": "Automatic replacement of all test design activities"
             },
             "correctAnswer": "A",
-            "explanation": "Tool introduction should evaluate organizational fit and benefits, often through a pilot before wider deployment.",
-            "correctFeedback": "✅ Correct: Tool introduction should evaluate organizational fit and benefits, often through a pilot before wider deployment.",
+            "explanation": "Automation can reduce repetitive manual work and execution time, enabling faster feedback and allowing testers more time for deeper testing.",
+            "correctFeedback": "✅ Correct: Automation can reduce repetitive manual work and execution time, enabling faster feedback and allowing testers more time for deeper testing.",
             "incorrectFeedback": {
-                "B": "❌ Incorrect: Skipping training to reduce cost is a common tool adoption failure pattern. Without adequate training, the team will not use the tool effectively, leading to low adoption, poor ROI, and eventual abandonment of the tool investment.",
-                "C": "❌ Incorrect: Replacing all existing processes immediately is a high-risk 'big bang' approach that typically fails. Successful tool adoption is incremental — processes should be adapted thoughtfully as the team gains experience, not discarded wholesale overnight.",
-                "D": "❌ Incorrect: Selecting tools only by vendor popularity ignores the organization's specific needs, processes, and context. Popularity does not guarantee suitability — a tool that works well for one company may be a poor fit for another's technology stack and workflows."
+                "B": "❌ Incorrect: Automated testing introduces its own risks and does not eliminate product risk.",
+                "C": "❌ Incorrect: Automation cannot guarantee the absence or removal of defects.",
+                "D": "❌ Incorrect: Human test design is still necessary."
             },
             "optionExplanations": {
-                "A": "Tool introduction should evaluate organizational fit and benefits, often through a pilot before wider deployment.",
-                "B": "Skipping training to reduce cost is a tool adoption failure pattern. Without training, the team cannot use the tool effectively, leading to low ROI.",
-                "C": "Replacing all existing processes immediately is a high-risk 'big bang' approach. Successful tool adoption is incremental and thoughtful.",
-                "D": "Selecting tools only by vendor popularity ignores organizational context. Popularity does not guarantee suitability for specific needs and processes."
+                "A": "Correct: Automation can reduce repetitive manual work and execution time, enabling faster feedback and allowing testers more time for deeper testing.",
+                "B": "Automated testing introduces its own risks and does not eliminate product risk.",
+                "C": "Automation cannot guarantee the absence or removal of defects.",
+                "D": "Human test design is still necessary."
             },
             "chapter": 6,
             "section": "6.2",
@@ -8307,11 +8308,12 @@ window.questionSets = {
             "kLevel": "K1",
             "difficulty": "Medium",
             "keywords": [
-                "tool introduction",
-                "pilot"
+                "test automation",
+                "benefits",
+                "risks"
             ],
-            "examTip": "Pilot before rollout reduces adoption risk.",
-            "memoryAid": "Try small before scaling."
+            "examTip": "Remember the benefits: repeatability, speed, objective measurements and time for deeper testing.",
+            "memoryAid": "Automation speeds repetition; does not guarantee quality."
         },
         {
             "id": "Q356",
@@ -8390,26 +8392,26 @@ window.questionSets = {
         },
         {
             "id": "Q357",
-            "statement": "An organization is considering introducing a new test automation tool. They want to evaluate the tool in a controlled manner before committing to a full rollout. Which approach is most appropriate?",
+            "statement": "An organization considers automating a regression suite but assumes every existing manual test is suitable for automation. Which risk should be recognized?",
             "options": {
-                "A": "Immediately deploy the tool to all teams",
-                "B": "Ask a vendor to guarantee success without evaluation",
-                "C": "Run a comparison between the tool and manual testing for a single day",
-                "D": "Conduct a pilot project with a single team to evaluate the tool against defined objectives"
+                "A": "Automated tests are always slower than manual tests",
+                "B": "Test automation never improves repeatability",
+                "C": "Automation cannot provide test metrics",
+                "D": "A test tool may be used when manual testing is more appropriate"
             },
             "correctAnswer": "D",
-            "explanation": "A pilot project is recommended when introducing new test tools. It allows the organization to evaluate the tool in a real project context, identify issues, learn best practices, and assess benefits before wider deployment. The pilot should have clear success criteria.",
-            "correctFeedback": "✅ Correct: A pilot project provides real-world evaluation before committing to full rollout.",
+            "explanation": "The syllabus lists using a test tool when manual testing would be more appropriate among automation risks. Suitability must be evaluated by context and expected value.",
+            "correctFeedback": "✅ Correct: The syllabus lists using a test tool when manual testing would be more appropriate among automation risks. Suitability must be evaluated by context and expected value.",
             "incorrectFeedback": {
-                "A": "❌ Incorrect: Full rollout without evaluation risks widespread failure and wasted investment.",
-                "B": "❌ Incorrect: Vendors cannot guarantee success without understanding the organization's context.",
-                "C": "❌ Incorrect: A single-day comparison is insufficient for meaningful evaluation."
+                "A": "❌ Incorrect: Automation can greatly reduce repetitive execution time.",
+                "B": "❌ Incorrect: Consistent repeatability is a common automation benefit.",
+                "C": "❌ Incorrect: Reporting and metrics are common automation benefits."
             },
             "optionExplanations": {
-                "A": "Full rollout without evaluation risks widespread failure and wasted investment.",
-                "B": "Vendors cannot guarantee success without understanding the organization's context.",
-                "C": "A single-day comparison is insufficient for meaningful evaluation.",
-                "D": "A pilot project provides real-world evaluation before committing to full rollout."
+                "A": "Automation can greatly reduce repetitive execution time.",
+                "B": "Consistent repeatability is a common automation benefit.",
+                "C": "Reporting and metrics are common automation benefits.",
+                "D": "Correct: The syllabus lists using a test tool when manual testing would be more appropriate among automation risks. Suitability must be evaluated by context and expected value."
             },
             "chapter": 6,
             "section": "6.2",
@@ -8418,35 +8420,35 @@ window.questionSets = {
             "kLevel": "K1",
             "difficulty": "Easy",
             "keywords": [
-                "pilot project",
-                "tool introduction",
-                "evaluation"
+                "test automation",
+                "benefits",
+                "risks"
             ],
-            "examTip": "Pilot before full rollout reduces risk.",
-            "memoryAid": "Pilot first, then scale."
+            "examTip": "Check suitability: not every manual test should be automated.",
+            "memoryAid": "Automate where useful; explore manually where appropriate."
         },
         {
             "id": "Q393",
-            "statement": "When considering test tool support for an organization, which factor should be evaluated FIRST?",
+            "statement": "A test automation team chooses a tool whose scripting environment does not work with the application development platform. Which CTFL automation risk is involved?",
             "options": {
-                "A": "The organization's specific needs, current processes, and the problems that the tool should solve",
-                "B": "The tool's popularity on social media",
-                "C": "The number of features in the latest tool version",
-                "D": "The tool vendor's office location"
+                "A": "Incompatibility between the automation tool and the development platform",
+                "B": "Faster detection of regressions",
+                "C": "Fewer repetitive manual tasks",
+                "D": "More objective coverage measurements"
             },
             "correctAnswer": "A",
-            "explanation": "Before selecting any tool, organizations should clearly understand their needs, pain points, existing processes, and objectives to ensure the tool addresses real problems.",
-            "correctFeedback": "✅ Correct: Before selecting any tool, organizations should clearly understand their needs, pain points, existing processes, and objectives to ensure the tool addresses real problems.",
+            "explanation": "CTFL 6.2 expressly identifies using automation tools incompatible with the development platform as a risk.",
+            "correctFeedback": "✅ Correct: CTFL 6.2 expressly identifies using automation tools incompatible with the development platform as a risk.",
             "incorrectFeedback": {
-                "B": "❌ Incorrect: The tool's popularity on social media is a marketing signal, not a technical or organizational evaluation criterion. Popularity does not indicate whether the tool solves the organization's specific problems or fits its existing processes.",
-                "C": "❌ Incorrect: The number of features is irrelevant if the tool does not address the organization's actual pain points. A tool with fewer features that fits the existing processes well delivers more value than a feature-rich tool that requires massive process changes.",
-                "D": "❌ Incorrect: The vendor's office location has no bearing on whether the tool effectively addresses the organization's testing needs. In a global market, vendor location is not a meaningful selection criterion for tool functionality and fit."
+                "B": "❌ Incorrect: This is a potential benefit, not a compatibility issue.",
+                "C": "❌ Incorrect: Reducing repetitive effort is a benefit.",
+                "D": "❌ Incorrect: Objective coverage metrics are a benefit."
             },
             "optionExplanations": {
-                "A": "Before selecting any tool, organizations should clearly understand their needs, pain points, existing processes, and objectives to ensure the tool addresses real problems.",
-                "B": "Popularity on social media is a marketing signal, not a technical evaluation criterion. It does not indicate fit with organizational needs.",
-                "C": "The number of features is irrelevant if the tool does not address actual pain points. Fit with processes matters more than feature count.",
-                "D": "The vendor's office location has no bearing on whether the tool effectively addresses the organization's testing needs."
+                "A": "Correct: CTFL 6.2 expressly identifies using automation tools incompatible with the development platform as a risk.",
+                "B": "This is a potential benefit, not a compatibility issue.",
+                "C": "Reducing repetitive effort is a benefit.",
+                "D": "Objective coverage metrics are a benefit."
             },
             "chapter": 6,
             "section": "6.2",
@@ -8455,11 +8457,12 @@ window.questionSets = {
             "kLevel": "K1",
             "difficulty": "Easy",
             "keywords": [
-                "tool evaluation",
-                "needs assessment"
+                "test automation",
+                "benefits",
+                "risks"
             ],
-            "examTip": "Understand the problem before choosing the tool.",
-            "memoryAid": "Need before tool."
+            "examTip": "Check whether the automation tool supports the actual development platform.",
+            "memoryAid": "Incompatible platform = named CTFL risk."
         },
         {
             "id": "Q278",
@@ -8537,26 +8540,26 @@ window.questionSets = {
         },
         {
             "id": "Q359",
-            "statement": "Which factor is most critical for the successful deployment and ongoing support of a test tool in an organization?",
+            "statement": "A team buys a new test automation tool but testers are unfamiliar with scripting and receive no training. Which risk is most likely?",
             "options": {
-                "A": "Choosing the most expensive tool available",
-                "B": "Providing adequate training and coaching for all tool users",
-                "C": "Letting each team use the tool however they want without standards",
-                "D": "Deploying the tool to all teams simultaneously without a pilot"
+                "A": "All tests become self-maintaining immediately",
+                "B": "Higher introduction effort, ineffective usage and poor realization of expected benefits",
+                "C": "Every manual test automatically becomes redundant",
+                "D": "The tool guarantees the same findings as human exploratory testing"
             },
             "correctAnswer": "B",
-            "explanation": "Adequate training and coaching are critical success factors for tool deployment. Users need to understand not just how to operate the tool, but how to use it effectively within the test process. Without proper training, even the best tool may be underutilized or misused.",
-            "correctFeedback": "✅ Correct: Proper training ensures users can use the tool effectively.",
+            "explanation": "Acquiring a tool alone does not guarantee benefits. Introduction and training require effort, and expectations and cost estimates may be unrealistic.",
+            "correctFeedback": "✅ Correct: Acquiring a tool alone does not guarantee benefits. Introduction and training require effort, and expectations and cost estimates may be unrealistic.",
             "incorrectFeedback": {
-                "A": "❌ Incorrect: Cost does not determine success; fit and adoption do.",
-                "C": "❌ Incorrect: Standards and guidelines help ensure consistent and effective tool use.",
-                "D": "❌ Incorrect: Phased deployment with a pilot is recommended over simultaneous full rollout."
+                "A": "❌ Incorrect: Test scripts require ongoing maintenance.",
+                "C": "❌ Incorrect: Not all manual activities can or should be automated.",
+                "D": "❌ Incorrect: Human expertise and critical thinking remain essential."
             },
             "optionExplanations": {
-                "A": "Cost does not determine success; fit and adoption do.",
-                "B": "Proper training ensures users can use the tool effectively.",
-                "C": "Standards and guidelines help ensure consistent and effective tool use.",
-                "D": "Phased deployment with a pilot is recommended over simultaneous full rollout."
+                "A": "Test scripts require ongoing maintenance.",
+                "B": "Correct: Acquiring a tool alone does not guarantee benefits. Introduction and training require effort, and expectations and cost estimates may be unrealistic.",
+                "C": "Not all manual activities can or should be automated.",
+                "D": "Human expertise and critical thinking remain essential."
             },
             "chapter": 6,
             "section": "6.2",
@@ -8565,12 +8568,12 @@ window.questionSets = {
             "kLevel": "K1",
             "difficulty": "Easy",
             "keywords": [
-                "tool deployment",
-                "training",
-                "success factors"
+                "test automation",
+                "benefits",
+                "risks"
             ],
-            "examTip": "Training drives successful tool adoption.",
-            "memoryAid": "Train to succeed."
+            "examTip": "Introduction and training are part of automation cost and risk.",
+            "memoryAid": "No training + tool acquisition ≠ success."
         },
         {
             "id": "Q384",
@@ -8906,23 +8909,23 @@ window.questionSets = {
             "id": "Q037",
             "statement": "A test team consistently finds that most defects are concentrated in 3 out of 20 modules. Which testing principle does this observation illustrate?",
             "options": {
-                "A": "Pesticide paradox",
+                "A": "Tests wear out",
                 "B": "Defect clustering",
-                "C": "Absence-of-errors fallacy",
+                "C": "Absence-of-defects fallacy",
                 "D": "Exhaustive testing is impossible"
             },
             "correctAnswer": "B",
             "explanation": "Defect clustering is the principle that defects tend to concentrate in a small number of modules or areas within a system. This observation helps test teams focus their testing efforts on high-risk areas.",
             "correctFeedback": "✅ Correct: Defects often cluster in a small number of components. An exact 80/20 split is not required.",
             "incorrectFeedback": {
-                "A": "❌ Incorrect: Pesticide paradox concerns tests losing effectiveness when repeated.",
-                "C": "❌ Incorrect: Absence-of-errors fallacy means no defects found does not mean the system meets needs.",
+                "A": "❌ Incorrect: Tests wear out concerns tests losing effectiveness when repeated.",
+                "C": "❌ Incorrect: Absence-of-defects fallacy means no defects found does not mean the system meets needs.",
                 "D": "❌ Incorrect: Exhaustive testing impossibility is about not being able to test everything."
             },
             "optionExplanations": {
-                "A": "Pesticide paradox concerns tests losing effectiveness when repeated.",
+                "A": "Tests wear out concerns tests losing effectiveness when repeated.",
                 "B": "Defects often cluster in a small number of components. An exact 80/20 split is not required.",
-                "C": "Absence-of-errors fallacy means no defects found does not mean the system meets needs.",
+                "C": "Absence-of-defects fallacy means no defects found does not mean the system meets needs.",
                 "D": "Exhaustive testing impossibility is about not being able to test everything."
             },
             "chapter": 1,
@@ -8980,7 +8983,7 @@ window.questionSets = {
             "statement": "A team is testing a safety-critical medical device and decides to use formal inspections, extensive documentation, and thorough coverage analysis. Which testing principle does this approach reflect?",
             "options": {
                 "A": "Defect clustering",
-                "B": "Pesticide paradox",
+                "B": "Tests wear out",
                 "C": "Testing is context dependent",
                 "D": "Exhaustive testing is impossible"
             },
@@ -8989,12 +8992,12 @@ window.questionSets = {
             "correctFeedback": "✅ Correct: The rigor and formality of testing depend on the context, including safety-criticality and risks.",
             "incorrectFeedback": {
                 "A": "❌ Incorrect: Defect clustering refers to uneven defect distribution across modules.",
-                "B": "❌ Incorrect: Pesticide paradox concerns test effectiveness dropping when tests are repeated.",
+                "B": "❌ Incorrect: Tests wear out concerns test effectiveness dropping when tests are repeated.",
                 "D": "❌ Incorrect: Exhaustive testing impossibility is unrelated to choosing a rigorous approach."
             },
             "optionExplanations": {
                 "A": "Defect clustering refers to uneven defect distribution across modules.",
-                "B": "Pesticide paradox concerns test effectiveness dropping when tests are repeated.",
+                "B": "Tests wear out concerns test effectiveness dropping when tests are repeated.",
                 "C": "The rigor and formality of testing depend on the context, including safety-criticality and risks.",
                 "D": "Exhaustive testing impossibility is unrelated to choosing a rigorous approach."
             },
@@ -9237,24 +9240,24 @@ window.questionSets = {
             "id": "Q084",
             "statement": "Which testing principle states that it is impossible to test all possible inputs, outputs, and combinations of conditions in a software system?",
             "options": {
-                "A": "Pesticide paradox",
+                "A": "Tests wear out",
                 "B": "Exhaustive testing is impossible",
                 "C": "Defect clustering",
-                "D": "Absence-of-errors fallacy"
+                "D": "Absence-of-defects fallacy"
             },
             "correctAnswer": "B",
             "explanation": "The principle of 'Exhaustive testing is impossible' states that testing everything (all combinations of inputs, outputs, preconditions, and paths) is not feasible except for trivial systems. Therefore, risk analysis and test techniques must be used to focus testing efforts.",
             "correctFeedback": "✅ Correct: Exhaustive testing is impossible for all but the most trivial systems due to the infinite number of input combinations.",
             "incorrectFeedback": {
-                "A": "❌ Incorrect: The pesticide paradox concerns tests becoming ineffective when repeated.",
+                "A": "❌ Incorrect: The tests wear out concerns tests becoming ineffective when repeated.",
                 "C": "❌ Incorrect: Defect clustering refers to the concentration of defects in specific modules.",
-                "D": "❌ Incorrect: Absence-of-errors fallacy means a defect-free system may still not meet user needs."
+                "D": "❌ Incorrect: Absence-of-defects fallacy means a defect-free system may still not meet user needs."
             },
             "optionExplanations": {
-                "A": "The pesticide paradox concerns tests becoming ineffective when repeated.",
+                "A": "The tests wear out concerns tests becoming ineffective when repeated.",
                 "B": "Exhaustive testing is impossible for all but the most trivial systems due to the infinite number of input combinations.",
                 "C": "Defect clustering refers to the concentration of defects in specific modules.",
-                "D": "Absence-of-errors fallacy means a defect-free system may still not meet user needs."
+                "D": "Absence-of-defects fallacy means a defect-free system may still not meet user needs."
             },
             "chapter": 1,
             "section": "1.3",
@@ -10126,26 +10129,26 @@ window.questionSets = {
         },
         {
             "id": "Q376",
-            "statement": "A test team wants to adopt a new performance testing tool. What is the FIRST step they should take to ensure successful tool adoption?",
+            "statement": "A performance test automation solution depends on a vendor whose support contract will end next month. Which automation risk is MOST directly illustrated?",
             "options": {
-                "A": "Assess organizational needs, evaluate the tool against defined criteria, and run a proof of concept on a representative project",
-                "B": "Purchase the most popular tool on the market immediately",
-                "C": "Require all testers to attend tool training before evaluating the tool",
-                "D": "Replace all existing test processes to fit the tool's capabilities"
+                "A": "Dependence on a tool vendor whose support may end or become inadequate",
+                "B": "Automated tests necessarily reduce coverage",
+                "C": "Automation prevents early feedback",
+                "D": "Static testing is impossible with tool support"
             },
             "correctAnswer": "A",
-            "explanation": "Successful tool adoption starts with a needs assessment, followed by evaluation against criteria, and a proof-of-concept or pilot on a representative project before wider rollout.",
-            "correctFeedback": "✅ Correct: Successful tool adoption starts with a needs assessment, followed by evaluation against criteria, and a proof-of-concept or pilot on a representative project before wider rollout.",
+            "explanation": "CTFL 6.2 explicitly lists dependency on the tool vendor, including retirement of a product and poor support, as an automation risk.",
+            "correctFeedback": "✅ Correct: CTFL 6.2 explicitly lists dependency on the tool vendor, including retirement of a product and poor support, as an automation risk.",
             "incorrectFeedback": {
-                "B": "❌ Incorrect: Purchasing the most popular tool immediately without needs assessment is a common tool adoption failure pattern. Popularity does not guarantee suitability for the organization's specific needs, environment, and existing processes.",
-                "C": "❌ Incorrect: Requiring training before evaluation is wasteful and premature. The team should first evaluate whether the tool meets their needs through a proof of concept. Training investments should follow tool selection, not precede it.",
-                "D": "❌ Incorrect: Replacing all existing processes to fit the tool puts the tool before the work. Processes should be adapted thoughtfully, not discarded wholesale. Successful adoption fits the tool to the organization's reality, not the reverse."
+                "B": "❌ Incorrect: Automated tests do not necessarily reduce coverage.",
+                "C": "❌ Incorrect: Automation may improve the speed of feedback.",
+                "D": "❌ Incorrect: Static analysis and reviews may be tool-supported."
             },
             "optionExplanations": {
-                "A": "Successful tool adoption starts with a needs assessment, followed by evaluation against criteria, and a proof-of-concept or pilot on a representative project before wider rollout.",
-                "B": "Purchasing based solely on popularity without needs assessment is a common tool adoption failure pattern. Popularity ≠ suitability.",
-                "C": "Training should follow tool selection, not precede evaluation. Investing in training before validating the tool's fit is premature and wasteful.",
-                "D": "Replacing all existing processes to fit the tool puts technology before people and work. Successful adoption adapts the tool to the organization, not the reverse."
+                "A": "Correct: CTFL 6.2 explicitly lists dependency on the tool vendor, including retirement of a product and poor support, as an automation risk.",
+                "B": "Automated tests do not necessarily reduce coverage.",
+                "C": "Automation may improve the speed of feedback.",
+                "D": "Static analysis and reviews may be tool-supported."
             },
             "chapter": 6,
             "section": "6.2",
@@ -10154,11 +10157,12 @@ window.questionSets = {
             "kLevel": "K1",
             "difficulty": "Medium",
             "keywords": [
-                "tool selection",
-                "tool adoption"
+                "test automation",
+                "benefits",
+                "risks"
             ],
-            "examTip": "Assess, evaluate, pilot, then roll out.",
-            "memoryAid": "Pilot before full rollout."
+            "examTip": "Vendor continuity and support are explicit automation risks.",
+            "memoryAid": "Vendor unavailable -> tool dependency risk."
         },
         {
             "id": "Q239",
@@ -10432,7 +10436,7 @@ window.questionSets = {
                 "D": "Quality is independent of context"
             },
             "correctAnswer": "A",
-            "explanation": "The fifth CTFL v4.0.1 testing principle is \"Tests wear out\": repeated unchanged tests become increasingly ineffective in detecting new defects. The team counters this by adding tests for new workflows and recent defect patterns, and by modifying existing tests and test data where needed. This principle was called the \"pesticide paradox\" in older CTFL material, but v4.0.1 uses the \"Tests wear out\" wording.",
+            "explanation": "The fifth CTFL v4.0.1 testing principle is \"Tests wear out\": repeated unchanged tests become increasingly ineffective in detecting new defects. The team counters this by adding tests for new workflows and recent defect patterns, and by modifying existing tests and test data where needed.",
             "correctFeedback": "✅ Correct: Tests wear out — repeated unchanged tests become less effective, so regression suites must be reviewed and refreshed.",
             "incorrectFeedback": {
                 "B": "❌ Incorrect: Testing cannot prove the absence of defects. It can show that defects are present, not that none remain.",
@@ -10511,13 +10515,13 @@ window.questionSets = {
             "incorrectFeedback": {
                 "A": "❌ Incorrect: Performance is one aspect of quality, not its complete definition.",
                 "C": "❌ Incorrect: Feature count does not correlate with quality.",
-                "D": "❌ Incorrect: A system can be defect-free but still not meet user needs (absence-of-errors fallacy)."
+                "D": "❌ Incorrect: A system can be defect-free but still not meet user needs (absence-of-defects fallacy)."
             },
             "optionExplanations": {
                 "A": "Performance is one aspect of quality, not its complete definition.",
                 "B": "Quality is a measure of how well the system meets requirements and satisfies user needs.",
                 "C": "Feature count does not correlate with quality.",
-                "D": "A system can be defect-free but still not meet user needs (absence-of-errors fallacy)."
+                "D": "A system can be defect-free but still not meet user needs (absence-of-defects fallacy)."
             },
             "chapter": 1,
             "section": "1.1",
@@ -11386,26 +11390,26 @@ window.questionSets = {
         },
         {
             "id": "Q221",
-            "statement": "A loan is approved if credit score is high and income is verified, or if a manager override is present. Which technique is most suitable to design tests for these rule combinations?",
+            "statement": "A loan is approved when (good credit AND verified income) OR manager override. Which test case BEST verifies that a manager override allows approval even when the standard conditions fail?",
             "options": {
-                "A": "Error guessing only",
-                "B": "Decision table testing",
-                "C": "State transition testing",
-                "D": "Statement testing"
+                "A": "Good credit, verified income, no override -> approved",
+                "B": "Poor credit, unverified income, override present -> approved",
+                "C": "Poor credit, unverified income, no override -> approved",
+                "D": "Good credit, unverified income, no override -> approved"
             },
             "correctAnswer": "B",
-            "explanation": "Decision table testing is appropriate when combinations of conditions determine actions or outcomes.",
-            "correctFeedback": "✅ Correct: Decision table testing is appropriate when combinations of conditions determine actions or outcomes.",
+            "explanation": "An explicit manager override makes the OR expression true regardless of credit and income. Poor credit and unverified income with override present is the discriminating decision-table rule.",
+            "correctFeedback": "✅ Correct: An explicit manager override makes the OR expression true regardless of credit and income. Poor credit and unverified income with override present is the discriminating decision-table rule.",
             "incorrectFeedback": {
-                "A": "❌ Incorrect: 'Error guessing only' is an experience-based technique using intuition and past defect patterns. This scenario requires decision table, which handles combinations of conditions and their resulting actions.",
-                "C": "❌ Incorrect: 'State transition testing' focuses on system states and transitions between them based on events. This scenario requires decision table, which handles combinations of conditions and their resulting actions.",
-                "D": "❌ Incorrect: 'Statement testing' is a white-box technique covering executable statements in code. This scenario requires decision table, which handles combinations of conditions and their resulting actions."
+                "A": "❌ Incorrect: The standard conditions already allow approval, so the override has not been tested.",
+                "C": "❌ Incorrect: Neither the standard conjunction nor the override holds, so approval is not expected.",
+                "D": "❌ Incorrect: Good credit alone is insufficient without verified income or override."
             },
             "optionExplanations": {
-                "A": "'Error guessing only' is an experience-based technique using intuition and past defect patterns. This scenario requires decision table, which handles combinations of conditions and their resulting actions.",
-                "B": "Decision table testing is appropriate when combinations of conditions determine actions or outcomes.",
-                "C": "'State transition testing' focuses on system states and transitions between them based on events. This scenario requires decision table, which handles combinations of conditions and their resulting actions.",
-                "D": "'Statement testing' is a white-box technique covering executable statements in code. This scenario requires decision table, which handles combinations of conditions and their resulting actions."
+                "A": "The standard conditions already allow approval, so the override has not been tested.",
+                "B": "Correct: An explicit manager override makes the OR expression true regardless of credit and income. Poor credit and unverified income with override present is the discriminating decision-table rule.",
+                "C": "Neither the standard conjunction nor the override holds, so approval is not expected.",
+                "D": "Good credit alone is insufficient without verified income or override."
             },
             "chapter": 4,
             "section": "4.2",
@@ -11414,34 +11418,35 @@ window.questionSets = {
             "kLevel": "K3",
             "difficulty": "Medium",
             "keywords": [
-                "decision table",
-                "business rules"
+                "decision table testing",
+                "conditions",
+                "test rules"
             ],
-            "examTip": "Multiple conditions plus actions point to decision tables.",
-            "memoryAid": "Rules table decisions."
+            "examTip": "For OR overrides, test the override with all ordinary approval conditions false.",
+            "memoryAid": "Override = true -> approve despite failed normal conditions."
         },
         {
             "id": "Q022",
-            "statement": "In state transition testing, which statement correctly compares all states coverage with valid transitions coverage?",
+            "statement": "A process has these valid transitions: Start->Review; Start->Reject; Review->Reject. Each test begins in Start. Which test suite achieves 100% valid-transitions coverage?",
             "options": {
-                "A": "All states coverage requires every state to be exercised, and it is weaker than valid transitions coverage because it can be achieved without exercising all transitions",
-                "B": "All states coverage requires every state to be exercised, and this automatically guarantees that every valid transition is exercised",
-                "C": "Valid transitions coverage is weaker than all states coverage because it focuses on states rather than transitions",
-                "D": "All states coverage and valid transitions coverage use the same coverage items and can therefore be achieved by the same test cases"
+                "A": "Test 1: Start->Review->Reject; Test 2: Start->Reject",
+                "B": "Test 1: Start->Review->Reject only",
+                "C": "Test 1: Start->Reject only",
+                "D": "Test 1: Start->Review only"
             },
             "correctAnswer": "A",
-            "explanation": "In all states coverage the coverage items are the states, so 100% coverage means every state is exercised at least once. In valid transitions coverage the coverage items are the individual valid transitions, so every valid transition must be exercised. Because a test case can pass through several states without traversing every transition between them, all states coverage is the weaker criterion. Achieving full valid transitions coverage does guarantee full all states coverage, but the reverse does not hold.",
-            "correctFeedback": "✅ Correct: All states coverage exercises every state, but it is weaker than valid transitions coverage because it does not require every transition to be traversed.",
+            "explanation": "The model has three distinct valid edges. One test exercises Start->Review and Review->Reject; a second test is necessary for Start->Reject. Visiting all three states alone would not cover all edges.",
+            "correctFeedback": "✅ Correct: The model has three distinct valid edges. One test exercises Start->Review and Review->Reject; a second test is necessary for Start->Reject. Visiting all three states alone would not cover all edges.",
             "incorrectFeedback": {
-                "B": "❌ Incorrect: This reverses the relationship. All states coverage does not guarantee that every valid transition is exercised.",
-                "C": "❌ Incorrect: Valid transitions coverage is the stronger criterion because it requires each individual valid transition to be exercised.",
-                "D": "❌ Incorrect: The coverage items differ — states for all states coverage, individual valid transitions for valid transitions coverage."
+                "B": "❌ Incorrect: It misses the direct Start->Reject edge.",
+                "C": "❌ Incorrect: It misses both edges involving Review.",
+                "D": "❌ Incorrect: It misses the two transitions ending in Reject."
             },
             "optionExplanations": {
-                "A": "All states coverage exercises every state, but it is weaker than valid transitions coverage because it does not require every transition to be traversed.",
-                "B": "This reverses the relationship. All states coverage does not guarantee that every valid transition is exercised.",
-                "C": "Valid transitions coverage is the stronger criterion because it requires each individual valid transition to be exercised.",
-                "D": "The coverage items differ — states for all states coverage, individual valid transitions for valid transitions coverage."
+                "A": "Correct: The model has three distinct valid edges. One test exercises Start->Review and Review->Reject; a second test is necessary for Start->Reject. Visiting all three states alone would not cover all edges.",
+                "B": "It misses the direct Start->Reject edge.",
+                "C": "It misses both edges involving Review.",
+                "D": "It misses the two transitions ending in Reject."
             },
             "chapter": 4,
             "section": "4.2",
@@ -11451,12 +11456,11 @@ window.questionSets = {
             "difficulty": "Medium",
             "keywords": [
                 "state transition testing",
-                "all states coverage",
-                "valid transitions coverage",
-                "coverage items"
+                "valid transitions",
+                "test sequences"
             ],
-            "examTip": "All states coverage < valid transitions coverage < all transitions coverage. Each stronger criterion guarantees the weaker ones, never the other way round.",
-            "memoryAid": "States = circles, transitions = arrows. Covering all circles does not mean you walked every arrow."
+            "examTip": "100% valid-transition coverage requires every modeled valid edge to be exercised.",
+            "memoryAid": "2 paths -> all 3 edges."
         },
         {
             "id": "Q158",
@@ -11828,26 +11832,26 @@ window.questionSets = {
         },
         {
             "id": "Q343",
-            "statement": "Which of the following is a factor that influences the effort required for testing?",
+            "statement": "Historic estimates show 40 testing person-days for every 120 development person-days on similar projects. A new release is estimated to require 240 development person-days. Using that ratio, what is the estimated testing effort?",
             "options": {
-                "A": "The color scheme of the application user interface",
-                "B": "The quality of the test basis and the complexity of the product",
-                "C": "The personal holidays of the test manager",
-                "D": "The office temperature"
+                "A": "40 person-days",
+                "B": "80 person-days",
+                "C": "120 person-days",
+                "D": "240 person-days"
             },
             "correctAnswer": "B",
-            "explanation": "Testing effort is influenced by factors such as product complexity, quality of the test basis (requirements clarity and completeness), required coverage levels, regulatory requirements, tool support, and team skills. UI colors, personal holidays, and office temperature are not relevant factors.",
-            "correctFeedback": "✅ Correct: Product complexity and test basis quality significantly affect testing effort.",
+            "explanation": "The historical test-to-development ratio is 40/120=1/3. For 240 development days, estimate 240×1/3=80 testing person-days.",
+            "correctFeedback": "✅ Correct: The historical test-to-development ratio is 40/120=1/3. For 240 development days, estimate 240×1/3=80 testing person-days.",
             "incorrectFeedback": {
-                "A": "❌ Incorrect: UI colors do not affect testing effort.",
-                "C": "❌ Incorrect: Personal holidays affect availability but not the inherent effort needed.",
-                "D": "❌ Incorrect: Office environment does not factor into effort estimation."
+                "A": "❌ Incorrect: This fails to scale effort for the doubled development estimate.",
+                "C": "❌ Incorrect: This uses a one-half rather than one-third ratio.",
+                "D": "❌ Incorrect: A 1:1 ratio is not supported by the historical data."
             },
             "optionExplanations": {
-                "A": "UI colors do not affect testing effort.",
-                "B": "Product complexity and test basis quality significantly affect testing effort.",
-                "C": "Personal holidays affect availability but not the inherent effort needed.",
-                "D": "Office environment does not factor into effort estimation."
+                "A": "This fails to scale effort for the doubled development estimate.",
+                "B": "Correct: The historical test-to-development ratio is 40/120=1/3. For 240 development days, estimate 240×1/3=80 testing person-days.",
+                "C": "This uses a one-half rather than one-third ratio.",
+                "D": "A 1:1 ratio is not supported by the historical data."
             },
             "chapter": 5,
             "section": "5.1",
@@ -11856,13 +11860,12 @@ window.questionSets = {
             "kLevel": "K3",
             "difficulty": "Easy",
             "keywords": [
-                "test effort",
-                "product complexity",
-                "test basis",
-                "effort factors"
+                "metrics-based estimation",
+                "testing-to-development ratio",
+                "test effort"
             ],
-            "examTip": "Complexity, basis quality, and coverage drive effort.",
-            "memoryAid": "Complexity + quality = effort."
+            "examTip": "Derive and scale the metrics-based ratio.",
+            "memoryAid": "Dev 120 -> test 40; dev 240 -> test 80."
         }
     ],
     "exam9": [
@@ -12508,7 +12511,7 @@ window.questionSets = {
                 "D": "Testing is context dependent"
             },
             "correctAnswer": "B",
-            "explanation": "The fifth CTFL v4.0.1 testing principle is \"Tests wear out\": if the same tests are repeated many times, they become increasingly ineffective in detecting new defects. To overcome this effect, existing tests and test data may need to be modified and new tests may need to be written, although in some cases repeating the same tests has a beneficial outcome, for example in automated regression testing. This principle was called the \"pesticide paradox\" in older CTFL material, but that wording is not used in v4.0.1.",
+            "explanation": "The fifth CTFL v4.0.1 testing principle is \"Tests wear out\": if the same tests are repeated many times, they become increasingly ineffective in detecting new defects. To overcome this effect, existing tests and test data may need to be modified and new tests may need to be written, although in some cases repeating the same tests has a beneficial outcome, for example in automated regression testing.",
             "correctFeedback": "✅ Correct: Tests wear out — repeated unchanged tests become increasingly ineffective at finding new defects.",
             "incorrectFeedback": {
                 "A": "❌ Incorrect: The absence-of-defects fallacy is the misconception that thorough verification of all requirements guarantees the software will succeed.",
@@ -12532,7 +12535,7 @@ window.questionSets = {
                 "testing principles",
                 "test maintenance"
             ],
-            "examTip": "In CTFL v4.0.1 principle 5 is called \"Tests wear out\". \"Pesticide paradox\" is the older name for the same idea.",
+            "examTip": "In CTFL v4.0.1 principle 5 is called \"Tests wear out\".",
             "memoryAid": "Same tests, no new defects = tests wear out."
         },
         {
@@ -13318,26 +13321,26 @@ window.questionSets = {
         },
         {
             "id": "Q997",
-            "statement": "A test manager asks the team to estimate test effort using three-point estimation. Which of the following best describes this approach?",
+            "statement": "For a feature, testers estimate 8 hours optimistically, 14 hours most likely and 20 hours pessimistically. What is the expected testing effort using three-point weighted estimation?",
             "options": {
-                "A": "The estimate is based on the average of the best-case and worst-case scenarios",
-                "B": "The estimate is computed as a weighted average of optimistic, most likely, and pessimistic estimates",
-                "C": "The estimate is always the most pessimistic value to ensure sufficient time is allocated",
-                "D": "The estimate is derived by multiplying the number of test cases by a fixed productivity factor"
+                "A": "16 hours",
+                "B": "14 hours",
+                "C": "12 hours",
+                "D": "20 hours"
             },
             "correctAnswer": "B",
-            "explanation": "Three-point estimation uses three values: optimistic (O), most likely (M), and pessimistic (P). The expected effort is calculated as (O + 4M + P) / 6 (weighted average).",
-            "correctFeedback": "✅ Correct: Correct - the weighted average (O + 4M + P) / 6 is the formula.",
+            "explanation": "Using E=(8+4×14+20)/6=(8+56+20)/6=84/6=14 hours.",
+            "correctFeedback": "✅ Correct: Using E=(8+4×14+20)/6=(8+56+20)/6=84/6=14 hours.",
             "incorrectFeedback": {
-                "A": "❌ Incorrect: A simple average of best and worst cases is not three-point estimation.",
-                "C": "❌ Incorrect: Using only the pessimistic value is not three-point estimation.",
-                "D": "❌ Incorrect: Multiplying test cases by a factor is a different technique."
+                "A": "❌ Incorrect: The weighted sum is 84, not 96.",
+                "C": "❌ Incorrect: The weighted result is not 12.",
+                "D": "❌ Incorrect: The pessimistic estimate alone is not the expected effort."
             },
             "optionExplanations": {
-                "A": "A simple average of best and worst cases is not three-point estimation.",
-                "B": "Correct - the weighted average (O + 4M + P) / 6 is the formula.",
-                "C": "Using only the pessimistic value is not three-point estimation.",
-                "D": "Multiplying test cases by a factor is a different technique."
+                "A": "The weighted sum is 84, not 96.",
+                "B": "Correct: Using E=(8+4×14+20)/6=(8+56+20)/6=84/6=14 hours.",
+                "C": "The weighted result is not 12.",
+                "D": "The pessimistic estimate alone is not the expected effort."
             },
             "chapter": 5,
             "section": "5.1",
@@ -13346,12 +13349,12 @@ window.questionSets = {
             "kLevel": "K3",
             "difficulty": "Medium",
             "keywords": [
-                "three-point estimation",
-                "test estimation",
-                "effort estimation"
+                "test effort estimation",
+                "applied estimation",
+                "project metrics"
             ],
-            "examTip": "Formula: (O + 4M + P) / 6.",
-            "memoryAid": "O4P: (Optimistic + 4x Most likely + Pessimistic) / 6."
+            "examTip": "Apply the 1:4:1 weighting for optimistic:most likely:pessimistic values.",
+            "memoryAid": "8+4×14+20=84; /6=14."
         },
         {
             "id": "Q151",
@@ -13393,26 +13396,26 @@ window.questionSets = {
         },
         {
             "id": "Q259",
-            "statement": "An insurance discount is applied when the customer is over 25, has no claims, and has held a license for at least two years. Which technique best handles the combinations?",
+            "statement": "An insurance discount applies only when age > 25, no prior claims, and license held >= 2 years. To check that the license-tenure condition is enforced independently, which test case is MOST suitable?",
             "options": {
-                "A": "State transition testing",
-                "B": "Statement coverage",
-                "C": "Exploratory testing only",
-                "D": "Decision table testing"
+                "A": "Age 30; no claims; license 4 years; expect discount",
+                "B": "Age 24; no claims; license 4 years; expect no discount",
+                "C": "Age 30; prior claim; license 4 years; expect no discount",
+                "D": "Age 30; no claims; license 1 year; expect no discount"
             },
             "correctAnswer": "D",
-            "explanation": "Decision tables are suitable for combinations of business rule conditions leading to actions.",
-            "correctFeedback": "✅ Correct: Decision tables are suitable for combinations of business rule conditions leading to actions.",
+            "explanation": "All other discount conditions are satisfied in option D, so the outcome isolates the license-tenure condition and verifies the decision rule that tenure under two years prevents the discount.",
+            "correctFeedback": "✅ Correct: All other discount conditions are satisfied in option D, so the outcome isolates the license-tenure condition and verifies the decision rule that tenure under two years prevents the discount.",
             "incorrectFeedback": {
-                "A": "❌ Incorrect: 'State transition testing' focuses on system states and transitions between them based on events. This scenario requires decision table, which handles combinations of conditions and their resulting actions.",
-                "B": "❌ Incorrect: 'Statement coverage' is a white-box code coverage metric that measures executed statements. This scenario requires decision table, which handles combinations of conditions and their resulting actions.",
-                "C": "❌ Incorrect: 'Exploratory testing only' is experience-based, relying on tester knowledge and simultaneous learning/design/execution. This scenario requires decision table, which handles combinations of conditions and their resulting actions."
+                "A": "❌ Incorrect: Every condition is favorable; this does not isolate the tenure rejection rule.",
+                "B": "❌ Incorrect: The age rule fails, so the test cannot isolate license tenure.",
+                "C": "❌ Incorrect: The claims rule fails, so the test cannot isolate license tenure."
             },
             "optionExplanations": {
-                "A": "'State transition testing' focuses on system states and transitions between them based on events. This scenario requires decision table, which handles combinations of conditions and their resulting actions.",
-                "B": "'Statement coverage' is a white-box code coverage metric that measures executed statements. This scenario requires decision table, which handles combinations of conditions and their resulting actions.",
-                "C": "'Exploratory testing only' is experience-based, relying on tester knowledge and simultaneous learning/design/execution. This scenario requires decision table, which handles combinations of conditions and their resulting actions.",
-                "D": "Decision tables are suitable for combinations of business rule conditions leading to actions."
+                "A": "Every condition is favorable; this does not isolate the tenure rejection rule.",
+                "B": "The age rule fails, so the test cannot isolate license tenure.",
+                "C": "The claims rule fails, so the test cannot isolate license tenure.",
+                "D": "Correct: All other discount conditions are satisfied in option D, so the outcome isolates the license-tenure condition and verifies the decision rule that tenure under two years prevents the discount."
             },
             "chapter": 4,
             "section": "4.2",
@@ -13421,11 +13424,12 @@ window.questionSets = {
             "kLevel": "K3",
             "difficulty": "Medium",
             "keywords": [
-                "decision table",
-                "conditions"
+                "decision table testing",
+                "conditions",
+                "test rules"
             ],
-            "examTip": "Several yes/no conditions suggest a decision table.",
-            "memoryAid": "Conditions drive actions."
+            "examTip": "In a decision table, change one condition while keeping the others favorable when testing its individual effect.",
+            "memoryAid": "Tenure false; age and claims true -> no discount."
         },
         {
             "id": "Q995",
@@ -13733,7 +13737,7 @@ window.questionSets = {
             "options": {
                 "A": "Test monitoring",
                 "B": "Test planning",
-                "C": "Test closure",
+                "C": "Test completion",
                 "D": "Test control"
             },
             "correctAnswer": "A",
@@ -13951,7 +13955,7 @@ window.questionSets = {
         },
         {
             "id": "Q1012",
-            "statement": "When a system is targeted for decommissioning, what type of maintenance testing may be required?",
+            "statement": "A legacy system is being decommissioned. Its historical customer records must be migrated to a replacement application and verified for completeness and accuracy. Which maintenance-testing activity most directly addresses this requirement?",
             "options": {
                 "A": "Retirement testing",
                 "B": "Regression testing",
@@ -13959,15 +13963,15 @@ window.questionSets = {
                 "D": "Patch testing"
             },
             "correctAnswer": "C",
-            "explanation": "Decommissioning can require testing data migration or archiving and retrieval. Retirement is a trigger for maintenance testing. Regression testing may also be appropriate for affected connected systems, but data migration testing is the option directly addressing the transfer or archiving of data.",
-            "correctFeedback": "✅ Correct: , per syllabus. Data migration to another system or data migration to an archival system may be needed.",
+            "explanation": "Retirement can trigger maintenance testing. Since the scenario explicitly requires transferring historical records to another application, data migration testing verifies the transferred records are complete and accurate. Retirement itself may alternatively require archive, restore and retrieval testing when data is retained in an archive.",
+            "correctFeedback": "✅ Correct: Data migration testing validates the accuracy and completeness of records transferred during retirement.",
             "incorrectFeedback": {
                 "A": "❌ Incorrect: This can be a trigger for maintenance testing, but it is not an actual type of testing",
                 "B": "❌ Incorrect: Regression testing may be relevant to affected systems, but it is not the specific test activity for moving or archiving the retiring system data.",
                 "D": "❌ Incorrect: this is of no use for a system being retired"
             },
             "optionExplanations": {
-                "C": ", per syllabus. Data migration to another system or data migration to an archival system may be needed",
+                "C": "Data migration testing verifies the moved records for accuracy and completeness.",
                 "A": "This can be a trigger for maintenance testing, but it is not an actual type of testing",
                 "B": "Regression testing may be relevant to affected systems, but it is not the specific test activity for moving or archiving the retiring system data.",
                 "D": "this is of no use for a system being retired"
@@ -13984,7 +13988,7 @@ window.questionSets = {
                 "triggers"
             ],
             "examTip": "Summarize maintenance testing and its triggers",
-            "memoryAid": "Decommissioning may require testing data migration or archiving, as well as verifying retirement-related changes."
+            "memoryAid": "Retirement: archive/retrieve when retained; migration tests when records are transferred."
         },
         {
             "id": "Q1013",
@@ -14025,23 +14029,23 @@ window.questionSets = {
         },
         {
             "id": "Q1014",
-            "statement": "In what way is CI/CD an example of the concept of shift-left?",
+            "statement": "How can continuous integration support a shift-left testing approach?",
             "options": {
                 "A": "It gets the code to production faster",
                 "B": "It allows the developers to continuously integrate their code",
-                "C": "It requires continuous testing throughout the pipeline",
+                "C": "By executing component tests and static analysis automatically on early code integrations",
                 "D": "It elevates the testers as the owners of quality"
             },
             "correctAnswer": "C",
-            "explanation": "C is correct. CI/CD requires continuous testing, including test automation, to be implemented for the entire pipeline. This starts testing as early as possible and shifts it to the left in the timeline. A is not correct as this is not a shift-left concept. B is true of CI/CD implementations but does not shift-left the testing. D is not correct because in a good CI/CD implementation, everyone owns quality.",
-            "correctFeedback": "✅ Correct: CI/CD requires continuous testing, including test automation, to be implemented for the entire pipeline. This starts testing as early as possible and shifts it to the left in the t.",
+            "explanation": "Shift left means performing testing activities earlier in the SDLC. Running component tests and static analysis as soon as developers integrate changes into CI gives earlier feedback. CI/CD alone does not guarantee that testing has shifted left.",
+            "correctFeedback": "✅ Correct: Early automated component tests and static analysis in CI provide fast feedback and support shift left.",
             "incorrectFeedback": {
                 "A": "❌ Incorrect: this is not a shift-left concept. B is true of CI/CD implementations but does not shift-left the testing",
                 "B": "❌ Incorrect: This option is not the correct answer (see the official explanation).",
                 "D": "❌ Incorrect: in a good CI/CD implementation, everyone owns quality"
             },
             "optionExplanations": {
-                "C": "CI/CD requires continuous testing, including test automation, to be implemented for the entire pipeline. This starts testing as early as possible and shifts it to the left in the timeline",
+                "C": "Executing component tests and static analysis early in CI is a practical shift-left implementation.",
                 "A": "this is not a shift-left concept. B is true of CI/CD implementations but does not shift-left the testing",
                 "B": "This option is not the correct answer (see the official explanation).",
                 "D": "in a good CI/CD implementation, everyone owns quality"
@@ -14057,8 +14061,8 @@ window.questionSets = {
                 "shift-left",
                 "example"
             ],
-            "examTip": "Explain shift left: integrate appropriate testing activities earlier in the lifecycle.",
-            "memoryAid": "Shift-left moves testing activities earlier in the SDLC; CI/CD pipelines can automate checks when changes are integrated or delivered."
+            "examTip": "CI enables shift left when checks such as component tests and static analysis run early, not merely because a pipeline exists.",
+            "memoryAid": "Early CI checks = shift-left feedback."
         },
         {
             "id": "Q1015",
@@ -14625,15 +14629,15 @@ window.questionSets = {
                 "D": "Reporting"
             },
             "correctAnswer": "C",
-            "explanation": "C is correct. Test execution metrics are gathered during the Test Execution activity. These metrics are used in reporting.",
-            "correctFeedback": "✅ Correct: Test execution metrics are gathered during the Test Execution activity. These metrics are used in reporting.",
+            "explanation": "The pass/fail outcome is generated and logged as tests are executed. Test monitoring subsequently collects and analyzes such execution metrics, and test reports communicate them to stakeholders.",
+            "correctFeedback": "✅ Correct: Passed-test outcomes are recorded during test execution and subsequently used for monitoring and reporting.",
             "incorrectFeedback": {
                 "A": "❌ Incorrect: This option is not the correct answer (see the official explanation).",
                 "B": "❌ Incorrect: This option is not the correct answer (see the official explanation).",
                 "D": "❌ Incorrect: This option is not the correct answer (see the official explanation)."
             },
             "optionExplanations": {
-                "C": "Test execution metrics are gathered during the Test Execution activity. These metrics are used in reporting",
+                "C": "Pass/fail outcomes originate during execution; they are then aggregated by test monitoring.",
                 "A": "This option is not the correct answer (see the official explanation).",
                 "B": "This option is not the correct answer (see the official explanation).",
                 "D": "This option is not the correct answer (see the official explanation)."
@@ -14649,7 +14653,7 @@ window.questionSets = {
                 "metrics",
                 "used"
             ],
-            "examTip": "ASTQB official sample — Recall metrics used for testing",
+            "examTip": "Execution produces results; monitoring gathers metrics; reporting communicates them.",
             "memoryAid": "Execution produces pass/fail results; monitoring collects and analyzes progress metrics from those results."
         },
         {
@@ -17800,26 +17804,26 @@ window.questionSets = {
         },
         {
             "id": "Q1115",
-            "statement": "In estimation techniques, how does 3-Point Estimation (PERT formula) calculate the final estimated test effort (E) given Optimistic (O), Most Likely (M), and Pessimistic (P) estimates?",
+            "statement": "Three-point test-effort estimates are optimistic 6 days, most likely 9 days and pessimistic 18 days. Using the CTFL weighted formula, what is the expected effort?",
             "options": {
-                "A": "E = (O + M + P) / 3",
-                "B": "E = (2O + 3M + P) / 6",
-                "C": "E = (O + 4M + P) / 6",
-                "D": "E = (O + M + 4P) / 6"
+                "A": "11 days",
+                "B": "9 days",
+                "C": "10 days",
+                "D": "12 days"
             },
             "correctAnswer": "C",
-            "explanation": "The standard PERT 3-point estimation formula gives fourfold weight to the Most Likely estimate: E = (O + 4M + P) / 6.",
-            "correctFeedback": "✅ Correct: The standard PERT formula is E = (O + 4M + P) / 6.",
+            "explanation": "The three-point weighted estimate is (6 + 4×9 + 18)/6 = 60/6 = 10 days.",
+            "correctFeedback": "✅ Correct: The three-point weighted estimate is (6 + 4×9 + 18)/6 = 60/6 = 10 days.",
             "incorrectFeedback": {
-                "A": "❌ Incorrect: This is a simple arithmetic average, not the weighted PERT 3-point formula.",
-                "B": "❌ Incorrect: This uses incorrect weighting factors.",
-                "D": "❌ Incorrect: This overweights the pessimistic factor incorrectly."
+                "A": "❌ Incorrect: An equal-weight or incorrect sum does not apply the weighted formula.",
+                "B": "❌ Incorrect: The most likely estimate alone is not the three-point result.",
+                "D": "❌ Incorrect: The weighted sum is 60, not 72."
             },
             "optionExplanations": {
-                "A": "This is a simple arithmetic average, not the weighted PERT 3-point formula.",
-                "B": "This uses incorrect weighting factors.",
-                "C": "The standard PERT formula is E = (O + 4M + P) / 6.",
-                "D": "This overweights the pessimistic factor incorrectly."
+                "A": "An equal-weight or incorrect sum does not apply the weighted formula.",
+                "B": "The most likely estimate alone is not the three-point result.",
+                "C": "Correct: The three-point weighted estimate is (6 + 4×9 + 18)/6 = 60/6 = 10 days.",
+                "D": "The weighted sum is 60, not 72."
             },
             "chapter": 5,
             "section": "5.1",
@@ -17828,13 +17832,12 @@ window.questionSets = {
             "kLevel": "K3",
             "difficulty": "Hard",
             "keywords": [
-                "estimation",
-                "3-point estimation",
-                "PERT",
-                "test effort"
+                "test effort estimation",
+                "applied estimation",
+                "project metrics"
             ],
-            "examTip": "PERT 3-point estimation formula: Effort = (Optimistic + 4*MostLikely + Pessimistic) / 6.",
-            "memoryAid": "E = (O + 4M + P) / 6."
+            "examTip": "Apply E=(a+4m+b)/6; do not just recognize the formula.",
+            "memoryAid": "6, 9, 18 -> E=10 days."
         },
         {
             "id": "Q1116",
@@ -17876,26 +17879,26 @@ window.questionSets = {
         },
         {
             "id": "Q1117",
-            "statement": "Which field in a standardized Defect Report provides developers with step-by-step instructions, inputs, and environment preconditions necessary to recreate the observable failure?",
+            "statement": "A tester sees an Android banking app crash on the third consecutive failed biometric authentication attempt. Which Steps to Reproduce field is MOST useful in the report?",
             "options": {
-                "A": "Steps to Reproduce",
-                "B": "Defect Priority",
-                "C": "Root Cause Analysis",
-                "D": "Scope Baseline"
+                "A": "Android 15, build 7.2; start logged out; fail biometric authentication three times; observe app crash; attach crash log",
+                "B": "Try things until the app crashes",
+                "C": "The authentication module is badly written",
+                "D": "Set the defect status to Closed before retesting"
             },
             "correctAnswer": "A",
-            "explanation": "A good defect report must include 'Steps to Reproduce' detailing exact inputs, sequence of actions, expected vs actual outcomes, and environment setup so developers can replicate the failure.",
-            "correctFeedback": "✅ Correct: Steps to reproduce detail preconditions, input actions, and exact steps needed to manifest the failure.",
+            "explanation": "The report records the platform/build, precondition, exact sequence, observable failure and supporting logs; these enable another tester or developer to reproduce the failure.",
+            "correctFeedback": "✅ Correct: The report records the platform/build, precondition, exact sequence, observable failure and supporting logs; these enable another tester or developer to reproduce the failure.",
             "incorrectFeedback": {
-                "B": "❌ Incorrect: Priority indicates urgency of fix.",
-                "C": "❌ Incorrect: Root cause analysis explains why the defect exists in process/code, investigated later.",
-                "D": "❌ Incorrect: Scope baseline is a project management document."
+                "B": "❌ Incorrect: It does not define a repeatable action sequence.",
+                "C": "❌ Incorrect: This is an unsupported technical attribution rather than reproduction steps.",
+                "D": "❌ Incorrect: Changing status is unrelated to the missing reproducibility information."
             },
             "optionExplanations": {
-                "A": "Steps to reproduce detail preconditions, input actions, and exact steps needed to manifest the failure.",
-                "B": "Priority indicates urgency of fix.",
-                "C": "Root cause analysis explains why the defect exists in process/code, investigated later.",
-                "D": "Scope baseline is a project management document."
+                "A": "Correct: The report records the platform/build, precondition, exact sequence, observable failure and supporting logs; these enable another tester or developer to reproduce the failure.",
+                "B": "It does not define a repeatable action sequence.",
+                "C": "This is an unsupported technical attribution rather than reproduction steps.",
+                "D": "Changing status is unrelated to the missing reproducibility information."
             },
             "chapter": 5,
             "section": "5.5",
@@ -17904,36 +17907,35 @@ window.questionSets = {
             "kLevel": "K3",
             "difficulty": "Hard",
             "keywords": [
-                "defect report",
-                "steps to reproduce",
-                "actual result",
-                "expected result"
+                "defect reporting",
+                "reproducibility",
+                "actual vs expected results"
             ],
-            "examTip": "Steps to reproduce = Exact detailed sequence allowing developers to replicate the failure.",
-            "memoryAid": "Steps to reproduce = How to make the bug happen again."
+            "examTip": "For reproducible defect reports, record the affected build/device, starting state, ordered actions, observed result and expected result.",
+            "memoryAid": "3 failed biometrics + build + crash log."
         },
         {
             "id": "Q1118",
-            "statement": "When prioritizing test execution, which strategy aims to identify critical defects early while keeping overall testing efficient?",
+            "statement": "A test suite has T1 (high risk; no prerequisite), T2 (high risk; depends on T1), T3 (medium risk; independent), and T4 (low risk; independent). The team can execute only two tests. Which sequence BEST applies risk-based prioritization while satisfying dependencies?",
             "options": {
-                "A": "Running tests in alphabetical order of test case titles.",
-                "B": "Prioritizing tests based on risk level, testing highest risk features and highest business value functions first.",
-                "C": "Executing all non-functional tests before executing any functional tests.",
-                "D": "Executing automated tests strictly in the order they were committed to the repository."
+                "A": "T4, T3",
+                "B": "T1, T2",
+                "C": "T2, T1",
+                "D": "T3, T4"
             },
             "correctAnswer": "B",
-            "explanation": "Risk-based prioritization gives earlier attention to high-risk areas, subject to dependencies and available resources. It increases the opportunity to find critical defects early but cannot guarantee that those defects will be found.",
-            "correctFeedback": "✅ Correct: Prioritize by assessed risk and relevant business importance, while respecting dependencies and resource constraints; discovery is not guaranteed.",
+            "explanation": "Running T1 then T2 exercises the two high-risk tests in a feasible order. T2 cannot execute first because it depends on T1.",
+            "correctFeedback": "✅ Correct: Running T1 then T2 exercises the two high-risk tests in a feasible order. T2 cannot execute first because it depends on T1.",
             "incorrectFeedback": {
-                "A": "❌ Incorrect: Title alphabetical order is completely arbitrary.",
-                "C": "❌ Incorrect: Functional core capabilities usually need validation before detailed non-functional testing.",
-                "D": "❌ Incorrect: Commit order does not reflect risk or business priority."
+                "A": "❌ Incorrect: Both selected tests are lower risk than T1 and T2.",
+                "C": "❌ Incorrect: T2 cannot be executed until T1 has run.",
+                "D": "❌ Incorrect: It skips both high-risk tests."
             },
             "optionExplanations": {
-                "A": "Title alphabetical order is completely arbitrary.",
-                "B": "Prioritize by assessed risk and relevant business importance, while respecting dependencies and resource constraints; discovery is not guaranteed.",
-                "C": "Functional core capabilities usually need validation before detailed non-functional testing.",
-                "D": "Commit order does not reflect risk or business priority."
+                "A": "Both selected tests are lower risk than T1 and T2.",
+                "B": "Correct: Running T1 then T2 exercises the two high-risk tests in a feasible order. T2 cannot execute first because it depends on T1.",
+                "C": "T2 cannot be executed until T1 has run.",
+                "D": "It skips both high-risk tests."
             },
             "chapter": 5,
             "section": "5.1",
@@ -17942,13 +17944,12 @@ window.questionSets = {
             "kLevel": "K3",
             "difficulty": "Hard",
             "keywords": [
-                "test prioritization",
-                "risk-based execution",
-                "business value",
-                "early defect detection"
+                "risk-based prioritization",
+                "test dependencies",
+                "test execution order"
             ],
-            "examTip": "Test Execution Order: Highest Risk and Highest Business Value tests come first.",
-            "memoryAid": "High Risk First!"
+            "examTip": "Combine risk priority with execution dependencies, rather than just stating the policy.",
+            "memoryAid": "High-risk T1 -> dependent high-risk T2."
         },
         {
             "id": "Q1119",
@@ -18119,13 +18120,13 @@ window.questionSets = {
             "incorrectFeedback": {
                 "A": "❌ Incorrect: Defect clustering refers to bugs concentrating in specific modules.",
                 "B": "❌ Incorrect: Early testing refers to Shift Left.",
-                "D": "❌ Incorrect: Pesticide paradox refers to repeating identical tests losing defect-finding effectiveness."
+                "D": "❌ Incorrect: Tests wear out refers to repeating identical tests losing defect-finding effectiveness."
             },
             "optionExplanations": {
                 "A": "Defect clustering refers to bugs concentrating in specific modules.",
                 "B": "Early testing refers to Shift Left.",
                 "C": "Absence-of-defects fallacy: Fixing bugs doesn't guarantee success if the software fails to meet business needs.",
-                "D": "Pesticide paradox refers to repeating identical tests losing defect-finding effectiveness."
+                "D": "Tests wear out refers to repeating identical tests losing defect-finding effectiveness."
             },
             "chapter": 1,
             "section": "1.3",
@@ -18324,33 +18325,33 @@ window.questionSets = {
             "kLevel": "K2",
             "difficulty": "Hard",
             "keywords": [
-                "pesticide paradox",
+                "tests wear out",
                 "testing principles",
                 "regression suite",
                 "test evolution"
             ],
             "examTip": "Tests wear out is the CTFL v4.0.1 name; review tests and data while retaining valuable regression checks.",
-            "memoryAid": "Evolve tests like pesticides against mutating bugs."
+            "memoryAid": "Tests wear out: vary and improve tests as existing checks become less effective at revealing new defects."
         },
         {
             "id": "Q1129",
             "statement": "Which of the following statements correctly describes a sequential development lifecycle model (e.g., V-model)?",
             "options": {
-                "A": "Each phase of development must be completed sequentially before the next phase begins, and testing levels directly correspond to development phases.",
+                "A": "Development activities generally follow successive phases, while reviews and test analysis/design can start during corresponding early phases",
                 "B": "Requirement analysis, design, coding, and testing activities overlap continuously in 2-week iterations.",
                 "C": "Working software is delivered to production every 2 days via automated CI/CD pipelines.",
                 "D": "Test analysis and design occur strictly during post-release operations."
             },
             "correctAnswer": "A",
-            "explanation": "In sequential models (e.g., Waterfall, V-model), development phases occur strictly step-by-step. In the V-model, each development phase on the left corresponds to a specific test level on the right.",
-            "correctFeedback": "✅ Correct: Sequential models complete phases step-by-step, with testing levels mapped to corresponding development phases in the V-model.",
+            "explanation": "In sequential SDLC models, major development activities follow a more sequential progression and executable dynamic tests generally occur later. Testing still starts early: testers can review requirements, analyze the test basis and design tests during the corresponding development activities.",
+            "correctFeedback": "✅ Correct: A sequential SDLC allows early static testing and test design, although dynamic execution generally occurs later.",
             "incorrectFeedback": {
                 "B": "❌ Incorrect: Overlapping iterative phases describe Agile/iterative lifecycles.",
                 "C": "❌ Incorrect: Continuous deployment every 2 days describes DevOps.",
                 "D": "❌ Incorrect: Test analysis occurs throughout the development lifecycle, never restricted to post-release."
             },
             "optionExplanations": {
-                "A": "Sequential models complete phases step-by-step, with testing levels mapped to corresponding development phases in the V-model.",
+                "A": "Sequential development does not prohibit early reviews and test analysis/design.",
                 "B": "Overlapping iterative phases describe Agile/iterative lifecycles.",
                 "C": "Continuous deployment every 2 days describes DevOps.",
                 "D": "Test analysis occurs throughout the development lifecycle, never restricted to post-release."
@@ -18367,8 +18368,8 @@ window.questionSets = {
                 "waterfall",
                 "test levels"
             ],
-            "examTip": "V-Model = Sequential model where every development level on the left corresponds to a test level on the right.",
-            "memoryAid": "V-model = Phase-by-phase symmetry."
+            "examTip": "Sequential model ≠ testing starts only after coding.",
+            "memoryAid": "Sequential development; early test preparation."
         },
         {
             "id": "Q1130",
@@ -18866,26 +18867,26 @@ window.questionSets = {
         },
         {
             "id": "Q1143",
-            "statement": "Consider the code logic: IF A > 10 THEN PRINT 'High' END IF; IF B > 20 THEN PRINT 'Large' ELSE PRINT 'Small' END IF. Which input pair achieves 100% Statement Coverage with a single test case?",
+            "statement": "Consider: IF A > 10 THEN PRINT 'High' ENDIF; IF B > 20 THEN PRINT 'Large' ELSE PRINT 'Small' ENDIF. What is the MINIMUM number of test cases needed for 100% statement coverage?",
             "options": {
-                "A": "A = 15, B = 25",
-                "B": "A = 5, B = 5",
-                "C": "It is impossible to achieve 100% Statement Coverage with 1 test case.",
-                "D": "A = 15, B = 5"
+                "A": "1",
+                "B": "3",
+                "C": "2",
+                "D": "4"
             },
             "correctAnswer": "C",
-            "explanation": "To execute PRINT 'High', we need A > 10. To execute PRINT 'Large', we need B > 20. To execute PRINT 'Small', we need B <= 20. Because B cannot be simultaneously > 20 and <= 20 in a single test run, executing both the IF branch and ELSE branch of statement 2 requires at least 2 test cases. Thus, 100% statement coverage is impossible with 1 test case.",
-            "correctFeedback": "✅ Correct: Executing the ELSE block (PRINT 'Small') and IF block (PRINT 'Large') requires 2 separate test runs.",
+            "explanation": "Two tests suffice: (A=15,B=25) executes 'High' and 'Large'; (A=15,B=5) executes 'High' and 'Small'. No single test can execute both mutually exclusive prints 'Large' and 'Small'.",
+            "correctFeedback": "✅ Correct: Two tests execute every PRINT statement; both branches of the second decision cannot run in one test.",
             "incorrectFeedback": {
-                "A": "❌ Incorrect: A=15, B=25 executes PRINT 'High' and PRINT 'Large', but skips PRINT 'Small' in the ELSE block.",
-                "B": "❌ Incorrect: A=5, B=5 skips PRINT 'High' and PRINT 'Large'.",
-                "D": "❌ Incorrect: A=15, B=5 executes PRINT 'High' and PRINT 'Small', but skips PRINT 'Large'."
+                "A": "❌ Incorrect: One test cannot execute both the Large and Small statements.",
+                "B": "❌ Incorrect: A third test is unnecessary after both second-decision outcomes are covered.",
+                "D": "❌ Incorrect: Four test cases are not required for statement coverage here."
             },
             "optionExplanations": {
-                "A": "A=15, B=25 executes PRINT 'High' and PRINT 'Large', but skips PRINT 'Small' in the ELSE block.",
-                "B": "A=5, B=5 skips PRINT 'High' and PRINT 'Large'.",
-                "C": "Executing the ELSE block (PRINT 'Small') and IF block (PRINT 'Large') requires 2 separate test runs.",
-                "D": "A=15, B=5 executes PRINT 'High' and PRINT 'Small', but skips PRINT 'Large'."
+                "A": "One test misses either Large or Small.",
+                "B": "Three tests would be more than the minimum.",
+                "C": "Two tests execute High, Large and Small across the suite.",
+                "D": "Four tests exceed the minimum."
             },
             "chapter": 4,
             "section": "4.3",
@@ -18899,8 +18900,8 @@ window.questionSets = {
                 "white-box",
                 "minimum test cases"
             ],
-            "examTip": "Statements inside IF and ELSE branches cannot both execute in a single test run.",
-            "memoryAid": "IF + ELSE statements = At least 2 test cases needed."
+            "examTip": "For statement coverage, cover mutually exclusive executable branches across separate tests.",
+            "memoryAid": "High+Large; High+Small -> 2 tests."
         },
         {
             "id": "Q1144",
@@ -18980,7 +18981,7 @@ window.questionSets = {
         },
         {
             "id": "Q1146",
-            "statement": "A tester is asked to review a set of pre-written test items created during previous release cycles. The tester executes tests sequentially against a structured list of common installation and security pitfalls. What technique is being applied?",
+            "statement": "A tester is given a high-level checklist of common installation and security pitfalls derived from past releases. For each checklist item, the tester designs and executes appropriate checks and records the results. Which technique is being applied?",
             "options": {
                 "A": "Exploratory Testing",
                 "B": "Checklist-based Testing",
@@ -18988,8 +18989,8 @@ window.questionSets = {
                 "D": "Branch Testing"
             },
             "correctAnswer": "B",
-            "explanation": "Checklist-based testing is an experience-based technique where the tester uses a high-level list of items (checklist) to be checked, guided by experience and historical defect patterns.",
-            "correctFeedback": "✅ Correct: Using a structured list of known items/pitfalls to guide test execution is Checklist-based Testing.",
+            "explanation": "Checklist-based testing is an experience-based technique guided by a checklist of test conditions or aspects to verify. The checklist is not necessarily a detailed, pre-written execution script; testers use it to design, execute and adapt appropriate tests.",
+            "correctFeedback": "✅ Correct: A high-level checklist guiding test design and execution is checklist-based testing.",
             "incorrectFeedback": {
                 "A": "❌ Incorrect: Exploratory testing combines learning, design, and execution and may use charters or checklists. Here the defining feature is executing tests guided by a predefined checklist.",
                 "C": "❌ Incorrect: Equivalence partitioning uses input ranges.",
@@ -18997,7 +18998,7 @@ window.questionSets = {
             },
             "optionExplanations": {
                 "A": "Exploratory testing combines learning, design, and execution and may use charters or checklists. Here the defining feature is executing tests guided by a predefined checklist.",
-                "B": "Using a structured list of known items/pitfalls to guide test execution is Checklist-based Testing.",
+                "B": "The tester derives and executes checks from a high-level list of relevant items.",
                 "C": "Equivalence partitioning uses input ranges.",
                 "D": "Branch testing uses code structure."
             },
@@ -19014,7 +19015,7 @@ window.questionSets = {
                 "pitfalls"
             ],
             "examTip": "Checklist-based testing = Executing tests guided by a structured list of items or past experience checkpoints.",
-            "memoryAid": "Checklist = Structured list of test items."
+            "memoryAid": "Checklist = high-level items to test, not necessarily scripted test cases."
         },
         {
             "id": "Q1147",
@@ -19056,26 +19057,26 @@ window.questionSets = {
         },
         {
             "id": "Q1148",
-            "statement": "An agile squad uses Acceptance Test-Driven Development (ATDD). During the refinement session, who collaborates to define the acceptance tests?",
+            "statement": "In an ATDD workshop, an acceptance criterion states: \"A transfer above the daily limit must be rejected without changing either account balance.\" An account has $400 remaining under its daily limit. Which acceptance test should the team specify BEFORE coding?",
             "options": {
-                "A": "The Test Manager exclusively in isolation.",
-                "B": "Scrum Master and DevOps engineer exclusively.",
-                "C": "External database administrators and compliance officers only.",
-                "D": "The 'Three Amigos': Business Representative (Product Owner), Developer, and Tester."
+                "A": "Transfer $100 and verify it succeeds, without checking balances",
+                "B": "Transfer $500 and verify it succeeds",
+                "C": "Check only that the transfer button appears",
+                "D": "Transfer $500; expect rejection and both balances unchanged"
             },
             "correctAnswer": "D",
-            "explanation": "ATDD relies on collaborative refinement by the 'Three Amigos': Business (PO), Development, and Testing perspectives.",
-            "correctFeedback": "✅ Correct: The 'Three Amigos' (PO/Business, Developer, Tester) collaboratively create acceptance tests in ATDD.",
+            "explanation": "The specified pre-implementation test derives directly from the acceptance criterion. The $500 transfer exceeds the $400 remaining limit and must be rejected without any balance change.",
+            "correctFeedback": "✅ Correct: The specified pre-implementation test derives directly from the acceptance criterion. The $500 transfer exceeds the $400 remaining limit and must be rejected without any balance change.",
             "incorrectFeedback": {
-                "A": "❌ Incorrect: Isolated creation violates ATDD collaboration.",
-                "B": "❌ Incorrect: Excludes business and tester domain roles.",
-                "C": "❌ Incorrect: Excludes core squad members."
+                "A": "❌ Incorrect: A permitted transfer does not test rejection above the remaining daily limit.",
+                "B": "❌ Incorrect: Success contradicts the rejection requirement.",
+                "C": "❌ Incorrect: Button visibility does not test the business rule."
             },
             "optionExplanations": {
-                "A": "Isolated creation violates ATDD collaboration.",
-                "B": "Excludes business and tester domain roles.",
-                "C": "Excludes core squad members.",
-                "D": "The 'Three Amigos' (PO/Business, Developer, Tester) collaboratively create acceptance tests in ATDD."
+                "A": "A permitted transfer does not test rejection above the remaining daily limit.",
+                "B": "Success contradicts the rejection requirement.",
+                "C": "Button visibility does not test the business rule.",
+                "D": "Correct: The specified pre-implementation test derives directly from the acceptance criterion. The $500 transfer exceeds the $400 remaining limit and must be rejected without any balance change."
             },
             "chapter": 4,
             "section": "4.5",
@@ -19085,12 +19086,11 @@ window.questionSets = {
             "difficulty": "Hard",
             "keywords": [
                 "ATDD",
-                "Three Amigos",
-                "collaboration",
-                "Product Owner"
+                "acceptance criteria",
+                "acceptance test cases"
             ],
-            "examTip": "ATDD Three Amigos = Business/PO + Developer + Tester.",
-            "memoryAid": "Three Amigos = PO + Dev + Tester."
+            "examTip": "ATDD: create concrete business-readable acceptance tests with stimulus and expected results before implementation.",
+            "memoryAid": "Remaining allowance $400, transfer $500 -> rejected; balances unchanged."
         },
         {
             "id": "Q1149",
@@ -19284,26 +19284,26 @@ window.questionSets = {
         },
         {
             "id": "Q1154",
-            "statement": "A team estimates testing effort using Expert-Based Estimation (Wideband Delphi). What is a defining characteristic of this technique?",
+            "statement": "During Wideband Delphi, three experts independently estimate 10, 15 and 20 test-days. After discussing the differences, all three independently re-estimate 16 days. Which estimate should the team use once consensus is reached?",
             "options": {
-                "A": "Estimates are derived using mathematical formulas based on lines of code.",
-                "B": "Estimates are gathered independently from a panel of domain/testing experts and iteratively aligned through consensus.",
-                "C": "Estimates are provided exclusively by the client's finance department.",
-                "D": "Estimates are calculated by measuring CPU cycle consumption."
+                "A": "10 days, the lowest initial estimate",
+                "B": "16 days, the final consensus estimate",
+                "C": "20 days, the highest initial estimate",
+                "D": "45 days, the sum of initial estimates"
             },
             "correctAnswer": "B",
-            "explanation": "Wideband Delphi is an expert-based technique where experts provide independent estimates anonymously, discuss differences, and iterate until reaching consensus.",
-            "correctFeedback": "✅ Correct: Wideband Delphi uses expert consensus gathered anonymously and iterated.",
+            "explanation": "Wideband Delphi uses independent expert estimates, discussion of outliers and renewed estimates until consensus. The final agreed value is 16 days.",
+            "correctFeedback": "✅ Correct: Wideband Delphi uses independent expert estimates, discussion of outliers and renewed estimates until consensus. The final agreed value is 16 days.",
             "incorrectFeedback": {
-                "A": "❌ Incorrect: This option describes a metrics-based calculation, not iterative expert consensus. Use of a formula alone does not make an estimation technique metrics-based; three-point estimation is expert-based.",
-                "C": "❌ Incorrect: The technique uses relevant experts; assigning estimates exclusively to finance omits the required testing and domain perspectives.",
-                "D": "❌ Incorrect: CPU cycles do not measure human testing effort."
+                "A": "❌ Incorrect: The smallest first estimate was not agreed after discussion.",
+                "C": "❌ Incorrect: The largest first estimate was not agreed after discussion.",
+                "D": "❌ Incorrect: Summing independent expert estimates is not how the team sets consensus."
             },
             "optionExplanations": {
-                "A": "This option describes a metrics-based calculation, not iterative expert consensus. Use of a formula alone does not make an estimation technique metrics-based; three-point estimation is expert-based.",
-                "B": "Wideband Delphi uses expert consensus gathered anonymously and iterated.",
-                "C": "The technique uses relevant experts; assigning estimates exclusively to finance omits the required testing and domain perspectives.",
-                "D": "CPU cycles do not measure human testing effort."
+                "A": "The smallest first estimate was not agreed after discussion.",
+                "B": "Correct: Wideband Delphi uses independent expert estimates, discussion of outliers and renewed estimates until consensus. The final agreed value is 16 days.",
+                "C": "The largest first estimate was not agreed after discussion.",
+                "D": "Summing independent expert estimates is not how the team sets consensus."
             },
             "chapter": 5,
             "section": "5.1",
@@ -19312,36 +19312,35 @@ window.questionSets = {
             "kLevel": "K3",
             "difficulty": "Hard",
             "keywords": [
-                "estimation",
                 "Wideband Delphi",
-                "expert-based",
-                "consensus"
+                "consensus estimation",
+                "test effort"
             ],
-            "examTip": "Wideband Delphi = Expert-based iterative consensus estimation.",
-            "memoryAid": "Experts + Consensus = Wideband Delphi."
+            "examTip": "After each Delphi round, use the consensus estimate when it is established.",
+            "memoryAid": "10/15/20 -> discuss -> 16/16/16 -> 16."
         },
         {
             "id": "Q1155",
-            "statement": "In defect management, what does the 'Severity' attribute of a defect report measure?",
+            "statement": "In a payment application, rounding one cent incorrectly on every transfer is classified as HIGH impact by the agreed severity scale. The fix is scheduled for the next release. Which defect report BEST records the severity objectively?",
             "options": {
-                "A": "The urgency with which the defect must be fixed for business release.",
-                "B": "The time spent by the tester documenting the defect report.",
-                "C": "The degree of impact the defect has on the system's operational capability or user business operations.",
-                "D": "The total salary cost of the developer assigned to fix the defect."
+                "A": "Severity LOW because the individual difference is only one cent",
+                "B": "Severity MEDIUM because next-release fixes must always be medium",
+                "C": "Severity HIGH per the agreed impact scale; include reproducible transfer amounts, expected and actual rounded values, and the affected build",
+                "D": "Severity is unnecessary when priority is recorded"
             },
             "correctAnswer": "C",
-            "explanation": "Severity measures technical/operational impact (degree of harm) on the system. Priority measures urgency of fix for business schedule.",
-            "correctFeedback": "✅ Correct: Severity measures the technical degree of impact/harm on system functionality.",
+            "explanation": "Severity reflects impact according to the agreed scale, not the scheduled fix date. A report should record the high severity and objective data demonstrating the observed result.",
+            "correctFeedback": "✅ Correct: Severity reflects impact according to the agreed scale, not the scheduled fix date. A report should record the high severity and objective data demonstrating the observed result.",
             "incorrectFeedback": {
-                "A": "❌ Incorrect: Urgency for fix is Priority.",
-                "B": "❌ Incorrect: Documentation time is reporting effort.",
-                "D": "❌ Incorrect: Salary cost is irrelevant."
+                "A": "❌ Incorrect: This conflicts with the agreed scale and may underestimate repeated financial impact.",
+                "B": "❌ Incorrect: The planned fix date is a priority/scheduling issue, not the severity definition.",
+                "D": "❌ Incorrect: Severity and priority are distinct useful report fields."
             },
             "optionExplanations": {
-                "A": "Urgency for fix is Priority.",
-                "B": "Documentation time is reporting effort.",
-                "C": "Severity measures the technical degree of impact/harm on system functionality.",
-                "D": "Salary cost is irrelevant."
+                "A": "This conflicts with the agreed scale and may underestimate repeated financial impact.",
+                "B": "The planned fix date is a priority/scheduling issue, not the severity definition.",
+                "C": "Correct: Severity reflects impact according to the agreed scale, not the scheduled fix date. A report should record the high severity and objective data demonstrating the observed result.",
+                "D": "Severity and priority are distinct useful report fields."
             },
             "chapter": 5,
             "section": "5.5",
@@ -19350,13 +19349,12 @@ window.questionSets = {
             "kLevel": "K3",
             "difficulty": "Hard",
             "keywords": [
-                "defect severity",
-                "impact",
-                "defect priority",
-                "defect management"
+                "defect reporting",
+                "reproducibility",
+                "actual vs expected results"
             ],
-            "examTip": "Severity = Technical Impact on system; Priority = Business Urgency to fix.",
-            "memoryAid": "Severity = How bad it hurts; Priority = How fast to fix."
+            "examTip": "Use the agreed impact scale and document the numerical failure in the report.",
+            "memoryAid": "High impact ≠ urgent fix date; show expected versus actual."
         },
         {
             "id": "Q1156",
@@ -19512,26 +19510,26 @@ window.questionSets = {
         },
         {
             "id": "Q1160",
-            "statement": "To maximize success when introducing a new test automation tool into an organization, what is a recommended best practice?",
+            "statement": "After adopting UI test automation, a team discovers that updating scripts after every user-interface change takes more time than expected. Which risk does this BEST illustrate?",
             "options": {
-                "A": "Deploy the tool immediately to all project teams across the entire company on day one without training.",
-                "B": "Require developers to abandon all unit testing and rely solely on the new UI automation tool.",
-                "C": "Assume that the tool requires no ongoing maintenance after initial script recording.",
-                "D": "Conduct a pilot project to assess tool fit, gather metrics, establish standard usage guidelines, and evaluate integration before scaling."
+                "A": "Automated execution necessarily proves the absence of defects",
+                "B": "Tools remove the need for test design",
+                "C": "Automation means test scripts never need maintenance",
+                "D": "Underestimated ongoing effort and cost of maintaining automated tests"
             },
             "correctAnswer": "D",
-            "explanation": "Best practice for tool rollout: Perform a pilot project to assess fit, evaluate organizational processes, establish standard conventions, gather initial metrics, and train staff before full deployment.",
-            "correctFeedback": "✅ Correct: Conducting a pilot project to evaluate fit, establish guidelines, and learn is a key success factor for tool deployment.",
+            "explanation": "The maintenance of automated scripts and adjustments to manual processes need effort. Underestimating that effort is an identified test-automation risk in CTFL 6.2.",
+            "correctFeedback": "✅ Correct: The maintenance of automated scripts and adjustments to manual processes need effort. Underestimating that effort is an identified test-automation risk in CTFL 6.2.",
             "incorrectFeedback": {
-                "A": "❌ Incorrect: Big-bang rollout without training is a major failure factor.",
-                "B": "❌ Incorrect: UI automation complements unit testing, never replaces it.",
-                "C": "❌ Incorrect: Automation scripts always require ongoing maintenance."
+                "A": "❌ Incorrect: Testing does not prove the absence of defects.",
+                "B": "❌ Incorrect: Automation does not eliminate human test design.",
+                "C": "❌ Incorrect: Scripts often require updates as the system evolves."
             },
             "optionExplanations": {
-                "A": "Big-bang rollout without training is a major failure factor.",
-                "B": "UI automation complements unit testing, never replaces it.",
-                "C": "Automation scripts always require ongoing maintenance.",
-                "D": "Conducting a pilot project to evaluate fit, establish guidelines, and learn is a key success factor for tool deployment."
+                "A": "Testing does not prove the absence of defects.",
+                "B": "Automation does not eliminate human test design.",
+                "C": "Scripts often require updates as the system evolves.",
+                "D": "Correct: The maintenance of automated scripts and adjustments to manual processes need effort. Underestimating that effort is an identified test-automation risk in CTFL 6.2."
             },
             "chapter": 6,
             "section": "6.2",
@@ -19540,13 +19538,12 @@ window.questionSets = {
             "kLevel": "K1",
             "difficulty": "Hard",
             "keywords": [
-                "pilot project",
-                "tool rollout",
-                "success factors",
-                "test automation"
+                "test automation",
+                "benefits",
+                "risks"
             ],
-            "examTip": "Tool Deployment Success Factor: Conduct a pilot project first to evaluate fit and establish standards.",
-            "memoryAid": "Pilot Project First!"
+            "examTip": "Include the total cost of script maintenance, not only initial tool cost.",
+            "memoryAid": "UI changes -> script maintenance -> automation risk."
         }
     ]
 };
