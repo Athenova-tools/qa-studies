@@ -924,6 +924,12 @@ async function main() {
         assert(webStats.includes(marker), 'web statistics missing ' + marker);
         assert(androidStats.includes(marker), 'Android statistics missing ' + marker);
       });
+    assert(androidStats.includes('/* Android layout: keep filter and pagination in simple, wrap-safe rows. */'),
+      'Android should use the wrap-safe control layout');
+    assert(androidStats.includes('paginationWrap.appendChild(pageSize);'),
+      'Android page-size selector should stay with the flex pagination controls');
+    assert(!androidStats.includes('table-layout:fixed') && !androidStats.includes('display:contents'),
+      'Android table and controls should not use the broken fixed-grid layout');
     const webCss = fs.readFileSync(path.join(__dirname, '..', 'css/style.css'), 'utf8');
     const androidCss = fs.readFileSync(path.join(__dirname, '..', 'android/app/src/main/assets/www/css/style.css'), 'utf8');
     assert(webCss.includes('.hero {\n  padding: var(--header-height) 0 var(--space-md);'), 'web hero top spacing not reduced');

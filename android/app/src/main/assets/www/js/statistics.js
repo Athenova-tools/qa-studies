@@ -964,15 +964,8 @@ const ExamStats = (function () {
 
     var tableWrap = createEl('div', null, { style: 'overflow-x:auto;margin-bottom:var(--space-sm);' });
     var table = createEl('table', null, {
-      style: 'width:100%;table-layout:fixed;border-collapse:collapse;font-size:0.875rem;',
+      style: 'width:100%;border-collapse:collapse;font-size:0.875rem;',
     });
-    var colgroup = document.createElement('colgroup');
-    ['15%', '14%', '10%', '11%', '18%', '10%', '22%'].forEach(function (width) {
-      var col = document.createElement('col');
-      col.style.width = width;
-      colgroup.appendChild(col);
-    });
-    table.appendChild(colgroup);
 
     /* Header */
     var thead = document.createElement('thead');
@@ -1073,16 +1066,16 @@ const ExamStats = (function () {
     tableWrap.appendChild(table);
     container.appendChild(tableWrap);
 
-    /* Filter and pagination share one row aligned to the table columns */
+    /* Android layout: keep filter and pagination in simple, wrap-safe rows. */
     var paginationWrap = createEl('div', null, {
-      style: 'display:contents;',
+      style: 'display:flex;align-items:center;justify-content:center;gap:var(--space-md);margin-bottom:var(--space-md);flex-wrap:wrap;',
     });
     var dashboardControls = createEl('div', null, {
-      style: 'display:grid;grid-template-columns:15% 14% 10% 11% 18% 10% 22%;align-items:center;width:100%;margin-bottom:var(--space-md);',
+      style: 'display:flex;flex-direction:column;align-items:stretch;gap:var(--space-sm);margin-bottom:var(--space-md);',
     });
     if (totalItems > recentPageSize) {
       var pageNav = createEl('div', null, {
-        style: 'grid-column:4;display:flex;align-items:center;justify-content:center;gap:var(--space-md);',
+        style: 'display:flex;align-items:center;justify-content:center;gap:var(--space-md);',
       });
       var prevBtn = createEl('button', ['btn', 'btn--secondary', 'btn--sm'], { text: '\u2039' });
       prevBtn.setAttribute('aria-label', 'Previous page');
@@ -1125,7 +1118,7 @@ const ExamStats = (function () {
     examIds.sort(function (a, b) { return a - b; });
 
     var filterWrap = createEl('div', null, {
-      style: 'grid-column:1 / span 3;width:100%;padding:0;display:flex;align-items:center;gap:var(--space-sm);',
+      style: 'width:100%;padding:0;display:flex;align-items:center;gap:var(--space-sm);',
     });
     if (examIds.length > 0) {
       filterWrap.appendChild(createEl('label', null, {
@@ -1155,7 +1148,7 @@ const ExamStats = (function () {
     var pageSize = createEl('select', 'recent-page-size', {
       'aria-label': 'Attempts per page',
       title: 'Attempts per page',
-      style: 'grid-column:7;justify-self:center;padding:var(--space-xs) var(--space-sm);border:1px solid var(--color-border);border-radius:var(--radius-md);background:var(--color-bg);color:var(--color-text);',
+      style: 'padding:var(--space-xs) var(--space-sm);border:1px solid var(--color-border);border-radius:var(--radius-md);background:var(--color-bg);color:var(--color-text);',
     });
     PAGE_SIZE_OPTIONS.forEach(function (size) {
       var option = document.createElement('option');
@@ -1173,7 +1166,7 @@ const ExamStats = (function () {
     });
     dashboardControls.appendChild(filterWrap);
     dashboardControls.appendChild(paginationWrap);
-    dashboardControls.appendChild(pageSize);
+    paginationWrap.appendChild(pageSize);
     container.appendChild(dashboardControls);
 
     /* Render per-chapter chart */
