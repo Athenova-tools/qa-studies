@@ -489,6 +489,7 @@ async function main() {
     downloaded.length = 0;
     const exportBtn = els.find(e => e.textContent === '\u2913 Export All JSON');
     assert(exportBtn && exportBtn.on_click, 'Export button has no click handler');
+    assert.strictEqual(exportBtn.disabled, false, 'Export All should be enabled when attempts exist');
     exportBtn.on_click();
     assert.strictEqual(downloaded.length, 1, 'Export button did not trigger download');
 
@@ -514,7 +515,84 @@ async function main() {
     (function walk2(e) { els2.push(e); (e.children || []).forEach(walk2); })(container2);
     const t2 = new Set(els2.map(e => e.textContent));
     assert(t2.has('\u2913 Export All JSON'), 'empty state missing Export All');
+    const emptyExportBtn = els2.find(e => e.textContent === '\u2913 Export All JSON');
+    assert.strictEqual(emptyExportBtn.disabled, true, 'Export All should be disabled without attempts');
     assert(t2.has('\u2912 Import JSON'), 'empty state missing Import');
+  });
+
+  await ok('Recent Attempts page-size selector supports 10 and resets pagination', () => {
+    localStorage.clear();
+    for (let i = 0; i < 21; i++) ES.saveAttempt(makeResults({ examId: 5 }));
+
+    const container = mkEl('div');
+    const prevGet = document.getElementById;
+    document.getElementById = id => id === 'stats-dashboard' ? container : null;
+    try {
+      ES.renderStatsDashboard();
+      const all = [];
+      (function walk(e) { all.push(e); (e.children || []).forEach(walk); })(container);
+      const pageSize = all.filter(e => e.className === 'recent-page-size').pop();
+      assert(pageSize, 'page-size selector missing');
+      assert.deepStrictEqual(pageSize.children.map(option => option.textContent), ['--', '10', '20', '30', '50', '100']);
+      const dashboardControls = all.find(e => e.children.includes(pageSize));
+      const filterRow = all.find(e => e.children.some(child => child.textContent === 'Filter by exam:'));
+      assert(filterRow && filterRow.style.includes('grid-column:1 / span 3'),
+        'Filter by exam should occupy the left side of the shared controls row');
+      assert(pageSize.style.includes('grid-column:7'),
+        'page-size selector should share the Filter by exam row at its right side');
+      const pageNav = all.find(e => e.children.some(child => child.textContent === '1/5'));
+      assert(pageNav && pageNav.style.includes('grid-column:4'),
+        'page indicator should align with the Percentage column');
+      const pagination = all.find(e => e.children.includes(pageNav));
+      assert(pagination && pagination.style.includes('display:contents'),
+        'pagination should participate in the shared Filter by exam row');
+      const table = all.find(e => e.tagName === 'table');
+      assert(table && table.style.includes('table-layout:fixed'), 'table should use fixed tracks matching the controls');
+      const columns = all.find(e => e.tagName === 'colgroup');
+      assert.deepStrictEqual(columns.children.map(col => col.style.width), ['15%', '14%', '10%', '11%', '18%', '10%', '22%']);
+      const filter = all.find(e => e.children.some(child => child.textContent === 'Filter by exam:'));
+      assert(filter && all.indexOf(filter) < all.indexOf(pagination),
+        'Filter by exam should appear before pagination controls');
+      assert(dashboardControls.children.includes(filterRow) &&
+        dashboardControls.children.includes(pagination) && dashboardControls.children.includes(pageSize),
+        'Filter by exam, pagination and page-size selector should share one aligned row');
+      const tbody = all.filter(e => e.tagName === 'tbody').pop();
+      assert.strictEqual(tbody.children.length, 5, 'default page size remains five');
+
+      pageSize.value = '10';
+      assert.strictEqual(typeof pageSize.on_change, 'function', 'selector change handler missing');
+      pageSize.on_change();
+      const after = [];
+      (function walk(e) { after.push(e); (e.children || []).forEach(walk); })(container);
+      assert.strictEqual(after.filter(e => e.tagName === 'tbody').pop().children.length, 10,
+        'selecting 10 should render ten attempts');
+    } finally { document.getElementById = prevGet; }
+  });
+
+  await ok('Per-Chapter Performance sorts chapters numerically', () => {
+    localStorage.clear();
+    const result = makeResults({ examId: 5 });
+    result.chapterPerformance = {
+      'Chapter 6': { correct: 1, total: 1 },
+      'Chapter 2': { correct: 1, total: 1 },
+      'Chapter 10': { correct: 1, total: 1 },
+      'Chapter 1': { correct: 1, total: 1 },
+    };
+    ES.saveAttempt(result);
+
+    const container = mkEl('div');
+    const prevGet = document.getElementById;
+    document.getElementById = id => id === 'stats-dashboard' ? container : null;
+    try { ES.renderStatsDashboard(); } finally { document.getElementById = prevGet; }
+
+    const rows = [];
+    (function walk(e) {
+      if (e.children && e.children.length === 5 && /^Chapter \d+$/.test(e.children[0].textContent)) {
+        rows.push(e.children[0].textContent);
+      }
+      (e.children || []).forEach(walk);
+    })(container);
+    assert.deepStrictEqual(rows.slice(0, 4), ['Chapter 1', 'Chapter 2', 'Chapter 6', 'Chapter 10']);
   });
 
 
@@ -839,6 +917,17 @@ async function main() {
       const mirrored = fs.readFileSync(path.join(androidRoot, f), 'utf8');
       assert.strictEqual(mirrored, web, f + ' difere no espelho android');
     });
+    const webStats = fs.readFileSync(path.join(__dirname, 'statistics.js'), 'utf8');
+    const androidStats = fs.readFileSync(path.join(androidRoot, 'js/statistics.js'), 'utf8');
+    ['exportBtn.disabled = getAttempts().length === 0;', 'if (exportBtn.disabled) return;', 'dashboardControls.appendChild(paginationWrap);']
+      .forEach(marker => {
+        assert(webStats.includes(marker), 'web statistics missing ' + marker);
+        assert(androidStats.includes(marker), 'Android statistics missing ' + marker);
+      });
+    const webCss = fs.readFileSync(path.join(__dirname, '..', 'css/style.css'), 'utf8');
+    const androidCss = fs.readFileSync(path.join(__dirname, '..', 'android/app/src/main/assets/www/css/style.css'), 'utf8');
+    assert(webCss.includes('.hero {\n  padding: var(--header-height) 0 var(--space-md);'), 'web hero top spacing not reduced');
+    assert(androidCss.includes('.hero {\n  padding: var(--header-height) 0 var(--space-md);'), 'Android hero top spacing not reduced');
   });
 
   console.log('');

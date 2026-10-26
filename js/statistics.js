@@ -12,7 +12,8 @@ const ExamStats = (function () {
   var FULL_KEY_PREFIX = 'istqb_ctfl_full_';
   var TOTAL_Q = 40;
   var selectedExamFilter = 'all';
-  var PAGE_SIZE = 5;
+  var PAGE_SIZE_OPTIONS = [5, 10, 20, 30, 50, 100];
+  var recentPageSize = 5;
   var recentCurrentPage = 1;
   /* Ordenação da tabela Recent Attempts: null = default (data desc) */
   var recentSort = { key: null, dir: null };
@@ -571,7 +572,9 @@ const ExamStats = (function () {
   function createSyncButtons() {
     var wrap = createEl('div', null, { style: 'display:flex;gap:var(--space-sm);flex-wrap:wrap;' });
     var exportBtn = createEl('button', ['btn', 'btn--secondary', 'btn--sm'], { text: '⤓ Export All JSON' });
+    exportBtn.disabled = getAttempts().length === 0;
     exportBtn.addEventListener('click', function () {
+      if (exportBtn.disabled) return;
       exportAllAttempts();
     });
     wrap.appendChild(exportBtn);
@@ -686,7 +689,11 @@ const ExamStats = (function () {
   };
 
   function renderChapterChart(chapterPerformance) {
-    var chKeys = Object.keys(chapterPerformance || {});
+    var chKeys = Object.keys(chapterPerformance || {}).sort(function (a, b) {
+      var aNumber = parseInt((a.match(/\d+/) || ['0'])[0], 10);
+      var bNumber = parseInt((b.match(/\d+/) || ['0'])[0], 10);
+      return aNumber - bNumber || a.localeCompare(b);
+    });
     if (!chKeys.length) return null;
 
     var GRID_COLS = '70px 1fr 40px 36px 40px';
@@ -904,7 +911,7 @@ const ExamStats = (function () {
     });
     container.appendChild(summaryGrid);
 
-    /* ---- Recent Attempts Table (paginated 5 per page) ---- */
+    /* ---- Recent Attempts Table ---- */
     var attemptsHeader = createEl('div', null, {
       style: 'display:flex;align-items:center;justify-content:space-between;gap:var(--space-md);margin-bottom:var(--space-md);flex-wrap:wrap;',
     });
@@ -938,17 +945,24 @@ const ExamStats = (function () {
     }
 
     var totalItems = filteredList.length;
-    var totalPages = Math.ceil(totalItems / PAGE_SIZE) || 1;
+    var totalPages = Math.ceil(totalItems / recentPageSize) || 1;
     if (recentCurrentPage > totalPages) recentCurrentPage = totalPages;
     if (recentCurrentPage < 1) recentCurrentPage = 1;
 
-    var startIdx = (recentCurrentPage - 1) * PAGE_SIZE;
-    var paginatedList = filteredList.slice(startIdx, startIdx + PAGE_SIZE);
+    var startIdx = (recentCurrentPage - 1) * recentPageSize;
+    var paginatedList = filteredList.slice(startIdx, startIdx + recentPageSize);
 
     var tableWrap = createEl('div', null, { style: 'overflow-x:auto;margin-bottom:var(--space-sm);' });
     var table = createEl('table', null, {
-      style: 'width:100%;border-collapse:collapse;font-size:0.875rem;',
+      style: 'width:100%;table-layout:fixed;border-collapse:collapse;font-size:0.875rem;',
     });
+    var colgroup = document.createElement('colgroup');
+    ['15%', '14%', '10%', '11%', '18%', '10%', '22%'].forEach(function (width) {
+      var col = document.createElement('col');
+      col.style.width = width;
+      colgroup.appendChild(col);
+    });
+    table.appendChild(colgroup);
 
     /* Header */
     var thead = document.createElement('thead');
@@ -1035,7 +1049,7 @@ const ExamStats = (function () {
             var remaining = getAttempts().filter(function (x) {
               return selectedExamFilter === 'all' ? true : String(x.examId) === String(selectedExamFilter);
             }).length - 1;
-            var newTotalPages = Math.ceil(remaining / PAGE_SIZE) || 1;
+            var newTotalPages = Math.ceil(remaining / recentPageSize) || 1;
             if (recentCurrentPage > newTotalPages) recentCurrentPage = newTotalPages;
             renderStatsDashboard();
           }
@@ -1050,12 +1064,17 @@ const ExamStats = (function () {
     tableWrap.appendChild(table);
     container.appendChild(tableWrap);
 
-    /* Pagination controls (only when > 1 page) */
-    if (totalItems > PAGE_SIZE) {
-      var paginationWrap = createEl('div', null, {
-        style: 'display:flex;align-items:center;justify-content:center;gap:var(--space-md);margin-bottom:var(--space-xl);flex-wrap:wrap;',
+    /* Filter and pagination share one row aligned to the table columns */
+    var paginationWrap = createEl('div', null, {
+      style: 'display:contents;',
+    });
+    var dashboardControls = createEl('div', null, {
+      style: 'display:grid;grid-template-columns:15% 14% 10% 11% 18% 10% 22%;align-items:center;width:100%;margin-bottom:var(--space-md);',
+    });
+    if (totalItems > recentPageSize) {
+      var pageNav = createEl('div', null, {
+        style: 'grid-column:4;display:flex;align-items:center;justify-content:center;gap:var(--space-md);',
       });
-
       var prevBtn = createEl('button', ['btn', 'btn--secondary', 'btn--sm'], { text: '\u2039' });
       prevBtn.setAttribute('aria-label', 'Previous page');
       prevBtn.disabled = recentCurrentPage <= 1;
@@ -1065,7 +1084,7 @@ const ExamStats = (function () {
           renderStatsDashboard();
         }
       });
-      paginationWrap.appendChild(prevBtn);
+      pageNav.appendChild(prevBtn);
 
       var pageInfo = createEl('span', null, {
         style: 'font-size:0.875rem;font-weight:700;color:var(--color-text);min-width:80px;text-align:center;',
@@ -1074,7 +1093,7 @@ const ExamStats = (function () {
       pageInfo.textContent = recentCurrentPage + '/' + totalPages;
       pageInfo.setAttribute('aria-live', 'polite');
       pageInfo.title = 'Página ' + recentCurrentPage + ' de ' + totalPages + ' · ' + totalItems + ' exames no total';
-      paginationWrap.appendChild(pageInfo);
+      pageNav.appendChild(pageInfo);
 
       var nextBtn = createEl('button', ['btn', 'btn--secondary', 'btn--sm'], { text: '\u203A' });
       nextBtn.setAttribute('aria-label', 'Next page');
@@ -1085,15 +1104,9 @@ const ExamStats = (function () {
           renderStatsDashboard();
         }
       });
-      paginationWrap.appendChild(nextBtn);
-
-      container.appendChild(paginationWrap);
-    } else {
-      /* keep spacing consistent when no pagination */
-      var spacer = createEl('div', null, { style: 'margin-bottom:var(--space-xl);' });
-      container.appendChild(spacer);
+      pageNav.appendChild(nextBtn);
+      paginationWrap.appendChild(pageNav);
     }
-
     /* ---- Per-Chapter Bar Chart with Exam Filter ---- */
     var allAttempts = getAttempts();
     var examIds = [];
@@ -1102,10 +1115,10 @@ const ExamStats = (function () {
     });
     examIds.sort(function (a, b) { return a - b; });
 
+    var filterWrap = createEl('div', null, {
+      style: 'grid-column:1 / span 3;width:100%;padding:0;display:flex;align-items:center;gap:var(--space-sm);',
+    });
     if (examIds.length > 0) {
-      var filterWrap = createEl('div', null, {
-        style: 'padding:0 var(--space-lg);margin-bottom:var(--space-md);display:flex;align-items:center;gap:var(--space-sm);',
-      });
       filterWrap.appendChild(createEl('label', null, {
         text: 'Filter by exam:',
         style: 'font-size:0.8125rem;font-weight:600;color:var(--color-text-muted);',
@@ -1129,8 +1142,30 @@ const ExamStats = (function () {
         renderStatsDashboard();
       });
       filterWrap.appendChild(select);
-      container.appendChild(filterWrap);
     }
+    var pageSize = createEl('select', 'recent-page-size', {
+      'aria-label': 'Attempts per page',
+      title: 'Attempts per page',
+      style: 'grid-column:7;justify-self:center;padding:var(--space-xs) var(--space-sm);border:1px solid var(--color-border);border-radius:var(--radius-md);background:var(--color-bg);color:var(--color-text);',
+    });
+    PAGE_SIZE_OPTIONS.forEach(function (size) {
+      var option = document.createElement('option');
+      option.value = String(size);
+      option.textContent = size === 5 ? '--' : String(size);
+      if (size === recentPageSize) option.selected = true;
+      pageSize.appendChild(option);
+    });
+    pageSize.addEventListener('change', function () {
+      var requestedSize = parseInt(pageSize.value, 10);
+      if (PAGE_SIZE_OPTIONS.indexOf(requestedSize) === -1) return;
+      recentPageSize = requestedSize;
+      recentCurrentPage = 1;
+      renderStatsDashboard();
+    });
+    dashboardControls.appendChild(filterWrap);
+    dashboardControls.appendChild(paginationWrap);
+    dashboardControls.appendChild(pageSize);
+    container.appendChild(dashboardControls);
 
     /* Render per-chapter chart */
     if (selectedExamFilter === 'all') {
