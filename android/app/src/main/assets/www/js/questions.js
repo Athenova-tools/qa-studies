@@ -13549,23 +13549,23 @@ window.questionSets = {
             "statement": "When the tester verifies the test basis while designing tests early in the lifecycle, which test objective is being achieved?",
             "options": {
                 "A": "Gaining confidence",
-                "B": "Finding defects",
-                "C": "Evaluating work products",
-                "D": "Providing information for decision making"
+                "D": "Finding defects",
+                "B": "Evaluating work products",
+                "C": "Providing information for decision making"
             },
-            "correctAnswer": "C",
+            "correctAnswer": "B",
             "explanation": "The action described is evaluating the test basis, which is a work product. Static testing can also find defects, build confidence, and provide information for decisions; these objectives are not reserved primarily or exclusively for dynamic testing.",
             "correctFeedback": "✅ Correct: Verifying the test basis directly evaluates a work product; the activity may also contribute to other test objectives.",
             "incorrectFeedback": {
-                "A": "❌ Incorrect: This option is not the correct answer (see the official explanation).",
-                "B": "❌ Incorrect: This option is not the correct answer (see the official explanation).",
-                "D": "❌ Incorrect: This option is not the correct answer (see the official explanation)."
+                "A": "❌ Incorrect: Option A (“Gaining confidence”) does not meet the requirement. The action described is evaluating the test basis, which is a work product. Static testing can also find defects, build confidence, and provide information for decisions; these objectives are not reserved primarily or exclusively for dynamic testing.",
+                "D": "❌ Incorrect: Option B (“Finding defects”) does not meet the requirement. The action described is evaluating the test basis, which is a work product. Static testing can also find defects, build confidence, and provide information for decisions; these objectives are not reserved primarily or exclusively for dynamic testing.",
+                "C": "❌ Incorrect: Option D (“Providing information for decision making”) does not meet the requirement. The action described is evaluating the test basis, which is a work product. Static testing can also find defects, build confidence, and provide information for decisions; these objectives are not reserved primarily or exclusively for dynamic testing."
             },
             "optionExplanations": {
-                "C": "Verifying the test basis directly evaluates a work product; the activity may also contribute to other test objectives.",
-                "A": "This option is not the correct answer (see the official explanation).",
-                "B": "This option is not the correct answer (see the official explanation).",
-                "D": "This option is not the correct answer (see the official explanation)."
+                "B": "Verifying the test basis directly evaluates a work product; the activity may also contribute to other test objectives.",
+                "A": "Option A (“Gaining confidence”) is incorrect. The action described is evaluating the test basis, which is a work product. Static testing can also find defects, build confidence, and provide information for decisions; these objectives are not reserved primarily or exclusively for dynamic testing.",
+                "D": "Option B (“Finding defects”) is incorrect. The action described is evaluating the test basis, which is a work product. Static testing can also find defects, build confidence, and provide information for decisions; these objectives are not reserved primarily or exclusively for dynamic testing.",
+                "C": "Option D (“Providing information for decision making”) is incorrect. The action described is evaluating the test basis, which is a work product. Static testing can also find defects, build confidence, and provide information for decisions; these objectives are not reserved primarily or exclusively for dynamic testing."
             },
             "chapter": 1,
             "section": "1.1",
@@ -13585,24 +13585,24 @@ window.questionSets = {
             "id": "Q1002",
             "statement": "In some Agile teams, people are encouraged to use their skills to help the team, regardless of their role. This could mean that testers help the developers write code and developers help testers test. What is this approach called?",
             "options": {
-                "A": "Team Aid",
-                "B": "Whole Team",
-                "C": "Skills First",
-                "D": "First Aid"
+                "B": "Team Aid",
+                "D": "Whole Team",
+                "A": "Skills First",
+                "C": "First Aid"
             },
-            "correctAnswer": "B",
+            "correctAnswer": "D",
             "explanation": "B is correct. This is an example of the Whole Team approach where the team members leverage their skills, regardless of roles, to accomplish the goals of the team.",
             "correctFeedback": "✅ Correct: This is an example of the Whole Team approach where the team members leverage their skills, regardless of roles, to accomplish the goals of the team.",
             "incorrectFeedback": {
-                "A": "❌ Incorrect: This option is not the correct answer (see the official explanation).",
-                "C": "❌ Incorrect: This option is not the correct answer (see the official explanation).",
-                "D": "❌ Incorrect: This option is not the correct answer (see the official explanation)."
+                "B": "❌ Incorrect: Option A (“Team Aid”) does not meet the requirement. B is correct. This is an example of the Whole Team approach where the team members leverage their skills, regardless of roles, to accomplish the goals of the team.",
+                "A": "❌ Incorrect: Option C (“Skills First”) does not meet the requirement. B is correct. This is an example of the Whole Team approach where the team members leverage their skills, regardless of roles, to accomplish the goals of the team.",
+                "C": "❌ Incorrect: Option D (“First Aid”) does not meet the requirement. B is correct. This is an example of the Whole Team approach where the team members leverage their skills, regardless of roles, to accomplish the goals of the team."
             },
             "optionExplanations": {
-                "B": "This is an example of the Whole Team approach where the team members leverage their skills, regardless of roles, to accomplish the goals of the team",
-                "A": "This option is not the correct answer (see the official explanation).",
-                "C": "This option is not the correct answer (see the official explanation).",
-                "D": "This option is not the correct answer (see the official explanation)."
+                "D": "This is an example of the Whole Team approach where the team members leverage their skills, regardless of roles, to accomplish the goals of the team",
+                "B": "Option A (“Team Aid”) is incorrect. B is correct. This is an example of the Whole Team approach where the team members leverage their skills, regardless of roles, to accomplish the goals of the team.",
+                "A": "Option C (“Skills First”) is incorrect. B is correct. This is an example of the Whole Team approach where the team members leverage their skills, regardless of roles, to accomplish the goals of the team.",
+                "C": "Option D (“First Aid”) is incorrect. B is correct. This is an example of the Whole Team approach where the team members leverage their skills, regardless of roles, to accomplish the goals of the team."
             },
             "chapter": 1,
             "section": "1.5",
@@ -13623,23 +13623,23 @@ window.questionSets = {
             "statement": "Which of the following is a correct statement?",
             "options": {
                 "A": "A developer makes a mistake which causes a defect that may be seen as a failure during dynamic testing",
-                "B": "A developer makes an error which results in a failure that may be seen as a fault when the software is executed",
-                "C": "A developer has introduced a failure which results in a defect that may be seen as a mistake during dynamic testing",
-                "D": "A developer makes a mistake which causes a bug that may be seen as a defect when the software is executed"
+                "D": "A developer makes an error which results in a failure that may be seen as a fault when the software is executed",
+                "B": "A developer has introduced a failure which results in a defect that may be seen as a mistake during dynamic testing",
+                "C": "A developer makes a mistake which causes a bug that may be seen as a defect when the software is executed"
             },
             "correctAnswer": "A",
             "explanation": "A is correct. The developer makes a mistake/error which causes a defect/fault/bug which may cause a failure when the code is dynamically tested or executed. B is incorrect because fault and failure are reversed. C is incorrect because failure and mistake are reversed. D is incorrect because it’s a failure that’s seen during execution, not the defect itself. The failure is a symptom of the defect.",
             "correctFeedback": "✅ Correct: The developer makes a mistake/error which causes a defect/fault/bug which may cause a failure when the code is dynamically tested or executed.",
             "incorrectFeedback": {
-                "B": "❌ Incorrect: This option reverses the relationship between a defect and a failure. An error is a human action or decision that produces an incorrect result; it may introduce a defect. A defect may cause a failure when the software is executed.",
-                "C": "❌ Incorrect: This option reverses the causal relationship. A failure is an event in which the software does not perform as expected during execution; it does not normally introduce the developer's mistake or cause the original defect.",
-                "D": "❌ Incorrect: A bug is another term for a defect, not a separate event that is observed during execution. A defect may cause a failure when the software is executed; the failure is the observable manifestation, not the defect itself."
+                "D": "❌ Incorrect: This option reverses the relationship between a defect and a failure. An error is a human action or decision that produces an incorrect result; it may introduce a defect. A defect may cause a failure when the software is executed.",
+                "B": "❌ Incorrect: This option reverses the causal relationship. A failure is an event in which the software does not perform as expected during execution; it does not normally introduce the developer's mistake or cause the original defect.",
+                "C": "❌ Incorrect: A bug is another term for a defect, not a separate event that is observed during execution. A defect may cause a failure when the software is executed; the failure is the observable manifestation, not the defect itself."
             },
             "optionExplanations": {
                 "A": "A human error or mistake may introduce a defect in the software. When the software is executed, that defect may cause a failure. This sequence is possible but not inevitable.",
-                "B": "This option incorrectly states that an error directly results in a failure that is then observed as a fault. A defect or fault is the underlying flaw; a failure is the observable deviation during execution.",
-                "C": "This option reverses the causal relationship by making a failure cause a defect and treating a developer's mistake as something observed during dynamic testing. A mistake is human; a failure is observed during execution.",
-                "D": "This option treats a bug and a defect as separate concepts and suggests that the defect itself is observed during execution. Bug is a synonym for defect; a failure may be observed when a defect is triggered during execution."
+                "D": "This option incorrectly states that an error directly results in a failure that is then observed as a fault. A defect or fault is the underlying flaw; a failure is the observable deviation during execution.",
+                "B": "This option reverses the causal relationship by making a failure cause a defect and treating a developer's mistake as something observed during dynamic testing. A mistake is human; a failure is observed during execution.",
+                "C": "This option treats a bug and a defect as separate concepts and suggests that the defect itself is observed during execution. Bug is a synonym for defect; a failure may be observed when a defect is triggered during execution."
             },
             "chapter": 1,
             "section": "1.2",
@@ -13661,23 +13661,23 @@ window.questionSets = {
             "id": "Q1004",
             "statement": "Why is it important to avoid the principle of tests wearing out?",
             "options": {
-                "A": "Dynamic testing is less reliable in finding bugs",
-                "B": "Running the same tests repeatedly will consistently find new failures",
+                "D": "Dynamic testing is less reliable in finding bugs",
+                "A": "Running the same tests repeatedly will consistently find new failures",
                 "C": "Tests should not be context dependent",
-                "D": "Running the same tests repeatedly will reduce the chance of finding new failures"
+                "B": "Running the same tests repeatedly will reduce the chance of finding new failures"
             },
-            "correctAnswer": "D",
+            "correctAnswer": "B",
             "explanation": "Repeated unchanged tests may become less effective at finding new defects. Review and vary tests and test data where needed, while retaining useful regression checks. Merely executing dynamic tests does not resolve this issue if the same tests remain unchanged.",
             "correctFeedback": "✅ Correct: As tests are run repeatedly, the tests become less effective.",
             "incorrectFeedback": {
-                "A": "❌ Incorrect: Dynamic testing can reveal failures, but repeating unchanged dynamic tests can also suffer from tests wearing out.",
-                "B": "❌ Incorrect: The same tests do wear out",
+                "D": "❌ Incorrect: Dynamic testing can reveal failures, but repeating unchanged dynamic tests can also suffer from tests wearing out.",
+                "A": "❌ Incorrect: The same tests do wear out",
                 "C": "❌ Incorrect: testing should be context dependent"
             },
             "optionExplanations": {
-                "D": "As tests are run repeatedly, the tests become less effective",
-                "A": "Dynamic testing can reveal failures, but repeating unchanged dynamic tests can also suffer from tests wearing out.",
-                "B": "The same tests do wear out",
+                "B": "As tests are run repeatedly, the tests become less effective",
+                "D": "Dynamic testing can reveal failures, but repeating unchanged dynamic tests can also suffer from tests wearing out.",
+                "A": "The same tests do wear out",
                 "C": "testing should be context dependent"
             },
             "chapter": 1,
@@ -13698,24 +13698,24 @@ window.questionSets = {
             "id": "Q1005",
             "statement": "When following a standard test process, when should the test control activity take place?",
             "options": {
-                "A": "During the planning activities",
-                "B": "During the implementation and execution activities",
+                "B": "During the planning activities",
+                "D": "During the implementation and execution activities",
                 "C": "During the monitoring activities",
-                "D": "During all the activities"
+                "A": "During all the activities"
             },
-            "correctAnswer": "D",
+            "correctAnswer": "A",
             "explanation": "D is correct. Control occurs throughout the project to ensure that it is staying on track based on the plan and to take any corrective steps that may be necessary. The monitoring information is used to determine if control actions are needed.",
             "correctFeedback": "✅ Correct: Control occurs throughout the project to ensure that it is staying on track based on the plan and to take any corrective steps that may be necessary. The monitoring information is .",
             "incorrectFeedback": {
-                "A": "❌ Incorrect: This option is not the correct answer (see the official explanation).",
-                "B": "❌ Incorrect: This option is not the correct answer (see the official explanation).",
-                "C": "❌ Incorrect: This option is not the correct answer (see the official explanation)."
+                "B": "❌ Incorrect: Option A (“During the planning activities”) does not meet the requirement. D is correct. Control occurs throughout the project to ensure that it is staying on track based on the plan and to take any corrective steps that may be necessary. The monitoring information is used to determine if control actions are needed.",
+                "D": "❌ Incorrect: Option B (“During the implementation and execution activities”) does not meet the requirement. D is correct. Control occurs throughout the project to ensure that it is staying on track based on the plan and to take any corrective steps that may be necessary. The monitoring information is used to determine if control actions are needed.",
+                "C": "❌ Incorrect: Option C (“During the monitoring activities”) does not meet the requirement. D is correct. Control occurs throughout the project to ensure that it is staying on track based on the plan and to take any corrective steps that may be necessary. The monitoring information is used to determine if control actions are needed."
             },
             "optionExplanations": {
-                "D": "Control occurs throughout the project to ensure that it is staying on track based on the plan and to take any corrective steps that may be necessary. The monitoring information is used to determine if control actions are needed",
-                "A": "This option is not the correct answer (see the official explanation).",
-                "B": "This option is not the correct answer (see the official explanation).",
-                "C": "This option is not the correct answer (see the official explanation)."
+                "A": "Control occurs throughout the project to ensure that it is staying on track based on the plan and to take any corrective steps that may be necessary. The monitoring information is used to determine if control actions are needed",
+                "B": "Option A (“During the planning activities”) is incorrect. D is correct. Control occurs throughout the project to ensure that it is staying on track based on the plan and to take any corrective steps that may be necessary. The monitoring information is used to determine if control actions are needed.",
+                "D": "Option B (“During the implementation and execution activities”) is incorrect. D is correct. Control occurs throughout the project to ensure that it is staying on track based on the plan and to take any corrective steps that may be necessary. The monitoring information is used to determine if control actions are needed.",
+                "C": "Option C (“During the monitoring activities”) is incorrect. D is correct. Control occurs throughout the project to ensure that it is staying on track based on the plan and to take any corrective steps that may be necessary. The monitoring information is used to determine if control actions are needed."
             },
             "chapter": 1,
             "section": "1.4",
@@ -13735,24 +13735,24 @@ window.questionSets = {
             "id": "Q1006",
             "statement": "Which of the following is the activity that compares the planned test progress to the actual test progress?",
             "options": {
-                "A": "Test monitoring",
+                "D": "Test monitoring",
                 "B": "Test planning",
                 "C": "Test completion",
-                "D": "Test control"
+                "A": "Test control"
             },
-            "correctAnswer": "A",
+            "correctAnswer": "D",
             "explanation": "A is correct. Test monitoring involves the on-going comparison of actual progress against the test plan. B is incorrect because it defines testing objectives. C is incorrect because the activities have already completed and the project is closing down. D is incorrect because test control is when you take actions to correct any issues observed during monitoring.",
             "correctFeedback": "✅ Correct: Test monitoring involves the on-going comparison of actual progress against the test plan.",
             "incorrectFeedback": {
                 "B": "❌ Incorrect: it defines testing objectives",
                 "C": "❌ Incorrect: the activities have already completed and the project is closing down",
-                "D": "❌ Incorrect: test control is when you take actions to correct any issues observed during monitoring"
+                "A": "❌ Incorrect: test control is when you take actions to correct any issues observed during monitoring"
             },
             "optionExplanations": {
-                "A": "Test monitoring involves the on-going comparison of actual progress against the test plan",
+                "D": "Test monitoring involves the on-going comparison of actual progress against the test plan",
                 "B": "it defines testing objectives",
                 "C": "the activities have already completed and the project is closing down",
-                "D": "test control is when you take actions to correct any issues observed during monitoring"
+                "A": "test control is when you take actions to correct any issues observed during monitoring"
             },
             "chapter": 1,
             "section": "1.4",
@@ -13772,24 +13772,24 @@ window.questionSets = {
             "id": "Q1007",
             "statement": "You are working on a project that is constrained by time and budget, which is pressuring testing to be done quickly. How should the test approach be adjusted?",
             "options": {
-                "A": "Develop detailed test cases to reduce the test automation effort",
-                "B": "Use techniques such as exploratory and checklist testing to spend less time on test case development",
-                "C": "Ensure that your testing starts only after the developers have completed integration tests",
-                "D": "Develop end-to-end test automation before performing manual testing so the automation can be used sooner"
+                "C": "Develop detailed test cases to reduce the test automation effort",
+                "A": "Use techniques such as exploratory and checklist testing to spend less time on test case development",
+                "D": "Ensure that your testing starts only after the developers have completed integration tests",
+                "B": "Develop end-to-end test automation before performing manual testing so the automation can be used sooner"
             },
-            "correctAnswer": "B",
+            "correctAnswer": "A",
             "explanation": "B is correct. These techniques will help adjust to the project context where there is pressure to test quickly. These are lightweight approaches that require less time preparing documentation and allow test execution to start sooner. A is not correct because developing detailed test cases will take significant time. C is not correct because starting testing earlier would be helpful, not later. D is not correct because this will be problematic automation and the automators will be slowed down by the failures that would have been found in manual testing.",
             "correctFeedback": "✅ Correct: These techniques will help adjust to the project context where there is pressure to test quickly. These are lightweight approaches that require less time preparing documentation an.",
             "incorrectFeedback": {
-                "A": "❌ Incorrect: developing detailed test cases will take significant time",
-                "C": "❌ Incorrect: starting testing earlier would be helpful, not later",
-                "D": "❌ Incorrect: this will be problematic automation and the automators will be slowed down by the failures that would have been found in manual testing"
+                "C": "❌ Incorrect: developing detailed test cases will take significant time",
+                "D": "❌ Incorrect: starting testing earlier would be helpful, not later",
+                "B": "❌ Incorrect: this will be problematic automation and the automators will be slowed down by the failures that would have been found in manual testing"
             },
             "optionExplanations": {
-                "B": "These techniques will help adjust to the project context where there is pressure to test quickly. These are lightweight approaches that require less time preparing documentation and allow test execution to start sooner",
-                "A": "developing detailed test cases will take significant time",
-                "C": "starting testing earlier would be helpful, not later",
-                "D": "this will be problematic automation and the automators will be slowed down by the failures that would have been found in manual testing"
+                "A": "These techniques will help adjust to the project context where there is pressure to test quickly. These are lightweight approaches that require less time preparing documentation and allow test execution to start sooner",
+                "C": "developing detailed test cases will take significant time",
+                "D": "starting testing earlier would be helpful, not later",
+                "B": "this will be problematic automation and the automators will be slowed down by the failures that would have been found in manual testing"
             },
             "chapter": 1,
             "section": "1.4",
@@ -13809,23 +13809,23 @@ window.questionSets = {
             "id": "Q1008",
             "statement": "What is the biggest problem with a developer testing his own code?",
             "options": {
-                "A": "Developers are not good testers",
-                "B": "Developers are not quality focused",
-                "C": "Developers are not objective about their own code",
+                "C": "Developers are not good testers",
+                "A": "Developers are not quality focused",
+                "B": "Developers are not objective about their own code",
                 "D": "Developers do not have time to test their own code"
             },
-            "correctAnswer": "C",
+            "correctAnswer": "B",
             "explanation": "C is correct. This is the biggest problem because developers have biases toward the accuracy and implementation of their own code. Testers and developers think differently and testers can be more objective as they are not invested in the code. A and B are not necessarily true – some developers are good testers and have a good quality focus. D is not correct because unit testing is part of their job and time should be made in the schedule for at least unit testing.",
             "correctFeedback": "✅ Correct: This is the biggest problem because developers have biases toward the accuracy and implementation of their own code. Testers and developers think differently and testers can be mor.",
             "incorrectFeedback": {
-                "A": "❌ Incorrect: This option is not the correct answer (see the official explanation).",
-                "B": "❌ Incorrect: This option is not the correct answer (see the official explanation).",
+                "C": "❌ Incorrect: Option A (“Developers are not good testers”) does not meet the requirement. C is correct. This is the biggest problem because developers have biases toward the accuracy and implementation of their own code. Testers and developers think differently and testers can be more objective as they are not invested in the code. A and B are not necessarily true – some developers are good testers and have a good quality focus. D is not correct because unit testing is part of their job and time should be made in the schedule for at least unit testing.",
+                "A": "❌ Incorrect: Option B (“Developers are not quality focused”) does not meet the requirement. C is correct. This is the biggest problem because developers have biases toward the accuracy and implementation of their own code. Testers and developers think differently and testers can be more objective as they are not invested in the code. A and B are not necessarily true – some developers are good testers and have a good quality focus. D is not correct because unit testing is part of their job and time should be made in the schedule for at least unit testing.",
                 "D": "❌ Incorrect: unit testing is part of their job and time should be made in the schedule for at least unit testing"
             },
             "optionExplanations": {
-                "C": "This is the biggest problem because developers have biases toward the accuracy and implementation of their own code. Testers and developers think differently and testers can be more objective as they are not invested in the code. A and B are not necessarily true – some developers are good testers and have a good quality focus",
-                "A": "This option is not the correct answer (see the official explanation).",
-                "B": "This option is not the correct answer (see the official explanation).",
+                "B": "This is the biggest problem because developers have biases toward the accuracy and implementation of their own code. Testers and developers think differently and testers can be more objective as they are not invested in the code. A and B are not necessarily true – some developers are good testers and have a good quality focus",
+                "C": "Option A (“Developers are not good testers”) is incorrect. C is correct. This is the biggest problem because developers have biases toward the accuracy and implementation of their own code. Testers and developers think differently and testers can be more objective as they are not invested in the code. A and B are not necessarily true – some developers are good testers and have a good quality focus. D is not correct because unit testing is part of their job and time should be made in the schedule for at least unit testing.",
+                "A": "Option B (“Developers are not quality focused”) is incorrect. C is correct. This is the biggest problem because developers have biases toward the accuracy and implementation of their own code. Testers and developers think differently and testers can be more objective as they are not invested in the code. A and B are not necessarily true – some developers are good testers and have a good quality focus. D is not correct because unit testing is part of their job and time should be made in the schedule for at least unit testing.",
                 "D": "unit testing is part of their job and time should be made in the schedule for at least unit testing"
             },
             "chapter": 1,
@@ -13847,23 +13847,23 @@ window.questionSets = {
             "statement": "Which of the following is an example of a good testing practice?",
             "options": {
                 "A": "Testers should have development experience",
-                "B": "Developers should determine the order of test execution in the test procedures",
-                "C": "Test design should begin when the code is complete to avoid changes",
-                "D": "Testers should review requirements documents as soon as a readable draft is available"
+                "D": "Developers should determine the order of test execution in the test procedures",
+                "B": "Test design should begin when the code is complete to avoid changes",
+                "C": "Testers should review requirements documents as soon as a readable draft is available"
             },
-            "correctAnswer": "D",
+            "correctAnswer": "C",
             "explanation": "D is correct. This is a good testing practice. A is not a requirement for many testers. B is not correct because this should be determined by the testers based on priority, risk, availability, etc. C is not correct because test design should start during code design and implementation.",
             "correctFeedback": "✅ Correct: This is a good testing practice. A is not a requirement for many testers.",
             "incorrectFeedback": {
-                "A": "❌ Incorrect: This option is not the correct answer (see the official explanation).",
-                "B": "❌ Incorrect: this should be determined by the testers based on priority, risk, availability, etc",
-                "C": "❌ Incorrect: test design should start during code design and implementation"
+                "A": "❌ Incorrect: Option A (“Testers should have development experience”) does not meet the requirement. D is correct. This is a good testing practice. A is not a requirement for many testers. B is not correct because this should be determined by the testers based on priority, risk, availability, etc. C is not correct because test design should start during code design and implementation.",
+                "D": "❌ Incorrect: this should be determined by the testers based on priority, risk, availability, etc",
+                "B": "❌ Incorrect: test design should start during code design and implementation"
             },
             "optionExplanations": {
-                "D": "This is a good testing practice. A is not a requirement for many testers",
-                "A": "This option is not the correct answer (see the official explanation).",
-                "B": "this should be determined by the testers based on priority, risk, availability, etc",
-                "C": "test design should start during code design and implementation"
+                "C": "This is a good testing practice. A is not a requirement for many testers",
+                "A": "Option A (“Testers should have development experience”) is incorrect. D is correct. This is a good testing practice. A is not a requirement for many testers. B is not correct because this should be determined by the testers based on priority, risk, availability, etc. C is not correct because test design should start during code design and implementation.",
+                "D": "this should be determined by the testers based on priority, risk, availability, etc",
+                "B": "test design should start during code design and implementation"
             },
             "chapter": 2,
             "section": "2.1",
@@ -13884,22 +13884,22 @@ window.questionSets = {
             "statement": "Which test-first approach uses fine-grained automated tests to drive coding through a failing-test, minimal-passing-code, and refactoring cycle?",
             "options": {
                 "A": "TDD",
-                "B": "BDD",
-                "C": "ATDD",
+                "C": "BDD",
+                "B": "ATDD",
                 "D": "DDD"
             },
             "correctAnswer": "A",
             "explanation": "A is correct. This is an example of test-driven development.",
             "correctFeedback": "✅ Correct: This is an example of test-driven development.",
             "incorrectFeedback": {
-                "B": "❌ Incorrect: Behavior-driven development does define test cases in a simple natural-language form, but its focus is expressing stakeholder-visible behavior, not driving the code through a fine-grained failing-test, minimal-passing-code, refactoring cycle.",
-                "C": "❌ Incorrect: Acceptance test-driven development derives tests from the acceptance criteria before the user story is implemented; it does not define the fine-grained cycle used to shape the code itself.",
+                "C": "❌ Incorrect: Behavior-driven development does define test cases in a simple natural-language form, but its focus is expressing stakeholder-visible behavior, not driving the code through a fine-grained failing-test, minimal-passing-code, refactoring cycle.",
+                "B": "❌ Incorrect: Acceptance test-driven development derives tests from the acceptance criteria before the user story is implemented; it does not define the fine-grained cycle used to shape the code itself.",
                 "D": "❌ Incorrect: Domain-driven design is a modeling approach for complex domains that is listed among development methods and Agile practices, not among the test-first approaches; it does not direct coding through tests."
             },
             "optionExplanations": {
                 "A": "This is an example of test-driven development",
-                "B": "Behavior-driven development does define test cases in a simple natural-language form, but its focus is expressing stakeholder-visible behavior, not driving the code through a fine-grained failing-test, minimal-passing-code, refactoring cycle.",
-                "C": "Acceptance test-driven development derives tests from the acceptance criteria before the user story is implemented; it does not define the fine-grained cycle used to shape the code itself.",
+                "C": "Behavior-driven development does define test cases in a simple natural-language form, but its focus is expressing stakeholder-visible behavior, not driving the code through a fine-grained failing-test, minimal-passing-code, refactoring cycle.",
+                "B": "Acceptance test-driven development derives tests from the acceptance criteria before the user story is implemented; it does not define the fine-grained cycle used to shape the code itself.",
                 "D": "Domain-driven design is a modeling approach for complex domains that is listed among development methods and Agile practices, not among the test-first approaches; it does not direct coding through tests."
             },
             "chapter": 2,
@@ -13920,24 +13920,24 @@ window.questionSets = {
             "id": "Q1011",
             "statement": "During which level(s) of testing should non-functional tests be executed?",
             "options": {
-                "A": "Unit and integration only",
-                "B": "System testing only",
-                "C": "Integration, system and acceptance only",
-                "D": "All five levels: component, component integration, system, system integration, and acceptance testing"
+                "C": "Unit and integration only",
+                "D": "System testing only",
+                "A": "Integration, system and acceptance only",
+                "B": "All five levels: component, component integration, system, system integration, and acceptance testing"
             },
-            "correctAnswer": "D",
+            "correctAnswer": "B",
             "explanation": "Non-functional testing can be performed at all five CTFL test levels. The appropriate characteristics, scope, and environment depend on the objectives and context at each level.",
             "correctFeedback": "✅ Correct: Non-functional testing is applicable at all five levels, with an appropriate focus at each.",
             "incorrectFeedback": {
-                "A": "❌ Incorrect: This option is not the correct answer (see the official explanation).",
-                "B": "❌ Incorrect: This option is not the correct answer (see the official explanation).",
-                "C": "❌ Incorrect: This option is not the correct answer (see the official explanation)."
+                "C": "❌ Incorrect: Option A (“Unit and integration only”) does not meet the requirement. Non-functional testing can be performed at all five CTFL test levels. The appropriate characteristics, scope, and environment depend on the objectives and context at each level.",
+                "D": "❌ Incorrect: Option B (“System testing only”) does not meet the requirement. Non-functional testing can be performed at all five CTFL test levels. The appropriate characteristics, scope, and environment depend on the objectives and context at each level.",
+                "A": "❌ Incorrect: Option C (“Integration, system and acceptance only”) does not meet the requirement. Non-functional testing can be performed at all five CTFL test levels. The appropriate characteristics, scope, and environment depend on the objectives and context at each level."
             },
             "optionExplanations": {
-                "D": "Non-functional testing is applicable at all five levels, with an appropriate focus at each.",
-                "A": "This option is not the correct answer (see the official explanation).",
-                "B": "This option is not the correct answer (see the official explanation).",
-                "C": "This option is not the correct answer (see the official explanation)."
+                "B": "Non-functional testing is applicable at all five levels, with an appropriate focus at each.",
+                "C": "Option A (“Unit and integration only”) is incorrect. Non-functional testing can be performed at all five CTFL test levels. The appropriate characteristics, scope, and environment depend on the objectives and context at each level.",
+                "D": "Option B (“System testing only”) is incorrect. Non-functional testing can be performed at all five CTFL test levels. The appropriate characteristics, scope, and environment depend on the objectives and context at each level.",
+                "A": "Option C (“Integration, system and acceptance only”) is incorrect. Non-functional testing can be performed at all five CTFL test levels. The appropriate characteristics, scope, and environment depend on the objectives and context at each level."
             },
             "chapter": 2,
             "section": "2.2",
@@ -13957,24 +13957,24 @@ window.questionSets = {
             "id": "Q1012",
             "statement": "A legacy system is being decommissioned. Its historical customer records must be migrated to a replacement application and verified for completeness and accuracy. Which maintenance-testing activity most directly addresses this requirement?",
             "options": {
-                "A": "Retirement testing",
-                "B": "Regression testing",
-                "C": "Data migration testing",
-                "D": "Patch testing"
+                "D": "Retirement testing",
+                "C": "Regression testing",
+                "A": "Data migration testing",
+                "B": "Patch testing"
             },
-            "correctAnswer": "C",
+            "correctAnswer": "A",
             "explanation": "Retirement can trigger maintenance testing. Since the scenario explicitly requires transferring historical records to another application, data migration testing verifies the transferred records are complete and accurate. Retirement itself may alternatively require archive, restore and retrieval testing when data is retained in an archive.",
             "correctFeedback": "✅ Correct: Data migration testing validates the accuracy and completeness of records transferred during retirement.",
             "incorrectFeedback": {
-                "A": "❌ Incorrect: This can be a trigger for maintenance testing, but it is not an actual type of testing",
-                "B": "❌ Incorrect: Regression testing may be relevant to affected systems, but it is not the specific test activity for moving or archiving the retiring system data.",
-                "D": "❌ Incorrect: this is of no use for a system being retired"
+                "D": "❌ Incorrect: This can be a trigger for maintenance testing, but it is not an actual type of testing",
+                "C": "❌ Incorrect: Regression testing may be relevant to affected systems, but it is not the specific test activity for moving or archiving the retiring system data.",
+                "B": "❌ Incorrect: this is of no use for a system being retired"
             },
             "optionExplanations": {
-                "C": "Data migration testing verifies the moved records for accuracy and completeness.",
-                "A": "This can be a trigger for maintenance testing, but it is not an actual type of testing",
-                "B": "Regression testing may be relevant to affected systems, but it is not the specific test activity for moving or archiving the retiring system data.",
-                "D": "this is of no use for a system being retired"
+                "A": "Data migration testing verifies the moved records for accuracy and completeness.",
+                "D": "This can be a trigger for maintenance testing, but it is not an actual type of testing",
+                "C": "Regression testing may be relevant to affected systems, but it is not the specific test activity for moving or archiving the retiring system data.",
+                "B": "this is of no use for a system being retired"
             },
             "chapter": 2,
             "section": "2.3",
@@ -13994,24 +13994,24 @@ window.questionSets = {
             "id": "Q1013",
             "statement": "In an iterative lifecycle model, which of the following is an accurate statement about testing activities?",
             "options": {
-                "A": "For every development activity, there should be a corresponding testing activity",
+                "D": "For every development activity, there should be a corresponding testing activity",
                 "B": "For every testing activity, appropriate documentation should be produced, versioned and stored",
                 "C": "For every development activity resulting in code, there should be a testing activity to document test cases",
-                "D": "For every testing activity, metrics should be recorded and posted to a metrics dashboard for all stakeholders"
+                "A": "For every testing activity, metrics should be recorded and posted to a metrics dashboard for all stakeholders"
             },
-            "correctAnswer": "A",
+            "correctAnswer": "D",
             "explanation": "A corresponding testing activity for each development activity is a good practice across SDLC models. Documentation and metrics are tailored to context; reviews and test design can produce both work products and metrics. Agile does not imply that only exploratory testing is performed.",
             "correctFeedback": "✅ Correct: For any lifecycle model, this is a correct statement.",
             "incorrectFeedback": {
                 "B": "❌ Incorrect: Documentation is tailored to the activity and context; a mandatory universal documentation rule is not the lifecycle practice being tested.",
                 "C": "❌ Incorrect: Testing also corresponds to development activities that do not produce code, such as requirements and design.",
-                "D": "❌ Incorrect: Metrics and their audiences are selected for information needs; not every activity needs a dashboard visible to every stakeholder."
+                "A": "❌ Incorrect: Metrics and their audiences are selected for information needs; not every activity needs a dashboard visible to every stakeholder."
             },
             "optionExplanations": {
-                "A": "For any lifecycle model, this is a correct statement",
+                "D": "For any lifecycle model, this is a correct statement",
                 "B": "Documentation is tailored to the activity and context; a mandatory universal documentation rule is not the lifecycle practice being tested.",
                 "C": "Testing also corresponds to development activities that do not produce code, such as requirements and design.",
-                "D": "Metrics and their audiences are selected for information needs; not every activity needs a dashboard visible to every stakeholder."
+                "A": "Metrics and their audiences are selected for information needs; not every activity needs a dashboard visible to every stakeholder."
             },
             "chapter": 2,
             "section": "2.1",
@@ -14031,24 +14031,24 @@ window.questionSets = {
             "id": "Q1014",
             "statement": "How can continuous integration support a shift-left testing approach?",
             "options": {
-                "A": "It gets the code to production faster",
-                "B": "It allows the developers to continuously integrate their code",
-                "C": "By executing component tests and static analysis automatically on early code integrations",
-                "D": "It elevates the testers as the owners of quality"
+                "C": "It gets the code to production faster",
+                "D": "It allows the developers to continuously integrate their code",
+                "B": "By executing component tests and static analysis automatically on early code integrations",
+                "A": "It elevates the testers as the owners of quality"
             },
-            "correctAnswer": "C",
+            "correctAnswer": "B",
             "explanation": "Shift left means performing testing activities earlier in the SDLC. Running component tests and static analysis as soon as developers integrate changes into CI gives earlier feedback. CI/CD alone does not guarantee that testing has shifted left.",
             "correctFeedback": "✅ Correct: Early automated component tests and static analysis in CI provide fast feedback and support shift left.",
             "incorrectFeedback": {
-                "A": "❌ Incorrect: this is not a shift-left concept. B is true of CI/CD implementations but does not shift-left the testing",
-                "B": "❌ Incorrect: This option is not the correct answer (see the official explanation).",
-                "D": "❌ Incorrect: in a good CI/CD implementation, everyone owns quality"
+                "C": "❌ Incorrect: this is not a shift-left concept. B is true of CI/CD implementations but does not shift-left the testing",
+                "D": "❌ Incorrect: Option B (“It allows the developers to continuously integrate their code”) does not meet the requirement. Shift left means performing testing activities earlier in the SDLC. Running component tests and static analysis as soon as developers integrate changes into CI gives earlier feedback. CI/CD alone does not guarantee that testing has shifted left.",
+                "A": "❌ Incorrect: in a good CI/CD implementation, everyone owns quality"
             },
             "optionExplanations": {
-                "C": "Executing component tests and static analysis early in CI is a practical shift-left implementation.",
-                "A": "this is not a shift-left concept. B is true of CI/CD implementations but does not shift-left the testing",
-                "B": "This option is not the correct answer (see the official explanation).",
-                "D": "in a good CI/CD implementation, everyone owns quality"
+                "B": "Executing component tests and static analysis early in CI is a practical shift-left implementation.",
+                "C": "this is not a shift-left concept. B is true of CI/CD implementations but does not shift-left the testing",
+                "D": "Option B (“It allows the developers to continuously integrate their code”) is incorrect. Shift left means performing testing activities earlier in the SDLC. Running component tests and static analysis as soon as developers integrate changes into CI gives earlier feedback. CI/CD alone does not guarantee that testing has shifted left.",
+                "A": "in a good CI/CD implementation, everyone owns quality"
             },
             "chapter": 2,
             "section": "2.1",
@@ -14068,24 +14068,24 @@ window.questionSets = {
             "id": "Q1015",
             "statement": "In a formal review, which role is normally responsible for documenting all the open issues?",
             "options": {
-                "A": "The facilitator",
+                "D": "The facilitator",
                 "B": "The author",
-                "C": "The scribe",
-                "D": "The manager"
+                "A": "The scribe",
+                "C": "The manager"
             },
-            "correctAnswer": "C",
+            "correctAnswer": "A",
             "explanation": "C is correct. The scribe is normally responsible for documenting all issues, problems and open points. The author may take notes as well, but that is not their primary role.",
             "correctFeedback": "✅ Correct: The scribe is normally responsible for documenting all issues, problems and open points. The author may take notes as well, but that is not their primary role.",
             "incorrectFeedback": {
-                "A": "❌ Incorrect: This option is not the correct answer (see the official explanation).",
-                "B": "❌ Incorrect: This option is not the correct answer (see the official explanation).",
-                "D": "❌ Incorrect: This option is not the correct answer (see the official explanation)."
+                "D": "❌ Incorrect: Option A (“The facilitator”) does not meet the requirement. C is correct. The scribe is normally responsible for documenting all issues, problems and open points. The author may take notes as well, but that is not their primary role.",
+                "B": "❌ Incorrect: Option B (“The author”) does not meet the requirement. C is correct. The scribe is normally responsible for documenting all issues, problems and open points. The author may take notes as well, but that is not their primary role.",
+                "C": "❌ Incorrect: Option D (“The manager”) does not meet the requirement. C is correct. The scribe is normally responsible for documenting all issues, problems and open points. The author may take notes as well, but that is not their primary role."
             },
             "optionExplanations": {
-                "C": "The scribe is normally responsible for documenting all issues, problems and open points. The author may take notes as well, but that is not their primary role",
-                "A": "This option is not the correct answer (see the official explanation).",
-                "B": "This option is not the correct answer (see the official explanation).",
-                "D": "This option is not the correct answer (see the official explanation)."
+                "A": "The scribe is normally responsible for documenting all issues, problems and open points. The author may take notes as well, but that is not their primary role",
+                "D": "Option A (“The facilitator”) is incorrect. C is correct. The scribe is normally responsible for documenting all issues, problems and open points. The author may take notes as well, but that is not their primary role.",
+                "B": "Option B (“The author”) is incorrect. C is correct. The scribe is normally responsible for documenting all issues, problems and open points. The author may take notes as well, but that is not their primary role.",
+                "C": "Option D (“The manager”) is incorrect. C is correct. The scribe is normally responsible for documenting all issues, problems and open points. The author may take notes as well, but that is not their primary role."
             },
             "chapter": 3,
             "section": "3.2",
@@ -14105,24 +14105,24 @@ window.questionSets = {
             "id": "Q1016",
             "statement": "What is the primary reason to get early and frequent feedback from stakeholders regarding a product being developed?",
             "options": {
-                "A": "To make them feel involved",
-                "B": "To ensure that their vision for the product will be realized",
-                "C": "To create more meetings",
-                "D": "To use the stakeholders as testers"
+                "B": "To make them feel involved",
+                "D": "To ensure that their vision for the product will be realized",
+                "A": "To create more meetings",
+                "C": "To use the stakeholders as testers"
             },
-            "correctAnswer": "B",
+            "correctAnswer": "D",
             "explanation": "B is correct per the syllabus. By getting their feedback, the team can ensure that what they are building is what the stakeholders want. A is not correct because, although it may be beneficial to have them feel a part of the team, it isn’t the primary reason to get their feedback. C is not correct because no one needs more meetings. D is not correct although stakeholders may be used for UAT. Their feedback is needed much earlier than UAT.",
             "correctFeedback": "✅ Correct: per the syllabus. By getting their feedback, the team can ensure that what they are building is what the stakeholders want.",
             "incorrectFeedback": {
-                "A": "❌ Incorrect: because, although it may be beneficial to have them feel a part of the team, it isn’t the primary reason to get their feedback",
-                "C": "❌ Incorrect: no one needs more meetings",
-                "D": "❌ Incorrect: although stakeholders may be used for UAT. Their feedback is needed much earlier than UAT"
+                "B": "❌ Incorrect: because, although it may be beneficial to have them feel a part of the team, it isn’t the primary reason to get their feedback",
+                "A": "❌ Incorrect: no one needs more meetings",
+                "C": "❌ Incorrect: although stakeholders may be used for UAT. Their feedback is needed much earlier than UAT"
             },
             "optionExplanations": {
-                "B": "per the syllabus. By getting their feedback, the team can ensure that what they are building is what the stakeholders want",
-                "A": "because, although it may be beneficial to have them feel a part of the team, it isn’t the primary reason to get their feedback",
-                "C": "no one needs more meetings",
-                "D": "although stakeholders may be used for UAT. Their feedback is needed much earlier than UAT"
+                "D": "per the syllabus. By getting their feedback, the team can ensure that what they are building is what the stakeholders want",
+                "B": "because, although it may be beneficial to have them feel a part of the team, it isn’t the primary reason to get their feedback",
+                "A": "no one needs more meetings",
+                "C": "although stakeholders may be used for UAT. Their feedback is needed much earlier than UAT"
             },
             "chapter": 3,
             "section": "3.2",
@@ -14142,23 +14142,23 @@ window.questionSets = {
             "id": "Q1017",
             "statement": "Which of the following is a benefit of static analysis?",
             "options": {
-                "A": "Defects can be identified that might not be caught by dynamic testing",
-                "B": "Early defect identification requires less documentation",
-                "C": "Early execution of the code provides a gauge of code quality",
+                "B": "Defects can be identified that might not be caught by dynamic testing",
+                "C": "Early defect identification requires less documentation",
+                "A": "Early execution of the code provides a gauge of code quality",
                 "D": "Tools are not needed because reviews are used instead of executing code"
             },
-            "correctAnswer": "A",
+            "correctAnswer": "B",
             "explanation": "A is correct, per syllabus. Static analysis with a static analyzer can be used to find defects such as uninitialized variables that could be difficult to catch with dynamic testing. B is incorrect because defects will still need to be documented regardless of how early they are found. C is incorrect because this is dynamic analysis. D is incorrect because static analysis usually requires the use of tools.",
             "correctFeedback": "✅ Correct: , per syllabus. Static analysis with a static analyzer can be used to find defects such as uninitialized variables that could be difficult to catch with dynamic testing.",
             "incorrectFeedback": {
-                "B": "❌ Incorrect: defects will still need to be documented regardless of how early they are found",
-                "C": "❌ Incorrect: this is dynamic analysis",
+                "C": "❌ Incorrect: defects will still need to be documented regardless of how early they are found",
+                "A": "❌ Incorrect: this is dynamic analysis",
                 "D": "❌ Incorrect: static analysis usually requires the use of tools"
             },
             "optionExplanations": {
-                "A": ", per syllabus. Static analysis with a static analyzer can be used to find defects such as uninitialized variables that could be difficult to catch with dynamic testing",
-                "B": "defects will still need to be documented regardless of how early they are found",
-                "C": "this is dynamic analysis",
+                "B": ", per syllabus. Static analysis with a static analyzer can be used to find defects such as uninitialized variables that could be difficult to catch with dynamic testing",
+                "C": "defects will still need to be documented regardless of how early they are found",
+                "A": "this is dynamic analysis",
                 "D": "static analysis usually requires the use of tools"
             },
             "chapter": 3,
@@ -14179,24 +14179,24 @@ window.questionSets = {
             "id": "Q1018",
             "statement": "For a formal review, at what point in the process are the exit criteria defined?",
             "options": {
-                "A": "Planning",
-                "B": "Review initiation",
-                "C": "Individual review",
-                "D": "Fixing and reporting"
+                "C": "Planning",
+                "D": "Review initiation",
+                "B": "Individual review",
+                "A": "Fixing and reporting"
             },
-            "correctAnswer": "A",
+            "correctAnswer": "C",
             "explanation": "A is correct. The entry and exit criteria should be defined during the planning step in the review process. These should be evaluated at each step to ensure the product is ready for the next step in the process. B, C and D are not correct because the criteria should already be defined by this point.",
             "correctFeedback": "✅ Correct: The entry and exit criteria should be defined during the planning step in the review process. These should be evaluated at each step to ensure the product is ready for the next ste.",
             "incorrectFeedback": {
-                "B": "❌ Incorrect: This option is not the correct answer (see the official explanation).",
-                "C": "❌ Incorrect: This option is not the correct answer (see the official explanation).",
-                "D": "❌ Incorrect: This option is not the correct answer (see the official explanation)."
+                "D": "❌ Incorrect: Option B (“Review initiation”) does not meet the requirement. A is correct. The entry and exit criteria should be defined during the planning step in the review process. These should be evaluated at each step to ensure the product is ready for the next step in the process. B, C and D are not correct because the criteria should already be defined by this point.",
+                "B": "❌ Incorrect: Option C (“Individual review”) does not meet the requirement. A is correct. The entry and exit criteria should be defined during the planning step in the review process. These should be evaluated at each step to ensure the product is ready for the next step in the process. B, C and D are not correct because the criteria should already be defined by this point.",
+                "A": "❌ Incorrect: Option D (“Fixing and reporting”) does not meet the requirement. A is correct. The entry and exit criteria should be defined during the planning step in the review process. These should be evaluated at each step to ensure the product is ready for the next step in the process. B, C and D are not correct because the criteria should already be defined by this point."
             },
             "optionExplanations": {
-                "A": "The entry and exit criteria should be defined during the planning step in the review process. These should be evaluated at each step to ensure the product is ready for the next step in the process. B, C and D are not correct because the criteria should already be defined by this point",
-                "B": "This option is not the correct answer (see the official explanation).",
-                "C": "This option is not the correct answer (see the official explanation).",
-                "D": "This option is not the correct answer (see the official explanation)."
+                "C": "The entry and exit criteria should be defined during the planning step in the review process. These should be evaluated at each step to ensure the product is ready for the next step in the process. B, C and D are not correct because the criteria should already be defined by this point",
+                "D": "Option B (“Review initiation”) is incorrect. A is correct. The entry and exit criteria should be defined during the planning step in the review process. These should be evaluated at each step to ensure the product is ready for the next step in the process. B, C and D are not correct because the criteria should already be defined by this point.",
+                "B": "Option C (“Individual review”) is incorrect. A is correct. The entry and exit criteria should be defined during the planning step in the review process. These should be evaluated at each step to ensure the product is ready for the next step in the process. B, C and D are not correct because the criteria should already be defined by this point.",
+                "A": "Option D (“Fixing and reporting”) is incorrect. A is correct. The entry and exit criteria should be defined during the planning step in the review process. These should be evaluated at each step to ensure the product is ready for the next step in the process. B, C and D are not correct because the criteria should already be defined by this point."
             },
             "chapter": 3,
             "section": "3.2",
@@ -14217,23 +14217,23 @@ window.questionSets = {
             "statement": "Which category of techniques is defined by deriving tests from specified behavior without reference to the internal structure of the test object?",
             "options": {
                 "A": "Structure-based",
-                "B": "Black-box",
-                "C": "White-box",
-                "D": "Exploratory"
+                "D": "Black-box",
+                "B": "White-box",
+                "C": "Exploratory"
             },
-            "correctAnswer": "B",
+            "correctAnswer": "D",
             "explanation": "Black-box techniques derive tests from specified behavior without using internal structure. Exploratory testing may use requirements too, but its defining characteristic is concurrent learning, test design, and execution informed by experience.",
             "correctFeedback": "✅ Correct: , per syllabus. Black-box testing is based off the requirements documents. A and C are incorrect because these use the structure of the software as the test basis.",
             "incorrectFeedback": {
-                "A": "❌ Incorrect: This option is not the correct answer (see the official explanation).",
-                "C": "❌ Incorrect: This option is not the correct answer (see the official explanation).",
-                "D": "❌ Incorrect: Exploratory testing combines learning, design, and execution and may use specifications; it is classified as experience-based rather than specification-based."
+                "A": "❌ Incorrect: Option A (“Structure-based”) does not meet the requirement. Black-box techniques derive tests from specified behavior without using internal structure. Exploratory testing may use requirements too, but its defining characteristic is concurrent learning, test design, and execution informed by experience.",
+                "B": "❌ Incorrect: Option C (“White-box”) does not meet the requirement. Black-box techniques derive tests from specified behavior without using internal structure. Exploratory testing may use requirements too, but its defining characteristic is concurrent learning, test design, and execution informed by experience.",
+                "C": "❌ Incorrect: Exploratory testing combines learning, design, and execution and may use specifications; it is classified as experience-based rather than specification-based."
             },
             "optionExplanations": {
-                "B": ", per syllabus. Black-box testing is based off the requirements documents. A and C are incorrect because these use the structure of the software as the test basis",
-                "A": "This option is not the correct answer (see the official explanation).",
-                "C": "This option is not the correct answer (see the official explanation).",
-                "D": "Exploratory testing combines learning, design, and execution and may use specifications; it is classified as experience-based rather than specification-based."
+                "D": ", per syllabus. Black-box testing is based off the requirements documents. A and C are incorrect because these use the structure of the software as the test basis",
+                "A": "Option A (“Structure-based”) is incorrect. Black-box techniques derive tests from specified behavior without using internal structure. Exploratory testing may use requirements too, but its defining characteristic is concurrent learning, test design, and execution informed by experience.",
+                "B": "Option C (“White-box”) is incorrect. Black-box techniques derive tests from specified behavior without using internal structure. Exploratory testing may use requirements too, but its defining characteristic is concurrent learning, test design, and execution informed by experience.",
+                "C": "Exploratory testing combines learning, design, and execution and may use specifications; it is classified as experience-based rather than specification-based."
             },
             "chapter": 4,
             "section": "4.1",
@@ -14253,24 +14253,24 @@ window.questionSets = {
             "id": "Q1020",
             "statement": "If you are testing a module of code, how do you determine the level of branch coverage you have achieved?",
             "options": {
-                "A": "By taking the number of branches you have tested and dividing that by the total number of executable statements in the module",
+                "C": "By taking the number of branches you have tested and dividing that by the total number of executable statements in the module",
                 "B": "By taking the number of branches you have tested and dividing that by the total number of branches in the module",
-                "C": "By taking the number of branches you have tested and dividing that by the total lines of code in the module",
-                "D": "By taking the number of branches you have tested and dividing that by the total number of test cases you have executed for the module"
+                "D": "By taking the number of branches you have tested and dividing that by the total lines of code in the module",
+                "A": "By taking the number of branches you have tested and dividing that by the total number of test cases you have executed for the module"
             },
             "correctAnswer": "B",
             "explanation": "B is correct. Branch coverage looks at the number of branches tested versus the number of branches in the code under test.",
             "correctFeedback": "✅ Correct: Branch coverage looks at the number of branches tested versus the number of branches in the code under test.",
             "incorrectFeedback": {
-                "A": "❌ Incorrect: This option is not the correct answer (see the official explanation).",
-                "C": "❌ Incorrect: This option is not the correct answer (see the official explanation).",
-                "D": "❌ Incorrect: This option is not the correct answer (see the official explanation)."
+                "C": "❌ Incorrect: Option A (“By taking the number of branches you have tested and dividing that by the total number of executable statements in the module”) does not meet the requirement. B is correct. Branch coverage looks at the number of branches tested versus the number of branches in the code under test.",
+                "D": "❌ Incorrect: Option C (“By taking the number of branches you have tested and dividing that by the total lines of code in the module”) does not meet the requirement. B is correct. Branch coverage looks at the number of branches tested versus the number of branches in the code under test.",
+                "A": "❌ Incorrect: Option D (“By taking the number of branches you have tested and dividing that by the total number of test cases you have executed for the module”) does not meet the requirement. B is correct. Branch coverage looks at the number of branches tested versus the number of branches in the code under test."
             },
             "optionExplanations": {
                 "B": "Branch coverage looks at the number of branches tested versus the number of branches in the code under test",
-                "A": "This option is not the correct answer (see the official explanation).",
-                "C": "This option is not the correct answer (see the official explanation).",
-                "D": "This option is not the correct answer (see the official explanation)."
+                "C": "Option A (“By taking the number of branches you have tested and dividing that by the total number of executable statements in the module”) is incorrect. B is correct. Branch coverage looks at the number of branches tested versus the number of branches in the code under test.",
+                "D": "Option C (“By taking the number of branches you have tested and dividing that by the total lines of code in the module”) is incorrect. B is correct. Branch coverage looks at the number of branches tested versus the number of branches in the code under test.",
+                "A": "Option D (“By taking the number of branches you have tested and dividing that by the total number of test cases you have executed for the module”) is incorrect. B is correct. Branch coverage looks at the number of branches tested versus the number of branches in the code under test."
             },
             "chapter": 4,
             "section": "4.3",
@@ -14290,24 +14290,24 @@ window.questionSets = {
             "id": "Q1021",
             "statement": "A code fragment contains one IF decision, evaluated once in each test case, with both its true and false outcomes feasible. What is the minimum number of test cases needed to exercise both outcomes for 100% branch coverage?",
             "options": {
-                "A": "1",
-                "B": "2",
+                "B": "1",
+                "D": "2",
                 "C": "5",
-                "D": "Unknown with this information"
+                "A": "Unknown with this information"
             },
-            "correctAnswer": "B",
+            "correctAnswer": "D",
             "explanation": "Two tests are needed because the decision is evaluated once per test and has two feasible outcomes. One test covers true and the other false. A compound Boolean expression can still have only two decision outcomes; the number of subconditions is a separate issue.",
             "correctFeedback": "✅ Correct: A simple IF statement will be composed of If ... then ... else end if. There are two branch outcomes, one for the result of the If being true and one for it being false. Since 100%.",
             "incorrectFeedback": {
-                "A": "❌ Incorrect: One test case can only exercise one outcome of the decision (either true or false), leaving the other branch unexercised. This gives at most 50% branch coverage, not 100%.",
+                "B": "❌ Incorrect: One test case can only exercise one outcome of the decision (either true or false), leaving the other branch unexercised. This gives at most 50% branch coverage, not 100%.",
                 "C": "❌ Incorrect: Five test cases is far more than the minimum needed. A simple IF statement has exactly two branch outcomes (true and false), so only two test cases are required for 100% branch coverage.",
-                "D": "❌ Incorrect: The question explicitly states this is a 'simple IF statement,' which by definition has one condition and two outcomes (true and false). The number of tests needed is therefore knowable — it is not unknown."
+                "A": "❌ Incorrect: The question explicitly states this is a 'simple IF statement,' which by definition has one condition and two outcomes (true and false). The number of tests needed is therefore knowable — it is not unknown."
             },
             "optionExplanations": {
-                "B": "A simple IF statement has two branch outcomes — one for the condition being true and one for it being false. Since 100% branch coverage requires at least one test case per outcome, two tests are needed.",
-                "A": "One test case exercises only one branch outcome, giving at most 50% branch coverage. It cannot achieve 100%.",
+                "D": "A simple IF statement has two branch outcomes — one for the condition being true and one for it being false. Since 100% branch coverage requires at least one test case per outcome, two tests are needed.",
+                "B": "One test case exercises only one branch outcome, giving at most 50% branch coverage. It cannot achieve 100%.",
                 "C": "Five test cases is more than the minimum needed. A simple IF has exactly two branch outcomes, requiring only two tests.",
-                "D": "The number is knowable because the question specifies a 'simple IF statement,' which by definition has one condition and exactly two outcomes."
+                "A": "The number is knowable because the question specifies a 'simple IF statement,' which by definition has one condition and exactly two outcomes."
             },
             "chapter": 4,
             "section": "4.3",
@@ -14327,24 +14327,24 @@ window.questionSets = {
             "id": "Q1022",
             "statement": "Which of the following is a good reason to use experience-based testing?",
             "options": {
-                "A": "You can find defects that might be missed by more formal techniques",
-                "B": "You can test for defects that only experienced users would encounter",
-                "C": "You can target the developer’s efforts to the areas that users will be more likely to use",
-                "D": "It is supported by strong tools and can be automated"
+                "B": "You can find defects that might be missed by more formal techniques",
+                "A": "You can test for defects that only experienced users would encounter",
+                "D": "You can target the developer’s efforts to the areas that users will be more likely to use",
+                "C": "It is supported by strong tools and can be automated"
             },
-            "correctAnswer": "A",
+            "correctAnswer": "B",
             "explanation": "A is correct. Experience-based testing is often used to fill in the gaps left by the more formal testing techniques. B is not correct because it is used by experienced testers and has nothing to do with the experience level of the users. C is not correct because it is a test technique, not a development technique. D is not correct. There is not much tool support for these techniques and automation is not usually a goal because the effectiveness depends on the experience of the tester.",
             "correctFeedback": "✅ Correct: Experience-based testing is often used to fill in the gaps left by the more formal testing techniques.",
             "incorrectFeedback": {
-                "B": "❌ Incorrect: it is used by experienced testers and has nothing to do with the experience level of the users",
-                "C": "❌ Incorrect: it is a test technique, not a development technique",
-                "D": "❌ Incorrect: There is not much tool support for these techniques and automation is not usually a goal because the effectiveness depends on the experience of the tester"
+                "A": "❌ Incorrect: it is used by experienced testers and has nothing to do with the experience level of the users",
+                "D": "❌ Incorrect: it is a test technique, not a development technique",
+                "C": "❌ Incorrect: There is not much tool support for these techniques and automation is not usually a goal because the effectiveness depends on the experience of the tester"
             },
             "optionExplanations": {
-                "A": "Experience-based testing is often used to fill in the gaps left by the more formal testing techniques",
-                "B": "it is used by experienced testers and has nothing to do with the experience level of the users",
-                "C": "it is a test technique, not a development technique",
-                "D": "There is not much tool support for these techniques and automation is not usually a goal because the effectiveness depends on the experience of the tester"
+                "B": "Experience-based testing is often used to fill in the gaps left by the more formal testing techniques",
+                "A": "it is used by experienced testers and has nothing to do with the experience level of the users",
+                "D": "it is a test technique, not a development technique",
+                "C": "There is not much tool support for these techniques and automation is not usually a goal because the effectiveness depends on the experience of the tester"
             },
             "chapter": 4,
             "section": "4.1",
@@ -14364,24 +14364,24 @@ window.questionSets = {
             "id": "Q1023",
             "statement": "What is error guessing?",
             "options": {
-                "A": "A testing technique used to guess where a developer is likely to have made a mistake",
+                "D": "A testing technique used to guess where a developer is likely to have made a mistake",
                 "B": "A technique used for assessing defect metrics",
                 "C": "A development technique to verify that all error paths have been coded",
-                "D": "A planning technique used to anticipate likely schedule variances due to faults"
+                "A": "A planning technique used to anticipate likely schedule variances due to faults"
             },
-            "correctAnswer": "A",
+            "correctAnswer": "D",
             "explanation": "A is correct. Error guessing is a technique used to anticipate where developers are likely to make errors and to create tests to cover those areas. B, C and D are not correct.",
             "correctFeedback": "✅ Correct: Error guessing is a technique used to anticipate where developers are likely to make errors and to create tests to cover those areas. B, C and D are not correct.",
             "incorrectFeedback": {
-                "B": "❌ Incorrect: This option is not the correct answer (see the official explanation).",
-                "C": "❌ Incorrect: This option is not the correct answer (see the official explanation).",
-                "D": "❌ Incorrect: This option is not the correct answer (see the official explanation)."
+                "B": "❌ Incorrect: Option B (“A technique used for assessing defect metrics”) does not meet the requirement. A is correct. Error guessing is a technique used to anticipate where developers are likely to make errors and to create tests to cover those areas. B, C and D are not correct.",
+                "C": "❌ Incorrect: Option C (“A development technique to verify that all error paths have been coded”) does not meet the requirement. A is correct. Error guessing is a technique used to anticipate where developers are likely to make errors and to create tests to cover those areas. B, C and D are not correct.",
+                "A": "❌ Incorrect: Option D (“A planning technique used to anticipate likely schedule variances due to faults”) does not meet the requirement. A is correct. Error guessing is a technique used to anticipate where developers are likely to make errors and to create tests to cover those areas. B, C and D are not correct."
             },
             "optionExplanations": {
-                "A": "Error guessing is a technique used to anticipate where developers are likely to make errors and to create tests to cover those areas. B, C and D are not correct",
-                "B": "This option is not the correct answer (see the official explanation).",
-                "C": "This option is not the correct answer (see the official explanation).",
-                "D": "This option is not the correct answer (see the official explanation)."
+                "D": "Error guessing is a technique used to anticipate where developers are likely to make errors and to create tests to cover those areas. B, C and D are not correct",
+                "B": "Option B (“A technique used for assessing defect metrics”) is incorrect. A is correct. Error guessing is a technique used to anticipate where developers are likely to make errors and to create tests to cover those areas. B, C and D are not correct.",
+                "C": "Option C (“A development technique to verify that all error paths have been coded”) is incorrect. A is correct. Error guessing is a technique used to anticipate where developers are likely to make errors and to create tests to cover those areas. B, C and D are not correct.",
+                "A": "Option D (“A planning technique used to anticipate likely schedule variances due to faults”) is incorrect. A is correct. Error guessing is a technique used to anticipate where developers are likely to make errors and to create tests to cover those areas. B, C and D are not correct."
             },
             "chapter": 4,
             "section": "4.4",
@@ -14401,24 +14401,24 @@ window.questionSets = {
             "id": "Q1024",
             "statement": "When using the 3 C’s technique for user story development, what is the work product that is created for the Confirmation aspect?",
             "options": {
-                "A": "Test Approach",
-                "B": "Acceptance Criteria",
-                "C": "Entry Criteria",
-                "D": "Exit Criteria"
+                "C": "Test Approach",
+                "A": "Acceptance Criteria",
+                "D": "Entry Criteria",
+                "B": "Exit Criteria"
             },
-            "correctAnswer": "B",
+            "correctAnswer": "A",
             "explanation": "B is correct. The confirmation aspect of the 3 C’s is the acceptance criteria.",
             "correctFeedback": "✅ Correct: The confirmation aspect of the 3 C’s is the acceptance criteria.",
             "incorrectFeedback": {
-                "A": "❌ Incorrect: This option is not the correct answer (see the official explanation).",
-                "C": "❌ Incorrect: This option is not the correct answer (see the official explanation).",
-                "D": "❌ Incorrect: This option is not the correct answer (see the official explanation)."
+                "C": "❌ Incorrect: Option A (“Test Approach”) does not meet the requirement. B is correct. The confirmation aspect of the 3 C’s is the acceptance criteria.",
+                "D": "❌ Incorrect: Option C (“Entry Criteria”) does not meet the requirement. B is correct. The confirmation aspect of the 3 C’s is the acceptance criteria.",
+                "B": "❌ Incorrect: Option D (“Exit Criteria”) does not meet the requirement. B is correct. The confirmation aspect of the 3 C’s is the acceptance criteria."
             },
             "optionExplanations": {
-                "B": "The confirmation aspect of the 3 C’s is the acceptance criteria",
-                "A": "This option is not the correct answer (see the official explanation).",
-                "C": "This option is not the correct answer (see the official explanation).",
-                "D": "This option is not the correct answer (see the official explanation)."
+                "A": "The confirmation aspect of the 3 C’s is the acceptance criteria",
+                "C": "Option A (“Test Approach”) is incorrect. B is correct. The confirmation aspect of the 3 C’s is the acceptance criteria.",
+                "D": "Option C (“Entry Criteria”) is incorrect. B is correct. The confirmation aspect of the 3 C’s is the acceptance criteria.",
+                "B": "Option D (“Exit Criteria”) is incorrect. B is correct. The confirmation aspect of the 3 C’s is the acceptance criteria."
             },
             "chapter": 4,
             "section": "4.5",
@@ -14439,23 +14439,23 @@ window.questionSets = {
             "statement": "You are testing a machine that scores exam papers and assigns grades. Based on the score achieved the grades are as follows: 1-49 = F, 50-59 = D-, 60-69 = D, 70-79 = C, 80-89 = B, 90-100=A Scores are integers. Values below 1 and above 100 are rejected as two separate invalid partitions. If you apply equivalence partitioning, how many test cases will you need to achieve minimum test coverage?",
             "options": {
                 "A": "6",
-                "B": "8",
-                "C": "10",
+                "C": "8",
+                "B": "10",
                 "D": "12"
             },
-            "correctAnswer": "B",
+            "correctAnswer": "C",
             "explanation": "B is correct. You need a test for the invalid too low (0 or less), one for each valid partition, and one for invalid too high (>100). It may not allow you to enter a value > 100, but it should be tested to make sure it provides a proper error.",
             "correctFeedback": "✅ Correct: You need a test for the invalid too low (0 or less), one for each valid partition, and one for invalid too high (>100). It may not allow you to enter a value > 100, but it should b.",
             "incorrectFeedback": {
-                "A": "❌ Incorrect: This option is not the correct answer (see the official explanation).",
-                "C": "❌ Incorrect: This option is not the correct answer (see the official explanation).",
-                "D": "❌ Incorrect: This option is not the correct answer (see the official explanation)."
+                "A": "❌ Incorrect: Option A (“6”) does not meet the requirement. B is correct. You need a test for the invalid too low (0 or less), one for each valid partition, and one for invalid too high (>100). It may not allow you to enter a value > 100, but it should be tested to make sure it provides a proper error.",
+                "B": "❌ Incorrect: Option C (“10”) does not meet the requirement. B is correct. You need a test for the invalid too low (0 or less), one for each valid partition, and one for invalid too high (>100). It may not allow you to enter a value > 100, but it should be tested to make sure it provides a proper error.",
+                "D": "❌ Incorrect: Option D (“12”) does not meet the requirement. B is correct. You need a test for the invalid too low (0 or less), one for each valid partition, and one for invalid too high (>100). It may not allow you to enter a value > 100, but it should be tested to make sure it provides a proper error."
             },
             "optionExplanations": {
-                "B": "You need a test for the invalid too low (0 or less), one for each valid partition, and one for invalid too high (>100). It may not allow you to enter a value > 100, but it should be tested to make sure it provides a proper error",
-                "A": "This option is not the correct answer (see the official explanation).",
-                "C": "This option is not the correct answer (see the official explanation).",
-                "D": "This option is not the correct answer (see the official explanation)."
+                "C": "You need a test for the invalid too low (0 or less), one for each valid partition, and one for invalid too high (>100). It may not allow you to enter a value > 100, but it should be tested to make sure it provides a proper error",
+                "A": "Option A (“6”) is incorrect. B is correct. You need a test for the invalid too low (0 or less), one for each valid partition, and one for invalid too high (>100). It may not allow you to enter a value > 100, but it should be tested to make sure it provides a proper error.",
+                "B": "Option C (“10”) is incorrect. B is correct. You need a test for the invalid too low (0 or less), one for each valid partition, and one for invalid too high (>100). It may not allow you to enter a value > 100, but it should be tested to make sure it provides a proper error.",
+                "D": "Option D (“12”) is incorrect. B is correct. You need a test for the invalid too low (0 or less), one for each valid partition, and one for invalid too high (>100). It may not allow you to enter a value > 100, but it should be tested to make sure it provides a proper error."
             },
             "chapter": 4,
             "section": "4.2",
@@ -14475,24 +14475,24 @@ window.questionSets = {
             "id": "Q1026",
             "statement": "You are testing a thermostat for a heating/air conditioning system. You have been given the following requirements: • When the temperature is below 70 degrees, turn on the heating system • When the temperature is above 75 degrees, turn on the air conditioning system • When the temperature is between 70 and 75 degrees, inclusive, turn on fan only Which of the following is the minimum set of test temperature values to achieve 100% two-value boundary value analysis coverage? Temperatures are integers.",
             "options": {
-                "A": "70, 75",
-                "B": "65, 72, 80",
-                "C": "69, 70, 75, 76",
-                "D": "70, 71, 74, 75, 76"
+                "C": "70, 75",
+                "D": "65, 72, 80",
+                "A": "69, 70, 75, 76",
+                "B": "70, 71, 74, 75, 76"
             },
-            "correctAnswer": "C",
+            "correctAnswer": "A",
             "explanation": "C is correct. For the heating system, the values to test are 69, 70. For the air conditioning system, the values are 75, 76. For the fan only, the values are 69, 70, 75, 76. The proper test set combines all these values, 69, 70, 75, 76",
             "correctFeedback": "✅ Correct: For the heating system, the values to test are 69, 70. For the air conditioning system, the values are 75, 76. For the fan only, the values are 69, 70, 75, 76. The proper test set .",
             "incorrectFeedback": {
-                "A": "❌ Incorrect: This option is not the correct answer (see the official explanation).",
-                "B": "❌ Incorrect: This option is not the correct answer (see the official explanation).",
-                "D": "❌ Incorrect: This option is not the correct answer (see the official explanation)."
+                "C": "❌ Incorrect: Option A (“70, 75”) does not meet the requirement. C is correct. For the heating system, the values to test are 69, 70. For the air conditioning system, the values are 75, 76. For the fan only, the values are 69, 70, 75, 76. The proper test set combines all these values, 69, 70, 75, 76",
+                "D": "❌ Incorrect: Option B (“65, 72, 80”) does not meet the requirement. C is correct. For the heating system, the values to test are 69, 70. For the air conditioning system, the values are 75, 76. For the fan only, the values are 69, 70, 75, 76. The proper test set combines all these values, 69, 70, 75, 76",
+                "B": "❌ Incorrect: Option D (“70, 71, 74, 75, 76”) does not meet the requirement. C is correct. For the heating system, the values to test are 69, 70. For the air conditioning system, the values are 75, 76. For the fan only, the values are 69, 70, 75, 76. The proper test set combines all these values, 69, 70, 75, 76"
             },
             "optionExplanations": {
-                "C": "For the heating system, the values to test are 69, 70. For the air conditioning system, the values are 75, 76. For the fan only, the values are 69, 70, 75, 76. The proper test set combines all these values, 69, 70, 75, 76",
-                "A": "This option is not the correct answer (see the official explanation).",
-                "B": "This option is not the correct answer (see the official explanation).",
-                "D": "This option is not the correct answer (see the official explanation)."
+                "A": "For the heating system, the values to test are 69, 70. For the air conditioning system, the values are 75, 76. For the fan only, the values are 69, 70, 75, 76. The proper test set combines all these values, 69, 70, 75, 76",
+                "C": "Option A (“70, 75”) is incorrect. C is correct. For the heating system, the values to test are 69, 70. For the air conditioning system, the values are 75, 76. For the fan only, the values are 69, 70, 75, 76. The proper test set combines all these values, 69, 70, 75, 76",
+                "D": "Option B (“65, 72, 80”) is incorrect. C is correct. For the heating system, the values to test are 69, 70. For the air conditioning system, the values are 75, 76. For the fan only, the values are 69, 70, 75, 76. The proper test set combines all these values, 69, 70, 75, 76",
+                "B": "Option D (“70, 71, 74, 75, 76”) is incorrect. C is correct. For the heating system, the values to test are 69, 70. For the air conditioning system, the values are 75, 76. For the fan only, the values are 69, 70, 75, 76. The proper test set combines all these values, 69, 70, 75, 76"
             },
             "chapter": 4,
             "section": "4.2",
@@ -14513,23 +14513,23 @@ window.questionSets = {
             "statement": "You have been given the following conditions and results from those condition combinations. Given this information, using the decision table technique, what is the minimum number of test cases you would need to test these conditions? Conditions: Valid cash Valid credit card Valid debit card Valid pin Bank accepts Valid Selection Item in Stock Results: Reject Cash Reject Card Error Message Return Cash Refund Card Sell Item",
             "options": {
                 "A": "7",
-                "B": "13",
-                "C": "Cannot be determined from the supplied information",
-                "D": "18"
+                "C": "13",
+                "D": "Cannot be determined from the supplied information",
+                "B": "18"
             },
-            "correctAnswer": "C",
+            "correctAnswer": "D",
             "explanation": "The file supplies names of conditions and actions but no rules linking their combinations to actions, no feasibility constraints, and no decision table. These labels alone cannot establish a minimum of 15 tests. Seven independent Boolean conditions would have 128 combinations before feasibility analysis or minimization, but independence is not established here.",
             "correctFeedback": "✅ Correct: The condition-to-action rules and feasibility constraints are missing; the minimum cannot be determined.",
             "incorrectFeedback": {
                 "A": "❌ Incorrect: Seven is the number of condition labels, not a justified number of decision rules.",
-                "B": "❌ Incorrect: No supplied rule table or constraints justify 13 tests.",
-                "D": "❌ Incorrect: No supplied rule table or constraints justify 18 tests."
+                "C": "❌ Incorrect: No supplied rule table or constraints justify 13 tests.",
+                "B": "❌ Incorrect: No supplied rule table or constraints justify 18 tests."
             },
             "optionExplanations": {
-                "C": "The condition-to-action rules and feasibility constraints are missing; the minimum cannot be determined.",
+                "D": "The condition-to-action rules and feasibility constraints are missing; the minimum cannot be determined.",
                 "A": "Seven is the number of condition labels, not a justified number of decision rules.",
-                "B": "No supplied rule table or constraints justify 13 tests.",
-                "D": "No supplied rule table or constraints justify 18 tests."
+                "C": "No supplied rule table or constraints justify 13 tests.",
+                "B": "No supplied rule table or constraints justify 18 tests."
             },
             "chapter": 4,
             "section": "4.2",
@@ -14549,24 +14549,24 @@ window.questionSets = {
             "id": "Q1028",
             "statement": "A login model has states A0 (zero failed attempts), A1 (one), A2 (two), Locked, and Home. Each test starts in A0 and ends on reaching Home. Wrong credentials cause A0 -> A1, A1 -> A2, and A2 -> Locked. Waiting ten minutes causes Locked -> A0. Correct credentials cause A0 -> Home, A1 -> Home, or A2 -> Home. How many tests are minimally needed for 100% valid transitions coverage?",
             "options": {
-                "A": "3",
-                "B": "2",
-                "C": "4",
-                "D": "5"
+                "C": "3",
+                "D": "2",
+                "B": "4",
+                "A": "5"
             },
-            "correctAnswer": "A",
+            "correctAnswer": "C",
             "explanation": "Three transitions lead to the terminal state Home, so at least three tests are required. Test 1: A0 -> A1 -> A2 -> Locked -> A0 -> Home. Test 2: A0 -> A1 -> Home. Test 3: A0 -> A1 -> A2 -> Home. Together they cover all seven valid transitions.",
             "correctFeedback": "✅ Correct: Three tests cover all seven transitions, including the three distinct success transitions into terminal Home.",
             "incorrectFeedback": {
-                "B": "❌ Incorrect: Two tests can exercise at most two of the three transitions into terminal Home.",
-                "C": "❌ Incorrect: Four tests can suffice but are not minimal; three are sufficient.",
-                "D": "❌ Incorrect: Five tests exceed the minimum of three."
+                "D": "❌ Incorrect: Two tests can exercise at most two of the three transitions into terminal Home.",
+                "B": "❌ Incorrect: Four tests can suffice but are not minimal; three are sufficient.",
+                "A": "❌ Incorrect: Five tests exceed the minimum of three."
             },
             "optionExplanations": {
-                "A": "Three tests cover all seven transitions, including the three distinct success transitions into terminal Home.",
-                "B": "Two tests can exercise at most two of the three transitions into terminal Home.",
-                "C": "Four tests can suffice but are not minimal; three are sufficient.",
-                "D": "Five tests exceed the minimum of three."
+                "C": "Three tests cover all seven transitions, including the three distinct success transitions into terminal Home.",
+                "D": "Two tests can exercise at most two of the three transitions into terminal Home.",
+                "B": "Four tests can suffice but are not minimal; three are sufficient.",
+                "A": "Five tests exceed the minimum of three."
             },
             "chapter": 4,
             "section": "4.2",
@@ -14588,22 +14588,22 @@ window.questionSets = {
             "options": {
                 "A": "0, 1-floor full, overbooked, usability, performance",
                 "B": "Performance, 1-floor full, usability, overbooked, 0",
-                "C": "Usability, performance, overbooked, 0, 1-floor full",
-                "D": "Overbooked, 0, 1-floor full, performance, usability"
+                "D": "Usability, performance, overbooked, 0, 1-floor full",
+                "C": "Overbooked, 0, 1-floor full, performance, usability"
             },
             "correctAnswer": "A",
             "explanation": "A is correct. This tests the valid scenarios first, then invalid (overbooked), then the non-functional tests.",
             "correctFeedback": "✅ Correct: This tests the valid scenarios first, then invalid (overbooked), then the non-functional tests.",
             "incorrectFeedback": {
-                "B": "❌ Incorrect: This option is not the correct answer (see the official explanation).",
-                "C": "❌ Incorrect: This option is not the correct answer (see the official explanation).",
-                "D": "❌ Incorrect: This option is not the correct answer (see the official explanation)."
+                "B": "❌ Incorrect: Option B (“Performance, 1-floor full, usability, overbooked, 0”) does not meet the requirement. A is correct. This tests the valid scenarios first, then invalid (overbooked), then the non-functional tests.",
+                "D": "❌ Incorrect: Option C (“Usability, performance, overbooked, 0, 1-floor full”) does not meet the requirement. A is correct. This tests the valid scenarios first, then invalid (overbooked), then the non-functional tests.",
+                "C": "❌ Incorrect: Option D (“Overbooked, 0, 1-floor full, performance, usability”) does not meet the requirement. A is correct. This tests the valid scenarios first, then invalid (overbooked), then the non-functional tests."
             },
             "optionExplanations": {
                 "A": "This tests the valid scenarios first, then invalid (overbooked), then the non-functional tests",
-                "B": "This option is not the correct answer (see the official explanation).",
-                "C": "This option is not the correct answer (see the official explanation).",
-                "D": "This option is not the correct answer (see the official explanation)."
+                "B": "Option B (“Performance, 1-floor full, usability, overbooked, 0”) is incorrect. A is correct. This tests the valid scenarios first, then invalid (overbooked), then the non-functional tests.",
+                "D": "Option C (“Usability, performance, overbooked, 0, 1-floor full”) is incorrect. A is correct. This tests the valid scenarios first, then invalid (overbooked), then the non-functional tests.",
+                "C": "Option D (“Overbooked, 0, 1-floor full, performance, usability”) is incorrect. A is correct. This tests the valid scenarios first, then invalid (overbooked), then the non-functional tests."
             },
             "chapter": 4,
             "section": "4.5",
@@ -14623,24 +14623,24 @@ window.questionSets = {
             "id": "Q1030",
             "statement": "A metric that tracks the number of test cases passed is gathered during which activity in the test process?",
             "options": {
-                "A": "Planning",
-                "B": "Implementation",
+                "B": "Planning",
+                "D": "Implementation",
                 "C": "Execution",
-                "D": "Reporting"
+                "A": "Reporting"
             },
             "correctAnswer": "C",
             "explanation": "The pass/fail outcome is generated and logged as tests are executed. Test monitoring subsequently collects and analyzes such execution metrics, and test reports communicate them to stakeholders.",
             "correctFeedback": "✅ Correct: Passed-test outcomes are recorded during test execution and subsequently used for monitoring and reporting.",
             "incorrectFeedback": {
-                "A": "❌ Incorrect: This option is not the correct answer (see the official explanation).",
-                "B": "❌ Incorrect: This option is not the correct answer (see the official explanation).",
-                "D": "❌ Incorrect: This option is not the correct answer (see the official explanation)."
+                "B": "❌ Incorrect: Option A (“Planning”) does not meet the requirement. The pass/fail outcome is generated and logged as tests are executed. Test monitoring subsequently collects and analyzes such execution metrics, and test reports communicate them to stakeholders.",
+                "D": "❌ Incorrect: Option B (“Implementation”) does not meet the requirement. The pass/fail outcome is generated and logged as tests are executed. Test monitoring subsequently collects and analyzes such execution metrics, and test reports communicate them to stakeholders.",
+                "A": "❌ Incorrect: Option D (“Reporting”) does not meet the requirement. The pass/fail outcome is generated and logged as tests are executed. Test monitoring subsequently collects and analyzes such execution metrics, and test reports communicate them to stakeholders."
             },
             "optionExplanations": {
                 "C": "Pass/fail outcomes originate during execution; they are then aggregated by test monitoring.",
-                "A": "This option is not the correct answer (see the official explanation).",
-                "B": "This option is not the correct answer (see the official explanation).",
-                "D": "This option is not the correct answer (see the official explanation)."
+                "B": "Option A (“Planning”) is incorrect. The pass/fail outcome is generated and logged as tests are executed. Test monitoring subsequently collects and analyzes such execution metrics, and test reports communicate them to stakeholders.",
+                "D": "Option B (“Implementation”) is incorrect. The pass/fail outcome is generated and logged as tests are executed. Test monitoring subsequently collects and analyzes such execution metrics, and test reports communicate them to stakeholders.",
+                "A": "Option D (“Reporting”) is incorrect. The pass/fail outcome is generated and logged as tests are executed. Test monitoring subsequently collects and analyzes such execution metrics, and test reports communicate them to stakeholders."
             },
             "chapter": 5,
             "section": "5.3",
@@ -14661,23 +14661,23 @@ window.questionSets = {
             "statement": "You are working in a team of testers who are all writing test cases. You have noticed that there is a significant inconsistency with the length and amount of detail in the different test cases. Where should the criteria for test case writing be documented?",
             "options": {
                 "A": "The test plan",
-                "B": "The test approach",
-                "C": "The test case template",
+                "C": "The test approach",
+                "B": "The test case template",
                 "D": "The project plan"
             },
             "correctAnswer": "A",
             "explanation": "A is correct. The level of detail and structure for the test documentation should be included in the test plan as part of the criteria for the performance of testing activities.",
             "correctFeedback": "✅ Correct: The level of detail and structure for the test documentation should be included in the test plan as part of the criteria for the performance of testing activities.",
             "incorrectFeedback": {
-                "B": "❌ Incorrect: This option is not the correct answer (see the official explanation).",
-                "C": "❌ Incorrect: This option is not the correct answer (see the official explanation).",
-                "D": "❌ Incorrect: This option is not the correct answer (see the official explanation)."
+                "C": "❌ Incorrect: Option B (“The test approach”) does not meet the requirement. A is correct. The level of detail and structure for the test documentation should be included in the test plan as part of the criteria for the performance of testing activities.",
+                "B": "❌ Incorrect: Option C (“The test case template”) does not meet the requirement. A is correct. The level of detail and structure for the test documentation should be included in the test plan as part of the criteria for the performance of testing activities.",
+                "D": "❌ Incorrect: Option D (“The project plan”) does not meet the requirement. A is correct. The level of detail and structure for the test documentation should be included in the test plan as part of the criteria for the performance of testing activities."
             },
             "optionExplanations": {
                 "A": "The level of detail and structure for the test documentation should be included in the test plan as part of the criteria for the performance of testing activities",
-                "B": "This option is not the correct answer (see the official explanation).",
-                "C": "This option is not the correct answer (see the official explanation).",
-                "D": "This option is not the correct answer (see the official explanation)."
+                "C": "Option B (“The test approach”) is incorrect. A is correct. The level of detail and structure for the test documentation should be included in the test plan as part of the criteria for the performance of testing activities.",
+                "B": "Option C (“The test case template”) is incorrect. A is correct. The level of detail and structure for the test documentation should be included in the test plan as part of the criteria for the performance of testing activities.",
+                "D": "Option D (“The project plan”) is incorrect. A is correct. The level of detail and structure for the test documentation should be included in the test plan as part of the criteria for the performance of testing activities."
             },
             "chapter": 5,
             "section": "5.1",
@@ -14697,24 +14697,24 @@ window.questionSets = {
             "id": "Q1032",
             "statement": "Unit tests belong in which testing quadrant?",
             "options": {
-                "A": "Q1",
-                "B": "Q2",
-                "C": "Q3",
-                "D": "Q4"
+                "C": "Q1",
+                "D": "Q2",
+                "B": "Q3",
+                "A": "Q4"
             },
-            "correctAnswer": "A",
+            "correctAnswer": "C",
             "explanation": "A is correct. Unit, or component, tests belong to quadrant 1.",
             "correctFeedback": "✅ Correct: Unit, or component, tests belong to quadrant 1.",
             "incorrectFeedback": {
-                "B": "❌ Incorrect: This option is not the correct answer (see the official explanation).",
-                "C": "❌ Incorrect: This option is not the correct answer (see the official explanation).",
-                "D": "❌ Incorrect: This option is not the correct answer (see the official explanation)."
+                "D": "❌ Incorrect: Option B (“Q2”) does not meet the requirement. A is correct. Unit, or component, tests belong to quadrant 1.",
+                "B": "❌ Incorrect: Option C (“Q3”) does not meet the requirement. A is correct. Unit, or component, tests belong to quadrant 1.",
+                "A": "❌ Incorrect: Option D (“Q4”) does not meet the requirement. A is correct. Unit, or component, tests belong to quadrant 1."
             },
             "optionExplanations": {
-                "A": "Unit, or component, tests belong to quadrant 1",
-                "B": "This option is not the correct answer (see the official explanation).",
-                "C": "This option is not the correct answer (see the official explanation).",
-                "D": "This option is not the correct answer (see the official explanation)."
+                "C": "Unit, or component, tests belong to quadrant 1",
+                "D": "Option B (“Q2”) is incorrect. A is correct. Unit, or component, tests belong to quadrant 1.",
+                "B": "Option C (“Q3”) is incorrect. A is correct. Unit, or component, tests belong to quadrant 1.",
+                "A": "Option D (“Q4”) is incorrect. A is correct. Unit, or component, tests belong to quadrant 1."
             },
             "chapter": 5,
             "section": "5.1",
@@ -14734,24 +14734,24 @@ window.questionSets = {
             "id": "Q1033",
             "statement": "Which of the following is a project risk?",
             "options": {
-                "A": "A module that performs incorrect calculations due to a defect in a formula",
-                "B": "A failed performance test",
-                "C": "An issue with the interface between the system under test and a peripheral device",
+                "C": "A module that performs incorrect calculations due to a defect in a formula",
+                "A": "A failed performance test",
+                "B": "An issue with the interface between the system under test and a peripheral device",
                 "D": "A problem with the development manager which is resulting in his rejecting all defect reports"
             },
             "correctAnswer": "D",
             "explanation": "D is a project risk. The other three are product risks.",
             "correctFeedback": "✅ Correct: D is a project risk. The other three are product risks.",
             "incorrectFeedback": {
-                "A": "❌ Incorrect: This option is not the correct answer (see the official explanation).",
-                "B": "❌ Incorrect: This option is not the correct answer (see the official explanation).",
-                "C": "❌ Incorrect: This option is not the correct answer (see the official explanation)."
+                "C": "❌ Incorrect: Option A (“A module that performs incorrect calculations due to a defect in a formula”) does not meet the requirement. D is a project risk. The other three are product risks.",
+                "A": "❌ Incorrect: Option B (“A failed performance test”) does not meet the requirement. D is a project risk. The other three are product risks.",
+                "B": "❌ Incorrect: Option C (“An issue with the interface between the system under test and a peripheral device”) does not meet the requirement. D is a project risk. The other three are product risks."
             },
             "optionExplanations": {
                 "D": "D is a project risk. The other three are product risks",
-                "A": "This option is not the correct answer (see the official explanation).",
-                "B": "This option is not the correct answer (see the official explanation).",
-                "C": "This option is not the correct answer (see the official explanation)."
+                "C": "Option A (“A module that performs incorrect calculations due to a defect in a formula”) is incorrect. D is a project risk. The other three are product risks.",
+                "A": "Option B (“A failed performance test”) is incorrect. D is a project risk. The other three are product risks.",
+                "B": "Option C (“An issue with the interface between the system under test and a peripheral device”) is incorrect. D is a project risk. The other three are product risks."
             },
             "chapter": 5,
             "section": "5.2",
@@ -14771,8 +14771,8 @@ window.questionSets = {
             "id": "Q1034",
             "statement": "Which of the following variances should be explained in the Test Summary Report?",
             "options": {
-                "A": "The variances between the weekly status reports and the test exit criteria",
-                "B": "The variances between the defects found and the defects fixed",
+                "B": "The variances between the weekly status reports and the test exit criteria",
+                "A": "The variances between the defects found and the defects fixed",
                 "C": "The variances between what was planned for testing and what was actually tested",
                 "D": "The variances between the test cases executed and the total number of test cases"
             },
@@ -14780,14 +14780,14 @@ window.questionSets = {
             "explanation": "C is correct. The variances or deviations between the test plan and the testing that was actually done must be explained in the test summary report. A is not correct because if the weekly status reports have been tracking incorrectly to the test exit criteria, something is wrong and should have been caught a lot earlier. B is not correct because this information should be included in the test summary report, but a variance is expected. D is not correct because this should be tracked in the metrics section of the report rather than as a variance.",
             "correctFeedback": "✅ Correct: The variances or deviations between the test plan and the testing that was actually done must be explained in the test summary report.",
             "incorrectFeedback": {
-                "A": "❌ Incorrect: if the weekly status reports have been tracking incorrectly to the test exit criteria, something is wrong and should have been caught a lot earlier",
-                "B": "❌ Incorrect: this information should be included in the test summary report, but a variance is expected",
+                "B": "❌ Incorrect: if the weekly status reports have been tracking incorrectly to the test exit criteria, something is wrong and should have been caught a lot earlier",
+                "A": "❌ Incorrect: this information should be included in the test summary report, but a variance is expected",
                 "D": "❌ Incorrect: this should be tracked in the metrics section of the report rather than as a variance"
             },
             "optionExplanations": {
                 "C": "The variances or deviations between the test plan and the testing that was actually done must be explained in the test summary report",
-                "A": "if the weekly status reports have been tracking incorrectly to the test exit criteria, something is wrong and should have been caught a lot earlier",
-                "B": "this information should be included in the test summary report, but a variance is expected",
+                "B": "if the weekly status reports have been tracking incorrectly to the test exit criteria, something is wrong and should have been caught a lot earlier",
+                "A": "this information should be included in the test summary report, but a variance is expected",
                 "D": "this should be tracked in the metrics section of the report rather than as a variance"
             },
             "chapter": 5,
@@ -14808,24 +14808,24 @@ window.questionSets = {
             "id": "Q1035",
             "statement": "If the developers are releasing code for testing that is not version controlled, what process is missing?",
             "options": {
-                "A": "Configuration management",
-                "B": "Debugging",
-                "C": "Test and defect management",
+                "B": "Configuration management",
+                "C": "Debugging",
+                "A": "Test and defect management",
                 "D": "Risk analysis"
             },
-            "correctAnswer": "A",
+            "correctAnswer": "B",
             "explanation": "A is correct. Configuration management is missing if the code is not being properly versioned and tracked.",
             "correctFeedback": "✅ Correct: Configuration management is missing if the code is not being properly versioned and tracked.",
             "incorrectFeedback": {
-                "B": "❌ Incorrect: This option is not the correct answer (see the official explanation).",
-                "C": "❌ Incorrect: This option is not the correct answer (see the official explanation).",
-                "D": "❌ Incorrect: This option is not the correct answer (see the official explanation)."
+                "C": "❌ Incorrect: Option B (“Debugging”) does not meet the requirement. A is correct. Configuration management is missing if the code is not being properly versioned and tracked.",
+                "A": "❌ Incorrect: Option C (“Test and defect management”) does not meet the requirement. A is correct. Configuration management is missing if the code is not being properly versioned and tracked.",
+                "D": "❌ Incorrect: Option D (“Risk analysis”) does not meet the requirement. A is correct. Configuration management is missing if the code is not being properly versioned and tracked."
             },
             "optionExplanations": {
-                "A": "Configuration management is missing if the code is not being properly versioned and tracked",
-                "B": "This option is not the correct answer (see the official explanation).",
-                "C": "This option is not the correct answer (see the official explanation).",
-                "D": "This option is not the correct answer (see the official explanation)."
+                "B": "Configuration management is missing if the code is not being properly versioned and tracked",
+                "C": "Option B (“Debugging”) is incorrect. A is correct. Configuration management is missing if the code is not being properly versioned and tracked.",
+                "A": "Option C (“Test and defect management”) is incorrect. A is correct. Configuration management is missing if the code is not being properly versioned and tracked.",
+                "D": "Option D (“Risk analysis”) is incorrect. A is correct. Configuration management is missing if the code is not being properly versioned and tracked."
             },
             "chapter": 5,
             "section": "5.4",
@@ -14845,24 +14845,24 @@ window.questionSets = {
             "id": "Q1036",
             "statement": "Your team is using Planning Poker to estimate the effort for a story. Developer Vote Tester Vote First vote 3 8 Second vote 5 8 Third vote 5 5 Although three votes were taken to reach consensus, how many story points should be allocated to the story?",
             "options": {
-                "A": "10 because that’s the sum of the points",
-                "B": "8 because that was the highest number",
-                "C": "3 because that was the lowest number",
-                "D": "5 because that was the consensus"
+                "D": "10 because that’s the sum of the points",
+                "A": "8 because that was the highest number",
+                "B": "3 because that was the lowest number",
+                "C": "5 because that was the consensus"
             },
-            "correctAnswer": "D",
+            "correctAnswer": "C",
             "explanation": "D is correct. Voting should continue until consensus is reached and that number should be used to assign the points to the story.",
             "correctFeedback": "✅ Correct: Voting should continue until consensus is reached and that number should be used to assign the points to the story.",
             "incorrectFeedback": {
-                "A": "❌ Incorrect: This option is not the correct answer (see the official explanation).",
-                "B": "❌ Incorrect: This option is not the correct answer (see the official explanation).",
-                "C": "❌ Incorrect: This option is not the correct answer (see the official explanation)."
+                "D": "❌ Incorrect: Option A (“10 because that’s the sum of the points”) does not meet the requirement. D is correct. Voting should continue until consensus is reached and that number should be used to assign the points to the story.",
+                "A": "❌ Incorrect: Option B (“8 because that was the highest number”) does not meet the requirement. D is correct. Voting should continue until consensus is reached and that number should be used to assign the points to the story.",
+                "B": "❌ Incorrect: Option C (“3 because that was the lowest number”) does not meet the requirement. D is correct. Voting should continue until consensus is reached and that number should be used to assign the points to the story."
             },
             "optionExplanations": {
-                "D": "Voting should continue until consensus is reached and that number should be used to assign the points to the story",
-                "A": "This option is not the correct answer (see the official explanation).",
-                "B": "This option is not the correct answer (see the official explanation).",
-                "C": "This option is not the correct answer (see the official explanation)."
+                "C": "Voting should continue until consensus is reached and that number should be used to assign the points to the story",
+                "D": "Option A (“10 because that’s the sum of the points”) is incorrect. D is correct. Voting should continue until consensus is reached and that number should be used to assign the points to the story.",
+                "A": "Option B (“8 because that was the highest number”) is incorrect. D is correct. Voting should continue until consensus is reached and that number should be used to assign the points to the story.",
+                "B": "Option C (“3 because that was the lowest number”) is incorrect. D is correct. Voting should continue until consensus is reached and that number should be used to assign the points to the story."
             },
             "chapter": 5,
             "section": "5.1",
@@ -14882,24 +14882,24 @@ window.questionSets = {
             "id": "Q1037",
             "statement": "You have been given the following set of test cases to run. You have been instructed to run them in order by risk and to accomplish the testing as quickly as possible to provide feedback to the developers as soon as possible. Given this information, what is the best order in which to run these tests? Test cases: ID 1: 30 mins, Low risk, depends on 6; ID 2: 10 mins, Medium risk, no dependency; ID 3: 45 mins, High risk, depends on 1; ID 4: 30 mins, High risk, depends on 2; ID 5: 10 mins, Medium risk, depends on 4; ID 6: 15 mins, Low risk, depends on 2.",
             "options": {
-                "A": "2, 4, 5, 6, 1, 3",
-                "B": "4, 3, 2, 5, 6, 1",
+                "B": "2, 4, 5, 6, 1, 3",
+                "D": "4, 3, 2, 5, 6, 1",
                 "C": "2, 5, 6, 4, 1, 3",
-                "D": "6, 1, 3, 2, 4, 5"
+                "A": "6, 1, 3, 2, 4, 5"
             },
-            "correctAnswer": "A",
+            "correctAnswer": "B",
             "explanation": "A is the only listed sequence that respects all prerequisites: 2 before 4 and 6; 4 before 5; 6 before 1; and 1 before 3. It also reaches high-risk Test 4 early. Dependencies and durations must be considered alongside risk; choosing the next highest-risk label alone is not sufficient.",
             "correctFeedback": "✅ Correct: This is the only listed order that respects every dependency and allows early execution of high-risk Test 4.",
             "incorrectFeedback": {
-                "B": "❌ Incorrect: Test 4 cannot run before its prerequisite Test 2.",
+                "D": "❌ Incorrect: Test 4 cannot run before its prerequisite Test 2.",
                 "C": "❌ Incorrect: Test 5 cannot run before its prerequisite Test 4.",
-                "D": "❌ Incorrect: Test 6 cannot run before its prerequisite Test 2."
+                "A": "❌ Incorrect: Test 6 cannot run before its prerequisite Test 2."
             },
             "optionExplanations": {
-                "A": "This is the only listed order that respects every dependency and allows early execution of high-risk Test 4.",
-                "B": "Test 4 cannot run before its prerequisite Test 2.",
+                "B": "This is the only listed order that respects every dependency and allows early execution of high-risk Test 4.",
+                "D": "Test 4 cannot run before its prerequisite Test 2.",
                 "C": "Test 5 cannot run before its prerequisite Test 4.",
-                "D": "Test 6 cannot run before its prerequisite Test 2."
+                "A": "Test 6 cannot run before its prerequisite Test 2."
             },
             "chapter": 5,
             "section": "5.1",
@@ -14920,23 +14920,23 @@ window.questionSets = {
             "statement": "You have been testing software that will be used to track credit card purchases. You have found a defect that causes the system to crash, but only if a person has made and voided 10 purchases in a row. The agreed severity scale classifies the crash as high impact. Operations confirms that this sequence cannot occur in current production workflows, a safe workaround exists, and stakeholders accept a later fix. Which priority and severity rating fits these facts?",
             "options": {
                 "A": "Priority high, severity high",
-                "B": "Priority high, severity low",
-                "C": "Priority low, severity low",
-                "D": "Priority low, severity high"
+                "D": "Priority high, severity low",
+                "B": "Priority low, severity low",
+                "C": "Priority low, severity high"
             },
-            "correctAnswer": "D",
+            "correctAnswer": "C",
             "explanation": "The crash is high severity under the stated scale. Low priority follows from the explicit operational mitigation and stakeholder decision, not merely from a rare trigger.",
             "correctFeedback": "✅ Correct: High severity reflects the agreed crash impact; low priority reflects the mitigated current exposure and accepted later fix.",
             "incorrectFeedback": {
-                "A": "❌ Incorrect: This option is not the correct answer (see the official explanation).",
-                "B": "❌ Incorrect: This option is not the correct answer (see the official explanation).",
-                "C": "❌ Incorrect: This option is not the correct answer (see the official explanation)."
+                "A": "❌ Incorrect: Option A (“Priority high, severity high”) does not meet the requirement. The crash is high severity under the stated scale. Low priority follows from the explicit operational mitigation and stakeholder decision, not merely from a rare trigger.",
+                "D": "❌ Incorrect: Option B (“Priority high, severity low”) does not meet the requirement. The crash is high severity under the stated scale. Low priority follows from the explicit operational mitigation and stakeholder decision, not merely from a rare trigger.",
+                "B": "❌ Incorrect: Option C (“Priority low, severity low”) does not meet the requirement. The crash is high severity under the stated scale. Low priority follows from the explicit operational mitigation and stakeholder decision, not merely from a rare trigger."
             },
             "optionExplanations": {
-                "D": "High severity reflects the agreed crash impact; low priority reflects the mitigated current exposure and accepted later fix.",
-                "A": "This option is not the correct answer (see the official explanation).",
-                "B": "This option is not the correct answer (see the official explanation).",
-                "C": "This option is not the correct answer (see the official explanation)."
+                "C": "High severity reflects the agreed crash impact; low priority reflects the mitigated current exposure and accepted later fix.",
+                "A": "Option A (“Priority high, severity high”) is incorrect. The crash is high severity under the stated scale. Low priority follows from the explicit operational mitigation and stakeholder decision, not merely from a rare trigger.",
+                "D": "Option B (“Priority high, severity low”) is incorrect. The crash is high severity under the stated scale. Low priority follows from the explicit operational mitigation and stakeholder decision, not merely from a rare trigger.",
+                "B": "Option C (“Priority low, severity low”) is incorrect. The crash is high severity under the stated scale. Low priority follows from the explicit operational mitigation and stakeholder decision, not merely from a rare trigger."
             },
             "chapter": 5,
             "section": "5.5",
@@ -14956,24 +14956,24 @@ window.questionSets = {
             "id": "Q1039",
             "statement": "Which of the following is an example of a tool that supports static testing?",
             "options": {
-                "A": "A tool that assists with tracking the results of reviews",
+                "D": "A tool that assists with tracking the results of reviews",
                 "B": "A defect tracking tool",
-                "C": "A test automation tool",
-                "D": "A tool that helps design test cases for security testing"
+                "A": "A test automation tool",
+                "C": "A tool that helps design test cases for security testing"
             },
-            "correctAnswer": "A",
+            "correctAnswer": "D",
             "explanation": "A is correct. Reviews are a form of static testing and a tool that supports reviews is an example of a tool that supports static testing. B is an example of a management tool used for defect management. C is an example of a test execution tool. D is an example of a test design tool.",
             "correctFeedback": "✅ Correct: Reviews are a form of static testing and a tool that supports reviews is an example of a tool that supports static testing. B is an example of a management tool used for defect man.",
             "incorrectFeedback": {
-                "B": "❌ Incorrect: This option is not the correct answer (see the official explanation).",
-                "C": "❌ Incorrect: This option is not the correct answer (see the official explanation).",
-                "D": "❌ Incorrect: This option is not the correct answer (see the official explanation)."
+                "B": "❌ Incorrect: Option B (“A defect tracking tool”) does not meet the requirement. A is correct. Reviews are a form of static testing and a tool that supports reviews is an example of a tool that supports static testing. B is an example of a management tool used for defect management. C is an example of a test execution tool. D is an example of a test design tool.",
+                "A": "❌ Incorrect: Option C (“A test automation tool”) does not meet the requirement. A is correct. Reviews are a form of static testing and a tool that supports reviews is an example of a tool that supports static testing. B is an example of a management tool used for defect management. C is an example of a test execution tool. D is an example of a test design tool.",
+                "C": "❌ Incorrect: Option D (“A tool that helps design test cases for security testing”) does not meet the requirement. A is correct. Reviews are a form of static testing and a tool that supports reviews is an example of a tool that supports static testing. B is an example of a management tool used for defect management. C is an example of a test execution tool. D is an example of a test design tool."
             },
             "optionExplanations": {
-                "A": "Reviews are a form of static testing and a tool that supports reviews is an example of a tool that supports static testing. B is an example of a management tool used for defect management. C is an example of a test execution tool. D is an example of a test design tool",
-                "B": "This option is not the correct answer (see the official explanation).",
-                "C": "This option is not the correct answer (see the official explanation).",
-                "D": "This option is not the correct answer (see the official explanation)."
+                "D": "Reviews are a form of static testing and a tool that supports reviews is an example of a tool that supports static testing. B is an example of a management tool used for defect management. C is an example of a test execution tool. D is an example of a test design tool",
+                "B": "Option B (“A defect tracking tool”) is incorrect. A is correct. Reviews are a form of static testing and a tool that supports reviews is an example of a tool that supports static testing. B is an example of a management tool used for defect management. C is an example of a test execution tool. D is an example of a test design tool.",
+                "A": "Option C (“A test automation tool”) is incorrect. A is correct. Reviews are a form of static testing and a tool that supports reviews is an example of a tool that supports static testing. B is an example of a management tool used for defect management. C is an example of a test execution tool. D is an example of a test design tool.",
+                "C": "Option D (“A tool that helps design test cases for security testing”) is incorrect. A is correct. Reviews are a form of static testing and a tool that supports reviews is an example of a tool that supports static testing. B is an example of a management tool used for defect management. C is an example of a test execution tool. D is an example of a test design tool."
             },
             "chapter": 6,
             "section": "6.1",
@@ -14993,23 +14993,23 @@ window.questionSets = {
             "id": "Q1040",
             "statement": "Which of the following is a benefit of test automation?",
             "options": {
-                "A": "Test execution is faster",
-                "B": "Manual testing becomes obsolete",
-                "C": "ROI is easy to determine",
+                "C": "Test execution is faster",
+                "A": "Manual testing becomes obsolete",
+                "B": "ROI is easy to determine",
                 "D": "Test implementation is faster"
             },
-            "correctAnswer": "A",
+            "correctAnswer": "C",
             "explanation": "A is correct. Test execution should be faster with automation than with manual testing, once the test cases have been developed. Developing automation takes more time than writing manual test cases (usually) so D is incorrect. B is incorrect because manual testing isn’t obsolete, it can concentrate on new areas. C is not correct because return on investment (ROI) can be tricky to calculate as it has to be based on equivalent manual test effort",
             "correctFeedback": "✅ Correct: Test execution should be faster with automation than with manual testing, once the test cases have been developed. Developing automation takes more time than writing manual test ca.",
             "incorrectFeedback": {
-                "B": "❌ Incorrect: manual testing isn’t obsolete, it can concentrate on new areas",
-                "C": "❌ Incorrect: return on investment (ROI) can be tricky to calculate as it has to be based on equivalent manual test effort",
+                "A": "❌ Incorrect: manual testing isn’t obsolete, it can concentrate on new areas",
+                "B": "❌ Incorrect: return on investment (ROI) can be tricky to calculate as it has to be based on equivalent manual test effort",
                 "D": "❌ Incorrect: Creating and maintaining automation can require substantial implementation effort; faster execution does not imply faster implementation."
             },
             "optionExplanations": {
-                "A": "Test execution should be faster with automation than with manual testing, once the test cases have been developed. Developing automation takes more time than writing manual test cases (usually) so",
-                "B": "manual testing isn’t obsolete, it can concentrate on new areas",
-                "C": "return on investment (ROI) can be tricky to calculate as it has to be based on equivalent manual test effort",
+                "C": "Test execution should be faster with automation than with manual testing, once the test cases have been developed. Developing automation takes more time than writing manual test cases (usually) so",
+                "A": "manual testing isn’t obsolete, it can concentrate on new areas",
+                "B": "return on investment (ROI) can be tricky to calculate as it has to be based on equivalent manual test effort",
                 "D": "Creating and maintaining automation can require substantial implementation effort; faster execution does not imply faster implementation."
             },
             "chapter": 6,
@@ -15078,15 +15078,15 @@ window.questionSets = {
             "explanation": "A is correct. The whole team approach would support the developers helping with the testing tasks rather than waiting for the testers to complete all the testing.",
             "correctFeedback": "✅ Correct: The whole team approach would support the developers helping with the testing tasks rather than waiting for the testers to complete all the testing.",
             "incorrectFeedback": {
-                "B": "❌ Incorrect: This option is not the correct answer (see the official explanation).",
-                "C": "❌ Incorrect: This option is not the correct answer (see the official explanation).",
-                "D": "❌ Incorrect: This option is not the correct answer (see the official explanation)."
+                "B": "❌ Incorrect: Option B (“Team Split”) does not meet the requirement. A is correct. The whole team approach would support the developers helping with the testing tasks rather than waiting for the testers to complete all the testing.",
+                "C": "❌ Incorrect: Option C (“Behavior-Driven Development”) does not meet the requirement. A is correct. The whole team approach would support the developers helping with the testing tasks rather than waiting for the testers to complete all the testing.",
+                "D": "❌ Incorrect: Option D (“Waterfall”) does not meet the requirement. A is correct. The whole team approach would support the developers helping with the testing tasks rather than waiting for the testers to complete all the testing."
             },
             "optionExplanations": {
                 "A": "The whole team approach would support the developers helping with the testing tasks rather than waiting for the testers to complete all the testing",
-                "B": "This option is not the correct answer (see the official explanation).",
-                "C": "This option is not the correct answer (see the official explanation).",
-                "D": "This option is not the correct answer (see the official explanation)."
+                "B": "Option B (“Team Split”) is incorrect. A is correct. The whole team approach would support the developers helping with the testing tasks rather than waiting for the testers to complete all the testing.",
+                "C": "Option C (“Behavior-Driven Development”) is incorrect. A is correct. The whole team approach would support the developers helping with the testing tasks rather than waiting for the testers to complete all the testing.",
+                "D": "Option D (“Waterfall”) is incorrect. A is correct. The whole team approach would support the developers helping with the testing tasks rather than waiting for the testers to complete all the testing."
             },
             "chapter": 1,
             "section": "1.5",
@@ -15115,15 +15115,15 @@ window.questionSets = {
             "explanation": "C is correct. Debugging is what the developer does to identify the cause of the defect, analyze it and fix it. D may involve debugging, if the developer finds a defect, but the act of unit testing is not the same as debugging.",
             "correctFeedback": "✅ Correct: Debugging is what the developer does to identify the cause of the defect, analyze it and fix it. D may involve debugging, if the developer finds a defect, but the act of unit testi.",
             "incorrectFeedback": {
-                "A": "❌ Incorrect: This option is not the correct answer (see the official explanation).",
-                "B": "❌ Incorrect: This option is not the correct answer (see the official explanation).",
-                "D": "❌ Incorrect: This option is not the correct answer (see the official explanation)."
+                "A": "❌ Incorrect: Option A (“A tester finds a defect and reports it”) does not meet the requirement. C is correct. Debugging is what the developer does to identify the cause of the defect, analyze it and fix it. D may involve debugging, if the developer finds a defect, but the act of unit testing is not the same as debugging.",
+                "B": "❌ Incorrect: Option B (“A tester retests a fix from the developer and finds a regression”) does not meet the requirement. C is correct. Debugging is what the developer does to identify the cause of the defect, analyze it and fix it. D may involve debugging, if the developer finds a defect, but the act of unit testing is not the same as debugging.",
+                "D": "❌ Incorrect: Option D (“A developer performs unit testing”) does not meet the requirement. C is correct. Debugging is what the developer does to identify the cause of the defect, analyze it and fix it. D may involve debugging, if the developer finds a defect, but the act of unit testing is not the same as debugging."
             },
             "optionExplanations": {
                 "C": "Debugging is what the developer does to identify the cause of the defect, analyze it and fix it. D may involve debugging, if the developer finds a defect, but the act of unit testing is not the same as debugging",
-                "A": "This option is not the correct answer (see the official explanation).",
-                "B": "This option is not the correct answer (see the official explanation).",
-                "D": "This option is not the correct answer (see the official explanation)."
+                "A": "Option A (“A tester finds a defect and reports it”) is incorrect. C is correct. Debugging is what the developer does to identify the cause of the defect, analyze it and fix it. D may involve debugging, if the developer finds a defect, but the act of unit testing is not the same as debugging.",
+                "B": "Option B (“A tester retests a fix from the developer and finds a regression”) is incorrect. C is correct. Debugging is what the developer does to identify the cause of the defect, analyze it and fix it. D may involve debugging, if the developer finds a defect, but the act of unit testing is not the same as debugging.",
+                "D": "Option D (“A developer performs unit testing”) is incorrect. C is correct. Debugging is what the developer does to identify the cause of the defect, analyze it and fix it. D may involve debugging, if the developer finds a defect, but the act of unit testing is not the same as debugging."
             },
             "chapter": 1,
             "section": "1.1",
@@ -15152,15 +15152,15 @@ window.questionSets = {
             "explanation": "B is correct. Exhaustive testing, all combinations of inputs and preconditions, is not feasible unless the software is trivially simple. Otherwise, it would take too long and might not even be possible.",
             "correctFeedback": "✅ Correct: Exhaustive testing, all combinations of inputs and preconditions, is not feasible unless the software is trivially simple. Otherwise, it would take too long and might not even be p.",
             "incorrectFeedback": {
-                "A": "❌ Incorrect: This option is not the correct answer (see the official explanation).",
-                "C": "❌ Incorrect: This option is not the correct answer (see the official explanation).",
-                "D": "❌ Incorrect: This option is not the correct answer (see the official explanation)."
+                "A": "❌ Incorrect: Option A (“It is a form of stress testing”) does not meet the requirement. B is correct. Exhaustive testing, all combinations of inputs and preconditions, is not feasible unless the software is trivially simple. Otherwise, it would take too long and might not even be possible.",
+                "C": "❌ Incorrect: Option C (“It is commonly done with test automation”) does not meet the requirement. B is correct. Exhaustive testing, all combinations of inputs and preconditions, is not feasible unless the software is trivially simple. Otherwise, it would take too long and might not even be possible.",
+                "D": "❌ Incorrect: Option D (“It is normally the responsibility of the developer during unit testing”) does not meet the requirement. B is correct. Exhaustive testing, all combinations of inputs and preconditions, is not feasible unless the software is trivially simple. Otherwise, it would take too long and might not even be possible."
             },
             "optionExplanations": {
                 "B": "Exhaustive testing, all combinations of inputs and preconditions, is not feasible unless the software is trivially simple. Otherwise, it would take too long and might not even be possible",
-                "A": "This option is not the correct answer (see the official explanation).",
-                "C": "This option is not the correct answer (see the official explanation).",
-                "D": "This option is not the correct answer (see the official explanation)."
+                "A": "Option A (“It is a form of stress testing”) is incorrect. B is correct. Exhaustive testing, all combinations of inputs and preconditions, is not feasible unless the software is trivially simple. Otherwise, it would take too long and might not even be possible.",
+                "C": "Option C (“It is commonly done with test automation”) is incorrect. B is correct. Exhaustive testing, all combinations of inputs and preconditions, is not feasible unless the software is trivially simple. Otherwise, it would take too long and might not even be possible.",
+                "D": "Option D (“It is normally the responsibility of the developer during unit testing”) is incorrect. B is correct. Exhaustive testing, all combinations of inputs and preconditions, is not feasible unless the software is trivially simple. Otherwise, it would take too long and might not even be possible."
             },
             "chapter": 1,
             "section": "1.3",
@@ -15226,15 +15226,15 @@ window.questionSets = {
             "explanation": "C is correct. Writing and updating the test plan is normally the responsibility of the test manager. A, B and D may contribute to the test plan, but the overall responsibility belongs to the test manager.",
             "correctFeedback": "✅ Correct: Writing and updating the test plan is normally the responsibility of the test manager. A, B and D may contribute to the test plan, but the overall responsibility belongs to the tes.",
             "incorrectFeedback": {
-                "A": "❌ Incorrect: This option is not the correct answer (see the official explanation).",
-                "B": "❌ Incorrect: This option is not the correct answer (see the official explanation).",
-                "D": "❌ Incorrect: This option is not the correct answer (see the official explanation)."
+                "A": "❌ Incorrect: Option A (“The project manager”) does not meet the requirement. C is correct. Writing and updating the test plan is normally the responsibility of the test manager. A, B and D may contribute to the test plan, but the overall responsibility belongs to the test manager.",
+                "B": "❌ Incorrect: Option B (“The product owner”) does not meet the requirement. C is correct. Writing and updating the test plan is normally the responsibility of the test manager. A, B and D may contribute to the test plan, but the overall responsibility belongs to the test manager.",
+                "D": "❌ Incorrect: Option D (“The tester”) does not meet the requirement. C is correct. Writing and updating the test plan is normally the responsibility of the test manager. A, B and D may contribute to the test plan, but the overall responsibility belongs to the test manager."
             },
             "optionExplanations": {
                 "C": "Writing and updating the test plan is normally the responsibility of the test manager. A, B and D may contribute to the test plan, but the overall responsibility belongs to the test manager",
-                "A": "This option is not the correct answer (see the official explanation).",
-                "B": "This option is not the correct answer (see the official explanation).",
-                "D": "This option is not the correct answer (see the official explanation)."
+                "A": "Option A (“The project manager”) is incorrect. C is correct. Writing and updating the test plan is normally the responsibility of the test manager. A, B and D may contribute to the test plan, but the overall responsibility belongs to the test manager.",
+                "B": "Option B (“The product owner”) is incorrect. C is correct. Writing and updating the test plan is normally the responsibility of the test manager. A, B and D may contribute to the test plan, but the overall responsibility belongs to the test manager.",
+                "D": "Option D (“The tester”) is incorrect. C is correct. Writing and updating the test plan is normally the responsibility of the test manager. A, B and D may contribute to the test plan, but the overall responsibility belongs to the test manager."
             },
             "chapter": 1,
             "section": "1.4",
@@ -15263,15 +15263,15 @@ window.questionSets = {
             "explanation": "C is correct, per the syllabus. This information should be recorded in the risk register. The risk register should be referenced in the test plan for the project.",
             "correctFeedback": "✅ Correct: , per the syllabus. This information should be recorded in the risk register. The risk register should be referenced in the test plan for the project.",
             "incorrectFeedback": {
-                "A": "❌ Incorrect: This option is not the correct answer (see the official explanation).",
-                "B": "❌ Incorrect: This option is not the correct answer (see the official explanation).",
-                "D": "❌ Incorrect: This option is not the correct answer (see the official explanation)."
+                "A": "❌ Incorrect: Option A (“Test strategy”) does not meet the requirement. C is correct, per the syllabus. This information should be recorded in the risk register. The risk register should be referenced in the test plan for the project.",
+                "B": "❌ Incorrect: Option B (“Test plan”) does not meet the requirement. C is correct, per the syllabus. This information should be recorded in the risk register. The risk register should be referenced in the test plan for the project.",
+                "D": "❌ Incorrect: Option D (“Risk plan”) does not meet the requirement. C is correct, per the syllabus. This information should be recorded in the risk register. The risk register should be referenced in the test plan for the project."
             },
             "optionExplanations": {
                 "C": ", per the syllabus. This information should be recorded in the risk register. The risk register should be referenced in the test plan for the project",
-                "A": "This option is not the correct answer (see the official explanation).",
-                "B": "This option is not the correct answer (see the official explanation).",
-                "D": "This option is not the correct answer (see the official explanation)."
+                "A": "Option A (“Test strategy”) is incorrect. C is correct, per the syllabus. This information should be recorded in the risk register. The risk register should be referenced in the test plan for the project.",
+                "B": "Option B (“Test plan”) is incorrect. C is correct, per the syllabus. This information should be recorded in the risk register. The risk register should be referenced in the test plan for the project.",
+                "D": "Option D (“Risk plan”) is incorrect. C is correct, per the syllabus. This information should be recorded in the risk register. The risk register should be referenced in the test plan for the project."
             },
             "chapter": 1,
             "section": "1.4",
@@ -15337,13 +15337,13 @@ window.questionSets = {
             "explanation": "A is correct. This is a good testing practice. B is not a requirement for many testers. C is not correct because this should be determined by the testers based on priority, risk, availability, etc. D is not correct because test design should start during code design and implementation.",
             "correctFeedback": "✅ Correct: This is a good testing practice. B is not a requirement for many testers.",
             "incorrectFeedback": {
-                "B": "❌ Incorrect: This option is not the correct answer (see the official explanation).",
+                "B": "❌ Incorrect: Option B (“Testers should have development experience”) does not meet the requirement. A is correct. This is a good testing practice. B is not a requirement for many testers. C is not correct because this should be determined by the testers based on priority, risk, availability, etc. D is not correct because test design should start during code design and implementation.",
                 "C": "❌ Incorrect: this should be determined by the testers based on priority, risk, availability, etc",
                 "D": "❌ Incorrect: test design should start during code design and implementation"
             },
             "optionExplanations": {
                 "A": "This is a good testing practice. B is not a requirement for many testers",
-                "B": "This option is not the correct answer (see the official explanation).",
+                "B": "Option B (“Testers should have development experience”) is incorrect. A is correct. This is a good testing practice. B is not a requirement for many testers. C is not correct because this should be determined by the testers based on priority, risk, availability, etc. D is not correct because test design should start during code design and implementation.",
                 "C": "this should be determined by the testers based on priority, risk, availability, etc",
                 "D": "test design should start during code design and implementation"
             },
@@ -15411,15 +15411,15 @@ window.questionSets = {
             "explanation": "B is correct. Usability is one of the non-functional test types according to ISO 25010.",
             "correctFeedback": "✅ Correct: Usability is one of the non-functional test types according to ISO 25010.",
             "incorrectFeedback": {
-                "A": "❌ Incorrect: This option is not the correct answer (see the official explanation).",
-                "C": "❌ Incorrect: This option is not the correct answer (see the official explanation).",
-                "D": "❌ Incorrect: This option is not the correct answer (see the official explanation)."
+                "A": "❌ Incorrect: Option A (“Functional”) does not meet the requirement. B is correct. Usability is one of the non-functional test types according to ISO 25010.",
+                "C": "❌ Incorrect: Option C (“Structural”) does not meet the requirement. B is correct. Usability is one of the non-functional test types according to ISO 25010.",
+                "D": "❌ Incorrect: Option D (“Change-related”) does not meet the requirement. B is correct. Usability is one of the non-functional test types according to ISO 25010."
             },
             "optionExplanations": {
                 "B": "Usability is one of the non-functional test types according to ISO 25010",
-                "A": "This option is not the correct answer (see the official explanation).",
-                "C": "This option is not the correct answer (see the official explanation).",
-                "D": "This option is not the correct answer (see the official explanation)."
+                "A": "Option A (“Functional”) is incorrect. B is correct. Usability is one of the non-functional test types according to ISO 25010.",
+                "C": "Option C (“Structural”) is incorrect. B is correct. Usability is one of the non-functional test types according to ISO 25010.",
+                "D": "Option D (“Change-related”) is incorrect. B is correct. Usability is one of the non-functional test types according to ISO 25010."
             },
             "chapter": 2,
             "section": "2.2",
@@ -15487,13 +15487,13 @@ window.questionSets = {
             "incorrectFeedback": {
                 "B": "❌ Incorrect: Blaming individuals undermines learning; focus on causes and improvements.",
                 "C": "❌ Incorrect: Cost and wasted effort can be discussed, but the missing step is implementing the accepted improvements.",
-                "D": "❌ Incorrect: This option is not the correct answer (see the official explanation)."
+                "D": "❌ Incorrect: Option D (“Why changes were not made earlier in the project”) does not meet the requirement. A retrospective should produce actionable improvements with responsibility and an implementation timeframe. Discussing wasted effort or costs can be useful; it is not categorically excluded from retrospectives. The best answer here is planning when the accepted improvements will be implemented."
             },
             "optionExplanations": {
                 "A": "Agree when the accepted changes will be implemented, and assign responsibility so the improvements lead to action.",
                 "B": "Blaming individuals undermines learning; focus on causes and improvements.",
                 "C": "Cost and wasted effort can be discussed, but the missing step is implementing the accepted improvements.",
-                "D": "This option is not the correct answer (see the official explanation)."
+                "D": "Option D (“Why changes were not made earlier in the project”) is incorrect. A retrospective should produce actionable improvements with responsibility and an implementation timeframe. Discussing wasted effort or costs can be useful; it is not categorically excluded from retrospectives. The best answer here is planning when the accepted improvements will be implemented."
             },
             "chapter": 2,
             "section": "2.1",
@@ -15559,15 +15559,15 @@ window.questionSets = {
             "explanation": "D is correct, per syllabus. A, B and C are all forms of dynamic testing.",
             "correctFeedback": "✅ Correct: , per syllabus. A, B and C are all forms of dynamic testing.",
             "incorrectFeedback": {
-                "A": "❌ Incorrect: This option is not the correct answer (see the official explanation).",
-                "B": "❌ Incorrect: This option is not the correct answer (see the official explanation).",
-                "C": "❌ Incorrect: This option is not the correct answer (see the official explanation)."
+                "A": "❌ Incorrect: Option A (“Error guessing”) does not meet the requirement. D is correct, per syllabus. A, B and C are all forms of dynamic testing.",
+                "B": "❌ Incorrect: Option B (“Automated regression testing”) does not meet the requirement. D is correct, per syllabus. A, B and C are all forms of dynamic testing.",
+                "C": "❌ Incorrect: Option C (“Providing inputs and examining the resulting outputs”) does not meet the requirement. D is correct, per syllabus. A, B and C are all forms of dynamic testing."
             },
             "optionExplanations": {
                 "D": ", per syllabus. A, B and C are all forms of dynamic testing",
-                "A": "This option is not the correct answer (see the official explanation).",
-                "B": "This option is not the correct answer (see the official explanation).",
-                "C": "This option is not the correct answer (see the official explanation)."
+                "A": "Option A (“Error guessing”) is incorrect. D is correct, per syllabus. A, B and C are all forms of dynamic testing.",
+                "B": "Option B (“Automated regression testing”) is incorrect. D is correct, per syllabus. A, B and C are all forms of dynamic testing.",
+                "C": "Option C (“Providing inputs and examining the resulting outputs”) is incorrect. D is correct, per syllabus. A, B and C are all forms of dynamic testing."
             },
             "chapter": 3,
             "section": "3.1",
@@ -15707,15 +15707,15 @@ window.questionSets = {
             "explanation": "B is correct. A, C and D are all black-box and use the specifications or requirements for the test design.",
             "correctFeedback": "✅ Correct: A, C and D are all black-box and use the specifications or requirements for the test design.",
             "incorrectFeedback": {
-                "A": "❌ Incorrect: This option is not the correct answer (see the official explanation).",
-                "C": "❌ Incorrect: This option is not the correct answer (see the official explanation).",
-                "D": "❌ Incorrect: This option is not the correct answer (see the official explanation)."
+                "A": "❌ Incorrect: Option A (“Black-box”) does not meet the requirement. B is correct. A, C and D are all black-box and use the specifications or requirements for the test design.",
+                "C": "❌ Incorrect: Option C (“Specification-based”) does not meet the requirement. B is correct. A, C and D are all black-box and use the specifications or requirements for the test design.",
+                "D": "❌ Incorrect: Option D (“Behavior-based”) does not meet the requirement. B is correct. A, C and D are all black-box and use the specifications or requirements for the test design."
             },
             "optionExplanations": {
                 "B": "A, C and D are all black-box and use the specifications or requirements for the test design",
-                "A": "This option is not the correct answer (see the official explanation).",
-                "C": "This option is not the correct answer (see the official explanation).",
-                "D": "This option is not the correct answer (see the official explanation)."
+                "A": "Option A (“Black-box”) is incorrect. B is correct. A, C and D are all black-box and use the specifications or requirements for the test design.",
+                "C": "Option C (“Specification-based”) is incorrect. B is correct. A, C and D are all black-box and use the specifications or requirements for the test design.",
+                "D": "Option D (“Behavior-based”) is incorrect. B is correct. A, C and D are all black-box and use the specifications or requirements for the test design."
             },
             "chapter": 4,
             "section": "4.1",
@@ -15744,15 +15744,15 @@ window.questionSets = {
             "explanation": "D is correct, per syllabus as each tested statement is considered to be exercised. A, B and C are not valid measures.",
             "correctFeedback": "✅ Correct: , per syllabus as each tested statement is considered to be exercised. A, B and C are not valid measures.",
             "incorrectFeedback": {
-                "A": "❌ Incorrect: This option is not the correct answer (see the official explanation).",
-                "B": "❌ Incorrect: This option is not the correct answer (see the official explanation).",
-                "C": "❌ Incorrect: This option is not the correct answer (see the official explanation)."
+                "A": "❌ Incorrect: Option A (“Number of test decision points divided by the number of test cases”) does not meet the requirement. D is correct, per syllabus as each tested statement is considered to be exercised. A, B and C are not valid measures.",
+                "B": "❌ Incorrect: Option B (“Number of branches tested divided by the total number of executable statements”) does not meet the requirement. D is correct, per syllabus as each tested statement is considered to be exercised. A, B and C are not valid measures.",
+                "C": "❌ Incorrect: Option C (“Number of possible test case outcomes divided by the total number of function points”) does not meet the requirement. D is correct, per syllabus as each tested statement is considered to be exercised. A, B and C are not valid measures."
             },
             "optionExplanations": {
                 "D": ", per syllabus as each tested statement is considered to be exercised. A, B and C are not valid measures",
-                "A": "This option is not the correct answer (see the official explanation).",
-                "B": "This option is not the correct answer (see the official explanation).",
-                "C": "This option is not the correct answer (see the official explanation)."
+                "A": "Option A (“Number of test decision points divided by the number of test cases”) is incorrect. D is correct, per syllabus as each tested statement is considered to be exercised. A, B and C are not valid measures.",
+                "B": "Option B (“Number of branches tested divided by the total number of executable statements”) is incorrect. D is correct, per syllabus as each tested statement is considered to be exercised. A, B and C are not valid measures.",
+                "C": "Option C (“Number of possible test case outcomes divided by the total number of function points”) is incorrect. D is correct, per syllabus as each tested statement is considered to be exercised. A, B and C are not valid measures."
             },
             "chapter": 4,
             "section": "4.3",
@@ -15781,14 +15781,14 @@ window.questionSets = {
             "explanation": "White-box testing uses internal structure and can include structural review or analysis before executable code exists. The absence of executable code does not prevent black-box test design from specifications or experience-based reasoning; the supplied code makes structural analysis the best fit here.",
             "correctFeedback": "✅ Correct: The available code can be structurally reviewed before it can run; white-box techniques use internal structure.",
             "incorrectFeedback": {
-                "A": "❌ Incorrect: This option is not the correct answer (see the official explanation).",
-                "C": "❌ Incorrect: This option is not the correct answer (see the official explanation).",
+                "A": "❌ Incorrect: Option A (“Black-box”) does not meet the requirement. White-box testing uses internal structure and can include structural review or analysis before executable code exists. The absence of executable code does not prevent black-box test design from specifications or experience-based reasoning; the supplied code makes structural analysis the best fit here.",
+                "C": "❌ Incorrect: Option C (“Experience-based”) does not meet the requirement. White-box testing uses internal structure and can include structural review or analysis before executable code exists. The absence of executable code does not prevent black-box test design from specifications or experience-based reasoning; the supplied code makes structural analysis the best fit here.",
                 "D": "❌ Incorrect: it’s not a type of testing"
             },
             "optionExplanations": {
                 "B": "The available code can be structurally reviewed before it can run; white-box techniques use internal structure.",
-                "A": "This option is not the correct answer (see the official explanation).",
-                "C": "This option is not the correct answer (see the official explanation).",
+                "A": "Option A (“Black-box”) is incorrect. White-box testing uses internal structure and can include structural review or analysis before executable code exists. The absence of executable code does not prevent black-box test design from specifications or experience-based reasoning; the supplied code makes structural analysis the best fit here.",
+                "C": "Option C (“Experience-based”) is incorrect. White-box testing uses internal structure and can include structural review or analysis before executable code exists. The absence of executable code does not prevent black-box test design from specifications or experience-based reasoning; the supplied code makes structural analysis the best fit here.",
                 "D": "it’s not a type of testing"
             },
             "chapter": 4,
@@ -15818,15 +15818,15 @@ window.questionSets = {
             "explanation": "C is correct. This is an experience-based technique.",
             "correctFeedback": "✅ Correct: This is an experience-based technique.",
             "incorrectFeedback": {
-                "A": "❌ Incorrect: This option is not the correct answer (see the official explanation).",
-                "B": "❌ Incorrect: This option is not the correct answer (see the official explanation).",
-                "D": "❌ Incorrect: This option is not the correct answer (see the official explanation)."
+                "A": "❌ Incorrect: Option A (“Specification-based”) does not meet the requirement. C is correct. This is an experience-based technique.",
+                "B": "❌ Incorrect: Option B (“Structure-based”) does not meet the requirement. C is correct. This is an experience-based technique.",
+                "D": "❌ Incorrect: Option D (“Reference-based”) does not meet the requirement. C is correct. This is an experience-based technique."
             },
             "optionExplanations": {
                 "C": "This is an experience-based technique",
-                "A": "This option is not the correct answer (see the official explanation).",
-                "B": "This option is not the correct answer (see the official explanation).",
-                "D": "This option is not the correct answer (see the official explanation)."
+                "A": "Option A (“Specification-based”) is incorrect. C is correct. This is an experience-based technique.",
+                "B": "Option B (“Structure-based”) is incorrect. C is correct. This is an experience-based technique.",
+                "D": "Option D (“Reference-based”) is incorrect. C is correct. This is an experience-based technique."
             },
             "chapter": 4,
             "section": "4.4",
@@ -15929,15 +15929,15 @@ window.questionSets = {
             "explanation": "D is correct. The values to be tested are 20, 100, 500 and no selection.",
             "correctFeedback": "✅ Correct: The values to be tested are 20, 100, 500 and no selection.",
             "incorrectFeedback": {
-                "A": "❌ Incorrect: This option is not the correct answer (see the official explanation).",
-                "B": "❌ Incorrect: This option is not the correct answer (see the official explanation).",
-                "C": "❌ Incorrect: This option is not the correct answer (see the official explanation)."
+                "A": "❌ Incorrect: Option A (“1”) does not meet the requirement. D is correct. The values to be tested are 20, 100, 500 and no selection.",
+                "B": "❌ Incorrect: Option B (“2”) does not meet the requirement. D is correct. The values to be tested are 20, 100, 500 and no selection.",
+                "C": "❌ Incorrect: Option C (“3”) does not meet the requirement. D is correct. The values to be tested are 20, 100, 500 and no selection."
             },
             "optionExplanations": {
                 "D": "The values to be tested are 20, 100, 500 and no selection",
-                "A": "This option is not the correct answer (see the official explanation).",
-                "B": "This option is not the correct answer (see the official explanation).",
-                "C": "This option is not the correct answer (see the official explanation)."
+                "A": "Option A (“1”) is incorrect. D is correct. The values to be tested are 20, 100, 500 and no selection.",
+                "B": "Option B (“2”) is incorrect. D is correct. The values to be tested are 20, 100, 500 and no selection.",
+                "C": "Option C (“3”) is incorrect. D is correct. The values to be tested are 20, 100, 500 and no selection."
             },
             "chapter": 4,
             "section": "4.2",
@@ -15966,15 +15966,15 @@ window.questionSets = {
             "explanation": "C is correct. 2 per valid weight range plus one for a negative weight and one for a weight exceeding 100 lbs (-1, 0, 10, 11, 25, 26, 50, 51, 100, 101).",
             "correctFeedback": "✅ Correct: 2 per valid weight range plus one for a negative weight and one for a weight exceeding 100 lbs (-1, 0, 10, 11, 25, 26, 50, 51, 100, 101).",
             "incorrectFeedback": {
-                "A": "❌ Incorrect: This option is not the correct answer (see the official explanation).",
-                "B": "❌ Incorrect: This option is not the correct answer (see the official explanation).",
-                "D": "❌ Incorrect: This option is not the correct answer (see the official explanation)."
+                "A": "❌ Incorrect: Option A (“4”) does not meet the requirement. C is correct. 2 per valid weight range plus one for a negative weight and one for a weight exceeding 100 lbs (-1, 0, 10, 11, 25, 26, 50, 51, 100, 101).",
+                "B": "❌ Incorrect: Option B (“8”) does not meet the requirement. C is correct. 2 per valid weight range plus one for a negative weight and one for a weight exceeding 100 lbs (-1, 0, 10, 11, 25, 26, 50, 51, 100, 101).",
+                "D": "❌ Incorrect: Option D (“12”) does not meet the requirement. C is correct. 2 per valid weight range plus one for a negative weight and one for a weight exceeding 100 lbs (-1, 0, 10, 11, 25, 26, 50, 51, 100, 101)."
             },
             "optionExplanations": {
                 "C": "2 per valid weight range plus one for a negative weight and one for a weight exceeding 100 lbs (-1, 0, 10, 11, 25, 26, 50, 51, 100, 101)",
-                "A": "This option is not the correct answer (see the official explanation).",
-                "B": "This option is not the correct answer (see the official explanation).",
-                "D": "This option is not the correct answer (see the official explanation)."
+                "A": "Option A (“4”) is incorrect. C is correct. 2 per valid weight range plus one for a negative weight and one for a weight exceeding 100 lbs (-1, 0, 10, 11, 25, 26, 50, 51, 100, 101).",
+                "B": "Option B (“8”) is incorrect. C is correct. 2 per valid weight range plus one for a negative weight and one for a weight exceeding 100 lbs (-1, 0, 10, 11, 25, 26, 50, 51, 100, 101).",
+                "D": "Option D (“12”) is incorrect. C is correct. 2 per valid weight range plus one for a negative weight and one for a weight exceeding 100 lbs (-1, 0, 10, 11, 25, 26, 50, 51, 100, 101)."
             },
             "chapter": 4,
             "section": "4.2",
@@ -16077,15 +16077,15 @@ window.questionSets = {
             "explanation": "C is correct. The test that is missing is to try to see if you can allocate someone to a floor that is already fully booked. This is a negative test and should result in an error. A is covered by testing with one occupant. B and D are covered.",
             "correctFeedback": "✅ Correct: The test that is missing is to try to see if you can allocate someone to a floor that is already fully booked. This is a negative test and should result in an error. A is covered b.",
             "incorrectFeedback": {
-                "A": "❌ Incorrect: This option is not the correct answer (see the official explanation).",
-                "B": "❌ Incorrect: This option is not the correct answer (see the official explanation).",
-                "D": "❌ Incorrect: This option is not the correct answer (see the official explanation)."
+                "A": "❌ Incorrect: Option A (“A test with a floor partially occupied but not fully occupied”) does not meet the requirement. C is correct. The test that is missing is to try to see if you can allocate someone to a floor that is already fully booked. This is a negative test and should result in an error. A is covered by testing with one occupant. B and D are covered.",
+                "B": "❌ Incorrect: Option B (“A test for performance”) does not meet the requirement. C is correct. The test that is missing is to try to see if you can allocate someone to a floor that is already fully booked. This is a negative test and should result in an error. A is covered by testing with one occupant. B and D are covered.",
+                "D": "❌ Incorrect: Option D (“A test for usability”) does not meet the requirement. C is correct. The test that is missing is to try to see if you can allocate someone to a floor that is already fully booked. This is a negative test and should result in an error. A is covered by testing with one occupant. B and D are covered."
             },
             "optionExplanations": {
                 "C": "The test that is missing is to try to see if you can allocate someone to a floor that is already fully booked. This is a negative test and should result in an error. A is covered by testing with one occupant. B and D are covered",
-                "A": "This option is not the correct answer (see the official explanation).",
-                "B": "This option is not the correct answer (see the official explanation).",
-                "D": "This option is not the correct answer (see the official explanation)."
+                "A": "Option A (“A test with a floor partially occupied but not fully occupied”) is incorrect. C is correct. The test that is missing is to try to see if you can allocate someone to a floor that is already fully booked. This is a negative test and should result in an error. A is covered by testing with one occupant. B and D are covered.",
+                "B": "Option B (“A test for performance”) is incorrect. C is correct. The test that is missing is to try to see if you can allocate someone to a floor that is already fully booked. This is a negative test and should result in an error. A is covered by testing with one occupant. B and D are covered.",
+                "D": "Option D (“A test for usability”) is incorrect. C is correct. The test that is missing is to try to see if you can allocate someone to a floor that is already fully booked. This is a negative test and should result in an error. A is covered by testing with one occupant. B and D are covered."
             },
             "chapter": 4,
             "section": "4.5",
@@ -16114,15 +16114,15 @@ window.questionSets = {
             "explanation": "A is correct. The combination of likelihood and impact is normally used to determine the overall risk level (sometimes called the risk priority number).",
             "correctFeedback": "✅ Correct: The combination of likelihood and impact is normally used to determine the overall risk level (sometimes called the risk priority number).",
             "incorrectFeedback": {
-                "B": "❌ Incorrect: This option is not the correct answer (see the official explanation).",
-                "C": "❌ Incorrect: This option is not the correct answer (see the official explanation).",
-                "D": "❌ Incorrect: This option is not the correct answer (see the official explanation)."
+                "B": "❌ Incorrect: Option B (“Priority and risk rating”) does not meet the requirement. A is correct. The combination of likelihood and impact is normally used to determine the overall risk level (sometimes called the risk priority number).",
+                "C": "❌ Incorrect: Option C (“Probability and practicality”) does not meet the requirement. A is correct. The combination of likelihood and impact is normally used to determine the overall risk level (sometimes called the risk priority number).",
+                "D": "❌ Incorrect: Option D (“Risk identification and mitigation”) does not meet the requirement. A is correct. The combination of likelihood and impact is normally used to determine the overall risk level (sometimes called the risk priority number)."
             },
             "optionExplanations": {
                 "A": "The combination of likelihood and impact is normally used to determine the overall risk level (sometimes called the risk priority number)",
-                "B": "This option is not the correct answer (see the official explanation).",
-                "C": "This option is not the correct answer (see the official explanation).",
-                "D": "This option is not the correct answer (see the official explanation)."
+                "B": "Option B (“Priority and risk rating”) is incorrect. A is correct. The combination of likelihood and impact is normally used to determine the overall risk level (sometimes called the risk priority number).",
+                "C": "Option C (“Probability and practicality”) is incorrect. A is correct. The combination of likelihood and impact is normally used to determine the overall risk level (sometimes called the risk priority number).",
+                "D": "Option D (“Risk identification and mitigation”) is incorrect. A is correct. The combination of likelihood and impact is normally used to determine the overall risk level (sometimes called the risk priority number)."
             },
             "chapter": 5,
             "section": "5.2",
@@ -16188,15 +16188,15 @@ window.questionSets = {
             "explanation": "C is correct. Exploratory testing belongs to quadrant 3.",
             "correctFeedback": "✅ Correct: Exploratory testing belongs to quadrant 3.",
             "incorrectFeedback": {
-                "A": "❌ Incorrect: This option is not the correct answer (see the official explanation).",
-                "B": "❌ Incorrect: This option is not the correct answer (see the official explanation).",
-                "D": "❌ Incorrect: This option is not the correct answer (see the official explanation)."
+                "A": "❌ Incorrect: Option A (“Q1”) does not meet the requirement. C is correct. Exploratory testing belongs to quadrant 3.",
+                "B": "❌ Incorrect: Option B (“Q2”) does not meet the requirement. C is correct. Exploratory testing belongs to quadrant 3.",
+                "D": "❌ Incorrect: Option D (“Q4”) does not meet the requirement. C is correct. Exploratory testing belongs to quadrant 3."
             },
             "optionExplanations": {
                 "C": "Exploratory testing belongs to quadrant 3",
-                "A": "This option is not the correct answer (see the official explanation).",
-                "B": "This option is not the correct answer (see the official explanation).",
-                "D": "This option is not the correct answer (see the official explanation)."
+                "A": "Option A (“Q1”) is incorrect. C is correct. Exploratory testing belongs to quadrant 3.",
+                "B": "Option B (“Q2”) is incorrect. C is correct. Exploratory testing belongs to quadrant 3.",
+                "D": "Option D (“Q4”) is incorrect. C is correct. Exploratory testing belongs to quadrant 3."
             },
             "chapter": 5,
             "section": "5.1",
@@ -16225,15 +16225,15 @@ window.questionSets = {
             "explanation": "D is correct, this is a risk to the entire project. A, B and C are product risks.",
             "correctFeedback": "✅ Correct: , this is a risk to the entire project. A, B and C are product risks.",
             "incorrectFeedback": {
-                "A": "❌ Incorrect: This option is not the correct answer (see the official explanation).",
-                "B": "❌ Incorrect: This option is not the correct answer (see the official explanation).",
-                "C": "❌ Incorrect: This option is not the correct answer (see the official explanation)."
+                "A": "❌ Incorrect: Option A (“A defect that is causing a performance issue”) does not meet the requirement. D is correct, this is a risk to the entire project. A, B and C are product risks.",
+                "B": "❌ Incorrect: Option B (“A duplicate requirement”) does not meet the requirement. D is correct, this is a risk to the entire project. A, B and C are product risks.",
+                "C": "❌ Incorrect: Option C (“An issue with a data conversion procedure”) does not meet the requirement. D is correct, this is a risk to the entire project. A, B and C are product risks."
             },
             "optionExplanations": {
                 "D": ", this is a risk to the entire project. A, B and C are product risks",
-                "A": "This option is not the correct answer (see the official explanation).",
-                "B": "This option is not the correct answer (see the official explanation).",
-                "C": "This option is not the correct answer (see the official explanation)."
+                "A": "Option A (“A defect that is causing a performance issue”) is incorrect. D is correct, this is a risk to the entire project. A, B and C are product risks.",
+                "B": "Option B (“A duplicate requirement”) is incorrect. D is correct, this is a risk to the entire project. A, B and C are product risks.",
+                "C": "Option C (“An issue with a data conversion procedure”) is incorrect. D is correct, this is a risk to the entire project. A, B and C are product risks."
             },
             "chapter": 5,
             "section": "5.2",
@@ -16262,15 +16262,15 @@ window.questionSets = {
             "explanation": "A is correct. At this point in the project, the formal test completion report should be prepared. B and D are used for information communication during the project work. C might be premature as final approval has not yet been obtained and this is not test documentation",
             "correctFeedback": "✅ Correct: At this point in the project, the formal test completion report should be prepared. B and D are used for information communication during the project work. C might be premature as .",
             "incorrectFeedback": {
-                "B": "❌ Incorrect: This option is not the correct answer (see the official explanation).",
-                "C": "❌ Incorrect: This option is not the correct answer (see the official explanation).",
-                "D": "❌ Incorrect: This option is not the correct answer (see the official explanation)."
+                "B": "❌ Incorrect: Option B (“Testing team task board”) does not meet the requirement. A is correct. At this point in the project, the formal test completion report should be prepared. B and D are used for information communication during the project work. C might be premature as final approval has not yet been obtained and this is not test documentation",
+                "C": "❌ Incorrect: Option C (“Email to the team congratulating them on their success”) does not meet the requirement. A is correct. At this point in the project, the formal test completion report should be prepared. B and D are used for information communication during the project work. C might be premature as final approval has not yet been obtained and this is not test documentation",
+                "D": "❌ Incorrect: Option D (“Burn down chart”) does not meet the requirement. A is correct. At this point in the project, the formal test completion report should be prepared. B and D are used for information communication during the project work. C might be premature as final approval has not yet been obtained and this is not test documentation"
             },
             "optionExplanations": {
                 "A": "At this point in the project, the formal test completion report should be prepared. B and D are used for information communication during the project work. C might be premature as final approval has not yet been obtained and this is not test documentation",
-                "B": "This option is not the correct answer (see the official explanation).",
-                "C": "This option is not the correct answer (see the official explanation).",
-                "D": "This option is not the correct answer (see the official explanation)."
+                "B": "Option B (“Testing team task board”) is incorrect. A is correct. At this point in the project, the formal test completion report should be prepared. B and D are used for information communication during the project work. C might be premature as final approval has not yet been obtained and this is not test documentation",
+                "C": "Option C (“Email to the team congratulating them on their success”) is incorrect. A is correct. At this point in the project, the formal test completion report should be prepared. B and D are used for information communication during the project work. C might be premature as final approval has not yet been obtained and this is not test documentation",
+                "D": "Option D (“Burn down chart”) is incorrect. A is correct. At this point in the project, the formal test completion report should be prepared. B and D are used for information communication during the project work. C might be premature as final approval has not yet been obtained and this is not test documentation"
             },
             "chapter": 5,
             "section": "5.3",
@@ -16301,13 +16301,13 @@ window.questionSets = {
             "incorrectFeedback": {
                 "A": "❌ Incorrect: Inspecting the original fix can help, but does not directly establish which intermediate build first reintroduced the failure.",
                 "C": "❌ Incorrect: Change history can help testers as well as developers; reinstalling intermediate builds is the direct way to reproduce and locate the first affected iteration here.",
-                "D": "❌ Incorrect: This option is not the correct answer (see the official explanation)."
+                "D": "❌ Incorrect: Option D (“You can improve the regression testing to ensure the failure is caught earlier”) does not meet the requirement. Configuration management supports retrieving and reconstructing earlier versions. Testing iterations 5 and 6 directly helps locate when the failure reappeared. Inspecting version changes can also help investigation and is not reserved exclusively for developers, but it is less direct for the requested reproduction across builds."
             },
             "optionExplanations": {
                 "B": "Because you have configuration management, you should be able to obtain and reinstall the code from iterations 5 and 6 and see where the problem was re-introduced",
                 "A": "Inspecting the original fix can help, but does not directly establish which intermediate build first reintroduced the failure.",
                 "C": "Change history can help testers as well as developers; reinstalling intermediate builds is the direct way to reproduce and locate the first affected iteration here.",
-                "D": "This option is not the correct answer (see the official explanation)."
+                "D": "Option D (“You can improve the regression testing to ensure the failure is caught earlier”) is incorrect. Configuration management supports retrieving and reconstructing earlier versions. Testing iterations 5 and 6 directly helps locate when the failure reappeared. Inspecting version changes can also help investigation and is not reserved exclusively for developers, but it is less direct for the requested reproduction across builds."
             },
             "chapter": 5,
             "section": "5.4",
@@ -16336,15 +16336,15 @@ window.questionSets = {
             "explanation": "C is correct. The formula is (Optimistic + 4(Likely) + Pessimistic)/6 so the answer is (30+220+75)/6 = 54.17 and the standard deviation is (75-30)/6 which is 7.5.",
             "correctFeedback": "✅ Correct: The formula is (Optimistic + 4(Likely) + Pessimistic)/6 so the answer is (30+220+75)/6 = 54.17 and the standard deviation is (75-30)/6 which is 7.5.",
             "incorrectFeedback": {
-                "A": "❌ Incorrect: This option is not the correct answer (see the official explanation).",
-                "B": "❌ Incorrect: This option is not the correct answer (see the official explanation).",
-                "D": "❌ Incorrect: This option is not the correct answer (see the official explanation)."
+                "A": "❌ Incorrect: Option A (“325 ± 45”) does not meet the requirement. C is correct. The formula is (Optimistic + 4(Likely) + Pessimistic)/6 so the answer is (30+220+75)/6 = 54.17 and the standard deviation is (75-30)/6 which is 7.5.",
+                "B": "❌ Incorrect: Option B (“81.25 ± 8”) does not meet the requirement. C is correct. The formula is (Optimistic + 4(Likely) + Pessimistic)/6 so the answer is (30+220+75)/6 = 54.17 and the standard deviation is (75-30)/6 which is 7.5.",
+                "D": "❌ Incorrect: Option D (“40 ± 2”) does not meet the requirement. C is correct. The formula is (Optimistic + 4(Likely) + Pessimistic)/6 so the answer is (30+220+75)/6 = 54.17 and the standard deviation is (75-30)/6 which is 7.5."
             },
             "optionExplanations": {
                 "C": "The formula is (Optimistic + 4(Likely) + Pessimistic)/6 so the answer is (30+220+75)/6 = 54.17 and the standard deviation is (75-30)/6 which is 7.5",
-                "A": "This option is not the correct answer (see the official explanation).",
-                "B": "This option is not the correct answer (see the official explanation).",
-                "D": "This option is not the correct answer (see the official explanation)."
+                "A": "Option A (“325 ± 45”) is incorrect. C is correct. The formula is (Optimistic + 4(Likely) + Pessimistic)/6 so the answer is (30+220+75)/6 = 54.17 and the standard deviation is (75-30)/6 which is 7.5.",
+                "B": "Option B (“81.25 ± 8”) is incorrect. C is correct. The formula is (Optimistic + 4(Likely) + Pessimistic)/6 so the answer is (30+220+75)/6 = 54.17 and the standard deviation is (75-30)/6 which is 7.5.",
+                "D": "Option D (“40 ± 2”) is incorrect. C is correct. The formula is (Optimistic + 4(Likely) + Pessimistic)/6 so the answer is (30+220+75)/6 = 54.17 and the standard deviation is (75-30)/6 which is 7.5."
             },
             "chapter": 5,
             "section": "5.1",
@@ -16447,15 +16447,15 @@ window.questionSets = {
             "explanation": "A is correct. This is the primary purpose of the test execution tools. B may be something the tool can do, but this is not the primary purpose. C is a static analysis tool and D is a test management tool.",
             "correctFeedback": "✅ Correct: This is the primary purpose of the test execution tools. B may be something the tool can do, but this is not the primary purpose. C is a static analysis tool and D is a test manage.",
             "incorrectFeedback": {
-                "B": "❌ Incorrect: This option is not the correct answer (see the official explanation).",
-                "C": "❌ Incorrect: This option is not the correct answer (see the official explanation).",
-                "D": "❌ Incorrect: This option is not the correct answer (see the official explanation)."
+                "B": "❌ Incorrect: Option B (“It automatically records defects in the defect tracking system”) does not meet the requirement. A is correct. This is the primary purpose of the test execution tools. B may be something the tool can do, but this is not the primary purpose. C is a static analysis tool and D is a test management tool.",
+                "C": "❌ Incorrect: Option C (“It analyzes code to determine if there are any coding standard violations”) does not meet the requirement. A is correct. This is the primary purpose of the test execution tools. B may be something the tool can do, but this is not the primary purpose. C is a static analysis tool and D is a test management tool.",
+                "D": "❌ Incorrect: Option D (“It tracks test cases, defects and requirements traceability”) does not meet the requirement. A is correct. This is the primary purpose of the test execution tools. B may be something the tool can do, but this is not the primary purpose. C is a static analysis tool and D is a test management tool."
             },
             "optionExplanations": {
                 "A": "This is the primary purpose of the test execution tools. B may be something the tool can do, but this is not the primary purpose. C is a static analysis tool and D is a test management tool",
-                "B": "This option is not the correct answer (see the official explanation).",
-                "C": "This option is not the correct answer (see the official explanation).",
-                "D": "This option is not the correct answer (see the official explanation)."
+                "B": "Option B (“It automatically records defects in the defect tracking system”) is incorrect. A is correct. This is the primary purpose of the test execution tools. B may be something the tool can do, but this is not the primary purpose. C is a static analysis tool and D is a test management tool.",
+                "C": "Option C (“It analyzes code to determine if there are any coding standard violations”) is incorrect. A is correct. This is the primary purpose of the test execution tools. B may be something the tool can do, but this is not the primary purpose. C is a static analysis tool and D is a test management tool.",
+                "D": "Option D (“It tracks test cases, defects and requirements traceability”) is incorrect. A is correct. This is the primary purpose of the test execution tools. B may be something the tool can do, but this is not the primary purpose. C is a static analysis tool and D is a test management tool."
             },
             "chapter": 6,
             "section": "6.1",
@@ -16484,15 +16484,15 @@ window.questionSets = {
             "explanation": "A is correct. That is a known risk with test automation because it will be dependent upon the tool used for implementation and that tool might fall out of support by the vendor or the community. B, C and D are expected results from automation and are not risks.",
             "correctFeedback": "✅ Correct: That is a known risk with test automation because it will be dependent upon the tool used for implementation and that tool might fall out of support by the vendor or the community.",
             "incorrectFeedback": {
-                "B": "❌ Incorrect: This option is not the correct answer (see the official explanation).",
-                "C": "❌ Incorrect: This option is not the correct answer (see the official explanation).",
-                "D": "❌ Incorrect: This option is not the correct answer (see the official explanation)."
+                "B": "❌ Incorrect: Option B (“Developing test automation for particularly tedious manual testing areas”) does not meet the requirement. A is correct. That is a known risk with test automation because it will be dependent upon the tool used for implementation and that tool might fall out of support by the vendor or the community. B, C and D are expected results from automation and are not risks.",
+                "C": "❌ Incorrect: Option C (“Using technical testers to implement the automation”) does not meet the requirement. A is correct. That is a known risk with test automation because it will be dependent upon the tool used for implementation and that tool might fall out of support by the vendor or the community. B, C and D are expected results from automation and are not risks.",
+                "D": "❌ Incorrect: Option D (“Developing automated reporting”) does not meet the requirement. A is correct. That is a known risk with test automation because it will be dependent upon the tool used for implementation and that tool might fall out of support by the vendor or the community. B, C and D are expected results from automation and are not risks."
             },
             "optionExplanations": {
                 "A": "That is a known risk with test automation because it will be dependent upon the tool used for implementation and that tool might fall out of support by the vendor or the community. B, C and D are expected results from automation and are not risks",
-                "B": "This option is not the correct answer (see the official explanation).",
-                "C": "This option is not the correct answer (see the official explanation).",
-                "D": "This option is not the correct answer (see the official explanation)."
+                "B": "Option B (“Developing test automation for particularly tedious manual testing areas”) is incorrect. A is correct. That is a known risk with test automation because it will be dependent upon the tool used for implementation and that tool might fall out of support by the vendor or the community. B, C and D are expected results from automation and are not risks.",
+                "C": "Option C (“Using technical testers to implement the automation”) is incorrect. A is correct. That is a known risk with test automation because it will be dependent upon the tool used for implementation and that tool might fall out of support by the vendor or the community. B, C and D are expected results from automation and are not risks.",
+                "D": "Option D (“Developing automated reporting”) is incorrect. A is correct. That is a known risk with test automation because it will be dependent upon the tool used for implementation and that tool might fall out of support by the vendor or the community. B, C and D are expected results from automation and are not risks."
             },
             "chapter": 6,
             "section": "6.2",
