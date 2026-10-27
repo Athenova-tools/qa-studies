@@ -2834,9 +2834,14 @@ input, textarea, select {
   }
 
   .footer__links {
-    flex-direction: column;
+    flex-direction: row;
+    flex-wrap: nowrap;
     align-items: center;
     gap: var(--space-sm);
+  }
+
+  .footer__links a {
+    white-space: nowrap;
   }
 }
 

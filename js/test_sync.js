@@ -974,6 +974,8 @@ async function main() {
     [webCss, androidCss].forEach((css, index) => {
       const heroTopSpacing = css.match(/padding:\s*15px\s+0\s+var\(--space-md\)/g) || [];
       assert(heroTopSpacing.length >= 2, (index === 0 ? 'web' : 'android') + ' hero should have 15dp top spacing on desktop and mobile');
+      assert(/\.footer__links\s*\{[^}]*flex-direction:\s*row;[^}]*flex-wrap:\s*nowrap;/.test(css),
+        (index === 0 ? 'web' : 'android') + ' footer links should stay on one horizontal row on mobile');
     });
     ['.stats-empty-state__message', '#stats-section .section__header', '#stats-section + #slides-section']
       .forEach(selector => {
