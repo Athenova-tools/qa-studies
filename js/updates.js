@@ -3,13 +3,15 @@ window.AppUpdates = (function () {
   'use strict';
 
   var RELEASE_API = 'https://api.github.com/repos/Athenova-tools/qa-studies/releases/latest';
-  var RELEASES_URL = 'https://github.com/Athenova-tools/qa-studies/releases/latest';
   var APK_URL = 'https://github.com/Athenova-tools/qa-studies/releases/latest/download/istqb-ctfl.apk';
   var CONFIG = window.ISTQB_RELEASE_UPDATE_CONFIG || {};
   var PLATFORM = CONFIG.platform || (window.location && window.location.protocol === 'file:' ? 'android' : 'web');
   var BASELINE = CONFIG.baseline || 'v1.1.14';
   var FALLBACK_TAG = CONFIG.current || BASELINE;
-  var FALLBACK_SUMMARY = CONFIG.fallbackSummary || ['Release notes are available from the project release page.'];
+  var FALLBACK_SUMMARY = CONFIG.fallbackSummary || {
+    web: ['A new release is available for the website and Android APK.'],
+    android: ['A new Android APK is available for direct download.'],
+  };
   var SEEN_KEY = 'istqb_ctfl_seen_release_' + PLATFORM;
   var CACHE_KEY = 'istqb_ctfl_latest_release_cache_' + PLATFORM;
   var CACHE_TTL_MS = 60 * 60 * 1000;
@@ -49,15 +51,38 @@ window.AppUpdates = (function () {
   }
 
   function summarizeRelease(body) {
-    var bullets = [];
+    var sections = { web: [], android: [] };
+    var currentSection = '';
     String(body || '').split(/\r?\n/).forEach(function (line) {
+      var heading = line.match(/^\s*#{1,3}\s+(.+)/);
+      if (heading) {
+        var name = plainText(heading[1]).toLowerCase();
+        currentSection = /android|apk|mobile/.test(name) ? 'android' : (/web|website|site/.test(name) ? 'web' : '');
+        return;
+      }
       var bullet = line.match(/^\s*[-*]\s+(.+)/);
       if (bullet) {
         var text = plainText(bullet[1]);
-        if (text) bullets.push(text);
+        if (!text) return;
+        var tagged = text.match(/^(web\s+and\s+android|android|apk|web|website)\s*:\s*(.*)$/i);
+        if (tagged) {
+          var label = tagged[1].toLowerCase();
+          var content = tagged[2] || text;
+          if (/web\s+and\s+android/.test(label)) {
+            sections.web.push(content);
+            sections.android.push(content);
+          } else {
+            sections[/android|apk/.test(label) ? 'android' : 'web'].push(content);
+          }
+        } else if (currentSection) {
+          sections[currentSection].push(text);
+        } else {
+          sections.web.push(text);
+          sections.android.push(text);
+        }
       }
     });
-    return bullets;
+    return sections;
   }
 
   function readSeenTag() {
@@ -93,31 +118,61 @@ window.AppUpdates = (function () {
     while (list && list.firstChild) list.removeChild(list.firstChild);
   }
 
+  function cloudDownloadIcon() {
+    var svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+    svg.setAttribute('class', 'apk-download-icon');
+    svg.setAttribute('viewBox', '0 0 24 24');
+    svg.setAttribute('aria-hidden', 'true');
+    svg.setAttribute('fill', 'none');
+    svg.setAttribute('stroke', 'currentColor');
+    svg.setAttribute('stroke-width', '2');
+    svg.setAttribute('stroke-linecap', 'round');
+    svg.setAttribute('stroke-linejoin', 'round');
+    var cloud = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+    cloud.setAttribute('d', 'M7 18H6a4 4 0 1 1 .8-7.92A5.5 5.5 0 0 1 17 8.5a4.75 4.75 0 0 1 1 9.42h-1');
+    var arrow = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+    arrow.setAttribute('d', 'M12 12v9m-4-4 4 4 4-4');
+    svg.appendChild(cloud);
+    svg.appendChild(arrow);
+    return svg;
+  }
+
+  function applyCloudDownloadIcons() {
+    var heroIcon = document.querySelector('.hero__apk-icon');
+    var androidIcon = document.querySelector('#updates-apk-link .updates-link__icon');
+    [heroIcon, androidIcon].forEach(function (container) {
+      if (!container) return;
+      clearList(container);
+      container.appendChild(cloudDownloadIcon());
+    });
+    var dialogDownload = document.getElementById('updates-download');
+    if (dialogDownload && !dialogDownload.querySelector('.apk-download-icon')) {
+      dialogDownload.insertBefore(cloudDownloadIcon(), dialogDownload.firstChild);
+    }
+  }
+
   function renderSummary(release) {
     var title = document.getElementById('updates-title');
-    var summary = document.getElementById('updates-summary');
+    var webSummary = document.getElementById('updates-summary-web');
+    var androidSummary = document.getElementById('updates-summary-android');
     var download = document.getElementById('updates-download');
-    var notes = document.getElementById('updates-notes');
     if (title) title.textContent = translate('updates.title', 'What changed');
-    if (summary) {
-      clearList(summary);
-      var items = summarizeRelease(release.body);
-      if (!items.length) items = FALLBACK_SUMMARY;
-      items.forEach(function (text) {
+    var items = summarizeRelease(release.body);
+    if (!items.web.length) items.web = FALLBACK_SUMMARY.web || [];
+    if (!items.android.length) items.android = FALLBACK_SUMMARY.android || [];
+    [[webSummary, items.web], [androidSummary, items.android]].forEach(function (group) {
+      var list = group[0];
+      clearList(list);
+      if (list) group[1].forEach(function (text) {
         var item = document.createElement('li');
         item.textContent = text;
-        summary.appendChild(item);
+        list.appendChild(item);
       });
-    }
+    });
     if (download) {
       download.href = APK_URL;
       download.target = PLATFORM === 'android' ? '_self' : '_blank';
       download.rel = 'noopener';
-    }
-    if (notes) {
-      notes.href = release.html_url || RELEASES_URL;
-      notes.target = PLATFORM === 'android' ? '_self' : '_blank';
-      notes.rel = 'noopener';
     }
   }
 
@@ -180,6 +235,7 @@ window.AppUpdates = (function () {
     var downloadButton = document.querySelector('[data-i18n-aria-label="hero.apk"]');
     modal = document.getElementById('updates-dialog');
     if (!openButton || !modal) return;
+    applyCloudDownloadIcons();
 
     if (downloadButton && !apkBadge) {
       apkBadge = document.createElement('span');
@@ -195,7 +251,6 @@ window.AppUpdates = (function () {
       tag_name: FALLBACK_TAG,
       name: FALLBACK_TAG + ' — Updates',
       body: '',
-      html_url: RELEASES_URL,
     };
     renderControls(fallbackRelease);
     openButton.addEventListener('click', openDialog);

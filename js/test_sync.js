@@ -929,15 +929,22 @@ async function main() {
     const androidUpdates = fs.readFileSync(path.join(androidRoot, 'js/updates.js'), 'utf8');
     assert.strictEqual(androidUpdates, webUpdates, 'updates.js must be mirrored into Android');
     assert(webIndex.includes("platform: 'web'") && webIndex.includes('id="updates-dialog"') &&
-      webIndex.includes('id="updates-download"') && webIndex.includes('js/updates.js'),
+      webIndex.includes('id="updates-summary-web"') && webIndex.includes('id="updates-summary-android"') &&
+      webIndex.includes('id="updates-download"') && !webIndex.includes('id="updates-notes"') &&
+      webIndex.includes('js/updates.js'),
       'web landing page should configure a popup with a direct APK download');
     assert(webIndex.includes('data-i18n-aria-label="hero.apk"') && webUpdates.includes('download-apk-badge'),
       'web APK download button should carry the new-release badge');
     const directApkUrl = 'releases/latest/download/istqb-ctfl.apk';
     assert(webIndex.includes(directApkUrl) && androidIndex.includes(directApkUrl) && webUpdates.includes(directApkUrl),
       'update popup and APK badge should point directly to the APK asset');
+    assert(webUpdates.includes('M7 18H6a4 4 0 1 1 .8-7.92') &&
+      webUpdates.includes('M12 12v9m-4-4 4 4 4-4'),
+      'download controls should use the selected cloud-download icon');
     assert(androidIndex.includes("platform: 'android'") && androidIndex.includes('id="updates-dialog"') &&
-      androidIndex.includes('id="updates-download"') && androidIndex.includes('id="updates-apk-link"') &&
+      androidIndex.includes('id="updates-summary-web"') && androidIndex.includes('id="updates-summary-android"') &&
+      androidIndex.includes('id="updates-download"') && !androidIndex.includes('id="updates-notes"') &&
+      androidIndex.includes('id="updates-apk-link"') &&
       androidIndex.includes('js/updates.js'),
       'Android landing page should show a direct APK badge and summary popup');
     ['exportBtn.disabled = getAttempts().length === 0;', 'if (exportBtn.disabled) return;', 'dashboardControls.appendChild(paginationWrap);']
@@ -975,6 +982,8 @@ async function main() {
       'mobile hero should not restore the former large top gap');
     assert(webCss.includes('.stats-empty-state__message') && androidCss.includes('.stats-empty-state__message'),
       'statistics empty state should use the reduced spacing styles on both platforms');
+    assert(webCss.includes('list-style: decimal') && androidCss.includes('list-style: decimal'),
+      'release summary topics should be numbered on web and Android');
     assert(webIndex.includes('id="updates-open"') && androidIndex.includes('id="updates-open"'),
       'both landing pages should expose the update badge trigger');
   });
@@ -992,10 +1001,11 @@ async function main() {
       'newer release should be announced');
     assert.strictEqual(updates.shouldAnnounce('v1.1.10', 'v1.1.15'), false,
       'older release should not be announced');
-    const summary = updates.summarizeRelease('## Changes\n- **Android:** Restore the previous attempts table.\n- Web: Add update notices.\n- Avoid raw HTML <b>tags</b> in the summary.\n\n## Verification\n- Verification details should be shown.');
-    assert.strictEqual(summary.join('|'),
-      'Android: Restore the previous attempts table.|Web: Add update notices.|Avoid raw HTML tags in the summary.|Verification details should be shown.',
-      'release popup should include every release topic as safe plain text');
+    const summary = updates.summarizeRelease('## Web\n- **Downloads:** Add a direct APK button.\n- Avoid raw HTML <b>tags</b>.\n## Android\n- Restore the previous attempts table.');
+    assert.strictEqual(summary.web.join('|'), 'Downloads: Add a direct APK button.|Avoid raw HTML tags.');
+    assert.strictEqual(summary.android.join('|'), 'Restore the previous attempts table.');
+    assert(!fs.readFileSync(path.join(__dirname, 'updates.js'), 'utf8').includes('release.name || release.tag_name'),
+      'popup title should not expose the release version string');
   });
 
   console.log('');
