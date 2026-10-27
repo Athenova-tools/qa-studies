@@ -707,7 +707,7 @@ const ExamStats = (function () {
     }));
 
     /* Header row */
-    var header = createEl('div', null, {
+    var header = createEl('div', 'chapter-performance-header', {
       style: 'display:grid;grid-template-columns:' + GRID_COLS + ';gap:6px;align-items:center;padding:6px 0;border-bottom:2px solid var(--color-border);',
     });
     header.appendChild(createEl('div', null, { text: 'Chapter', style: 'font-size:0.6875rem;font-weight:700;color:var(--color-text-muted);text-transform:uppercase;letter-spacing:0.04em;' }));
@@ -725,13 +725,13 @@ const ExamStats = (function () {
       var data = chapterPerformance[ch];
       var pct = data.total > 0 ? Math.round((data.correct / data.total) * 100) : 0;
       var weight = CHAPTER_WEIGHTS[ch] || 0;
-      var row = createEl('div', null, {
+      var row = createEl('div', 'chapter-performance-row', {
         style: 'display:grid;grid-template-columns:' + GRID_COLS + ';gap:6px;align-items:center;padding:8px 0;border-bottom:1px solid var(--color-border-light);',
       });
       row.appendChild(createEl('div', null, {
         text: ch, style: 'font-size:0.8125rem;font-weight:600;color:var(--color-text);white-space:nowrap;',
       }));
-      var barOuter = createEl('div', null, {
+      var barOuter = createEl('div', 'chapter-performance-bar', {
         style: 'height:32px;background-color:var(--color-bg-alt);border-radius:var(--radius-md);overflow:hidden;',
       });
       barOuter.appendChild(createEl('div', null, {
@@ -962,8 +962,8 @@ const ExamStats = (function () {
     var startIdx = (recentCurrentPage - 1) * recentPageSize;
     var paginatedList = filteredList.slice(startIdx, startIdx + recentPageSize);
 
-    var tableWrap = createEl('div', null, { style: 'overflow-x:auto;margin-bottom:var(--space-sm);' });
-    var table = createEl('table', null, {
+    var tableWrap = createEl('div', 'recent-attempts-wrap', { style: 'overflow-x:auto;margin-bottom:var(--space-sm);' });
+    var table = createEl('table', 'recent-attempts-table', {
       style: 'width:100%;border-collapse:collapse;font-size:0.875rem;',
     });
 
@@ -1022,8 +1022,10 @@ const ExamStats = (function () {
         a.passed ? 'PASS' : 'FAIL',
         a.timeSpent,
       ];
+      var cellLabels = ['Date', 'Exam', 'Score', 'Percentage', 'Result', 'Time'];
       cells.forEach(function (c, ci) {
         var td = document.createElement('td');
+        td.setAttribute('data-label', cellLabels[ci]);
         td.textContent = c;
         td.style.cssText = 'padding:var(--space-sm) var(--space-md);border-bottom:1px solid var(--color-border);color:var(--color-text-secondary);';
         if (ci === 0) td.appendChild(originIconEl(a));
@@ -1036,6 +1038,7 @@ const ExamStats = (function () {
 
       /* Action buttons */
       var actionTd = document.createElement('td');
+      actionTd.className = 'recent-attempts-actions';
       actionTd.style.cssText = 'padding:var(--space-sm) var(--space-md);border-bottom:1px solid var(--color-border);white-space:nowrap;';
       var reviewBtn = createEl('button', ['btn', 'btn--ghost', 'btn--sm'], { text: 'Review' });
       reviewBtn.style.marginRight = 'var(--space-xs)';

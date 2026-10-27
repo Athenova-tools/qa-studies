@@ -919,6 +919,8 @@ async function main() {
     });
     const webStats = fs.readFileSync(path.join(__dirname, 'statistics.js'), 'utf8');
     const androidStats = fs.readFileSync(path.join(androidRoot, 'js/statistics.js'), 'utf8');
+    const webCss = fs.readFileSync(path.join(__dirname, '..', 'css/style.css'), 'utf8');
+    const androidCss = fs.readFileSync(path.join(__dirname, '..', 'android/app/src/main/assets/www/css/style.css'), 'utf8');
     ['exportBtn.disabled = getAttempts().length === 0;', 'if (exportBtn.disabled) return;', 'dashboardControls.appendChild(paginationWrap);']
       .forEach(marker => {
         assert(webStats.includes(marker), 'web statistics missing ' + marker);
@@ -934,10 +936,14 @@ async function main() {
       'Android pagination arrows should sit close to the page number');
     assert(androidStats.includes('justify-content:space-between') && androidStats.includes('flex-wrap:wrap;'),
       'Android filter and pagination should wrap responsively');
+    assert(androidStats.includes("createEl('table', 'recent-attempts-table'") &&
+      androidStats.includes("createEl('div', 'chapter-performance-row'"),
+      'Android dashboard should expose mobile-specific attempt and chapter rows');
+    assert(androidCss.includes('.recent-attempts-table tbody tr') &&
+      androidCss.includes('.chapter-performance-row'),
+      'Android stylesheet should define compact mobile cards and chapter rows');
     assert(!androidStats.includes('table-layout:fixed') && !androidStats.includes('display:contents'),
       'Android table and controls should not use the broken fixed-grid layout');
-    const webCss = fs.readFileSync(path.join(__dirname, '..', 'css/style.css'), 'utf8');
-    const androidCss = fs.readFileSync(path.join(__dirname, '..', 'android/app/src/main/assets/www/css/style.css'), 'utf8');
     assert(webCss.includes('.hero {\n  padding: var(--header-height) 0 var(--space-md);'), 'web hero top spacing not reduced');
     assert(androidCss.includes('.hero {\n  padding: var(--header-height) 0 var(--space-md);'), 'Android hero top spacing not reduced');
   });
