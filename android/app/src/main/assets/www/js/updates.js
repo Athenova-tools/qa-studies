@@ -9,8 +9,8 @@ window.AppUpdates = (function () {
   var BASELINE = CONFIG.baseline || 'v1.1.14';
   var FALLBACK_TAG = CONFIG.current || BASELINE;
   var FALLBACK_SUMMARY = CONFIG.fallbackSummary || {
-    web: ['A new release is available for the website and Android APK.'],
-    android: ['A new Android APK is available for direct download.'],
+    web: { en: ['A new website update and Android APK are available.'], pt: ['Há uma nova actualização do site e APK Android.'] },
+    android: { en: ['A new Android APK is available for direct download.'], pt: ['Está disponível um novo APK Android para download directo.'] },
   };
   var SEEN_KEY = 'istqb_ctfl_seen_release_' + PLATFORM;
   var CACHE_KEY = 'istqb_ctfl_latest_release_cache_' + PLATFORM;
@@ -51,14 +51,19 @@ window.AppUpdates = (function () {
   }
 
   function summarizeRelease(body) {
-    var sections = { web: [], android: [] };
+    var sections = {
+      web: { en: [], pt: [] },
+      android: { en: [], pt: [] },
+    };
     var currentSection = '';
+    var currentLanguage = 'pt';
     var allowTaggedTopics = true;
     String(body || '').split(/\r?\n/).forEach(function (line) {
       var heading = line.match(/^\s*#{1,3}\s+(.+)/);
       if (heading) {
         var name = plainText(heading[1]).toLowerCase();
         currentSection = /android|apk|mobile/.test(name) ? 'android' : (/web|website|site/.test(name) ? 'web' : '');
+        currentLanguage = /\b(en|eng|english)\b/.test(name) ? 'en' : (/\bpt(?:-pt)?\b|portugu/.test(name) ? 'pt' : 'pt');
         allowTaggedTopics = !/verific|validat|test results|checks/.test(name);
         return;
       }
@@ -67,7 +72,7 @@ window.AppUpdates = (function () {
         var text = plainText(bullet[1]);
         if (!text) return;
         if (currentSection) {
-          sections[currentSection].push(text);
+          sections[currentSection][currentLanguage].push(text);
           return;
         }
         if (!allowTaggedTopics) return;
@@ -76,13 +81,13 @@ window.AppUpdates = (function () {
           var label = tagged[1].toLowerCase();
           var content = tagged[2] || text;
           if (/web\s+and\s+android/.test(label)) {
-            sections.web.push(content);
-            sections.android.push(content);
+            sections.web.pt.push(content);
+            sections.android.pt.push(content);
           } else if (/web\s+e\s+android/.test(label)) {
-            sections.web.push(content);
-            sections.android.push(content);
+            sections.web.pt.push(content);
+            sections.android.pt.push(content);
           } else {
-            sections[/android|apk/.test(label) ? 'android' : 'web'].push(content);
+            sections[/android|apk/.test(label) ? 'android' : 'web'].pt.push(content);
           }
         }
       }
@@ -144,7 +149,7 @@ window.AppUpdates = (function () {
 
   function applyCloudDownloadIcons() {
     var heroIcon = document.querySelector('.hero__apk-icon');
-    var androidIcon = document.querySelector('#updates-apk-link .updates-link__icon');
+    var androidIcon = document.querySelector('.updates-apk-link .updates-link__icon');
     [heroIcon, androidIcon].forEach(function (container) {
       if (!container) return;
       clearList(container);
@@ -163,9 +168,13 @@ window.AppUpdates = (function () {
     var download = document.getElementById('updates-download');
     if (title) title.textContent = translate('updates.title', 'What changed');
     var items = summarizeRelease(release.body);
-    if (!items.web.length) items.web = FALLBACK_SUMMARY.web || [];
-    if (!items.android.length) items.android = FALLBACK_SUMMARY.android || [];
-    [[webSummary, items.web], [androidSummary, items.android]].forEach(function (group) {
+    var language = 'en';
+    try { language = window.AppI18n.getLang() === 'pt' ? 'pt' : 'en'; } catch (e) {}
+    var fallbackWeb = FALLBACK_SUMMARY.web && FALLBACK_SUMMARY.web[language];
+    var fallbackAndroid = FALLBACK_SUMMARY.android && FALLBACK_SUMMARY.android[language];
+    var webItems = items.web[language].length ? items.web[language] : (fallbackWeb || []);
+    var androidItems = items.android[language].length ? items.android[language] : (fallbackAndroid || []);
+    [[webSummary, webItems], [androidSummary, androidItems]].forEach(function (group) {
       var list = group[0];
       clearList(list);
       if (list) group[1].forEach(function (text) {
@@ -186,23 +195,15 @@ window.AppUpdates = (function () {
     currentRelease = release;
     var openButton = document.getElementById('updates-open');
     var badge = document.getElementById('updates-badge');
-    var androidApkLink = document.getElementById('updates-apk-link');
-    var androidApkBadge = document.getElementById('updates-apk-badge');
     var downloadButton = document.querySelector('[data-i18n-aria-label="hero.apk"]');
     var apkBadge = document.getElementById('download-apk-badge');
     var announce = shouldAnnounce(release.tag_name, readSeenTag());
     [badge, apkBadge].forEach(function (el) {
       if (el) {
-        el.hidden = !announce || PLATFORM === 'android';
+        el.hidden = !announce;
         el.textContent = translate('updates.new', 'NEW');
       }
     });
-    if (androidApkBadge) androidApkBadge.hidden = !announce;
-    if (androidApkLink) {
-      androidApkLink.href = APK_URL;
-      androidApkLink.target = '_self';
-      androidApkLink.classList.toggle('updates-link--new', announce);
-    }
     if (openButton) {
       openButton.classList.toggle('updates-link--new', announce);
       openButton.setAttribute('aria-label', announce
@@ -236,7 +237,6 @@ window.AppUpdates = (function () {
     var openButton = document.getElementById('updates-open');
     var badge = document.getElementById('updates-badge');
     var apkBadge = document.getElementById('download-apk-badge');
-    var androidApkLink = document.getElementById('updates-apk-link');
     var downloadButton = document.querySelector('[data-i18n-aria-label="hero.apk"]');
     modal = document.getElementById('updates-dialog');
     if (!openButton || !modal) return;
@@ -276,15 +276,6 @@ window.AppUpdates = (function () {
         renderControls(currentRelease);
       });
     }
-    if (androidApkLink) {
-      androidApkLink.href = APK_URL;
-      androidApkLink.addEventListener('click', function () {
-        if (!currentRelease) return;
-        markSeen(currentRelease.tag_name);
-        renderControls(currentRelease);
-      });
-    }
-
     fetch(RELEASE_API + '?_=' + Date.now(), {
       cache: 'no-store',
       headers: { Accept: 'application/vnd.github+json' },

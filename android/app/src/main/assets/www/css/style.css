@@ -588,7 +588,7 @@ input, textarea, select {
 
 /* ----- Hero Section ----- */
 .hero {
-  padding: var(--header-height) 0 var(--space-md);
+  padding: 15px 0 var(--space-md);
   text-align: center;
   background: linear-gradient(180deg, var(--color-primary-light) 0%, var(--color-bg) 100%);
   position: relative;
@@ -2916,7 +2916,7 @@ results-list__title {
   }
 
   .hero {
-    padding: var(--header-height) 0 var(--space-md);
+    padding: 15px 0 var(--space-md);
   }
 
   .hero__actions {

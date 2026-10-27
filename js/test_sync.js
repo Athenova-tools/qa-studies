@@ -944,9 +944,10 @@ async function main() {
     assert(androidIndex.includes("platform: 'android'") && androidIndex.includes('id="updates-dialog"') &&
       androidIndex.includes('id="updates-summary-web"') && androidIndex.includes('id="updates-summary-android"') &&
       androidIndex.includes('id="updates-download"') && !androidIndex.includes('id="updates-notes"') &&
-      androidIndex.includes('id="updates-apk-link"') &&
+      androidIndex.includes('class="updates-link updates-apk-link" id="updates-open"') &&
+      !androidIndex.includes('data-i18n="updates.label"') &&
       androidIndex.includes('js/updates.js'),
-      'Android landing page should show a direct APK badge and summary popup');
+      'Android cloud+APK button should replace the star and open the direct-download summary popup');
     ['exportBtn.disabled = getAttempts().length === 0;', 'if (exportBtn.disabled) return;', 'dashboardControls.appendChild(paginationWrap);']
       .forEach(marker => {
         assert(webStats.includes(marker), 'web statistics missing ' + marker);
@@ -970,8 +971,10 @@ async function main() {
       'Android should revert attempt cards while keeping compact chapter rows');
     assert(!androidStats.includes('table-layout:fixed') && !androidStats.includes('display:contents'),
       'Android table and controls should not use the broken fixed-grid layout');
-    assert(webCss.includes('.hero {\n  padding: var(--header-height) 0 var(--space-md);'), 'web hero top spacing not reduced');
-    assert(androidCss.includes('.hero {\n  padding: var(--header-height) 0 var(--space-md);'), 'Android hero top spacing not reduced');
+    [webCss, androidCss].forEach((css, index) => {
+      const heroTopSpacing = css.match(/padding:\s*15px\s+0\s+var\(--space-md\)/g) || [];
+      assert(heroTopSpacing.length >= 2, (index === 0 ? 'web' : 'android') + ' hero should have 15dp top spacing on desktop and mobile');
+    });
     ['.stats-empty-state__message', '#stats-section .section__header', '#stats-section + #slides-section']
       .forEach(selector => {
         assert(webCss.includes(selector), 'web missing compact statistics spacing rule: ' + selector);
@@ -1001,9 +1004,11 @@ async function main() {
       'newer release should be announced');
     assert.strictEqual(updates.shouldAnnounce('v1.1.10', 'v1.1.15'), false,
       'older release should not be announced');
-    const summary = updates.summarizeRelease('## Web\n- **Downloads:** Add a direct APK button.\n- Avoid raw HTML <b>tags</b>.\n## Android\n- Restore the previous attempts table.\n## Verification\n- versionCode 20; CI passed.');
-    assert.strictEqual(summary.web.join('|'), 'Downloads: Add a direct APK button.|Avoid raw HTML tags.');
-    assert.strictEqual(summary.android.join('|'), 'Restore the previous attempts table.');
+    const summary = updates.summarizeRelease('## Web — PT-PT\n- **Download:** Botão APK directo.\n## Web — EN\n- **Download:** Direct APK button.\n## Android — PT-PT\n- Tabela anterior reposta.\n## Android — EN\n- Previous table restored.\n## Verification\n- versionCode 20; CI passed.');
+    assert.strictEqual(summary.web.pt[0], 'Download: Botão APK directo.');
+    assert.strictEqual(summary.web.en[0], 'Download: Direct APK button.');
+    assert.strictEqual(summary.android.pt[0], 'Tabela anterior reposta.');
+    assert.strictEqual(summary.android.en[0], 'Previous table restored.');
     assert(!fs.readFileSync(path.join(__dirname, 'updates.js'), 'utf8').includes('release.name || release.tag_name'),
       'popup title should not expose the release version string');
   });
