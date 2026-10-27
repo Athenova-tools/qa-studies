@@ -17,7 +17,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="ISTQB CTFL v4.0.1 Exam Simulator - Practice exams, study slides, and performance statistics for the Certified Tester Foundation Level certification.">
   <title>ISTQB CTFL v4.0.1 Exam Simulator</title>
-  <link rel="stylesheet" href="css/style.css?v=9">
+  <link rel="stylesheet" href="css/style.css?v=10">
 </head>
 <body>
   <a href="#main-content" class="sr-only" data-i18n="nav.skip">Skip to main content</a>
@@ -36,12 +36,12 @@
           <button type="button" class="lang-switch__btn" data-lang="en" aria-pressed="true">EN</button>
           <button type="button" class="lang-switch__btn" data-lang="pt" aria-pressed="false">PT</button>
         </div>
-        <a class="updates-link" id="updates-link" href="https://github.com/Athenova-tools/qa-studies/releases/latest" target="_blank" rel="noopener"
-           aria-label="View project release notes" title="View project release notes" data-i18n-aria-label="updates.aria" data-i18n-title="updates.aria">
+        <button type="button" class="updates-link" id="updates-open" aria-haspopup="dialog" aria-controls="updates-dialog"
+           aria-label="View release summary" title="View release summary" data-i18n-aria-label="updates.aria" data-i18n-title="updates.aria">
           <span class="updates-link__icon" aria-hidden="true">&#10022;</span>
           <span class="updates-link__text" data-i18n="updates.label">Updates</span>
           <span class="updates-link__badge" id="updates-badge" data-i18n="updates.new" hidden>NEW</span>
-        </a>
+        </button>
         <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode" title="Toggle dark mode" data-i18n-aria-label="nav.theme" data-i18n-title="nav.theme">&#9790;</button>
       </nav>
     </div>
@@ -379,10 +379,23 @@
     </div>
   </div>
 
+  <div class="updates-dialog" id="updates-dialog" role="dialog" aria-modal="true" aria-labelledby="updates-title" hidden>
+    <div class="updates-dialog__backdrop" data-updates-close></div>
+    <div class="updates-dialog__card" tabindex="-1">
+      <button type="button" class="updates-dialog__close" id="updates-close" data-updates-close aria-label="Close" data-i18n-aria-label="updates.close">&times;</button>
+      <p class="updates-dialog__eyebrow" data-i18n="updates.eyebrow">Release update</p>
+      <h2 class="updates-dialog__title" id="updates-title" data-i18n="updates.title">What changed</h2>
+      <ul class="updates-dialog__summary" id="updates-summary"></ul>
+      <a class="updates-dialog__download" id="updates-download" href="https://github.com/Athenova-tools/qa-studies/releases/latest/download/istqb-ctfl.apk" target="_blank" rel="noopener" data-i18n="updates.download">Download APK</a>
+      <a class="updates-dialog__notes" id="updates-notes" href="https://github.com/Athenova-tools/qa-studies/releases/latest" target="_blank" rel="noopener" data-i18n="updates.notes">Full release notes</a>
+    </div>
+  </div>
+
   <script src="js/grading.js?v=2"></script>
-  <script src="js/statistics.js?v=2"></script>
+  <script src="js/statistics.js?v=3"></script>
   <script src="js/engine.js?v=2"></script>
   <script src="js/i18n.js?v=6"></script>
+  <script>window.ISTQB_RELEASE_UPDATE_CONFIG = { platform: 'web', baseline: 'v1.1.15', current: 'v1.1.16', fallbackSummary: ['Web: a release notice now links to a summary and the Android APK.', 'Android: Recent Attempts keeps its previous table layout.', 'The empty statistics section now uses tighter spacing.'] };</script>
   <script src="js/updates.js?v=1"></script>
   <script>
     (function () {

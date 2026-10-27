@@ -515,6 +515,8 @@ async function main() {
     (function walk2(e) { els2.push(e); (e.children || []).forEach(walk2); })(container2);
     const t2 = new Set(els2.map(e => e.textContent));
     assert(t2.has('\u2913 Export All JSON'), 'empty state missing Export All');
+    assert(els2.some(e => e.className === 'stats-empty-state__message'), 'empty-state message should use compact spacing');
+    assert(els2.some(e => e.className === 'stats-empty-state__actions'), 'empty-state actions should have no extra bottom gap');
     const emptyExportBtn = els2.find(e => e.textContent === '\u2913 Export All JSON');
     assert.strictEqual(emptyExportBtn.disabled, true, 'Export All should be disabled without attempts');
     assert(t2.has('\u2912 Import JSON'), 'empty state missing Import');
@@ -921,6 +923,22 @@ async function main() {
     const androidStats = fs.readFileSync(path.join(androidRoot, 'js/statistics.js'), 'utf8');
     const webCss = fs.readFileSync(path.join(__dirname, '..', 'css/style.css'), 'utf8');
     const androidCss = fs.readFileSync(path.join(__dirname, '..', 'android/app/src/main/assets/www/css/style.css'), 'utf8');
+    const webIndex = fs.readFileSync(path.join(__dirname, '..', 'index.html'), 'utf8');
+    const androidIndex = fs.readFileSync(path.join(__dirname, '..', 'android/app/src/main/assets/www/index.html'), 'utf8');
+    const webUpdates = fs.readFileSync(path.join(__dirname, 'updates.js'), 'utf8');
+    const androidUpdates = fs.readFileSync(path.join(androidRoot, 'js/updates.js'), 'utf8');
+    assert.strictEqual(androidUpdates, webUpdates, 'updates.js must be mirrored into Android');
+    assert(webIndex.includes("platform: 'web'") && webIndex.includes('id="updates-dialog"') &&
+      webIndex.includes('id="updates-download"') && webIndex.includes('js/updates.js'),
+      'web landing page should configure a popup with a direct APK download');
+    assert(webIndex.includes('data-i18n-aria-label="hero.apk"') && webUpdates.includes('download-apk-badge'),
+      'web APK download button should carry the new-release badge');
+    const directApkUrl = 'releases/latest/download/istqb-ctfl.apk';
+    assert(webIndex.includes(directApkUrl) && androidIndex.includes(directApkUrl) && webUpdates.includes(directApkUrl),
+      'update popup and APK badge should point directly to the APK asset');
+    assert(androidIndex.includes("platform: 'android'") && androidIndex.includes('id="updates-dialog"') &&
+      androidIndex.includes('id="updates-download"') && androidIndex.includes('js/updates.js'),
+      'Android landing page should configure a popup with a direct APK download');
     ['exportBtn.disabled = getAttempts().length === 0;', 'if (exportBtn.disabled) return;', 'dashboardControls.appendChild(paginationWrap);']
       .forEach(marker => {
         assert(webStats.includes(marker), 'web statistics missing ' + marker);
@@ -946,12 +964,18 @@ async function main() {
       'Android table and controls should not use the broken fixed-grid layout');
     assert(webCss.includes('.hero {\n  padding: var(--header-height) 0 var(--space-md);'), 'web hero top spacing not reduced');
     assert(androidCss.includes('.hero {\n  padding: var(--header-height) 0 var(--space-md);'), 'Android hero top spacing not reduced');
+    ['.stats-empty-state__message', '#stats-section .section__header', '#stats-section + #slides-section']
+      .forEach(selector => {
+        assert(webCss.includes(selector), 'web missing compact statistics spacing rule: ' + selector);
+        assert(androidCss.includes(selector), 'Android missing compact statistics spacing rule: ' + selector);
+      });
     assert(!webCss.includes('calc(var(--header-height) + var(--space-2xl))') &&
       !androidCss.includes('calc(var(--header-height) + var(--space-2xl))'),
       'mobile hero should not restore the former large top gap');
-    const landing = fs.readFileSync(path.join(__dirname, '..', 'index.html'), 'utf8');
-    assert(landing.includes('id="updates-link"') && landing.includes('js/updates.js'),
-      'landing page should expose and initialize the release updates link');
+    assert(webCss.includes('.stats-empty-state__message') && androidCss.includes('.stats-empty-state__message'),
+      'statistics empty state should use the reduced spacing styles on both platforms');
+    assert(webIndex.includes('id="updates-open"') && androidIndex.includes('id="updates-open"'),
+      'both landing pages should expose the update badge trigger');
   });
 
   await ok('Release update notice reports unseen newer releases', () => {
@@ -967,6 +991,10 @@ async function main() {
       'newer release should be announced');
     assert.strictEqual(updates.shouldAnnounce('v1.1.10', 'v1.1.15'), false,
       'older release should not be announced');
+    const summary = updates.summarizeRelease('## Changes\n- **Android:** Restore the previous attempts table.\n- Web: Add update notices.\n- Avoid raw HTML <b>tags</b> in the summary.\n\n## Verification\n- This section should not be shown.');
+    assert.strictEqual(summary.join('|'),
+      'Android: Restore the previous attempts table.|Web: Add update notices.|Avoid raw HTML tags in the summary.',
+      'release summary should extract plain text bullets from only the first section');
   });
 
   console.log('');

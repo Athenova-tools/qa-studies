@@ -872,11 +872,12 @@ const ExamStats = (function () {
     var stats = getOverallStats();
 
     if (stats.totalAttempts === 0) {
-      container.appendChild(createEl('p', null, {
+      container.appendChild(createEl('p', 'stats-empty-state__message', {
         text: 'No exam attempts yet. Start an exam to see your statistics here.',
-        style: 'text-align:center;color:var(--color-text-muted);padding:var(--space-xl) 0;',
       }));
-      var emptyRow = createEl('div', null, { style: 'display:flex;justify-content:center;gap:var(--space-sm);flex-wrap:wrap;padding-bottom:var(--space-lg);' });
+      var emptyRow = createEl('div', 'stats-empty-state__actions', {
+        style: 'display:flex;justify-content:center;gap:var(--space-sm);flex-wrap:wrap;',
+      });
       emptyRow.appendChild(createSyncButtons());
       container.appendChild(emptyRow);
       if (importReport) {

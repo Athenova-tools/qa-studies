@@ -383,6 +383,160 @@ input, textarea, select {
   gap: var(--space-sm);
 }
 
+.updates-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.35rem 0.55rem;
+  background: transparent;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-full);
+  color: var(--color-text-secondary);
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 0.75rem;
+  font-weight: 700;
+  line-height: 1;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: color var(--transition-fast), border-color var(--transition-fast), background-color var(--transition-fast);
+}
+
+.updates-link:hover,
+.updates-link--new {
+  color: var(--color-primary);
+  border-color: var(--color-primary);
+  background-color: var(--color-primary-light);
+}
+
+.updates-link__icon {
+  font-size: 0.95rem;
+}
+
+.updates-link__badge {
+  padding: 0.18rem 0.3rem;
+  border-radius: var(--radius-full);
+  background-color: var(--color-danger);
+  color: var(--color-white);
+  font-size: 0.55rem;
+  letter-spacing: 0.02em;
+}
+
+.hero__apk-badge {
+  margin-left: 0.4rem;
+  padding: 0.18rem 0.35rem;
+  border-radius: var(--radius-full);
+  background: var(--color-danger);
+  color: var(--color-white);
+  font-size: 0.58rem;
+  font-weight: 800;
+  vertical-align: middle;
+}
+
+.hero__apk-badge[hidden] {
+  display: none;
+}
+
+.updates-dialog[hidden] {
+  display: none;
+}
+
+.updates-dialog {
+  position: fixed;
+  inset: 0;
+  z-index: 1300;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-md);
+}
+
+.updates-dialog__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.62);
+  backdrop-filter: blur(4px);
+}
+
+.updates-dialog__card {
+  position: relative;
+  width: min(100%, 34rem);
+  max-height: min(85vh, 42rem);
+  overflow: auto;
+  padding: var(--space-xl);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  background: var(--color-surface);
+  color: var(--color-text);
+  box-shadow: var(--shadow-xl);
+}
+
+.updates-dialog__close {
+  position: absolute;
+  top: var(--space-sm);
+  right: var(--space-sm);
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  color: var(--color-text-muted);
+  font-size: 1.35rem;
+}
+
+.updates-dialog__eyebrow {
+  margin: 0 0 var(--space-xs);
+  color: var(--color-primary);
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.updates-dialog__title {
+  margin: 0 2.5rem var(--space-md) 0;
+  font-size: 1.4rem;
+  line-height: 1.25;
+}
+
+.updates-dialog__summary {
+  display: grid;
+  gap: var(--space-sm);
+  margin: 0 0 var(--space-lg);
+  padding-left: 1.2rem;
+  color: var(--color-text-secondary);
+  line-height: 1.5;
+}
+
+.updates-dialog__download,
+.updates-dialog__notes {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 42px;
+  margin: 0 var(--space-sm) var(--space-xs) 0;
+  padding: 0.65rem 1rem;
+  border-radius: var(--radius-md);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.updates-dialog__download {
+  background: var(--color-primary);
+  color: var(--color-text-inverse);
+}
+
+.updates-dialog__notes {
+  border: 1px solid var(--color-border);
+  color: var(--color-primary);
+}
+
+.updates-dialog__close:focus-visible,
+.updates-link:focus-visible,
+.updates-dialog__download:focus-visible,
+.updates-dialog__notes:focus-visible {
+  outline: 3px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
 /* ----- Theme Toggle ----- */
 .theme-toggle {
   display: flex;
@@ -559,6 +713,18 @@ input, textarea, select {
 /* ----- Section ----- */
 .section {
   padding: var(--space-md) 0;
+}
+
+#stats-section {
+  padding-bottom: var(--space-xs);
+}
+
+#stats-section + #slides-section {
+  padding-top: var(--space-xs);
+}
+
+#stats-section .section__header {
+  margin-bottom: var(--space-sm);
 }
 
 .section__header {
@@ -2422,6 +2588,18 @@ results-list__title {
 }
 
 /* ----- Empty State ----- */
+.stats-empty-state__message {
+  margin: 0;
+  padding: var(--space-xs) 0;
+  color: var(--color-text-muted);
+  line-height: 1.35;
+  text-align: center;
+}
+
+.stats-empty-state__actions {
+  margin: 0;
+}
+
 .empty-state {
   text-align: center;
   padding: var(--space-3xl) var(--space-lg);
@@ -2699,6 +2877,10 @@ results-list__title {
   }
 
   .header__logo-text {
+    display: none;
+  }
+
+  .updates-link__text {
     display: none;
   }
 
