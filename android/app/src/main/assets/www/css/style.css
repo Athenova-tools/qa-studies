@@ -2703,7 +2703,7 @@ results-list__title {
   }
 
   .hero {
-    padding: calc(var(--header-height) + var(--space-2xl)) 0 var(--space-lg);
+    padding: var(--header-height) 0 var(--space-md);
   }
 
   .hero__actions {
@@ -3823,65 +3823,6 @@ body {
 }
 
 @media (max-width: 600px) {
-  .recent-attempts-wrap {
-    overflow: visible !important;
-  }
-
-  .recent-attempts-table,
-  .recent-attempts-table tbody {
-    display: block;
-    width: 100%;
-  }
-
-  .recent-attempts-table thead {
-    display: none;
-  }
-
-  .recent-attempts-table tbody tr {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 10px 12px;
-    margin: 0 0 10px;
-    padding: 12px;
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius-md);
-    background: var(--color-bg-alt);
-  }
-
-  .recent-attempts-table tbody td {
-    display: flex;
-    align-items: baseline;
-    gap: 5px;
-    min-width: 0;
-    padding: 0 !important;
-    border: 0 !important;
-    font-size: 0.8125rem;
-    white-space: normal;
-  }
-
-  .recent-attempts-table tbody td:not(.recent-attempts-actions)::before {
-    content: attr(data-label);
-    flex: 0 0 auto;
-    color: var(--color-text-muted);
-    font-size: 0.625rem;
-    font-weight: 700;
-    letter-spacing: 0.03em;
-    text-transform: uppercase;
-  }
-
-  .recent-attempts-table tbody td:first-child {
-    grid-column: 1 / -1;
-    flex-wrap: wrap;
-  }
-
-  .recent-attempts-table tbody td.recent-attempts-actions {
-    grid-column: 1 / -1;
-    justify-content: flex-end;
-    gap: 6px;
-    padding-top: 8px !important;
-    border-top: 1px solid var(--color-border-light) !important;
-  }
-
   .chapter-performance-header {
     display: none !important;
   }

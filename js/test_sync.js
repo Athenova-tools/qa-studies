@@ -936,16 +936,37 @@ async function main() {
       'Android pagination arrows should sit close to the page number');
     assert(androidStats.includes('justify-content:space-between') && androidStats.includes('flex-wrap:wrap;'),
       'Android filter and pagination should wrap responsively');
-    assert(androidStats.includes("createEl('table', 'recent-attempts-table'") &&
+    assert(androidStats.includes("createEl('table', null") &&
       androidStats.includes("createEl('div', 'chapter-performance-row'"),
-      'Android dashboard should expose mobile-specific attempt and chapter rows');
-    assert(androidCss.includes('.recent-attempts-table tbody tr') &&
-      androidCss.includes('.chapter-performance-row'),
-      'Android stylesheet should define compact mobile cards and chapter rows');
+      'Android Recent Attempts should use its previous table layout while retaining compact chapter rows');
+    assert(!androidStats.includes('recent-attempts-table') && !androidStats.includes('data-label') &&
+      !androidCss.includes('.recent-attempts-table') && androidCss.includes('.chapter-performance-row'),
+      'Android should revert attempt cards while keeping compact chapter rows');
     assert(!androidStats.includes('table-layout:fixed') && !androidStats.includes('display:contents'),
       'Android table and controls should not use the broken fixed-grid layout');
     assert(webCss.includes('.hero {\n  padding: var(--header-height) 0 var(--space-md);'), 'web hero top spacing not reduced');
     assert(androidCss.includes('.hero {\n  padding: var(--header-height) 0 var(--space-md);'), 'Android hero top spacing not reduced');
+    assert(!webCss.includes('calc(var(--header-height) + var(--space-2xl))') &&
+      !androidCss.includes('calc(var(--header-height) + var(--space-2xl))'),
+      'mobile hero should not restore the former large top gap');
+    const landing = fs.readFileSync(path.join(__dirname, '..', 'index.html'), 'utf8');
+    assert(landing.includes('id="updates-link"') && landing.includes('js/updates.js'),
+      'landing page should expose and initialize the release updates link');
+  });
+
+  await ok('Release update notice reports unseen newer releases', () => {
+    const context = { window: {} };
+    vm.createContext(context);
+    vm.runInContext(fs.readFileSync(path.join(__dirname, 'updates.js'), 'utf8'), context);
+    const updates = context.window.AppUpdates;
+    assert.strictEqual(updates.shouldAnnounce('v1.1.15', null), true,
+      'current latest release should be announced against the web baseline');
+    assert.strictEqual(updates.shouldAnnounce('v1.1.15', 'v1.1.15'), false,
+      'already-seen release should not be announced again');
+    assert.strictEqual(updates.shouldAnnounce('v1.1.16', 'v1.1.15'), true,
+      'newer release should be announced');
+    assert.strictEqual(updates.shouldAnnounce('v1.1.10', 'v1.1.15'), false,
+      'older release should not be announced');
   });
 
   console.log('');

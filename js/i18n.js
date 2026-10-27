@@ -13,6 +13,9 @@ window.AppI18n = (function () {
     en: {
       'nav.skip': 'Skip to main content',
       'nav.theme': 'Toggle dark mode',
+      'updates.label': 'Updates',
+      'updates.new': 'NEW',
+      'updates.aria': 'View project release notes',
       'hero.subtitle': 'Prepare for the ISTQB Certified Tester Foundation Level certification with realistic practice exams,<br>detailed explanations, study slides, and performance tracking — all offline, zero setup required.',
       'hero.androidPill': 'Also available as a native Android app',
       'hero.donatePill': 'Donate',
@@ -120,6 +123,9 @@ window.AppI18n = (function () {
     pt: {
       'nav.skip': 'Saltar para o conteúdo principal',
       'nav.theme': 'Alternar modo escuro',
+      'updates.label': 'Novidades',
+      'updates.new': 'NOVO',
+      'updates.aria': 'Ver notas das versões do projeto',
       'hero.subtitle': 'Prepara-te para a certificação ISTQB Certified Tester Foundation Level com exames práticos realistas,<br>explicações detalhadas, slides de estudo e acompanhamento de desempenho — tudo offline, sem configuração.',
       'hero.androidPill': 'Também disponível como app nativa Android',
       'hero.donatePill': 'Doar',
