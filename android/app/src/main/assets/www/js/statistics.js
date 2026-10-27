@@ -962,8 +962,8 @@ const ExamStats = (function () {
     var startIdx = (recentCurrentPage - 1) * recentPageSize;
     var paginatedList = filteredList.slice(startIdx, startIdx + recentPageSize);
 
-    var tableWrap = createEl('div', 'recent-attempts-wrap', { style: 'overflow-x:auto;margin-bottom:var(--space-sm);' });
-    var table = createEl('table', 'recent-attempts-table', {
+    var tableWrap = createEl('div', null, { style: 'overflow-x:auto;margin-bottom:var(--space-sm);' });
+    var table = createEl('table', null, {
       style: 'width:100%;border-collapse:collapse;font-size:0.875rem;',
     });
 
@@ -1022,10 +1022,8 @@ const ExamStats = (function () {
         a.passed ? 'PASS' : 'FAIL',
         a.timeSpent,
       ];
-      var cellLabels = ['Date', 'Exam', 'Score', 'Percentage', 'Result', 'Time'];
       cells.forEach(function (c, ci) {
         var td = document.createElement('td');
-        td.setAttribute('data-label', cellLabels[ci]);
         td.textContent = c;
         td.style.cssText = 'padding:var(--space-sm) var(--space-md);border-bottom:1px solid var(--color-border);color:var(--color-text-secondary);';
         if (ci === 0) td.appendChild(originIconEl(a));
@@ -1038,7 +1036,6 @@ const ExamStats = (function () {
 
       /* Action buttons */
       var actionTd = document.createElement('td');
-      actionTd.className = 'recent-attempts-actions';
       actionTd.style.cssText = 'padding:var(--space-sm) var(--space-md);border-bottom:1px solid var(--color-border);white-space:nowrap;';
       var reviewBtn = createEl('button', ['btn', 'btn--ghost', 'btn--sm'], { text: 'Review' });
       reviewBtn.style.marginRight = 'var(--space-xs)';
