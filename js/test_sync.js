@@ -1001,7 +1001,7 @@ async function main() {
       'newer release should be announced');
     assert.strictEqual(updates.shouldAnnounce('v1.1.10', 'v1.1.15'), false,
       'older release should not be announced');
-    const summary = updates.summarizeRelease('## Web\n- **Downloads:** Add a direct APK button.\n- Avoid raw HTML <b>tags</b>.\n## Android\n- Restore the previous attempts table.');
+    const summary = updates.summarizeRelease('## Web\n- **Downloads:** Add a direct APK button.\n- Avoid raw HTML <b>tags</b>.\n## Android\n- Restore the previous attempts table.\n## Verification\n- versionCode 20; CI passed.');
     assert.strictEqual(summary.web.join('|'), 'Downloads: Add a direct APK button.|Avoid raw HTML tags.');
     assert.strictEqual(summary.android.join('|'), 'Restore the previous attempts table.');
     assert(!fs.readFileSync(path.join(__dirname, 'updates.js'), 'utf8').includes('release.name || release.tag_name'),

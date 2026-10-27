@@ -53,32 +53,37 @@ window.AppUpdates = (function () {
   function summarizeRelease(body) {
     var sections = { web: [], android: [] };
     var currentSection = '';
+    var allowTaggedTopics = true;
     String(body || '').split(/\r?\n/).forEach(function (line) {
       var heading = line.match(/^\s*#{1,3}\s+(.+)/);
       if (heading) {
         var name = plainText(heading[1]).toLowerCase();
         currentSection = /android|apk|mobile/.test(name) ? 'android' : (/web|website|site/.test(name) ? 'web' : '');
+        allowTaggedTopics = !/verific|validat|test results|checks/.test(name);
         return;
       }
       var bullet = line.match(/^\s*[-*]\s+(.+)/);
       if (bullet) {
         var text = plainText(bullet[1]);
         if (!text) return;
-        var tagged = text.match(/^(web\s+and\s+android|android|apk|web|website)\s*:\s*(.*)$/i);
+        if (currentSection) {
+          sections[currentSection].push(text);
+          return;
+        }
+        if (!allowTaggedTopics) return;
+        var tagged = text.match(/^(web\s+(?:and|e)\s+android|android|apk|web|website)\s*:\s*(.*)$/i);
         if (tagged) {
           var label = tagged[1].toLowerCase();
           var content = tagged[2] || text;
           if (/web\s+and\s+android/.test(label)) {
             sections.web.push(content);
             sections.android.push(content);
+          } else if (/web\s+e\s+android/.test(label)) {
+            sections.web.push(content);
+            sections.android.push(content);
           } else {
             sections[/android|apk/.test(label) ? 'android' : 'web'].push(content);
           }
-        } else if (currentSection) {
-          sections[currentSection].push(text);
-        } else {
-          sections.web.push(text);
-          sections.android.push(text);
         }
       }
     });
