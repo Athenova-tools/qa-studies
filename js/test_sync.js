@@ -928,6 +928,12 @@ async function main() {
       'Android should use the wrap-safe control layout');
     assert(androidStats.includes('paginationWrap.appendChild(pageSize);'),
       'Android page-size selector should stay with the flex pagination controls');
+    assert(androidStats.includes('flex-direction:column;align-items:flex-start;'),
+      'Android Filter by exam selector should be stacked under its label');
+    assert(androidStats.includes('gap:var(--space-xs);\'') && androidStats.includes('min-width:48px'),
+      'Android pagination arrows should sit close to the page number');
+    assert(androidStats.includes('justify-content:space-between') && androidStats.includes('flex-wrap:wrap;'),
+      'Android filter and pagination should wrap responsively');
     assert(!androidStats.includes('table-layout:fixed') && !androidStats.includes('display:contents'),
       'Android table and controls should not use the broken fixed-grid layout');
     const webCss = fs.readFileSync(path.join(__dirname, '..', 'css/style.css'), 'utf8');

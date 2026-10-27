@@ -1068,14 +1068,14 @@ const ExamStats = (function () {
 
     /* Android layout: keep filter and pagination in simple, wrap-safe rows. */
     var paginationWrap = createEl('div', null, {
-      style: 'display:flex;align-items:center;justify-content:center;gap:var(--space-md);margin-bottom:var(--space-md);flex-wrap:wrap;',
+      style: 'display:flex;align-items:center;justify-content:center;gap:var(--space-sm);flex:1 1 190px;flex-wrap:wrap;',
     });
     var dashboardControls = createEl('div', null, {
-      style: 'display:flex;flex-direction:column;align-items:stretch;gap:var(--space-sm);margin-bottom:var(--space-md);',
+      style: 'display:flex;align-items:flex-start;justify-content:space-between;gap:var(--space-sm);margin-bottom:var(--space-md);flex-wrap:wrap;',
     });
     if (totalItems > recentPageSize) {
       var pageNav = createEl('div', null, {
-        style: 'display:flex;align-items:center;justify-content:center;gap:var(--space-md);',
+        style: 'display:flex;align-items:center;justify-content:center;gap:var(--space-xs);',
       });
       var prevBtn = createEl('button', ['btn', 'btn--secondary', 'btn--sm'], { text: '\u2039' });
       prevBtn.setAttribute('aria-label', 'Previous page');
@@ -1089,7 +1089,7 @@ const ExamStats = (function () {
       pageNav.appendChild(prevBtn);
 
       var pageInfo = createEl('span', null, {
-        style: 'font-size:0.875rem;font-weight:700;color:var(--color-text);min-width:80px;text-align:center;',
+        style: 'font-size:0.875rem;font-weight:700;color:var(--color-text);min-width:48px;text-align:center;',
       });
       pageInfo.textContent = recentCurrentPage + '/' + totalPages;
       pageInfo.setAttribute('aria-live', 'polite');
@@ -1118,7 +1118,7 @@ const ExamStats = (function () {
     examIds.sort(function (a, b) { return a - b; });
 
     var filterWrap = createEl('div', null, {
-      style: 'width:100%;padding:0;display:flex;align-items:center;gap:var(--space-sm);',
+      style: 'display:flex;flex:0 1 45%;flex-direction:column;align-items:flex-start;gap:var(--space-xs);padding:0;',
     });
     if (examIds.length > 0) {
       filterWrap.appendChild(createEl('label', null, {
@@ -1126,7 +1126,7 @@ const ExamStats = (function () {
         style: 'font-size:0.8125rem;font-weight:600;color:var(--color-text-muted);',
       }));
       var select = createEl('select', null, {
-        style: 'padding:var(--space-xs) var(--space-sm);border:1px solid var(--color-border);border-radius:var(--radius-md);font-size:0.8125rem;background:var(--color-bg);color:var(--color-text);',
+        style: 'max-width:100%;padding:var(--space-xs) var(--space-sm);border:1px solid var(--color-border);border-radius:var(--radius-md);font-size:0.8125rem;background:var(--color-bg);color:var(--color-text);',
       });
       var optAll = createEl('option', null, { text: 'All Exams (aggregated)', value: 'all' });
       if (selectedExamFilter === 'all') optAll.setAttribute('selected', 'selected');
