@@ -937,8 +937,9 @@ async function main() {
     assert(webIndex.includes(directApkUrl) && androidIndex.includes(directApkUrl) && webUpdates.includes(directApkUrl),
       'update popup and APK badge should point directly to the APK asset');
     assert(androidIndex.includes("platform: 'android'") && androidIndex.includes('id="updates-dialog"') &&
-      androidIndex.includes('id="updates-download"') && androidIndex.includes('js/updates.js'),
-      'Android landing page should configure a popup with a direct APK download');
+      androidIndex.includes('id="updates-download"') && androidIndex.includes('id="updates-apk-link"') &&
+      androidIndex.includes('js/updates.js'),
+      'Android landing page should show a direct APK badge and summary popup');
     ['exportBtn.disabled = getAttempts().length === 0;', 'if (exportBtn.disabled) return;', 'dashboardControls.appendChild(paginationWrap);']
       .forEach(marker => {
         assert(webStats.includes(marker), 'web statistics missing ' + marker);
@@ -991,10 +992,10 @@ async function main() {
       'newer release should be announced');
     assert.strictEqual(updates.shouldAnnounce('v1.1.10', 'v1.1.15'), false,
       'older release should not be announced');
-    const summary = updates.summarizeRelease('## Changes\n- **Android:** Restore the previous attempts table.\n- Web: Add update notices.\n- Avoid raw HTML <b>tags</b> in the summary.\n\n## Verification\n- This section should not be shown.');
+    const summary = updates.summarizeRelease('## Changes\n- **Android:** Restore the previous attempts table.\n- Web: Add update notices.\n- Avoid raw HTML <b>tags</b> in the summary.\n\n## Verification\n- Verification details should be shown.');
     assert.strictEqual(summary.join('|'),
-      'Android: Restore the previous attempts table.|Web: Add update notices.|Avoid raw HTML tags in the summary.',
-      'release summary should extract plain text bullets from only the first section');
+      'Android: Restore the previous attempts table.|Web: Add update notices.|Avoid raw HTML tags in the summary.|Verification details should be shown.',
+      'release popup should include every release topic as safe plain text');
   });
 
   console.log('');

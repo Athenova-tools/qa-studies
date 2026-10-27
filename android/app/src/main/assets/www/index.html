@@ -17,7 +17,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="ISTQB CTFL v4.0.1 Exam Simulator - Practice exams, study slides, and performance statistics for the Certified Tester Foundation Level certification.">
   <title>ISTQB CTFL v4.0.1 Exam Simulator</title>
-  <link rel="stylesheet" href="css/style.css?v=10">
+  <link rel="stylesheet" href="css/style.css?v=11">
 </head>
 <body>
   <a href="#main-content" class="sr-only" data-i18n="nav.skip">Skip to main content</a>
@@ -42,6 +42,11 @@
           <span class="updates-link__text" data-i18n="updates.label">Updates</span>
           <span class="updates-link__badge" id="updates-badge" data-i18n="updates.new" hidden>NEW</span>
         </button>
+        <a class="updates-link updates-apk-link" id="updates-apk-link" href="https://github.com/Athenova-tools/qa-studies/releases/latest/download/istqb-ctfl.apk" aria-label="Download latest Android APK" title="Download latest Android APK" data-i18n-aria-label="updates.download" data-i18n-title="updates.download">
+          <span class="updates-link__icon" aria-hidden="true">&#8595;</span>
+          <span class="updates-apk-link__text" data-i18n="updates.apkShort">APK</span>
+          <span class="updates-link__badge" id="updates-apk-badge" data-i18n="updates.new" hidden>NEW</span>
+        </a>
         <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode" title="Toggle dark mode" data-i18n-aria-label="nav.theme" data-i18n-title="nav.theme">&#9790;</button>
       </nav>
     </div>
@@ -393,9 +398,9 @@
   <script src="js/grading.js?v=2"></script>
   <script src="js/statistics.js?v=3"></script>
   <script src="js/engine.js?v=2"></script>
-  <script src="js/i18n.js?v=5"></script>
+  <script src="js/i18n.js?v=6"></script>
   <script>window.ISTQB_RELEASE_UPDATE_CONFIG = { platform: 'android', baseline: 'v1.1.15', current: 'v1.1.16', fallbackSummary: ['Android: Recent Attempts restored to the previous table layout.', 'Per-Chapter Performance uses compact rows on phones.', 'A new Android APK is available for this release.'] };</script>
-  <script src="js/updates.js?v=1"></script>
+  <script src="js/updates.js?v=2"></script>
   <script>
     (function () {
       if (typeof AppI18n !== 'undefined' && AppI18n.init) AppI18n.init();

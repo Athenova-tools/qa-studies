@@ -50,22 +50,9 @@ window.AppUpdates = (function () {
 
   function summarizeRelease(body) {
     var bullets = [];
-    var inFirstSection = false;
-    var finished = false;
     String(body || '').split(/\r?\n/).forEach(function (line) {
-      if (finished) return;
-      var heading = line.match(/^\s*#{1,3}\s+(.+)/);
-      if (heading) {
-        if (inFirstSection) {
-          finished = true;
-          return;
-        }
-        inFirstSection = true;
-        return;
-      }
-      if (!inFirstSection) return;
       var bullet = line.match(/^\s*[-*]\s+(.+)/);
-      if (bullet && bullets.length < 5) {
+      if (bullet) {
         var text = plainText(bullet[1]);
         if (text) bullets.push(text);
       }
@@ -111,7 +98,7 @@ window.AppUpdates = (function () {
     var summary = document.getElementById('updates-summary');
     var download = document.getElementById('updates-download');
     var notes = document.getElementById('updates-notes');
-    if (title) title.textContent = release.name || release.tag_name || 'Project updates';
+    if (title) title.textContent = translate('updates.title', 'What changed');
     if (summary) {
       clearList(summary);
       var items = summarizeRelease(release.body);
@@ -139,21 +126,29 @@ window.AppUpdates = (function () {
     currentRelease = release;
     var openButton = document.getElementById('updates-open');
     var badge = document.getElementById('updates-badge');
+    var androidApkLink = document.getElementById('updates-apk-link');
+    var androidApkBadge = document.getElementById('updates-apk-badge');
     var downloadButton = document.querySelector('[data-i18n-aria-label="hero.apk"]');
     var apkBadge = document.getElementById('download-apk-badge');
     var announce = shouldAnnounce(release.tag_name, readSeenTag());
     [badge, apkBadge].forEach(function (el) {
       if (el) {
-        el.hidden = !announce;
+        el.hidden = !announce || PLATFORM === 'android';
         el.textContent = translate('updates.new', 'NEW');
       }
     });
+    if (androidApkBadge) androidApkBadge.hidden = !announce;
+    if (androidApkLink) {
+      androidApkLink.href = APK_URL;
+      androidApkLink.target = '_self';
+      androidApkLink.classList.toggle('updates-link--new', announce);
+    }
     if (openButton) {
       openButton.classList.toggle('updates-link--new', announce);
       openButton.setAttribute('aria-label', announce
-        ? 'New project update: ' + release.tag_name + '. View summary'
+        ? 'New project update. View summary'
         : 'View project release summary');
-      openButton.title = (release.name || release.tag_name) + ' — ' + release.tag_name;
+      openButton.title = translate('updates.aria', 'View project release summary');
     }
     if (downloadButton && apkBadge) downloadButton.classList.toggle('hero__apk--new', announce);
     renderSummary(release);
@@ -181,6 +176,7 @@ window.AppUpdates = (function () {
     var openButton = document.getElementById('updates-open');
     var badge = document.getElementById('updates-badge');
     var apkBadge = document.getElementById('download-apk-badge');
+    var androidApkLink = document.getElementById('updates-apk-link');
     var downloadButton = document.querySelector('[data-i18n-aria-label="hero.apk"]');
     modal = document.getElementById('updates-dialog');
     if (!openButton || !modal) return;
@@ -194,6 +190,7 @@ window.AppUpdates = (function () {
       apkBadge.textContent = translate('updates.new', 'NEW');
       downloadButton.appendChild(apkBadge);
     }
+    if (downloadButton) downloadButton.id = 'download-apk';
     var fallbackRelease = {
       tag_name: FALLBACK_TAG,
       name: FALLBACK_TAG + ' — Updates',
@@ -214,6 +211,14 @@ window.AppUpdates = (function () {
 
     if (downloadButton) {
       downloadButton.addEventListener('click', function () {
+        if (!currentRelease) return;
+        markSeen(currentRelease.tag_name);
+        renderControls(currentRelease);
+      });
+    }
+    if (androidApkLink) {
+      androidApkLink.href = APK_URL;
+      androidApkLink.addEventListener('click', function () {
         if (!currentRelease) return;
         markSeen(currentRelease.tag_name);
         renderControls(currentRelease);
