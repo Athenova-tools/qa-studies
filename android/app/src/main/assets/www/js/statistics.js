@@ -1069,16 +1069,17 @@ const ExamStats = (function () {
 
     /* Android layout: keep filter and pagination in simple, wrap-safe rows. */
     var paginationWrap = createEl('div', null, {
-      style: 'display:flex;align-items:center;justify-content:center;gap:var(--space-sm);flex:1 1 190px;flex-wrap:wrap;',
+      style: 'display:flex;align-items:center;justify-content:center;gap:var(--space-xs);flex:1 1 190px;flex-wrap:wrap;',
     });
     var dashboardControls = createEl('div', null, {
       style: 'display:flex;align-items:flex-start;justify-content:space-between;gap:var(--space-sm);margin-bottom:var(--space-md);flex-wrap:wrap;',
     });
     if (totalItems > recentPageSize) {
       var pageNav = createEl('div', null, {
-        style: 'display:flex;align-items:center;justify-content:center;gap:var(--space-xs);',
+        style: 'display:flex;align-items:center;justify-content:center;gap:0;',
       });
       var prevBtn = createEl('button', ['btn', 'btn--secondary', 'btn--sm'], { text: '\u2039' });
+      prevBtn.style.padding = '0.375rem 0.25rem';
       prevBtn.setAttribute('aria-label', 'Previous page');
       prevBtn.disabled = recentCurrentPage <= 1;
       prevBtn.addEventListener('click', function () {
@@ -1090,7 +1091,7 @@ const ExamStats = (function () {
       pageNav.appendChild(prevBtn);
 
       var pageInfo = createEl('span', null, {
-        style: 'font-size:0.875rem;font-weight:700;color:var(--color-text);min-width:48px;text-align:center;',
+        style: 'font-size:0.875rem;font-weight:700;color:var(--color-text);min-width:0;text-align:center;',
       });
       pageInfo.textContent = recentCurrentPage + '/' + totalPages;
       pageInfo.setAttribute('aria-live', 'polite');
@@ -1098,6 +1099,7 @@ const ExamStats = (function () {
       pageNav.appendChild(pageInfo);
 
       var nextBtn = createEl('button', ['btn', 'btn--secondary', 'btn--sm'], { text: '\u203A' });
+      nextBtn.style.padding = '0.375rem 0.25rem';
       nextBtn.setAttribute('aria-label', 'Next page');
       nextBtn.disabled = recentCurrentPage >= totalPages;
       nextBtn.addEventListener('click', function () {
