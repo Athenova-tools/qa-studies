@@ -1076,10 +1076,11 @@ const ExamStats = (function () {
     });
     if (totalItems > recentPageSize) {
       var pageNav = createEl('div', null, {
-        style: 'display:flex;align-items:center;justify-content:center;gap:0;',
+        style: 'display:flex;align-items:center;justify-content:center;gap:0.5rem;',
       });
       var prevBtn = createEl('button', ['btn', 'btn--secondary', 'btn--sm'], { text: '\u2039' });
-      prevBtn.style.padding = '0.375rem 0.25rem';
+      prevBtn.style.padding = '0.375rem 0.5rem';
+      prevBtn.style.minWidth = '2.25rem';
       prevBtn.setAttribute('aria-label', 'Previous page');
       prevBtn.disabled = recentCurrentPage <= 1;
       prevBtn.addEventListener('click', function () {
@@ -1099,7 +1100,8 @@ const ExamStats = (function () {
       pageNav.appendChild(pageInfo);
 
       var nextBtn = createEl('button', ['btn', 'btn--secondary', 'btn--sm'], { text: '\u203A' });
-      nextBtn.style.padding = '0.375rem 0.25rem';
+      nextBtn.style.padding = '0.375rem 0.5rem';
+      nextBtn.style.minWidth = '2.25rem';
       nextBtn.setAttribute('aria-label', 'Next page');
       nextBtn.disabled = recentCurrentPage >= totalPages;
       nextBtn.addEventListener('click', function () {
