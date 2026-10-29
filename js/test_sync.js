@@ -967,9 +967,10 @@ async function main() {
       'Android pagination and page-size selector should stay together at the right');
     assert(androidStats.includes('flex-wrap:nowrap;width:100%;box-sizing:border-box;'),
       'Android filter and pagination row should not wrap');
-    assert(androidStats.includes("attemptsHeader.id = 'recent-attempts-header';") &&
-      androidStats.includes('window.scrollBy(0, updatedAttemptsHeader.getBoundingClientRect().top - previousAttemptsTop);'),
-      'Android dashboard rerenders should preserve the Recent Attempts viewport position');
+    assert(androidStats.includes('var previousDashboardHeight = container.offsetHeight;') &&
+      androidStats.includes('container.style.minHeight = Math.max(previousDashboardHeight, existingMinHeight) + \'px\';') &&
+      !androidStats.includes('window.scrollBy(0, updatedAttemptsHeader'),
+      'Android dashboard rerenders should preserve visible space without scrolling');
     assert(androidStats.includes("createEl('table', null") &&
       androidStats.includes("createEl('div', 'chapter-performance-row'"),
       'Android Recent Attempts should use its previous table layout while retaining compact chapter rows');

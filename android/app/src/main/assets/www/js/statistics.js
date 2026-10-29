@@ -867,10 +867,10 @@ const ExamStats = (function () {
     window.__inReviewMode = false;
     var container = document.getElementById('stats-dashboard');
     if (!container) return;
-    var previousAttemptsTop = null;
-    var previousAttemptsHeader = document.getElementById('recent-attempts-header');
-    if (previousAttemptsHeader && previousAttemptsHeader.getBoundingClientRect) {
-      previousAttemptsTop = previousAttemptsHeader.getBoundingClientRect().top;
+    var previousDashboardHeight = container.offsetHeight;
+    var existingMinHeight = parseFloat(container.style.minHeight) || 0;
+    if (container.firstChild && previousDashboardHeight > 0) {
+      container.style.minHeight = Math.max(previousDashboardHeight, existingMinHeight) + 'px';
     }
     clearContainer(container);
 
@@ -921,7 +921,6 @@ const ExamStats = (function () {
     var attemptsHeader = createEl('div', null, {
       style: 'display:flex;align-items:center;justify-content:space-between;gap:var(--space-md);margin-bottom:var(--space-md);',
     });
-    attemptsHeader.id = 'recent-attempts-header';
     var tableTitle = createEl('h3', null, {
       text: 'Recent Attempts',
       style: 'font-size:1.125rem;font-weight:700;color:var(--color-text);margin:0;',
@@ -1283,13 +1282,6 @@ const ExamStats = (function () {
     });
     clearGroup.appendChild(clearBtn);
     container.appendChild(clearGroup);
-
-    if (previousAttemptsTop !== null) {
-      var updatedAttemptsHeader = document.getElementById('recent-attempts-header');
-      if (updatedAttemptsHeader && updatedAttemptsHeader.getBoundingClientRect) {
-        window.scrollBy(0, updatedAttemptsHeader.getBoundingClientRect().top - previousAttemptsTop);
-      }
-    }
   }
 
   /* =================================================================
