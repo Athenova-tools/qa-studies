@@ -863,10 +863,19 @@ const ExamStats = (function () {
      Render Dashboard
      ================================================================= */
 
+  function rerenderFromDashboardControl() {
+    var focusedElement = document.activeElement;
+    if (focusedElement && focusedElement !== document.body && typeof focusedElement.blur === 'function') {
+      focusedElement.blur();
+    }
+    renderStatsDashboard();
+  }
+
   function renderStatsDashboard() {
     window.__inReviewMode = false;
     var container = document.getElementById('stats-dashboard');
     if (!container) return;
+    container.style.overflowAnchor = 'none';
     var previousDashboardHeight = container.offsetHeight;
     var existingMinHeight = parseFloat(container.style.minHeight) || 0;
     if (container.firstChild && previousDashboardHeight > 0) {
@@ -1009,7 +1018,7 @@ const ExamStats = (function () {
           recentSort.dir = null;
         }
         recentCurrentPage = 1;
-        renderStatsDashboard();
+        rerenderFromDashboardControl();
       });
       hRow.appendChild(th);
     });
@@ -1059,7 +1068,7 @@ const ExamStats = (function () {
             }).length - 1;
             var newTotalPages = Math.ceil(remaining / recentPageSize) || 1;
             if (recentCurrentPage > newTotalPages) recentCurrentPage = newTotalPages;
-            renderStatsDashboard();
+            rerenderFromDashboardControl();
           });
         };
       })(a.id));
@@ -1091,7 +1100,7 @@ const ExamStats = (function () {
       prevBtn.addEventListener('click', function () {
         if (recentCurrentPage > 1) {
           recentCurrentPage--;
-          renderStatsDashboard();
+          rerenderFromDashboardControl();
         }
       });
       pageNav.appendChild(prevBtn);
@@ -1112,7 +1121,7 @@ const ExamStats = (function () {
       nextBtn.addEventListener('click', function () {
         if (recentCurrentPage < totalPages) {
           recentCurrentPage++;
-          renderStatsDashboard();
+          rerenderFromDashboardControl();
         }
       });
       pageNav.appendChild(nextBtn);
@@ -1151,7 +1160,7 @@ const ExamStats = (function () {
       select.addEventListener('change', function () {
         selectedExamFilter = this.value;
         recentCurrentPage = 1;
-        renderStatsDashboard();
+        rerenderFromDashboardControl();
       });
       filterWrap.appendChild(select);
     }
@@ -1172,7 +1181,7 @@ const ExamStats = (function () {
       if (PAGE_SIZE_OPTIONS.indexOf(requestedSize) === -1) return;
       recentPageSize = requestedSize;
       recentCurrentPage = 1;
-      renderStatsDashboard();
+      rerenderFromDashboardControl();
     });
     dashboardControls.appendChild(filterWrap);
     dashboardControls.appendChild(paginationWrap);
@@ -1277,7 +1286,7 @@ const ExamStats = (function () {
       showConfirmModal('Are you sure you want to clear all exam history? This cannot be undone.', function () {
         clearHistory();
         recentCurrentPage = 1;
-        renderStatsDashboard();
+        rerenderFromDashboardControl();
       });
     });
     clearGroup.appendChild(clearBtn);

@@ -969,8 +969,11 @@ async function main() {
       'Android filter and pagination row should not wrap');
     assert(androidStats.includes('var previousDashboardHeight = container.offsetHeight;') &&
       androidStats.includes('container.style.minHeight = Math.max(previousDashboardHeight, existingMinHeight) + \'px\';') &&
-      !androidStats.includes('window.scrollBy(0, updatedAttemptsHeader'),
-      'Android dashboard rerenders should preserve visible space without scrolling');
+      androidStats.includes("container.style.overflowAnchor = 'none';") &&
+      androidStats.includes("focusedElement.blur();") &&
+      androidStats.includes('recentCurrentPage++;\n          rerenderFromDashboardControl();') &&
+      androidStats.includes('selectedExamFilter = this.value;\n        recentCurrentPage = 1;\n        rerenderFromDashboardControl();'),
+      'Android page/filter updates should keep the viewport without scrolling or focus-induced jumps');
     assert(androidStats.includes("createEl('table', null") &&
       androidStats.includes("createEl('div', 'chapter-performance-row'"),
       'Android Recent Attempts should use its previous table layout while retaining compact chapter rows');
