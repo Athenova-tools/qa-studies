@@ -957,15 +957,19 @@ async function main() {
       'Android filter, pagination and page-size controls should share one row');
     assert(androidStats.includes('paginationWrap.appendChild(pageSize);'),
       'Android page-size selector should stay with the flex pagination controls');
-    assert(androidStats.includes('flex:1 1 0%;min-width:0;flex-direction:column;align-items:stretch;') &&
-      androidStats.includes('width:100%;min-width:0;max-width:100%;'),
-      'Android exam filter should shrink to share the row with pagination');
+    assert(androidStats.includes('flex:0 1 auto;min-width:0;flex-direction:column;align-items:flex-start;') &&
+      androidStats.includes('width:max-content;min-width:0;max-width:100%;height:2.25rem;'),
+      'Android exam filter should fit its selected text without expanding over adjacent controls');
     assert(androidStats.includes('gap:0.75rem;flex:0 0 auto;flex-wrap:nowrap;margin-left:auto;') &&
-      androidStats.includes('gap:0.75rem;flex-shrink:0;') &&
-      androidStats.includes('width:3.75rem;flex-shrink:0;'),
+      androidStats.includes('gap:0.25rem;flex-shrink:0;') &&
+      androidStats.includes('width:fit-content;min-width:3.75rem;') &&
+      androidStats.includes('height:2.25rem;box-sizing:border-box;padding:var(--space-xs) var(--space-sm);border:1px solid var(--color-border);border-radius:var(--radius-md);font-size:0.8125rem;'),
       'Android pagination and page-size selector should stay together at the right');
     assert(androidStats.includes('flex-wrap:nowrap;width:100%;box-sizing:border-box;'),
       'Android filter and pagination row should not wrap');
+    assert(androidStats.includes("attemptsHeader.id = 'recent-attempts-header';") &&
+      androidStats.includes('window.scrollBy(0, updatedAttemptsHeader.getBoundingClientRect().top - previousAttemptsTop);'),
+      'Android dashboard rerenders should preserve the Recent Attempts viewport position');
     assert(androidStats.includes("createEl('table', null") &&
       androidStats.includes("createEl('div', 'chapter-performance-row'"),
       'Android Recent Attempts should use its previous table layout while retaining compact chapter rows');

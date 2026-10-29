@@ -867,6 +867,11 @@ const ExamStats = (function () {
     window.__inReviewMode = false;
     var container = document.getElementById('stats-dashboard');
     if (!container) return;
+    var previousAttemptsTop = null;
+    var previousAttemptsHeader = document.getElementById('recent-attempts-header');
+    if (previousAttemptsHeader && previousAttemptsHeader.getBoundingClientRect) {
+      previousAttemptsTop = previousAttemptsHeader.getBoundingClientRect().top;
+    }
     clearContainer(container);
 
     var stats = getOverallStats();
@@ -916,6 +921,7 @@ const ExamStats = (function () {
     var attemptsHeader = createEl('div', null, {
       style: 'display:flex;align-items:center;justify-content:space-between;gap:var(--space-md);margin-bottom:var(--space-md);',
     });
+    attemptsHeader.id = 'recent-attempts-header';
     var tableTitle = createEl('h3', null, {
       text: 'Recent Attempts',
       style: 'font-size:1.125rem;font-weight:700;color:var(--color-text);margin:0;',
@@ -1076,7 +1082,7 @@ const ExamStats = (function () {
     });
     if (totalItems > recentPageSize) {
       var pageNav = createEl('div', null, {
-        style: 'display:flex;align-items:center;justify-content:center;gap:0.75rem;flex-shrink:0;',
+        style: 'display:flex;align-items:center;justify-content:center;gap:0.25rem;flex-shrink:0;',
       });
       var prevBtn = createEl('button', ['btn', 'btn--secondary', 'btn--sm'], { text: '\u2039' });
       prevBtn.style.padding = '0.375rem 0.5rem';
@@ -1092,7 +1098,7 @@ const ExamStats = (function () {
       pageNav.appendChild(prevBtn);
 
       var pageInfo = createEl('span', null, {
-        style: 'font-size:0.875rem;font-weight:700;color:var(--color-text);min-width:0;text-align:center;',
+        style: 'font-size:0.8125rem;font-weight:700;color:var(--color-text);min-width:0;text-align:center;',
       });
       pageInfo.textContent = recentCurrentPage + '/' + totalPages;
       pageInfo.setAttribute('aria-live', 'polite');
@@ -1123,7 +1129,7 @@ const ExamStats = (function () {
     examIds.sort(function (a, b) { return a - b; });
 
     var filterWrap = createEl('div', null, {
-      style: 'display:flex;flex:1 1 0%;min-width:0;flex-direction:column;align-items:stretch;gap:var(--space-xs);padding:0;',
+      style: 'display:flex;flex:0 1 auto;min-width:0;flex-direction:column;align-items:flex-start;gap:var(--space-xs);padding:0;',
     });
     if (examIds.length > 0) {
       filterWrap.appendChild(createEl('label', null, {
@@ -1131,7 +1137,7 @@ const ExamStats = (function () {
         style: 'font-size:0.8125rem;font-weight:600;color:var(--color-text-muted);',
       }));
       var select = createEl('select', null, {
-        style: 'width:100%;min-width:0;max-width:100%;box-sizing:border-box;padding:var(--space-xs) var(--space-sm);border:1px solid var(--color-border);border-radius:var(--radius-md);font-size:0.8125rem;background:var(--color-bg);color:var(--color-text);',
+        style: 'width:max-content;min-width:0;max-width:100%;height:2.25rem;box-sizing:border-box;padding:var(--space-xs) var(--space-sm);border:1px solid var(--color-border);border-radius:var(--radius-md);font-size:0.8125rem;background:var(--color-bg);color:var(--color-text);',
       });
       var optAll = createEl('option', null, { text: 'All Exams (aggregated)', value: 'all' });
       if (selectedExamFilter === 'all') optAll.setAttribute('selected', 'selected');
@@ -1153,7 +1159,7 @@ const ExamStats = (function () {
     var pageSize = createEl('select', 'recent-page-size', {
       'aria-label': 'Attempts per page',
       title: 'Attempts per page',
-      style: 'width:3.75rem;flex-shrink:0;box-sizing:border-box;padding:var(--space-xs) var(--space-sm);border:1px solid var(--color-border);border-radius:var(--radius-md);background:var(--color-bg);color:var(--color-text);',
+      style: 'width:fit-content;min-width:3.75rem;flex-shrink:0;height:2.25rem;box-sizing:border-box;padding:var(--space-xs) var(--space-sm);border:1px solid var(--color-border);border-radius:var(--radius-md);font-size:0.8125rem;background:var(--color-bg);color:var(--color-text);',
     });
     PAGE_SIZE_OPTIONS.forEach(function (size) {
       var option = document.createElement('option');
@@ -1277,6 +1283,13 @@ const ExamStats = (function () {
     });
     clearGroup.appendChild(clearBtn);
     container.appendChild(clearGroup);
+
+    if (previousAttemptsTop !== null) {
+      var updatedAttemptsHeader = document.getElementById('recent-attempts-header');
+      if (updatedAttemptsHeader && updatedAttemptsHeader.getBoundingClientRect) {
+        window.scrollBy(0, updatedAttemptsHeader.getBoundingClientRect().top - previousAttemptsTop);
+      }
+    }
   }
 
   /* =================================================================
