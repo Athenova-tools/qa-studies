@@ -1067,20 +1067,20 @@ const ExamStats = (function () {
     tableWrap.appendChild(table);
     container.appendChild(tableWrap);
 
-    /* Android layout: keep filter and pagination in simple, wrap-safe rows. */
+    /* Keep filter, pagination and page size on one horizontal row. */
     var paginationWrap = createEl('div', null, {
-      style: 'display:flex;align-items:center;justify-content:center;gap:var(--space-xs);flex:1 1 190px;flex-wrap:wrap;',
+      style: 'display:flex;align-items:center;justify-content:flex-end;gap:0.75rem;flex:0 0 auto;flex-wrap:nowrap;margin-left:auto;',
     });
     var dashboardControls = createEl('div', null, {
-      style: 'display:flex;align-items:flex-start;justify-content:space-between;gap:var(--space-sm);margin-bottom:var(--space-md);flex-wrap:wrap;',
+      style: 'display:flex;align-items:flex-end;justify-content:space-between;gap:0.75rem;margin-bottom:var(--space-md);flex-wrap:nowrap;width:100%;box-sizing:border-box;',
     });
     if (totalItems > recentPageSize) {
       var pageNav = createEl('div', null, {
-        style: 'display:flex;align-items:center;justify-content:center;gap:0.5rem;',
+        style: 'display:flex;align-items:center;justify-content:center;gap:0.75rem;flex-shrink:0;',
       });
       var prevBtn = createEl('button', ['btn', 'btn--secondary', 'btn--sm'], { text: '\u2039' });
       prevBtn.style.padding = '0.375rem 0.5rem';
-      prevBtn.style.minWidth = '2.25rem';
+      prevBtn.style.minWidth = '2rem';
       prevBtn.setAttribute('aria-label', 'Previous page');
       prevBtn.disabled = recentCurrentPage <= 1;
       prevBtn.addEventListener('click', function () {
@@ -1101,7 +1101,7 @@ const ExamStats = (function () {
 
       var nextBtn = createEl('button', ['btn', 'btn--secondary', 'btn--sm'], { text: '\u203A' });
       nextBtn.style.padding = '0.375rem 0.5rem';
-      nextBtn.style.minWidth = '2.25rem';
+      nextBtn.style.minWidth = '2rem';
       nextBtn.setAttribute('aria-label', 'Next page');
       nextBtn.disabled = recentCurrentPage >= totalPages;
       nextBtn.addEventListener('click', function () {
@@ -1123,7 +1123,7 @@ const ExamStats = (function () {
     examIds.sort(function (a, b) { return a - b; });
 
     var filterWrap = createEl('div', null, {
-      style: 'display:flex;flex:0 1 45%;flex-direction:column;align-items:flex-start;gap:var(--space-xs);padding:0;',
+      style: 'display:flex;flex:1 1 0%;min-width:0;flex-direction:column;align-items:stretch;gap:var(--space-xs);padding:0;',
     });
     if (examIds.length > 0) {
       filterWrap.appendChild(createEl('label', null, {
@@ -1131,7 +1131,7 @@ const ExamStats = (function () {
         style: 'font-size:0.8125rem;font-weight:600;color:var(--color-text-muted);',
       }));
       var select = createEl('select', null, {
-        style: 'max-width:100%;padding:var(--space-xs) var(--space-sm);border:1px solid var(--color-border);border-radius:var(--radius-md);font-size:0.8125rem;background:var(--color-bg);color:var(--color-text);',
+        style: 'width:100%;min-width:0;max-width:100%;box-sizing:border-box;padding:var(--space-xs) var(--space-sm);border:1px solid var(--color-border);border-radius:var(--radius-md);font-size:0.8125rem;background:var(--color-bg);color:var(--color-text);',
       });
       var optAll = createEl('option', null, { text: 'All Exams (aggregated)', value: 'all' });
       if (selectedExamFilter === 'all') optAll.setAttribute('selected', 'selected');
@@ -1153,7 +1153,7 @@ const ExamStats = (function () {
     var pageSize = createEl('select', 'recent-page-size', {
       'aria-label': 'Attempts per page',
       title: 'Attempts per page',
-      style: 'padding:var(--space-xs) var(--space-sm);border:1px solid var(--color-border);border-radius:var(--radius-md);background:var(--color-bg);color:var(--color-text);',
+      style: 'width:3.75rem;flex-shrink:0;box-sizing:border-box;padding:var(--space-xs) var(--space-sm);border:1px solid var(--color-border);border-radius:var(--radius-md);background:var(--color-bg);color:var(--color-text);',
     });
     PAGE_SIZE_OPTIONS.forEach(function (size) {
       var option = document.createElement('option');

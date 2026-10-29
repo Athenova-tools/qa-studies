@@ -10,8 +10,12 @@ android {
         applicationId = "com.istqb.ctfl"
         minSdk = 24
         targetSdk = 35
-        versionCode = 25
+        versionCode = 26
         versionName = "4.0.1"
+    }
+
+    androidResources {
+        ignoreAssetsPattern = "!.svn:!.git:!.ds_store:!*.scc:.*:!CVS:!thumbs.db:!picasa.ini:!*.scc:*~:app-debug.apk"
     }
 
     buildTypes {

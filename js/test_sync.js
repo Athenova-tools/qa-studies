@@ -953,16 +953,19 @@ async function main() {
         assert(webStats.includes(marker), 'web statistics missing ' + marker);
         assert(androidStats.includes(marker), 'Android statistics missing ' + marker);
       });
-    assert(androidStats.includes('/* Android layout: keep filter and pagination in simple, wrap-safe rows. */'),
-      'Android should use the wrap-safe control layout');
+    assert(androidStats.includes('/* Keep filter, pagination and page size on one horizontal row. */'),
+      'Android filter, pagination and page-size controls should share one row');
     assert(androidStats.includes('paginationWrap.appendChild(pageSize);'),
       'Android page-size selector should stay with the flex pagination controls');
-    assert(androidStats.includes('flex-direction:column;align-items:flex-start;'),
-      'Android Filter by exam selector should be stacked under its label');
-    assert(androidStats.includes('gap:var(--space-xs);\'') && androidStats.includes('min-width:48px'),
-      'Android pagination arrows should sit close to the page number');
-    assert(androidStats.includes('justify-content:space-between') && androidStats.includes('flex-wrap:wrap;'),
-      'Android filter and pagination should wrap responsively');
+    assert(androidStats.includes('flex:1 1 0%;min-width:0;flex-direction:column;align-items:stretch;') &&
+      androidStats.includes('width:100%;min-width:0;max-width:100%;'),
+      'Android exam filter should shrink to share the row with pagination');
+    assert(androidStats.includes('gap:0.75rem;flex:0 0 auto;flex-wrap:nowrap;margin-left:auto;') &&
+      androidStats.includes('gap:0.75rem;flex-shrink:0;') &&
+      androidStats.includes('width:3.75rem;flex-shrink:0;'),
+      'Android pagination and page-size selector should stay together at the right');
+    assert(androidStats.includes('flex-wrap:nowrap;width:100%;box-sizing:border-box;'),
+      'Android filter and pagination row should not wrap');
     assert(androidStats.includes("createEl('table', null") &&
       androidStats.includes("createEl('div', 'chapter-performance-row'"),
       'Android Recent Attempts should use its previous table layout while retaining compact chapter rows');
@@ -970,7 +973,7 @@ async function main() {
       !androidCss.includes('.recent-attempts-table') && androidCss.includes('.chapter-performance-row'),
       'Android should revert attempt cards while keeping compact chapter rows');
     assert(!androidStats.includes('table-layout:fixed') && !androidStats.includes('display:contents'),
-      'Android table and controls should not use the broken fixed-grid layout');
+      'Android table and controls should retain the flexible layout');
     [webCss, androidCss].forEach((css, index) => {
       const heroTopSpacing = css.match(/padding:\s*15px\s+0\s+var\(--space-md\)/g) || [];
       assert(heroTopSpacing.length >= 2, (index === 0 ? 'web' : 'android') + ' hero should have 15dp top spacing on desktop and mobile');
