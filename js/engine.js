@@ -61,6 +61,31 @@ const ExamEngine = (function () {
   };
 
   let appEl = null;
+  var exitGuardInstalled = false;
+
+  function isExamInProgress() {
+    return state.configDone && !state.submitted && !state.reviewMode;
+  }
+
+  function preventLeavingActiveExam(event) {
+    if (!isExamInProgress()) return;
+    event.preventDefault();
+    /* Modern browsers show their own localized confirmation text. */
+    event.returnValue = 'Pretende sair do exame em curso? As respostas não submetidas serão perdidas.';
+    return event.returnValue;
+  }
+
+  function installExamExitGuard() {
+    if (exitGuardInstalled || !window.addEventListener) return;
+    window.addEventListener('beforeunload', preventLeavingActiveExam);
+    exitGuardInstalled = true;
+  }
+
+  function removeExamExitGuard() {
+    if (!exitGuardInstalled) return;
+    window.removeEventListener('beforeunload', preventLeavingActiveExam);
+    exitGuardInstalled = false;
+  }
 
   /* =================================================================
      Helpers
@@ -337,7 +362,7 @@ const ExamEngine = (function () {
 
     /* Question text */
     var qText = createEl('div', 'question__text');
-    qText.textContent = q.statement;
+    qText.textContent = ExamGrading.formatStatement(q.statement);
     container.appendChild(qText);
 
     /* Options */
@@ -659,6 +684,7 @@ const ExamEngine = (function () {
   function autoSubmit() {
     if (state.submitted) return;
     state.submitted = true;
+    removeExamExitGuard();
     stopTimer();
     computeAndShowResults();
   }
@@ -756,6 +782,7 @@ const ExamEngine = (function () {
       setTimeout(function () {
         close();
         state.submitted = true;
+        removeExamExitGuard();
         stopTimer();
         computeAndShowResults();
         window.scrollTo(0, 0);
@@ -895,6 +922,7 @@ const ExamEngine = (function () {
 
   function beginExam() {
     if (typeof ExamStats !== 'undefined' && ExamStats.keepScreenAwake) ExamStats.keepScreenAwake();
+    removeExamExitGuard();
     state.index = 0;
     state.answers = {};
     state.flagged = new Set();
@@ -907,6 +935,7 @@ const ExamEngine = (function () {
     state.reviewMode = false;
     state.sidebarOpen = false;
     state.configDone = true;
+    installExamExitGuard();
 
     window.currentExam = state.questions;
 

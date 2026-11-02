@@ -1289,6 +1289,7 @@ input, textarea, select {
 }
 
 .question__text {
+  white-space: pre-wrap;
   font-size: 1.0625rem;
   line-height: 1.7;
   color: var(--color-text);
@@ -2029,6 +2030,7 @@ results-list__title {
 }
 
 .results-item__question {
+  white-space: pre-wrap;
   font-size: 0.9375rem;
   color: var(--color-text);
   margin-bottom: var(--space-sm);

@@ -974,6 +974,13 @@ async function main() {
       androidStats.includes('recentCurrentPage++;\n          rerenderFromDashboardControl();') &&
       androidStats.includes('selectedExamFilter = this.value;\n        recentCurrentPage = 1;\n        rerenderFromDashboardControl();'),
       'Android page/filter updates should keep the viewport without scrolling or focus-induced jumps');
+    assert(webStats.includes('var previousDashboardHeight = container.offsetHeight;') &&
+      webStats.includes('container.style.minHeight = Math.max(previousDashboardHeight, existingMinHeight) + \'px\';') &&
+      webStats.includes("container.style.overflowAnchor = 'none';") &&
+      webStats.includes("focusedElement.blur();") &&
+      webStats.includes('recentCurrentPage++;\n          rerenderFromDashboardControl();') &&
+      webStats.includes('selectedExamFilter = this.value;\n        recentCurrentPage = 1;\n        rerenderFromDashboardControl();'),
+      'Web page/filter updates should keep the viewport without scroll or focus-induced jumps');
     assert(androidStats.includes("createEl('table', null") &&
       androidStats.includes("createEl('div', 'chapter-performance-row'"),
       'Android Recent Attempts should use its previous table layout while retaining compact chapter rows');

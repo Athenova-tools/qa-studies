@@ -12187,7 +12187,7 @@ window.questionSets = {
             "optionExplanations": {
                 "A": "Independent testing is a practice, not the mindset difference itself.",
                 "B": "Tests wear out concerns how effective tests remain over repeated runs, not how a developer approaches testing.",
-                "C": "Developers naturally have a confirmation mindset focused on building solutions. Testing requires a critical, analytical mindset focused on finding problems.",
+                "C": "Developers may focus on confirming that their implementation works as intended, whereas effective testing requires a critical and analytical mindset to identify potential defects and failures. This difference can contribute to confirmation bias when developers test their own work.",
                 "D": "Exhaustive testing is impossible and is unrelated to mindset."
             },
             "chapter": 1,

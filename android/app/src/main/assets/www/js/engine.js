@@ -311,7 +311,7 @@ const ExamEngine = (function () {
 
     /* Question text */
     var qText = createEl('div', 'question__text');
-    qText.textContent = q.statement;
+    qText.textContent = ExamGrading.formatStatement(q.statement);
     container.appendChild(qText);
 
     /* Options */

@@ -9,6 +9,14 @@ const ExamGrading = (function () {
   var PASS_THRESHOLD = 65;
   var TOTAL_Q = 40;
 
+  /* Presentation-only decoding for legacy/imported statement strings. */
+  function formatStatement(text) {
+    return String(text == null ? '' : text)
+      .replace(/\\{1,2}r\\{1,2}n/g, '\n')
+      .replace(/\\{1,2}n/g, '\n')
+      .replace(/\r\n?/g, '\n');
+  }
+
   /* =================================================================
      Helpers
      ================================================================= */
@@ -666,7 +674,7 @@ const ExamGrading = (function () {
 
       /* Full question text */
       var qText = createEl('div', 'results-item__question');
-      qText.textContent = fullQ;
+      qText.textContent = formatStatement(fullQ);
       body.appendChild(qText);
 
       /* All answer options — each card carries its own
@@ -770,6 +778,7 @@ const ExamGrading = (function () {
      ================================================================= */
 
   return {
+    formatStatement: formatStatement,
     calculateResults: calculateResults,
     generateResultsHTML: generateResultsHTML,
     buildStudyPlan: buildStudyPlan,

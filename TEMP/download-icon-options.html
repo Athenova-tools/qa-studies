@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="pt-PT">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ISTQB — opções de ícone de download</title>
+  <style>
+    :root { color-scheme: light; --blue:#2563eb; --blue-light:#eff6ff; --ink:#101828; --muted:#64748b; --line:#dbe3ef; --surface:#fff; --bg:#f4f7fb; --green:#16a34a; }
+    * { box-sizing:border-box; }
+    body { margin:0; background:var(--bg); color:var(--ink); font:16px/1.45 system-ui,-apple-system,"Segoe UI",sans-serif; }
+    main { max-width:1000px; margin:auto; padding:28px 20px 56px; }
+    h1 { margin:0; font-size:clamp(1.5rem,4vw,2rem); line-height:1.15; }
+    .intro { margin:8px 0 24px; color:var(--muted); }
+    .options { display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr)); gap:16px; }
+    .option { overflow:hidden; border:1px solid var(--line); border-radius:18px; background:var(--surface); box-shadow:0 5px 18px #14233b0c; }
+    .option__head { display:flex; gap:12px; align-items:center; padding:16px 18px 12px; }
+    .option__number { display:grid; place-items:center; flex:none; width:32px; height:32px; border-radius:50%; background:var(--blue-light); color:var(--blue); font-weight:800; }
+    .option__name { margin:0; font-size:1.05rem; }
+    .option__desc { margin:2px 0 0; color:var(--muted); font-size:.875rem; }
+    .samples { display:grid; grid-template-columns:1fr 1fr; gap:10px; padding:0 18px 18px; }
+    .sample { min-width:0; min-height:88px; padding:12px; border:1px solid var(--line); border-radius:13px; background:#fbfdff; }
+    .sample__label { display:block; margin-bottom:10px; color:var(--muted); font-size:.68rem; font-weight:800; letter-spacing:.07em; text-transform:uppercase; }
+    .web-download { display:inline-flex; align-items:center; gap:8px; min-height:42px; padding:0 12px; border:2px solid var(--blue); border-radius:10px; background:white; color:var(--blue); font-size:.84rem; font-weight:750; white-space:nowrap; }
+    .web-download svg,.android-download svg { width:22px; height:22px; fill:none; stroke:currentColor; stroke-width:2; stroke-linecap:round; stroke-linejoin:round; }
+    .new { padding:3px 5px; border-radius:999px; background:#dc2626; color:#fff; font-size:.55rem; font-weight:850; letter-spacing:.03em; }
+    .android-toolbar { display:flex; align-items:center; gap:8px; height:42px; }
+    .ct-icon { display:grid; place-items:center; width:32px; height:32px; border-radius:8px; background:linear-gradient(135deg,#2563eb,#06b6d4); color:white; font-size:.67rem; font-weight:900; }
+    .toolbar-fill { flex:1; }
+    .android-download { display:grid; place-items:center; flex:none; width:42px; height:42px; border:1px solid #bfdbfe; border-radius:13px; background:var(--blue-light); color:var(--blue); }
+    .android-download svg { width:23px; height:23px; }
+    .android-caption { margin-top:3px; color:var(--muted); text-align:right; font-size:.7rem; }
+    @media(max-width:440px) { main { padding:20px 12px 32px; } .samples { padding-inline:12px; gap:8px; } .option__head { padding-inline:12px; } .sample { padding:9px; } .web-download { gap:5px; padding-inline:8px; font-size:.75rem; } }
+  </style>
+</head>
+<body>
+<main>
+  <h1>Ícones para download do APK</h1>
+  <p class="intro">Cinco opções, mostradas no botão Web e no espaço de acção da barra Android. Escolhe pelo número.</p>
+  <section class="options" aria-label="Cinco opções de ícones">
+    <article class="option">
+      <div class="option__head"><span class="option__number">1</span><div><h2 class="option__name">Seta para a linha</h2><p class="option__desc">O símbolo mais familiar de descarregar um ficheiro.</p></div></div>
+      <div class="samples"><div class="sample"><span class="sample__label">Web</span><button class="web-download"><svg viewBox="0 0 24 24"><path d="M12 3v12m-5-5 5 5 5-5M4 17v4h16v-4"/></svg>Download APK <span class="new">NEW</span></button></div><div class="sample"><span class="sample__label">Android</span><div class="android-toolbar"><span class="ct-icon">CT</span><span class="toolbar-fill"></span><button class="android-download" aria-label="Descarregar"><svg viewBox="0 0 24 24"><path d="M12 3v12m-5-5 5 5 5-5M4 17v4h16v-4"/></svg></button></div><div class="android-caption">Download APK</div></div></div>
+    </article>
+    <article class="option">
+      <div class="option__head"><span class="option__number">2</span><div><h2 class="option__name">Seta dentro de círculo</h2><p class="option__desc">Mais destacado na barra pequena do Android.</p></div></div>
+      <div class="samples"><div class="sample"><span class="sample__label">Web</span><button class="web-download"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 6v9m-4-4 4 4 4-4"/></svg>Download APK <span class="new">NEW</span></button></div><div class="sample"><span class="sample__label">Android</span><div class="android-toolbar"><span class="ct-icon">CT</span><span class="toolbar-fill"></span><button class="android-download" aria-label="Descarregar"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 6v9m-4-4 4 4 4-4"/></svg></button></div><div class="android-caption">Download APK</div></div></div>
+    </article>
+    <article class="option">
+      <div class="option__head"><span class="option__number">3</span><div><h2 class="option__name">Ficheiro APK</h2><p class="option__desc">Identifica explicitamente que se trata de uma aplicação.</p></div></div>
+      <div class="samples"><div class="sample"><span class="sample__label">Web</span><button class="web-download"><svg viewBox="0 0 24 24"><path d="M6 2.5h8l4 4V21H6zM14 2.5v5h4M12 11v7m-3-3 3 3 3-3"/><path d="M8 10h2"/></svg>Download APK <span class="new">NEW</span></button></div><div class="sample"><span class="sample__label">Android</span><div class="android-toolbar"><span class="ct-icon">CT</span><span class="toolbar-fill"></span><button class="android-download" aria-label="Descarregar APK"><svg viewBox="0 0 24 24"><path d="M6 2.5h8l4 4V21H6zM14 2.5v5h4M12 11v7m-3-3 3 3 3-3"/></svg></button></div><div class="android-caption">Download APK</div></div></div>
+    </article>
+    <article class="option">
+      <div class="option__head"><span class="option__number">4</span><div><h2 class="option__name">Nuvem</h2><p class="option__desc">Sugere transferência; útil se quiseres destacar a origem online.</p></div></div>
+      <div class="samples"><div class="sample"><span class="sample__label">Web</span><button class="web-download"><svg viewBox="0 0 24 24"><path d="M7 18H6a4 4 0 1 1 .8-7.92A5.5 5.5 0 0 1 17 8.5a4.75 4.75 0 0 1 1 9.42h-1"/><path d="M12 12v9m-4-4 4 4 4-4"/></svg>Download APK <span class="new">NEW</span></button></div><div class="sample"><span class="sample__label">Android</span><div class="android-toolbar"><span class="ct-icon">CT</span><span class="toolbar-fill"></span><button class="android-download" aria-label="Descarregar"><svg viewBox="0 0 24 24"><path d="M7 18H6a4 4 0 1 1 .8-7.92A5.5 5.5 0 0 1 17 8.5a4.75 4.75 0 0 1 1 9.42h-1"/><path d="M12 12v9m-4-4 4 4 4-4"/></svg></button></div><div class="android-caption">Download APK</div></div></div>
+    </article>
+    <article class="option">
+      <div class="option__head"><span class="option__number">5</span><div><h2 class="option__name">Telemóvel</h2><p class="option__desc">Faz referência directa à aplicação Android que será instalada.</p></div></div>
+      <div class="samples"><div class="sample"><span class="sample__label">Web</span><button class="web-download"><svg viewBox="0 0 24 24"><rect x="6" y="2" width="12" height="20" rx="2"/><path d="M10 17v-5m-2 2 2-2 2 2"/><path d="M10 19h4"/></svg>Download APK <span class="new">NEW</span></button></div><div class="sample"><span class="sample__label">Android</span><div class="android-toolbar"><span class="ct-icon">CT</span><span class="toolbar-fill"></span><button class="android-download" aria-label="Descarregar aplicação"><svg viewBox="0 0 24 24"><rect x="6" y="2" width="12" height="20" rx="2"/><path d="M10 17v-5m-2 2 2-2 2 2"/><path d="M10 19h4"/></svg></button></div><div class="android-caption">Download APK</div></div></div>
+    </article>
+  </section>
+</main>
+</body>
+</html>
