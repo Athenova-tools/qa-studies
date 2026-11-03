@@ -32,3 +32,9 @@ android {
 
 dependencies {
 }
+
+// Publish APKs when their package task finishes; set APK_INDEX_REPO if the APK
+// Index checkout is not at ~/proj/APK.
+val apkIndexRepo = System.getenv("APK_INDEX_REPO") ?: "${System.getProperty("user.home")}/proj/APK"
+extra["apkIndexApp"] = "istqb"
+apply(from = file("$apkIndexRepo/gradle/auto-publish-apk.gradle"))
