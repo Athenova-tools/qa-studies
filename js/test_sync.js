@@ -1102,6 +1102,33 @@ async function main() {
       'incorrect feedback should explain the actual distractor');
   });
 
+  await ok('Question bank: no truncated feedback or repeated per-option explanations', () => {
+    const context = { window: {} };
+    vm.createContext(context);
+    vm.runInContext(fs.readFileSync(path.join(__dirname, 'questions.js'), 'utf8'), context);
+    const problems = [];
+    const truncated = /\b(?:so|because|although|whereas|and|or|but|while|which|that|if|as|when|to|with|of|for|in|on|the|a|an)\s*[.!?]?$/i;
+    Object.values(context.window.questionSets).flat().forEach(q => {
+      ['explanation', 'correctFeedback', 'incorrectFeedback', 'optionExplanations'].forEach(field => {
+        const value = q[field];
+        const texts = typeof value === 'string' ? [value] : Object.values(value || {});
+        texts.forEach(text => {
+          if (truncated.test(String(text || '').trim())) problems.push(q.id + ':' + field + ' truncated');
+        });
+      });
+      ['incorrectFeedback', 'optionExplanations'].forEach(field => {
+        const seen = new Set();
+        Object.values(q[field] || {}).forEach(text => {
+          const normalized = String(text || '').replace(/^(?:✅\s*Correct:|❌\s*Incorrect:)\s*/i, '')
+            .replace(/[^a-z0-9]/gi, '').toLowerCase();
+          if (normalized && seen.has(normalized)) problems.push(q.id + ':' + field + ' repeated');
+          if (normalized) seen.add(normalized);
+        });
+      });
+    });
+    assert.deepStrictEqual(problems, [], 'truncated or repeated answer feedback found');
+  });
+
   await ok('Study Slides: chapter pages consume shared chapter data', () => {
     for (let ch = 1; ch <= 6; ch++) {
       const html = fs.readFileSync(path.join(__dirname, '..', 'slides', 'chapter' + ch + '.html'), 'utf8');

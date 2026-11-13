@@ -68,6 +68,7 @@ const loCount = {};
 
 function validateFeedbackReferences(where, q) {
   ['incorrectFeedback', 'optionExplanations'].forEach(field => {
+    const seen = new Map();
     Object.entries(q[field] || {}).forEach(([key, text]) => {
       const label = String(text || '').match(/^\s*(?:❌\s*Incorrect:\s*)?Option\s+([A-D])\b/i);
       if (label && label[1] !== key) {
@@ -79,6 +80,13 @@ function validateFeedbackReferences(where, q) {
         const actual = quoted[1].trim().replace(/\s+/g, ' ');
         if (actual !== expected) fail(`${where}: ${field}["${key}"] quotes text from another option`);
       }
+      const normalized = String(text || '').replace(/^(?:✅\s*Correct:|❌\s*Incorrect:)\s*/i, '')
+        .replace(/[^a-z0-9]/gi, '').toLowerCase();
+      if (normalized && seen.has(normalized)) {
+        fail(`${where}: ${field} repeats the same explanation for options ${seen.get(normalized)} and ${key}`);
+      } else if (normalized) {
+        seen.set(normalized, key);
+      }
     });
   });
 
@@ -86,6 +94,9 @@ function validateFeedbackReferences(where, q) {
     const value = q[field];
     const texts = typeof value === 'string' ? [value] : Object.values(value || {});
     texts.forEach(text => {
+      if (/\b(?:so|because|although|whereas|and|or|but|while|which|that|if|as|when|to|with|of|for|in|on|the|a|an)\s*[.!?]?$/i.test(String(text || '').trim())) {
+        fail(`${where}: ${field} appears to end mid-sentence`);
+      }
       const claims = String(text || '').matchAll(/\b([A-D])\s+is correct\b/gi);
       for (const claim of claims) {
         if (claim[1] !== q.correctAnswer) {

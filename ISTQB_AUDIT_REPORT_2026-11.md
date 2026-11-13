@@ -25,6 +25,8 @@
 - As chaves de opções estavam serializadas fora da ordem A–D em **89 perguntas**. Foram ordenadas sem trocar o texto associado às letras; a interface também apresenta sempre A, B, C, D.
 - Foram corrigidas **49 referências a letras de distratores** em feedbacks de 22 perguntas. O texto citado foi conferido contra a opção realmente associada à chave.
 - Foram corrigidas as afirmações de letras (“X is correct”) quando contradiziam a chave. `correctFeedback`, `incorrectFeedback` e `optionExplanations` continuam podendo ter redações diferentes; validação não exige texto repetido e verifica referências explícitas a letras.
+- Uma varredura posterior encontrou um `correctFeedback` truncado em Q1040 (terminava em “usually) so”) e **13 pares de explicações idênticas** em Q342, Q266, Q319, Q219 e Q1147. O feedback truncado foi completado e cada distrator passou a explicar o erro específico da opção.
+- Q361 foi reescrita com explicações diferentes para performance, utilização de CPU e revisão estática, removendo o texto repetido/corrompido.
 - **Q1032** foi normalizada conforme solicitado: A=Q1, B=Q2, C=Q3, D=Q4; `correctAnswer: A`. Cada distrator explica o que o respetivo quadrante representa.
 - Q1121 foi referenciada a `FL-3.1.2`, no capítulo 3, em vez de `FL-1.1.1`.
 - O syllabus tem 64 Learning Objectives oficiais; o banco cobre 63. `FL-5.1.2` (valor do tester no planeamento de iteração/release) continua sem pergunta, embora os Study Slides o abordem.
@@ -50,8 +52,8 @@ A revisão histórica assinala que o resultado foi reavaliado. Registos sem vers
 
 ## Testes executados
 
-- `node js/test_sync.js` — 33 testes aprovados.
-- `node js/test_sync.js android/app/src/main/assets/www/js/statistics.js android/app/src/main/assets/www/js/grading.js` — 33 testes aprovados.
+- `node js/test_sync.js` — 34 testes aprovados.
+- `node js/test_sync.js android/app/src/main/assets/www/js/statistics.js android/app/src/main/assets/www/js/grading.js` — 34 testes aprovados.
 - `node js/validate_bank.js` — PASS, 525 perguntas, sem avisos nem erros estruturais.
 - `node js/test_question_statement.js` — PASS.
 - `node js/e2e_studyslides.js` — E2E ALL PASS; navegação para objetivos, âncoras, retorno e teclado.

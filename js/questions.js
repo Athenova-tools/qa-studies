@@ -7067,15 +7067,15 @@ window.questionSets = {
             "explanation": "T1, T2, T3 is valid and completes all three prerequisite tests for T4. T1, T2, T4 is invalid because T3 has not run. The alternatives containing T5 complete fewer prerequisites for T4.",
             "correctFeedback": "✅ Correct: T1, T2, T3 respects dependencies and completes all prerequisites for T4.",
             "incorrectFeedback": {
-                "B": "❌ Incorrect: This is executable but spends one slot on T5 and omits prerequisite T3.",
+                "B": "❌ Incorrect: This order runs T1, T5 and T2, so the independent T5 uses a slot that could have run prerequisite T3; T4 remains unavailable.",
                 "C": "❌ Incorrect: T4 requires both T2 and T3; T3 has not run, so this order is invalid.",
-                "D": "❌ Incorrect: This is executable but spends one slot on T5 and omits prerequisite T3."
+                "D": "❌ Incorrect: T5 is scheduled first, but the remaining slots run only T1 and T2; required prerequisite T3 is omitted, so T4 cannot run."
             },
             "optionExplanations": {
                 "A": "T1, T2, T3 respects dependencies and completes all prerequisites for T4.",
-                "B": "This is executable but spends one slot on T5 and omits prerequisite T3.",
+                "B": "This order runs T1, T5 and T2, so the independent T5 uses a slot that could have run prerequisite T3; T4 remains unavailable.",
                 "C": "T4 requires both T2 and T3; T3 has not run, so this order is invalid.",
-                "D": "This is executable but spends one slot on T5 and omits prerequisite T3."
+                "D": "T5 is scheduled first, but the remaining slots run only T1 and T2; required prerequisite T3 is omitted, so T4 cannot run."
             },
             "chapter": 5,
             "section": "5.1",
@@ -10957,15 +10957,15 @@ window.questionSets = {
             "explanation": "The finite boundary values of the three partitions are 0, 1, 31, and 32. Three-value BVA exercises each boundary value and both immediate neighbors. Removing duplicates gives -1, 0, 1, 2, 30, 31, 32, 33. Testing only around the valid minimum and maximum omits the outer neighbors of the invalid partitions.",
             "correctFeedback": "✅ Correct: The complete set is -1, 0, 1, 2, 30, 31, 32, 33.",
             "incorrectFeedback": {
-                "A": "❌ Incorrect: This set omits required boundary values or neighbors. The complete three-value BVA set is -1, 0, 1, 2, 30, 31, 32, 33.",
-                "B": "❌ Incorrect: This set omits required boundary values or neighbors. The complete three-value BVA set is -1, 0, 1, 2, 30, 31, 32, 33.",
-                "D": "❌ Incorrect: This set omits required boundary values or neighbors. The complete three-value BVA set is -1, 0, 1, 2, 30, 31, 32, 33."
+                "A": "❌ Incorrect: These values cover only a few inputs near the valid lower end; they miss the lower invalid partition and the upper boundary neighborhood.",
+                "B": "❌ Incorrect: The set samples values across the range but misses the lower boundary values and the exact upper-bound neighbors needed for three-value BVA.",
+                "D": "❌ Incorrect: This set checks the valid boundary values and an interior value, but omits invalid-partition boundaries and their neighboring values."
             },
             "optionExplanations": {
-                "A": "This set omits required boundary values or neighbors. The complete three-value BVA set is -1, 0, 1, 2, 30, 31, 32, 33.",
-                "B": "This set omits required boundary values or neighbors. The complete three-value BVA set is -1, 0, 1, 2, 30, 31, 32, 33.",
+                "A": "These values cover only a few inputs near the valid lower end; they miss the lower invalid partition and the upper boundary neighborhood.",
+                "B": "The set samples values across the range but misses the lower boundary values and the exact upper-bound neighbors needed for three-value BVA.",
                 "C": "The complete set is -1, 0, 1, 2, 30, 31, 32, 33.",
-                "D": "This set omits required boundary values or neighbors. The complete three-value BVA set is -1, 0, 1, 2, 30, 31, 32, 33."
+                "D": "This set checks the valid boundary values and an interior value, but omits invalid-partition boundaries and their neighboring values."
             },
             "chapter": 4,
             "section": "4.2",
@@ -12700,15 +12700,15 @@ window.questionSets = {
             "explanation": "The finite boundary values of the three partitions are -1, 0, 50, and 51. Three-value BVA exercises each boundary value and both immediate neighbors. Removing duplicates gives -2, -1, 0, 1, 49, 50, 51, 52. Testing only around the valid minimum and maximum omits the outer neighbors of the invalid partitions.",
             "correctFeedback": "✅ Correct: The complete set is -2, -1, 0, 1, 49, 50, 51, 52.",
             "incorrectFeedback": {
-                "A": "❌ Incorrect: This set omits required boundary values or neighbors. The complete three-value BVA set is -2, -1, 0, 1, 49, 50, 51, 52.",
-                "C": "❌ Incorrect: This set omits required boundary values or neighbors. The complete three-value BVA set is -2, -1, 0, 1, 49, 50, 51, 52.",
-                "D": "❌ Incorrect: This set omits required boundary values or neighbors. The complete three-value BVA set is -2, -1, 0, 1, 49, 50, 51, 52."
+                "A": "❌ Incorrect: The minimum and maximum are present, but the set omits the neighboring values on both sides of each boundary and both invalid partitions.",
+                "C": "❌ Incorrect: Testing only 0 and 50 exercises two valid boundary values; it misses both invalid partitions and all required neighboring values.",
+                "D": "❌ Incorrect: The invalid partition boundary values are included, but their outer neighbors (-2 and 52) and inner neighbors (1 and 49) are missing."
             },
             "optionExplanations": {
-                "A": "This set omits required boundary values or neighbors. The complete three-value BVA set is -2, -1, 0, 1, 49, 50, 51, 52.",
+                "A": "The minimum and maximum are present, but the set omits the neighboring values on both sides of each boundary and both invalid partitions.",
                 "B": "The complete set is -2, -1, 0, 1, 49, 50, 51, 52.",
-                "C": "This set omits required boundary values or neighbors. The complete three-value BVA set is -2, -1, 0, 1, 49, 50, 51, 52.",
-                "D": "This set omits required boundary values or neighbors. The complete three-value BVA set is -2, -1, 0, 1, 49, 50, 51, 52."
+                "C": "Testing only 0 and 50 exercises two valid boundary values; it misses both invalid partitions and all required neighboring values.",
+                "D": "The invalid partition boundary values are included, but their outer neighbors (-2 and 52) and inner neighbors (1 and 49) are missing."
             },
             "chapter": 4,
             "section": "4.2",
@@ -12848,14 +12848,14 @@ window.questionSets = {
             "explanation": "The finite boundary values of the three partitions are 7, 8, 20, and 21. Three-value BVA exercises each boundary value and both immediate neighbors. Removing duplicates gives 6, 7, 8, 9, 19, 20, 21, 22. Testing only around the valid minimum and maximum omits the outer neighbors of the invalid partitions.",
             "correctFeedback": "✅ Correct: The complete set is 6, 7, 8, 9, 19, 20, 21, 22.",
             "incorrectFeedback": {
-                "A": "❌ Incorrect: This set omits required boundary values or neighbors. The complete three-value BVA set is 6, 7, 8, 9, 19, 20, 21, 22.",
-                "B": "❌ Incorrect: This set omits required boundary values or neighbors. The complete three-value BVA set is 6, 7, 8, 9, 19, 20, 21, 22.",
-                "C": "❌ Incorrect: This set omits required boundary values or neighbors. The complete three-value BVA set is 6, 7, 8, 9, 19, 20, 21, 22."
+                "A": "❌ Incorrect: This set includes the valid boundaries 8 and 20 but misses their immediate neighbors and the two invalid-partition boundaries.",
+                "B": "❌ Incorrect: These values are all below the valid range. They do not exercise the upper partition or the boundaries around 8, 20 and 21.",
+                "C": "❌ Incorrect: The set contains interior values and values outside the range, but none of the complete boundary neighborhoods required for three-value BVA."
             },
             "optionExplanations": {
-                "A": "This set omits required boundary values or neighbors. The complete three-value BVA set is 6, 7, 8, 9, 19, 20, 21, 22.",
-                "B": "This set omits required boundary values or neighbors. The complete three-value BVA set is 6, 7, 8, 9, 19, 20, 21, 22.",
-                "C": "This set omits required boundary values or neighbors. The complete three-value BVA set is 6, 7, 8, 9, 19, 20, 21, 22.",
+                "A": "This set includes the valid boundaries 8 and 20 but misses their immediate neighbors and the two invalid-partition boundaries.",
+                "B": "These values are all below the valid range. They do not exercise the upper partition or the boundaries around 8, 20 and 21.",
+                "C": "The set contains interior values and values outside the range, but none of the complete boundary neighborhoods required for three-value BVA.",
                 "D": "The complete set is 6, 7, 8, 9, 19, 20, 21, 22."
             },
             "chapter": 4,
@@ -15003,7 +15003,7 @@ window.questionSets = {
             },
             "correctAnswer": "C",
             "explanation": "C is correct. Test execution should be faster with automation than with manual testing, once the test cases have been developed. Developing automation takes more time than writing manual test cases (usually) so D is incorrect. B is incorrect because manual testing isn’t obsolete, it can concentrate on new areas. C is not correct because return on investment (ROI) can be tricky to calculate as it has to be based on equivalent manual test effort",
-            "correctFeedback": "✅ Correct: Test execution should be faster with automation than with manual testing, once the test cases have been developed. Developing automation takes more time than writing manual test cases (usually) so",
+            "correctFeedback": "✅ Correct: Automated test execution can be faster after the test cases are built, especially for repeated regression runs.",
             "incorrectFeedback": {
                 "A": "❌ Incorrect: manual testing isn’t obsolete, it can concentrate on new areas",
                 "B": "❌ Incorrect: return on investment (ROI) can be tricky to calculate as it has to be based on equivalent manual test effort",
@@ -15012,7 +15012,7 @@ window.questionSets = {
             "optionExplanations": {
                 "A": "manual testing isn’t obsolete, it can concentrate on new areas",
                 "B": "return on investment (ROI) can be tricky to calculate as it has to be based on equivalent manual test effort",
-                "C": "Test execution should be faster with automation than with manual testing, once the test cases have been developed. Developing automation takes more time than writing manual test cases (usually) so",
+                "C": "Automated test execution can be faster after the test cases are built, especially for repeated regression runs.",
                 "D": "Creating and maintaining automation can require substantial implementation effort; faster execution does not imply faster implementation."
             },
             "chapter": 6,
@@ -19034,15 +19034,15 @@ window.questionSets = {
             "explanation": "INVEST criteria for good user stories: Independent, Negotiable, Valuable, Estimable, Small, Testable.",
             "correctFeedback": "✅ Correct: INVEST = Independent, Negotiable, Valuable, Estimable, Small, Testable.",
             "incorrectFeedback": {
-                "A": "❌ Incorrect: Incorrect expansion.",
-                "B": "❌ Incorrect: Incorrect expansion.",
-                "D": "❌ Incorrect: Incorrect expansion."
+                "A": "❌ Incorrect: The initials spell INVEST, but none of these six words is the syllabus expansion: Independent, Negotiable, Valuable, Estimable, Small and Testable.",
+                "B": "❌ Incorrect: This has seven terms and does not use the INVEST initials or the syllabus qualities for user stories.",
+                "D": "❌ Incorrect: Iterative, Numeric, Validated, Executable, Structured and Technical are not the user-story qualities named by the INVEST acronym."
             },
             "optionExplanations": {
-                "A": "Incorrect expansion.",
-                "B": "Incorrect expansion.",
+                "A": "Although the initials spell INVEST, these substitute words do not mean Independent, Negotiable, Valuable, Estimable, Small and Testable.",
+                "B": "This has seven terms and does not use the INVEST initials or the syllabus qualities for user stories.",
                 "C": "INVEST = Independent, Negotiable, Valuable, Estimable, Small, Testable.",
-                "D": "Incorrect expansion."
+                "D": "Iterative, Numeric, Validated, Executable, Structured and Technical do not match the INVEST user-story qualities."
             },
             "chapter": 4,
             "section": "4.5",
