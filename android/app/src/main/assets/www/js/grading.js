@@ -8,6 +8,7 @@ const ExamGrading = (function () {
 
   var PASS_THRESHOLD = 65;
   var TOTAL_Q = 40;
+  var QUESTION_BANK_REVISION = 'ctfl-v401-audit-1';
 
   /* Presentation-only decoding for legacy/imported statement strings. */
   function formatStatement(text) {
@@ -77,6 +78,9 @@ const ExamGrading = (function () {
 
       /* Compact answer record — enough to rebuild details from the question bank */
       var compactEntry = { i: i, qid: q.id || null, sel: selected };
+      if (q.options && q.correctAnswer) {
+        compactEntry.snapshot = { options: q.options, correctAnswer: q.correctAnswer };
+      }
       if (flagged && flagged.has(i)) compactEntry.f = true;
       var qNote = notes ? (notes[i] || '') : '';
       if (qNote) compactEntry.n = qNote;
@@ -124,6 +128,7 @@ const ExamGrading = (function () {
       timeSpent: '—',
       details: details,
       answers: compact,
+      bankRevision: QUESTION_BANK_REVISION,
     };
   }
 
@@ -156,13 +161,16 @@ const ExamGrading = (function () {
       var q = a && a.qid ? idx[a.qid] : null;
       if (!q) return null;
       var sel = a.sel !== undefined ? a.sel : null;
-      var isCorrect = sel !== null && sel === q.correctAnswer;
+      var snapshot = a.snapshot || null;
+      var options = snapshot && snapshot.options ? snapshot.options : q.options;
+      var correctAnswer = snapshot && snapshot.correctAnswer ? snapshot.correctAnswer : q.correctAnswer;
+      var isCorrect = sel !== null && sel === correctAnswer;
       details.push({
         index: typeof a.i === 'number' ? a.i : i,
         question: q.statement,
-        options: q.options,
+        options: options,
         selectedAnswer: sel,
-        correctAnswer: q.correctAnswer,
+        correctAnswer: correctAnswer,
         isCorrect: isCorrect,
         flagged: !!a.f,
         note: a.n || '',
@@ -222,13 +230,15 @@ const ExamGrading = (function () {
     });
   }
 
-  function openStudySlides(subsection) {
+  function openStudySlides(subsection, learningObjective) {
     var parts = String(subsection).split('.');
     var chapter = parseInt(parts[0], 10);
     if (!chapter || chapter < 1 || chapter > 6) chapter = 1;
     var section = parts.slice(0, 2).join('.');
+    var target = /^FL-\d+\.\d+\.\d+$/.test(String(learningObjective || ''))
+      ? learningObjective : section;
     window.location.href = 'slides/chapter' + chapter + '.html?backTo=' +
-      encodeURIComponent(window.location.href) + '#' + section;
+      encodeURIComponent(window.location.href) + '#' + encodeURIComponent(target);
   }
 
   /* =================================================================
@@ -450,9 +460,9 @@ const ExamGrading = (function () {
             text: 'Objectives: ' + item.objectives.join(', '),
           }));
         }
-        row.addEventListener('click', function () { openStudySlides(item.subsection); });
+        row.addEventListener('click', function () { openStudySlides(item.subsection, item.objectives[0]); });
         row.addEventListener('keydown', function (e) {
-          if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openStudySlides(item.subsection); }
+          if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openStudySlides(item.subsection, item.objectives[0]); }
         });
         planGrid.appendChild(row);
       });
@@ -719,6 +729,9 @@ const ExamGrading = (function () {
       var parts = [];
       function pushBold(text) { parts.push('<strong>' + escHtml(text) + '</strong>'); }
       function push(text) { parts.push(escHtml(text)); }
+      function pushLink(text, href) {
+        parts.push('<a class="results-item__reference-link" href="' + escHtml(href) + '">' + escHtml(text) + '</a>');
+      }
 
       pushBold('📖 Explanation');
       push(d.explanation || 'Not specified in the official CTFL v4.0.1 syllabus.');
@@ -737,8 +750,13 @@ const ExamGrading = (function () {
       pushBold('Reference');
       push('Chapter: ' + d.chapter);
       push('Section: ' + d.section);
-      push('Subsection: ' + d.subsection);
-      push('Learning Objective: ' + d.learningObjective);
+      var chapterNumber = parseInt(d.chapter, 10);
+      var objectiveTarget = /^FL-\d+\.\d+\.\d+$/.test(String(d.learningObjective || ''))
+        ? d.learningObjective : (d.section || d.subsection || '');
+      var slidesHref = 'slides/chapter' + (chapterNumber || 1) + '.html?backTo=' +
+        encodeURIComponent((window.location && window.location.href) || '') + '#' + encodeURIComponent(objectiveTarget);
+      pushLink('Subsection: ' + d.subsection, slidesHref);
+      pushLink('Learning Objective: ' + d.learningObjective, slidesHref);
       push('K-Level: ' + d.kLevel);
       parts.push('');
       pushBold('Keywords:');
@@ -785,5 +803,6 @@ const ExamGrading = (function () {
     openStudySlides: openStudySlides,
     rebuildDetails: rebuildDetails,
     PASS_THRESHOLD: PASS_THRESHOLD,
+    QUESTION_BANK_REVISION: QUESTION_BANK_REVISION,
   };
 })();

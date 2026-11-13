@@ -154,7 +154,8 @@ window.slidesData = {
                     "Recognize all seven activity groups, but remember that the activities can be concurrent and iterative rather than strictly sequential.",
                     "Common trap: confusing test analysis (WHAT to test) with test design (HOW to test).",
                     "Testware is tested just like any other work product — it can contain defects too.",
-                    "All FL-1.4.1 through FL-1.4.5 learning objectives are K2: activities, process context, testware, traceability, and test roles.",
+                    "FL-1.4.1 (K2): explain test activities and tasks; FL-1.4.2 (K2): explain how context affects the test process.",
+                    "FL-1.4.3 (K2): differentiate testware for test activities; FL-1.4.4 (K2): explain traceability value; FL-1.4.5 (K2): compare testing roles.",
                     "Know which activity produces which testware, and explain how traceability links requirements or risks to test cases, execution results and defects."
                 ],
                 memoryAid: "Seven activity groups: Plan -> Monitor & Control -> Analyze -> Design -> Implement -> Execute -> Complete (not a mandatory sequence). Analyze = what to test; Design = how; Traceability = basis <-> cases <-> results/defects.",
@@ -493,7 +494,8 @@ window.slidesData = {
                     "BVA is for ordered partitions: 2-value selects each boundary value and its closest adjacent-partition neighbor; 3-value selects each boundary value and both neighbors.",
                     "A full limited-entry decision table with n independent Boolean conditions initially has 2^n combinations; omit infeasible rules and merge equivalent rules where appropriate.",
                     "For state transition diagrams, identify valid and invalid transitions; tests should cover both valid and invalid transitions.",
-                    "FL-4.2.1–FL-4.2.4 are K3: derive test cases using EP, BVA, decision tables and state transitions; K4 is not examined."
+                    "FL-4.2.1 (K3): derive tests with equivalence partitioning; FL-4.2.2 (K3): derive tests with boundary value analysis.",
+                    "FL-4.2.3 (K3): derive tests with decision tables; FL-4.2.4 (K3): derive tests with state transition testing."
                 ],
                 memoryAid: "4 black-box techniques in CTFL 4.2: E-B-D-S (Equivalence, Boundary, Decision table, State transition). 2-value BVA = boundary + adjacent-partition neighbor; 3-value = boundary + both neighbors. 0-switch = valid-transition coverage.",
                 linkedTo: [
@@ -530,7 +532,8 @@ window.slidesData = {
                 examTips: [
                     "100% branch coverage gives 100% statement coverage, but 100% statement coverage does NOT give 100% branch coverage.",
                     "Common trap: 'Statement coverage is stronger than branch coverage' — FALSE. Branch coverage is stronger (subsumes statement coverage).",
-                    "FL-4.3.1–FL-4.3.3 are K2: explain statement testing, branch testing, and the value of white-box techniques. Calculations can support understanding, but no K3 LO is assigned here.",
+                    "FL-4.3.1 (K2): explain statement testing; FL-4.3.2 (K2): explain branch testing and its coverage measure.",
+                    "FL-4.3.3 (K2): explain the value and limits of white-box testing; 100% structural coverage does not prove defect absence.",
                     "For the exam, be able to trace through simple code and determine which statements/branches are covered."
                 ],
                 memoryAid: "Branch > Statement. 'BS' backwards: Statement is the basis, Branch is the upgrade. Branch subsumes Statement = 'Big Sister' takes care of 'Little Sister'.",
@@ -565,7 +568,7 @@ window.slidesData = {
                     "Session-Based Testing: A structured approach to exploratory testing using time-boxed sessions"
                 ],
                 examTips: [
-                    "FL-4.4.1–FL-4.4.3 are K2: explain error guessing, exploratory testing, and checklist-based testing.",
+                    "FL-4.4.1 (K2): explain error guessing; FL-4.4.2 (K2): explain exploratory testing; FL-4.4.3 (K2): explain checklist-based testing.",
                     "Exploratory testing is purposeful learning, design and execution; it can use charters and timeboxes but these are not mandatory in every session.",
                     "Error guessing is NOT random — it is based on systematic reasoning about what could go wrong.",
                     "Experience-based techniques are complementary, not replacements, for systematic techniques."
@@ -694,11 +697,20 @@ window.slidesData = {
                     "Risk analysis involves assessing the probability and impact of identified risks.",
                     "Risk control consists of risk mitigation and ongoing risk monitoring; responses can include risk acceptance, transfer, contingency planning or testing activities."
                 ],
+                keyTerms: [
+                    "Risk: A potential situation that may have a negative consequence",
+                    "Product Risk: A risk related to a product's quality characteristics",
+                    "Project Risk: A risk related to project management or delivery",
+                    "Risk Analysis: Identifying risks and assessing their likelihood and impact",
+                    "Risk Control: Mitigating risks and monitoring their status",
+                    "Risk-Based Testing: Selecting and prioritizing tests based on product-risk analysis"
+                ],
                 examTips: [
                     "Distinguish product risks (quality-related) from project risks (management-related).",
                     "Common trap: 'Testing eliminates all risks' — FALSE. Testing reduces risk but cannot eliminate it entirely.",
                     "Risk-based testing is about PRIORITIZATION, not about testing everything.",
-                    "FL-5.2.1 (K1): likelihood and impact; FL-5.2.2–FL-5.2.4 (K2): types, analysis and control of product risks."
+                    "FL-5.2.1 (K1): identify risk level from likelihood and impact; FL-5.2.2 (K2): distinguish project from product risks.",
+                    "FL-5.2.3 (K2): explain how product-risk analysis changes test thoroughness and scope; FL-5.2.4 (K2): explain responses to analyzed product risks."
                 ],
                 memoryAid: "Risk = Likelihood x Impact (quantitative model). Product = quality risk; Project = delivery risk. Analysis = Identify + Assess. Control = Mitigate + Monitor.",
                 linkedTo: [
@@ -724,6 +736,13 @@ window.slidesData = {
                     "Test completion includes consolidating outcomes, archiving testware, closing relevant work products, documenting lessons learned, and communicating the completion status.",
                     "Testing status can be communicated using formal reports, dashboards, verbal updates or other channels suited to the audience."
                 ],
+                keyTerms: [
+                    "Test Monitoring: Collecting information about progress and comparing it with the plan",
+                    "Test Control: Taking corrective action based on monitoring information",
+                    "Test Progress Report: A report communicating status during testing",
+                    "Test Completion Report: A report summarizing completion, results and lessons learned",
+                    "Test Completion: Closing test activities and archiving relevant testware"
+                ],
                 examTips: [
                     "Distinguish monitoring (measuring/tracking) from control (taking corrective action).",
                     "Common trap: 'Test reports are only created at the end of testing' — FALSE. Progress reports are periodic; completion reports are final.",
@@ -737,13 +756,28 @@ window.slidesData = {
             },
             {
                 id: "5.4",
+                title: "Configuration Management",
                 kLevel: "K2",
+                concepts: [
+                    "Configuration management identifies, controls and tracks configuration items and their versions throughout the product lifecycle.",
+                    "Configuration items include testware and test items, such as requirements, test cases, test data, environments and software versions.",
+                    "Configuration management supports testing by ensuring that test teams use identifiable, controlled versions of test items and testware.",
+                    "Baselines identify an agreed, reviewed version of a configuration item; changes to baselined items are controlled.",
+                    "Status information and traceability help determine which versions were tested and reproduce test results."
+                ],
+                keyTerms: [
+                    "Configuration Item: A work product managed under configuration control",
+                    "Baseline: An agreed, reviewed version of a configuration item",
+                    "Configuration Management: Identifying, controlling and tracking configuration items and versions",
+                    "Traceability: The ability to follow relationships between test items and testware"
+                ],
                 examTips: [
                     "FL-5.4.1 (K2): summarize how configuration management supports testing, including versioning, traceability and reproducibility.",
                     "Common trap: 'CM is only for source code' — FALSE. CM applies to ALL work products (requirements, test cases, test data, etc.).",
                     "CM is important for reproducibility: knowing what was tested with which version of what.",
                     "Traceability is a key CM concept for the exam."
                 ],
+                memoryAid: "Identify the item, control its changes, record its status, and preserve traceability to reproduce what was tested.",
                 linkedTo: [
                     { id: "5.1", reason: "A test plan defines environments and version-controlled testware" },
                     { id: "2.3", reason: "Maintenance and regression testing depend on controlled baselines" },
@@ -752,6 +786,7 @@ window.slidesData = {
             },
             {
                 id: "5.5",
+                title: "Defect Management",
                 kLevel: "K3",
                 concepts: [
                     "Defect management covers recording, classifying, tracking and resolving anomalies and confirmed defects identified during testing and beyond.",
@@ -877,8 +912,6 @@ window.slidesData = {
         ]
     }
 };
-
-
 
 
 

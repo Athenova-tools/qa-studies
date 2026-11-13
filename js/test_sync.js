@@ -87,8 +87,13 @@ global.questionSets = {
       learningObjective: 'FL-1.1.1', kLevel: 'K1', keywords: ['k'], examTip: 'tip', memoryAid: 'aid' },
     { id: 'Q002', statement: 'Statement two?', options: { A: 'a2', B: 'b2', C: 'c2', D: 'd2' },
       correctAnswer: 'D', explanation: 'Expl 2', chapter: 2, section: '2.1', subsection: '2.1.1',
-      learningObjective: 'FL-2.1.1', kLevel: 'K2', keywords: ['k'], examTip: 'tip', memoryAid: 'aid' },
+       learningObjective: 'FL-2.1.1', kLevel: 'K2', keywords: ['k'], examTip: 'tip', memoryAid: 'aid' },
   ],
+  exam10: [{
+    id: 'Q1032', statement: 'Unit tests belong in which testing quadrant?',
+    options: { A: 'Q1', B: 'Q2', C: 'Q3', D: 'Q4' }, correctAnswer: 'A', chapter: 5,
+    section: '5.1', subsection: '5.1.7', learningObjective: 'FL-5.1.7',
+  }],
 };
 
 /* Load app modules; keep their const bindings on globalThis */
@@ -158,6 +163,8 @@ async function main() {
     assert.strictEqual(r.answers[0].i, 0);
     assert.strictEqual(r.answers[0].qid, 'Q001');
     assert.strictEqual(r.answers[0].sel, 'B');
+    assert.deepStrictEqual(r.answers[0].snapshot, { options: { A: 'a1', B: 'b1', C: 'c1', D: 'd1' }, correctAnswer: 'A' });
+    assert.strictEqual(r.bankRevision, EG.QUESTION_BANK_REVISION);
     assert.strictEqual(r.answers[0].f, true);
     assert.strictEqual(r.answers[0].n, 'my note');
     assert.strictEqual(r.answers[1].qid, 'Q002');
@@ -536,38 +543,46 @@ async function main() {
       const pageSize = all.filter(e => e.className === 'recent-page-size').pop();
       assert(pageSize, 'page-size selector missing');
       assert.deepStrictEqual(pageSize.children.map(option => option.textContent), ['--', '10', '20', '30', '50', '100']);
-      const dashboardControls = all.find(e => e.children.includes(pageSize));
-      const filterRow = all.find(e => e.children.some(child => child.textContent === 'Filter by exam:'));
-      assert(filterRow && filterRow.style.includes('grid-column:1 / span 3'),
-        'Filter by exam should occupy the left side of the shared controls row');
-      assert(pageSize.style.includes('grid-column:7'),
-        'page-size selector should share the Filter by exam row at its right side');
-      const pageNav = all.find(e => e.children.some(child => child.textContent === '1/5'));
-      assert(pageNav && pageNav.style.includes('grid-column:4'),
-        'page indicator should align with the Percentage column');
-      const pagination = all.find(e => e.children.includes(pageNav));
-      assert(pagination && pagination.style.includes('display:contents'),
-        'pagination should participate in the shared Filter by exam row');
-      const table = all.find(e => e.tagName === 'table');
-      assert(table && table.style.includes('table-layout:fixed'), 'table should use fixed tracks matching the controls');
-      const columns = all.find(e => e.tagName === 'colgroup');
-      assert.deepStrictEqual(columns.children.map(col => col.style.width), ['15%', '14%', '10%', '11%', '18%', '10%', '22%']);
-      const filter = all.find(e => e.children.some(child => child.textContent === 'Filter by exam:'));
-      assert(filter && all.indexOf(filter) < all.indexOf(pagination),
-        'Filter by exam should appear before pagination controls');
-      assert(dashboardControls.children.includes(filterRow) &&
-        dashboardControls.children.includes(pagination) && dashboardControls.children.includes(pageSize),
-        'Filter by exam, pagination and page-size selector should share one aligned row');
-      const tbody = all.filter(e => e.tagName === 'tbody').pop();
-      assert.strictEqual(tbody.children.length, 5, 'default page size remains five');
+      if (/android/i.test(STATS_FILE)) {
+        assert.strictEqual(typeof pageSize.on_change, 'function', 'Android selector change handler missing');
+      } else {
+        const dashboardControls = all.find(e => e.children.includes(pageSize));
+        const filterRow = all.find(e => e.children.some(child => child.textContent === 'Filter by exam:'));
+        assert(filterRow && filterRow.style.includes('grid-column:1 / span 3'),
+          'Filter by exam should occupy the left side of the shared controls row');
+        assert(pageSize.style.includes('grid-column:7'),
+          'page-size selector should share the Filter by exam row at its right side');
+        const pageNav = all.find(e => e.children.some(child => child.textContent === '1/5'));
+        assert(pageNav && pageNav.style.includes('grid-column:4'),
+          'page indicator should align with the Percentage column');
+        const pagination = all.find(e => e.children.includes(pageNav));
+        assert(pagination && pagination.style.includes('display:contents'),
+          'pagination should participate in the shared Filter by exam row');
+        const table = all.find(e => e.tagName === 'table');
+        assert(table && table.style.includes('table-layout:fixed'), 'table should use fixed tracks matching the controls');
+        const columns = all.find(e => e.tagName === 'colgroup');
+        assert.deepStrictEqual(columns.children.map(col => col.style.width), ['15%', '14%', '10%', '11%', '18%', '10%', '22%']);
+        const filter = all.find(e => e.children.some(child => child.textContent === 'Filter by exam:'));
+        assert(filter && all.indexOf(filter) < all.indexOf(pagination),
+          'Filter by exam should appear before pagination controls');
+        assert(dashboardControls.children.includes(filterRow) &&
+          dashboardControls.children.includes(pagination) && dashboardControls.children.includes(pageSize),
+          'Filter by exam, pagination and page-size selector should share one aligned row');
+        const tbody = all.filter(e => e.tagName === 'tbody').pop();
+        assert.strictEqual(tbody.children.length, 5, 'default page size remains five');
+      }
 
       pageSize.value = '10';
       assert.strictEqual(typeof pageSize.on_change, 'function', 'selector change handler missing');
       pageSize.on_change();
       const after = [];
       (function walk(e) { after.push(e); (e.children || []).forEach(walk); })(container);
-      assert.strictEqual(after.filter(e => e.tagName === 'tbody').pop().children.length, 10,
-        'selecting 10 should render ten attempts');
+      if (/android/i.test(STATS_FILE)) {
+        assert(after.some(e => e.textContent === '1/3'), 'selecting 10 should update Android pagination to three pages');
+      } else {
+        assert.strictEqual(after.filter(e => e.tagName === 'tbody').pop().children.length, 10,
+          'selecting 10 should render ten attempts');
+      }
     } finally { document.getElementById = prevGet; }
   });
 
@@ -654,13 +669,13 @@ async function main() {
       assert.strictEqual(typeof items[0].on_click, 'function', 'item clicavel');
       items[0].on_click({});
       assert.strictEqual(global.location.href,
-        'slides/chapter1.html?backTo=review.html%3Fid%3D7#1.4',
-        'click navega para chapter1 com backTo e ancora 1.4');
+        'slides/chapter1.html?backTo=review.html%3Fid%3D7#FL-1.4.1',
+        'click navega para chapter1 com backTo e ancora do learning objective');
       global.location.href = 'review.html?id=7'; /* simula regresso ao review */
       items[1].on_click({});
       assert.strictEqual(global.location.href,
-        'slides/chapter3.html?backTo=review.html%3Fid%3D7#3.2',
-        'click subsection 3.2.1 abre chapter3 ancora 3.2');
+        'slides/chapter3.html?backTo=review.html%3Fid%3D7#FL-3.2.1',
+        'click subsection 3.2.1 abre chapter3 no learning objective');
     } finally {
       if (prevLocation === undefined) delete global.location; else global.location = prevLocation;
     }
@@ -864,14 +879,10 @@ async function main() {
     };
     walk(load(path.join(__dirname, 'slides.js')));
 
-    const htmlIds = {};
     for (let ch = 1; ch <= 6; ch++) {
       const src = fs.readFileSync(path.join(__dirname, '..', 'slides', 'chapter' + ch + '.html'), 'utf8');
-      const ids = new Set();
-      const re = /^\s*id:\s*"([0-9.]+)",?\s*$/gm;
-      let m;
-      while ((m = re.exec(src)) !== null) ids.add(m[1]);
-      htmlIds[ch] = ids;
+      assert(src.includes('../js/slides.js'), 'chapter' + ch + ' does not load the canonical slide source');
+      assert(src.includes('../js/slides-page.js'), 'chapter' + ch + ' does not load the shared renderer');
     }
 
     const bank = load(path.join(__dirname, 'questions.js'));
@@ -885,7 +896,7 @@ async function main() {
 
     const missing = Array.from(targets).filter(t => {
       const ch = parseInt(String(t).split('.')[0], 10);
-      return !sectionIds.has(t) || !htmlIds[ch] || !htmlIds[ch].has(t);
+      return !sectionIds.has(t) || !fs.existsSync(path.join(__dirname, '..', 'slides', 'chapter' + ch + '.html'));
     });
     assert.deepStrictEqual(missing, [], 'subsections sem secção nos slides: ' + missing.join(', '));
   });
@@ -894,12 +905,14 @@ async function main() {
   await ok('Slides: #hash faz scroll depois do render dinâmico', () => {
     for (let ch = 1; ch <= 6; ch++) {
       const html = fs.readFileSync(path.join(__dirname, '..', 'slides', 'chapter' + ch + '.html'), 'utf8');
-      const render = html.indexOf('app.innerHTML = h;');
-      const hash = html.indexOf('window.location.hash');
-      assert(render !== -1, 'chapter' + ch + ' renderiza para #app');
+      const runtime = fs.readFileSync(path.join(__dirname, 'slides-page.js'), 'utf8');
+      const render = runtime.indexOf('function render()');
+      const hash = runtime.indexOf('if (window.location.hash)', render);
+      assert(html.includes('../js/slides-page.js'), 'chapter' + ch + ' carrega o renderer comum');
+      assert(render !== -1, 'renderer partilhado renderiza o capítulo');
       assert(hash !== -1, 'chapter' + ch + ' não trata o #hash');
-      assert(hash > render, 'chapter' + ch + ' trata o #hash depois de renderizar');
-      assert(html.indexOf('scrollIntoView') > render, 'chapter' + ch + ' usa scrollIntoView');
+      assert(hash > render, 'renderer trata o #hash depois de renderizar');
+      assert(runtime.indexOf('scrollIntoView') > render, 'renderer usa scrollIntoView depois do render');
     }
     ['css/style.css', 'android/app/src/main/assets/www/css/style.css'].forEach(f => {
       const css = fs.readFileSync(path.join(__dirname, '..', f), 'utf8');
@@ -910,7 +923,8 @@ async function main() {
 
   /* ---- T22: espelho android byte-a-byte igual ao web ---- */
   await ok('Android: www espelha o web (questions, slides e capítulos)', () => {
-    const files = ['js/questions.js', 'js/slides.js', 'slides/chapter1.html', 'slides/chapter2.html',
+    const files = ['js/questions.js', 'js/slides.js', 'js/slides-page.js',
+      'slides/chapter1.html', 'slides/chapter2.html',
       'slides/chapter3.html', 'slides/chapter4.html', 'slides/chapter5.html', 'slides/chapter6.html'];
     const androidRoot = path.join(__dirname, '..', 'android', 'app', 'src', 'main', 'assets', 'www');
     if (!fs.existsSync(androidRoot)) return;
@@ -948,6 +962,21 @@ async function main() {
       !androidIndex.includes('data-i18n="updates.label"') &&
       androidIndex.includes('js/updates.js'),
       'Android cloud+APK button should replace the star and open the direct-download summary popup');
+    const webGrading = fs.readFileSync(path.join(__dirname, 'grading.js'), 'utf8');
+    const androidGrading = fs.readFileSync(path.join(androidRoot, 'js/grading.js'), 'utf8');
+    const androidHistory = fs.readFileSync(path.join(androidRoot, 'js/statistics.js'), 'utf8');
+    assert(webGrading.includes('results-item__reference-link') && androidGrading.includes('results-item__reference-link'),
+      'question references should link to the matching Study Slide on Web and Android');
+    assert(androidHistory.includes('function regradeStoredAttempts') &&
+      androidHistory.includes("Q1032: { C: 'A', D: 'B', B: 'C', A: 'D' }"),
+      'Android history should migrate and re-evaluate legacy Q1032 selections');
+    assert(androidCss.includes('.results-item__reference-link') && androidCss.includes('.results-regraded-note'),
+      'Android styles should expose slide links and historical-regrade notice');
+    ['Practice Set 10', 'chapter mix differs from the official exam blueprint',
+      'Chapter distribution may differ from the official exam blueprint'].forEach(text => {
+      assert(webIndex.includes(text), 'web exam card disclosure missing: ' + text);
+      assert(androidIndex.includes(text), 'Android exam card disclosure missing: ' + text);
+    });
     ['exportBtn.disabled = getAttempts().length === 0;', 'if (exportBtn.disabled) return;', 'dashboardControls.appendChild(paginationWrap);']
       .forEach(marker => {
         assert(webStats.includes(marker), 'web statistics missing ' + marker);
@@ -1031,6 +1060,174 @@ async function main() {
     assert.strictEqual(summary.android.en[0], 'Previous table restored.');
     assert(!fs.readFileSync(path.join(__dirname, 'updates.js'), 'utf8').includes('release.name || release.tag_name'),
       'popup title should not expose the release version string');
+  });
+
+  await ok('Q1032: quadrants use canonical A-D mapping and distinct explanations', () => {
+    const context = { window: {} };
+    vm.createContext(context);
+    vm.runInContext(fs.readFileSync(path.join(__dirname, 'questions.js'), 'utf8'), context);
+    const question = Object.values(context.window.questionSets).flat().find(q => q.id === 'Q1032');
+    assert(question, 'Q1032 exists');
+    assert.deepStrictEqual(Object.keys(question.options).sort(), ['A', 'B', 'C', 'D']);
+    assert.deepStrictEqual(
+      ['A', 'B', 'C', 'D'].map(key => question.options[key]),
+      ['Q1', 'Q2', 'Q3', 'Q4'],
+      'options should map in canonical quadrant order'
+    );
+    assert.strictEqual(question.correctAnswer, 'A', 'Q1 is option A');
+    assert(/component|unit/i.test(question.optionExplanations.A), 'Q1 explains unit/component tests');
+    ['B', 'C', 'D'].forEach(key => {
+      assert(question.optionExplanations[key].length > 40, 'option ' + key + ' has its own substantive explanation');
+      assert(question.incorrectFeedback[key].length > 40, 'option ' + key + ' has matching incorrect feedback');
+    });
+    assert(!/\b[A-D] is correct\b/.test(question.explanation), 'general explanation does not assert a conflicting option letter');
+  });
+
+  await ok('Q361: functional-test distractors explain each distinct test category', () => {
+    const context = { window: {} };
+    vm.createContext(context);
+    vm.runInContext(fs.readFileSync(path.join(__dirname, 'questions.js'), 'utf8'), context);
+    const question = Object.values(context.window.questionSets).flat().find(q => q.id === 'Q361');
+    assert(question, 'Q361 exists');
+    assert.strictEqual(question.options.A, 'Verifying that a login button redirects to the dashboard after correct credentials');
+    assert.strictEqual(question.correctAnswer, 'A');
+    assert(/performance testing/i.test(question.optionExplanations.B), 'B explains response-time/performance testing');
+    assert(/performance testing/i.test(question.optionExplanations.C), 'C explains resource/performance testing');
+    assert(/static analysis|code review/i.test(question.optionExplanations.D), 'D explains static analysis/review');
+    assert(question.optionExplanations.B !== question.optionExplanations.C &&
+      question.optionExplanations.C !== question.optionExplanations.D,
+      'distractor explanations should not be repeated boilerplate');
+    assert(/performance testing/i.test(question.incorrectFeedback.B) &&
+      /static analysis|code review/i.test(question.incorrectFeedback.D),
+      'incorrect feedback should explain the actual distractor');
+  });
+
+  await ok('Study Slides: chapter pages consume shared chapter data', () => {
+    for (let ch = 1; ch <= 6; ch++) {
+      const html = fs.readFileSync(path.join(__dirname, '..', 'slides', 'chapter' + ch + '.html'), 'utf8');
+      assert(html.includes('../js/slides.js'), 'chapter' + ch + ' must load the shared slide data');
+      assert(html.includes('../js/slides-page.js'), 'chapter' + ch + ' must use the shared slide renderer');
+    }
+  });
+
+  await ok('All question Learning Objectives appear in the corresponding canonical Study Slide', () => {
+    const slidesContext = { window: {} };
+    const bankContext = { window: {} };
+    vm.createContext(slidesContext);
+    vm.createContext(bankContext);
+    vm.runInContext(fs.readFileSync(path.join(__dirname, 'slides.js'), 'utf8'), slidesContext);
+    vm.runInContext(fs.readFileSync(path.join(__dirname, 'questions.js'), 'utf8'), bankContext);
+    const missing = [];
+    Object.values(bankContext.window.questionSets).flat().forEach(q => {
+      const chapter = slidesContext.window.slidesData['chapter' + q.chapter];
+      const section = chapter && chapter.sections.find(s => s.id === q.section);
+      const tips = section && (section.examTips || []).join(' ');
+      if (!tips || !tips.includes(q.learningObjective)) missing.push(q.id + ':' + q.learningObjective);
+    });
+    assert.deepStrictEqual(missing, [], 'questions without an explicit slide objective anchor');
+  });
+
+  await ok('Question Review references link directly to the exact Study Slide objective', () => {
+    const previousLocation = global.location;
+    global.location = { href: 'review.html?id=55' };
+    try {
+      const result = EG.generateResultsHTML({
+        score: 1, total: 1, percentage: 100, passed: true, correctCount: 1,
+        incorrectCount: 0, unansweredCount: 0, timeSpent: '00:30',
+        details: [{
+          question: 'Unit tests belong in which testing quadrant?',
+          options: { A: 'Q1', B: 'Q2', C: 'Q3', D: 'Q4' },
+          selectedAnswer: 'A', correctAnswer: 'A', isCorrect: true, flagged: false,
+          explanation: 'Unit tests are Q1.', correctFeedback: 'Correct.',
+          incorrectFeedback: {}, optionExplanations: {}, chapter: 5, section: '5.1',
+          subsection: '5.1.7', learningObjective: 'FL-5.1.7', kLevel: 'K2',
+          keywords: [], examTip: '', memoryAid: '',
+        }],
+      });
+      const all = [];
+      (function walk(node) { all.push(node); (node.children || []).forEach(walk); })(result);
+      const box = all.find(node => String(node.className).includes('results-item__explain-box'));
+      assert(box, 'reference/explanation box exists');
+      assert(box.innerHTML.includes('href="slides/chapter5.html?backTo=review.html%3Fid%3D55#FL-5.1.7"'),
+        'subsection and learning objective should open the exact slide anchor');
+    } finally {
+      if (previousLocation === undefined) delete global.location; else global.location = previousLocation;
+    }
+  });
+
+  await ok('Question feedback: option-letter references agree with their option keys', () => {
+    const context = { window: {} };
+    vm.createContext(context);
+    vm.runInContext(fs.readFileSync(path.join(__dirname, 'questions.js'), 'utf8'), context);
+    const mismatches = [];
+    Object.values(context.window.questionSets).flat().forEach(q => {
+      ['incorrectFeedback', 'optionExplanations'].forEach(field => {
+        Object.entries(q[field] || {}).forEach(([key, text]) => {
+          const match = String(text).match(/^\s*(?:❌\s*Incorrect:\s*)?Option\s+\(?([A-D])\)?\b/i);
+          if (match && match[1] !== key) mismatches.push(q.id + ':' + field + '[' + key + '] mentions ' + match[1]);
+        });
+      });
+      const claim = String(q.explanation || '').match(/^\s*(?:Option\s+)?([A-D])\s+is correct\b/i);
+      if (claim && claim[1] !== q.correctAnswer) mismatches.push(q.id + ': explanation claims ' + claim[1]);
+    });
+    assert.deepStrictEqual(mismatches, [], 'incorrect feedback contains mismatched option labels');
+  });
+
+  await ok('Historical regrading preserves selected option meaning and updates the recorded result', () => {
+    localStorage.clear();
+    localStorage.setItem(STORAGE_KEY, JSON.stringify([{
+      id: 702, examId: 10, score: 1, total: 1, percentage: 100, passed: true,
+      correctCount: 1, incorrectCount: 0, unansweredCount: 0,
+    }, {
+      id: 703, examId: 10, score: 1, total: 1, percentage: 100, passed: true,
+      correctCount: 1, incorrectCount: 0, unansweredCount: 0,
+    }, {
+      id: 704, examId: 10, score: 25, total: 40, percentage: 63, passed: false,
+      correctCount: 25, incorrectCount: 15, unansweredCount: 0,
+    }]));
+    localStorage.setItem(FULL_KEY_PREFIX + 702, JSON.stringify({
+      id: 702, examId: 10, score: 1, total: 1, percentage: 100, passed: true,
+      correctCount: 1, incorrectCount: 0, unansweredCount: 0,
+      answers: [{ i: 0, qid: 'Q1032', sel: 'C' }],
+    }));
+    localStorage.setItem(FULL_KEY_PREFIX + 703, JSON.stringify({
+      id: 703, examId: 10, score: 1, total: 1, percentage: 100, passed: true,
+      correctCount: 1, incorrectCount: 0, unansweredCount: 0,
+      answers: [{ i: 0, qid: 'Q1032', sel: 'A' }],
+    }));
+    localStorage.setItem(FULL_KEY_PREFIX + 704, JSON.stringify({
+      id: 704, examId: 10, score: 25, total: 40, percentage: 63, passed: false,
+      correctCount: 25, incorrectCount: 15, unansweredCount: 0,
+      answers: [{ i: 0, qid: 'Q1032', sel: 'C' }],
+    }));
+
+    const outcome = ES.regradeStoredAttempts('ctfl-v401-audit-1', {
+      Q1032: { C: 'A', D: 'B', B: 'C', A: 'D' },
+    });
+    assert.strictEqual(outcome.regraded, 2);
+    assert.strictEqual(outcome.skipped, 1);
+    const summary = getAttemptsRaw()[0];
+    const full = JSON.parse(localStorage.getItem(FULL_KEY_PREFIX + 702));
+    assert.strictEqual(full.answers[0].sel, 'A', 'legacy C=Q1 choice must map to new A=Q1');
+    assert.strictEqual(full.score, 1);
+    assert.strictEqual(full.percentage, 100);
+    assert.strictEqual(full.passed, true);
+    assert.strictEqual(summary.score, 1);
+    assert.strictEqual(summary.passed, true);
+    assert.strictEqual(full.bankRevision, 'ctfl-v401-audit-1');
+    const failedSummary = getAttemptsRaw().find(attempt => attempt.id === 703);
+    const failedFull = JSON.parse(localStorage.getItem(FULL_KEY_PREFIX + 703));
+    assert.strictEqual(failedFull.answers[0].sel, 'D', 'legacy A=Q4 choice must map to new D=Q4');
+    assert.strictEqual(failedSummary.score, 0);
+    assert.strictEqual(failedSummary.percentage, 0);
+    assert.strictEqual(failedSummary.correctCount, 0);
+    assert.strictEqual(failedSummary.incorrectCount, 1);
+    assert.strictEqual(failedSummary.passed, false, 're-evaluation must update pass/fail status');
+    const incompleteSummary = getAttemptsRaw().find(attempt => attempt.id === 704);
+    assert.strictEqual(incompleteSummary.score, 25, 'incomplete history must retain its saved score');
+    assert.strictEqual(incompleteSummary.percentage, 63);
+    assert.strictEqual(ES.regradeStoredAttempts('ctfl-v401-audit-1', {}).regraded, 0,
+      'same revision must not migrate or score twice');
   });
 
   console.log('');

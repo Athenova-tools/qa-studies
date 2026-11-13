@@ -11,6 +11,7 @@ const ExamStats = (function () {
   var STORAGE_KEY = 'istqb_ctfl_attempts';
   var FULL_KEY_PREFIX = 'istqb_ctfl_full_';
   var TOTAL_Q = 40;
+  var QUESTION_BANK_REVISION = ExamGrading.QUESTION_BANK_REVISION || 'legacy';
   var selectedExamFilter = 'all';
   var PAGE_SIZE_OPTIONS = [5, 10, 20, 30, 50, 100];
   var recentPageSize = 5;
@@ -45,6 +46,7 @@ const ExamStats = (function () {
   /* Last import report (shown in the dashboard until it expires) */
   var importReport = null;
   var importReportTimer = null;
+  var lastBankRegrade = null;
   var hiddenFileInput = null;
 
   /* =================================================================
@@ -156,6 +158,7 @@ const ExamStats = (function () {
       timeSpent: result.timeSpent || '—',
       chapterPerformance: result.chapterPerformance || undefined,
       origin: detectOrigin(),
+      bankRevision: result.bankRevision || QUESTION_BANK_REVISION,
     };
     attempts.push(entry);
     /* Stamp the id on the result so the Review screen can export it */
@@ -184,6 +187,7 @@ const ExamStats = (function () {
           unansweredCount: result.unansweredCount,
           timeSpent: entry.timeSpent,
           chapterPerformance: result.chapterPerformance,
+          bankRevision: result.bankRevision || QUESTION_BANK_REVISION,
         };
         if (result.answers && result.answers.length) {
           fullData.answers = result.answers;
@@ -205,6 +209,115 @@ const ExamStats = (function () {
     } catch (e) {
       return null;
     }
+  }
+
+  function regradeStoredAttempts(revision, legacyKeyMaps, attemptFilter) {
+    var targetRevision = revision || QUESTION_BANK_REVISION;
+    var attempts = getAttempts();
+    var sets = window.questionSets || {};
+    var questionIndex = {};
+    Object.keys(sets).forEach(function (setName) {
+      (sets[setName] || []).forEach(function (question) {
+        if (question && question.id) questionIndex[question.id] = question;
+      });
+    });
+    var regraded = 0;
+    var skipped = 0;
+
+    attempts.forEach(function (attempt) {
+      if (attemptFilter && !attemptFilter[String(attempt.id)]) return;
+      var full = getFullResult(attempt.id);
+      if (!full) { skipped++; return; }
+      if (full.bankRevision === targetRevision) {
+        ['score', 'total', 'percentage', 'passed', 'correctCount', 'incorrectCount',
+          'unansweredCount', 'chapterPerformance', 'bankRevision', 'regradedFrom'].forEach(function (field) {
+          if (full[field] !== undefined) attempt[field] = full[field];
+        });
+        return;
+      }
+
+      var migrated = JSON.parse(JSON.stringify(full));
+      var validLegacyDetails = true;
+      if ((!Array.isArray(migrated.answers) || !migrated.answers.length) &&
+          Array.isArray(migrated.details) && migrated.details.length) {
+        migrated.answers = [];
+        migrated.details.forEach(function (detail, index) {
+          var match = null;
+          Object.keys(questionIndex).some(function (qid) {
+            if (questionIndex[qid].statement === detail.question) { match = questionIndex[qid]; return true; }
+            return false;
+          });
+          if (!match) return;
+          migrated.answers.push({
+            i: typeof detail.index === 'number' ? detail.index : index,
+            qid: match.id,
+            sel: detail.selectedAnswer === undefined ? null : detail.selectedAnswer,
+            snapshot: detail.options && detail.correctAnswer ? { options: detail.options, correctAnswer: detail.correctAnswer } : undefined,
+            f: detail.flagged || undefined,
+            n: detail.note || undefined,
+          });
+        });
+        if (migrated.answers.length !== migrated.details.length) validLegacyDetails = false;
+        delete migrated.details;
+      }
+      if (!Array.isArray(migrated.answers) || !migrated.answers.length || !validLegacyDetails) { skipped++; return; }
+      var total = Number(migrated.total || attempt.total) || migrated.answers.length;
+      if (migrated.answers.length !== total) { skipped++; return; }
+
+      var chapterPerformance = {};
+      var correctCount = 0;
+      var incorrectCount = 0;
+      var unansweredCount = 0;
+      var valid = true;
+      migrated.answers.forEach(function (answer) {
+        var question = answer && answer.qid ? questionIndex[answer.qid] : null;
+        if (!question || !question.options || !question.correctAnswer) { valid = false; return; }
+        var oldSelected = answer.sel;
+        if (oldSelected !== null && oldSelected !== undefined && answer.snapshot && answer.snapshot.options) {
+          var oldText = answer.snapshot.options[oldSelected];
+          var matchingKey = Object.keys(question.options).find(function (key) { return question.options[key] === oldText; });
+          if (matchingKey) answer.sel = matchingKey;
+          else if (oldText !== undefined) valid = false;
+        } else if (oldSelected !== null && oldSelected !== undefined &&
+                   (!migrated.bankRevision || migrated.bankRevision === 'legacy-unversioned') && !answer.snapshot &&
+                   legacyKeyMaps && legacyKeyMaps[answer.qid] && legacyKeyMaps[answer.qid][oldSelected]) {
+          answer.sel = legacyKeyMaps[answer.qid][oldSelected];
+        }
+        answer.snapshot = { options: question.options, correctAnswer: question.correctAnswer };
+        if (answer.sel !== null && answer.sel !== undefined && answer.sel === question.correctAnswer) correctCount++;
+        else if (answer.sel === null || answer.sel === undefined) unansweredCount++;
+        else incorrectCount++;
+        var chapter = question.chapter || String(question.subsection || '').split('.')[0];
+        if (chapter) {
+          var name = 'Chapter ' + chapter;
+          if (!chapterPerformance[name]) chapterPerformance[name] = { correct: 0, total: 0 };
+          chapterPerformance[name].total++;
+          if (answer.sel === question.correctAnswer) chapterPerformance[name].correct++;
+        }
+      });
+      if (!valid) { skipped++; return; }
+
+      var percentage = Math.round((correctCount / total) * 100);
+      var previousRevision = migrated.bankRevision || 'legacy-unversioned';
+      migrated.score = correctCount;
+      migrated.total = total;
+      migrated.percentage = percentage;
+      migrated.passed = percentage >= ExamGrading.PASS_THRESHOLD;
+      migrated.correctCount = correctCount;
+      migrated.incorrectCount = incorrectCount;
+      migrated.unansweredCount = unansweredCount;
+      migrated.chapterPerformance = chapterPerformance;
+      migrated.regradedFrom = previousRevision;
+      migrated.bankRevision = targetRevision;
+      try {
+        localStorage.setItem(FULL_KEY_PREFIX + attempt.id, JSON.stringify(migrated));
+        ['score', 'total', 'percentage', 'passed', 'correctCount', 'incorrectCount', 'unansweredCount',
+          'chapterPerformance', 'bankRevision', 'regradedFrom'].forEach(function (field) { attempt[field] = migrated[field]; });
+        regraded++;
+      } catch (error) { skipped++; }
+    });
+    try { localStorage.setItem(STORAGE_KEY, JSON.stringify(attempts)); } catch (error) { /* keep prior summary */ }
+    return { regraded: regraded, skipped: skipped };
   }
 
   function deleteAttempt(id) {
@@ -271,6 +384,7 @@ const ExamStats = (function () {
       timeSpent: results.timeSpent || '—',
       chapterPerformance: results.chapterPerformance || undefined,
       origin: detectOrigin(),
+      bankRevision: results.bankRevision || QUESTION_BANK_REVISION,
     };
   }
 
@@ -401,6 +515,8 @@ const ExamStats = (function () {
       incorrectCount: typeof fa.incorrectCount === 'number' ? fa.incorrectCount : 0,
       unansweredCount: typeof fa.unansweredCount === 'number' ? fa.unansweredCount : 0,
       timeSpent: typeof fa.timeSpent === 'string' ? fa.timeSpent : '—',
+      bankRevision: typeof fa.bankRevision === 'string' ? fa.bankRevision : undefined,
+      regradedFrom: typeof fa.regradedFrom === 'string' ? fa.regradedFrom : undefined,
     };
     if (fa.chapterPerformance && typeof fa.chapterPerformance === 'object') {
       rec.chapterPerformance = fa.chapterPerformance;
@@ -414,7 +530,7 @@ const ExamStats = (function () {
   function normalizeFull(full, id) {
     var rec = {};
     ['id', 'date', 'examId', 'score', 'total', 'percentage', 'passed',
-     'correctCount', 'incorrectCount', 'unansweredCount', 'timeSpent'
+     'correctCount', 'incorrectCount', 'unansweredCount', 'timeSpent', 'bankRevision', 'regradedFrom'
     ].forEach(function (k) {
       if (full[k] !== undefined) rec[k] = full[k];
     });
@@ -526,6 +642,17 @@ const ExamStats = (function () {
       report.storageError = true;
     }
 
+    var importedForRegrade = {};
+    Object.keys(mode).forEach(function (id) {
+      if (mode[id] !== 'keep') importedForRegrade[String(id)] = true;
+    });
+    var migration = regradeStoredAttempts(QUESTION_BANK_REVISION, {
+      Q1032: { C: 'A', D: 'B', B: 'C', A: 'D' },
+    }, importedForRegrade);
+    lastBankRegrade = migration;
+    report.regraded = migration.regraded;
+    report.regradeSkipped = migration.skipped;
+
     importReport = report;
     if (importReportTimer) clearTimeout(importReportTimer);
     importReportTimer = setTimeout(function () {
@@ -562,6 +689,8 @@ const ExamStats = (function () {
     if (r.kept) parts.push(r.kept + ' kept (taken on this device)');
     var review = (r.fullAdded || 0) + (r.fullUpdated || 0);
     if (review) parts.push(review + ' review record' + (review === 1 ? '' : 's') + ' stored');
+    if (r.regraded) parts.push(r.regraded + ' attempt' + (r.regraded === 1 ? '' : 's') + ' re-evaluated');
+    if (r.regradeSkipped) parts.push(r.regradeSkipped + ' attempt(s) could not be safely re-evaluated');
     if (r.invalid) parts.push(r.invalid + ' invalid entr' + (r.invalid === 1 ? 'y' : 'ies') + ' skipped');
     if (r.orphans) parts.push(r.orphans + ' orphan record' + (r.orphans === 1 ? '' : 's') + ' skipped');
     if (r.fullFailed) parts.push(r.fullFailed + ' review record(s) not stored (storage full)');
@@ -808,6 +937,14 @@ const ExamStats = (function () {
     if (full && full.details && typeof ExamGrading !== 'undefined') {
       full.chapterPerformance = full.chapterPerformance || {};
       var resultsEl = ExamGrading.generateResultsHTML(full);
+      if (full.regradedFrom) {
+        var regradeMessage = full.regradedFrom === 'legacy-unversioned'
+          ? 'This older attempt had no question-bank version snapshot. Its saved answers were re-evaluated using the available compatibility mappings.'
+          : 'This historical attempt was re-evaluated against the corrected question bank; its saved options and score were recalculated.';
+        appEl.appendChild(createEl('div', 'results-regraded-note', {
+          text: regradeMessage,
+        }));
+      }
       appEl.appendChild(resultsEl);
       var chartEl = renderChapterChart(full.chapterPerformance);
       if (chartEl) appEl.appendChild(chartEl);
@@ -884,6 +1021,13 @@ const ExamStats = (function () {
     clearContainer(container);
 
     var stats = getOverallStats();
+    if (lastBankRegrade && (lastBankRegrade.regraded || lastBankRegrade.skipped)) {
+      var notice = 'Historical attempts re-evaluated: ' + lastBankRegrade.regraded + '.';
+      if (lastBankRegrade.skipped) {
+        notice += ' ' + lastBankRegrade.skipped + ' attempt(s) lacked complete matching review data; their saved scores were kept unchanged.';
+      }
+      container.appendChild(createEl('div', 'results-regraded-note', { text: notice }));
+    }
 
     if (stats.totalAttempts === 0) {
       container.appendChild(createEl('p', 'stats-empty-state__message', {
@@ -1308,19 +1452,24 @@ const ExamStats = (function () {
      ================================================================= */
 
   function autoRender() {
-    var el = document.getElementById('stats-dashboard');
-    if (el) {
-      renderStatsDashboard();
-      try {
-        if (window.location && window.location.search && window.location.search.indexOf('goto=attempts') !== -1) {
-          var target = document.getElementById('stats-dashboard');
-          if (target && target.scrollIntoView) {
-            target.scrollIntoView();
-            window.scrollBy(0, -70);
+    ensureQuestionBank(function () {
+      lastBankRegrade = regradeStoredAttempts(QUESTION_BANK_REVISION, {
+        Q1032: { C: 'A', D: 'B', B: 'C', A: 'D' },
+      });
+      var el = document.getElementById('stats-dashboard');
+      if (el) {
+        renderStatsDashboard();
+        try {
+          if (window.location && window.location.search && window.location.search.indexOf('goto=attempts') !== -1) {
+            var target = document.getElementById('stats-dashboard');
+            if (target && target.scrollIntoView) {
+              target.scrollIntoView();
+              window.scrollBy(0, -70);
+            }
           }
-        }
-      } catch (e) { /* ignore */ }
-    }
+        } catch (e) { /* ignore */ }
+      }
+    });
   }
 
   if (document.readyState === 'loading') {
@@ -1343,6 +1492,7 @@ const ExamStats = (function () {
     reviewAttempt: reviewAttempt,
     ensureQuestionBank: ensureQuestionBank,
     getFullResult: getFullResult,
+    regradeStoredAttempts: regradeStoredAttempts,
     exportAttempt: exportAttempt,
     exportAllAttempts: exportAllAttempts,
     buildExportPayload: buildExportPayload,

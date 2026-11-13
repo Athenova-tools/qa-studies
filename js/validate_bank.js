@@ -4,6 +4,7 @@
  */
 const fs = require('fs');
 const path = require('path');
+const OFFICIAL_LOS = require('./syllabus_los.json');
 
 const FILE = process.argv[2] || path.join(__dirname, 'questions.js');
 const src = fs.readFileSync(FILE, 'utf8');
@@ -60,12 +61,40 @@ const VALID_DIFF = ['Easy', 'Medium', 'Hard'];
 
 const ids = [];
 const idsSeen = new Set();
+const statementSeen = new Map();
 let total = 0;
 const keyDist = {};
 const loCount = {};
 
-const norm = s =>
-  String(s || '').replace(/^[^:]*:\s*/, '').replace(/[^a-z0-9]/gi, '').toLowerCase();
+function validateFeedbackReferences(where, q) {
+  ['incorrectFeedback', 'optionExplanations'].forEach(field => {
+    Object.entries(q[field] || {}).forEach(([key, text]) => {
+      const label = String(text || '').match(/^\s*(?:❌\s*Incorrect:\s*)?Option\s+([A-D])\b/i);
+      if (label && label[1] !== key) {
+        fail(`${where}: ${field}["${key}"] refers to option ${label[1]}`);
+      }
+      const quoted = String(text || '').match(/^\s*(?:❌\s*Incorrect:\s*)?Option\s+[A-D]\s*\(?\s*[“"]([^”"]+)/i);
+      if (quoted) {
+        const expected = String(q.options[key] || '').trim().replace(/\s+/g, ' ');
+        const actual = quoted[1].trim().replace(/\s+/g, ' ');
+        if (actual !== expected) fail(`${where}: ${field}["${key}"] quotes text from another option`);
+      }
+    });
+  });
+
+  ['explanation', 'correctFeedback', 'incorrectFeedback', 'optionExplanations'].forEach(field => {
+    const value = q[field];
+    const texts = typeof value === 'string' ? [value] : Object.values(value || {});
+    texts.forEach(text => {
+      const claims = String(text || '').matchAll(/\b([A-D])\s+is correct\b/gi);
+      for (const claim of claims) {
+        if (claim[1] !== q.correctAnswer) {
+          fail(`${where}: ${field} claims option ${claim[1]} is correct, but key is ${q.correctAnswer}`);
+        }
+      }
+    });
+  });
+}
 
 for (const setName of Object.keys(bank)) {
   const list = bank[setName];
@@ -73,9 +102,6 @@ for (const setName of Object.keys(bank)) {
     fail(`Set "${setName}" is not an array`);
     continue;
   }
-  /* Scoped to one exam: a session must not repeat a stem, but reusing a stem
-     across exams with different options is an accepted bank pattern. */
-  const stmtSeen = new Map();
   for (const q of list) {
     total++;
     const where = `${q.id || '<no id>'} (${setName})`;
@@ -97,6 +123,9 @@ for (const setName of Object.keys(bank)) {
     const keys = Object.keys(q.options || {});
     if (keys.length !== 4) {
       fail(`${where}: expected 4 options, found ${keys.length} (${keys.join(',')})`);
+    }
+    if (keys.join('') !== 'ABCD') {
+      fail(`${where}: options must be serialized in A, B, C, D order (found ${keys.join(',')})`);
     }
     for (const L of LETTERS) {
       if (!(L in (q.options || {}))) fail(`${where}: option "${L}" is missing`);
@@ -125,25 +154,22 @@ for (const setName of Object.keys(bank)) {
     if (needWrong !== gotWrong) {
       fail(`${where}: incorrectFeedback keys "${gotWrong}" but expected "${needWrong}"`);
     }
+    const expectedWrongOrder = LETTERS.filter(L => L !== ca).join('');
+    if (Object.keys(q.incorrectFeedback || {}).join('') !== expectedWrongOrder) {
+      fail(`${where}: incorrectFeedback must be serialized in option-letter order`);
+    }
 
     /* optionExplanations must cover all four options. */
     const gotOE = Object.keys(q.optionExplanations || {}).sort().join('');
     if (gotOE !== 'ABCD') {
       fail(`${where}: optionExplanations keys "${gotOE}" but expected "ABCD"`);
     }
-
-    /* Feedback must agree with the per-option explanations. */
-    if (typeof ca === 'string' && q.optionExplanations && q.correctFeedback) {
-      if (norm(q.optionExplanations[ca]) !== norm(q.correctFeedback)) {
-        warn(`${where}: correctFeedback differs from optionExplanations["${ca}"]`);
-      }
-      for (const L of LETTERS) {
-        if (L === ca) continue;
-        if (norm(q.optionExplanations[L]) !== norm((q.incorrectFeedback || {})[L])) {
-          warn(`${where}: incorrectFeedback["${L}"] differs from optionExplanations["${L}"]`);
-        }
-      }
+    if (Object.keys(q.optionExplanations || {}).join('') !== 'ABCD') {
+      fail(`${where}: optionExplanations must be serialized in A, B, C, D order`);
     }
+
+    /* The two feedback fields may differ in wording; their option labels and answer claims must not. */
+    validateFeedbackReferences(where, q);
 
     /* Enumerated metadata. */
     if (!VALID_K.includes(q.kLevel)) fail(`${where}: kLevel "${q.kLevel}" invalid`);
@@ -153,6 +179,11 @@ for (const setName of Object.keys(bank)) {
     }
     if (!/^FL-\d+\.\d+\.\d+$/.test(q.learningObjective || '')) {
       fail(`${where}: learningObjective "${q.learningObjective}" malformed`);
+    }
+    if (!Object.prototype.hasOwnProperty.call(OFFICIAL_LOS, q.learningObjective)) {
+      fail(`${where}: learningObjective "${q.learningObjective}" does not exist in CTFL v4.0.1`);
+    } else if (q.kLevel !== OFFICIAL_LOS[q.learningObjective]) {
+      fail(`${where}: kLevel "${q.kLevel}" does not match ${q.learningObjective} (${OFFICIAL_LOS[q.learningObjective]})`);
     }
     loCount[q.learningObjective] = (loCount[q.learningObjective] || 0) + 1;
 
@@ -164,18 +195,24 @@ for (const setName of Object.keys(bank)) {
         !q.learningObjective.startsWith('FL-' + q.subsection + '.')) {
       fail(`${where}: learningObjective "${q.learningObjective}" does not match subsection "${q.subsection}"`);
     }
+    if (String(q.chapter) !== String(q.subsection || '').split('.')[0]) {
+      fail(`${where}: chapter "${q.chapter}" does not match subsection "${q.subsection}"`);
+    }
+    if (String(q.section) !== String(q.subsection || '').split('.').slice(0, 2).join('.')) {
+      fail(`${where}: section "${q.section}" does not match subsection "${q.subsection}"`);
+    }
 
     /* No leftover placeholder text. */
     if (/\b(TODO|FIXME|TBD|XXX|Lorem ipsum)\b/i.test(JSON.stringify(q))) {
       fail(`${where}: placeholder text found`);
     }
 
-    /* Statements must be unique within the exam. */
+    /* Duplicate stems across practice sets can teach contradictory answer keys. */
     const normStmt = (q.statement || '').trim().toLowerCase().replace(/\s+/g, ' ');
-    if (normStmt.length > 12 && stmtSeen.has(normStmt)) {
-      fail(`${where}: duplicate statement text (also ${stmtSeen.get(normStmt)})`);
+    if (normStmt.length > 12 && statementSeen.has(normStmt)) {
+      fail(`${where}: duplicate statement text (also ${statementSeen.get(normStmt)})`);
     } else if (normStmt.length > 12) {
-      stmtSeen.set(normStmt, q.id);
+      statementSeen.set(normStmt, where);
     }
   }
 }

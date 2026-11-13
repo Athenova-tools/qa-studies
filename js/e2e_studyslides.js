@@ -101,8 +101,11 @@ const settledTop = async (page, id) => {
   let prev = null;
   let stable = 0;
   while (Date.now() - start < 6000) {
-    const t = await page.evaluate(
-      i => Math.round(document.getElementById(i).getBoundingClientRect().top), id);
+    const t = await page.evaluate(i => {
+      const target = document.getElementById(i);
+      const card = target.closest && target.closest('.flashcard');
+      return Math.round((card || target).getBoundingClientRect().top);
+    }, id);
     if (prev !== null && t === prev) stable++; else stable = 0;
     prev = t;
     if (stable >= 4) return t;
@@ -115,7 +118,8 @@ const settledTop = async (page, id) => {
 const landed = async (page, id) => {
   const top = await settledTop(page, id);
   const extra = await page.evaluate(i => {
-    const card = document.getElementById(i);
+    const target = document.getElementById(i);
+    const card = target && target.closest('.flashcard');
     const strip = card.querySelector('.flashcard__header');
     const fixed = document.querySelector('.header');
     return {
@@ -205,10 +209,10 @@ const landed = async (page, id) => {
   await page.waitForURL(/chapter4\.html/, { timeout: 10000 });
   const url = page.url();
   check(/slides\/chapter4\.html\?backTo=/.test(url), 'navega para slides/chapter4.html com backTo', url);
-  check(/#4\.5$/.test(decodeURIComponent(url)), 'fragmento #4.5 (3-part -> 2-part)', decodeURIComponent(url));
+   check(/#FL-4\.5\.1$/.test(decodeURIComponent(url)), 'fragmento apunta al learning objective 4.5.1', decodeURIComponent(url));
 
-  const l45 = await landed(page, '4.5');
-  check(l45.top >= 40 && l45.top <= 200, `#4.5 aterra fora do header fixo (top=${l45.top}, esperado ~80)`, `top=${l45.top}`);
+  const l45 = await landed(page, 'FL-4.5.1');
+  check(l45.top >= 40 && l45.top <= 200, `#FL-4.5.1 aterra fora do header fixo (top=${l45.top}, esperado ~80)`, `top=${l45.top}`);
   check(l45.stripTop !== null && l45.stripTop >= l45.fixedBottom,
     `tira "Section 4.5" visível (strip=${l45.stripTop} >= header=${l45.fixedBottom})`,
     `strip=${l45.stripTop} header=${l45.fixedBottom}`);
@@ -254,7 +258,7 @@ const landed = async (page, id) => {
   await page.focus('.study-plan__item:has(.study-plan__code:text-is("6.2"))');
   await page.keyboard.press('Enter');
   await page.waitForURL(/chapter6\.html/, { timeout: 10000 });
-  check(/#6\.2$/.test(decodeURIComponent(page.url())), 'Enter abre #6.2', decodeURIComponent(page.url()));
+  check(/#FL-6\.2\.1$/.test(decodeURIComponent(page.url())), 'Enter abre #FL-6.2.1', decodeURIComponent(page.url()));
 
   await browser.close();
   if (server) server.close();
