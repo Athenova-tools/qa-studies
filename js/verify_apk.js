@@ -28,9 +28,9 @@ const REPO = process.env.APK_REPO || 'Athenova-tools/qa-studies';
 const RELEASE_URL = process.env.APK_RELEASE_URL ||
   `https://github.com/${REPO}/releases/latest/download/istqb-ctfl.apk`;
 const SITE_URL = process.env.APK_SITE_URL ||
-  'https://athenova-tools.github.io/qa-studies/android/app/src/main/assets/www/APK/app-debug.apk';
+  'https://athenova-tools.github.io/qa-studies/android/app/src/main/assets/www/APK/istqb-ctfl.apk';
 const LOCAL_APK = path.join(__dirname, '..', 'android', 'app', 'build', 'outputs', 'apk', 'debug', 'app-debug.apk');
-const COMMITTED_APK = path.join(__dirname, '..', 'android', 'app', 'src', 'main', 'assets', 'www', 'APK', 'app-debug.apk');
+const COMMITTED_APK = path.join(__dirname, '..', 'android', 'app', 'src', 'main', 'assets', 'www', 'APK', 'istqb-ctfl.apk');
 
 const UA = 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36';
 const sha256 = buf => crypto.createHash('sha256').update(buf).digest('hex');

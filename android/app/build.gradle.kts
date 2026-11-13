@@ -15,7 +15,7 @@ android {
     }
 
     androidResources {
-        ignoreAssetsPattern = "!.svn:!.git:!.ds_store:!*.scc:.*:!CVS:!thumbs.db:!picasa.ini:!*.scc:*~:app-debug.apk"
+        ignoreAssetsPattern = "!.svn:!.git:!.ds_store:!*.scc:.*:!CVS:!thumbs.db:!picasa.ini:!*.scc:*~:istqb-ctfl.apk"
     }
 
     buildTypes {
