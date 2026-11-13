@@ -4,14 +4,18 @@ const fs = require('fs');
 const path = require('path');
 
 const ROOT = path.join(__dirname, '..');
-const loaders = '\n<script src="../js/slides.js"></script>\n<script src="../js/slides-page.js"></script>';
+const loaders = '\n<script src="../js/slides.js?v=2"></script>\n<script src="../js/slides-page.js"></script>';
 
 for (let chapter = 1; chapter <= 6; chapter++) {
   const file = path.join(ROOT, 'slides', 'chapter' + chapter + '.html');
   const html = fs.readFileSync(file, 'utf8');
   const start = html.indexOf('\n<script>\n(function() {\nvar slidesData = { chapter' + chapter + ': {');
   if (start < 0) {
-    if (html.includes('../js/slides-page.js')) continue;
+    if (html.includes('../js/slides-page.js')) {
+      const versioned = html.replace('src="../js/slides.js"', 'src="../js/slides.js?v=2"');
+      if (versioned !== html) fs.writeFileSync(file, versioned, 'utf8');
+      continue;
+    }
     throw new Error('Cannot find embedded slide data in ' + file);
   }
   const end = html.indexOf('\n</script>', start);

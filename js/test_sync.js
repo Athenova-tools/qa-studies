@@ -882,6 +882,7 @@ async function main() {
     for (let ch = 1; ch <= 6; ch++) {
       const src = fs.readFileSync(path.join(__dirname, '..', 'slides', 'chapter' + ch + '.html'), 'utf8');
       assert(src.includes('../js/slides.js'), 'chapter' + ch + ' does not load the canonical slide source');
+      assert(src.includes('../js/slides.js?v=2'), 'chapter' + ch + ' does not load the current slide source version');
       assert(src.includes('../js/slides-page.js'), 'chapter' + ch + ' does not load the shared renderer');
     }
 
@@ -933,12 +934,49 @@ async function main() {
       const mirrored = fs.readFileSync(path.join(androidRoot, f), 'utf8');
       assert.strictEqual(mirrored, web, f + ' difere no espelho android');
     });
+    const webEngine = fs.readFileSync(path.join(__dirname, 'engine.js'), 'utf8');
+    const androidEngine = fs.readFileSync(path.join(androidRoot, 'js/engine.js'), 'utf8');
+    ['FL-5.1.2', 'selectExamQuestions(window.questionSets[key], pinnedObjective)']
+      .forEach(marker => {
+        assert(webEngine.includes(marker), 'Web engine missing Chapter 5 random objective selection: ' + marker);
+        assert(androidEngine.includes(marker), 'Android engine missing Chapter 5 random objective selection: ' + marker);
+      });
+    for (let examId = 1; examId <= 13; examId++) {
+      ['exam' + examId + '.html', 'android/app/src/main/assets/www/exam' + examId + '.html'].forEach(file => {
+        const html = fs.readFileSync(path.join(__dirname, '..', file), 'utf8');
+        assert(html.includes('js/questions.js?v=3') && html.includes('js/engine.js?v=3') &&
+          html.includes('js/grading.js?v=4') &&
+          html.includes('js/statistics.js?v=4') && html.includes('js/slides.js?v=2'),
+          file + ' is missing the current cache versions for question, grading, statistics, or slides scripts');
+      });
+    }
+    ['review.html', 'android/app/src/main/assets/www/review.html'].forEach(file => {
+      const html = fs.readFileSync(path.join(__dirname, '..', file), 'utf8');
+      assert(html.includes('js/questions.js?v=3') && html.includes('js/engine.js?v=3') &&
+        html.includes('js/grading.js?v=4') &&
+        html.includes('js/statistics.js?v=4') && html.includes('js/slides.js?v=2'),
+        file + ' is missing the current cache versions for review scripts');
+    });
     const webStats = fs.readFileSync(path.join(__dirname, 'statistics.js'), 'utf8');
     const androidStats = fs.readFileSync(path.join(androidRoot, 'js/statistics.js'), 'utf8');
     const webCss = fs.readFileSync(path.join(__dirname, '..', 'css/style.css'), 'utf8');
     const androidCss = fs.readFileSync(path.join(__dirname, '..', 'android/app/src/main/assets/www/css/style.css'), 'utf8');
     const webIndex = fs.readFileSync(path.join(__dirname, '..', 'index.html'), 'utf8');
     const androidIndex = fs.readFileSync(path.join(__dirname, '..', 'android/app/src/main/assets/www/index.html'), 'utf8');
+    for (let examId = 1; examId <= 13; examId++) {
+      ['exam' + examId + '.html', 'android/app/src/main/assets/www/exam' + examId + '.html'].forEach(file => {
+        const html = fs.readFileSync(path.join(__dirname, '..', file), 'utf8');
+        assert(html.includes('js/questions.js?v=3') && html.includes('js/grading.js?v=4') &&
+          html.includes('js/statistics.js?v=4') && html.includes('js/slides.js?v=2'),
+          file + ' is missing the latest cached question and runtime versions');
+      });
+    }
+    ['review.html', 'android/app/src/main/assets/www/review.html'].forEach(file => {
+      const html = fs.readFileSync(path.join(__dirname, '..', file), 'utf8');
+      assert(html.includes('js/questions.js?v=3') && html.includes('js/grading.js?v=4') &&
+        html.includes('js/statistics.js?v=4') && html.includes('js/slides.js?v=2'),
+        file + ' is missing the latest cached review versions');
+    });
     const webUpdates = fs.readFileSync(path.join(__dirname, 'updates.js'), 'utf8');
     const androidUpdates = fs.readFileSync(path.join(androidRoot, 'js/updates.js'), 'utf8');
     assert.strictEqual(androidUpdates, webUpdates, 'updates.js must be mirrored into Android');
@@ -1038,6 +1076,13 @@ async function main() {
       'release summary topics should be numbered on web and Android');
     assert(webIndex.includes('id="updates-open"') && androidIndex.includes('id="updates-open"'),
       'both landing pages should expose the update badge trigger');
+    assert(webIndex.includes('js/grading.js?v=4') && webIndex.includes('js/statistics.js?v=4'),
+      'Web landing page must load the updated grading and history scripts');
+    assert(androidIndex.includes('js/grading.js?v=4') && androidIndex.includes('js/statistics.js?v=10'),
+      'Android landing page must load the updated grading and history scripts');
+    ['41-question pool', 'always includes FL-5.1.2', 'randomizes question order'].forEach(text => {
+      assert(webIndex.includes(text) && androidIndex.includes(text), 'Chapter 5 random-question disclosure missing: ' + text);
+    });
   });
 
   await ok('Release update notice reports unseen newer releases', () => {
@@ -1100,6 +1145,20 @@ async function main() {
     assert(/performance testing/i.test(question.incorrectFeedback.B) &&
       /static analysis|code review/i.test(question.incorrectFeedback.D),
       'incorrect feedback should explain the actual distractor');
+  });
+
+  await ok('Chapter 5 set includes a valid FL-5.1.2 question', () => {
+    const context = { window: {} };
+    vm.createContext(context);
+    vm.runInContext(fs.readFileSync(path.join(__dirname, 'questions.js'), 'utf8'), context);
+    const exam5 = context.window.questionSets.exam5;
+    const question = exam5.find(q => q.learningObjective === 'FL-5.1.2');
+    assert(question, 'Chapter 5 set must include FL-5.1.2');
+    assert.strictEqual(question.id, 'Q1170');
+    assert.strictEqual(question.kLevel, 'K1');
+    assert.strictEqual(question.correctAnswer, 'A');
+    assert(/testability|risk|effort/i.test(question.optionExplanations.A));
+    assert.strictEqual(exam5.length, 41, 'engine samples 40 questions from the 41-item chapter 5 pool');
   });
 
   await ok('Question bank: no truncated feedback or repeated per-option explanations', () => {

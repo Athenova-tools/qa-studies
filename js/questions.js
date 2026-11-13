@@ -7424,6 +7424,44 @@ window.questionSets = {
             ],
             "examTip": "For consensus techniques, identify the final agreed estimate after discussion, not the first-round range.",
             "memoryAid": "5/8/13 -> discussion -> 8/8/8 -> 8 points."
+        },
+        {
+            "id": "Q1170",
+            "statement": "How can a tester add value to release and iteration planning?",
+            "options": {
+                "A": "By identifying testability, quality risks, testing tasks and effort estimates so the team can plan feasible work",
+                "B": "By setting business priorities and ordering the product backlog without stakeholder input",
+                "C": "By authorizing the release and accepting residual product risks on behalf of stakeholders",
+                "D": "By guaranteeing that every planned user story will be defect-free after testing"
+            },
+            "correctAnswer": "A",
+            "explanation": "Testers add value to release and iteration planning by contributing testing expertise: they can identify testability concerns, risks, testing tasks and effort estimates. This information helps the team and stakeholders make informed scope and schedule decisions; it does not transfer business ownership or release acceptance to the tester.",
+            "correctFeedback": "✅ Correct: The tester contributes information about testability, risks, testing tasks and effort so the team can plan realistically.",
+            "incorrectFeedback": {
+                "B": "❌ Incorrect: Business priorities and product-backlog ordering belong to the product owner and stakeholders. The tester provides testing information to support those decisions.",
+                "C": "❌ Incorrect: The tester advises on quality risks but does not authorize releases or accept business risk on behalf of stakeholders.",
+                "D": "❌ Incorrect: Testing cannot guarantee defect-free software. The tester helps the team plan testing and understand residual risk."
+            },
+            "optionExplanations": {
+                "A": "Testers bring testability, risk, task and effort information into planning, helping the team create a feasible iteration or release plan.",
+                "B": "Backlog priorities are a business decision owned by the product owner and stakeholders; the tester contributes information rather than setting them unilaterally.",
+                "C": "Release authorization and acceptance of residual business risk remain with the authorized stakeholders, not the tester.",
+                "D": "Testing provides quality information and reduces risk, but cannot prove the absence of defects or guarantee a defect-free story."
+            },
+            "chapter": 5,
+            "section": "5.1",
+            "subsection": "5.1.2",
+            "learningObjective": "FL-5.1.2",
+            "kLevel": "K1",
+            "difficulty": "Easy",
+            "keywords": [
+                "release planning",
+                "iteration planning",
+                "tester contribution",
+                "testability"
+            ],
+            "examTip": "The tester contributes testability, risk, task and effort information; business stakeholders own priorities and release decisions.",
+            "memoryAid": "Tester informs planning; stakeholders decide scope and acceptance."
         }
     ],
     "exam6": [

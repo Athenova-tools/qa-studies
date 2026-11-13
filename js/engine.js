@@ -967,7 +967,14 @@ const ExamEngine = (function () {
         return;
       }
 
-      state.questions = selectExamQuestions(window.questionSets[key]);
+      var pinnedObjective = examId === 5 ? 'FL-5.1.2' : null;
+      if (pinnedObjective && !window.questionSets[key].some(function (question) {
+        return question.learningObjective === pinnedObjective;
+      })) {
+        console.error('Exam 5 is missing required learning objective ' + pinnedObjective + '.');
+        return;
+      }
+      state.questions = selectExamQuestions(window.questionSets[key], pinnedObjective);
       state.examId = examId;
 
       showExamConfig();
@@ -981,7 +988,30 @@ const ExamEngine = (function () {
     getState: function () { return state; },
   };
 
-  function selectExamQuestions(all) {
+  function selectExamQuestions(all, pinnedLearningObjective) {
+    if (pinnedLearningObjective) {
+      var pool = all.slice();
+      var pinnedIndex = pool.findIndex(function (question) {
+        return question.learningObjective === pinnedLearningObjective;
+      });
+      if (pinnedIndex < 0) return [];
+      var pinned = pool.splice(pinnedIndex, 1)[0];
+      for (var p = pool.length - 1; p > 0; p--) {
+        var pick = Math.floor(Math.random() * (p + 1));
+        var poolItem = pool[p];
+        pool[p] = pool[pick];
+        pool[pick] = poolItem;
+      }
+      var selected = [pinned].concat(pool.slice(0, TOTAL_Q - 1));
+      for (var s = selected.length - 1; s > 0; s--) {
+        var position = Math.floor(Math.random() * (s + 1));
+        var selectedItem = selected[s];
+        selected[s] = selected[position];
+        selected[position] = selectedItem;
+      }
+      return selected;
+    }
+
     if (all.length <= TOTAL_Q) return all.slice();
     var idx = [];
     for (var i = 0; i < all.length; i++) idx.push(i);

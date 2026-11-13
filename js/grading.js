@@ -8,7 +8,7 @@ const ExamGrading = (function () {
 
   var PASS_THRESHOLD = 65;
   var TOTAL_Q = 40;
-  var QUESTION_BANK_REVISION = 'ctfl-v401-audit-1';
+  var QUESTION_BANK_REVISION = 'ctfl-v401-audit-2';
 
   /* Presentation-only decoding for legacy/imported statement strings. */
   function formatStatement(text) {

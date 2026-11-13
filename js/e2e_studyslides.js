@@ -190,10 +190,10 @@ const landed = async (page, id) => {
   });
 
   check(rendered.htmlErr === null, 'generateResultsHTML não rebenta', rendered.htmlErr);
-  check(rendered.bankSize === 525, 'banco com 525 questões', rendered.bankSize);
-  check(rendered.planCount === 63, 'buildStudyPlan devolve 63 linhas', rendered.planCount);
-  check(rendered.rowCount === 63, '63 linhas .study-plan__item no DOM', rendered.rowCount);
-  check(rendered.go === 63, '63 setas "→" (affordance de navegação)', rendered.go);
+  check(rendered.bankSize === 526, 'banco com 526 questões', rendered.bankSize);
+  check(rendered.planCount === 64, 'buildStudyPlan devolve 64 linhas', rendered.planCount);
+  check(rendered.rowCount === 64, '64 linhas .study-plan__item no DOM', rendered.rowCount);
+  check(rendered.go === 64, '64 setas "→" (affordance de navegação)', rendered.go);
   check(rendered.codes.includes('4.5.1') && rendered.codes.includes('4.5.2') &&
         rendered.codes.includes('4.5.3'), 'códigos 4.5.1/4.5.2/4.5.3 presentes');
   check(rendered.codes.includes('1.3') && !rendered.codes.includes('1.3.1'),

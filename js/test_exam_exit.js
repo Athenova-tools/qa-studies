@@ -88,6 +88,9 @@ const questionSets = {
     };
   }),
 };
+const realBankContext = { window: {} };
+vm.runInNewContext(fs.readFileSync(path.join(__dirname, 'questions.js'), 'utf8'), realBankContext);
+questionSets.exam5 = realBankContext.window.questionSets.exam5;
 
 const context = {
   document: document,
@@ -102,6 +105,7 @@ const context = {
     saveAttempt: function () {},
   },
   ExamGrading: {
+    formatStatement: function (text) { return String(text); },
     calculateResults: function () { return { score: 0, total: 40, details: [] }; },
     generateResultsHTML: function () { return makeElement('div'); },
   },
@@ -131,8 +135,13 @@ vm.runInNewContext(engineSource + '\n;globalThis.ExamEngine = ExamEngine;', cont
 
 for (let examId = 1; examId <= 13; examId++) {
   const page = fs.readFileSync(path.join(__dirname, '..', 'exam' + examId + '.html'), 'utf8');
-  assert(page.includes('src="js/engine.js?v=2"'),
+  assert(page.includes('src="js/engine.js?v=3"'),
     'exam' + examId + '.html should load the updated exit guard instead of a cached engine');
+  assert(page.includes('src="js/questions.js?v=3"'),
+    'exam' + examId + '.html should load the new question-bank revision');
+  assert(page.includes('src="js/grading.js?v=4"') && page.includes('src="js/statistics.js?v=4"') &&
+    page.includes('src="js/slides.js?v=2"'),
+    'exam' + examId + '.html should invalidate cached grading, history, and slide code');
 }
 
 context.ExamEngine.initExam(1);
@@ -167,4 +176,17 @@ assert.strictEqual(state.submitted, true, 'timer completion should finish the ex
 assert.strictEqual((windowListeners.get('beforeunload') || []).length, 0,
   'completed exams should remove the exit guard');
 
-console.log('PASS  active exam asks before leaving; setup and completed exam do not block navigation');
+const pinnedPositions = new Set();
+const randomValues = [0, 0.1, 0.25, 0.5, 0.75, 0.9, 0.99, 0.33, 0.66, 0.2, 0.8, 0.45];
+for (const randomValue of randomValues) {
+  context.Math = { floor: Math.floor, random: function () { return randomValue; } };
+  context.ExamEngine.initExam(5);
+  const selected = context.ExamEngine.getState().questions;
+  assert.strictEqual(selected.length, 40, 'chapter 5 exam stays at 40 questions');
+  const position = selected.findIndex(question => question.id === 'Q1170');
+  assert.notStrictEqual(position, -1, 'Q1170 / FL-5.1.2 must appear in every chapter 5 test');
+  pinnedPositions.add(position);
+}
+assert(pinnedPositions.size > 1, 'FL-5.1.2 should move to a random position among the questions');
+
+console.log('PASS  exit guard and chapter-5 FL-5.1.2 randomized placement');

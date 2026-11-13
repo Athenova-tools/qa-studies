@@ -897,7 +897,7 @@ const ExamStats = (function () {
     try {
       if (typeof document === 'undefined' || !document.createElement) { cb(); return; }
       var s = document.createElement('script');
-      s.src = 'js/questions.js';
+      s.src = 'js/questions.js?v=3';
       var done = false;
       s.onload = s.onreadystatechange = function () {
         if (done) return;

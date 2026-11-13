@@ -2,7 +2,7 @@
 
 **Âmbito:** banco completo Web/Android, revisão dos resultados, histórico de exames e seis páginas Study Slides.
 
-**Banco verificado:** 525 perguntas em 13 conjuntos.
+**Banco verificado:** 526 perguntas em 13 conjuntos.
 
 **Referência oficial para Learning Objectives/K-level:** `Manual/ISTQB_CTFL_Syllabus_v4.0.1.pdf`.
 
@@ -10,12 +10,12 @@
 
 | Verificação | Resultado |
 |---|---|
-| Perguntas com exatamente as opções A, B, C e D, serializadas nessa ordem | 525/525 |
-| `correctAnswer` associado a uma opção existente | 525/525 |
-| Learning Objective oficial e K-level correspondente | 525/525 |
-| Learning Objectives oficiais com pelo menos uma pergunta no banco | 63/64; falta `FL-5.1.2` |
-| Chapter/Section/Subsection coerentes | 525/525 |
-| Learning Objectives das perguntas presentes na secção Study Slides correspondente | 525/525 |
+| Perguntas com exatamente as opções A, B, C e D, serializadas nessa ordem | 526/526 |
+| `correctAnswer` associado a uma opção existente | 526/526 |
+| Learning Objective oficial e K-level correspondente | 526/526 |
+| Learning Objectives oficiais com pelo menos uma pergunta no banco | 64/64 |
+| Chapter/Section/Subsection coerentes | 526/526 |
+| Learning Objectives das perguntas presentes na secção Study Slides correspondente | 526/526 |
 | Feedbacks e explicações associados às letras corretas | Sem divergências estruturais detectadas |
 | Enunciados repetidos entre conjuntos de exames | Nenhum |
 | Ficheiros partilhados de perguntas/slides iguais em Web e Android | Verificado por teste |
@@ -27,9 +27,10 @@
 - Foram corrigidas as afirmações de letras (“X is correct”) quando contradiziam a chave. `correctFeedback`, `incorrectFeedback` e `optionExplanations` continuam podendo ter redações diferentes; validação não exige texto repetido e verifica referências explícitas a letras.
 - Uma varredura posterior encontrou um `correctFeedback` truncado em Q1040 (terminava em “usually) so”) e **13 pares de explicações idênticas** em Q342, Q266, Q319, Q219 e Q1147. O feedback truncado foi completado e cada distrator passou a explicar o erro específico da opção.
 - Q361 foi reescrita com explicações diferentes para performance, utilização de CPU e revisão estática, removendo o texto repetido/corrompido.
+- Q1170 foi criada para `FL-5.1.2` e integrada no conjunto do capítulo 5. O conjunto tem 41 itens; cada tentativa seleciona 40, garante Q1170 e aleatoriza a sua posição e a amostra dos restantes itens.
+- Os números de versão das referências aos scripts foram atualizados nas páginas de exame e revisão para que clientes Web/Android não reutilizem o banco anterior em cache.
 - **Q1032** foi normalizada conforme solicitado: A=Q1, B=Q2, C=Q3, D=Q4; `correctAnswer: A`. Cada distrator explica o que o respetivo quadrante representa.
 - Q1121 foi referenciada a `FL-3.1.2`, no capítulo 3, em vez de `FL-1.1.1`.
-- O syllabus tem 64 Learning Objectives oficiais; o banco cobre 63. `FL-5.1.2` (valor do tester no planeamento de iteração/release) continua sem pergunta, embora os Study Slides o abordem.
 - Foram corrigidos enunciados duplicados entre os exames e palavras-chave evidentemente associadas ao tema errado.
 - A secção de configuração de gestão 5.4, os quadrantes em 5.1 e os restantes conteúdos dos Study Slides passam a vir de `js/slides.js`. As páginas de capítulo deixam de manter uma cópia antiga independente.
 - As Learning Objectives aparecem como âncoras nos slides. Na revisão, as referências a Subsection e Learning Objective abrem diretamente a âncora correspondente e permitem regressar à revisão.
@@ -52,9 +53,11 @@ A revisão histórica assinala que o resultado foi reavaliado. Registos sem vers
 
 ## Testes executados
 
-- `node js/test_sync.js` — 34 testes aprovados.
-- `node js/test_sync.js android/app/src/main/assets/www/js/statistics.js android/app/src/main/assets/www/js/grading.js` — 34 testes aprovados.
-- `node js/validate_bank.js` — PASS, 525 perguntas, sem avisos nem erros estruturais.
+- `node js/test_sync.js` — 35 testes aprovados.
+- `node js/test_sync.js android/app/src/main/assets/www/js/statistics.js android/app/src/main/assets/www/js/grading.js` — 35 testes aprovados.
+- `node js/test_exam_exit.js` — PASS, Q1170 aparece em todas as tentativas do exame 5 e muda de posição.
+- `node js/test_exam_exit.js` — PASS, Q1170 aparece em todas as tentativas do exame 5 e muda de posição.
+- `node js/validate_bank.js` — PASS, 526 perguntas, sem avisos nem erros estruturais.
 - `node js/test_question_statement.js` — PASS.
 - `node js/e2e_studyslides.js` — E2E ALL PASS; navegação para objetivos, âncoras, retorno e teclado.
 - `./gradlew assembleDebug assembleRelease` — BUILD SUCCESSFUL.
